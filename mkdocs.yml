@@ -1,0 +1,19 @@
+site_name: CodeScoring Docs
+site_url: https://docs.codescoring.com/
+theme:
+  name: material
+  logo: assets/codescoring_logo.png
+  favicon: assets/favicon/favicon-32x32.png
+  features:
+    - navigation.sections
+    - navigation.expand
+
+plugins:
+  - search
+
+nav:
+  - Начало: index.md
+  - On-premise версия:
+    - Установка системы: on-premise/installation.md
+    - Настройки от вендора: on-premise/settings.md
+    - Начало использования: on-premise/getting-started.md
