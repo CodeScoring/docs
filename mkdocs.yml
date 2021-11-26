@@ -13,6 +13,8 @@ plugins:
 
 nav:
   - Начало: index.md
+  - Общая информация:
+    - Поддержка пакетных менеджеров: supported-package-managers.md
   - On-premise версия:
     - Установка системы: on-premise/installation.md
     - Настройки от вендора: on-premise/settings.md
