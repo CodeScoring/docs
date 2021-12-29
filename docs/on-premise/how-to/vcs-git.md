@@ -37,4 +37,4 @@
 8. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 9. Нажать **Setup new** в правом верхнем углу.
 10. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form](/assets/img/gitlab/vcs-form.png)
+    ![VCS form](/assets/img/gitlab/cs-vcs-form.png)
