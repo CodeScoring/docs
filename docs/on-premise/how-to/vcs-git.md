@@ -26,11 +26,15 @@
 
 1. Войти в свой аккаунт в gitlab, логин доступен по ссылке <https://gitlab.com/users/sign_in>.
 2. Через меню пользователя в правом верхнем углу перейти в раздел **Edit profile**.
+    ![Edit profile](/assets/img/gitlab/edit-profile-link.png)
 3. Далее в левом меню выбрать раздел **Access Tokens**.
+    ![Access tokens](/assets/img/gitlab/access-tokens-link.png)
 4. Задать название токену, например, "codescoring-demo", дату можно оставить пустой
 5. В секции _scopes_ выбрать **read_api** и **read_repository**.
+    ![Token scopes](/assets/img/gitlab/scopes.png)
 6. Нажать кнопку **Create personal access token**.
 7. Скопировать сгенерированный токен.
 8. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 9. Нажать **Setup new** в правом верхнем углу.
 10. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
+    ![VCS form](/assets/img/gitlab/vcs-form.png)
