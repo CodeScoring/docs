@@ -11,11 +11,22 @@ theme:
 plugins:
   - search
 
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
 nav:
   - Начало: index.md
   - Общая информация:
     - Поддержка пакетных менеджеров: supported-package-managers.md
+    - Пути анализа и исключения: analysis-ignore-paths.md
   - On-premise версия:
+    - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
-    - Настройки от вендора: on-premise/settings.md
-    - Начало использования: on-premise/getting-started.md
+    - Обновление системы: on-premise/update.md
+    - Работа с логами: on-premise/logs.md
+    - В случае проблем: on-premise/troubleshooting.md
+    # - Начало использования: on-premise/getting-started.md
