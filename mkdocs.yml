@@ -21,6 +21,7 @@ markdown_extensions:
 nav:
   - Начало: index.md
   - Общая информация:
+    - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
     - Пути анализа и исключения: analysis-ignore-paths.md
   - Установка on-premise:
