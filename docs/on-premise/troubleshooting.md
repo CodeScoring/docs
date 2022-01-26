@@ -14,7 +14,7 @@ docker system prune --all --volumes
 2. выполнить команду:
 
     ```bash linenums="1"
-    docker ••••••volume rm PROJECT_NAME__db-data
+    docker volume rm PROJECT_NAME__db-data
     ```
 
 3. Если возникнет ошибка, что данный том используется контейнером, следует выполнить команду и повторить предыдущие шаги (`CT_HASH` будет в сообщении об ошибке).:
