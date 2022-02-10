@@ -3,7 +3,7 @@
 ## Общие функциональные характеристики
 
 - поддержка анализа 18 языков программирования: Python, Java, Scala, Kotlin, Swift, Go, JavaScript, TypeScript, Ruby, PHP, C, C++, C#, Objective-C, Bash, Perl, PLSQL и PGSQL; 
-- поддержка анализа манифестов пакетных менеджеров: Maven, Gradle, NPM, NuGet, Conda, PyPi, Ruby Gems, Cocoapods, Packagist и CONAN;
+- поддержка анализа манифестов пакетных менеджеров: Maven, Gradle, NPM, NuGet, PyPi, Ruby Gems, Cocoapods, Packagist и CONAN;
 - интеграция с системами хостинга кода: Gitlab, Github, Bitbucket и Azure DevOps;
 - ведение перечня используемых программных компонент (в том числе, с открытым исходным кодом) с учетом версии в SBoM-формате (Software Bill of Materials);
 - построение отчетности;
