@@ -24,16 +24,17 @@ Exit codes:
 - 2: run failure
 
 Application Options:
-      --api_token= API token for integration with CodeScoring server
-      --api_url=   CodeScoring server url (e.g. https://codescoring.mycompany.com)
-      --ignore=    Ignore paths (--ignore ./first --ignore ./onemore)
-      --debug      Output detailed log
+      --api_token=  API token for integration with CodeScoring server
+      --api_url=    CodeScoring server url (e.g. https://codescoring.mycompany.com)
+      --ignore=     Ignore paths (--ignore first --ignore "/**/onem?re")
+      --debug       Output detailed log
+      --no-summary  Do not print summary
 
 Help Options:
-  -h, --help       Show this help message
+  -h, --help        Show this help message
 
 Arguments:
-  path:            Scan path
+  path:             Scan path
 ```
 
 В параметре `--api_url` должен быть указан полный адрес on-premise инсталляции. Значение для `--api_token` можно взять в профиле пользователя инсталляции.
@@ -51,12 +52,6 @@ Arguments:
 
 
 Пример запуска на директорию:
-
-```
-./johnny --api_token <api_token> --api_url <api_url> . --ignore .tmp --ignore fixtures --ignore .git
-```
-
-Пример запуска на конкретный манифест:
 
 ```
 ./johnny --api_token <api_token> --api_url <api_url> . --ignore .tmp --ignore fixtures --ignore .git
@@ -95,7 +90,7 @@ sca:
   stage: test
 
   script:
-    - docker pull <registry-address>johnny-depp:latest
+    - docker pull <registry-address>/johnny-depp:latest
     - >
       docker run -v $(pwd):/code 
       <registry-address>/johnny-depp 
@@ -106,13 +101,9 @@ sca:
       --ignore parsers
       .
 
-  rules:
-    - allow_failure: true
-
   artifacts:
     paths:
       - bom.json
     when: always
     expire_in: 1 week
-
 ```
