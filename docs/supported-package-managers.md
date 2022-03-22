@@ -10,6 +10,7 @@
     + `ivy.xml`
     + `*.gradle`
     + `*.gradle.kts`
+    + `gradle.lockfile`
     + `maven-dependency-tree.txt`
 - npm (JavaScript)
     + `package.json`
@@ -58,7 +59,7 @@
 При отсутствии lock-файла для некоторых пакетных индексов система будет пытаться выполнить резолв транзитивных OSS зависимостей сама следующим образом:
 
 - Maven
-    + для формата pom.xml генерация maven-dependency-tree через соответствующий плагин maven
+    + для формата pom.xml и build.gradle генерация maven-dependency-tree через соответствующий плагин maven
     + используются Maven версии 3.8.3 и OpenJDK версии 11 такой-то
 - PyPi
     + генерация poetry.lock с помощью пакетного менеджера Poetry
