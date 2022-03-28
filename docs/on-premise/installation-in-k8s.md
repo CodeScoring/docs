@@ -64,7 +64,7 @@ kubectl apply -f ./ipcs/ipcs-env.yaml -n codescoring
 ```
 
 
-Выполнить миграции.
+Убедиться, что PostgreSQL запущен и выполнить миграции.
 
 ```
 kubectl apply -f ./ipcs/ipcs-migration.yaml -n codescoring
