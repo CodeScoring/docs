@@ -53,6 +53,9 @@ kubectl apply -f ./ipcs/ipcs-volume.yaml -n codescoring
 **Важно**: все секреты необходимо предварительно закодировать в base64.
 
 
+Задать в `ipcs-env.yaml` значения `SITE_HOST` и `NGINX_HOST` в соответствие с планируемым именем хоста.
+
+
 Применить секреты и переменные окружения.
 
 ```
@@ -89,7 +92,7 @@ kubectl apply -f ./ipcs/ipcs-frontend.yaml -n codescoring
 ```
 
 
-Запустить NGINX Ingress.
+Задать в `ingress/nginx-ingress.yaml` используемое значение хоста (должно совпадать с `SITE_HOST` и `NGINX_HOST` из `ipcs-env.yaml`) и запустить NGINX Ingress.
 
 ```
 kubectl apply -f ./ingress/nginx-ingress.yaml -n codescoring
