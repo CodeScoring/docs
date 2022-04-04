@@ -14,9 +14,9 @@
 
 ## Добавление токена для GitHub
 
-Оригинальная инструкция на английском: <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>
+Оригинальная инструкция для генерации токена на английском: <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>
 
-1. Войти в свой аккаунт в github, логин доступен по ссылке <https://github.com/login>.
+1. Войти в свой аккаунт в GitHub, для облачной версии логин доступен по ссылке <https://github.com/login>.
 2. Если у аккаунта не верифицирован email, обязательно это сделать по [инструкции](https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address).
 3. Через меню пользователя в правом верхнем углу перейти в раздел **Settings**.
 4. Далее в левом меню выбрать раздел **Developer settings**.
@@ -28,14 +28,14 @@
 10. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 11. Нажать **Setup new** в правом верхнем углу.
 12. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form](/assets/img/github/cs-vcs-form.png)
+    ![VCS form for GitHub](/assets/img/github/cs-vcs-form.png)
 
 
 ## Добавление токена для GitLab
 
-Оригинальная инструкция на английском: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token>
+Оригинальная инструкция для генерации токена на английском: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token>
 
-1. Войти в свой аккаунт в gitlab, логин доступен по ссылке <https://gitlab.com/users/sign_in>.
+1. Войти в свой аккаунт в GitLab, для облачной версии логин доступен по ссылке <https://gitlab.com/users/sign_in>.
 2. Через меню пользователя в правом верхнем углу перейти в раздел **Edit profile**.
     ![Edit profile](/assets/img/gitlab/edit-profile-link.png)
 3. Далее в левом меню выбрать раздел **Access Tokens**.
@@ -48,4 +48,23 @@
 8. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 9. Нажать **Setup new** в правом верхнем углу.
 10. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form](/assets/img/gitlab/cs-vcs-form.png)
+    ![VCS form for GitLab](/assets/img/gitlab/cs-vcs-form.png)
+
+
+## Добавление токена для BitBucket Data Center и Server
+
+Оригинальная инструкция для генерации токена на английском: <https://confluence.atlassian.com/bitbucketserver072/personal-access-tokens-1005335924.html>
+
+1. Войти в свой аккаунт в BitBucket.
+2. Через меню пользователя в правом верхнем углу перейти в раздел **Manage account**.
+3. Далее в левом меню выбрать раздел **Personal access tokens**.
+4. Нажать на **Create token**.
+5. Задать название токену, например, "codescoring-demo".
+6. В секции **Permissions** дать права на чтение для проектов и репозиториев.
+7. В секции **Expiry** при желании задать срок жизни токена.
+8. Нажать кнопку **Create**.
+9. Скопировать сгенерированный токен.
+10. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
+11. Нажать **Setup new** в правом верхнем углу.
+12. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
+    ![VCS form for BitBucket Server](/assets/img/bitbucket/cs-vcs-form.png)
