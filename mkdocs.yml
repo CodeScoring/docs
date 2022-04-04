@@ -29,6 +29,7 @@ nav:
     - Установка системы: on-premise/installation.md
     - Обновление системы: on-premise/update.md
     - Работа с логами: on-premise/logs.md
+    - Работа через прокси: on-premise/proxy.md
     - Самоподписные SSL сертификаты: on-premise/self-signed-ssl.md
     - В случае проблем: on-premise/troubleshooting.md
   - Начало работы с on-premise:
