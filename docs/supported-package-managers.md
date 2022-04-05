@@ -60,7 +60,7 @@
 
 - Maven
     + для формата pom.xml и build.gradle генерация maven-dependency-tree через соответствующий плагин maven
-    + используются Maven версии 3.8.3 и OpenJDK версии 11 такой-то
+    + используются Maven версии 3.8.3 и OpenJDK версии 11
 - PyPi
     + генерация poetry.lock с помощью пакетного менеджера Poetry
     + используется Python версии 3.8
