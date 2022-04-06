@@ -20,6 +20,6 @@
 - GitHub
     + `https://github.com/<ursername/organisation>/<project>`
 - BitBucket
-    + `<http/https>://<Bitbucket Server URL>/scm/<group>/<project>.git`
+    + `<http/https>://<Bitbucket Server URL>/scm/<group>/<project>`
 - Azure DevOps Git (только облачная версия) 
     + `<http/https>://<organisation subdomain>.visualstudio.com/<group>/_git/<project>`
