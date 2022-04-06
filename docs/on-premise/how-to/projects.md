@@ -12,3 +12,14 @@
 4. Первый SCA анализ запустится автоматически сразу после клонирования проекта.
 
 **Внимание!** Если анализируемый проект коммерческий, то рекомендуется указать для него лицензию Commercial License. 
+
+Система принимает ссылки на репозитории в следующих форматах:
+
+- GitLab
+    + `<http/https>://<GitLab Server URL>/<group>/<project`
+- GitHub
+    + `https://github.com/<ursername/organisation>/<project>`
+- BitBucket
+    + `<http/https>://<Bitbucket Server URL>/scm/<group>/<project>.git`
+- Azure DevOps Git (только облачная версия) 
+    + `<http/https>://<organisation subdomain>.visualstudio.com/<group>/_git/<project>`

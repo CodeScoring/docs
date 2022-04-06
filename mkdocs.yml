@@ -32,6 +32,7 @@ nav:
     - Работа через прокси: on-premise/proxy.md
     - Самоподписные SSL сертификаты: on-premise/self-signed-ssl.md
     - В случае проблем: on-premise/troubleshooting.md
+    - Установка системы в Kubernetes: on-premise/installation-in-k8s.md
   - Начало работы с on-premise:
     - Ввод ключа активации: on-premise/how-to/activation.md
     - Создание собственников (proprietors): on-premise/how-to/proprietors.md
@@ -40,4 +41,5 @@ nav:
     - Создание проектов: on-premise/how-to/projects.md
     - Настройка политик: on-premise/how-to/policies.md
     - Запуск анализа: on-premise/how-to/launch-analysis.md
+    - Настройка Email: on-premise/how-to/email-settings.md
     - Работа с консольным агентом: on-premise/how-to/cli-agent.md
