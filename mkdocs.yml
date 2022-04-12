@@ -5,7 +5,7 @@ theme:
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
   features:
-    - navigation.sections
+    - navigation.tracking
     - navigation.expand
 
 plugins:
@@ -19,8 +19,8 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - Начало: index.md
   - Общая информация:
+    - Начало: index.md
     - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
     - Пути анализа и исключения: analysis-ignore-paths.md
