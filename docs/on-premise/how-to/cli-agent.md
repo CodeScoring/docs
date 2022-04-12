@@ -19,37 +19,41 @@ CodeScoring website: https://codescoring.ru
 Documentation: https://docs.codescoring.ru
 
 Exit codes:
-- 0: successful run, no vulnerabilities found
-- 1: vulnerabilities found, action required
+- 0: successful run, no issues
+- 1: some issues found, action required
 - 2: run failure
 
 Application Options:
-      --api_token=  API token for integration with CodeScoring server
-      --api_url=    CodeScoring server url (e.g. https://codescoring.mycompany.com)
-      --ignore=     Ignore paths (--ignore first --ignore "/**/onem?re")
-      --debug       Output detailed log
-      --no-summary  Do not print summary
+      --api_token=   API token for integration with CodeScoring server
+      --api_url=     CodeScoring server url (e.g. https://codescoring.mycompany.com)
+      --project=     Project name in CodeScoring
+      --ignore=      Ignore paths (--ignore first --ignore "/**/onem?re")
+      --debug        Output detailed log
+      --with-hashes  Search for direct inclusion of dependencies using file hashes
+      --no-summary   Do not print summary
 
 Help Options:
-  -h, --help        Show this help message
+  -h, --help         Show this help message
 
 Arguments:
-  path:             Scan path
+  path:              Scan path
 ```
 
 В параметре `--api_url` должен быть указан полный адрес on-premise инсталляции. Значение для `--api_token` можно взять в профиле пользователя инсталляции.
 
+Для включения проверки политик необходимо указать `--project`.
+
 
 При запуске агент:
 
-1. рекурсивно проходит по всему содержимому указанной директории (если указан конкретный манифест, обрабатывает только его)
-	1. идентифицирует файлы манифестов и разбирает их
-	2. хеширует каждый файл
-2. формирует запрос к инсталляции
-3. после получения результата показывает суммарную информацию по найденным манифестам, зависимостям и уязвимостям, а также более подробную информацию по каждой уязвимости
-4. дополнительно в текущей директории формируется файл `bom.json`, содержащий полный Software Bill of Materials в формате CycloneDX Json.
+1. Рекурсивно проходит по всему содержимому указанной директории (если указан конкретный манифест, обрабатывает только его)
+	1. Идентифицирует файлы манифестов и разбирает их
+	2. Хеширует каждый файл (при запуске с `--with-hashes`)
+2. Формирует запрос к инсталляции
+3. После получения результата показывает суммарную информацию по найденным манифестам, зависимостям, уязвимостям, сработавшим политикам и более подробную информацию по каждой уязвимости и сработавшей политике
+4. Дополнительно в текущей директории формируется файл `bom.json`, содержащий полный Software Bill of Materials в формате CycloneDX Json.
 
-В зависимости от результата работы агент возвращает соответствующий exit code.
+В зависимости от результата работы и параметров запуска агент возвращает соответствующий exit code.
 
 
 Пример запуска на директорию:
