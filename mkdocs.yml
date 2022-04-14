@@ -32,7 +32,7 @@ nav:
     - Работа через прокси: on-premise/proxy.md
     - Самоподписные SSL сертификаты: on-premise/self-signed-ssl.md
     - В случае проблем: on-premise/troubleshooting.md
-    - Установка системы в Kubernetes: on-premise/installation-in-k8s.md
+    - Работа системы в Kubernetes: on-premise/installation-in-k8s.md
   - Начало работы с on-premise:
     - Ввод ключа активации: on-premise/how-to/activation.md
     - Создание собственников (proprietors): on-premise/how-to/proprietors.md

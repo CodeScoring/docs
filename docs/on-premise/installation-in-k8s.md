@@ -1,5 +1,8 @@
-# Установка системы в Kubernetes
+# Работа системы в Kubernetes
 
+## Установка в Kubernetes
+
+Для работы необходимо скачать и распаковать архив с установочными файлами от вендора.
 
 Создать namespace.
 
@@ -98,7 +101,7 @@ kubectl apply -f ./ipcs/ipcs-frontend.yaml -n codescoring
 kubectl apply -f ./ingress/nginx-ingress.yaml -n codescoring
 ```
 
-# Обновление системы в Kubernetes
+## Обновление в Kubernetes
 
 Выполнить миграции.
 
