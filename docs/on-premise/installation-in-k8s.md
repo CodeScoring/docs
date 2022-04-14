@@ -97,3 +97,24 @@ kubectl apply -f ./ipcs/ipcs-frontend.yaml -n codescoring
 ```
 kubectl apply -f ./ingress/nginx-ingress.yaml -n codescoring
 ```
+
+# Обновление системы в Kubernetes
+
+Выполнить миграции.
+
+```
+kubectl apply -f ./ipcs/ipcs-migration.yaml -n codescoring
+```
+
+Обновить бэкенд приложения.
+
+```
+kubectl apply -f ./ipcs/ipcs-backend.yaml -n codescoring
+```
+
+
+Обновить фронтенд приложения.
+
+```
+kubectl apply -f ./ipcs/ipcs-frontend.yaml -n codescoring
+```
