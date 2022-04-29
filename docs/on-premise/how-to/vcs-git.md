@@ -5,7 +5,7 @@
 - GitLab
 - GitHub
 - BitBucket (только Data Center и Server)
-- Azure DevOps Git (только облачная версия)
+- Azure DevOps Git
 
 
 Для интеграции со всеми системами CodeScoring использует механизм Personal Access Token.
