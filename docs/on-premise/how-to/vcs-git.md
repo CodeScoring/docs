@@ -68,3 +68,20 @@
 11. Нажать **Setup new** в правом верхнем углу.
 12. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
     ![VCS form for BitBucket Server](/assets/img/bitbucket/cs-vcs-form.png)
+
+## Добавление токена для Azure DevOps Git
+
+Оригинальная инструкция для генерации токена на английском: <https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops>
+
+1. Войти в свой аккаунт в Azure DevOps.
+2. Через меню пользователя в правом верхнем углу перейти в раздел **Personal access tokens**.
+    ![PAT menu item](/assets/img/azure/pat-menu-item.png)
+3. Далее нажать кнопку **New token**.
+4. Задать название токену, например, "codescoring-demo", и срок действия токена.
+5. В секции _Scopes_ обязательно отметить доступ на **Read** для сущностей **Code** и **Identity**.
+6. Нажать кнопку **Create**.
+7. Скопировать сгенерированный токен.
+8. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
+9. Нажать **Setup new** в правом верхнем углу.
+10. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
+    ![VCS form for Azure](/assets/img/azure/cs-vcs-form.png)
