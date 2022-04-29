@@ -22,4 +22,5 @@
 - BitBucket
     + `<http/https>://<Bitbucket Server URL>/scm/<group>/<project>`
 - Azure DevOps Git (только облачная версия) 
-    + `<http/https>://<organisation subdomain>.visualstudio.com/<group>/_git/<project>`
+    + `https://<organisation>.visualstudio.com/<group>/_git/<project>`
+    + `https://dev.azure.com/<organisation>/<group>/_git/<project>`
