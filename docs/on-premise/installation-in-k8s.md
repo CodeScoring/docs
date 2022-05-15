@@ -121,3 +121,16 @@ kubectl apply -f ./ipcs/ipcs-backend.yaml -n codescoring
 ```
 kubectl apply -f ./ipcs/ipcs-frontend.yaml -n codescoring
 ```
+
+## Резервное копирование
+
+Задать `nodeSelector` в `ipcs/ipcs-createbackup.yml`, если необходимо задать узел кластера, на котором будет выполняться задание.
+
+
+Выполнить задачу по резервному копированию.
+
+```
+kubectl apply -f ./ipcs/ipcs-createbackup.yml -n codescoring
+```
+
+Резервная копия будет сохранена на узле кластера в каталог `/cs-storage/ipcs-backup`
