@@ -23,11 +23,10 @@ nav:
     - Начало: index.md
     - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
-    - Пути анализа и исключения: analysis-ignore-paths.md
   - Установка on-premise:
     - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
-    - Добавление путей исключения: on-premise/adding_ignoring_paths.md
+    - Пути анализа и исключения: on-premise/analysis-ignore-paths.md
     - Обновление системы: on-premise/update.md
     - Резервное копирование: on-premise/backup.md
     - Работа с логами: on-premise/logs.md
