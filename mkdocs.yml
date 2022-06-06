@@ -26,12 +26,12 @@ nav:
   - Установка on-premise:
     - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
-    - Пути анализа и исключения: on-premise/analysis-ignore-paths.md
     - Обновление системы: on-premise/update.md
     - Резервное копирование: on-premise/backup.md
     - Работа с логами: on-premise/logs.md
     - Работа через прокси: on-premise/proxy.md
     - Самоподписные SSL сертификаты: on-premise/self-signed-ssl.md
+    - Пути анализа и исключения: on-premise/analysis-ignore-paths.md
     - В случае проблем: on-premise/troubleshooting.md
     - Работа системы в Kubernetes: on-premise/installation-in-k8s.md
   - Начало работы с on-premise:
