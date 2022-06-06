@@ -27,6 +27,7 @@ nav:
   - Установка on-premise:
     - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
+    - Добавление путей исключения: on-premise/adding_ignoring_paths.md
     - Обновление системы: on-premise/update.md
     - Резервное копирование: on-premise/backup.md
     - Работа с логами: on-premise/logs.md
