@@ -43,4 +43,5 @@ nav:
     - Настройка политик: on-premise/how-to/policies.md
     - Запуск анализа: on-premise/how-to/launch-analysis.md
     - Настройка Email: on-premise/how-to/email-settings.md
+    - Настройка LDAP: on-premise/how-to/ldap-settings.md
     - Работа с консольным агентом: on-premise/how-to/cli-agent.md
