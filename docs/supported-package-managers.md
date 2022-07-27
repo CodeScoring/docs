@@ -8,10 +8,11 @@
 - Maven
     + `pom.xml`
     + `ivy.xml`
+    + `maven-dependency-tree.txt`
+- Gradle  
     + `*.gradle`
     + `*.gradle.kts`
     + `gradle.lockfile`
-    + `maven-dependency-tree.txt`
 - NPM
     + `package.json`
     + `package-lock.json`
