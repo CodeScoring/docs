@@ -1,0 +1,797 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.codescoring.ru/on-premise/installation/">
+      
+      <link rel="icon" href="../../assets/favicon/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Установка системы - CodeScoring Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CodeScoring Docs" class="md-header__button md-logo" aria-label="CodeScoring Docs" data-md-component="logo">
+      
+  <img src="../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeScoring Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Установка системы
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeScoring Docs" class="md-nav__button md-logo" aria-label="CodeScoring Docs" data-md-component="logo">
+      
+  <img src="../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    CodeScoring Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Общая информация
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Общая информация" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Общая информация
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Начало
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functionality/" class="md-nav__link">
+        Функциональные характеристики
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-package-managers/" class="md-nav__link">
+        Поддержка пакетных менеджеров
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Установка on-premise
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Установка on-premise" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Установка on-premise
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server-requirements/" class="md-nav__link">
+        Требования к серверу
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Установка системы
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update/" class="md-nav__link">
+        Обновление системы
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup/" class="md-nav__link">
+        Резервное копирование
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/" class="md-nav__link">
+        Работа с логами
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proxy/" class="md-nav__link">
+        Работа через прокси
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-signed-ssl/" class="md-nav__link">
+        Самоподписные SSL сертификаты
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analysis-ignore-paths/" class="md-nav__link">
+        Пути анализа и исключения
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        В случае проблем
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-in-k8s/" class="md-nav__link">
+        Работа системы в Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Начало работы с on-premise
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Начало работы с on-premise" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Начало работы с on-premise
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/activation/" class="md-nav__link">
+        Ввод ключа активации
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/proprietors/" class="md-nav__link">
+        Создание собственников (proprietors)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/vcs-git/" class="md-nav__link">
+        Подключение системы контроля версий
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/categories/" class="md-nav__link">
+        Создание категорий проектов
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/projects/" class="md-nav__link">
+        Создание проектов
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/policies/" class="md-nav__link">
+        Настройка политик
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/launch-analysis/" class="md-nav__link">
+        Запуск анализа
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/email-settings/" class="md-nav__link">
+        Настройка Email
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/ldap-settings/" class="md-nav__link">
+        Настройка LDAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/cli-agent/" class="md-nav__link">
+        Работа с консольным агентом
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="_1">Установка системы</h1>
+<ol>
+<li>Установить Docker Engine под нужную операционную систему в соответствии с документацией: <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</li>
+<li>
+<p>Установить Docker Compose в соответствии с документацией: <a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a>.</p>
+<p><strong>Примечание</strong>: для Mac и Windows шаг можно пропустить, т.к. утилита включена в установщик Docker Engine.</p>
+<p><strong>Примечание</strong>: версия Docker Compose должна быть не ниже 1.29, но ниже версии 2.0. Установщик не будет работать корректно с Docker Compose версии 2.0 и выше.</p>
+</li>
+<li>
+<p>Авторизоваться в приватном реестре Docker-образов системы «CodeScoring» при помощи команды <code>docker login</code>, используя адрес, логин и пароль, полученные от вендора.</p>
+</li>
+<li>Скачать архив с установочными файлами, распаковать.</li>
+<li>Перейти в консоли в созданную директорию.</li>
+<li>
+<p>Скопировать шаблонный файл с настройками <code>app.env.template</code> в файл <code>app.env</code>. Как правило, для корректной работы никаких изменений в файле не требуется. При необходимости работы проекта через прокси, необходимо раскоментировать и задать значения для двух переменных: <code>HTTP_PROXY</code> и <code>HTTPS_PROXY</code>.</p>
+<p><strong>Важно</strong>: при необходимости, ознакомьтесь с <a href="/on-premise/proxy">настройками проекта для работы через прокси</a>.</p>
+</li>
+<li>
+<p>Скопировать шаблонный файл с секретами <code>.env.template</code> в <code>.env</code> и при необходимости изменить параметры конфигурации в новом файле.
+Если не менять параметры в файле, то по умолчанию система будет запущена на адресе <code>http://localhost:8081</code>.</p>
+<p><strong>Примечание</strong>: не используйте в параметрах символ <code>#</code>, он может некорректно восприниматься системой при установке.</p>
+<ul>
+<li>список доменов для правильной работы CSRF защиты, рекомендуется перечислить localhost на внутреннем и внешнем портах, а также внешний домен (или сочетание ip:порт), например:<ul>
+<li><code>DJANGO_CSRF_TRUSTED_ORIGINS=localhost:18000,localhost:8081,внешний ip:8081</code></li>
+</ul>
+</li>
+<li>параметры подключения к базе данных PostgreSQL. База поставляется вместе с установкой. Задание доступов отдельно является мерой предосторожности и контроля.<ul>
+<li><code>POSTGRES_DB</code> — название базы данных</li>
+<li><code>POSTGRES_USER</code> — имя пользователя</li>
+<li><code>POSTGRES_PASSWORD</code> — пароль</li>
+</ul>
+</li>
+<li>секрет веб-приложения<ul>
+<li><code>SECRET_KEY</code> — случайная строка символов</li>
+</ul>
+</li>
+<li>при согласии отправлять ошибки в систему сбора логов Sentry надо задать соответствующие переменные:<ul>
+<li><code>SENTRY_ENABLED=True</code></li>
+<li><code>SENTRY_DSN</code> — адрес отправки, значение будет предоставлено вендором отдельно</li>
+<li><code>SENTRY_ENVIRONMENT</code> — значение будет предоставлено вендором отдельно</li>
+<li><code>SENTRY_RELEASE=develop</code> — значение будет предоставлено вендором отдельно</li>
+</ul>
+</li>
+<li>настройки домена системы<ul>
+<li><code>NGINX_HOST</code> — хост, по которому будет доступна система</li>
+<li><code>NGINX_PORT</code> — порт, по которому будет доступна система</li>
+</ul>
+</li>
+<li>пути исключений<ul>
+<li><code>ANALYSIS_IGNORED_PATHS</code> - список путей, которые будут игнорироваться системой при анализе. Подробнее с добавлением путей исключения можно ознакомиться <a href="/on-premise/analysis-ignore-paths/">тут</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Выполнить команду установки приложения CodeScoring (выполнение команды должно быть с правами суперпользователя системы):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">cd</span> /path/to/docker-compose
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>docker-compose -p PROJECT_NAME -f ./docker-compose.yml up -d --force-recreate --remove-orphans
+</code></pre></div></td></tr></table></div>
+<p><code>PROJECT_NAME</code> — здесь и далее выбранное название проекта, по умолчанию использует название текущей директории</p>
+</li>
+<li>
+<p>Для просмотра логов можно использовать команду:</p>
+<p><code>docker-compose -p PROJECT_NAME logs -f</code></p>
+</li>
+<li>
+<p>После запуска сервис будет доступен по настроенному домену или адресу <code>http://localhost:8081</code>. При первом запуске дополнительно выполняются миграции базы данных, операция может занять больше времени, чем при последующих запусках.</p>
+<p><strong>Примечание</strong>: для работы инсталляции по протоколу https нужен внешний балансировщик, который реализует терминирование ssl.</p>
+</li>
+<li>
+<p>Для входа в систему необходимо предварительно создать пользователя с правами администратора с помощью следующей команды (заменив <code>prefix_</code> значением <code>PROJECT_NAME</code> из пункта 8):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>docker <span class="nb">exec</span> -it prefix_backend_1 python ./manage.py createsuperuser
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Для добавления ключа активации надо войти в систему, перейти в раздел Settings -&gt; Activation key, ввести в форму ключ, нажать Save. В случае успеха на странице появится информация по ключу, поле Status должно быть в значении Active.</p>
+<p><strong>Примечание</strong>: при копировании из файла важно не изменять содержимое ключа и не добавлять переносы строк.</p>
+<p>Ключ предоставляется вендором отдельно.</p>
+</li>
+</ol>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../server-requirements/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Требования к серверу" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Требования к серверу
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../update/" class="md-footer__link md-footer__link--next" aria-label="Next: Обновление системы" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Обновление системы
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.expand"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
