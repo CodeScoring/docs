@@ -23,6 +23,7 @@ nav:
     - Начало: index.md
     - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
+    - CodeScoring Firewall: firewall.md
   - Установка on-premise:
     - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
