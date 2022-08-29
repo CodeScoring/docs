@@ -1,4 +1,4 @@
-# CodeScoring Firewall плагин для Nexus Repository Manager
+# CodeScoring OSS Firewall
 
 **CodeScoring** реализует функцию Firewall через специализированный плагин, который позволяет добавить функциональность экранирования нежелательных компонентов в **Sonatype Nexus Repository Manager (NXRM)**.
 
