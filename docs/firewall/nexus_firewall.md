@@ -1,28 +1,20 @@
+---
+hide:
+  - footer
+---
 # CodeScoring OSS Firewall
 
-**CodeScoring** реализует функцию Firewall через специализированный плагин, который позволяет добавить функциональность экранирования нежелательных компонентов в **Sonatype Nexus Repository Manager (NXRM)**.
-
-*Информация об интеграции с **JFrog Artifactory** доступна по запросу: <hello@codescoring.ru>.*
-
-Плагин встраивается в цепочку вызовов request|response продукта **NXRM**, которая используется в работе сборщиков пакетов maven, npm и других. За счет применения такого механизма возможно обеспечить блокирование нежелательных компонентов не только при попытке первой загрузки в **NXRM**, но и при любой попытке его скачивания: используя командный интерфейс выбранного пакетного менеджера или через веб-интерфейс **NXRM**.
-
-**Внимание**:
-
-- плагин обеспечивает обогащение метаданных компонентов информацией об уязвимостях;
-- блокирование компонентов производится в зависимости от политик настроенных в **CodeScoring**;
-- если в плагине активирована опция удаления при блокировании, то информация о компонентах полностью удаляется из прокси репозитория;
-- если на момент обращения плагина к ядру, **CodeScoring** по каким то причинам будет недоступен, то по умолчанию, плагин будет блокировать все компоненты.
 
 ## Установка плагина
 
-Плагин **CodeScoring Firewall** поставляется в виде JAR-файла, для его добавления в NXRM,  необходимо скопировать файл `nexus-codescoring-plugin.jar` в директорию `/opt/sonatype/nexus/deploy` и дать права для пользователя и группы `nexus`:
+Плагин **CodeScoring OSS Firewall** поставляется в виде JAR-файла, для его добавления в **NXRM**,  необходимо скопировать файл `nexus-codescoring-plugin.jar` в директорию `/opt/sonatype/nexus/deploy` и дать права для пользователя и группы `nexus`:
 пример команды: 
-```
+```bash
 chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
 
 Если **NXRM** используется в Docker, то команды будут выглядеть так:
-```
+```bash
 docker cp nexus-codescoring-plugin.jar nexus:/opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
@@ -43,7 +35,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ![CodeScoring capability creation example](/assets/img/firewall/capability_create_example.png)
 
-## Настрока Capability CodeScoring Configuration
+### Capability CodeScoring Configuration
 
 Расширение позволяет задать общие настройки плагина для работы с **on-premise** версией **CodeScoring**:
 
@@ -54,7 +46,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 **Внимание**: указанные настройки будут использовать все экземпляры осуществляющие проверку прокси репозиториев.
 
-## Настрока Capability CodeScoring Scan
+### Capability CodeScoring Scan
 
 Расширение позволяет установить функцию фаерволинга (экранирования) на выбранный прокси репозиторий:
 
@@ -64,14 +56,3 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Delete blocked by policy component from repository** – принудительное удаление блокируемых компонентов из репозитория (*создание "стерильного" репозитория*)
 
 ![CodeScoring capability scan settings example](/assets/img/firewall/capability_scan_settings_example.png)
-
-## Настройка политик для работы с плагином
-
-В качестве источника информации для принятия решения о блокировании или разрешении загрузки компонентов плагин использует механизм политик **CodeScoring**.
-Для того чтобы политика применялась при вызове от плагина необходимо произвести дополнительные настройки выбранной политики в разделе *Policies*:
-
- - **Stages** - необходимо дополнительно указать компонент *proxy*;
- - установить флаг *Blocks build*;
- - установить флаг *Is Active*
-
-![Policy settings example](/assets/img/firewall/policy_settings_example.png)

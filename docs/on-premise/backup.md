@@ -1,3 +1,7 @@
+---
+hide:
+  - footer
+---
 # Резервное копирование
 
 ## Создание резервной копии установки
@@ -11,7 +15,7 @@
 2. Для создания резервной копии выполнить команду:
 
 
-    ```bash linenums="1"
+    ```bash linenums="2"
     docker-compose -p PROJECT_NAME run backup create
     ```
 
@@ -27,10 +31,14 @@
     docker-compose -p PROJECT_NAME run restore BACKUP_FILENAME
     ```
 
-    `BACKUP_FILENAME` — имя файла резервной копии. Список доступных резервных копий можно получить выполнив команду `ls -la ./backup`
+    `BACKUP_FILENAME` — имя файла резервной копии. Список доступных резервных копий можно получить выполнив команду:
+    
+    ```bash
+    ls -la ./backup
+    ```
 
 2. Перезапустить инсталляцию:
 
-    ```bash linenums="1"
+    ```bash linenums="2"
     docker-compose -p PROJECT_NAME up -d --force-recreate
     ```
