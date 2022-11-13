@@ -35,6 +35,7 @@ Application Options:
       --debug        Output detailed log
       --with-hashes  Search for direct inclusion of dependencies using file hashes
       --no-summary   Do not print summary
+      --version
 
 Help Options:
   -h, --help         Show this help message
@@ -45,7 +46,7 @@ Arguments:
 
 В параметре `--api_url` должен быть указан полный адрес on-premise инсталляции. Значение для `--api_token` можно взять в профиле пользователя инсталляции.
 
-Указание параметра `--project`, позволит при сканировании применить политики относящиеся к выбранному проекту.
+Указание параметра `--project` позволит при сканировании применить политики относящиеся к выбранному проекту.
 
 
 При запуске агент:

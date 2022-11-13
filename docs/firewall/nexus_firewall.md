@@ -7,17 +7,26 @@ hide:
 
 ## Установка плагина
 
-Плагин **CodeScoring OSS Firewall** поставляется в виде JAR-файла, для его добавления в **NXRM**,  необходимо скопировать файл `nexus-codescoring-plugin.jar` в директорию `/opt/sonatype/nexus/deploy` и дать права для пользователя и группы `nexus`:
-пример команды: 
+Плагин **CodeScoring OSS Firewall** поставляется в виде **JAR**-файла.
+Для добавления плагина в **NXRM** необходимо:
+
+1. Скопировать полученный от вендора файл `nexus-codescoring-plugin.jar` в директорию `/opt/sonatype/nexus/deploy`:
+```bash
+cp nexus-codescoring-plugin.jar /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
+```
+Если **NXRM** запущен в Docker-контейнере:
+```bash
+docker cp nexus-codescoring-plugin.jar nexus:/opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
+```
+2. Выдать права для пользователя и группы `nexus`:
 ```bash
 chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
-
-Если **NXRM** используется в Docker, то команды будут выглядеть так:
+Если **NXRM** запущен в Docker-контейнере:
 ```bash
-docker cp nexus-codescoring-plugin.jar nexus:/opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
+
 
 После выполненных операций, необходимо произвести перезапуск **NXRM**.
 

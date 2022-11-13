@@ -10,10 +10,10 @@ hide:
     cd /path/to/docker-compose
     ```
 
-2. Выполнить команду копирования файла логов из контейнера в файл docker.log
+2. Выполнить команду копирования файла логов из контейнера в файл `codescoring_onprem.log`
 
     ```bash linenums="2"
-    docker cp -L on-premise_fluentd_1:/fluentd/log/docker.log .
+    docker cp -L on-premise_fluentd_1:/fluentd/log/docker.log codescoring_onprem.log
     ```
 
-3. Отправить вендору файл `docker.log`.
+3. Отправить вендору файл `codescoring_onprem.log`.
