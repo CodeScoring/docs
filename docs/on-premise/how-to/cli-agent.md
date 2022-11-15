@@ -1,3 +1,7 @@
+---
+hide:
+  - footer
+---
 # Работа с консольным агентом
 
 Консольный агент системы CodeScoring называется **johnny** и на данный момент предоставляется для скачивания совместно с on-premise версией системы.
@@ -24,24 +28,28 @@ Exit codes:
 - 2: run failure
 
 Application Options:
-      --api_token=   API token for integration with CodeScoring server
-      --api_url=     CodeScoring server url (e.g. https://codescoring.mycompany.com)
-      --project=     Project name in CodeScoring
-      --ignore=      Ignore paths (--ignore first --ignore "/**/onem?re")
-      --debug        Output detailed log
-      --with-hashes  Search for direct inclusion of dependencies using file hashes
-      --no-summary   Do not print summary
+      --api_token=           API token for integration with CodeScoring server
+      --api_url=             CodeScoring server url (e.g. https://codescoring.mycompany.ru)
+      --project=             Project name in CodeScoring
+      --ignore=              Ignore paths (--ignore first --ignore "/**/onem?re")
+      --debug                Output detailed log
+      --with-hashes          Search for direct inclusion of dependencies using file hashes
+      --only-hashes          Search only for direct inclusion of dependencies using file hashes
+      --no-summary           Do not print summary
+      --export-vulns-to-csv= Path to csv file for local summary result
+      --stage=               Policy stage (build, dev, source, stage, test, prod, proxy) (default: build)
+      --version              Show Version
 
 Help Options:
-  -h, --help         Show this help message
+  -h, --help                 Show this help message
 
 Arguments:
-  path:              Scan path
+  path:                      Scan path
 ```
 
 В параметре `--api_url` должен быть указан полный адрес on-premise инсталляции. Значение для `--api_token` можно взять в профиле пользователя инсталляции.
 
-Для включения проверки политик необходимо указать `--project`.
+Указание параметра `--project` позволит при сканировании применить политики относящиеся к выбранному проекту.
 
 
 При запуске агент:
@@ -51,14 +59,14 @@ Arguments:
 	2. Хеширует каждый файл (при запуске с `--with-hashes`)
 2. Формирует запрос к инсталляции
 3. После получения результата показывает суммарную информацию по найденным манифестам, зависимостям, уязвимостям, сработавшим политикам и более подробную информацию по каждой уязвимости и сработавшей политике
-4. Дополнительно в текущей директории формируется файл `bom.json`, содержащий полный Software Bill of Materials в формате CycloneDX Json.
+4. Дополнительно в текущей директории формируется файл `bom.json`, содержащий полный Software Bill of Materials в формате **CycloneDX Json**.
 
 В зависимости от результата работы и параметров запуска агент возвращает соответствующий exit code.
 
 
 Пример запуска на директорию:
 
-```
+```bash
 ./johnny --api_token <api_token> --api_url <api_url> --ignore .tmp --ignore fixtures --ignore .git .
 ```
 
@@ -71,7 +79,7 @@ Arguments:
 Пример вызова на текущей директории
 
 
-```
+```bash
 docker run -v \
     $(pwd):/code \
     <registry-address>/johnny-depp \
@@ -87,7 +95,7 @@ docker run -v \
 
 Пример для добавления в `.gitlab-ci.yaml`
 
-```
+```yaml
 stages:
   - test
 

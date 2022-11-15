@@ -1,12 +1,16 @@
-site_name: CodeScoring Docs
+site_name: Публичная документация CodeScoring
 site_url: https://docs.codescoring.ru/
 theme:
   name: material
+  language: ru
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
   features:
     - navigation.tracking
     - navigation.expand
+    - navigation.indexes
+
+copyright: Copyright &copy; 2018 - 2022 Profiscope
 
 plugins:
   - search
@@ -23,7 +27,10 @@ nav:
     - Начало: index.md
     - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
-    - CodeScoring Firewall: firewall.md
+  - CodeScoring Firewall: 
+      - firewall/index.md
+      - NXRM Firewall: firewall/nexus_firewall.md
+      - JFrog Firewall: firewall/jfrog_firewall.md
   - Установка on-premise:
     - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
@@ -37,7 +44,7 @@ nav:
     - Работа системы в Kubernetes: on-premise/installation-in-k8s.md
   - Начало работы с on-premise:
     - Ввод ключа активации: on-premise/how-to/activation.md
-    - Создание собственников (proprietors): on-premise/how-to/proprietors.md
+    - Создание владельцев: on-premise/how-to/proprietors.md
     - Подключение системы контроля версий: on-premise/how-to/vcs-git.md
     - Создание категорий проектов: on-premise/how-to/categories.md
     - Создание проектов: on-premise/how-to/projects.md
