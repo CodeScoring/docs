@@ -10,7 +10,7 @@ theme:
     - navigation.expand
     - navigation.indexes
 
-copyright: Copyright &copy; 2018 - 2022 Profiscope
+copyright: Copyright &copy; 2018 - 2023 Profiscope
 
 plugins:
   - search
