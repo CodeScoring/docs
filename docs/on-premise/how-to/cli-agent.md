@@ -8,6 +8,13 @@ hide:
 
 Агент — это исполняемый бинарный файл. Готовые регулярные сборки есть для linux-совместимых систем. По запросу доступны сборки под Windows и MacOS. 
 
+## Принцип работы
+
+При работе в режиме сканирования директорий с исходным кодом, агент рекурсивно `обходит` директорию указанную в параметрах запуска и осуществляет поиск и разбор манифестов [известных пакетных менеджеров](/supported-package-managers).
+
+В режиме [сканирования образов](#_4) агент исследует файловую систему указанного образа, производя инвентаризацию компонентного состава.
+
+По окончанию работы формируется **sbom** файл и в консоль выводится информация о найденных уязвимостях.
 
 ## Возможности агента
 
@@ -16,9 +23,10 @@ hide:
 ```
 ./johnny
 Usage:
-  johnny [OPTIONS] [path]
+  johnny [OPTIONS] [path-or-image-name]
 
-johnny - CLI tool for dependency analysis for vulnerabilities and license compliance issues. Works in connection with CodeScoring SCA.
+johnny - CLI tool for dependency analysis for vulnerabilities and
+license compliance issues. Works in connection with CodeScoring SCA.
 CodeScoring website: https://codescoring.ru
 Documentation: https://docs.codescoring.ru
 
@@ -27,24 +35,42 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
+Version: 2023.5.0
+
 Application Options:
-      --api_token=           API token for integration with CodeScoring server
-      --api_url=             CodeScoring server url (e.g. https://codescoring.mycompany.ru)
+      --api_token=           API token for integration with CodeScoring
+                             server
+      --api_url=             CodeScoring server url (e.g.
+                             https://codescoring.mycompany.com)
       --project=             Project name in CodeScoring
-      --ignore=              Ignore paths (--ignore first --ignore "/**/onem?re")
+      --ignore=              Ignore paths (--ignore first --ignore
+                             "/**/onem?re")
       --debug                Output detailed log
-      --with-hashes          Search for direct inclusion of dependencies using file hashes
-      --only-hashes          Search only for direct inclusion of dependencies using file hashes
+      --with-hashes          Search for direct inclusion of dependencies
+                             using file hashes
+      --only-hashes          Search only for direct inclusion of
+                             dependencies using file hashes
       --no-summary           Do not print summary
       --export-vulns-to-csv= Path to csv file for local summary result
-      --stage=               Policy stage (build, dev, source, stage, test, prod, proxy) (default: build)
+      --stage=               Policy stage (build, dev, source, stage,
+                             test, prod, proxy) (default: build)
       --version              Show Version
+      --gdt-match=           section in gradle dependency tree for scan
+                             (default: compileClasspath)
+      --scan-archives        Scan archives. Supported types: '.jar',
+                             '.rar', '.tar', '.tar.bz2', '.tbz2',
+                             '.tar.gz', '.tgz', '.tar.xz', '.txz',
+                             '.war', '.zip', '.aar', '.egg', '.hpi',
+                             '.nupkg', '.whl'
+      --image                Scan image (use argument
+                             [path-or-image-name] as image name or path
+                             to tar)
 
 Help Options:
   -h, --help                 Show this help message
 
 Arguments:
-  path:                      Scan path
+  path-or-image-name:        Scan path or image name
 ```
 
 В параметре `--api_url` должен быть указан полный адрес on-premise инсталляции. Значение для `--api_token` можно взять в профиле пользователя инсталляции.
@@ -70,6 +96,35 @@ Arguments:
 ./johnny --api_token <api_token> --api_url <api_url> --ignore .tmp --ignore fixtures --ignore .git .
 ```
 
+### Сканирование образов
+
+Агент поддерживает функциональность сканирования образов в стандартах OCI и Docker и может быть запущен одним из перечисленных способов с указанием:
+
+  - пути до **tar**-архива созданного с использованием **docker save**:
+  
+    ```bash
+    ./johnny --api_url=<api_url> --api_token=<api_token> --image ./my_own.tar
+    ```
+
+  - названия образа находящегося в демоне **Docker**, **Podman**:
+  
+    ```bash
+    ./johnny --api_url=<api_url> --api_token=<api_token> --image docker:python:3.9
+    ```
+
+  - названия образа из публичного **Docker HUB**:
+  
+    ```bash
+    ./johnny --api_url=<api_url> --api_token=<api_token> --image python:3.9
+    ```
+
+  - названия образа из приватного **registry**:
+
+    Перед работой с приватным репозиторием нужно выполнить команду ```docker login```
+    ```bash
+    ./johnny --api_url=<api_url> --api_token=<api_token> --image pvt_registry/johnny-depp:2023.5.0
+    ```
+    
 
 ## Запуск с помощью Docker
 
