@@ -27,6 +27,8 @@ nav:
     - Начало: index.md
     - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
+  - Принципы работы системы:
+    - Общие принципы интеграции: system-principles/integration-principles.md
   - CodeScoring Firewall: 
       - firewall/index.md
       - NXRM Firewall: firewall/nexus_firewall.md
