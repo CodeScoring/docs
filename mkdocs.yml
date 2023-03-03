@@ -29,6 +29,7 @@ nav:
     - Поддержка пакетных менеджеров: supported-package-managers.md
   - Принципы работы системы:
     - Общие принципы интеграции: system-principles/integration-principles.md
+    - Этапы интеграции: system-principles/integration-stages.md
   - CodeScoring Firewall: 
       - firewall/index.md
       - NXRM Firewall: firewall/nexus_firewall.md
