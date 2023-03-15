@@ -87,7 +87,7 @@ Use " scan [command] --help" for more information about a command.
 ./johnny scan dir --api_token <api_token> --api_url <api_url> --ignore .tmp --ignore fixtures --ignore .git .
 ```
 
-### Сканирование образов
+## Сканирование образов
 
 Агент поддерживает функциональность сканирования образов в стандартах OCI и Docker и может быть запущен одним из перечисленных способов с указанием:
 
@@ -116,11 +116,25 @@ Use " scan [command] --help" for more information about a command.
     ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image pvt_registry/johnny-depp:2023.5.0
     ```
     
+  Альтернативно можно авторизоваться в приватном registry с помощью переменных окружения:
+
+- `JOHNNY_REGISTRY_AUTH_AUTHORITY` - URL на registry (к примеру "docker.io", "localhost:5000" и т.д.);
+- `JOHNNY_REGISTRY_AUTH_LOGIN` - логин;
+- `JOHNNY_REGISTRY_AUTH_PASSWORD` - пароль;
+- `JOHNNY_REGISTRY_AUTH_TOKEN` - токен;
+
+или через аналогичные переменные в config-файле:
+
+- `"authority"`;
+- `login`;
+- `password`;
+- `token`.
+
+**Примечание**: токен и логин с паролем взаимозаменяемы.
 
 ## Запуск с помощью Docker
 
-Для работы запуска через Docker в данный момент нужна активная [авторизация в registry с образами нашей системы](/on-premise/installation).
-
+Для работы запуска через Docker в данный момент нужна активная [авторизация в registry с образами системы](/on-premise/installation).
 
 Пример вызова на текущей директории
 
