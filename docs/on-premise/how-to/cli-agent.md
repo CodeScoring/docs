@@ -16,61 +16,52 @@ hide:
 
 По окончанию работы формируется **sbom** файл и в консоль выводится информация о найденных уязвимостях.
 
-## Возможности агента
+## Сканирование директории
 
-Доступные и необходимые опции запуска агента можно посмотреть непосредственно при его вызове.
+Сканирование директории производится при помощи субкоманды `scan dir`.
+
+Доступные и необходимые опции запуска агента для сканирования можно посмотреть при помощи флага `help`.
 
 ```
-./johnny
+$ go run cmd/johnny/main.go scan --help
+johnny - CLI tool for dependency analysis for vulnerabilities and license compliance issues. Works in connection with CodeScoring SCA.
+                CodeScoring website: https://codescoring.ru
+                Documentation: https://docs.codescoring.ru
+
+                Exit codes:
+                - 0: successful run, no issues
+                - 1: some issues found, action required
+                - 2: run failure,        
+        Version: dev
+
 Usage:
-  johnny [OPTIONS] [path-or-image-name]
+   scan [command]
 
-johnny - CLI tool for dependency analysis for vulnerabilities and
-license compliance issues. Works in connection with CodeScoring SCA.
-CodeScoring website: https://codescoring.ru
-Documentation: https://docs.codescoring.ru
+scan commands
+  dir         
+  file        
+  image       
 
-Exit codes:
-- 0: successful run, no issues
-- 1: some issues found, action required
-- 2: run failure
+Flags:
+  -h, --help      help for scan
+  -v, --version   version for scan
 
-Version: 2023.5.0
+Global Flags:
+      --api_token string             API token for integration with CodeScoring server (required if api_url is set)
+      --api_url string               CodeScoring server url (e.g. https://codescoring.mycompany.com) (required if api_token is set)
+      --config string                config file
+      --debug                        Output detailed log
+      --export-vulns-to-csv string   Path to csv file for local summary result
+      --gdt-match string             section in gradle dependency tree for scan (default "compileClasspath")
+      --ignore stringArray           Ignore paths (--ignore first --ignore "/**/onem?re")
+      --no-summary                   Do not print summary
+      --only-hashes                  Search only for direct inclusion of dependencies using file hashes
+      --project string               Project name in CodeScoring
+      --scan-archives                Scan archives. Supported types: '.jar', '.rar', '.tar', '.tar.bz2', '.tbz2', '.tar.gz', '.tgz', '.tar.xz', '.txz', '.war', '.zip', '.aar', '.egg', '.hpi', '.nupkg', '.whl'
+      --stage string                 Policy stage (build, dev, source, stage, test, prod, proxy) (default "build")
+      --with-hashes                  Search for direct inclusion of dependencies using file hashes
 
-Application Options:
-      --api_token=           API token for integration with CodeScoring
-                             server
-      --api_url=             CodeScoring server url (e.g.
-                             https://codescoring.mycompany.com)
-      --project=             Project name in CodeScoring
-      --ignore=              Ignore paths (--ignore first --ignore
-                             "/**/onem?re")
-      --debug                Output detailed log
-      --with-hashes          Search for direct inclusion of dependencies
-                             using file hashes
-      --only-hashes          Search only for direct inclusion of
-                             dependencies using file hashes
-      --no-summary           Do not print summary
-      --export-vulns-to-csv= Path to csv file for local summary result
-      --stage=               Policy stage (build, dev, source, stage,
-                             test, prod, proxy) (default: build)
-      --version              Show Version
-      --gdt-match=           section in gradle dependency tree for scan
-                             (default: compileClasspath)
-      --scan-archives        Scan archives. Supported types: '.jar',
-                             '.rar', '.tar', '.tar.bz2', '.tbz2',
-                             '.tar.gz', '.tgz', '.tar.xz', '.txz',
-                             '.war', '.zip', '.aar', '.egg', '.hpi',
-                             '.nupkg', '.whl'
-      --image                Scan image (use argument
-                             [path-or-image-name] as image name or path
-                             to tar)
-
-Help Options:
-  -h, --help                 Show this help message
-
-Arguments:
-  path-or-image-name:        Scan path or image name
+Use " scan [command] --help" for more information about a command.
 ```
 
 В параметре `--api_url` должен быть указан полный адрес on-premise инсталляции. Значение для `--api_token` можно взять в профиле пользователя инсталляции.
@@ -93,43 +84,57 @@ Arguments:
 Пример запуска на директорию:
 
 ```bash
-./johnny --api_token <api_token> --api_url <api_url> --ignore .tmp --ignore fixtures --ignore .git .
+./johnny scan dir --api_token <api_token> --api_url <api_url> --ignore .tmp --ignore fixtures --ignore .git .
 ```
 
-### Сканирование образов
+## Сканирование образов
 
 Агент поддерживает функциональность сканирования образов в стандартах OCI и Docker и может быть запущен одним из перечисленных способов с указанием:
 
   - пути до **tar**-архива созданного с использованием **docker save**:
   
     ```bash
-    ./johnny --api_url=<api_url> --api_token=<api_token> --image ./my_own.tar
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image ./my_own.tar
     ```
 
   - названия образа находящегося в демоне **Docker**, **Podman**:
   
     ```bash
-    ./johnny --api_url=<api_url> --api_token=<api_token> --image docker:python:3.9
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image docker:python:3.9
     ```
 
   - названия образа из публичного **Docker HUB**:
   
     ```bash
-    ./johnny --api_url=<api_url> --api_token=<api_token> --image python:3.9
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image python:3.9
     ```
 
   - названия образа из приватного **registry**:
 
     Перед работой с приватным репозиторием нужно выполнить команду ```docker login```
     ```bash
-    ./johnny --api_url=<api_url> --api_token=<api_token> --image pvt_registry/johnny-depp:2023.5.0
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image pvt_registry/johnny-depp:2023.5.0
     ```
     
+  Альтернативно можно авторизоваться в приватном registry с помощью переменных окружения:
+
+- `JOHNNY_REGISTRY_AUTH_AUTHORITY` - URL на registry (к примеру "docker.io", "localhost:5000" и т.д.);
+- `JOHNNY_REGISTRY_AUTH_LOGIN` - логин;
+- `JOHNNY_REGISTRY_AUTH_PASSWORD` - пароль;
+- `JOHNNY_REGISTRY_AUTH_TOKEN` - токен;
+
+или через аналогичные переменные в config-файле:
+
+- `"authority"`;
+- `login`;
+- `password`;
+- `token`.
+
+**Примечание**: токен и логин с паролем взаимозаменяемы.
 
 ## Запуск с помощью Docker
 
-Для работы запуска через Docker в данный момент нужна активная [авторизация в registry с образами нашей системы](/on-premise/installation).
-
+Для работы запуска через Docker в данный момент нужна активная [авторизация в registry с образами системы](/on-premise/installation).
 
 Пример вызова на текущей директории
 

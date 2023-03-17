@@ -14,6 +14,7 @@ copyright: Copyright &copy; 2018 - 2023 Profiscope
 
 plugins:
   - search
+  - print-site
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -27,6 +28,7 @@ nav:
     - Начало: index.md
     - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
+    - Changelog: changelog.md
   - CodeScoring Firewall: 
       - firewall/index.md
       - NXRM Firewall: firewall/nexus_firewall.md
