@@ -23,24 +23,25 @@ hide:
 Доступные и необходимые опции запуска агента для сканирования можно посмотреть при помощи флага `help`.
 
 ```
-$ go run cmd/johnny/main.go scan --help
+$ ./johnny scan --help
 johnny - CLI tool for dependency analysis for vulnerabilities and license compliance issues. Works in connection with CodeScoring SCA.
-                CodeScoring website: https://codescoring.ru
-                Documentation: https://docs.codescoring.ru
+CodeScoring website: https://codescoring.ru
+Documentation: https://docs.codescoring.ru
 
-                Exit codes:
-                - 0: successful run, no issues
-                - 1: some issues found, action required
-                - 2: run failure,        
-        Version: dev
+Exit codes:
+- 0: successful run, no issues
+- 1: some issues found, action required
+- 2: run failure
+
+Version: 2023.11.0
 
 Usage:
    scan [command]
 
-scan commands
-  dir         
-  file        
-  image       
+Available Commands:
+  dir         Scan directory
+  file        Scan file
+  image       Scan image
 
 Flags:
   -h, --help      help for scan
