@@ -3,7 +3,8 @@ version: "3"
 services:
 
   mkdocs:
-    image: squidfunk/mkdocs-material
+    build: .
+    # image: squidfunk/mkdocs-material
     volumes:
       - .:/docs
     ports:
