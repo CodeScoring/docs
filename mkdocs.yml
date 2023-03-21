@@ -29,6 +29,7 @@ nav:
     - Функциональные характеристики: functionality.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
     - Changelog: changelog.md
+    - Этапы интеграции: system-principles/integration-stages.md
   - CodeScoring Firewall: 
       - firewall/index.md
       - NXRM Firewall: firewall/nexus_firewall.md
