@@ -8,7 +8,7 @@ hide:
 
 ### [2023.11.0] - 2023-03-16
 
-- Исправлена долгая загрузку графика Distribution by license на Dashboard
+- Исправлена долгая загрузка графика Distribution by license на Dashboard
 - Добавлено поле Note к Policy ignore
 - Добавлено поле Description к Policy
 - Добавлен новый уровень доступа Auditor
