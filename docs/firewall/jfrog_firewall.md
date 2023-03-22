@@ -36,7 +36,7 @@ responseStatus=403
 - **token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*)
 - **codeScoringUrl** – адрес **on-premise** инсталляции **CodeScoring**
 - **repoKeys** – массив репозиториев при работе с которыми будет применяться плагин
-- **responseStatus** – код ошибки, возвращаемый при срабатывания политик безопасности
+- **responseStatus** – код ошибки, возвращаемый при срабатывании политик безопасности
 
 **Важно**: для generic и VCS репозиториев обязательно указать один из следующих типов репозитория в поле [Internal Description](https://www.jfrog.com/confluence/display/JFROG/Repository+Management):
 
