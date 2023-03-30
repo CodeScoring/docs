@@ -21,9 +21,56 @@ hide:
 
 Примеры использования некоторых команд в API:
 
-- Запустить анализ всех проектов: `POST/api/analyses/overall_sca/start/`;
-- Добавить политику: `POST/api/policies`;
-- Получить информацию об отдельном проекте: `GET /api/projects/{id}/`;
-- Получить список всех доступных лицензий: `GET /api/licenses`.
+- Запустить анализ всех проектов:
 
-**Важно!**: команды создания и изменения основных сущностей в системе, таких как проекты, находятся в разделах с приставкой **settings >**. 
+`curl -X 'POST' \
+  '[installation_url]/api/analyses/overall_sca/start/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: <YOUR_TOKEN>'`
+
+- Добавить политику: 
+
+`curl -X 'POST' \
+  '[installation_url]/api/policies/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: <YOUR_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -H 'X-CSRFTOKEN: <CSRF_TOKEN>' \
+  -d '{
+  "name": "string",
+  "stages": [
+    "dev"
+  ],
+  "level": "info",
+  "proprietors": [
+    0
+  ],
+  "projects": [
+    0
+  ],
+  "conditions": {
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  },
+  "conditions_connector": "and",
+  "is_active": true,
+  "is_blocks_build": true,
+  "description": "string"
+}'`
+
+- Получить информацию об отдельном проекте: 
+
+`curl -X 'GET' \
+  '[installation_url]/api/projects/340/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: <YOUR_TOKEN>`
+
+- Получить список доступных лицензий: 
+
+`curl -X 'GET' \
+  '[installation_url]/api/licenses/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: <YOUR_TOKEN>'`
+
+**Важно!**: команды создания и изменения основных сущностей в системе, таких как проекты, находятся в разделах с приставкой **settings >**.
