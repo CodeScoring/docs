@@ -57,4 +57,5 @@ nav:
     - Настройка Email: on-premise/how-to/email-settings.md
     - Настройка LDAP: on-premise/how-to/ldap-settings.md
     - Работа с консольным агентом: on-premise/how-to/cli-agent.md
+    - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
     - Работа с API: on-premise/how-to/api.md
