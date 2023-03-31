@@ -27,7 +27,7 @@ hide:
 analysis:
   # Project name in CodeScoring
   project: ""
-  # Save results to CodeScoring. Used just together with project name
+  # Save results to CodeScoring. Used only together with project name
   save-results: false
   # Policy stage (build, dev, source, stage, test, prod, proxy)
   stage: build
