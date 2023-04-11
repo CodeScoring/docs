@@ -35,7 +35,6 @@ hide:
   -H 'accept: application/json' \
   -H 'Authorization: <YOUR_TOKEN>' \
   -H 'Content-Type: application/json' \
-  -H 'X-CSRFTOKEN: <CSRF_TOKEN>' \
   -d '{
   "name": "string",
   "stages": [
