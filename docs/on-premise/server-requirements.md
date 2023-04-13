@@ -38,7 +38,6 @@ hide:
   {
     "path": "114bc73d-a9ba-433d-9a3e-f2b29d822204",
     "type": "file",
-    "name": "dev_requirements.txt",
     "extension": ".txt",
     "result": {
       "platform": "pypi",
@@ -58,7 +57,6 @@ hide:
   {
     "path": "efde2364-dc0c-45a9-905a-a487b3361ac7",
     "type": "file",
-    "name": "pom.xml",
     "extension": ".xml",
     "result": {
       "platform": "maven",
@@ -84,7 +82,6 @@ hide:
   {
     "path": "49dd4c09-b5de-474a-998a-3ce0a94a5221",
     "type": "file",
-    "name": "requirements.txt",
     "extension": ".txt",
     "result": {
       "platform": "pypi",
