@@ -6,55 +6,20 @@ hide:
 
 ## Манифесты
 
-Для поиска зависимостей CodeScoring в первую очередь опирается на разбор файлов манифестов пакетных менеджеров. Система поддерживает разбор следующих форматов манифестов по экосистемам:
+Для поиска зависимостей CodeScoring в первую очередь опирается на разбор файлов манифестов пакетных менеджеров. Система поддерживает разбор следующих технологий:
 
+Язык <div style="width:140px">| Пакетный менеджер или инструмент сборки <div style="width:280px"> | Формат файла <div style="width:250px"> |
+----------------| :---------------- | :----------- |
+Java и Kotlin               |   Gradle, Maven   | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`*.gradle`<br/>`*.gradle.kts`<br/> `gradle.lockfile`|
+JavaScript и TypeScript     |    npm, yarn      |  `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock` |
+Python                      |    pip, Poetry, Pipenv    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt` |
+С и C++                     |    Conan          |  `conanfile.txt` |
+Go                          |    Go Modules     |  `go.mod`<br/>`go.sum` |
+PHP                         |    Composer       |  `composer.json`<br/>`composer.lock`|
+Ruby                        |    RubyGems       |  `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`|
+C#                          |    Nuget          |  `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
+Objective-C и Swift         |    CocoaPods      |  `Podfile`<br/>`Podfile.lock`<br/>`*.podspec`|
 
-- Maven
-    + `pom.xml`
-    + `ivy.xml`
-    + `maven-dependency-tree.txt`
-- Gradle  
-    + `*.gradle`
-    + `*.gradle.kts`
-    + `gradle.lockfile`
-- NPM
-    + `package.json`
-    + `package-lock.json`
-    + `npm-shrinkwrap.json`
-    + `yarn.lock`
-- PyPI
-    + `setup.py`
-    + `Pipfile`
-    + `Pipfile.lock`
-    + `pyproject.toml`
-    + `poetry.lock`
-    + `requirements.txt`
-- Conan
-    + `conanfile.txt`
-- Go
-    + `go.mod`
-    + `go.sum`
-- Packagist
-    + `composer.json`
-    + `composer.lock`
-- RubyGems
-    + `Gemfile`
-    + `Gemfile.lock`
-    + `*.gemspec`
-- Nuget
-    + `*.nuspec`
-    + `packages.lock.json`
-    + `Project.json`
-    + `Project.lock.json`
-    + `packages.config`
-    + `paket.dependencies`
-    + `paket.lock`
-    + `*.csproj`
-    + `project.assets.json`
-- CocoaPods
-    + `Podfile`
-    + `Podfile.lock`
-    + `*.podspec`
 
 Лучший результат будет при наличии основного файла манифеста и соответствующего lock-файла, если он предусмотрен механизмом пакетного менеджера.
 
