@@ -101,7 +101,7 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2023.11.0
+Version: 2023.15.0
 
 Usage:
    scan [command]
@@ -119,6 +119,7 @@ Global Flags:
       --api_token string             API token for integration with CodeScoring server (required if api_url is set)
       --api_url string               CodeScoring server url (e.g. https://codescoring.mycompany.com) (required if api_token is set)
       --config string                config file
+      --create-project               Create project in CodeScoring if not exists
       --debug                        Output detailed log
       --export-vulns-to-csv string   Path to csv file for local summary result
       --gdt-match string             section in gradle dependency tree for scan (default "compileClasspath")
@@ -126,6 +127,7 @@ Global Flags:
       --no-summary                   Do not print summary
       --only-hashes                  Search only for direct inclusion of dependencies using file hashes
       --project string               Project name in CodeScoring
+      --save-results                 Save results to CodeScoring. Used just together with project name
       --scan-archives                Scan archives. Supported types: '.jar', '.rar', '.tar', '.tar.bz2', '.tbz2', '.tar.gz', '.tgz', '.tar.xz', '.txz', '.war', '.zip', '.aar', '.egg', '.hpi', '.nupkg', '.whl'
       --stage string                 Policy stage (build, dev, source, stage, test, prod, proxy) (default "build")
       --with-hashes                  Search for direct inclusion of dependencies using file hashes
@@ -156,6 +158,12 @@ Use " scan [command] --help" for more information about a command.
 ./johnny scan dir --api_token <api_token> --api_url <api_url> --ignore .tmp --ignore fixtures --ignore .git .
 ```
 
+## Сканирование архивов
+
+Для сканирования архивов используется флаг `--scan-archives`.
+
+По умолчанию сканирование архивов работает только на на один уровень вложенности. Для указания глубины сканирования необходимо добавить в команду параметр `--scan-depth` или указать в config-файле переменную `depth` в секции `scan-archives`.
+
 ## Сканирование образов
 
 Агент поддерживает функциональность сканирования образов в стандартах OCI и Docker и может быть запущен одним из перечисленных способов с указанием:
@@ -163,26 +171,26 @@ Use " scan [command] --help" for more information about a command.
   - пути до **tar**-архива созданного с использованием **docker save**:
   
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image ./my_own.tar
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> ./my_own.tar
     ```
 
   - названия образа находящегося в демоне **Docker**, **Podman**:
   
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image docker:python:3.9
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> docker:python:3.9
     ```
 
   - названия образа из публичного **Docker HUB**:
   
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image python:3.9
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> python:3.9
     ```
 
   - названия образа из приватного **registry**:
 
     Перед работой с приватным репозиторием нужно выполнить команду ```docker login```
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> --image pvt_registry/johnny-depp:2023.5.0
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> pvt_registry/johnny-depp:2023.5.0
     ```
     
   Альтернативно можно авторизоваться в приватном registry с помощью переменных окружения:
@@ -200,6 +208,8 @@ Use " scan [command] --help" for more information about a command.
 - `token`.
 
 **Примечание**: токен и логин с паролем взаимозаменяемы.
+
+Для выполнения сканирования файлов внутри образа необходимо добавить в команду параметр `--scan-files` или указать в config-файле переменную `scan-files` в секции `image`.
 
 ## Запуск с помощью Docker
 
