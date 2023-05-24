@@ -32,6 +32,8 @@ hide:
     + `https://dev.azure.com/<organisation>/<group>/_git/<project>`
     + `<http/https>://<Azure Server URL>/<organisation>/<group>/_git/<project>`
 
+После добавления репозитория на странице настроек VCS-проекта доступно ручное обновление кода проекта по кнопке **Refresh project code**.
+
 
 ## CLI-проект
 
