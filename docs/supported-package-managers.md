@@ -13,7 +13,7 @@ hide:
 Java и Kotlin               |   Gradle, Maven   | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`*.gradle`<br/>`*.gradle.kts`<br/> `gradle.lockfile`|
 JavaScript и TypeScript     |    npm, yarn      |  `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock` |
 Python                      |    pip, Poetry, Pipenv    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt` |
-С и C++                     |    Conan          |  `conanfile.txt` |
+С и C++                     |    Conan          |  `conanfile.txt`<br/>`conan.lock`|
 Go                          |    Go Modules     |  `go.mod`<br/>`go.sum` |
 PHP                         |    Composer       |  `composer.json`<br/>`composer.lock`|
 Ruby                        |    RubyGems       |  `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`|
