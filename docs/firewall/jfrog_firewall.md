@@ -25,13 +25,13 @@ curl -X POST https://jfrog_installation.local/api/plugins/reload
 
 Пример содержания:
 
-```json
+```
 token=0d496e5e7153d98fd346d7498cdf2dc61a669086
 codeScoringUrl=https://on-premises.codescoring.ru/
 repoKeys=["pypi-remote", "maven-remote"]
 responseStatus=403
-http.proxyHost= 192.168.1.100
-http.proxyPort= 8080
+http.proxyHost=192.168.1.100
+http.proxyPort=8080
 api.timeout=60000
 ```
 
