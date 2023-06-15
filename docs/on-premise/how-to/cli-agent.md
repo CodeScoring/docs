@@ -101,7 +101,7 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2023.15.0
+Version: 2023.23.0
 
 Usage:
    scan [command]
@@ -129,6 +129,7 @@ Global Flags:
       --project string               Project name in CodeScoring
       --save-results                 Save results to CodeScoring. Used just together with project name
       --scan-archives                Scan archives. Supported types: '.jar', '.rar', '.tar', '.tar.bz2', '.tbz2', '.tar.gz', '.tgz', '.tar.xz', '.txz', '.war', '.zip', '.aar', '.egg', '.hpi', '.nupkg', '.whl'
+      --scan-depth int               Archive scanning depth (default 1)
       --stage string                 Policy stage (build, dev, source, stage, test, prod, proxy) (default "build")
       --with-hashes                  Search for direct inclusion of dependencies using file hashes
 
