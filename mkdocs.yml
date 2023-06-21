@@ -36,9 +36,9 @@ nav:
   - Общая информация:
     - Начало: index.md
     - Функциональные характеристики: functionality.md
+    - Этапы интеграции: integration-stages.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
     - Changelog: changelog.md
-    - Этапы интеграции: integration-stages.md
   - CodeScoring Firewall: 
       - firewall/index.md
       - NXRM Firewall: firewall/nexus_firewall.md
@@ -59,7 +59,7 @@ nav:
     - Создание владельцев: on-premise/how-to/proprietors.md
     - Подключение системы контроля версий: on-premise/how-to/vcs-git.md
     - Создание категорий проектов: on-premise/how-to/categories.md
-    - Создание проектов: on-premise/how-to/projects.md
+    - Настройка проектов: on-premise/how-to/projects.md
     - Настройка политик: on-premise/how-to/policies.md
     - Запуск анализа: on-premise/how-to/launch-analysis.md
     - Управление учетными записями: on-premise/how-to/users.md
