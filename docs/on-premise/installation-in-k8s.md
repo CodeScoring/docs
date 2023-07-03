@@ -78,12 +78,12 @@ helm install codescoring codescoring-org/codescoring -n codescoring -f values.ya
 helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАРТА] --untar --untar-dir codescoring-src
 ```
 
-В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта выполнить команду `helm install codescoring . -f values.yaml -n codescoring --atomic --version [ВЕРСИЯ_ЧАРТА]`. 
+В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду `helm install codescoring . -f values.yaml -n codescoring --atomic --version [ВЕРСИЯ_ЧАРТА]`. 
 
 Основные параметры, доступные для изменения, перечислены ниже.
 
 ### Подключение к внешним PostgreSQL и Redis
-По умолчанию PostgreSQL и Redis запускаются в отдельных `StatefulSet`. Данный вариант может не подходить для использования в **production среде** , т.к. предоставляет отказоустойчивость. Для подключения к внешним инстансам (кластерам) PostgreSQL и Redis необходимо выполнить следующие действия:
+По умолчанию PostgreSQL и Redis запускаются в отдельных `StatefulSet`. Данный вариант может не подходить для использования в **production среде** , т.к. не предоставляет отказоустойчивость. Для подключения к внешним инстансам (кластерам) PostgreSQL и Redis необходимо выполнить следующие действия:
 
 1. Отключить развертывание Redis, присвоив переменной `redis.enabled` значение `false`
 2. Отключить развертывание PostgreSQL, присвоив переменной `postgresql.enabled` значение `false`
