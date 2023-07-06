@@ -61,6 +61,16 @@ hide:
 - **CVSS 3 Severity** — уровень угрозы по стандарту CVSS 3;
 - **Vulnerability Publish Date** — дата публикации уязвимости;
 - **Vulnerability Update Date** — дата обновления уязвимости;
+- **Vulnerability has exploit** - наличие эксплойта в уязвимости;
+- **Vulnerability impacts** - область уязвимости;
+- **CVSS3 Attack Vector (AV)** - поверхность атаки;
+- **CVSS3 Attack Complexity (AC)** - сложность атаки;
+- **CVSS3 Priviliges Required (PR)** - требуемый уровень доступа;
+- **CVSS3 User Interaction (UI)** - наличие взаимодействия с пользователем;
+- **CVSS3 Scope (S)** - область безопасности компонента;
+- **CVSS3 Confidentiality (C)** - cтепень потери конфиденциальности;
+- **CVSS3 Integrity (I)** - степень потери целостности данных;
+- **CVSS3 Availability (A)** - степень потери доступности компонента;
 - **Env** — окружение;
 - **Match type** — тип соответствия зависимости (по манифесту, содержанию или разрешению);
 - **Relation** — прямая или транзитивная зависимость;
