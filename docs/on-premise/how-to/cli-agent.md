@@ -31,6 +31,8 @@ analysis:
   save-results: false
   # Policy stage (build, dev, source, stage, test, prod, proxy)
   stage: build
+  # Path for save bom
+  bom-path: "bom.json"
 # scan options
 scan:
   # general scan options
@@ -53,6 +55,8 @@ scan:
     with-hashes: false
   # image scan options
   image:
+    # scan files in image
+    scan-files: false
     # skip TLS verification when communicating with the registry
     insecure-skip-tls-verify: false
     # use http instead of https when connecting to the registry
@@ -81,6 +85,8 @@ scan:
   scan-archives:
     # scan archives
     scan: false
+    # archive scanning depth
+    depth: 1
 ```
 
 
@@ -101,7 +107,7 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2023.23.0
+Version: 2023.26.0
 
 Usage:
    scan [command]
@@ -118,6 +124,7 @@ Flags:
 Global Flags:
       --api_token string             API token for integration with CodeScoring server (required if api_url is set)
       --api_url string               CodeScoring server url (e.g. https://codescoring.mycompany.com) (required if api_token is set)
+      --bom-path string              Path for save bom file (default "bom.json")
       --config string                config file
       --create-project               Create project in CodeScoring if not exists
       --debug                        Output detailed log
@@ -210,7 +217,7 @@ Use " scan [command] --help" for more information about a command.
 
     Перед работой с приватным репозиторием нужно выполнить команду ```docker login```
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> pvt_registry/johnny-depp:2023.5.0
+    ./johnny scan image --api_url=<api_url> --api_token=<api_token> pvt_registry/johnny-depp:<version>
     ```
     
   Альтернативно можно авторизоваться в приватном registry с помощью переменных окружения:
@@ -241,7 +248,7 @@ Use " scan [command] --help" for more information about a command.
 ```bash
 docker run -v \
     $(pwd):/code \
-    <registry-address>/johnny-depp \
+    <registry-address>/johnny-depp:<version> \
     --api_token <api_token> \
     --api_url <api_url> \
     --ignore .tmp --ignore fixtures --ignore .git \
@@ -262,7 +269,7 @@ sca:
   stage: test
 
   script:
-    - docker pull <registry-address>/johnny-depp:latest
+    - docker pull <registry-address>/johnny-depp:<version>
     - >
       docker run -v $(pwd):/code 
       <registry-address>/johnny-depp 
@@ -291,7 +298,7 @@ pipeline {
 
   environment {
     CODESCORING_REGISTRY_URL='registry-one.codescoring.ru'
-    CODESCORING_AGENT_IMAGE='registry-one.codescoring.ru/johnny-depp:2022.47.0'
+    CODESCORING_AGENT_IMAGE='registry-one.codescoring.ru/johnny-depp:<version>'
     CODESCORING_REGISTRY_CREDENTIALS=credentials('cs-registry-creds')
     CODESCORING_API_URL='https://localhost:8080'
   }
