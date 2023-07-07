@@ -65,6 +65,7 @@ nav:
     - Управление учетными записями: on-premise/how-to/users.md
     - Настройка Email: on-premise/how-to/email-settings.md
     - Настройка LDAP: on-premise/how-to/ldap-settings.md
+    - Настройка интеграции с Jira: on-premise/how-to/jira.md
     - Работа с консольным агентом: on-premise/how-to/cli-agent.md
     - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
     - Работа с API: on-premise/how-to/api.md
