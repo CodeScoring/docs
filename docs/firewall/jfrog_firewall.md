@@ -7,10 +7,11 @@ hide:
 
 ## Установка плагина
 
-Плагин **CodeScoring JFrog Firewall** поставляется в виде файла с расширением `.groovy`.
+Плагин **CodeScoring JFrog Firewall** поставляется в виде архива с исполняемыми файлами и файлом настройки.
+
 Для добавления плагина в **JFrog** необходимо:
 
-1. Скопировать полученный от вендора файл в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
+1. Скопировать файла с расширением `.groovy` в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
 ```bash
 cp jfrog-codescoring-plugin.groovy $JFROG_HOME/artifactory/var/etc/artifactory/plugins
 ```
@@ -33,6 +34,7 @@ responseStatus=403
 http.proxyHost=192.168.1.100
 http.proxyPort=8080
 api.timeout=60000
+blockDownloads=true
 ```
 
 ### Значение параметров
@@ -43,6 +45,7 @@ api.timeout=60000
 - **http.proxyHost** - IP (в случае использования прокси-сервера);
 - **http.proxyPort** - порт (в случае использования прокси-сервера);
 - **api.timeout** - время ожидания ответа (в миллисекундах). По умолчанию, если CodeScoring API не отвечает в течение 60 секунд, запрос будет отменен.
+- **blockDownloads** - признак блокирования загрузки компонентов. В случае выставления значения `false` компоненты будут загружаться в независимости от наличия ошибок CodeScoring API или плагина.
 
 
 **Важно**: для generic и VCS репозиториев обязательно указать один из следующих типов репозитория в поле [Internal Description](https://www.jfrog.com/confluence/display/JFROG/Repository+Management):
