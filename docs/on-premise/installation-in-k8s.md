@@ -31,7 +31,7 @@ kubectl create secret docker-registry cs-registry --docker-server=REGISTRY_URL -
 
 Выполнить следующие команды:
 ```
-helm repo add codescoring-org [ТУТ ССЫЛКА НА НАШ РЕП HELM] --username [ЛОГИН КЛИЕНТА] --password [ПАРОЛЬ КЛИЕНТА]
+helm repo add codescoring-org https://registry.codescoring.ru/repository/helm/ --username [USERNAME] --password [PASSWORD]
 helm repo update
 ```
 
@@ -65,9 +65,8 @@ ipcs:
 ```
 
 Выполнить команду
-
 ```
-helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --atomic --version [ВЕРСИЯ_ЧАРТА]
+helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version [ВЕРСИЯ_ЧАРТА]
 ```
 
 ## Тонкая настройка параметров Helm-чарта
