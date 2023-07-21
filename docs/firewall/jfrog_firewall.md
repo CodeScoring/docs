@@ -7,22 +7,27 @@ hide:
 
 ## Установка плагина
 
-Плагин **CodeScoring JFrog Firewall** поставляется в виде архива с исполняемыми файлами и файлом настройки.
+Плагин **CodeScoring JFrog Firewall** поставляется в виде архива со следующей структурой:
+
+┌── `CHANGELOG.md`
+├── `codescoring.groovy`
+├── `codescoring.properties.template`
+└── `lib`
+    └── `codescoring-plugin-jfrog.jar`
+
 
 Для добавления плагина в **JFrog** необходимо:
 
-1. Скопировать файла с расширением `.groovy` в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
-```bash
-cp jfrog-codescoring-plugin.groovy $JFROG_HOME/artifactory/var/etc/artifactory/plugins
-```
-2. Вызвать **API JFrog Pro** для загрузки плагина `POST /api/plugins/reload` например:
+1. Распаковать полученный архив в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
+2. Создать в директории файл для настройки `codescoring.properties`. Пример содержания находится в файле `codescoring.properties.template`.
+3. Вызвать **API JFrog Pro** для загрузки плагина `POST /api/plugins/reload`:
 ```curl
-curl -X POST https://jfrog_installation.local/api/plugins/reload
+curl -X POST https://[JFROG_URL]/api/plugins/reload
 ```
 
 ## Настройка плагина
 
-Файл с настройками *`codescoring.properties`* необходимо расположить в дректории `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
+Для настройки плагина используется файл `codescoring.properties`.
 
 Пример содержания:
 
