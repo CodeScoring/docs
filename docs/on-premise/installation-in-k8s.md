@@ -188,6 +188,12 @@ helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАР
 - `ipcs.persistentVolumes.analysisRoot.accessModes`
 - `ipcs.persistentVolumes.djangoStatic.accessModes`
 
+Затем, необходимо закоментировать переменные:
+- `ipcs.backend.affinity`
+- `ipcs.frontend.affinity`
+
+Если этого не сделать, то все PODы будут запущено только на одной ноде кластера
+
 ### Использования HorizontalPodAutoscaler
 
 Для использования `HorizontalPodAutoscaler` необходимо настроить параметры в YAML-секциях:
