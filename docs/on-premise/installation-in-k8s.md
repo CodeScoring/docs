@@ -24,7 +24,7 @@ kubectl create namespace codescoring
 Создать secret для доступа к приватному реестру Docker-образов системы "CodeScoring", используя адрес (`REGISTRY_URL`), логин (`USERNAME`) и пароль (`PASSWORD`), полученные от вендора.
 
 ```
-kubectl create secret docker-registry cs-registry --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
+kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
 ```
 
 Установить утилиту [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
