@@ -7,21 +7,27 @@ hide:
 
 ## Установка плагина
 
-Плагин **CodeScoring JFrog Firewall** поставляется в виде файла с расширением `.groovy`.
+Плагин **CodeScoring JFrog Firewall** поставляется в виде архива со следующей структурой:
+
+┌── `CHANGELOG.md`
+├── `codescoring.groovy`
+├── `codescoring.properties.template`
+└── `lib`
+    └── `codescoring-plugin-jfrog.jar`
+
+
 Для добавления плагина в **JFrog** необходимо:
 
-1. Скопировать полученный от вендора файл в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
-```bash
-cp jfrog-codescoring-plugin.groovy $JFROG_HOME/artifactory/var/etc/artifactory/plugins
-```
-2. Вызвать **API JFrog Pro** для загрузки плагина `POST /api/plugins/reload` например:
+1. Распаковать полученный архив в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
+2. Создать в директории файл для настройки `codescoring.properties`. Пример содержания находится в файле `codescoring.properties.template`.
+3. Вызвать **API JFrog Pro** для загрузки плагина `POST /api/plugins/reload`:
 ```curl
-curl -X POST https://jfrog_installation.local/api/plugins/reload
+curl -X POST https://[JFROG_URL]/api/plugins/reload
 ```
 
 ## Настройка плагина
 
-Файл с настройками *`codescoring.properties`* необходимо расположить в дректории `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
+Для настройки плагина используется файл `codescoring.properties`.
 
 Пример содержания:
 
@@ -33,6 +39,7 @@ responseStatus=403
 http.proxyHost=192.168.1.100
 http.proxyPort=8080
 api.timeout=60000
+blockDownloads=true
 ```
 
 ### Значение параметров
@@ -43,6 +50,7 @@ api.timeout=60000
 - **http.proxyHost** - IP (в случае использования прокси-сервера);
 - **http.proxyPort** - порт (в случае использования прокси-сервера);
 - **api.timeout** - время ожидания ответа (в миллисекундах). По умолчанию, если CodeScoring API не отвечает в течение 60 секунд, запрос будет отменен.
+- **blockDownloads** - признак блокирования загрузки компонентов. В случае выставления значения `false` компоненты будут загружаться в независимости от наличия ошибок CodeScoring API или плагина.
 
 
 **Важно**: для generic и VCS репозиториев обязательно указать один из следующих типов репозитория в поле [Internal Description](https://www.jfrog.com/confluence/display/JFROG/Repository+Management):
