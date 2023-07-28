@@ -59,21 +59,20 @@ api.timeout=60000
 
 ```
 <appender name="FILE_CODESCORING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${log.dir}/codescoring.log</File>
-        <rollingPolicy class="org.jfrog.common.logging.logback.rolling.FixedWindowWithDateRollingPolicy">
-            <FileNamePattern>${log.dir.archived}/codescoring.%i.log.gz</FileNamePattern>
-        </rollingPolicy>
-        <triggeringPolicy class="org.jfrog.common.logging.logback.triggering.SizeAndIntervalTriggeringPolicy">
-            <MaxFileSize>25MB</MaxFileSize>
-        </triggeringPolicy>
-        <encoder>
-                <pattern>%date{yyyy-MM-dd'T'HH:mm:ss.SSS, UTC+3}Z [%-5p]
-                    [%-16X{uber-trace-id}] [%-30.30(%c{3}:%L)] [%-20.20thread] - %m%n</pattern>
-        </encoder>
-    </appender>
-    <logger name="ru.codescoring" additivity="false">
-        <level value="debug" />
-        <appender-ref ref="FILE_CODESCORING" />
-    </logger>
-
+    <File>${log.dir}/codescoring.log</File>
+    <rollingPolicy class="org.jfrog.common.logging.logback.rolling.FixedWindowWithDateRollingPolicy">
+        <FileNamePattern>${log.dir.archived}/codescoring.%i.log.gz</FileNamePattern>
+    </rollingPolicy>
+    <triggeringPolicy class="org.jfrog.common.logging.logback.triggering.SizeAndIntervalTriggeringPolicy">
+        <MaxFileSize>25MB</MaxFileSize>
+    </triggeringPolicy>
+    <encoder>
+        <pattern>%date{yyyy-MM-dd'T'HH:mm:ss.SSS, UTC+3}Z [%-5p]
+            [%-16X{uber-trace-id}] [%-30.30(%c{3}:%L)] [%-20.20thread] - %m%n</pattern>
+    </encoder>
+</appender>
+<logger name="ru.codescoring" additivity="false">
+    <level value="debug" />
+    <appender-ref ref="FILE_CODESCORING" />
+</logger>
 ```
