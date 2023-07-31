@@ -74,7 +74,7 @@ kubectl apply -f ./ipcs/ipcs-env.yaml -n codescoring
 
 Запустить приложение
 
-```bash linenums="8"
+```bash linenums="9"
 kubectl kustomize ./ipcs | kubectl apply -f -
 ```
 
