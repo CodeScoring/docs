@@ -63,67 +63,22 @@ kubectl apply -f ./ipcs/ipcs-volume.yaml -n codescoring
 Задать в `ipcs-env.yaml` значения `SITE_HOST` и `NGINX_HOST` в соответствие с планируемым именем хоста.
 
 
-Применить секреты и переменные окружения.
+Задать в `./ipcs/kustomization.yaml` значение `newTag` для всех образов. Текущую версию можно получить у вендора.
+
+Запустить приложение
 
 ```bash linenums="8"
-kubectl apply -f ./ipcs/ipcs-secrets.yaml -n codescoring
-kubectl apply -f ./ipcs/ipcs-env.yaml -n codescoring
-```
-
-
-Убедиться, что PostgreSQL запущен и выполнить миграции.
-
-```bash linenums="9"
-kubectl apply -f ./ipcs/ipcs-migration.yaml -n codescoring
-```
-
-
-Создать пользователя с правами администратора.
-
-```bash linenums="10"
-kubectl apply -f ./ipcs/ipcs-createsuperuser.yaml -n codescoring
-```
-
-
-Запустить бэкенд приложения.
-
-```bash linenums="10"
-kubectl apply -f ./ipcs/ipcs-backend.yaml -n codescoring
-```
-
-
-Запустить фронтенд приложения.
-
-```bash linenums="11"
-kubectl apply -f ./ipcs/ipcs-frontend.yaml -n codescoring
-```
-
-
-Задать в `ingress/nginx-ingress.yaml` используемое значение хоста (должно совпадать с `SITE_HOST` и `NGINX_HOST` из `ipcs-env.yaml`) и запустить NGINX Ingress.
-
-```bash linenums="12"
-kubectl apply -f ./ingress/nginx-ingress.yaml -n codescoring
+kubectl kustomize ./ipcs | kubectl apply -f -
 ```
 
 ## Обновление в Kubernetes
 
-Выполнить миграции.
+Задать в `./ipcs/kustomization.yaml` значение `newTag` для всех образов. Текущую версию можно получить у вендора.
 
-```bash linenums="1"
-kubectl apply -f ./ipcs/ipcs-migration.yaml -n codescoring
+Запустить обновление приложения
+
 ```
-
-Обновить бэкенд приложения.
-
-```bash linenums="2"
-kubectl apply -f ./ipcs/ipcs-backend.yaml -n codescoring
-```
-
-
-Обновить фронтенд приложения.
-
-```bash linenums="3"
-kubectl apply -f ./ipcs/ipcs-frontend.yaml -n codescoring
+kubectl kustomize ./ipcs | kubectl apply -f -
 ```
 
 ## Резервное копирование
