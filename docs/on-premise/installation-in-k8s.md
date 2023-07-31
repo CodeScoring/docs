@@ -63,6 +63,13 @@ kubectl apply -f ./ipcs/ipcs-volume.yaml -n codescoring
 Задать в `ipcs-env.yaml` значения `SITE_HOST` и `NGINX_HOST` в соответствие с планируемым именем хоста.
 
 
+Применить секреты и переменные окружения.
+
+```bash linenums="8"
+kubectl apply -f ./ipcs/ipcs-secrets.yaml -n codescoring
+kubectl apply -f ./ipcs/ipcs-env.yaml -n codescoring
+```
+
 Задать в `./ipcs/kustomization.yaml` значение `newTag` для всех образов. Текущую версию можно получить у вендора.
 
 Запустить приложение
