@@ -9,11 +9,15 @@ hide:
 
 Плагин **CodeScoring JFrog Firewall** поставляется в виде архива со следующей структурой:
 
-┌── `CHANGELOG.md`
-├── `codescoring.groovy`
-├── `codescoring.properties.template`
-└── `lib`
-    └── `codescoring-plugin-jfrog.jar`
+
+```
+.
+├── CHANGELOG.md
+├── codescoring.groovy
+├── codescoring.properties.template
+└── lib
+    └── codescoring-plugin-jfrog.jar
+```
 
 
 Для добавления плагина в **JFrog** необходимо:
