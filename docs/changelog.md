@@ -6,6 +6,10 @@ hide:
 
 ## Codescoring On-prem
 
+## [2023.31.0] - 2023-08-04
+
+- Ускорена работа CodeScoring Firewall
+
 ### [2023.30.0] - 2023-07-27
 
 - Добавлена fixed version в таблице Affected dependencies на странице уязвимости
