@@ -6,7 +6,7 @@ hide:
 
 ## Codescoring On-prem
 
-## [2023.31.0] - 2023-08-04
+### [2023.31.0] - 2023-08-04
 
 - Ускорена работа CodeScoring Firewall
 
