@@ -66,7 +66,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ### Настройка логирования
 
-Для настроек логирования событий плагина необходимо зайти в раздел `Support -> Logging` и добавить логгер **ru.codescoring** c уровнем логгирования **DEBUG**.
+Для настройки логирования событий плагина необходимо зайти в раздел `Support -> Logging` и добавить логгер с названием **ru.codescoring** и уровнем логирования **DEBUG**.
 
 ![NXRM logs](/assets/img/firewall/nxrm_logs.png)
 
