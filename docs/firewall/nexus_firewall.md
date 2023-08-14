@@ -2,12 +2,12 @@
 hide:
   - footer
 ---
-# CodeScoring OSS Firewall
-
+# CodeScoring NXRM Firewall
 
 ## Установка плагина
 
-Плагин **CodeScoring OSS Firewall** поставляется в виде **JAR**-файла.
+Плагин **CodeScoring NXRM Firewall** поставляется в виде JAR-файла и поддерживает версии Nexus Repository Manager **3.39.0-01** и выше.
+
 Для добавления плагина в **NXRM** необходимо:
 
 1. Скопировать полученный от вендора файл `nexus-codescoring-plugin.jar` в директорию `/opt/sonatype/nexus/deploy`:
@@ -27,13 +27,11 @@ chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
 
-
 После выполненных операций, необходимо произвести перезапуск **NXRM**.
 
 ## Настройка плагина
 
-Для применения плагина **CodeScoring Firewall** в дальнейшей работе, необходимо использовать механизм **Capability** предоставляемый **NXRM**. 
-**Capability** это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
+Для применения плагина **CodeScoring Firewall** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **NXRM**. **Capability** – это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
 
 Плагин **CodeScoring Firewall** предоставляет две новые **Capability**:
 
@@ -65,3 +63,28 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Delete blocked by policy component from repository** – принудительное удаление блокируемых компонентов из репозитория (*создание "стерильного" репозитория*)
 
 ![CodeScoring capability scan settings example](/assets/img/firewall/capability_scan_settings_example.png)
+
+### Настройка логирования
+
+Для настроек логирования событий плагина необходимо зайти в раздел `Support -> Logging` и добавить логгер **ru.codescoring** c уровнем логгирования **DEBUG**.
+
+![NXRM logs](/assets/img/firewall/nxrm_logs.png)
+
+## Пример работы плагина
+
+После проверки компонента информация о нем будет отображаться в разделе **Attributes**:
+
+![NXRM attributes example](/assets/img/firewall/nxrm_attributes.png)
+
+- **vulnerabilities** - список найденных уязвимостей;
+- **licenses** - список найденных лицензий;
+- **release date** - дата выхода компонента;
+- **index URL** - ссылка на страницу компонента в индексе;
+- **authors** - авторы компонента;
+- **homepage** - ссылка на исходную страницу компонента.
+
+Компонент, не прошедший проверку, блокируется на этапе попадания в прокси-репозиторий. Ответ от плагина в таком случае имеет следующее содержание:
+
+```
+Build is blocked due to: github.com/kyokumi/emoji
+```
