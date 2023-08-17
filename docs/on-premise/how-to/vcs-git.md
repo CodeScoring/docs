@@ -34,7 +34,7 @@ hide:
 10. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 11. Нажать **Setup new** в правом верхнем углу.
 12. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form for GitHub](/assets/img/github/cs-vcs-form.png)
+    ![VCS form for GitHub](/assets/img/github/cs-vcs-form-github.png)
 
 
 ## Добавление токена для GitLab
@@ -58,7 +58,7 @@ hide:
 8. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 9.  Нажать **Setup new** в правом верхнем углу.
 10. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form for GitLab](/assets/img/gitlab/cs-vcs-form.png)
+    ![VCS form for GitLab](/assets/img/gitlab/cs-vcs-form-gitlab.png)
 
 
 ## Добавление токена для BitBucket Data Center и Server
@@ -77,7 +77,7 @@ hide:
 10. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 11. Нажать **Setup new** в правом верхнем углу.
 12. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form for BitBucket Server](/assets/img/bitbucket/cs-vcs-form.png)
+    ![VCS form for BitBucket Server](/assets/img/bitbucket/cs-vcs-form-bitbucket.png)
 
 ## Добавление токена для Azure DevOps Git
 
@@ -96,4 +96,4 @@ hide:
 8. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
 9. Нажать **Setup new** в правом верхнем углу.
 10. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form for Azure](/assets/img/azure/cs-vcs-form.png)
+    ![VCS form for Azure](/assets/img/azure/cs-vcs-form-azure.png)
