@@ -2,13 +2,13 @@
 hide:
   - footer
 ---
-# CodeScoring JFrog Firewall (совместим только с коммерческой версией JFrog Pro)
-
+# CodeScoring JFrog Firewall 
 
 ## Установка плагина
 
-Плагин **CodeScoring JFrog Firewall** поставляется в виде архива со следующей структурой:
+Плагин **CodeScoring JFrog Firewall** совместим только с коммерческой версией JFrog Pro и поддерживает версии **7.4.3** и выше.
 
+Плагин поставляется в виде архива со следующей структурой:
 
 ```
 .
@@ -19,7 +19,6 @@ hide:
     └── codescoring-plugin-jfrog.jar
 ```
 
-
 Для добавления плагина в **JFrog** необходимо:
 
 1. Распаковать полученный архив в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
@@ -27,6 +26,15 @@ hide:
 3. Вызвать **API JFrog Pro** для загрузки плагина `POST /api/plugins/reload`:
 ```curl
 curl -X POST https://[JFROG_URL]/api/plugins/reload
+```
+
+## Проверка установки плагина
+
+Для проверки установки плагина в системе необходимо проверить логи сервиса. При успешной загрузке и инициализации в логах появится сообщение следующего содержания:
+
+```
+2023-08-08T09:41:35.105Z [jfrt ] [INFO ] [70be801ff583b741] [r.c.p.codescoring:16          ] [art-init            ] - CodeScoring: Initialization of CodeScoringPlugin completed
+
 ```
 
 ## Настройка плагина
@@ -47,6 +55,7 @@ blockDownloads=true
 ```
 
 ### Значение параметров
+
 - **token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
 - **codeScoringUrl** – адрес **on-premise** инсталляции **CodeScoring**;
 - **repoKeys** – массив репозиториев при работе с которыми будет применяться плагин;
@@ -66,6 +75,8 @@ blockDownloads=true
 - cocoapods
 - go
 - gems
+
+### Настройка логирования
 
 Для настроек логирования событий плагина необходимо добавить в файл `logback.xml` следующее содержание:
 
@@ -87,4 +98,25 @@ blockDownloads=true
     <level value="debug" />
     <appender-ref ref="FILE_CODESCORING" />
 </logger>
+```
+
+## Пример работы плагина
+
+После проверки компонента информация о нем будет отображаться на вкладке **Properties**.
+
+![Jfrog attributes example](/assets/img/firewall/jfrog_attributes.png)
+
+Параметры с префиксом **сodescoring** относятся к данным с инсталляции:
+
+- **issue.licenses** - список найденных лицензий;
+- **issue.vulnerabilities** - список найденных уязвимостей;
+- **release.Date** - дата выхода компонента;
+- **authors** - авторы компонента;
+- **homepage** - ссылка на домашнюю страницу компонента;
+- **indexUrl** - ссылка на страницу компонента в индексе пакетного менеджера.
+
+Загрузка компонентов, не прошедших проверку, блокируется на этапе попадания в прокси-репозиторий. Ответ от плагина в таком случае имеет следующее содержание:
+
+```
+Error downloading packages: [package_name]
 ```
