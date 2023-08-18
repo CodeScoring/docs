@@ -14,11 +14,15 @@ hide:
 
 В режиме [сканирования образов](#_4) агент исследует файловую систему указанного образа, производя инвентаризацию компонентного состава.
 
-По окончанию работы формируется **sbom** файл и в консоль выводится информация о найденных уязвимостях и сработавших политиках.
+По окончанию работы формируется **SBOM** файл и в консоль выводится информация о найденных уязвимостях и сработавших политиках.
 
-Пример вывода результата работы агента в консоль:
+Пример вывода найденных уязвимостей:
 
-![Johnny example](/assets/img/johnny_output.png)
+![Johnny example with vulnerabilities](/assets/img/johnny_output_vulnerabilities.png)
+
+Пример вывода сработавших политик:
+
+![Johnny example with policy alerts](/assets/img/johnny_output_alerts.png)
 
 ## Настройка через конфигурационный файл
 
@@ -111,7 +115,7 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2023.26.0
+Version: 2023.33.0
 
 Usage:
    scan [command]
@@ -248,17 +252,16 @@ Use " scan [command] --help" for more information about a command.
 
 Пример вызова на текущей директории
 
-
 ```bash
 docker run -v \
     $(pwd):/code \
+    -a stdout \
     <registry-address>/johnny-depp:<version> \
     --api_token <api_token> \
     --api_url <api_url> \
     --ignore .tmp --ignore fixtures --ignore .git \
      . 
 ```
-
 
 ## Добавление в Gitlab CI
 
