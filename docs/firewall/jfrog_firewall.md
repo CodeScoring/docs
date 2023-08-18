@@ -117,4 +117,6 @@ blockDownloads=true
 
 Загрузка компонентов, не прошедших проверку, блокируется на этапе попадания в прокси-репозиторий. Ответ от плагина в таком случае имеет следующее содержание:
 
-![Jfrog blocked download](/assets/img/firewall/jfrog_blocked_download.gif)
+```
+Error downloading packages: [package_name]
+```
