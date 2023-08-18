@@ -40,7 +40,7 @@ kubectl apply -f ./postgres/postgres.yaml -n codescoring
 
 Создать необходимые для системы тома.
 
-```bash linenums="6"
+```bash linenums="5"
 kubectl apply -f ./ipcs/ipcs-volumes-claim.yaml -n codescoring
 kubectl apply -f ./ipcs/ipcs-volume.yaml -n codescoring
 ```
@@ -65,7 +65,7 @@ kubectl apply -f ./ipcs/ipcs-volume.yaml -n codescoring
 
 Применить секреты и переменные окружения.
 
-```bash linenums="8"
+```bash linenums="6"
 kubectl apply -f ./ipcs/ipcs-secrets.yaml -n codescoring
 kubectl apply -f ./ipcs/ipcs-env.yaml -n codescoring
 ```
@@ -74,7 +74,7 @@ kubectl apply -f ./ipcs/ipcs-env.yaml -n codescoring
 
 Запустить приложение
 
-```bash linenums="9"
+```bash linenums="7"
 kubectl kustomize ./ipcs | kubectl apply -f -
 ```
 
