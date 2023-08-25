@@ -70,3 +70,4 @@ nav:
     - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
     - Работа с API: on-premise/how-to/api.md
     - Настройка уведомлений: on-premise/how-to/notifications.md
+    - Работа с аудит-логом: on-premise/how-to/audit-log.md
