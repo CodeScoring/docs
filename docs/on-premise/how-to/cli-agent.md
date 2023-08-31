@@ -260,7 +260,7 @@ docker run -v \
     --api_token <api_token> \
     --api_url <api_url> \
     --ignore .tmp --ignore fixtures --ignore .git \
-     . 
+    scan dir .
 ```
 
 ## Добавление в Gitlab CI
@@ -339,3 +339,31 @@ pipeline {
 - `save-results` — флаг сохранения результатов, по умолчанию стоит значение **false**.
 
 Если CLI-проект не создан в системе заранее, его можно добавить, добавив в команду вызова johnny или указав в config-файле параметр `--create-project`.
+
+## Улучшение композиционного анализа при работе с JAVA и .NET 
+
+В случае отсутствия локфайлов перед вызовом консольного агента необходимо создать артефакты **dependency tree**.
+
+Команда для **Apache Maven**:
+
+```
+mvn dependency:tree  > maven-dependency-tree.txt
+```
+
+Альтернативная команда:
+
+```
+mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
+```
+
+Команда для **Gradle**:
+
+```
+./gradlew dependencies > gradle-dependency-tree.txt
+```
+
+После создания артефактов необходимо применить команду `scan file` для полученного артефакта, например:
+
+``` bash
+./johnny scan file --api_token <api_token> --api_url <api_url> --ignore .git scan dir ./maven-dependency-tree.txt
+```
