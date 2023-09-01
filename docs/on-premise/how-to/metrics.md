@@ -10,7 +10,7 @@ CodeScoring поддерживает отслеживание метрик с и
 
 1. Открыть файл конфигурации prometheus.yml и добавить параметры для мониторинга метрик Huey. Ниже приведен пример:
 
-```yaml
+  ```yaml
    global:
      scrape_interval: 15s
 
@@ -19,16 +19,14 @@ CodeScoring поддерживает отслеживание метрик с и
        metrics_path: '/api/metrics'
        static_configs:
          - targets: ['{installation url}'] # Адрес хоста инсталляции
-```
-
+  ```
 2. Перезапустить Prometheus, чтобы изменения вступили в силу.
 
 3. Открыть интерфейс Prometheus и перейти на страницу **Graph**. В поле запроса введите название одной из метрик Huey:
 
-- `ipcs_huey_queue_size_total` – общее количество запросов в очереди;
-- `ipcs_huey_running_tasks_total` – количество выполняющихся запросов.
+    - `ipcs_huey_queue_size_total` – общее количество запросов в очереди;
+    - `ipcs_huey_running_tasks_total` – количество выполняющихся запросов.
 
 Пример визуализации метрик:
 
 ![Prometheus metrics](/assets/img/prometheus_metrics.png)
-
