@@ -44,14 +44,13 @@ hide:
 | Текст события  |  Расшифровка |
 |----------------|--------------|
 |*[SCA][{analysis_run.project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analysis started*|SCA анализ проекта запущен|
-|*[SCA][{analysis_run.project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analysis finished*|SCA анализ проектаокончен|
+|*[SCA][{analysis_run.project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analysis finished*|SCA анализ проекта окончен|
 |*[SCA][{analysis_run.project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analysis failed. Check server logs.*|SCA анализ проекта завершился с ошибкой. Необходимо проверить логи сервера.|
 |*Failed to clone for repository {repository.name}.*|Клонирование репозитория не удалось|
 |*Failed to detect branch for repository "{repository.name}*|Не удалось обнаружить ветку для репозитория|
-|*[{analysis_run.pk}][{project.name}][{analysis_run.sequence}] Clone source code*|Клонирование исходного кода проекта запущено|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Clone source code*|Клонирование исходного кода проекта запущено|
-|*SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Collect files data*|Сбор данных о файлах проекта запущен|
-|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Collect manifests*|Сбор манифестов проекта запущен|
+|*SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Collect files data*|Поиск данных о файлах проекта запущен|
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Collect manifests*|Поиск манифестов проекта запущен|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Create pipeline*|Создание pipeline для SCA анализа проекта запущено|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Check policies*|Проверка политик SCA анализа проекта запущена|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Update project metrics*|Обновление метрик проекта для SCA анализа проекта запущено|
