@@ -171,10 +171,11 @@ Use " scan [command] --help" for more information about a command.
 Пример запуска на директорию:
 
 ```bash
-./johnny scan dir . \
+./johnny \
 --api_token <api_token> \
 --api_url <api_url> \
---ignore .tmp --ignore fixtures --ignore .git 
+--ignore .tmp --ignore fixtures --ignore .git \
+scan dir .
 ```
 
 ## Сканирование архивов
@@ -209,34 +210,38 @@ Use " scan [command] --help" for more information about a command.
   - пути до **tar**-архива созданного с использованием **docker save**:
   
     ```bash
-    ./johnny scan image ./my_own.tar \
+    ./johnny\
     --api_url <api_url> \
-    --api_token <api_token>
+    --api_token <api_token> \
+    scan image ./my_own.tar
     ```
 
   - названия образа находящегося в демоне **Docker**, **Podman**:
   
     ```bash
-    ./johnny scan image docker:python:3.9 \
+    ./johnny \
     --api_url <api_url> \
-    --api_token=<api_token> 
+    --api_token <api_token> \
+    scan image docker:python:3.9
     ```
 
   - названия образа из публичного **Docker HUB**:
   
     ```bash
-    ./johnny scan image python:3.9
-     --api_url=<api_url> \
-    --api_token <api_token> 
+    ./johnny \
+    --api_url <api_url> \
+    --api_token <api_token> \
+    scan image python:3.9
     ```
 
   - названия образа из приватного **registry**:
 
     Перед работой с приватным репозиторием нужно выполнить команду ```docker login```
     ```bash
-    ./johnny scan image pvt_registry/johnny-depp:<version> \
+    ./johnny\
      --api_url <api_url> \
-     --api_token <api_token> 
+     --api_token <api_token> \
+     scan image pvt_registry/johnny-depp:<version> 
     ```
     
   Альтернативно можно авторизоваться в приватном registry с помощью переменных окружения:
@@ -264,14 +269,14 @@ Use " scan [command] --help" for more information about a command.
 Пример вызова на текущей директории
 
 ```bash
-docker run -v \
-    $(pwd):/code \
+docker run --rm \
+    -v $(pwd):/code \
     -a stdout \
     <registry-address>/johnny-depp:<version> \
     --api_token <api_token> \
     --api_url <api_url> \
     --ignore .tmp --ignore fixtures --ignore .git \
-     . 
+    scan dir .
 ```
 
 ## Добавление в Gitlab CI
