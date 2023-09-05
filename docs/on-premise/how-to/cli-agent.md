@@ -357,3 +357,35 @@ pipeline {
 - `save-results` — флаг сохранения результатов, по умолчанию стоит значение **false**.
 
 Если CLI-проект не создан в системе заранее, его можно добавить, добавив в команду вызова johnny или указав в config-файле параметр `--create-project`.
+
+## Улучшение композиционного анализа при работе с Java и .NET 
+
+Для повышения качества композиционного анализа при работе со стэками Java и .NET перед вызовом консольного агента необходимо создать дополнительные артефакты.
+
+Команда для **Apache Maven**:
+
+```
+mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
+```
+
+Команда для **Gradle**:
+
+```
+./gradlew dependencies > gradle-dependency-tree.txt
+```
+
+Команда для **.NET**:
+
+```
+dotnet list {manifest-name} package --include-transitive
+```
+
+После создания артефактов необходимо применить команду `scan file` для полученного артефакта, например:
+
+``` bash
+./johnny \
+scan file ./maven-dependency-tree.txt \
+--api_token <api_token> \
+--api_url <api_url> \
+--ignore .git
+```
