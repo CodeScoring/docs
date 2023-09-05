@@ -171,7 +171,11 @@ Use " scan [command] --help" for more information about a command.
 Пример запуска на директорию:
 
 ```bash
-./johnny scan dir --api_token <api_token> --api_url <api_url> --ignore .tmp --ignore fixtures --ignore .git .
+./johnny \
+scan dir . \
+--api_token <api_token> \
+--api_url <api_url> \
+--ignore .tmp --ignore fixtures --ignore .git 
 ```
 
 ## Сканирование архивов
@@ -199,33 +203,45 @@ Use " scan [command] --help" for more information about a command.
 - `.nupkg`
 - `.whl`
 
-## Сканирование образов
+## Сканирование Docker образов
 
 Агент поддерживает функциональность сканирования образов в стандартах OCI и Docker и может быть запущен одним из перечисленных способов с указанием:
 
   - пути до **tar**-архива созданного с использованием **docker save**:
   
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> ./my_own.tar
+    ./johnny \
+    scan image ./my_own.tar \
+    --api_url <api_url> \
+    --api_token <api_token> 
     ```
 
   - названия образа находящегося в демоне **Docker**, **Podman**:
   
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> docker:python:3.9
+    ./johnny \
+    scan image docker:python:3.9 \
+    --api_url <api_url> \
+    --api_token <api_token> 
     ```
 
   - названия образа из публичного **Docker HUB**:
   
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> python:3.9
+    ./johnny \
+    scan image python:3.9 \
+    --api_url <api_url> \
+    --api_token <api_token> 
     ```
 
   - названия образа из приватного **registry**:
 
     Перед работой с приватным репозиторием нужно выполнить команду ```docker login```
     ```bash
-    ./johnny scan image --api_url=<api_url> --api_token=<api_token> pvt_registry/johnny-depp:<version>
+    ./johnny \
+    scan image pvt_registry/johnny-depp:<version> \
+     --api_url <api_url> \
+     --api_token <api_token> 
     ```
     
   Альтернативно можно авторизоваться в приватном registry с помощью переменных окружения:
@@ -250,18 +266,20 @@ Use " scan [command] --help" for more information about a command.
 
 Для работы запуска через Docker в данный момент нужна активная [авторизация в registry с образами системы](/on-premise/installation).
 
-Пример вызова на текущей директории
+Пример вызова на текущей директории:
 
 ```bash
-docker run -v \
-    $(pwd):/code \
+docker run --rm \
+    -v $(pwd):/code \
     -a stdout \
     <registry-address>/johnny-depp:<version> \
+    scan dir . \
     --api_token <api_token> \
     --api_url <api_url> \
-    --ignore .tmp --ignore fixtures --ignore .git \
-    scan dir .
+    --ignore .tmp --ignore fixtures --ignore .git 
 ```
+
+Параметр `-a stdout` необходим для корректного отображения таблиц **Vulnerabilties** и **Policy Alerts** при запуска агента через Docker.
 
 ## Добавление в Gitlab CI
 

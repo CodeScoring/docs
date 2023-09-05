@@ -18,8 +18,8 @@ hide:
 - Удален deprecated endpoint `/api/policy_alerts/ignored/`
 - Удален deprecated endpoint `/api/policy_alerts/resolved/`
 - Удален deprecated endpoint `/api/policy_alerts/`
-- Исправлена ошибка 500 на API OSA "Connection already closed"
-- Исправлен вывод доступных опций для технологий на списке Policy ignores
+- Исправлена ошибка 500 "Connection already closed" в API OSA 
+- Исправлен вывод доступных технологий в списке Policy ignores
 - Исправлена работа политики по purl и CVSS для rpm
 - Убран текст лицензий из SBoM
 
