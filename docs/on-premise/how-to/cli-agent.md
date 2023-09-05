@@ -342,15 +342,9 @@ pipeline {
 
 ## Улучшение композиционного анализа при работе с Java и .NET 
 
-В случае отсутствия локфайлов при работе со стэками Java и .NET перед вызовом консольного агента необходимо создать артефакты **dependency tree**.
+Для повышения качества композиционного анализа при работе со стэками Java и .NET перед вызовом консольного агента необходимо создать дополнительные артефакты.
 
 Команда для **Apache Maven**:
-
-```
-mvn dependency:tree  > maven-dependency-tree.txt
-```
-
-Альтернативная команда:
 
 ```
 mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
@@ -362,8 +356,18 @@ mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
 ./gradlew dependencies > gradle-dependency-tree.txt
 ```
 
+Команда для **.NET**:
+
+```
+dotnet list {manifest-name} package --include-transitive
+```
+
 После создания артефактов необходимо применить команду `scan file` для полученного артефакта, например:
 
 ``` bash
-./johnny scan file --api_token <api_token> --api_url <api_url> --ignore .git scan dir ./maven-dependency-tree.txt
+./johnny \
+scan file ./maven-dependency-tree.txt \
+--api_token <api_token> \
+--api_url <api_url> \
+--ignore .git
 ```
