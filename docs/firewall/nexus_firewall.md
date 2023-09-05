@@ -85,7 +85,4 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 Загрузка компонентов, не прошедших проверку, блокируется на этапе попадания в прокси-репозиторий. Ответ от плагина в таком случае имеет следующее содержание:
 
-```
-E: Failed to fetch [link_to_package] 403
-Blocked by [policy_name]
-```
+![Nexus blocked download](/assets/img/firewall/nexus_blocked_download.gif)
