@@ -172,10 +172,10 @@ Use " scan [command] --help" for more information about a command.
 
 ```bash
 ./johnny \
+scan dir . \
 --api_token <api_token> \
 --api_url <api_url> \
---ignore .tmp --ignore fixtures --ignore .git \
-scan dir .
+--ignore .tmp --ignore fixtures --ignore .git 
 ```
 
 ## Сканирование архивов
@@ -210,38 +210,38 @@ scan dir .
   - пути до **tar**-архива созданного с использованием **docker save**:
   
     ```bash
-    ./johnny\
+    ./johnny \
+    scan image ./my_own.tar \
     --api_url <api_url> \
     --api_token <api_token> \
-    scan image ./my_own.tar
     ```
 
   - названия образа находящегося в демоне **Docker**, **Podman**:
   
     ```bash
     ./johnny \
+    scan image docker:python:3.9 \
     --api_url <api_url> \
     --api_token <api_token> \
-    scan image docker:python:3.9
     ```
 
   - названия образа из публичного **Docker HUB**:
   
     ```bash
     ./johnny \
+    scan image python:3.9 \
     --api_url <api_url> \
-    --api_token <api_token> \
-    scan image python:3.9
+    --api_token <api_token> 
     ```
 
   - названия образа из приватного **registry**:
 
     Перед работой с приватным репозиторием нужно выполнить команду ```docker login```
     ```bash
-    ./johnny\
+    ./johnny \
+    scan image pvt_registry/johnny-depp:<version> \
      --api_url <api_url> \
-     --api_token <api_token> \
-     scan image pvt_registry/johnny-depp:<version> 
+     --api_token <api_token> 
     ```
     
   Альтернативно можно авторизоваться в приватном registry с помощью переменных окружения:
@@ -273,11 +273,13 @@ docker run --rm \
     -v $(pwd):/code \
     -a stdout \
     <registry-address>/johnny-depp:<version> \
+    scan dir . \
     --api_token <api_token> \
     --api_url <api_url> \
-    --ignore .tmp --ignore fixtures --ignore .git \
-    scan dir .
+    --ignore .tmp --ignore fixtures --ignore .git 
 ```
+
+Параметр `-a stdout` необходим для корректного отображения таблиц **Vulnerabilties** и **Policy Alerts** при запуска агента через Docker.
 
 ## Добавление в Gitlab CI
 
