@@ -213,7 +213,7 @@ scan dir . \
     ./johnny \
     scan image ./my_own.tar \
     --api_url <api_url> \
-    --api_token <api_token> \
+    --api_token <api_token> 
     ```
 
   - названия образа находящегося в демоне **Docker**, **Podman**:
@@ -222,7 +222,7 @@ scan dir . \
     ./johnny \
     scan image docker:python:3.9 \
     --api_url <api_url> \
-    --api_token <api_token> \
+    --api_token <api_token> 
     ```
 
   - названия образа из публичного **Docker HUB**:
@@ -266,7 +266,7 @@ scan dir . \
 
 Для работы запуска через Docker в данный момент нужна активная [авторизация в registry с образами системы](/on-premise/installation).
 
-Пример вызова на текущей директории
+Пример вызова на текущей директории:
 
 ```bash
 docker run --rm \
