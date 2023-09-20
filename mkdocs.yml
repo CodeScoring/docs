@@ -9,6 +9,7 @@ theme:
     - navigation.tracking
     - navigation.expand
     - navigation.indexes
+    - content.code.copy
 
 copyright: Copyright &copy; 2018 - 2023 Profiscope
 
