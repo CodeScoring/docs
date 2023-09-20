@@ -127,6 +127,10 @@ hide:
 
 ## Johnny
 
+### [2023.38.0] - 2023-09-20
+
+- Улучшен разбор манифестов package.json и composer.json
+
 ### [2023.35.0] - 2023-08-31
 
 - Улучшен парсинг поля environment для манифестов `Gemfile` и `Gemfile.lock`
