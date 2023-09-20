@@ -2,7 +2,7 @@
 hide:
   - footer
 ---
-# CodeScoring JFrog Firewall 
+# CodeScoring JFrog Firewall
 
 ## Установка плагина
 
@@ -34,7 +34,6 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 
 ```
 2023-08-08T09:41:35.105Z [jfrt ] [INFO ] [70be801ff583b741] [r.c.p.codescoring:16          ] [art-init            ] - CodeScoring: Initialization of CodeScoringPlugin completed
-
 ```
 
 ## Настройка плагина
@@ -46,7 +45,7 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 ```
 token=0d496e5e7153d98fd346d7498cdf2dc61a669086
 codeScoringUrl=https://on-premises.codescoring.ru/
-repoKeys=["pypi-remote", "maven-remote"]
+repoKeys=pypi-remote,maven-remote
 responseStatus=403
 http.proxyHost=192.168.1.100
 http.proxyPort=8080
