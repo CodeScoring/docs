@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Добавление в Jenkins pipeline
 
 Консольный агент поддерживает добавление в Jenkins Pipeline.

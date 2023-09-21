@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Запуск с помощью Docker
 
 Для работы запуска через Docker в данный момент нужна активная [авторизация в registry с образами системы](/on-premise/installation).
