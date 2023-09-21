@@ -66,9 +66,19 @@ nav:
     - Настройка Email: on-premise/how-to/email-settings.md
     - Настройка LDAP: on-premise/how-to/ldap-settings.md
     - Настройка интеграции с Jira: on-premise/how-to/jira.md
-    - Работа с консольным агентом: on-premise/how-to/cli-agent.md
     - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
     - Настройка уведомлений: on-premise/how-to/notifications.md
     - Работа с API: on-premise/how-to/api.md
     - Работа с аудит-логом: on-premise/how-to/audit-log.md
     - Настройка метрик: on-premise/how-to/metrics.md
+  - Работа с консольным агентом:
+    - agent/index.md
+    - Настройка через конфигурационный файл: agent/config.md
+    - Сканирование директории: agent/scan-dir.md
+    - Сканирование архивов: agent/scan-archive.md
+    - Сканирование Docker образов: agent/scan-docker.md
+    - Запуск с помощью Docker: agent/launch-docker.md
+    - Добавление в Gitlab CI: agent/gitlab-ci.md
+    - Добавление в Jenkins Pipeline: agent/jenkins-pipeline.md
+    - Сохранение результатов сканирования: agent/save-results.md
+    - Улучшение композиционного анализа при работе с Java и .NET: agent/java-dotnet.md
