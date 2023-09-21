@@ -47,7 +47,12 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 Расширение позволяет задать общие настройки плагина для работы с **on-premise** версией **CodeScoring**:
 
 - **CodeScoring Token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
-- **CodeScoring URL** – адрес **on-premise** инсталляции **CodeScoring**.
+- **CodeScoring URL** – адрес **on-premise** инсталляции **CodeScoring**;
+- **HttpClient Connection Pool Size** – количество доступных соединений;
+- **HTTP Proxy Host** – адрес прокси-сервера;
+- **HTTP Proxy Port** – порт прокси-сервера;
+- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов загрузки пакета с возможностью извлечения из API;
+- **If unset doesn't block builds on plugin or codescoring errors** – блокировка сборки при наличии ошибок от плагина или CodeScoring API.
 
 ![CodeScoring capability config settings example](/assets/img/firewall/capability_config_settings_example.png)
 
