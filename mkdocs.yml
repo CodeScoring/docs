@@ -73,7 +73,6 @@ nav:
     - Настройка метрик: on-premise/how-to/metrics.md
   - Работа с консольным агентом:
     - agent/index.md
-    - Принцип работы: agent/principle.md
     - Настройка через конфигурационный файл: agent/config.md
     - Сканирование директории: agent/scan-dir.md
     - Сканирование архивов: agent/scan-archive.md
