@@ -23,12 +23,12 @@ hide:
     docker-compose -p PROJECT_NAME up -d --force-recreate
     ```
 
-**Важно**: для обновления до версии **2023.31.0** или выше, необходимо предварительно выполнить следующие действия:
+**Важно**: для обновления до версии **2023.38.0** или выше, необходимо предварительно выполнить следующие действия:
 
 1. В зависимости от используемого Docker Compose:
 
-- Если используется Docker Compose CodeScoring без изменений, необходимо взять актуальную версию файла `docker-compose.yml` из открытого репозитория Codescoring: https://github.com/CodeScoring/on-premise-docker-compose/blob/master/docker-compose.yml;
-- Если используетcя собственный Docker Compose, требуется внести изменения в docker-compose.yaml согласно diff из следующего коммита: https://github.com/CodeScoring/on-premise-docker-compose/commit/197f40d083b7c71a115a63cf193281bc61c21b77).
+    - Если используется Docker Compose CodeScoring без изменений, необходимо взять актуальную версию файла `docker-compose.yml` из [открытого репозитория Codescoring](https://github.com/CodeScoring/on-premise-docker-compose/blob/master/docker-compose.yml);
+    - Если используетcя собственный Docker Compose, требуется внести изменения в `docker-compose.yaml` согласно diff из [коммита](https://github.com/CodeScoring/on-premise-docker-compose/commit/913b2869ecc572541ea9dfd7a6c070d41677db58).
 
 2. Внести в `.env` файл две переменные со следующими значениями:
 
