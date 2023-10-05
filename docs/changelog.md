@@ -8,7 +8,7 @@ hide:
 
 ### [2023.40.0] - 2023-10-04
 
-- Добавлена возможность сканирования образов из Hosted Docker Repository
+- Добавлена возможность сканирования образов из Hosted Docker Repository на базе Sonatype Nexus Repository и JFrog Artifactory
 - Добавлена возможность блокировки скачивания образов при несоответствии политикам безопасности
 
 ### [2023.38.0] - 2023-09-20
@@ -220,7 +220,7 @@ hide:
 
 ### [2023.40.0] - 2023-10-04
 
-- Добавлена Capability для проверки образов из Hosted Docker Repository
+- Добавлена Capability для проверки образов из Hosted Docker Repository на базе Sonatype Nexus Repository и JFrog Artifactory
 
 ## JFrog Firewall Plugin
 
