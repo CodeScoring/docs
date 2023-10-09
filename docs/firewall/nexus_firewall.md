@@ -33,7 +33,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 Для применения плагина **CodeScoring Firewall** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **NXRM**. **Capability** – это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
 
-Плагин **CodeScoring Firewall** предоставляет две новые **Capability**:
+Плагин **CodeScoring Firewall** предоставляет три новые **Capability**:
 
 - **CodeScoring Configuration** — настройка взаимодействия с **on-premise** инсталляцией **CodeScoring**.
 - **CodeScoring Scan** — настройка сканирования для отдельно выбранного прокси-репозитория.
