@@ -37,6 +37,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 - **CodeScoring Configuration** — настройка взаимодействия с **on-premise** инсталляцией **CodeScoring**.
 - **CodeScoring Scan** — настройка сканирования для отдельно выбранного прокси-репозитория.
+- **CodeScoring Docker Repository Scan** – настройка сканирования для hosted docker репозитория.
 
 После установки плагина **CodeScoring Firewall** в разделе `System -> Capabilities` появится возможность создания **Capability** через элемент (`+ Create capability`) интерфейса.
 
@@ -51,8 +52,8 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **HttpClient Connection Pool Size** – количество доступных соединений;
 - **HTTP Proxy Host** – адрес прокси-сервера;
 - **HTTP Proxy Port** – порт прокси-сервера;
-- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов загрузки пакета с возможностью извлечения из API;
-- **If unset doesn't block builds on plugin or codescoring errors** – блокировка сборки при наличии ошибок от плагина или CodeScoring API.
+- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов сканирования артифакта с возможностью извлечения из API;
+- **Block downloads in case of plugin or CodeScoring errors** – блокировка сборки при наличии ошибок от плагина или CodeScoring API.
 
 ![CodeScoring capability config settings example](/assets/img/firewall/capability_config_settings_example.png)
 
@@ -60,14 +61,26 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ### Capability CodeScoring Scan
 
-Расширение позволяет установить функцию фаерволинга (экранирования) на выбранный прокси репозиторий:
+Расширение позволяет установить функцию экранирования на выбранный прокси репозиторий со следующими параметрами:
 
-- **Repository** – выбор репозитория, для которого будет применена функция фаерволинга;
-- **Security violation response status** – код ошибки, возвращаемый при срабатывания политик безопасности;
+- **Repository** – выбор репозитория, для которого будет применена функция экранирования;
+- **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **Run manual scan on save** – запускает принудительное сканирование компонентов относящихся к выбранному прокси репозиторию при нажатии кнопки save;
 - **Delete blocked by policy component from repository** – принудительное удаление блокируемых компонентов из репозитория (*создание "стерильного" репозитория*)
 
 ![CodeScoring capability scan settings example](/assets/img/firewall/capability_scan_settings_example.png)
+
+### Capability CodeScoring Docker Repository Scan
+
+Расширение позволяет установить функцию экранирования на выбранный hosted docked репозиторий со следующими параметрами:
+
+- **Repository** – выбор репозитория, для которого будет применена функция экранирования;
+- **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
+- **This user skips container image scan** – имя пользователя, для которого не применяется сканирование образов. Используется при загрузке и проверке компонентов консольным агентом;
+- **Host and port used for CodeScoring to download container image to scan** – адрес и порт репозитория для сканирования образов при загрузке;
+- **Block not scanned images** – блокировка загрузки образов, которые не были просканированы.
+
+![CodeScoring capability docker repository example](/assets/img/firewall/capability_docker_settings_example.png)
 
 ### Настройка логирования
 
@@ -91,3 +104,38 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 Загрузка компонентов, не прошедших проверку, блокируется на этапе попадания в прокси-репозиторий. Ответ от плагина в таком случае имеет следующее содержание:
 
 ![Nexus blocked download](/assets/img/firewall/nexus_blocked_download.gif)
+
+### Сохранение и извлечение результатов сканирования артефакта
+
+При активации признака **Store artifact analysis in the DB to retrieve them via REST** в конфигурации плагина результаты сканирования артефактов будут сохраняться в базу данных. 
+
+Извлечь результаты сканирования через REST API можно с помощью эндпоинта `v1/analysis` с тремя параметрами:
+
+- **userName** – имя пользователя в Nexus;
+- **date** – дата сканирования в формате ГГГГ-ММ-ДД;
+- **repositoryName** – название репозитория в Nexus.
+
+
+Пример ответа с результатом сканирования:
+``` bash
+[
+ {
+    "userName": "bobbi",
+    "artifactName": "specs",
+    "artifactVersion": "4.8",
+    "repositoryName": "gems",
+    "downloadState": "LOADED",
+    "scanDate": "2023-08-12",
+    "scanTime": "10:17:59"
+ },
+ {
+    "userName": "bobbi",
+    "artifactName": "kmod",
+    "artifactVersion": "27-1ubuntu2",
+    "repositoryName": "ubuntu",
+    "downloadState": "LOADED",
+    "scanDate": "2023-08-12",
+    "scanTime": "11:52:53"
+  },
+]
+```
