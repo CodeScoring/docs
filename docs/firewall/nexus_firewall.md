@@ -73,7 +73,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ### CodeScoring Docker Repository Scan
 
-Расширение позволяет установить функцию экранирования на выбранный hosted docker репозиторий со следующими параметрами:
+Расширение позволяет установить функцию экранирования на выбранный hosted или proxy docker репозиторий со следующими параметрами:
 
 - **Repository** – выбор репозитория, для которого будет применена функция экранирования;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
