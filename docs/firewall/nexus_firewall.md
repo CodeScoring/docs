@@ -43,7 +43,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ![CodeScoring capability creation example](/assets/img/firewall/capability_create_example.png)
 
-### Capability CodeScoring Configuration
+### CodeScoring Configuration
 
 Расширение позволяет задать общие настройки плагина для работы с **on-premise** версией **CodeScoring**:
 
@@ -59,18 +59,19 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 **Внимание**: указанные настройки будут использовать все экземпляры осуществляющие проверку прокси репозиториев.
 
-### Capability CodeScoring Scan
+### CodeScoring Proxy Repository Scan
 
 Расширение позволяет установить функцию экранирования на выбранный прокси репозиторий со следующими параметрами:
 
 - **Repository** – выбор репозитория, для которого будет применена функция экранирования;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **Run manual scan on save** – запускает принудительное сканирование компонентов относящихся к выбранному прокси репозиторию при нажатии кнопки save;
-- **Delete blocked by policy component from repository** – принудительное удаление блокируемых компонентов из репозитория (*создание "стерильного" репозитория*)
+- **Delete blocked by policy component from repository** – принудительное удаление блокируемых компонентов из репозитория (*создание "стерильного" репозитория*);
+- **Select capability work mode** – режим работы плагина. 
 
 ![CodeScoring capability scan settings example](/assets/img/firewall/capability_scan_settings_example.png)
 
-### Capability CodeScoring Docker Repository Scan
+### CodeScoring Docker Repository Scan
 
 Расширение позволяет установить функцию экранирования на выбранный hosted docker репозиторий со следующими параметрами:
 
@@ -78,9 +79,21 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **This user skips container image scan** – имя пользователя, для которого не применяется сканирование образов. Используется при загрузке и проверке компонентов консольным агентом;
 - **Host and port used for CodeScoring to download container image to scan** – адрес и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
-- **Block not scanned images** – блокировка загрузки образов, которые не были просканированы.
+- **Block not scanned images** – блокировка загрузки образов, которые не были просканированы;
+- **Select capability work mode** – режим работы плагина. 
 
 ![CodeScoring capability docker repository example](/assets/img/firewall/capability_docker_settings_example.png)
+
+### Настройка режима работы плагина
+
+Режим работы плагина необходимо определить текстовой строкой в соответствующем поле настроек Capability **CodeScoring Proxy Repository Scan** и Capability **CodeScoring Docker Repository Scan**.
+
+Плагин имеет 4 режима работы, определяющих строгость проверки компонентов перед загрузкой.
+
+- **warmup** – загрузка данных в кэш без блокировки компонентов;
+- **moderate** – блокировка компонентов не прошедших проверку политик, с использованием кэша. Разрешена загрузка непросканированных компонентов;
+- **strict** – блокировка компонентов, не прошедших проверку политик, с использованием кэша. Запрещена загрузка непросканированных компонентов;
+- **strict_wait** – блокировка компонентов, не прошедших проверку политик. Ожидание проверки для непросканированных компонентов.
 
 ### Настройка логирования
 
