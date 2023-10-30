@@ -40,10 +40,10 @@ nav:
     - Этапы интеграции: integration-stages.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
     - Changelog: changelog.md
-  - CodeScoring Firewall: 
-      - firewall/index.md
-      - NXRM Firewall: firewall/nexus_firewall.md
-      - JFrog Firewall: firewall/jfrog_firewall.md
+  - CodeScoring OSA: 
+      - osa/index.md
+      - NXRM OSA: osa/nexus_osa.md
+      - JFrog OSA: osa/jfrog_osa.md
   - Установка on-premise:
     - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
