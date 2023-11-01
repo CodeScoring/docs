@@ -2,11 +2,11 @@
 hide:
   - footer
 ---
-# CodeScoring JFrog Firewall
+# CodeScoring JFrog OSA
 
 ## Установка плагина
 
-Плагин **CodeScoring JFrog Firewall** совместим только с коммерческой версией JFrog Pro и поддерживает версии **7.4.3** и выше.
+Плагин **CodeScoring JFrog OSA** совместим только с коммерческой версией JFrog Pro и поддерживает версии **7.4.3** и выше.
 
 Плагин поставляется в виде архива со следующей структурой:
 
@@ -122,7 +122,7 @@ workMode=moderate
 
 После проверки компонента информация о нем будет отображаться на вкладке **Properties**.
 
-![Jfrog attributes example](/assets/img/firewall/jfrog_attributes.png)
+![Jfrog attributes example](/assets/img/osa/jfrog_attributes.png)
 
 Параметры с префиксом **сodescoring** относятся к данным с инсталляции:
 
@@ -135,4 +135,4 @@ workMode=moderate
 
 Загрузка компонентов, не прошедших проверку, блокируется на этапе попадания в прокси-репозиторий. Ответ от плагина в таком случае имеет следующее содержание:
 
-![Jfrog blocked download](/assets/img/firewall/jfrog_blocked_download.gif)
+![Jfrog blocked download](/assets/img/osa/jfrog_blocked_download.gif)

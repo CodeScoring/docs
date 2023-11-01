@@ -2,11 +2,11 @@
 hide:
   - footer
 ---
-# CodeScoring NXRM Firewall
+# CodeScoring NXRM OSA
 
 ## Установка плагина
 
-Плагин **CodeScoring NXRM Firewall** поставляется в виде JAR-файла и поддерживает версии Nexus Repository Manager **3.39.0-01** и выше.
+Плагин **CodeScoring NXRM OSA** поставляется в виде JAR-файла и поддерживает версии Nexus Repository Manager **3.39.0-01** и выше.
 
 Для добавления плагина в **NXRM** необходимо:
 
@@ -31,17 +31,17 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ## Настройка плагина
 
-Для применения плагина **CodeScoring Firewall** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **NXRM**. **Capability** – это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
+Для применения плагина **CodeScoring OSA** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **NXRM**. **Capability** – это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
 
-Плагин **CodeScoring Firewall** предоставляет три новые **Capability**:
+Плагин **CodeScoring OSA** предоставляет три новые **Capability**:
 
 - **CodeScoring Configuration** — настройка взаимодействия с **on-premise** инсталляцией **CodeScoring**.
 - **CodeScoring Scan** — настройка сканирования для отдельно выбранного прокси-репозитория.
 - **CodeScoring Docker Repository Scan** – настройка сканирования для hosted docker репозитория.
 
-После установки плагина **CodeScoring Firewall** в разделе `System -> Capabilities` появится возможность создания **Capability** через элемент (`+ Create capability`) интерфейса.
+После установки плагина **CodeScoring OSA** в разделе `System -> Capabilities` появится возможность создания **Capability** через элемент (`+ Create capability`) интерфейса.
 
-![CodeScoring capability creation example](/assets/img/firewall/capability_create_example.png)
+![CodeScoring capability creation example](/assets/img/osa/capability_create_example.png)
 
 ### CodeScoring Configuration
 
@@ -55,7 +55,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов сканирования артифакта в базе Nexus с возможностью извлечения из Nexus API;
 - **Block downloads in case of plugin or CodeScoring errors** – блокировка загрузки компонента при наличии ошибок от плагина или CodeScoring API.
 
-![CodeScoring capability config settings example](/assets/img/firewall/capability_config_settings_example.png)
+![CodeScoring capability config settings example](/assets/img/osa/capability_config_settings_example.png)
 
 **Внимание**: указанные настройки будут использовать все экземпляры осуществляющие проверку прокси репозиториев.
 
@@ -69,7 +69,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Delete blocked by policy component from repository** – принудительное удаление блокируемых компонентов из репозитория (*создание "стерильного" репозитория*);
 - **Select capability work mode** – режим работы плагина. 
 
-![CodeScoring capability scan settings example](/assets/img/firewall/capability_scan_settings_example.png)
+![CodeScoring capability scan settings example](/assets/img/osa/capability_scan_settings_example.png)
 
 ### CodeScoring Docker Repository Scan
 
@@ -82,7 +82,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Block not scanned images** – блокировка загрузки образов, которые не были просканированы;
 - **Select capability work mode** – режим работы плагина. Режимы работы описаны в секции ниже.
 
-![CodeScoring capability docker repository example](/assets/img/firewall/capability_docker_settings_example.png)
+![CodeScoring capability docker repository example](/assets/img/osa/capability_docker_settings_example.png)
 
 ### Настройка режима работы плагина
 
@@ -99,7 +99,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 Для настройки логирования событий плагина необходимо зайти в раздел `Support -> Logging` и добавить логгер с названием **ru.codescoring** и уровнем логирования **DEBUG**.
 
-![NXRM logs](/assets/img/firewall/nxrm_logs.png)
+![NXRM logs](/assets/img/osa/nxrm_logs.png)
 
 Результаты логирования событий доступны в разделе `Support -> Logs`.
 
@@ -107,7 +107,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 После проверки компонента информация о нем будет отображаться в разделе **Attributes**:
 
-![NXRM attributes example](/assets/img/firewall/nxrm_attributes.png)
+![NXRM attributes example](/assets/img/osa/nxrm_attributes.png)
 
 - **vulnerabilities** - список найденных уязвимостей;
 - **licenses** - список найденных лицензий;
@@ -118,7 +118,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 Загрузка компонентов, не прошедших проверку, блокируется. Ответ от плагина в таком случае имеет следующее содержание:
 
-![Nexus blocked download](/assets/img/firewall/nexus_blocked_download.gif)
+![Nexus blocked download](/assets/img/osa/nexus_blocked_download.gif)
 
 ### Сохранение и извлечение результатов сканирования артефакта
 
