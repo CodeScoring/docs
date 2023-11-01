@@ -290,7 +290,6 @@ hide:
 
 - Улучшено [логирование ответов от инсталляции](/firewall/nexus_firewall/#_3)
 
-
 ## JFrog Firewall Plugin
 
 ### [2023.43.0] – 2023-10-27
