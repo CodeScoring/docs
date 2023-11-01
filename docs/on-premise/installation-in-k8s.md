@@ -48,7 +48,6 @@ kubectl apply -f ./ipcs/ipcs-volume.yaml -n codescoring
 Задать в `ipcs-secrets.yaml` необходимые переменные:
 
 - `SECRET_KEY` — секретный ключ для бэкенда приложения, случайная строка символов
-- `DATABASE_URL` — строка подключения к PostgreSQL, пароль должен совпадать с заданным в `postgres-secrets.yaml`
 - `DJANGO_SUPERUSER_USERNAME` — имя администратора в системе
 - `DJANGO_SUPERUSER_PASSWORD` — пароль администратора в системе
 - `SENTRY_DSN` — адрес для отправки ошибок в систему сбора логов Sentry, при согласии клиента. Для корректной работы также необходимо задать соответствующие переменные в `ipcs-env.yaml`:
