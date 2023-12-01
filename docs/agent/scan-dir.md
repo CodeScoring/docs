@@ -2,7 +2,7 @@
 hide:
   - footer
 ---
-# Сканирование директории
+# Сканирование директории и опции агента
 
 Сканирование директории производится при помощи субкоманды `scan dir`.
 
@@ -19,7 +19,7 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2023.33.0
+Version: 2023.48.0
 
 Usage:
    scan [command]
@@ -34,23 +34,29 @@ Flags:
   -v, --version   version for scan
 
 Global Flags:
-      --api_token string             API token for integration with CodeScoring server (required if api_url is set)
-      --api_url string               CodeScoring server url (e.g. https://codescoring.mycompany.com) (required if api_token is set)
-      --bom-path string              Path for save bom file (default "bom.json")
-      --config string                config file
-      --create-project               Create project in CodeScoring if not exists
-      --debug                        Output detailed log
-      --export-vulns-to-csv string   Path to csv file for local summary result
-      --gdt-match string             section in gradle dependency tree for scan (default "compileClasspath")
-      --ignore stringArray           Ignore paths (--ignore first --ignore "/**/onem?re")
-      --no-summary                   Do not print summary
-      --only-hashes                  Search only for direct inclusion of dependencies using file hashes
-      --project string               Project name in CodeScoring
-      --save-results                 Save results to CodeScoring. Used just together with project name
-      --scan-archives                Scan archives. Supported types: '.jar', '.rar', '.tar', '.tar.bz2', '.tbz2', '.tar.gz', '.tgz', '.tar.xz', '.txz', '.war', '.zip', '.aar', '.egg', '.hpi', '.nupkg', '.whl'
-      --scan-depth int               Archive scanning depth (default 1)
-      --stage string                 Policy stage (build, dev, source, stage, test, prod, proxy) (default "build")
-      --with-hashes                  Search for direct inclusion of dependencies using file hashes
+      --api_token string                  API token for integration with CodeScoring server (required if api_url is set)
+      --api_url string                    CodeScoring server url (e.g. https://codescoring.mycompany.com) (required if api_token is set)
+      --bom-path string                   Path for save bom file (default "bom.json")
+      --config string                     config file
+      --create-project                    Create project in CodeScoring if not exists
+      --debug                             Output detailed log
+      --export-vulns-to-csv string        Path to csv file for local summary result
+  -f, --format string                     Report format. Supported formats: coloredtable, table, text
+      --gdt-match string                  section in gradle dependency tree for scan (default "compileClasspath")
+  -g, --group-vulnerabilities-by string   Group vulnerabilities by. Supported kinds 'vulnerability', 'affect'. By default group by 'vulnerability'
+      --ignore stringArray                Ignore paths (--ignore first --ignore "/**/onem?re")
+      --no-summary                        Do not print summary
+      --only-hashes                       Search only for direct inclusion of dependencies using file hashes
+      --project string                    Project name in CodeScoring
+      --save-results                      Save results to CodeScoring. Used just together with project name
+      --scan-archives                     Scan archives. Supported types: '.jar', '.rar', '.tar', '.tar.bz2', '.tbz2', '.tar.gz', '.tgz', '.tar.xz', '.txz', '.war', '.zip', '.aar', '.egg', '.hpi', '.nupkg', '.whl'
+      --scan-depth int                    Archive scanning depth (default 1)
+  -s, --sort-vulnerabilities-by string    Sort vulnerabilities by. Comma separated field names. For DESC - write field name with prefix '-'.
+                                          FieldNames: 'vulnerability', 'fixedversion', 'cvss2', 'cvss3', 'cwes', 'links', 'affect'.
+                                          By default: '-cvss3,-cvss2,fixedversion,vulnerability,cwes,links,affect'
+      --stage string                      Policy stage (build, dev, source, stage, test, prod, proxy) (default "build")
+  -t, --timeout uint16                    Timeout of analysis results waiting in seconds. Default: 3600 (default 3600)
+      --with-hashes                       Search for direct inclusion of dependencies using file hashes
 
 Use " scan [command] --help" for more information about a command.
 ```
