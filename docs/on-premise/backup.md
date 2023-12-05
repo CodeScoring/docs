@@ -22,13 +22,13 @@ hide:
     Файл резервной копии сохранится в директорию `backup`.
 
 
-## Восстановление из резервной копиии
+## Восстановление из резервной копии
 
 1. Для восстановления из резервной копии выполнить команду:
 
 
     ```bash linenums="1"
-    docker-compose -p PROJECT_NAME run restore BACKUP_FILENAME
+    docker-compose -p PROJECT_NAME run backup restore BACKUP_FILENAME
     ```
 
     `BACKUP_FILENAME` — имя файла резервной копии. Список доступных резервных копий можно получить выполнив команду:

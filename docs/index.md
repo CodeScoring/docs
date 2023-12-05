@@ -11,7 +11,7 @@ hide:
 **Оглавление**:
 
  - [Функциональные характеристики](functionality)
- - [Функция Firewall](firewall)
+ - [Модуль OSA](osa)
  - [Установка решения](on-premise/installation)
  - [Настройка и применение](on-premise/how-to/activation)
 

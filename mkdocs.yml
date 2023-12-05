@@ -7,8 +7,8 @@ theme:
   favicon: assets/favicon/favicon-32x32.png
   features:
     - navigation.tracking
-    - navigation.expand
     - navigation.indexes
+    - content.code.copy
 
 copyright: Copyright &copy; 2018 - 2023 Profiscope
 
@@ -38,13 +38,13 @@ nav:
   - Общая информация:
     - Начало: index.md
     - Функциональные характеристики: functionality.md
+    - Этапы интеграции: integration-stages.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
     - Changelog: changelog.md
-    - Этапы интеграции: integration-stages.md
-  - CodeScoring Firewall: 
-      - firewall/index.md
-      - NXRM Firewall: firewall/nexus_firewall.md
-      - JFrog Firewall: firewall/jfrog_firewall.md
+  - CodeScoring OSA: 
+      - osa/index.md
+      - NXRM OSA: osa/nexus_osa.md
+      - JFrog OSA: osa/jfrog_osa.md
   - Установка on-premise:
     - Требования к серверу: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
@@ -61,13 +61,27 @@ nav:
     - Создание владельцев: on-premise/how-to/proprietors.md
     - Подключение системы контроля версий: on-premise/how-to/vcs-git.md
     - Создание категорий проектов: on-premise/how-to/categories.md
-    - Создание проектов: on-premise/how-to/projects.md
+    - Настройка проектов: on-premise/how-to/projects.md
     - Настройка политик: on-premise/how-to/policies.md
     - Запуск анализа: on-premise/how-to/launch-analysis.md
+    - Работа с Docker-образами: on-premise/how-to/registries.md
     - Управление учетными записями: on-premise/how-to/users.md
     - Настройка Email: on-premise/how-to/email-settings.md
     - Настройка LDAP: on-premise/how-to/ldap-settings.md
-    - Работа с консольным агентом: on-premise/how-to/cli-agent.md
+    - Настройка интеграции с Jira: on-premise/how-to/jira.md
     - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
-    - Работа с API: on-premise/how-to/api.md
     - Настройка уведомлений: on-premise/how-to/notifications.md
+    - Работа с API: on-premise/how-to/api.md
+    - Работа с аудит-логом: on-premise/how-to/audit-log.md
+    - Настройка метрик: on-premise/how-to/metrics.md
+  - Работа с консольным агентом:
+    - agent/index.md
+    - Настройка через конфигурационный файл: agent/config.md
+    - Сканирование директории: agent/scan-dir.md
+    - Сканирование архивов: agent/scan-archive.md
+    - Сканирование Docker образов: agent/scan-docker.md
+    - Запуск с помощью Docker: agent/launch-docker.md
+    - Добавление в Gitlab CI: agent/gitlab-ci.md
+    - Добавление в Jenkins Pipeline: agent/jenkins-pipeline.md
+    - Сохранение результатов сканирования: agent/save-results.md
+    - Улучшение композиционного анализа при работе с Java и .NET: agent/java-dotnet.md

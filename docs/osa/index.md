@@ -2,11 +2,11 @@
 hide:
   - footer
 ---
-# CodeScoring Firewall
+# CodeScoring OSA
 
 ## Общее описание
 
-**CodeScoring** реализует функцию *Firewall* через специализированные плагины, которые осуществляют блокировку загрузки нежелательных компонентов в **Sonatype Nexus Repository Manager (NXRM)** и **JFrog Artifactory**.
+**CodeScoring** реализует модуль *OSA* через специализированные плагины, которые осуществляют блокировку загрузки нежелательных компонентов в **Sonatype Nexus Repository Manager (NXRM)** и **JFrog Artifactory**.
 
 Плагин встраивается в цепочку обработки *request|response* **NXRM** и **JFrog Artifactory** что обеспечивает блокирование нежелательных компонентов не только при попытке первой загрузки, но и при любой попытке его скачивания: используя командный интерфейс выбранного пакетного менеджера или через веб-интерфейс.
 
@@ -19,8 +19,8 @@ hide:
 
 **Рекомендации по установке и настройке плагина для:**
 
-- [Sonatype Nexus Repository Manager](/firewall/nexus_firewall)
-- [JFrog Artifactory](/firewall/jfrog_firewall)
+- [Sonatype Nexus Repository Manager](/osa/nexus_osa)
+- [JFrog Artifactory](/osa/jfrog_osa)
 
 
 ## Настройка политик для работы с плагином
@@ -32,4 +32,4 @@ hide:
  - установить флаг *Blocks build*;
  - установить флаг *Is Active*
 
-![Policy settings example](/assets/img/firewall/policy_settings_example.png)
+![Policy settings example](/assets/img/osa/policy_settings_example.png)
