@@ -27,7 +27,7 @@ kubectl create namespace codescoring
 kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
 ```
 
-Установить утилиту [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
+Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
 
 Выполнить следующие команды:
 ```
@@ -38,20 +38,35 @@ helm repo update
 Создать файл `values.yaml` со следующим содержимым:
 ```
 ipcs:
-  backend:
-    config:
-      ## ipcs-backend configuration parameters
-      siteScheme: http # схема сайта http или https
-      siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
-      djangoCSRFTrustedOptions: "http://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
-      sentryDSN: "" # адрес для отправки ошибок в систему сбора логов Sentry, при согласии клиента
-      sentryEnabled: "False" # включение механизма отправки ошибок
-      sentryEnvironment: "" # значение будет предоставлено вендором отдельно
-      sentryRelease: "develop" # значение будет предоставлено вендором отдельно
-      secretKey: "secret_key2382838183" # секретный ключ для бэкенда приложения, случайная строка символов
-      defaultSuperuserUsername: "admin" # имя администратора в системе 
-      defaultSuperuserPassword: "changeme" # пароль администратора в системе
-      defaultSuperuserEmail: "admin@onprem" # e-mail администратора в системе
+  config:
+    ## ipcs-backend configuration parameters
+    siteScheme: http # схема сайта http или https
+    siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
+    djangoCSRFTrustedOptions: "http://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
+    sentryDSN: "" # адрес для отправки ошибок в систему сбора логов Sentry, при согласии клиента
+    sentryEnabled: "False" # включение механизма отправки ошибок
+    sentryEnvironment: "" # значение будет предоставлено вендором отдельно
+    sentryRelease: "develop" # значение будет предоставлено вендором отдельно
+    secretKey: "secret_key2382838183" # секретный ключ для бэкенда приложения, случайная строка символов
+    defaultSuperuserUsername: "admin" # имя администратора в системе 
+    defaultSuperuserPassword: "changeme" # пароль администратора в системе
+    defaultSuperuserEmail: "admin@onprem" # e-mail администратора в системе
+    posgtresqlHost: ipcs-pgcat
+    posgtresqlPort: 5432
+    postgresqlDatabase: "codescoring"
+    postgresqlUsername: "codescoring"
+    postgresqlPassword: "changeme" # пароль должен совпадать с паролем у pgcat
+
+  pgcat:
+    adminPassword: "changeme"
+
+    postgresql:
+      host: "codescoring-postgresql"
+      port: 5432
+      username: codescoring
+      password: changeme # пароль должен совпадать с паролем у ipcs
+      database: codescoring
+
 
   frontend:
     ingress:
@@ -69,29 +84,69 @@ ipcs:
 helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version [ВЕРСИЯ_ЧАРТА]
 ```
 
-## Тонкая настройка параметров Helm-чарта
+## Расширенные настройки параметров Helm-чарта
 
 !!! warning 
 
     Настоятельно рекомендуется вносить необходимые изменения **до установки CodeScoring**, в противном случае может потребоваться полная переустановка системы. 
     Данные инструкции предполагают, что **специалист имеет опыт работы с кластером Kubernetes и утилитой Helm**.
 
-Для тонкой настройки параметров установки CodeScoring необходимо скачать и распаковать исходный код Helm-чарта командой:
+Для удоббного редактирования параметров CodeScoring можно скачать и распаковать исходный код Helm-чарта командой:
+
 ```
-helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАРТА] --untar --untar-dir codescoring-src
+helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАРТА] --untar --untar-dir codescoring-src && cd codescoring-src
 ```
 
 В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду `helm install codescoring . -f values.yaml -n codescoring --atomic --version [ВЕРСИЯ_ЧАРТА]`. 
 
-Основные параметры, доступные для изменения, перечислены ниже.
 
 ### Подключение к внешним PostgreSQL и Redis
-По умолчанию PostgreSQL и Redis запускаются в отдельных `StatefulSet`. Данный вариант может не подходить для использования в **production среде** , т.к. не предоставляет отказоустойчивость. Для подключения к внешним инстансам (кластерам) PostgreSQL и Redis необходимо выполнить следующие действия:
+По умолчанию PostgreSQL и Redis запускаются в отдельных `StatefulSet`. Данный вариант может не подходить для использования в **production среде** , т.к. не является отказоустойчивым.
 
-1. Отключить развертывание Redis, присвоив переменной `redis.enabled` значение `false`
-2. Отключить развертывание PostgreSQL, присвоив переменной `postgresql.enabled` значение `false`
-3. В YAML-секции `ipcs.backend.config.postgresql` задать параметры подключения к PostgreSQL
-4. В переменной `ipcs.backend.config.djangoCachesRedisUrls` указать строку подключения для внешнего Redis
+
+#### Подключение к внешнему Redis
+Для подключения к внешнему Redis, необходимо выполнить следущие действия:
+
+1. Отключить развертывание Redis, указав переменную -  `redis.enabled: false`
+2. В переменной `ipcs.backend.config.djangoCachesRedisUrls` указать строку подключения для внешнего Redis.
+
+
+!!! warning
+    Подключение к внешнему PostgreSQL необходимо выполнять с использованием пулера соединений.
+
+#### Подключение к PostgreSQL через пулер PgCat
+
+Данный вариант подходит, если в существующей инфраструктуре уже развернута PostgreSQL, но пулер соединений не используется. Helm-чарт развернет пулер [PgCat](https://github.com/postgresml/pgcat) и подключит его к существующей PostgreSQL. Необходимо выполнить следующие действия:
+
+1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
+
+2. Подключить пулер PgCat к внешней PosgreSQL, заменив соотвествующие параметры на нужные:
+```
+ipcs:
+  pgcat:
+    postgresql:
+      host: "postgresql.example.host"
+      port: 5432
+      username: codescoring
+      password: changeme
+      database: codescoring
+```
+
+#### Подключение к внещнему пулеру PostgreSQL.
+Данный вариант подходит, если в существующей инфраструктуре уже разввернута PostgreSQL и пулер соединений (например, PgBouncer).
+В этом случае развертывание пулера PgCat не требуется. Необходимо выполнить следующие действия:
+
+1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
+2. Отключить развертывание PgCat, указав переменную - `pgcat.enabled: false`
+3. Подключить codescoring напрямую к внешнему пулеру, в секции `ipcs.config` параметры:
+
+```
+posgtresqlHost: ipcs-pgcat
+posgtresqlPort: 5432
+postgresqlDatabase: "codescoring"
+postgresqlUsername: "codescoring"
+postgresqlPassword: "changeme"
+```
 
 ### Настройка томов (PV)
 
@@ -192,22 +247,12 @@ helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАР
 - `ipcs.backend.affinity`
 - `ipcs.frontend.affinity`
 
-Если этого не сделать, то все PODы будут запущено только на одной ноде кластера
-
-### Использования HorizontalPodAutoscaler
-
-Для использования `HorizontalPodAutoscaler` необходимо настроить параметры в YAML-секциях:
-
-- `ipcs.huey.ipcsQueue.autoscaling`
-- `ipcs.huey.highPriorityQueue.autoscaling`
-
-Поробнее о работе `HorizontalPodAutoscaler` можно прочитать в [официальной документации](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
-
+Если этого не сделать, то все PODы будут запущено только на одной ноде кластера.
 
 ## Настройка ограничения ресурсов (resource limits)
 
 По умолчанию `requests` и `limits` не заданы. Это сделано для обеспечения возможности запуска системы CodeScoring в кластерах с малым количеством ресурсов (например, minikube) c целью тестирования.
-При запуске **production среде** может потребоваться настроить ограничение ресурсов. Это можно сделать, задав следующие переменные:
+При запуске в **production среде** может потребоваться настроить ограничение ресурсов. Это можно сделать, задав следующие переменные:
 
 - `postgresql.resources` (при использовании встроенного PostgreSQL)
 - `redis.resources` (при использовании встроенного Redis)
@@ -215,6 +260,9 @@ helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАР
 - `ipcs.frontend.resources`
 - `ipcs.huey.highPriorityQueue.resources`
 - `ipcs.huey.ipcsQueue.resources`
+- `ipcs.huey.tasksOsaContainerImageScan.resources`
+- `ipcs.huey.tasksOsaPackageScan.resources`
+- `ipcs.huey.tasksPolicy.resources`
 
 Возможно указание как `resources` и `limits` вместе, так и по отдельности, например:
 
