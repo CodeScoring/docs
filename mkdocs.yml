@@ -64,14 +64,12 @@ nav:
     - Запуск анализа: on-premise/how-to/launch-analysis.md
     - Работа с Docker-образами: on-premise/how-to/registries.md
     - Управление учетными записями: on-premise/how-to/users.md
-    - Настройка Email: on-premise/how-to/email-settings.md
     - Настройка LDAP: on-premise/how-to/ldap-settings.md
-    - Настройка интеграции с Jira: on-premise/how-to/jira.md
     - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
     - Настройка уведомлений: on-premise/how-to/notifications.md
-    - Работа с API: on-premise/how-to/api.md
     - Работа с аудит-логом: on-premise/how-to/audit-log.md
     - Настройка метрик: on-premise/how-to/metrics.md
+    - Работа с API: on-premise/how-to/api.md
   - Работа с консольным агентом:
     - agent/index.md
     - Настройка через конфигурационный файл: agent/config.md
