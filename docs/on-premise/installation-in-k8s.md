@@ -83,7 +83,7 @@ helm install codescoring codescoring-org/codescoring -n codescoring -f values.ya
 
 **Важно!**: Настоятельно рекомендуется вносить необходимые изменения **до установки CodeScoring**, в противном случае может потребоваться полная переустановка системы. Данные инструкции предполагают, что **специалист имеет опыт работы с кластером Kubernetes и утилитой Helm**.
 
-Для удоббного редактирования параметров CodeScoring можно скачать и распаковать исходный код Helm-чарта командой:
+Для удобного редактирования параметров CodeScoring можно скачать и распаковать исходный код Helm-чарта командой:
 
 ```
 helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАРТА] --untar --untar-dir codescoring-src && cd codescoring-src
@@ -93,7 +93,7 @@ helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАР
 
 
 ### Подключение к внешним PostgreSQL и Redis
-По умолчанию PostgreSQL и Redis запускаются в отдельных `StatefulSet`. Данный вариант может не подходить для использования в **production среде** , т.к. не является отказоустойчивым.
+По умолчанию PostgreSQL и Redis запускаются в отдельных `StatefulSet`. Данный вариант может не подходить для использования в **production-окружении** , т.к. не является отказоустойчивым.
 
 
 #### Подключение к внешнему Redis
@@ -123,7 +123,7 @@ ipcs:
       database: codescoring
 ```
 
-#### Подключение к внещнему пулеру PostgreSQL.
+#### Подключение к внешнему пулеру PostgreSQL.
 Данный вариант подходит, если в существующей инфраструктуре уже разввернута PostgreSQL и пулер соединений (например, PgBouncer).
 В этом случае развертывание пулера PgCat не требуется. Необходимо выполнить следующие действия:
 
@@ -149,7 +149,7 @@ postgresqlPassword: "changeme"
 
     Для изменения размера создаваемых томов (за исключением локальных) измените параметр `size` в соответствующих секциях
  
-#### Dynamic Volume Provisiong с использование требуемоего StorageClass
+#### Dynamic Volume Provisiong с использованием требуемоего StorageClass
 
 Задать требуемый `StorageClass` можно в следующих переменных:
 
@@ -215,7 +215,7 @@ postgresqlPassword: "changeme"
 - `redis.persistentVolume.localVolume.nodeHostname` (если используется встроенный Redis)
 - `postgresql.persistentVolume.localVolume.nodeHostname` (если используется встроенный PostgreSQL)
 
-Допускается испльзование разных нод для разных томов.
+Допускается использование разных нод для разных томов.
 
 ### Горизонтальное масштабирование CodeScoring
 
