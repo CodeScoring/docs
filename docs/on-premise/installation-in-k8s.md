@@ -26,7 +26,7 @@ kubectl create secret docker-registry codescoring-regcred --docker-server=REGIST
 
 Выполнить следующие команды:
 ```
-helm repo add codescoring-org https://registry.codescoring.ru/repository/helm/ --username [USERNAME] --password [PASSWORD]
+helm repo add codescoring-org https://registry.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
 helm repo update
 ```
 
@@ -76,7 +76,7 @@ ipcs:
 
 Выполнить команду
 ```
-helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version [ВЕРСИЯ_ЧАРТА]
+helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
 ```
 
 ## Расширенные настройки параметров Helm-чарта
@@ -86,12 +86,12 @@ helm install codescoring codescoring-org/codescoring -n codescoring -f values.ya
 Для удобного редактирования параметров CodeScoring можно скачать и распаковать исходный код Helm-чарта командой:
 
 ```
-helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАРТА] --untar --untar-dir codescoring-src && cd codescoring-src
+helm pull codescoring codescoring-org/codescoring --version CHART_VERSION --untar --untar-dir codescoring-src && cd codescoring-src
 ```
 
 В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду 
 ```
-helm install codescoring . -f values.yaml -n codescoring --atomic --version [ВЕРСИЯ_ЧАРТА]
+helm install codescoring . -f values.yaml -n codescoring --atomic --version CHART_VERSION
 ```
 
 
