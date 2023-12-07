@@ -89,7 +89,10 @@ helm install codescoring codescoring-org/codescoring -n codescoring -f values.ya
 helm pull codescoring codescoring-org/codescoring --version [ВЕРСИЯ_ЧАРТА] --untar --untar-dir codescoring-src && cd codescoring-src
 ```
 
-В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду `helm install codescoring . -f values.yaml -n codescoring --atomic --version [ВЕРСИЯ_ЧАРТА]`. 
+В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду 
+```
+helm install codescoring . -f values.yaml -n codescoring --atomic --version [ВЕРСИЯ_ЧАРТА]
+```
 
 
 ### Подключение к внешним PostgreSQL и Redis
