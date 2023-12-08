@@ -26,7 +26,7 @@ kubectl create secret docker-registry codescoring-regcred --docker-server=REGIST
 
 Выполнить следующие команды:
 ```
-helm repo add codescoring-org https://registry.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
+helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
 helm repo update
 ```
 
