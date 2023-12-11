@@ -19,6 +19,7 @@ PHP                         |    Composer       |  `composer.json`<br/>`composer
 Ruby                        |    RubyGems       |  `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`|
 C#                          |    Nuget          |  `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
 Objective-C и Swift         |    CocoaPods      |  `Podfile`<br/>`Podfile.lock`<br/>`*.podspec`|
+Rust                        |    Cargo          |  `Cargo.lock`<br/>`Cargo.toml`|
 
 
 Лучший результат будет при наличии основного файла манифеста и соответствующего lock-файла, если он предусмотрен механизмом пакетного менеджера.
