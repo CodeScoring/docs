@@ -12,68 +12,68 @@ hide:
 
 1. Создать namespace.
 
-```
-kubectl create namespace codescoring
-```
+    ```
+    kubectl create namespace codescoring
+    ```
 
 2. Создать secret для доступа к приватному реестру Docker-образов системы "CodeScoring", используя адрес (`REGISTRY_URL`), логин (`USERNAME`) и пароль (`PASSWORD`), полученные от вендора.
 
-```
-kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
-```
+    ```
+    kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
+    ```
 
 3. Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
 
 4. Выполнить следующие команды:
-```
-helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
-helm repo update
-```
+    ```
+    helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
+    helm repo update
+    ```
 
 5. Создать файл `values.yaml` со следующим содержимым:
-```
-ipcs:
-  config:
-    ## ipcs-backend configuration parameters
-    siteScheme: https # схема сайта http или https
-    siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
-    djangoCSRFTrustedOptions: "http://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
-    secretKey: "" # секретный ключ для бэкенда приложения, случайная строка символов
-    defaultSuperuserUsername: "admin" # имя администратора в системе 
-    defaultSuperuserPassword: "changeme" # пароль администратора в системе
-    defaultSuperuserEmail: "mail@example.com" # e-mail администратора в системе
-    posgtresqlHost: ipcs-pgcat
-    posgtresqlPort: 5432
-    postgresqlDatabase: "codescoring"
-    postgresqlUsername: "codescoring"
-    postgresqlPassword: "changeme" # пароль должен совпадать с паролем у pgcat
+    ```
+    ipcs:
+      config:
+        ## ipcs-backend configuration parameters
+        siteScheme: https # схема сайта http или https
+        siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
+        djangoCSRFTrustedOptions: "http://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
+        secretKey: "" # секретный ключ для бэкенда приложения, случайная строка символов
+        defaultSuperuserUsername: "admin" # имя администратора в системе 
+        defaultSuperuserPassword: "changeme" # пароль администратора в системе
+        defaultSuperuserEmail: "mail@example.com" # e-mail администратора в системе
+        posgtresqlHost: ipcs-pgcat
+        posgtresqlPort: 5432
+        postgresqlDatabase: "codescoring"
+        postgresqlUsername: "codescoring"
+        postgresqlPassword: "changeme" # пароль должен совпадать с паролем у pgcat
 
-  pgcat:
-    adminPassword: "changeme"
+      pgcat:
+        adminPassword: "changeme"
 
-    postgresql:
-      host: "codescoring-postgresql"
-      port: 5432
-      username: "codescoring"
-      password: "changeme" # пароль должен совпадать с паролем у ipcs
-      database: "codescoring"
+        postgresql:
+          host: "codescoring-postgresql"
+          port: 5432
+          username: "codescoring"
+          password: "changeme" # пароль должен совпадать с паролем у ipcs
+          database: "codescoring"
 
 
-  frontend:
-    ingress:
-      enabled: true
-      className: "nginx"
-      hosts:
-        - host: codescoring.k8s.local # домен, по которому будет доступен CodeScoring
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
-```
+      frontend:
+        ingress:
+          enabled: true
+          className: "nginx"
+          hosts:
+            - host: codescoring.k8s.local # домен, по которому будет доступен CodeScoring
+              paths:
+                - path: /
+                  pathType: ImplementationSpecific
+    ```
 
 6. Выполнить команду
-```
-helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
-```
+    ```
+    helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
+    ```
 
 ## Расширенные настройки параметров Helm-чарта
 
