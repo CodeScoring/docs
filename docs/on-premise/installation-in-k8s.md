@@ -10,27 +10,27 @@ hide:
 
 **Важно!**: Необходимо наличие настроенного default `StorageClass` в кластере. По умолчанию создаются тома **объемом 20 GiB**
 
-Создать namespace.
+1. Создать namespace.
 
 ```
 kubectl create namespace codescoring
 ```
 
-Создать secret для доступа к приватному реестру Docker-образов системы "CodeScoring", используя адрес (`REGISTRY_URL`), логин (`USERNAME`) и пароль (`PASSWORD`), полученные от вендора.
+2. Создать secret для доступа к приватному реестру Docker-образов системы "CodeScoring", используя адрес (`REGISTRY_URL`), логин (`USERNAME`) и пароль (`PASSWORD`), полученные от вендора.
 
 ```
 kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
 ```
 
-Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
+3. Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
 
-Выполнить следующие команды:
+4. Выполнить следующие команды:
 ```
 helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
 helm repo update
 ```
 
-Создать файл `values.yaml` со следующим содержимым:
+5. Создать файл `values.yaml` со следующим содержимым:
 ```
 ipcs:
   config:
@@ -70,7 +70,7 @@ ipcs:
               pathType: ImplementationSpecific
 ```
 
-Выполнить команду
+6. Выполнить команду
 ```
 helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
 ```
