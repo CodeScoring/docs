@@ -35,17 +35,13 @@ helm repo update
 ipcs:
   config:
     ## ipcs-backend configuration parameters
-    siteScheme: http # схема сайта http или https
+    siteScheme: https # схема сайта http или https
     siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
     djangoCSRFTrustedOptions: "http://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
-    sentryDSN: "" # адрес для отправки ошибок в систему сбора логов Sentry, при согласии клиента
-    sentryEnabled: "False" # включение механизма отправки ошибок
-    sentryEnvironment: "" # значение будет предоставлено вендором отдельно
-    sentryRelease: "develop" # значение будет предоставлено вендором отдельно
-    secretKey: "secret_key2382838183" # секретный ключ для бэкенда приложения, случайная строка символов
+    secretKey: "" # секретный ключ для бэкенда приложения, случайная строка символов
     defaultSuperuserUsername: "admin" # имя администратора в системе 
     defaultSuperuserPassword: "changeme" # пароль администратора в системе
-    defaultSuperuserEmail: "admin@onprem" # e-mail администратора в системе
+    defaultSuperuserEmail: "mail@example.com" # e-mail администратора в системе
     posgtresqlHost: ipcs-pgcat
     posgtresqlPort: 5432
     postgresqlDatabase: "codescoring"
@@ -58,9 +54,9 @@ ipcs:
     postgresql:
       host: "codescoring-postgresql"
       port: 5432
-      username: codescoring
-      password: changeme # пароль должен совпадать с паролем у ipcs
-      database: codescoring
+      username: "codescoring"
+      password: "changeme" # пароль должен совпадать с паролем у ipcs
+      database: "codescoring"
 
 
   frontend:
@@ -121,9 +117,9 @@ ipcs:
     postgresql:
       host: "postgresql.example.host"
       port: 5432
-      username: codescoring
-      password: changeme
-      database: codescoring
+      username: "codescoring"
+      password: "changeme"
+      database: "codescoring"
 ```
 
 #### Подключение к внешнему пулеру PostgreSQL.
