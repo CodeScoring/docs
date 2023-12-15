@@ -104,7 +104,7 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 Для подключения к внешнему Redis, необходимо выполнить следущие действия:
 
 1. Отключить развертывание Redis, указав переменную -  `redis.enabled: false`
-2. В переменных `ipcs.backend.config.djangoCachesRedisUrls` и `ipcs.backend.config.hueyRedisUrl` указать строки подключения для внешнего Redis.
+2. В переменных `codescoring.backend.config.djangoCachesRedisUrls` и `codescoring.backend.config.hueyRedisUrl` указать строки подключения для внешнего Redis.
 
 
 **Важно!**: Подключение к внешнему PostgreSQL необходимо выполнять с использованием пулера соединений.
@@ -133,7 +133,7 @@ ipcs:
 
 1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
 2. Отключить развертывание PgCat, указав переменную - `pgcat.enabled: false`
-3. Подключить codescoring напрямую к внешнему пулеру, в секции `ipcs.config` параметры:
+3. Подключить codescoring напрямую к внешнему пулеру, в секции `codescoring.config` параметры:
 
 ```
 posgtresqlHost: ipcs-pgcat
@@ -156,9 +156,9 @@ postgresqlPassword: "changeme"
 
 Задать требуемый `StorageClass` можно в следующих переменных:
 
-- `ipcs.persistentVolumes.analysisRoot.storageClass`
-- `ipcs.persistentVolumes.djangoStatic.storageClass`
-- `ipcs.backup.persistentVolume.storageClass`
+- `codescoring.persistentVolumes.analysisRoot.storageClass`
+- `codescoring.persistentVolumes.djangoStatic.storageClass`
+- `codescoring.backup.persistentVolume.storageClass`
 - `redis.persistentVolume.storageClass` (если используется встроенный Redis)
 - `postgresql.persistentVolume.storageClass` (если используется встроенный PostgreSQL)
 
@@ -168,9 +168,9 @@ postgresqlPassword: "changeme"
 
 Название предварительно созданных томов можно задать в следующих переменных:
 
-- `ipcs.persistentVolumes.analysisRoot.volumeName`
-- `ipcs.persistentVolumes.djangoStatic.volumeName`
-- `ipcs.backup.persistentVolume.volumeName`
+- `codescoring.persistentVolumes.analysisRoot.volumeName`
+- `codescoring.persistentVolumes.djangoStatic.volumeName`
+- `codescoring.backup.persistentVolume.volumeName`
 - `redis.persistentVolume.volumeName` (если используется встроенный Redis)
 - `postgresql.persistentVolume.volumeName` (если используется встроенный PostgreSQL)
 
@@ -180,9 +180,9 @@ postgresqlPassword: "changeme"
 
 Название предварительно созданных PVC можно задать в следующих переменных:
 
-- `ipcs.persistentVolumes.analysisRoot.existingClaim`
-- `ipcs.persistentVolumes.djangoStatic.existingClaim`
-- `ipcs.backup.persistentVolume.existingClaim`
+- `codescoring.persistentVolumes.analysisRoot.existingClaim`
+- `codescoring.persistentVolumes.djangoStatic.existingClaim`
+- `codescoring.backup.persistentVolume.existingClaim`
 - `redis.persistentVolume.existingClaim` (если используется встроенный Redis)
 - `postgresql.persistentVolume.exsistingClaim` (если используется встроенный PostgreSQL)
 
@@ -196,25 +196,25 @@ postgresqlPassword: "changeme"
 
 1. Присвоить значение `true` следующим переменным:
 
-- `ipcs.persistentVolumes.analysisRoot.localVolume.enabled`
-- `ipcs.persistentVolumes.djangoStatic.localVolume.enabled`
-- `ipcs.backup.persistentVolume.localVolume.enabled`
+- `codescoring.persistentVolumes.analysisRoot.localVolume.enabled`
+- `codescoring.persistentVolumes.djangoStatic.localVolume.enabled`
+- `codescoring.backup.persistentVolume.localVolume.enabled`
 - `redis.persistentVolume.localVolume.enabled` (если используется встроенный Redis)
 - `postgresql.persistentVolume.localVolume.enabled` (если используется встроенный PostgreSQL)
 
 2. Задать путь до **каталога на ноде кластера**, в котором будут размещены данные в следующих переменных:
 
-- `ipcs.persistentVolumes.analysisRoot.localVolume.path`
-- `ipcs.persistentVolumes.djangoStatic.localVolume.path`
-- `ipcs.backup.persistentVolume.localVolume.path`
+- `codescoring.persistentVolumes.analysisRoot.localVolume.path`
+- `codescoring.persistentVolumes.djangoStatic.localVolume.path`
+- `codescoring.backup.persistentVolume.localVolume.path`
 - `redis.persistentVolume.localVolume.path` (если используется встроенный Redis)
 - `postgresql.persistentVolume.localVolume.path` (если используется встроенный PostgreSQL)
 
 3. Указать название ноды, на которой будет создан локальный том в следующих переменных:
 
-- `ipcs.persistentVolumes.analysisRoot.localVolume.nodeHostname`
-- `ipcs.persistentVolumes.djangoStatic.localVolume.nodeHostname`
-- `ipcs.backup.persistentVolume.localVolume.nodeHostname`
+- `codescoring.persistentVolumes.analysisRoot.localVolume.nodeHostname`
+- `codescoring.persistentVolumes.djangoStatic.localVolume.nodeHostname`
+- `codescoring.backup.persistentVolume.localVolume.nodeHostname`
 - `redis.persistentVolume.localVolume.nodeHostname` (если используется встроенный Redis)
 - `postgresql.persistentVolume.localVolume.nodeHostname` (если используется встроенный PostgreSQL)
 
@@ -228,12 +228,12 @@ postgresqlPassword: "changeme"
 
 Для этого необходимо заменить значение `ReadWriteOnce` на `ReadWriteMany` в переменных:
 
-- `ipcs.persistentVolumes.analysisRoot.accessModes`
-- `ipcs.persistentVolumes.djangoStatic.accessModes`
+- `codescoring.persistentVolumes.analysisRoot.accessModes`
+- `codescoring.persistentVolumes.djangoStatic.accessModes`
 
 Затем, необходимо закоментировать переменные:
-- `ipcs.backend.affinity`
-- `ipcs.frontend.affinity`
+- `codescoring.backend.affinity`
+- `codescoring.frontend.affinity`
 
 Если этого не сделать, то все поды будут запущены только на одной ноде кластера.
 
@@ -244,13 +244,13 @@ postgresqlPassword: "changeme"
 
 - `postgresql.resources` (при использовании встроенного PostgreSQL)
 - `redis.resources` (при использовании встроенного Redis)
-- `ipcs.backend.resources`
-- `ipcs.frontend.resources`
-- `ipcs.huey.highPriorityQueue.resources`
-- `ipcs.huey.ipcsQueue.resources`
-- `ipcs.huey.tasksOsaContainerImageScan.resources`
-- `ipcs.huey.tasksOsaPackageScan.resources`
-- `ipcs.huey.tasksPolicy.resources`
+- `codescoring.backend.resources`
+- `codescoring.frontend.resources`
+- `codescoring.huey.highPriorityQueue.resources`
+- `codescoring.huey.ipcsQueue.resources`
+- `codescoring.huey.tasksOsaContainerImageScan.resources`
+- `codescoring.huey.tasksOsaPackageScan.resources`
+- `codescoring.huey.tasksPolicy.resources`
 
 Возможно указание как `resources` и `limits` вместе, так и по отдельности, например:
 
@@ -322,8 +322,8 @@ ipcs:
 
 Для доступа CodeScoring к ресурсам с TLS-сертификатами, подписанными корпоративным удостоверяющим центром (CA) необходимо:
 
-1. Присвоить переменной `ipcs.trustedCA.enabled` значение `true`
-2. Добавить корневой сертификат удостоверяющего центра (RootCA) в формате PEM в переменную `ipcs.trustedCA.certificates` в формате `ключ: значение`, 
+1. Присвоить переменной `codescoring.trustedCA.enabled` значение `true`
+2. Добавить корневой сертификат удостоверяющего центра (RootCA) в формате PEM в переменную `codescoring.trustedCA.certificates` в формате `ключ: значение`, 
 где ключ - имя файла сертификата, включая расширение `.crt`, значение - сертификат в формате PEM.
 
 Например:
