@@ -10,6 +10,8 @@ hide:
 
 **Важно!**: Необходимо наличие настроенного default `StorageClass` в кластере. По умолчанию создаются тома **объемом 20 GiB**
 
+**Порядок установки:**
+
 1. Создать namespace.
 
     ```
@@ -24,17 +26,20 @@ hide:
 
 3. Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
 
-4. Выполнить следующие команды:
+4. Выполнить следующие команды для добавления актуального Helm-репозитория на локальную машину:
     ```
     helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
     helm repo update
     ```
 
 5. Создать файл `values.yaml` со следующим содержимым:
+    
+    **Важно!**: Пожалуйста, замените значения в полях с чувствительными данными на уникальные или собственные. К таким полям относятся `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, а также все поля, содержащие `username` или `password`.
+
     ```
-    ipcs:
+    codescoring:
       config:
-        ## ipcs-backend configuration parameters
+        ## codescoring-backend configuration parameters
         siteScheme: https # схема сайта http или https
         siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
         djangoCSRFTrustedOptions: "http://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
@@ -46,7 +51,7 @@ hide:
         posgtresqlPort: 5432
         postgresqlDatabase: "codescoring"
         postgresqlUsername: "codescoring"
-        postgresqlPassword: "changeme" # пароль должен совпадать с паролем у pgcat
+        postgresqlPassword: "changeme" # пароль должен совпадать с паролем у pgcat.postgresql.password
 
       pgcat:
         adminPassword: "changeme"
@@ -55,7 +60,7 @@ hide:
           host: "codescoring-postgresql"
           port: 5432
           username: "codescoring"
-          password: "changeme" # пароль должен совпадать с паролем у ipcs
+          password: "changeme" # пароль должен совпадать с паролем в codescoring.postgresqlPassword
           database: "codescoring"
 
 
@@ -70,7 +75,7 @@ hide:
                   pathType: ImplementationSpecific
     ```
 
-6. Выполнить команду
+6. Выполнить команду для установки чарта
     ```
     helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
     ```
