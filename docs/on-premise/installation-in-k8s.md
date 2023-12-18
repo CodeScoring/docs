@@ -47,8 +47,8 @@ hide:
         defaultSuperuserUsername: "admin" # имя администратора в системе 
         defaultSuperuserPassword: "changeme" # пароль администратора в системе
         defaultSuperuserEmail: "mail@example.com" # e-mail администратора в системе
-        posgtresqlHost: ipcs-pgcat
-        posgtresqlPort: 5432
+        databaseHost: ipcs-pgcat
+        databasePort: 5432
         postgresqlDatabase: "codescoring"
         postgresqlUsername: "codescoring"
         postgresqlPassword: "changeme" # пароль должен совпадать с паролем у pgcat.postgresql.password
