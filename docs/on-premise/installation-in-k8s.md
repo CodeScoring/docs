@@ -34,7 +34,7 @@ hide:
 
 5. Создать файл `values.yaml` со следующим содержимым:
     
-    **Важно!**: Пожалуйста, замените значения в полях с чувствительными данными на уникальные или собственные. К таким полям относятся `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, а также все поля, содержащие `username` или `password`.
+    **Важно!**: Пожалуйста, замените значения в полях с чувствительными данными на собственные. К таким полям относятся `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, а также все поля, содержащие `username` или `password`. Также важно учитывать, что все подобные переменные являются обязательными. 
 
     ```
     codescoring:
@@ -90,7 +90,7 @@ hide:
 helm pull codescoring codescoring-org/codescoring --version CHART_VERSION --untar --untar-dir codescoring-src && cd codescoring-src
 ```
 
-В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду 
+В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду установки
 ```
 helm install codescoring . -f values.yaml -n codescoring --atomic --version CHART_VERSION
 ```
@@ -104,12 +104,12 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 Для подключения к внешнему Redis, необходимо выполнить следущие действия:
 
 1. Отключить развертывание Redis, указав переменную -  `redis.enabled: false`
-2. В переменных `codescoring.backend.config.djangoCachesRedisUrls` и `codescoring.backend.config.hueyRedisUrl` указать строки подключения для внешнего Redis.
+2. В переменных `codescoring.config.djangoCachesRedisUrls` и `codescoring.config.hueyRedisUrl` указать строки подключения для внешнего Redis.
 
-
-**Важно!**: Подключение к внешнему PostgreSQL необходимо выполнять с использованием пулера соединений.
 
 #### Подключение к PostgreSQL через пулер PgCat
+
+**Важно!**: Подключение к внешней PostgreSQL необходимо выполнять с использованием пулера соединений.
 
 Данный вариант подходит, если в существующей инфраструктуре уже развернута PostgreSQL, но пулер соединений не используется. Helm-чарт развернет пулер [PgCat](https://github.com/postgresml/pgcat) и подключит его к существующей PostgreSQL. Необходимо выполнить следующие действия:
 
@@ -132,7 +132,7 @@ codescoring:
 В этом случае развертывание пулера PgCat не требуется. Необходимо выполнить следующие действия:
 
 1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
-2. Отключить развертывание PgCat, указав переменную - `pgcat.enabled: false`
+2. Отключить развертывание PgCat, указав переменную - `codescoring.pgcat.enabled: false`
 3. Подключить codescoring напрямую к внешнему пулеру, в секции `codescoring.config` параметры:
 
 ```
@@ -160,7 +160,7 @@ postgresqlPassword: "changeme"
 - `codescoring.persistentVolumes.djangoStatic.storageClass`
 - `codescoring.backup.persistentVolume.storageClass`
 - `redis.persistentVolume.storageClass` (если используется встроенный Redis)
-- `postgresql.persistentVolume.storageClass` (если используется встроенный PostgreSQL)
+- `postgresql.persistentVolume.storageClass` (если используется встроенная PostgreSQL)
 
 В этом случае, будут созданы тома с использованием заданного `StorageClass`
 
@@ -172,7 +172,7 @@ postgresqlPassword: "changeme"
 - `codescoring.persistentVolumes.djangoStatic.volumeName`
 - `codescoring.backup.persistentVolume.volumeName`
 - `redis.persistentVolume.volumeName` (если используется встроенный Redis)
-- `postgresql.persistentVolume.volumeName` (если используется встроенный PostgreSQL)
+- `postgresql.persistentVolume.volumeName` (если используется встроенная PostgreSQL)
 
 В этом случае будут созданы только `PersistentVolumeClaim` для томов, заданных в этих переменных
 
@@ -184,7 +184,7 @@ postgresqlPassword: "changeme"
 - `codescoring.persistentVolumes.djangoStatic.existingClaim`
 - `codescoring.backup.persistentVolume.existingClaim`
 - `redis.persistentVolume.existingClaim` (если используется встроенный Redis)
-- `postgresql.persistentVolume.exsistingClaim` (если используется встроенный PostgreSQL)
+- `postgresql.persistentVolume.exsistingClaim` (если используется встроенная PostgreSQL)
 
 В этом случае указанное название PVC будет подставлено в секцию `volumes` для `Pod` напрямую.
 
@@ -200,7 +200,7 @@ postgresqlPassword: "changeme"
 - `codescoring.persistentVolumes.djangoStatic.localVolume.enabled`
 - `codescoring.backup.persistentVolume.localVolume.enabled`
 - `redis.persistentVolume.localVolume.enabled` (если используется встроенный Redis)
-- `postgresql.persistentVolume.localVolume.enabled` (если используется встроенный PostgreSQL)
+- `postgresql.persistentVolume.localVolume.enabled` (если используется встроенная PostgreSQL)
 
 2. Задать путь до **каталога на ноде кластера**, в котором будут размещены данные в следующих переменных:
 
@@ -208,7 +208,7 @@ postgresqlPassword: "changeme"
 - `codescoring.persistentVolumes.djangoStatic.localVolume.path`
 - `codescoring.backup.persistentVolume.localVolume.path`
 - `redis.persistentVolume.localVolume.path` (если используется встроенный Redis)
-- `postgresql.persistentVolume.localVolume.path` (если используется встроенный PostgreSQL)
+- `postgresql.persistentVolume.localVolume.path` (если используется встроенная PostgreSQL)
 
 3. Указать название ноды, на которой будет создан локальный том в следующих переменных:
 
@@ -216,7 +216,7 @@ postgresqlPassword: "changeme"
 - `codescoring.persistentVolumes.djangoStatic.localVolume.nodeHostname`
 - `codescoring.backup.persistentVolume.localVolume.nodeHostname`
 - `redis.persistentVolume.localVolume.nodeHostname` (если используется встроенный Redis)
-- `postgresql.persistentVolume.localVolume.nodeHostname` (если используется встроенный PostgreSQL)
+- `postgresql.persistentVolume.localVolume.nodeHostname` (если используется встроенная PostgreSQL)
 
 Допускается использование разных нод для разных томов.
 
@@ -242,7 +242,7 @@ postgresqlPassword: "changeme"
 По умолчанию `requests` и `limits` не заданы. Это сделано для обеспечения возможности запуска системы CodeScoring в кластерах с малым количеством ресурсов (например, minikube) c целью тестирования.
 При запуске в **production-окружении** может потребоваться настроить ограничение ресурсов. Это можно сделать, задав следующие переменные:
 
-- `postgresql.resources` (при использовании встроенного PostgreSQL)
+- `postgresql.resources` (при использовании встроенной PostgreSQL)
 - `redis.resources` (при использовании встроенного Redis)
 - `codescoring.backend.resources`
 - `codescoring.frontend.resources`
