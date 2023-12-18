@@ -117,7 +117,7 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 
 2. Подключить пулер PgCat к внешней PosgreSQL, заменив соотвествующие параметры на нужные:
 ```
-ipcs:
+codescoring:
   pgcat:
     postgresql:
       host: "postgresql.example.host"
@@ -255,7 +255,7 @@ postgresqlPassword: "changeme"
 Возможно указание как `resources` и `limits` вместе, так и по отдельности, например:
 
 ```
-ipcs:
+codescoring:
   backend:
     resources:
       limits:
@@ -274,7 +274,7 @@ ipcs:
 
 Ниже приведены примерные значения `limits` для инсталляции CodeScoring с 8-10 проектами:
 ```
-ipcs:
+codescoring:
   backend:
     resources:
       limits:
@@ -328,7 +328,7 @@ ipcs:
 
 Например:
 ```
-ipcs:
+codescoring:
   trustedCA:
     enabled: true
     certificates:
@@ -357,7 +357,7 @@ ipcs:
 ``` 
 В случае наличия нескольких корневых CA необходимо добавить их в отдельные ключи, например:
 ```
-ipcs:
+codescoring:
   trustedCA:
     enabled: true
     certificates:
