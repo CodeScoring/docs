@@ -101,7 +101,7 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 
 
 #### Подключение к внешнему Redis
-Для подключения к внешнему Redis, необходимо выполнить следущие действия:
+Для подключения к внешнему Redis, необходимо выполнить следующие действия:
 
 1. Отключить развертывание Redis, указав переменную -  `redis.enabled: false`
 2. В переменных `codescoring.config.djangoCachesRedisUrls` и `codescoring.config.hueyRedisUrl` указать строки подключения для внешнего Redis.
@@ -115,7 +115,7 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 
 1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
 
-2. Подключить пулер PgCat к внешней PosgreSQL, заменив соотвествующие параметры на нужные:
+2. Подключить пулер PgCat к внешней PosgreSQL, заменив соответствующие параметры на нужные:
 ```
 codescoring:
   pgcat:
