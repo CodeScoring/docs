@@ -196,27 +196,27 @@ postgresqlPassword: "changeme"
 
 1. Присвоить значение `true` следующим переменным:
 
-- `codescoring.persistentVolumes.analysisRoot.localVolume.enabled`
-- `codescoring.persistentVolumes.djangoStatic.localVolume.enabled`
-- `codescoring.backup.persistentVolume.localVolume.enabled`
-- `redis.persistentVolume.localVolume.enabled` (если используется встроенный Redis)
-- `postgresql.persistentVolume.localVolume.enabled` (если используется встроенная PostgreSQL)
+    - `codescoring.persistentVolumes.analysisRoot.localVolume.enabled`
+    - `codescoring.persistentVolumes.djangoStatic.localVolume.enabled`
+    - `codescoring.backup.persistentVolume.localVolume.enabled`
+    - `redis.persistentVolume.localVolume.enabled` (если используется встроенный Redis)
+    - `postgresql.persistentVolume.localVolume.enabled` (если используется встроенная PostgreSQL)
 
 2. Задать путь до **каталога на ноде кластера**, в котором будут размещены данные в следующих переменных:
 
-- `codescoring.persistentVolumes.analysisRoot.localVolume.path`
-- `codescoring.persistentVolumes.djangoStatic.localVolume.path`
-- `codescoring.backup.persistentVolume.localVolume.path`
-- `redis.persistentVolume.localVolume.path` (если используется встроенный Redis)
-- `postgresql.persistentVolume.localVolume.path` (если используется встроенная PostgreSQL)
+    - `codescoring.persistentVolumes.analysisRoot.localVolume.path`
+    - `codescoring.persistentVolumes.djangoStatic.localVolume.path`
+    - `codescoring.backup.persistentVolume.localVolume.path`
+    - `redis.persistentVolume.localVolume.path` (если используется встроенный Redis)
+    - `postgresql.persistentVolume.localVolume.path` (если используется встроенная PostgreSQL)
 
 3. Указать название ноды, на которой будет создан локальный том в следующих переменных:
 
-- `codescoring.persistentVolumes.analysisRoot.localVolume.nodeHostname`
-- `codescoring.persistentVolumes.djangoStatic.localVolume.nodeHostname`
-- `codescoring.backup.persistentVolume.localVolume.nodeHostname`
-- `redis.persistentVolume.localVolume.nodeHostname` (если используется встроенный Redis)
-- `postgresql.persistentVolume.localVolume.nodeHostname` (если используется встроенная PostgreSQL)
+    - `codescoring.persistentVolumes.analysisRoot.localVolume.nodeHostname`
+    - `codescoring.persistentVolumes.djangoStatic.localVolume.nodeHostname`
+    - `codescoring.backup.persistentVolume.localVolume.nodeHostname`
+    - `redis.persistentVolume.localVolume.nodeHostname` (если используется встроенный Redis)
+    - `postgresql.persistentVolume.localVolume.nodeHostname` (если используется встроенная PostgreSQL)
 
 Допускается использование разных нод для разных томов.
 
