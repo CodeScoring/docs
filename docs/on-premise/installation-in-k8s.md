@@ -42,7 +42,7 @@ hide:
         ## codescoring-backend configuration parameters
         siteScheme: https # схема сайта http или https
         siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
-        djangoCSRFTrustedOptions: "http://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
+        djangoCSRFTrustedOptions: "https://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
         secretKey: "" # секретный ключ для бэкенда приложения, случайная строка символов
         defaultSuperuserUsername: "admin" # имя администратора в системе 
         defaultSuperuserPassword: "changeme" # пароль администратора в системе
@@ -87,7 +87,7 @@ hide:
 Для удобного редактирования параметров CodeScoring можно скачать и распаковать исходный код Helm-чарта командой:
 
 ```
-helm pull codescoring codescoring-org/codescoring --version CHART_VERSION --untar --untar-dir codescoring-src && cd codescoring-src
+helm pull codescoring-org/codescoring --version CHART_VERSION --untar --untardir codescoring-src && cd codescoring-src
 ```
 
 В файле `values.yaml` можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду установки
