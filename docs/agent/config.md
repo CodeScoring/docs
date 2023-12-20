@@ -62,12 +62,18 @@ scan:
         token: ""
   # specific parsers options
   parsers:
-    # maven parser options
-    maven:
+    # gradle parser options
+    gradle:
       # gradle dependency tree options
       gdt:
         # section name for parse
         match: compileClasspath
+    # maven parser options
+    maven:
+      # path to mvn
+      maven-path: mvn
+      # enable resolve with mvn
+      resolve-enabled: false
   # scan archives options
   scan-archives:
     # scan archives
