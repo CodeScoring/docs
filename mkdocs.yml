@@ -45,8 +45,8 @@ nav:
       - osa/index.md
       - NXRM OSA: osa/nexus_osa.md
       - JFrog OSA: osa/jfrog_osa.md
-  - Установка on-premise:
-    - Требования к серверу: on-premise/server-requirements.md
+  - Установка и администрирование on-premise:
+    - Аппаратные требования: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
     - Обновление системы: on-premise/update.md
     - Резервное копирование: on-premise/backup.md
