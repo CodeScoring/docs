@@ -16,26 +16,7 @@ hide:
 
 После подключения системы контроля версий невозможно поменять ее тип (`Instance type`) и адрес (`Instance URL`).
 
-**Примечание**: в случае, если для обращения к системе контроля версий используются приватные NS сервера, их надо указать в настройках инсталляции. Для получения соответствующих шаблонов обратитесь, пожалуйста, к вендору.
-
-## Добавление токена для GitHub
-
-Оригинальная инструкция для генерации токена на английском: <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>
-
-1. Войти в свой аккаунт в GitHub, для облачной версии логин доступен по ссылке <https://github.com/login>.
-2. Если у аккаунта не верифицирован email, обязательно это сделать по [инструкции](https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address).
-3. Через меню пользователя в правом верхнем углу перейти в раздел **Settings**.
-4. Далее в левом меню выбрать раздел **Developer settings**.
-5. В левом меню выбрать раздел **Personal access tokens**.
-6. Задать название токену, например, "codescoring-demo".
-7. В секции Select scopes выбрать все опции списка _repos_.
-8. Нажать кнопку **Generate token**.
-9. Скопировать сгенерированный токен.
-10. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
-11. Нажать **Setup new** в правом верхнем углу.
-12. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
-    ![VCS form for GitHub](/assets/img/github/cs-vcs-form-github.png)
-
+**Примечание**: в случае, если для обращения к системе контроля версий используются приватные NS сервера, их надо указать в настройках инсталляции. Для получения соответствующих шаблонов необходимо обратиться к вендору.
 
 ## Добавление токена для GitLab
 
@@ -60,6 +41,23 @@ hide:
 10. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
     ![VCS form for GitLab](/assets/img/gitlab/cs-vcs-form-gitlab.png)
 
+## Добавление токена для GitHub
+
+Оригинальная инструкция для генерации токена на английском: <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>
+
+1. Войти в свой аккаунт в GitHub, для облачной версии логин доступен по ссылке <https://github.com/login>.
+2. Если у аккаунта не верифицирован email, обязательно это сделать по [инструкции](https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address).
+3. Через меню пользователя в правом верхнем углу перейти в раздел **Settings**.
+4. Далее в левом меню выбрать раздел **Developer settings**.
+5. В левом меню выбрать раздел **Personal access tokens**.
+6. Задать название токену, например, "codescoring-demo".
+7. В секции Select scopes выбрать все опции списка _repos_.
+8. Нажать кнопку **Generate token**.
+9. Скопировать сгенерированный токен.
+10. В интерфейсе CodeScoring перейти в раздел `Settings -> VCS`.
+11. Нажать **Setup new** в правом верхнем углу.
+12. Заполнить форму, как показано на скриншоте. Токен вставляется в поле _Access token_.
+    ![VCS form for GitHub](/assets/img/github/cs-vcs-form-github.png)
 
 ## Добавление токена для BitBucket Data Center и Server
 

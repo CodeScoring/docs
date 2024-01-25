@@ -11,3 +11,14 @@ hide:
 - `save-results` — флаг сохранения результатов, по умолчанию стоит значение **false**.
 
 Если CLI-проект не создан в системе заранее, можно указать в команде вызова или в config-файле параметр `--create-project`.
+
+Пример команды сохранения результатов сканирования в новый проект:
+
+```bash
+./johnny scan dir . \
+--api_token <api_token> \
+--api_url <api_url> \
+--save-results \
+--create-project \
+--project "project-name"
+```
