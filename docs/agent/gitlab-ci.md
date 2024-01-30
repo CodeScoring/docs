@@ -21,8 +21,8 @@ sca:
     - >
       docker run -v $(pwd):/code 
       <registry-address>/johnny-depp 
-      --api_token $JOHNNY_API_TOKEN
-      --api_url $JOHNNY_API_URL 
+      --api_token $CODESCORING_API_TOKEN
+      --api_url $CODESCORING_API_URL 
       --ignore .git 
       --ignore fixtures 
       --ignore parsers
