@@ -20,6 +20,7 @@ Ruby                        |    RubyGems       |  `Gemfile`<br/>`Gemfile.lock`<
 C#                          |    Nuget          |  `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
 Objective-C и Swift         |    CocoaPods      |  `Podfile`<br/>`Podfile.lock`<br/>`*.podspec`|
 Rust                        |    Cargo          |  `Cargo.lock`<br/>`Cargo.toml`|
+Scala                       |    sbt            |  `scala-dependency-tree.txt`<br/>`sbt-dependency-tree.txt`|
 
 
 Лучший результат будет при наличии основного файла манифеста и соответствующего lock-файла, если он предусмотрен механизмом пакетного менеджера.
