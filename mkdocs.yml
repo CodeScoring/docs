@@ -10,7 +10,7 @@ theme:
     - navigation.indexes
     - content.code.copy
 
-copyright: Copyright &copy; 2018 - 2024 Profiscope
+copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
 
 plugins:
   - search
@@ -51,7 +51,7 @@ nav:
     - Обновление системы: on-premise/update.md
     - Резервное копирование: on-premise/backup.md
     - Работа через прокси: on-premise/proxy.md
-    - Самоподписные SSL сертификаты: on-premise/self-signed-ssl.md
+    - Самоподписанные SSL сертификаты: on-premise/self-signed-ssl.md
     - Пути анализа и исключения: on-premise/analysis-ignore-paths.md
     - Работа системы в Kubernetes: on-premise/installation-in-k8s.md
     - Диагностика неполадок: on-premise/troubleshooting.md
