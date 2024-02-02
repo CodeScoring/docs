@@ -23,17 +23,20 @@ hide:
 
 - Запустить анализ всех проектов:
 
-`curl -X 'POST' \
+```bash
+curl -X 'POST' \
   '[installation_url]/api/analyses/overall_sca/start/' \
   -H 'accept: application/json' \
-  -H 'Authorization: <YOUR_TOKEN>'`
+  -H 'Authorization: token <YOUR_TOKEN>'
+```
 
 - Добавить политику: 
 
-`curl -X 'POST' \
+```bash
+curl -X 'POST' \
   '[installation_url]/api/policies/' \
   -H 'accept: application/json' \
-  -H 'Authorization: <YOUR_TOKEN>' \
+  -H 'Authorization: token <YOUR_TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
   "name": "string",
@@ -56,20 +59,25 @@ hide:
   "is_active": true,
   "is_blocks_build": true,
   "description": "string"
-}'`
+}'
+```
 
 - Получить информацию об отдельном проекте: 
 
-`curl -X 'GET' \
+```bash
+curl -X 'GET' \
   '[installation_url]/api/projects/340/' \
   -H 'accept: application/json' \
-  -H 'Authorization: <YOUR_TOKEN>`
+  -H 'Authorization: token <YOUR_TOKEN>'
+```
 
 - Получить список доступных лицензий: 
 
-`curl -X 'GET' \
+```bash
+curl -X 'GET' \
   '[installation_url]/api/licenses/' \
   -H 'accept: application/json' \
-  -H 'Authorization: <YOUR_TOKEN>'`
+  -H 'Authorization: token <YOUR_TOKEN>'
+```
 
 **Важно!**: команды создания и изменения основных сущностей в системе, таких как проекты, находятся в разделах с приставкой **settings >**.

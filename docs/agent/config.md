@@ -60,7 +60,7 @@ hide:
 ```yaml
 # analysis options
 analysis:
-  # Project name in CodeScoring
+  #	Project name in CodeScoring
   project: ""
   # Save results to CodeScoring. Used only together with project name
   save-results: false
