@@ -7,7 +7,7 @@ hide:
 ## Общие функциональные характеристики
 
 - поддержка анализа 18 языков программирования; 
-- поддержка анализа манифестов пакетных экосистем: **Maven, Gradle, NPM, NuGet, PyPi, Ruby Gems, Cocoapods, Packagist и CONAN**;
+- поддержка анализа манифестов пакетных экосистем: **Maven, Gradle, NPM, NuGet, PyPi, Ruby Gems, Cocoapods, Composer, Conan, Go Modules, Cargo и sbt**;
 - интеграция с прокси-репозиториями: **Nexus Repository Manager, JFrog Artifactory Pro**;
 - интеграция с **hosted и cloud-системами** хостинга кода: **Gitlab, Github, Bitbucket и Azure DevOps**;
 - универсальная интеграция в системы сборки при помощи агента: **Jenkins, Gitlab, Teamcity и пр**;
@@ -20,11 +20,6 @@ hide:
 - разграничение прав доступа для разных пользователей;
 - журналирование всех выполняемых операций (аудит-лог);
 - открытый **API** для интеграции с любым элементом системы. 
-
-## Функциональные характеристики OSA (Open Source Analysis)
-
-- проверка и блокирование загрузки **Open Source** пакетов в прокси-репозиториях;
-- настройка политик безопасности.
 
 ## Функциональные характеристики SCA (Software Composition Analysis)
 
