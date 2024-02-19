@@ -2,7 +2,13 @@
 hide:
   - footer
 ---
-# Обновление установки
+# Обновление системы
+
+Для обновления необходимо иметь актуальные версии файлов `docker-compose.yml`, `app.env` и `.env`, которые можно получить у вендора.
+
+В переменной `CODESCORING_VERSION` внутри файла `.env` указывается требуемая версия системы. Актуальную версию можно узнать в разделе [Changelog](/changelog).
+
+Затем нужно выполнить следующие шаги:
 
 1. Перейти в директорию с файлами запуска:
 
@@ -22,19 +28,3 @@ hide:
     ```bash linenums="3"
     docker-compose -p PROJECT_NAME up -d --force-recreate
     ```
-
-**Важно**: для обновления до версии **2023.38.0** или выше, необходимо предварительно выполнить следующие действия:
-
-1. В зависимости от используемого Docker Compose:
-
-    - Если используется Docker Compose CodeScoring без изменений, необходимо взять актуальную версию файлов `docker-compose.yml`, `app.env` и `.env` из [открытого репозитория Codescoring](https://github.com/CodeScoring/on-premise-docker-compose);
-    - Если используетcя собственный Docker Compose, требуется внести изменения в `docker-compose.yml` согласно diff из [коммита](https://github.com/CodeScoring/on-premise-docker-compose/commit/913b2869ecc572541ea9dfd7a6c070d41677db58).
-
-2. Внести в `.env` файл две переменные со следующими значениями:
-
-```
-POSTGRES_HOST=psql
-POSTGRES_PORT=5432
-```
-
-При использовании собственной инсталляции PostgreSQL, в переменные необходимо задать значения, по которому экземпляр СУБД будет доступен для CodeScoring.
