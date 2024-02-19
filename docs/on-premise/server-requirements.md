@@ -24,7 +24,7 @@ hide:
 
 Общая архитектура работы представлена на изображении ниже.
 
-![CodeScoring on-premise architecture](/assets/img/on-premise-architechture.png)
+![CodeScoring on-premise architecture](/assets/img/on-premise-architecture.png)
 
 Из инсталляции в облако CodeScoring не отправляется исходный код, но для получения информации по зависимостям отправляется:
 

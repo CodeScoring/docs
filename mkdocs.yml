@@ -9,6 +9,25 @@ theme:
     - navigation.tracking
     - navigation.indexes
     - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to system preference
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to light mode
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
 
@@ -30,6 +49,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+        permalink: true
 
 extra_css:
   - stylesheets/extra.css
@@ -41,10 +62,6 @@ nav:
     - Этапы интеграции: integration-stages.md
     - Поддержка пакетных менеджеров: supported-package-managers.md
     - Changelog: changelog.md
-  - CodeScoring OSA: 
-      - osa/index.md
-      - NXRM OSA: osa/nexus_osa.md
-      - JFrog OSA: osa/jfrog_osa.md
   - Установка и эксплуатация on-premise:
     - Аппаратные требования: on-premise/server-requirements.md
     - Установка системы: on-premise/installation.md
@@ -53,8 +70,8 @@ nav:
     - Работа через прокси: on-premise/proxy.md
     - Самоподписанные SSL сертификаты: on-premise/self-signed-ssl.md
     - Пути анализа и исключения: on-premise/analysis-ignore-paths.md
-    - Работа системы в Kubernetes: on-premise/installation-in-k8s.md
     - Диагностика неполадок: on-premise/troubleshooting.md
+    - Работа системы в Kubernetes: on-premise/installation-in-k8s.md
   - Начало работы с on-premise:
     - Ввод ключа активации: on-premise/how-to/activation.md
     - Создание владельцев: on-premise/how-to/proprietors.md
@@ -70,6 +87,10 @@ nav:
     - Работа с аудит-логом: on-premise/how-to/audit-log.md
     - Настройка метрик: on-premise/how-to/metrics.md
     - Работа с API: on-premise/how-to/api.md
+  - Работа с CodeScoring OSA: 
+      - osa/index.md
+      - NXRM OSA: osa/nexus_osa.md
+      - JFrog OSA: osa/jfrog_osa.md
   - Работа с консольным агентом:
     - agent/index.md
     - Настройка через конфигурационный файл: agent/config.md
