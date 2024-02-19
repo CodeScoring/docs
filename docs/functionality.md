@@ -59,6 +59,7 @@ hide:
     + информация о совместимости лицензий (**license compliance**);
 - определение и дедупликация уязвимостей из баз знаний:
     + **NIST National Vulnerability Database (NVD)**;
+    + **Банк данных угроз безопасности информации (БДУ ФСТЭК)**;
     + **Github Security Advisory (GHSA)**;
     + **Open Source Vulnerabilities (OSV)**;
     + **Sonatype OSSIndex**;
