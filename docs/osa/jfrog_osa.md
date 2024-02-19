@@ -6,7 +6,7 @@ hide:
 
 ## Установка плагина
 
-Плагин **CodeScoring JFrog OSA** поддерживает версии JFrog Artifactory Pro **7.4.3** и выше.
+Плагин **CodeScoring JFrog OSA** поддерживает версии JFrog Artifactory Pro **7.43** и выше.
 
 Плагин поставляется в виде архива со следующей структурой:
 

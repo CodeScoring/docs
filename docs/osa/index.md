@@ -33,3 +33,21 @@ hide:
  - установить флаг *Is Active*
 
 ![Policy settings example](/assets/img/osa/policy_settings_example.png)
+
+## Анализ архивов
+
+Плагины поддерживают сканирование архивов в следующих форматах:
+
+| Экосистема      |             Формат архива           |
+|-----------------|-------------------------------------|
+|     Maven       |      `.jar`, `.war`, `.ear`         |
+|      NPM        |        `.tgz`                       |
+|      PYPI       |        `.zip`, `.tar`, `.tgz`, `.tar,gz`, `.tar.bz2`, `.egg`, `.whl`   |
+|      Nuget      |       `.nupkg`                      |
+|    Cocoapods    |       `.tar.gz`, `.zip`             |
+|      Go         |       `.mod`, `.zip`                |
+|     Gems        |       `.rz`, `gz`                   |
+|      Debian     |         `.deb`, `.xz`, `.gz`        |
+|       Yum       |     `.rpm`                          |
+|      Alpine     |        `.apk`                       |
+|      Docker     |         `.json`                     |
