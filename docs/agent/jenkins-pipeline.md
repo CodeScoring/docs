@@ -7,7 +7,7 @@ hide:
 
 Консольный агент поддерживает добавление в Jenkins Pipeline.
 
-Пример для добавления в `pipeline`:
+Пример для добавления в `pipeline` с использованием docker-образа Johnny:
 
 ```groovy
 pipeline {
@@ -34,6 +34,42 @@ pipeline {
       steps {
         sh """
         docker run -v \$(pwd):/code --rm ${CODESCORING_AGENT_IMAGE} --api_token ${CODESCORING_API_TOKEN} --api_url ${CODESCORING_API_URL} --ignore .tmp --ignore fixtures --ignore .git .
+        """
+      }
+    }
+  } 
+}
+```
+
+Для использования бинарного файла консольного агента:
+
+1. Скачать файл командой
+```bash
+wget -O /usr/local/bin/johnny https://registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+```
+2. Разрешить исполнение файла
+
+```bash
+chmod +x /usr/local/bin/johnny
+```
+
+Пример использования в `pipeline`:
+
+```groovy
+pipeline {
+    agent any
+
+  environment {
+    CODESCORING_API_URL='http://localhost:8001'
+    CODESCORING_API_TOKEN='API_TOKEN'
+  }
+
+  stages {
+
+    stage('Run CodeScoring Agent') {
+      steps {
+        sh """
+        johnny scan dir --api_token ${CODESCORING_API_TOKEN} --api_url ${CODESCORING_API_URL} --ignore .tmp --ignore fixtures --ignore .git .
         """
       }
     }
