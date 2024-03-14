@@ -5,9 +5,13 @@ hide:
 
 # Добавление в Gitlab CI
 
-Консольный агент поддерживает добавление в Gitlab CI с помощью файла `.gitlab-ci.yaml`.
+Консольный агент поддерживает добавление в Gitlab CI с помощью файла `.gitlab-ci.yaml` и поставляется как в виде docker-образа, так и в виде бинарного файла.
 
-Пример содержания файла:
+### Docker-образ Johnny
+
+Пример содержания файла `.gitlab-ci.yaml` при использовании docker-образа консольного агента:
+
+`<version>` необходимо заменить на версию агента. Список актуальных версий с описанием доступен [здесь](/changelog/#johnny).
 
 ```yaml
 stages:
@@ -35,19 +39,22 @@ sca:
     expire_in: 1 week
 ```
 
-Для использования бинарного файла консольного агента:
+### Бинарный файл Johnny
+
+Для использования бинарного файла консольного агента, необходимо предварительно выполнить следующие действия на машине gitlab-runner'а:
+
+`JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий с описанием доступен [здесь](/changelog/#johnny).
 
 1. Скачать файл командой
-```bash
-wget -O /usr/local/bin/johnny https://registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
-```
+  ```bash
+  wget -O /usr/local/bin/johnny https://registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+  ```
 2. Разрешить исполнение файла
+  ```bash
+  chmod +x /usr/local/bin/johnny
+  ```
 
-```bash
-chmod +x /usr/local/bin/johnny
-```
-
-Пример использования в Gitlab CI:
+Далее для вызова агента в рамках `.gitlab-ci.yaml`:
 
 ```yaml
 stages:
