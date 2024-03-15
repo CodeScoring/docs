@@ -444,11 +444,11 @@ hide:
 
 ## JFrog OSA
 
-### [2024.11.0] – 2024-03-
+### [2024.11.0] – 2024-03-15
 
 - Добавлена ссылка на страницу компонента в CodeScoring в сообщении о блокировке
 - Добавлено новое сообщение о блокировке компонента в ситуациях, когда registry не добавлен в CodeScoring
-- Добавлена настройка для работы с Docker registry Repository path (stripRepoNameInDockerImageName)
+- Добавлена настройка для работы с Docker registry Repository path (`stripRepoNameInDockerImageName`)
 - Улучшено определение имени и версии артифакта для PyPI, NPM, Debian и Alpine репозиториев
 - Исправлена ошибка сканирования для незакэшированных образов в remote docker репозиториях
 
