@@ -155,6 +155,7 @@ repositories:
         <MaxFileSize>25MB</MaxFileSize>
     </triggeringPolicy>
     <encoder>
+        <charset>UTF-8</charset>
         <pattern>%date{yyyy-MM-dd'T'HH:mm:ss.SSS, UTC+3}Z [%-5p]
             [%-16X{uber-trace-id}] [%-30.30(%c{3}:%L)] [%-20.20thread] - %m%n</pattern>
     </encoder>
@@ -165,19 +166,13 @@ repositories:
 </logger>
 ```
 
-## Пример работы плагина
+### Причины блокировки компонента
 
-После проверки компонента информация о нем будет отображаться на вкладке **Properties**.
+При блокировании загрузки компонента, в консоли пользователя отображается одна из следующих причин блокировки:
 
-![Jfrog attributes example](/assets/img/osa/jfrog_attributes.png)
-
-Параметры с префиксом **сodescoring** относятся к данным с инсталляции:
-
-- **issue.licenses** - список найденных лицензий;
-- **issue.vulnerabilities** - список найденных уязвимостей;
-- **release.Date** - дата выхода компонента;
-- **authors** - авторы компонента;
-- **homepage** - ссылка на домашнюю страницу компонента;
-- **indexUrl** - ссылка на страницу компонента в индексе пакетного менеджера.
-
-Загрузка компонентов, не прошедших проверку, блокируется на этапе попадания в прокси-репозиторий.
+- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – блокировка компонента согласно настроенным на инсталляции политикам;
+- **"The component has not yet been scanned by CodeScoring, it is scheduled to be scanned shortly. The download is blocked according to the plugin settings"** – блокировка непросканированного компонента с последующим запуском сканирования. Используется в режиме `strict`;
+- **"The download has been blocked due to the failure of the scan of the component in CodeScoring"** – не удалось просканировать компонент;
+- **"The download has been blocked due to the wrong mode of the plugin"** – используется некорректный [режим работы плагина](#_5);
+- **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – истекло время ожидания сканирования компонента. Используется в режиме `strict_wait`;
+- **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry на инсталляции.
