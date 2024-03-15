@@ -292,11 +292,31 @@ codescoring:
           cpu: 2250m
           memory: 4000Mi
     highPriorityQueue:
-      scheduler:
-        resources:
-          limits:
-            cpu: 500m
-            memory: 500Mi
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksOsaContainerImageScan:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksOsaPackageScan:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksOsaPackageScan:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksPolicy:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksTqi:
       resources:
         limits:
           cpu: 2250m
