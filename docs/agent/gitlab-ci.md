@@ -43,18 +43,21 @@ sca:
 
 Для использования бинарного файла консольного агента, необходимо предварительно выполнить следующие действия на машине gitlab-runner'а:
 
-`JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий с описанием доступен [здесь](/changelog/#johnny).
-
 1. Скачать файл командой
   ```bash
-  wget -O /usr/local/bin/johnny https://registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+  wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
   ```
+  или
+  ```bash
+  curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+  ```
+  `JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий с описанием доступен [здесь](/changelog/#johnny). `REGISTRY_USERNAME` и `REGISTRY_PASSWORD` необходимо заменить на логин и пароль, полученные от вендора.
 2. Разрешить исполнение файла
   ```bash
   chmod +x /usr/local/bin/johnny
   ```
 
-Далее для вызова агента в рамках `.gitlab-ci.yaml`:
+Пример вызова бинарного файла агента в `.gitlab-ci.yaml`:
 
 ```yaml
 stages:
