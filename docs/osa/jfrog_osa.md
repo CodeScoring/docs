@@ -44,16 +44,16 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 
 ```
 # true/false
-disablePlugin: false
+disablePlugin:
 
 codeScoringAPI:
-  # The base URL for all CodeScoring API endpoint.
+  # The base URL for all CodesSoring API endpoint.
   # Required field. https://host:port
-  url: https://example.com:443
+  url:
 
   # Your CodeScoring API Token for authentication.
   # Required.
-  token: 0d496e5e7153d98fd346d7498cdf2dc61a669077
+  token:
 
   # Http client connection pool size to CodeScoring BE service.
   # By default, value is 200 since it correlates with the default artifactory thread pool size for tomcat.
@@ -67,8 +67,8 @@ codeScoringAPI:
 
   # If you are using a proxy, you must provide both Hostname/IP and port.
   proxy:
-    host: 192.168.1.100
-    port: 8080
+    host:
+    port:
 
 # Artifactory's response status code for blocked packages.
 blockedBuildResponseCode: 403
@@ -91,6 +91,10 @@ defaults:
   # Allows this user to skip scan
   skipScanUser: codescoring
 
+  # Set to 'true' if you use Docker Access Method 'Sub domain' or 'Port'(ex: docker-local.company-jfrog.com, company-jfrog.com:25000 ).
+  # Default: false
+  stripRepoNameInDockerImageName: false
+
 # Settings per repository, you must specify repository name for it to be scanned by plugin.
 repositories:
   docker-remote:
@@ -104,17 +108,19 @@ repositories:
 
 ### Значение параметров
 
+- **disablePlugin** – отключение плагина;
+- **url** – адрес **on-premise** инсталляции **CodeScoring** (обязательно указание протокола);
 - **token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
-- **codeScoringUrl** – адрес **on-premise** инсталляции **CodeScoring**;
-- **repoKeys** – массив репозиториев при работе с которыми будет применяться плагин;
-- **skipScan** – пропуск сканирования компонентов. По умолчанию значение `false`;
-- **responseStatus** – код ошибки, возвращаемый при срабатывании политик безопасности;
-- **http.proxyHost** - IP (в случае использования прокси-сервера);
-- **http.proxyPort** - порт (в случае использования прокси-сервера);
-- **api.timeout** - время ожидания ответа (в миллисекундах). По умолчанию, если CodeScoring API не отвечает в течение 60 секунд, запрос будет отменен.
-- **blockDownloads** - блокирование загрузки компонентов. В случае выставления значения `false` компоненты будут загружаться в независимости от наличия ошибок CodeScoring API или плагина;
-- **updateArtifactProperties** – обновление информации о компоненте, используя результаты анализа с инсталляции CodeScoring.
+- **connectionPoolSize** – размер пула соединений с CodeScoring;
+- **timeout** - время ожидания ответа (в миллисекундах). По умолчанию, если CodeScoring API не отвечает в течение 60 секунд, запрос будет отменен.
+- **host** - IP (в случае использования прокси-сервера);
+- **port** - порт (в случае использования прокси-сервера);
+- **blockedBuildResponseCode** – код ошибки, возвращаемый при срабатывании политик безопасности;
+- **blockOnErrors** - блокирование загрузки компонентов. В случае выставления значения `false` компоненты будут загружаться в независимости от наличия ошибок CodeScoring API или плагина;
+- **dockerRegistryUrl** – адрес репозитория с контейнерными образами;
 - **workMode** – режим работы плагина. Режимы работы описаны в секции ниже.
+- **skipScanUser** – пользователь, для которого пропускается сканирование компонентов;
+- **stripRepoNameInDockerImageName** – наличие названия репозитория в названии образа. По умолчанию значение `false`.
 
 **Важно**: для generic и VCS репозиториев обязательно указать один из следующих типов репозитория в поле [Internal Description](https://www.jfrog.com/confluence/display/JFROG/Repository+Management):
 
