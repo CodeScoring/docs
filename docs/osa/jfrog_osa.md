@@ -44,16 +44,16 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 
 ```
 # true/false
-disablePlugin:
+disablePlugin: false
 
 codeScoringAPI:
   # The base URL for all CodesSoring API endpoint.
   # Required field. https://host:port
-  url:
+  url: https://example.com:443
 
   # Your CodeScoring API Token for authentication.
   # Required.
-  token:
+  token: 0d496e5e7153d98fd346d7498cdf2dc61a669077
 
   # Http client connection pool size to CodeScoring BE service.
   # By default, value is 200 since it correlates with the default artifactory thread pool size for tomcat.
