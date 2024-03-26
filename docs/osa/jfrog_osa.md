@@ -47,7 +47,7 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 disablePlugin: false
 
 codeScoringAPI:
-  # The base URL for all CodesSoring API endpoint.
+  # The base URL for all CodeScoring API endpoints.
   # Required field. https://host:port
   url: https://example.com:443
 
@@ -67,8 +67,8 @@ codeScoringAPI:
 
   # If you are using a proxy, you must provide both Hostname/IP and port.
   proxy:
-    host:
-    port:
+    host: 192.168.1.100
+    port: 8080
 
 # Artifactory's response status code for blocked packages.
 blockedBuildResponseCode: 403
