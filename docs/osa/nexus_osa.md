@@ -78,7 +78,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Repository** – выбор репозитория, для которого будет применена функция экранирования;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **This user skips container image scan** – имя пользователя, для которого не применяется сканирование образов. Используется при загрузке и проверке компонентов консольным агентом;
-- **Host and port used for CodeScoring to download container image to scan** – адрес и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
+- **Host and port used for CodeScoring to download container image to scan** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
 - **Block not scanned images** – блокировка загрузки образов, которые не были просканированы;
 - **Select capability work mode** – режим работы плагина. Режимы работы описаны в секции ниже.
 
