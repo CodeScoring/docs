@@ -63,7 +63,7 @@ hide:
     + **Github Security Advisory (GHSA)**;
     + **Open Source Vulnerabilities (OSV)**;
     + **Sonatype OSSIndex**;
-    + **Kaspersky Open Source Software Threats Data Feed**;
+    + **Kaspersky Open Source Software Threats Data Feed** (подключается по запросу);
     + Вендорский фид (**protestware**).
 - настройка критериев безопасности (политик) по 30 критериям, включая:
     + метаданные пакетов: **название, версия, автор пакета, возраст, дата**;
