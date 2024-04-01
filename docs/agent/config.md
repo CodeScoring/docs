@@ -157,8 +157,8 @@ scan:
     depth: 1
 # stats options
 stats:
-  # Report format
-  format: coloredtable
+  # Report format. Supported formats: coloredtable, table, text, junit, sarif. Default output to console.
+  format: coloredtable,junit>>junit.xml
   # Group vulnerabilities by field
   group-vulnerabilities-by: vulnerability
   # Sort vulnerabilities by fields
