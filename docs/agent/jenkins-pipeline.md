@@ -9,7 +9,7 @@ hide:
 
 ## Добавление агента в Jenkinsfile
 
-### Добавление Docker-образа
+### Использование Docker-образа
 
 Пример добавления агента в `pipeline` с использованием docker-образа:
 
@@ -45,32 +45,31 @@ pipeline {
 }
 ```
 
-### Добавление бинарного файла
+### Использование бинарного файла
 
 Для использования бинарного файла консольного агента, необходимо предварительно выполнить следующие действия на машине с Jenkins:
 
 1. Скачать файл командой
 
-  ```bash
-  wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
-  ```
+    ```bash
+    wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    ```
 
-  или
+    или
 
-  ```bash
-  curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
-  ```
+    ```bash
+    curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    ```
 
-Переменную `JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий доступен [в разделе Changelog](/changelog/#johnny). 
+    Переменную `JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий доступен [в разделе Changelog](/changelog/#johnny). 
 
-Переменные `REGISTRY_USERNAME` и `REGISTRY_PASSWORD` необходимо заменить на логин и пароль, полученные от вендора.
-
+    Переменные `REGISTRY_USERNAME` и `REGISTRY_PASSWORD` необходимо заменить на логин и пароль, полученные от вендора.
 
 2. Разрешить исполнение файла
 
-  ```bash
+```bash
   chmod +x /usr/local/bin/johnny
-  ```
+```
 
 Пример вызова бинарного файла агента в `pipeline`:
 
