@@ -149,6 +149,8 @@ repositories:
 
 ### Настройка логирования
 
+Файл с настройками логирования находится по пути `$JFROG_HOME/<product>/var/etc/<microservice>/logback.xml`.
+
 Для настроек логирования событий плагина необходимо добавить в файл `logback.xml` следующее содержание:
 
 ```
@@ -172,13 +174,17 @@ repositories:
 </logger>
 ```
 
-### Причины блокировки компонента
+## Блокировка компонента
 
-При блокировании загрузки компонента, в консоли пользователя отображается одна из следующих причин блокировки:
+При блокировании загрузки компонента в консоли пользователя отображается одна из следующих причин блокировки:
 
 - **"The download has been blocked in accordance with the policies configured in CodeScoring"** – блокировка компонента согласно настроенным на инсталляции политикам;
 - **"The component has not yet been scanned by CodeScoring, it is scheduled to be scanned shortly. The download is blocked according to the plugin settings"** – блокировка непросканированного компонента с последующим запуском сканирования. Используется в режиме `strict`;
 - **"The download has been blocked due to the failure of the scan of the component in CodeScoring"** – не удалось просканировать компонент;
-- **"The download has been blocked due to the wrong mode of the plugin"** – используется некорректный [режим работы плагина](#_5);
+- **"The download has been blocked due to the wrong mode of the plugin"** – используется некорректный [режим работы плагина](#_3);
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – истекло время ожидания сканирования компонента. Используется в режиме `strict_wait`;
 - **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry на инсталляции.
+
+Ответ также содержит ссылку на страницу компонента в CodeScoring с информацией о сработавших политиках безопасности и найденных уязвимостях:
+
+![Component page](/assets/img/osa/component-page.png)

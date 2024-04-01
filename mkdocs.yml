@@ -91,6 +91,8 @@ nav:
       - osa/index.md
       - NXRM OSA: osa/nexus_osa.md
       - JFrog OSA: osa/jfrog_osa.md
+      - Настройка политик OSA: osa/osa-policies.md
+      - Работа с компонентами OSA на инсталляции: osa/components.md
   - Работа с консольным агентом:
     - agent/index.md
     - Настройка через конфигурационный файл: agent/config.md
