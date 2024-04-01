@@ -99,6 +99,6 @@ nav:
     - Сканирование Docker образов: agent/scan-docker.md
     - Запуск с помощью Docker: agent/launch-docker.md
     - Добавление в Gitlab CI: agent/gitlab-ci.md
-    - Добавление в Jenkins Pipeline: agent/jenkins-pipeline.md
+    - Добавление в Jenkins: agent/jenkins-pipeline.md
     - Сохранение результатов сканирования: agent/save-results.md
     - Улучшение композиционного анализа при работе с Java и .NET: agent/java-dotnet.md
