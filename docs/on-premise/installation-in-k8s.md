@@ -118,6 +118,10 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 2. Подключить пулер PgCat к внешней PosgreSQL, заменив соответствующие параметры на нужные:
 ```
 codescoring:
+  config:
+    postgresqlDatabase: "codescoring"
+    postgresqlUsername: "codescoring"
+    postgresqlPassword: "changeme"
   pgcat:
     postgresql:
       host: "postgresql.example.host"
