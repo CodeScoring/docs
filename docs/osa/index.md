@@ -23,7 +23,7 @@ hide:
 |-----------------|-------------------------------------|
 |     Maven       |      `.jar`, `.war`, `.ear`         |
 |      NPM        |        `.tgz`                       |
-|      PYPI       |        `.zip`, `.tar`, `.tgz`, `.tar,gz`, `.tar.bz2`, `.egg`, `.whl`   |
+|      PyPI       |        `.zip`, `.tar`, `.tgz`, `.tar,gz`, `.tar.bz2`, `.egg`, `.whl`   |
 |      Nuget      |       `.nupkg`                      |
 |    Cocoapods    |       `.tar.gz`, `.zip`             |
 |      Go         |       `.mod`, `.zip`                |
