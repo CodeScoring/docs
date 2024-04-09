@@ -17,7 +17,6 @@ hide:
 
 ### Общие параметры сканирования
 
-- **export-vulns-to-csv** – путь к CSV-файлу для сохранения локальных результатов сканирования;
 - **ignore** – директории, которые будут игнорироваться при сканировании;
 - **no-summary** – отсутствие вывода сводной информацию по проведенному сканированию. По умолчанию значение `false`;
 - **only-hashes** – поиск **только** прямых включений Open Source библиотек по хэшам. По умолчанию значение `false`;
@@ -74,8 +73,6 @@ analysis:
 scan:
   # general scan options
   general:
-    # Path to csv file for local summary result
-    export-vulns-to-csv: ""
     # Ignore paths
     # - first
     # - /**/onem?re
@@ -157,7 +154,7 @@ scan:
     depth: 1
 # stats options
 stats:
-  # Report format. Supported formats: coloredtable, table, text, junit, sarif. Default output to console.
+  # Report format. Supported formats: coloredtable, table, text, junit, sarif, csv. Default output to console.
   format: coloredtable,junit>>junit.xml
   # Group vulnerabilities by field
   group-vulnerabilities-by: vulnerability
