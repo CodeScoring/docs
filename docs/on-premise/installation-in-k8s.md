@@ -115,7 +115,7 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 
 1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
 
-2. Подключить пулер PgCat к внешней PosgreSQL, заменив соответствующие параметры на нужные:
+2. Подключить пулер PgCat к внешней PostgreSQL, заменив соответствующие параметры на нужные:
 ```
 codescoring:
   config:
