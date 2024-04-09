@@ -81,7 +81,7 @@ nav:
     - Запуск анализа: on-premise/how-to/launch-analysis.md
     - Работа с Docker-образами: on-premise/how-to/registries.md
     - Управление учетными записями: on-premise/how-to/users.md
-    - Настройка LDAP: on-premise/how-to/ldap-settings.md
+    - Работа с LDAP: on-premise/how-to/ldap-settings.md
     - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
     - Настройка уведомлений: on-premise/how-to/notifications.md
     - Работа с аудит-логом: on-premise/how-to/audit-log.md
