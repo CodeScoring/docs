@@ -14,7 +14,7 @@ hide:
 .
 ├── CHANGELOG.md
 ├── codescoring.groovy
-├── codescoring.yaml.template
+├── codescoring.yaml
 └── lib
     └── codescoring-plugin-jfrog.jar
 ```
@@ -22,7 +22,7 @@ hide:
 Для добавления плагина в **JFrog** необходимо:
 
 1. Распаковать полученный архив в директорию `$JFROG_HOME/artifactory/var/etc/artifactory/plugins`.
-2. Создать в директории файл для настройки `codescoring.yaml`. Пример содержания находится в файле `codescoring.yaml.template`.
+2. Создать в директории файл для настройки `codescoring.yaml`. Пример содержания находится в поставляемом архиве.
 3. Вызвать **API JFrog Pro** для загрузки плагина `POST /api/plugins/reload`:
 ```curl
 curl -X POST https://[JFROG_URL]/api/plugins/reload
@@ -34,6 +34,20 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 
 ```
 2023-08-08T09:41:35.105Z [jfrt ] [INFO ] [70be801ff583b741] [r.c.p.codescoring:16          ] [art-init            ] - CodeScoring: Initialization of CodeScoringPlugin completed
+```
+
+## Обновление плагина
+
+В случае обновления архива с плагином, для вступления обновлений в силу необходимо использовать следующую команду API:
+
+```curl
+curl -X POST https://[JFROG_URL]/api/plugins/reload
+```
+
+В случае обновления конфигурации плагина в файле `codescoring.yaml`, необходимо использовать следующую команду API:
+
+```curl
+curl -X POST https://[JFROG_URL]/api/plugins/codeScoringReload
 ```
 
 ## Настройка плагина
@@ -149,7 +163,7 @@ repositories:
 
 ### Настройка логирования
 
-Файл с настройками логирования находится по пути `$JFROG_HOME/<product>/var/etc/<microservice>/logback.xml`.
+Файл с настройками логирования находится по пути `$JFROG_HOME/artifactory/var/etc/artifactory/logback.xml`.
 
 Для настроек логирования событий плагина необходимо добавить в файл `logback.xml` следующее содержание:
 
