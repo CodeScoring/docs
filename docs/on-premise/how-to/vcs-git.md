@@ -12,11 +12,27 @@ hide:
 - Azure DevOps Git
 - Other Git (другие платформы, использующие Git)
 
-Интеграция происходит через два возможных механизма: Personal Access Token или SSH. Для механизма Personal Access Token возможно подключение нескольких систем контроля версий с одним адресом, но разными токенами.
+Интеграция происходит через два возможных механизма: Personal Access Token или ключ SSH. Для механизма Personal Access Token возможно подключение нескольких систем контроля версий с одним адресом, но разными токенами.
 
 После подключения системы контроля версий невозможно поменять ее тип (`Instance type`) и адрес (`Instance URL`).
 
 **Примечание**: в случае, если для обращения к системе контроля версий используются приватные NS сервера, их надо указать в настройках инсталляции. Для получения соответствующих шаблонов необходимо обратиться к вендору.
+
+## Добавление SSH-ключа
+
+1. Скопировать существующий или сгенерировать новый приватный SSH ключ в системе контроля версий по инструкции для:
+    - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html])
+    - [Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+    - [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/)
+    - [Azure DevOps Git](https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
+2. В интерфейсе CodeScoring перейти в раздел `Settings -> SSH Keys`
+3. Нажать **Setup new** в правом верхнем углу.
+4. Заполнить форму. Приватный SSH ключ вставляется в поле **Instance private key**.
+5. Перейти в раздел `Settings -> VCS`.
+6. Нажать **Setup new** в правом верхнем углу.
+7. Заполнить форму, как показано на скриншоте. SSH ключ выбирается из списка в поле **SSH key**.
+    ![VCS form with SSH key](/assets/img/vcs-ssh-key.png)
+8. Проверить подключение можно по кнопке **Test it**. Для создания подключения необходимо нажать на кнопку **Setup now**.
 
 ## Добавление токена для GitLab
 
