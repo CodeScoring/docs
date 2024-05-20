@@ -53,7 +53,7 @@ hide:
 
     ```bash
     cd /path/to/docker-compose
-    docker-compose -p PROJECT_NAME -f ./docker-compose.yml up -d --force-recreate --remove-orphans
+    docker-compose -p PROJECT_NAME -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
     ```
 
     `PROJECT_NAME` — здесь и далее выбранное название проекта, по умолчанию использует название текущей директории

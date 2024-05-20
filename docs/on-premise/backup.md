@@ -40,5 +40,5 @@ hide:
 2. Перезапустить инсталляцию:
 
     ```bash linenums="2"
-    docker-compose -p PROJECT_NAME up -d --force-recreate
+    docker-compose -p PROJECT_NAME up -d --force-recreate --renew-anon-volumes
     ```
