@@ -15,8 +15,10 @@ hide:
 2. Выполнить команду копирования файла логов из контейнера в файл `codescoring_onprem.log`
 
     ```bash linenums="2"
-    docker cp -L on-premise_fluentd_1:/fluentd/log/docker.log codescoring_onprem.log
+    docker cp -L PROJECT_NAME_fluentd_1:/fluentd/log/docker.log codescoring_onprem.log
     ```
+
+**Важно**: `PROJECT_NAME` – это название директории, из которой запускается проект. По умолчанию используется значение `on-premise`.
 
 3. Отправить вендору файл `codescoring_onprem.log`.
 
