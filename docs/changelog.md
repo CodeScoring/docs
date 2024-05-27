@@ -324,10 +324,6 @@ hide:
 - Улучшен парсинг yarn.lock
 - Исправлен парсинг в окружении yarn 
 
-### Misc
-
-- `#internal` Улучшили анализ scan build/scan executable
-
 ### [2024.17.0] – 2024-04-27
 
 - Добавлена сборка Johnny для Mac с процессорами Intel
