@@ -100,6 +100,7 @@ nav:
   - Работа с консольным агентом:
     - agent/index.md
     - Настройка через конфигурационный файл: agent/config.md
+    - Команда сканирования: agent/scan.md
     - Сканирование директории: agent/scan-dir.md
     - Сканирование архивов: agent/scan-archive.md
     - Сканирование Docker образов: agent/scan-docker.md
