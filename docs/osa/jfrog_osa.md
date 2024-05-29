@@ -47,7 +47,7 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 В случае обновления конфигурации плагина в файле `codescoring.yaml`, необходимо использовать следующую команду API:
 
 ```curl
-curl -X POST https://[JFROG_URL]/api/plugins/codeScoringReload
+curl -X POST https://[JFROG_URL]/api/plugins/execute/codeScoringReload
 ```
 
 ## Настройка плагина
