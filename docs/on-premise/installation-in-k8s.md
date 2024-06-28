@@ -224,6 +224,69 @@ postgresqlPassword: "changeme"
 
 Допускается использование разных нод для разных томов.
 
+#### Настройка хранилища для временных файлов сканирований
+
+По умолчанию временные файлы в процессе сканирования хранятся в директории `/tmp` внутри контейнеров, к которой монтируются Ephemeral Volumes типа `emptyDir`:
+
+- `codescoring.huey.ipcsQueue.ephemeralVolumes`
+- `codescoring.huey.tasksOsaContainerImageScan.ephemeralVolumes`
+- `codescoring.huey.tasksOsaPackageScan.ephemeralVolumes`
+
+Однако в некоторых случаях может потребоваться использовать Persistent Volume вместо Ephemeral Volume. В таком случае следует закомментировать соответствующие секции в `ephemeralVolumes` для одного или нескольких сервисов, в зависимости от того, для каких сервисов требуется монтировать тома:
+
+```
+codescoring:
+  huey:
+    ipcsQueue:
+      ephemeralVolumes:
+        volumeMounts:
+        # - mountPath: /tmp
+        #   name: ipcs-queue-tmp
+        - mountPath: /etc/ssl/certs
+          name: ipcs-queue-ssl-certs
+        volumes:
+        # - name: ipcs-queue-tmp
+        #   emptyDir: {}
+        - name: ipcs-queue-ssl-certs
+          emptyDir: {}
+
+    tasksOsaContainerImageScan:
+      ephemeralVolumes:
+        volumeMounts:
+        # - mountPath: /tmp
+        #   name: container-image-scan-tmp
+        - mountPath: /etc/ssl/certs
+          name: container-image-scan-ssl-certs
+        volumes:
+        # - name: container-image-scan-tmp
+        #   emptyDir: {}
+        - name: container-image-scan-ssl-certs
+          emptyDir: {}
+
+    tasksOsaPackageScan:
+      ephemeralVolumes:
+        volumeMounts:
+        # - mountPath: /tmp
+        #   name: package-scan-tmp
+        - mountPath: /etc/ssl/certs
+          name: package-scan-ssl-certs
+        volumes:
+        # - name: package-scan-tmp
+        #   emptyDir: {}
+        - name: package-scan-ssl-certs
+          emptyDir: {}
+```
+
+После необходимо выставить значение `enabled: true` в одной или нескольких из следующих секций:
+
+- `codescoring.huey.persistentVolumes.hueyTmp`
+- `codescoring.huey.persistentVolumes.hueyPackageScanTmp`
+- `codescoring.huey.persistentVolumes.hueyContainerImageScanTmp`
+
+В результате будут созданы PersistentVolumeClaim для соответсвующих сервисов. Стоит отметить, что возможности конфигурирования данных томов полностью соответствуют описанным в секции [Настройка томов (PV)](#pv).
+
+При горизонтальном масштабировании сервисов, необходимо произвести настройку томов в соответствии с инструкцией в разделе [Горизонтальное масштабирование CodeScoring](#codescoring).
+
 ### Горизонтальное масштабирование CodeScoring
 
 **Важно!**: Для горизонтального масштабирования системы CodeScoring необходимо наличие в кластере Kubernetes возможности создания томов с типом доступа **ReadWriteMany (RWX)**
