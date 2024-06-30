@@ -6,9 +6,6 @@ hide:
 
 1. Установить Docker Engine под нужную операционную систему в соответствии с документацией: <https://docs.docker.com/engine/install/>.
 2. Установить [Docker Compose](https://github.com/docker/compose/releases/tag/1.29.2) в соответствии с документацией: <https://docs.docker.com/compose/install/>.
-
-    **Примечание**: для Mac и Windows шаг можно пропустить, т.к. утилита включена в установщик Docker Engine.
-
 3. Авторизоваться в приватном реестре Docker-образов системы «CodeScoring» при помощи команды `docker login registry-one.codescoring.ru`, используя логин и пароль, полученные от вендора.
 4. Скачать полученный от вендора архив с установочными файлами, распаковать.
 5. Перейти в консоли в созданную директорию.
