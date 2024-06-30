@@ -59,7 +59,7 @@ hide:
 ```yaml
 # analysis options
 analysis:
-  #	Project name in CodeScoring
+  # Project name in CodeScoring
   project: ""
   # Save results to CodeScoring. Used only together with project name
   save-results: false
@@ -87,6 +87,8 @@ scan:
     only-hashes: false
     # Search for direct inclusion of dependencies using file hashes
     with-hashes: false
+    # Block on empty result
+    block-on-empty-result: true
   # image scan options
   image:
     # scan files in image
@@ -145,6 +147,28 @@ scan:
       # path to sbt
       sbt-path: sbt
       # enable resolve with sbt
+      resolve-enabled: false
+    # npm parser options
+    npm:
+      # path to npm
+      npm-path: npm
+      # enable resolve with npm
+      resolve-enabled: false
+    # poetry parser options
+    poetry:
+      # path to poetry
+      poetry-path: poetry
+      # enable resolve with poetry
+      resolve-enabled: false
+    # pypi parsers options
+    pypi:
+      # python version
+      python-version: ""
+    # dotnet parser options
+    dotnet:
+      # path to dotnet
+      dotnet-path: dotnet
+      # enable resolve with dotnet
       resolve-enabled: false
   # scan archives options
   scan-archives:
