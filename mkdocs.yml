@@ -109,4 +109,4 @@ nav:
     - Добавление в Gitlab CI: agent/gitlab-ci.md
     - Добавление в Jenkins: agent/jenkins-pipeline.md
     - Сохранение результатов сканирования: agent/save-results.md
-    - Разрешение зависимостей в окружении: agent/resolve.md
+    - Разрешение зависимостей в окружении сборки: agent/resolve.md
