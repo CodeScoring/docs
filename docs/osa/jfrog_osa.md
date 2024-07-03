@@ -180,8 +180,7 @@ repositories:
     </triggeringPolicy>
     <encoder>
         <charset>UTF-8</charset>
-        <pattern>%date{yyyy-MM-dd'T'HH:mm:ss.SSS, UTC+3}Z [%-5p]
-            [%-16X{uber-trace-id}] [%-30.30(%c{3}:%L)] [%-20.20thread] - %m%n</pattern>
+        <pattern>%date{yyyy-MM-dd'T'HH:mm:ss.SSS, UTC+3}Z [%-5p] [%-16X{uber-trace-id}] [%-30.30(%c{3}:%L)] [%-20.20thread] - %m%n</pattern>
     </encoder>
 </appender>
 <logger name="ru.codescoring" additivity="false">
