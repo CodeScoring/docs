@@ -6,15 +6,15 @@ hide:
 
 ## Установка плагина
 
-Плагин **CodeScoring Nexus OSA** поставляется в виде JAR-файла и поддерживает версии Nexus Repository Manager **3.39.0-01** и выше.
+Плагин **CodeScoring Nexus OSA** поставляется в виде JAR-файла и поддерживает версии Sonatype Nexus Repository Manager (NXRM) **3.39.0-01** и выше.
 
-Для добавления плагина в **Nexus Repository Manager** необходимо:
+Для добавления плагина в **NXRM** необходимо:
 
 1. Скопировать полученный от вендора файл `nexus-codescoring-plugin.jar` в директорию `/opt/sonatype/nexus/deploy`:
 ```bash
 cp nexus-codescoring-plugin.jar /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
-Если **Nexus Repository Manager** запущен в Docker-контейнере:
+Если **NXRM** запущен в Docker-контейнере:
 ```bash
 docker cp nexus-codescoring-plugin.jar nexus:/opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
@@ -22,16 +22,16 @@ docker cp nexus-codescoring-plugin.jar nexus:/opt/sonatype/nexus/deploy/nexus-co
 ```bash
 chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
-Если **Nexus Repository Manager** запущен в Docker-контейнере:
+Если **NXRM** запущен в Docker-контейнере:
 ```bash
 docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
 
-После выполненных операций, необходимо произвести перезапуск Nexus.
+После выполненных операций, необходимо произвести перезапуск NXRM.
 
 ## Настройка плагина
 
-Для применения плагина **CodeScoring OSA** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **Nexus Repository Manager**. **Capability** – это набор API и компонентов UI для встраивания в **Nexus**, позволяющий расширять его функциональность.
+Для применения плагина **CodeScoring OSA** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **NXRM**. **Capability** – это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
 
 Плагин **CodeScoring OSA** предоставляет четыре новые **Capability**:
 
@@ -51,9 +51,9 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **CodeScoring Token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
 - **CodeScoring URL** – адрес **on-premise** инсталляции **CodeScoring**;
 - **HttpClient Connection Pool Size** – количество доступных соединений. Параметр позволяет управлять количеством параллельных запросов, чтобы ускорить сканирование;
-- **HTTP Proxy Host** – адрес прокси-сервера. Используется в случае, если нет возможности наладить прямое соединение между Nexus и CodeScoring;
+- **HTTP Proxy Host** – адрес прокси-сервера. Используется в случае, если нет возможности наладить прямое соединение между NXRM и CodeScoring;
 - **HTTP Proxy Port** – порт прокси-сервера;
-- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов сканирования артифакта в базе Nexus с возможностью извлечения из Nexus API;
+- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов сканирования артифакта в базе NXRM с возможностью извлечения из Nexus API;
 - **Block downloads in case of plugin or CodeScoring errors** – блокировка загрузки компонента при наличии ошибок от плагина или CodeScoring API.
 - **Custom message for blocked packages** – сообщение для пользователя при блокировке компонентов;
 - **Nexus URL for identification in CodeScoring** – адрес Nexus Repository Manager с протоколом для отображения результатов на инсталляции.
@@ -64,7 +64,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ### CodeScoring Proxy Repository Scan
 
-Расширение позволяет установить проверку компонентов на выбранный прокси репозиторий со следующими параметрами:
+Расширение позволяет включить проверку компонентов на выбранный прокси репозиторий со следующими параметрами:
 
 - **Repository** – выбор репозитория, для которого будет применена функция экранирования;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
@@ -75,7 +75,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ### CodeScoring Docker Repository Scan
 
-Расширение позволяет установить проверку компонентов на выбранный hosted или proxy docker репозиторий со следующими параметрами:
+Расширение позволяет включить проверку компонентов на выбранный hosted или proxy docker репозиторий со следующими параметрами:
 
 - **Repository** – выбор репозитория, для которого будет применена функция экранирования;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
@@ -89,7 +89,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 ### CodeScoring All Repositories Scan
 
-Расширение позволяет установить проверку компонентов на все репозитории в рамках Nexus Repository Manager со следующими параметрами:
+Расширение позволяет включить проверку компонентов на все репозитории в рамках Sonatype Nexus Repository Manager со следующими параметрами:
 
 - **List of comma separated repositories to ignore** – список репозиториев, которые не будут сканироваться;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
@@ -116,7 +116,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 Для настройки логирования событий плагина необходимо зайти в раздел `Support -> Logging` и добавить логгер с названием **ru.codescoring** и уровнем логирования **DEBUG**.
 
-![Nexus logs](/assets/img/osa/nxrm_logs.png)
+![NXRM logs](/assets/img/osa/nxrm_logs.png)
 
 Результаты логирования событий доступны в разделе `Support -> Logs`.
 
