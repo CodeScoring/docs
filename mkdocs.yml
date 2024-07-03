@@ -80,6 +80,7 @@ nav:
     - Ввод ключа активации: on-premise/how-to/activation.md
     - Создание владельцев: on-premise/how-to/proprietors.md
     - Подключение системы контроля версий: on-premise/how-to/vcs-git.md
+    - Подключение менеджеров репозиториев: on-premise/how-to/repo-managers.md
     - Управление проектами: on-premise/how-to/projects.md
     - Настройка политик: on-premise/how-to/policies.md
     - Запуск анализа: on-premise/how-to/launch-analysis.md
