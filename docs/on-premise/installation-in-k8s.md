@@ -404,6 +404,33 @@ codescoring:
         cpu: 1000m
         memory: 2000Mi
 ```
+Также возможна настройка ресурсов init-контейнеров. Для сервиса backend они настраиваются в разделе
+
+```
+codescoring:
+  backend:
+    initContainers:
+      resources:
+        limits:
+          cpu: 2500m
+          memory: 2500Mi
+        requests:
+          cpu: 500m
+          memory: 500Mi
+```
+
+Для всех прочих сервисов init-контейнеры являются однотипными и выполняют функции wait-for для обеспечения последовательного запуска сервисов. Ресурсы для них настраиваются в разделе
+
+```
+codescoring:
+  initContainers:
+    limits:
+      cpu: 2500m
+      memory: 2500Mi
+    requests:
+      cpu: 200m
+      memory: 200Mi
+```
 
 ## Добавление сертификата удостоверяющего центра (CA)
 
