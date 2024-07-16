@@ -1,5 +1,5 @@
 site_name: Публичная документация CodeScoring
-docs_dir: '/docs'
+docs_dir: '/docs/ru'
 site_url: https://docs.codescoring.ru/
 theme:
   name: material
