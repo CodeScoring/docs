@@ -1,9 +1,9 @@
 site_name: Публичная документация CodeScoring
-docs_dir: 'docs/ru'
+docs_dir: '../../docs/ru'
 site_url: https://docs.codescoring.ru/
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: '../../overrides/'
   language: ru
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
