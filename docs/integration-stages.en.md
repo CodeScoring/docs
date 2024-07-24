@@ -5,52 +5,51 @@ hide:
 
 # Integration stages
 
-Система композиционного анализа исходных кодов **CodeScoring** интегрируется в жизненный цикл разработки программного обеспечения в целях предотвращения попадания в конечный продукт известных уязвимостей и лицензионно несовместимых или опасных компонентов на всех этапах создания программных продуктов:
+The software composition analysis system **CodeScoring** is integrated into the software development life cycle in order to prevent known vulnerabilities and license-incompatible or dangerous components from entering the final product at all stages of software product creation:
 
-- Этап поступления заимствованных компонентов из внешних источников в промежуточное хранилище артефактов, прокси-репозиторий, организации;
-- Этап разработки или сопровождения программного кода;
-- Этап сборки программных продуктов;
+- The stage of downloading Open Source components from external sources into a proxy repository of an organization;
+- Stage of development or maintenance of program code;
+- Stage of assembling software products;
 
-Общая cхема контролируемых этапов разработки программного обеспечения представлена ниже:
+The general diagram of the controlled stages of software development is presented below:
 
-![All integration stages](/assets/img/integration/integration-stages.png)
+![All integration stages](/assets/img/integration-stages-en.png)
 
-## Этап поступления Open Source компонентов
+## Stage of downloading Open Source components
 
 ![osa](/assets/img/integration/integration-stage-osa.png)
 
-Для ускорения процессов сборки программного обеспечения, в разработке применяются промежуточные хранилища программных компонентов - **прокси-репозитории**. Обычно прокси-репозитории размещаются внутри защищенного контура организации и обеспечивают процессы кэширования используемых разработчиками программных библиотек. Дополнительно эти хранилища могут использоваться для хранения собственных версий сборок и модулей составляющих программные продукты организации.
+To speed up software assembly processes, intermediate storages of software components are used in development - **proxy repositories**. Typically, proxy repositories are located within an organization's secure loop and provide caching processes for software libraries used by developers. Additionally, these repositories can be used to store your own versions of assemblies and modules that make up the organization's software products.
 
-Лидерами данного класса решений являются такие системы как **Nexus Repository Manager** от компании Sonatype и **JFrog Artifactory PRO** от компании JFrog.
+The leaders in this class of solutions are systems such as **Nexus Repository Manager** from Sonatype and **JFrog Artifactory PRO** from JFrog.
 
-Решение CodeScoring обеспечивает интеграцию с обеими представленными системами при помощи специального плагина-расширения [**CodeScoring OSA**](/osa). Задача плагина — на каждое обращение к хранящемуся компоненту выполнять проверку на соответствие настроенным политикам (policy compliance) и в случае несоответствия выполнять блокирование загрузки компонента с опциональной возможностью полного удаления из хранилища. Такой подход позволяет не допустить появления новых уязвимых компонентов в хранилищах артефактов, а также удалять уже существующие пакеты при выявлении в них уязвимостей.
+The CodeScoring solution provides integration with both presented systems using a special extension plugin [**CodeScoring OSA**](/osa/index.en). The task of the plugin is to perform a check for compliance with the configured policies for each request to the stored component and, in case of non-compliance, block the downloading of the component with the option of completely removing it from the storage. This approach makes it possible to prevent the emergence of new vulnerable components in artifact repositories, as well as to remove existing packages when vulnerabilities are identified in them.
 
-## Этап сборки программных продуктов
+## Stage of assembling software products
 
 ![CI](/assets/img/integration/integration-stage-ci.png)
-	
-Для сборки программных продуктов разработчики используют средства автоматизации, такие как **Gitlab CI/CD**, **Jenkins**, **Bitbucket Pipelines**. Задача таких средств — обеспечить сборку программного продукта из доступных артефактов, состоящих из собственного кода и сторонних компонентов. 
 
-На шаге перед конечной сборкой программного обеспечения в целях безопасности встраиваются: 
+To build software products, developers use automation tools such as **Gitlab CI/CD**, **Jenkins**, **Bitbucket Pipelines**. The task of such tools is to ensure the assembly of a software product from available artifacts, consisting of its own code and third-party components.
 
-- композиционный анализ программного обеспечения **Software Composition Analysis** для проверки сторонних компонентов;
-- статический анализ приложения на безопасность **Static Application Security Testing** для проверки для проверки собственного кода.
+For security purposes before the final assembly of the software the following processes are established:
 
-SCA-системы обеспечивают инвентаризацию программного обеспечения с формированием списка используемых компонентов [**Software Bill of Materials**](https://codescoring.ru/tpost/rsjdsl52s1-chto-takoe-software-bill-of-materials-sb), идентификацию известных уязвимостей и определение лицензионной чистоты.	
+- Compositional analysis of software **Software Composition Analysis** for checking third-party components;
+- Static application security analysis **Static Application Security Testing** for verification to check your own code.
 
-Решение CodeScoring обеспечивает **три режима идентификации сторонних компонентов** в анализируемой кодовой базе:
+SCA systems provide software inventory with [**Software Bill of Materials**](https://cyclonedx.org/capabilities/sbom/), identification of known vulnerabilities and determination of license purity.
 
-- разбор манифестов - списков зависимостей, формируемых разработчиками в ручном или автоматическом режимах;
-- разрешение транзитивных зависимостей - цепочки компонентов, привносимых в продукт зависимостями первого уровня;
-- идентификация прямых включений Open Source библиотек - ситуации, когда сторонний компонент физически копируется в собственную разработку организации и не указывается разработчиками в манифестах пакетных менеджеров.
+The CodeScoring solution provides **three modes for identifying third-party components** in the analyzed code base:
 
-В рамках этапа сборки система CodeScoring применяет специального агента в виде бинарного файла. Агент проверяет идентифицированные компоненты на соответствие настроенным политикам безопасности для выбранного продукта и, в случае несоответствия политикам с блокирующим статусом, возвращает соответствующий код ошибки, который сигнализирует об остановке сборки.
+- Analysis of manifests – lists of dependencies generated by developers manually or automatically;
+- Resolution of transitive dependencies – a chain of components introduced into the product by first-level dependencies;
+- Identification of direct inclusions of Open Source libraries - situations when a third-party component is physically copied into the organization’s own development and is not included by the developers in the manifests of package managers.
 
-## Этап разработки и сопровождения программного кода 
+As part of the build phase, the CodeScoring system applies a special [CLI agent](/agent/index.en) in the form of a binary file. The agent checks the identified components against the configured security policies for the selected product and, if they do not comply with policies with a block status, returns the appropriate error code, which signals the build to stop.
+
+## Stage of development and maintenance of program code
 
 ![Development](/assets/img/integration/integration-stage-development.png)
 
-CodeScoring поддерживает интеграцию с основными системами хранения и версионирования кода - **Github**, **Gitlab**, **Bitbucket** и **Azure DevOps**, 
+CodeScoring supports integration with the main version control systems - **Github**, **Gitlab**, **Bitbucket** and **Azure DevOps**,
 
-Для отслеживания безопасности исходного кода в процессе его написания в системе CodeScoring реализован механизм непрерывного мониторинга рисков **Continuous Monitoring**. Система проверяет исходный код согласно настраиваемому расписанию сканирования и может сигнализировать о выявленных проблемах в смежные системы, такие как **система управления задачами Jira** или **системы агрегации и оркестрации инцидентов безопасности SOAR/SIEM** или просто уведомить ответственного специалиста по электронной почте.
-
+To monitor the safety of source code during the process of writing it, the CodeScoring system implements a mechanism for **Continuous Risk Monitoring**. The system checks the source code according to a customizable scanning schedule and can signal detected problems to related systems, such as **Jira task management system** or **SOAR/SIEM security incident aggregation and orchestration systems** or simply notify the responsible specialist by email.

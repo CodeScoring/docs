@@ -4,15 +4,16 @@ hide:
 ---
 # Codescoring Documentation
 
-В документации содержится основная информация для работы с системой **CodeScoring**.
+The documentation contains general information for working with the **CodeScoring** system.
 
-**CodeScoring** представляет собой решение для композиционного анализа программного обеспечения, предназначенное для разбора зависимостей, поиска уязвимостей в Open Source, выявления совместимости Open Source лицензий и обзора качества разрабатываемых проектов в разрезе команд исполнителей.
+**CodeScoring** is a software composition analysis solution designed to parse dependencies, search for Open Source vulnerabilities, identify Open Source license compatibility, and review the quality of developed projects.
 
-**Оглавление**:
+**Table of contents**:
 
- - [Функциональные характеристики](functionality)
- - [Модуль OSA](osa)
- - [Установка решения](on-premise/installation)
- - [Настройка и применение](on-premise/how-to/activation)
+ - [Functional characteristics](/functionality.en)
+ - [Installation guide](/on-premise/installation.en)
+ - [Getting started](/on-premise/how-to/activation.en)
+ - [OSA module](/osa/index.en)
+ - [CLI agent](/agent/index.en)
 
-По всем вопросам пишите на <hello@codescoring.ru>.
+In case of any questions, please write to <hello@codescoring.ru>.

@@ -3,29 +3,29 @@ hide:
   - footer
 ---
 
-# Сканирование директории
+# Scanning directory
 
-Сканирование директории производится при помощи субкоманды `scan dir`.
+Scanning a directory is done using the `scan dir` subcommand.
 
-При запуске агент:
+During launching the agent:
 
-1. Рекурсивно проходит по всему содержимому указанной директории (если указан конкретный манифест, обрабатывает только его)
-  1. Идентифицирует файлы манифестов и разбирает их
-  2. Хеширует каждый файл (при запуске с `--with-hashes`)
-2. Формирует запрос к инсталляции
-3. После получения результата показывает суммарную информацию по найденным манифестам, зависимостям, уязвимостям, сработавшим политикам и более подробную информацию по каждой уязвимости и сработавшей политике
-4. Дополнительно в текущей директории формируется файл `bom.json`, содержащий полный Software Bill of Materials в формате **CycloneDX**.
+1. Recursively goes through the entire contents of the specified directory (if a particular manifest is specified, it processes only that one)
+ 1. Identifies manifest files and parses them
+ 2. Hashes each file (when ran with `--with-hashes`)
+2. Generates a request for installation
+3. After receiving the result, it shows summary information on the found manifests, dependencies, vulnerabilities, triggered policies and more detailed information on each vulnerability and triggered policy
+4. Additionally, a file `bom.json` is generated in the current directory, containing the complete Software Bill of Materials in the **CycloneDX** format.
 
-В зависимости от результата работы и параметров запуска агент возвращает соответствующий exit code.
+Depending on the result of work and launch parameters, the agent returns the corresponding exit code.
 
-По умолчанию агент проходит по содержимому директории рекурсивно (включая вложенные директории). Для нерекурсивного сканирования необходимо добавить параметр `--no-recursion` к команде `scan dir`.
+By default, the agent traverses the contents of a directory recursively (including subdirectories). For non-recursive scanning, you need to add the `--no-recursion` option to the `scan dir` command.
 
-## Пример запуска команды
+## Request example
 
 ```bash
 ./johnny scan dir . \
 --api_token <api_token> \
 --api_url <api_url> \
---ignore .tmp --ignore fixtures --ignore .git 
+--ignore .tmp --ignore fixtures --ignore .git
 ```
 

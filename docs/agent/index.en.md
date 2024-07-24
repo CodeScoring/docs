@@ -3,6 +3,26 @@ hide:
   - footer
 ---
 
-# Console agent
+# CLI agent
 
-#### This page has not been translated for now.
+The CLI agent **Johnny** is provided with the on-premise version of CodeScoring.
+
+Agent is an executable binary file that parses manifests of known package managers, scans Docker images and searches for direct inclusions of Open Source libraries using hashes. The agent can work both independently of the installation and in tandem with it, receiving data about configured policies and saving scan results to existing projects.
+
+By default, the agent build is provided for Linux-compatible systems. Builds for Windows and MacOS are available upon request.
+
+## Mechanism of operation
+
+When working in source code directory scanning mode, the agent recursively traverses the directory specified in the launch parameters and searches for and parses manifests of [known package managers](/supported-package-managers.en).
+
+In the [image scanning](/agent/scan-docker.en) mode, the agent examines the file system of the specified image, making an inventory of its component content.
+
+At the end of the work, a **SBOM** file is generated, and information about the vulnerabilities found and triggered policies is displayed in the console.
+
+Example output of found vulnerabilities:
+
+![Johnny example with vulnerabilities](/assets/img/johnny_output_vulnerabilities.png)
+
+Example output of triggered policies:
+
+![Johnny example with policy alerts](/assets/img/johnny_output_alerts.png)
