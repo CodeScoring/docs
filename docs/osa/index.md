@@ -27,7 +27,7 @@ hide:
 |      Nuget      |       `.nupkg`                      |
 |    Cocoapods    |       `.tar.gz`, `.zip`             |
 |      Go         |       `.mod`, `.zip`                |
-|     Gems        |       `.rz`, `gz`                   |
+|     Gems        |       `.rz`, `gz`  `.gem`                 |
 |      Debian     |         `.deb`, `.xz`, `.gz`        |
 |       Yum       |     `.rpm`                          |
 |      Alpine     |        `.apk`                       |
