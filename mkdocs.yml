@@ -107,7 +107,7 @@ plugins:
           installation: "Установка и эксплуатация on-premise"
           hardware: "Аппаратные требования"
           installation-docker: "Установка системы"
-          installation-kubernetes: "Installation in Kubernetes"
+          installation-kubernetes: "Работа системы в Kubernetes"
           update: "Обновление системы"
           backup: "Резервное копирование"
           proxy: "Работа через прокси"
