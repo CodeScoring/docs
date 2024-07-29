@@ -6,6 +6,12 @@ hide:
 
 ## Codescoring On-premise
 
+### [2024.29.1] - 2024-07-17
+
+- Added an ability to specify a license for CLI projects when creating via the API
+- Fixed an error while displaying Matched Criteria in the Policy Alerts section
+- Fixed the color of the warning level on the blocked component page
+
 ### [2024.28.0] - 2024-07-09
 
 - Implemented a new mechanism of policy conditions with the formation of logical expressions
@@ -360,6 +366,10 @@ hide:
 
 ## Console agent Johnny
 
+### [2024.29.0] – 2024-07-19
+
+- Added export of links and CWE to sarif format
+
 ### [2024.26.0] - 2024-06-24
 
 - Added parsing in npm environment
@@ -517,6 +527,10 @@ hide:
 
 ## Nexus OSA
 
+### [2024.28.0] - 2024-07-10
+
+- Added scanning of archives in `.gem` format for Ruby repositories
+
 ### [2024.26.0] - 2024-06-27
 
 - Added the `Append repository name to image name for Docker repositories` setting to allow working with the RepoPath approach for Docker registries
@@ -592,6 +606,10 @@ hide:
 - Improved [logging of installation responses](/osa/nexus_osa.en/#_4)
 
 ## JFrog OSA
+
+### [2024.28.0] - 2024-07-10
+
+- Added scanning of archives in `.gem` format for Ruby repositories
 
 ### [2024.26.0] - 2024-06-28
 
