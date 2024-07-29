@@ -3,17 +3,17 @@ hide:
   - footer
 ---
 
-# Команда сканирования
+# Scan command
 
-Запуск агента производится при помощи команды `scan` с тремя возможными вариантами сканирования:
+The agent is launched using the `scan` command with three possible scanning options:
 
-- `scan dir` – [сканирование директории](/agent/scan-dir/);
-- `scan file` – сканирование файла;
-- `scan image` – [сканирование контейнерного образа](/agent/scan-docker);
+- `scan dir` – [scan directory](/agent/scan-dir/);
+- `scan file` – file scanning;
+- `scan image` – [scanning a container image](/agent/scan-docker);
 
-## Опции запуска
+## Launch options
 
-Доступные и необходимые опции запуска агента для сканирования можно посмотреть при помощи флага `help`.
+Available and required options for launching the agent for scanning can be viewed using the `help` flag.
 
 ```
 $ ./johnny scan --help
@@ -88,8 +88,8 @@ Global Flags:
 Use " scan [command] --help" for more information about a command.
 ```
 
-В параметре `--api_url` должен быть указан полный адрес on-premise инсталляции. Значение для `--api_token` можно взять в профиле пользователя инсталляции.
+The `--api_url` parameter must contain the full address of the on-premise installation. The value for `--api_token` can be taken from the installation user profile.
 
-Указание параметра `--project` позволит при сканировании применить политики, относящиеся к выбранному проекту.
+Specifying the `--project` parameter will allow scanning to apply policies related to the selected project.
 
-Для указания пути к файлу сохранения SBOM необходимо добавить параметр `--bom-path` в запрос или назначить переменную `bom-path` в config-файле. По умолчанию SBOM сохраняется в директории запуска в файл `bom.json`.
+To specify the path to a SBOM save file, you must add the `--bom-path` parameter to the request or assign the `bom-path` variable in the config file. By default, the SBOM is saved in the startup directory in the file `bom.json`.

@@ -28,4 +28,3 @@ hide:
 --api_url <api_url> \
 --ignore .tmp --ignore fixtures --ignore .git 
 ```
-

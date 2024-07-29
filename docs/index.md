@@ -11,9 +11,10 @@ hide:
 **Оглавление**:
 
  - [Функциональные характеристики](functionality)
- - [Модуль OSA](osa)
  - [Установка решения](on-premise/installation)
  - [Настройка и применение](on-premise/how-to/activation)
+ - [Модуль OSA](osa)
+ - [Консольный агент](agent)
 
 По всем вопросам пишите на <hello@codescoring.ru>.
 
