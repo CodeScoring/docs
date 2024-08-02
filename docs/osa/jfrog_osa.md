@@ -25,7 +25,7 @@ hide:
 2. Создать в директории файл для настройки `codescoring.yaml`. Пример содержания находится в поставляемом архиве.
 3. Вызвать **API JFrog Pro** для загрузки плагина `POST /api/plugins/reload`:
 ```curl
-curl -X POST https://[JFROG_URL]/api/plugins/reload
+curl -X POST https://[JFROG_URL]/artifactory/api/plugins/reload
 ```
 
 ## Проверка установки плагина
@@ -41,7 +41,7 @@ curl -X POST https://[JFROG_URL]/api/plugins/reload
 В случае обновления архива с плагином, для вступления обновлений в силу необходимо использовать следующую команду API:
 
 ```curl
-curl -X POST https://[JFROG_URL]/api/plugins/reload
+curl -X POST https://[JFROG_URL]/artifactory/api/plugins/reload
 ```
 
 В случае обновления конфигурации плагина в файле `codescoring.yaml`, необходимо использовать следующую команду API:
