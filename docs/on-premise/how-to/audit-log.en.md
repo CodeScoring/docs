@@ -69,7 +69,7 @@ Each SCA analysis event contains a sequential analysis number in the project and
 | --------------- | ----------------------------------------------------------
 |*Rebuild author {primary_email}*| Updating information on the author based on the default email in Authors Merge rules|
 |*Generate authors merge rules*| Creation of the merge rules for authors |
-|*(Run #{run_id}) Collect commits data for project | Collection of commits data for a project has started|
+|*(Run #{run_id}) Collect commits data for project*| Collection of commits data for a project has started|
 |*(Run #{run_id}) Create authors*| Creation of authors |
 |*(Run #{run_id}) Load authors OSS Contributions*| Loading the authors contribution in Open Source projects |
 |*(Run #{run_id}) Authors analysis started*| Analysis of the authors began |

@@ -4,4 +4,110 @@ hide:
 ---
 # Connecting to a VCS
 
-#### This page has not been translated to English for now.
+To add projects (Git repositories) to the system for analysis, you must first create a connection to the version control system (VCS). CodeScoring supports the following platforms using Git:
+
+- GitLab
+- GitHub
+- BitBucket (Data Center and Server only)
+- Azure DevOps Git
+- Other Git (other platforms using Git)
+
+Integration occurs through two possible mechanisms: Personal Access Token or SSH key. For the Personal Access Token mechanism, it is possible to connect several version control systems with the same address, but different tokens.
+
+After connecting the version control system, it is impossible to change its type (`Instance type`) and address (`Instance URL`).
+
+**Note**: if private NS servers are used to access the version control system, they must be specified in the installation settings. To obtain the appropriate templates, you must contact the vendor.
+
+## Adding an SSH key
+
+1. Copy an existing or generate a new private SSH key in the version control system according to the instructions for:
+ - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html])
+ - [Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh -agent)
+ - [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/)
+ - [Azure DevOps Git](https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
+2. In the CodeScoring interface, go to the `Settings -> SSH Keys` section
+3. Click **Setup new** in the upper right corner.
+4. Fill out the form. The private SSH key is inserted into the **Instance private key** field.
+5. Go to the `Settings -> VCS` section.
+6. Click **Setup new** in the upper right corner.
+7. Fill out the form as shown in the screenshot. The SSH key is selected from the list in the **SSH key** field.
+ ![VCS form with SSH key](/assets/img/vcs-ssh-key.png)
+8. You can check the connection by clicking the **Test it** button. To create a connection, click on the **Setup now** button.
+
+## Adding a token for GitLab
+
+Original instructions for generating a token: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token>
+
+1. Log in to your GitLab account; for the cloud version, the login is available at the link <https://gitlab.com/users/sign_in>.
+2. Through the user menu in the upper right corner, go to the **Edit profile** section.
+
+ ![Edit profile](/assets/img/gitlab/edit-profile-link.png)
+
+3. Next, in the left menu, select the **Access Tokens** section.
+
+ ![Access tokens](/assets/img/gitlab/access-tokens-link.png)
+
+4. Give the token a name, for example, “*codescoring-demo*”, the date can be left blank
+5. In the _scopes_ section, select **read_api** and **read_repository**.
+ ![Token scopes](/assets/img/gitlab/scopes.png)
+6. Click the **Create personal access token** button.
+7. Copy the generated token.
+8. In the CodeScoring interface, go to the `Settings -> VCS` section.
+9. Click **Setup new** in the upper right corner.
+10. Fill out the form as shown in the screenshot. The token is inserted into the _Access token_ field.
+ ![VCS form for GitLab](/assets/img/gitlab/cs-vcs-form-gitlab.png)
+
+## Adding a token for GitHub
+
+Original instructions for generating a token: <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token >
+
+1. Log in to your GitHub account; for the cloud version, the login is available at <https://github.com/login>.
+2. If your account email is not verified, be sure to do this according to [instructions](https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address).
+3. Through the user menu in the upper right corner, go to the **Settings** section.
+4. Next, in the left menu, select the **Developer settings** section.
+5. In the left menu, select the **Personal access tokens** section.
+6. Give the token a name, for example, “codescoring-demo”.
+7. In the Select scopes section, select all options from the _repos_ list.
+8. Click the **Generate token** button.
+9. Copy the generated token.
+10. In the CodeScoring interface, go to the `Settings -> VCS` section.
+11. Click **Setup new** in the upper right corner.
+12. Fill out the form as shown in the screenshot. The token is inserted into the _Access token_ field.
+ ![VCS form for GitHub](/assets/img/github/cs-vcs-form-github.png)
+
+## Adding a token for BitBucket Data Center and Server
+
+Original instructions for generating a token in English: <https://confluence.atlassian.com/bitbucketserver072/personal-access-tokens-1005335924.html>
+
+1. Log in to your BitBucket account.
+2. Through the user menu in the upper right corner, go to the **Manage account** section.
+3. Next, in the left menu, select the **Personal access tokens** section.
+4. Click on **Create token**.
+5. Give the token a name, for example, “codescoring-demo”.
+6. In the **Permissions** section, give read rights to projects and repositories.
+7. In the **Expiry** section, if desired, set the token lifetime.
+8. Click the **Create** button.
+9. Copy the generated token.
+10. In the CodeScoring interface, go to the `Settings -> VCS` section.
+11. Click **Setup new** in the upper right corner.
+12. Fill out the form as shown in the screenshot. The token is inserted into the _Access token_ field.
+ ![VCS form for BitBucket Server](/assets/img/bitbucket/cs-vcs-form-bitbucket.png)
+
+## Adding a token for Azure DevOps Git
+
+Original instructions for generating a token in English: <https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops>
+
+1. Sign in to your Azure DevOps account.
+2. Through the user menu in the upper right corner, go to the **Personal access tokens** section.
+
+ ![PAT menu item](/assets/img/azure/pat-menu-item.png)
+
+3. Next, click the **New token** button.
+4. Set a name for the token, for example, “codescoring-demo”, and the validity period of the token.
+5. In the _Scopes_ section, be sure to check **Read** access for the **Code** and **Identity** entities.
+6. Click the **Create** button.
+7. Copy the generated token.
+8. In the CodeScoring interface, go to the `Settings -> VCS` section.
+9. Click **Setup new** in the upper right corner.
+10. Fill out the form as shown in the screenshot. The token is inserted into the _Access token_ field.
+ ![VCS form for Azure](/assets/img/azure/cs-vcs-form-azure.png)
