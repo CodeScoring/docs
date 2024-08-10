@@ -96,6 +96,10 @@ plugins:
           agent-jenkins: "Integration into Jenkins Pipeline"
           agent-save-results: "Saving scan results"
           agent-resolve: "Resolving dependencies"
+          jfrog-changelog: "JFrog OSA"
+          johnny-changelog: "CLI agent Johnny"
+          nexus-changelog: "Nexus OSA"
+          on-premise-changelog: "CodeScoring on-premise"
 
         ru:
           main: "Общая информация"
@@ -148,6 +152,10 @@ plugins:
           agent-jenkins: "Добавление в Jenkins"
           agent-save-results: "Сохранение результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
+          jfrog-changelog: "JFrog OSA"
+          johnny-changelog: "Консольный агент Johnny"
+          nexus-changelog: "Nexus OSA"
+          on-premise-changelog: "CodeScoring on-premise"
 
 nav:
   - main:
@@ -159,8 +167,6 @@ nav:
     - integration-stages: integration-stages.en.md
     - supported-package-managers: supported-package-managers.md
     - supported-package-managers: supported-package-managers.en.md
-    - changelog: changelog.md
-    - changelog: changelog.en.md
   - installation:
     - hardware: on-premise/server-requirements.md
     - hardware: on-premise/server-requirements.en.md
@@ -245,6 +251,15 @@ nav:
     - agent-save-results: agent/save-results.en.md
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
+  - changelog:
+    - on-premise-changelog: changelog/on-premise-changelog.md
+    - on-premise-changelog: changelog/on-premise-changelog.en.md
+    - johnny-changelog: changelog/johnny-changelog.md
+    - johnny-changelog: changelog/johnny-changelog.en.md
+    - nexus-changelog: changelog/nexus-changelog.md
+    - nexus-changelog: changelog/nexus-changelog.en.md
+    - jfrog-changelog: changelog/jfrog-changelog.md
+    - jfrog-changelog: changelog/jfrog-changelog.en.md
 
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
