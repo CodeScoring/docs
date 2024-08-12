@@ -15,9 +15,12 @@ Go to the form of creating a new connection using the **Setup new** button. The 
 - **Name** - name of the registry;
 - **Is active** - the sign of the active registry. For inactive registries the list of available images will not be updated;
 - **Type** - type of repository manager (Sonatype Nexus Repository, JFrog Artifactory or other);
+- **Auth type** – type of authorization (Basic or Bearer);
 - **Host** - the address of the registry with the protocol. For example: `https://jfrog.example.com`;
 - **Username** - user name with access to the registry;
 - **Password** - password.
+
+**Important**: when connecting GitLab Container Registry, you must select the authorization type **Bearer**.
 
 You can test the connection after filling in the data by pressing the **Test it** button. 
 
