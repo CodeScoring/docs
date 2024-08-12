@@ -4,6 +4,11 @@ hide:
 ---
 # JFrog OSA Changelog
 
+### [2024.33.0] - 2024-08-12
+
+- Added support for `cargo` and `composer` repositories
+- Added a flag for saving scan results to artifact properties
+
 ### [2024.28.0] - 2024-07-10
 
 - Added scanning of archives in `.gem` format for Ruby repositories
