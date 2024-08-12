@@ -62,12 +62,13 @@ disablePlugin: false
 
 codeScoringAPI:
  # The base URL for all CodeScoring API endpoints.
- # Required field. https://host:port
- url: https://example.com:443
+ # Required.
+ # Example: https://host:port or https://host
+  url:
 
  # Your CodeScoring API Token for authentication.
- #Required.
- token: 0d496e5e7153d98fd346d7498cdf2dc61a669077
+ # Required.
+ token: 
 
  # Http client connection pool size to CodeScoring BE service.
  # By default, value is 200 since it correlates with the default artifactory thread pool size for tomcat.
@@ -81,8 +82,8 @@ codeScoringAPI:
 
  # If you are using a proxy, you must provide both Hostname/IP and port.
  proxy:
- host: 192.168.1.100
- port: 8080
+ host: 
+ port:
 
 # Artifactory's response status code for blocked packages.
 blockedBuildResponseCode: 403
@@ -90,7 +91,14 @@ blockedBuildResponseCode: 403
 # If set to 'false' allows artifact downloads regardless of errors from CodeScoringAPI or plugin
 blockOnErrors: true
 
-# Default settings for all repositories. Can be overridden by repositories.repo-name: settings
+# If set to 'true', the plugin will scan all supported repositories
+# except specified in the "excludeRepositories" section.
+scanAllRepositories: false
+
+# Store scan date and blocking reasons in the artifact properties.
+storeScanProperties: false
+
+# Default settings for all repositories. Can be overridden by repositories.repo-name settings
 defaults:
  dockerRegistryUrl: jfrog.my.domain
 
@@ -105,11 +113,27 @@ defaults:
  # Allows this user to skip scan
  skipScanUser: codescoring
 
- # Set to 'true' if you use Docker Access Method 'Sub domain' or 'Port'(ex: docker-local.company-jfrog.com, company-jfrog.com:25000 ).
- # Default: false
+ # Set to 'true' if you use Docker Access Method 'Sub domain' (repo-name.jfrog.my.domain) or 'Port' (jfrog.my.domain:25000)
  stripRepoNameInDockerImageName: false
 
-# Settings per repository, you must specify repository name for it to be scanned by plugin.
+# Artifactory url for CodeScoring to apply policies.
+  # Value MUST BE equal to Repository Manager URL in CodeScoring
+  # Example: https://jfrog.my.domain
+  repositoryManagerUrl:
+
+  # Delete artifact from the repository if it is blocked by the policies
+  deleteBlocked: false
+
+# Settings per repository
+# Example:
+# repositories:
+#   docker-remote:
+#   docker-local:
+#     dockerRegistryUrl: another-jfrog.my.domain
+#     skipScanUser: codescoring
+#     workMode: spectator
+#   pypi-remote:
+#     workMode: warmup
 repositories:
  docker-remote:
  docker-local:
@@ -118,25 +142,39 @@ repositories:
  workMode: spectator
  pypi-remote:
  workMode: warmup
+
+ # List of the excluded repositories. Used, if scanAllRepositories=true
+# Example:
+# excludeRepositories:
+#   - npm-remote
+#   - maven-local
+excludeRepositories:
 ```
 
-### Parameter meaning
+### Parameter description
 
 - **disablePlugin** – disable the plugin;
-- **url** – address of the **CodeScoring** installation (protocol must be specified);
-- **token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
-- **connectionPoolSize** – size of the connection pool with CodeScoring;
-- **timeout** - response waiting time (in milliseconds). By default, if the CodeScoring API does not respond within 60 seconds, the request will be canceled.
-- **host** - IP (if using a proxy server);
-- **port** - port (in case of using a proxy server);
+- **codeScoringAPI** - settings for the interaction of the plugin with the CodeScoring installation;
+ - **url** – CodeScoring installation address (protocol must be specified);
+ - **token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
+ - **connectionPoolSize** – size of the connection pool with the CodeScoring installation;
+ - **timeout** - response waiting time (in milliseconds). By default, if the CodeScoring API does not respond within 60 seconds, the request will be canceled;
+ - **proxy** - proxy server settings;
+ - **host** - host/IP;
+ - **port** - port;
 - **blockedBuildResponseCode** – error code returned when security policies are triggered;
-- **blockOnErrors** - blocking of components. If set to `false`, components will be loaded regardless of the presence of CodeScoring API or plugin errors;
-- **defaults** – default scanning settings for all specified repositories;
-- **dockerRegistryUrl** – address of the repository with container images;
-- **workMode** – plugin operating mode. The conditions for each operating mode are described in the section below.
-- **skipScanUser** – user for whom component scanning is skipped;
-- **stripRepoNameInDockerImageName** – presence of the repository name in the image name. Default value is `false`;
-- **repositories** – list of names of repositories for which component scanning works. For each repository, you can separately specify the dockerRegistryUrl, skipScanUser and workMode variables.
+- **blockOnErrors** - blocking the loading of components in case of an error when interacting with the CodeScoring installation;
+- **scanAllRepositories** - connection of all supported repositories except those specified in the **excludeRepositories** parameter;
+- **storeScanProperties** - saving the blocking reason and scan time stamp to the artifact properties;
+- **defaults** – default scanning settings for all connected repositories;
+ - **dockerRegistryUrl** – Docker registry address;
+ - **workMode** – plugin operating mode. The conditions of each operating mode are described in the section below;
+ - **skipScanUser** – user for whom component scanning is skipped. Necessary so that CodeScoring can independently pick up the component for scanning;
+ - **stripRepoNameInDockerImageName** – remove the repository name from the image name. Used in the Repository Path approach when working with docker registry. By default, the repository name is appended to the image name;
+ - **repositoryManagerUrl** - Artifactory URL. The same URL must be specified in CodeScoring to apply policies across repositories.
+ - **deleteBlocked** - delete an artifact blocked by policies;
+- **repositories** – list of repositories for which component scanning is operating. For each repository, you can specify parameters separately, as in the **defaults** parameter;
+- **excludeRepositories** - list of repository names excluded from processing by the plugin.
 
 **Important**: for generic and VCS repositories, be sure to specify one of the following repository types in the [Internal Description](https://www.jfrog.com/confluence/display/JFROG/Repository+Management):
 
