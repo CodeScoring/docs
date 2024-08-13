@@ -53,7 +53,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **HttpClient Connection Pool Size** – количество доступных соединений. Параметр позволяет управлять количеством параллельных запросов, чтобы ускорить сканирование;
 - **HTTP Proxy Host** – адрес прокси-сервера. Используется в случае, если нет возможности наладить прямое соединение между NXRM и CodeScoring;
 - **HTTP Proxy Port** – порт прокси-сервера;
-- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов сканирования артифакта в базе NXRM с возможностью извлечения из Nexus API;
+- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов сканирования артефакта в базе NXRM с возможностью извлечения из Nexus API;
 - **Block downloads in case of plugin or CodeScoring errors** – блокировка загрузки компонента при наличии ошибок от плагина или CodeScoring API.
 - **Custom message for blocked packages** – сообщение для пользователя при блокировке компонентов;
 - **Nexus URL for identification in CodeScoring** – адрес Nexus Repository Manager с протоколом для отображения результатов на инсталляции.
