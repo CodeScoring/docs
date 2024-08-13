@@ -7,7 +7,7 @@ hide:
 
 # Using configuration file
 
-You can manage the parameters of the CLI agent by adding the configuration file `config.yaml` to the directory with the agent. Below is a list of available parameters and an example of config file.
+You can manage the parameters of the CLI agent by adding the configuration file `codescoring-johnny-config.yaml` to the directory with the agent. Below is a list of available parameters and an example of config file.
 
 ### Composition Analysis Options
 
