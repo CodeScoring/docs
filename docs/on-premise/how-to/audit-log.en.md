@@ -9,13 +9,13 @@ Audit log is a journal of events in the **Codescoring** system. It is located at
 In the audit log all the system events, user actions and errors are listed. Each event contains the following data:
 
 - **Event time** - date and time of event;
-- **Actor** - username or `system` for system actions;
+- **Actor** - username (for system actions the value is `system`);
 - **Message** - a message with details;
 - **Duration** - the duration of analysis and integration events.
 
-The journal can be filtered by a period or username, as well as finding a specific event using the `Search` field. Export of the journal in CSV format is also available.
+The records in the journal can be filtered by date range or username, and specific events can be found using the **Search** field. Exporting of the journal in CSV format is also available.
 
-Events in the audit log are divided into several categories. Below is a complete list of possible events for each of the categories with decodings.
+Events in the audit log are divided into several categories. Below is a complete list of possible events for each category, along with their descriptions.
 
 ## Activation
 

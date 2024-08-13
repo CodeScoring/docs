@@ -80,4 +80,4 @@ Curl -x 'get' \
  -H 'authorization: token <your_token>'
 ```
 
-**Important!**: The requests of creating and changing the main objects in the system, such as projects, are in sections with the prefix **settings>**.
+**Important!**: The requests for creating and changing the main objects in the system, such as projects, are located in sections with the prefix **settings>**.

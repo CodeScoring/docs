@@ -2,15 +2,15 @@
 hide:
   - footer
 ---
-# Launch analysis
+# Launching analysis
 
-## Manual analysis start
+## Starting manual analysis
 
-SCA-analysis is started automatically right after adding a project. To manually run the analysis for a project, use the **Run Now** button on the project page in the `Projects` section.
+Composition analysis (SCA) starts immediately after a project is added. To manually run the analysis for a project, use the **Run Now** button on the project page in the `Projects` section.
 
-You can also run the analysis for all projects and for each module (SCA, Quality, Authors) separately. The launch of the overall analysis is controlled in the `Settings -> Workmode` section.
+You can also run the analysis for all projects and for each module (SCA, Quality, Authors) separately. To control the launch of the analysis for all projects go to the `Settings -> Workmode` section.
 
-**Important!** To get correct results, you should run the analysis for each module sequentially, having first waited until the previous run is completed. The order of launching:
+**Important!** To ensure accurate results, run the analysis for each module **sequentially**, waiting for the previous run to complete before proceeding. The order of launching:
 
 1. Software Composition Analysis (SCA)
 2. Authors Analysis

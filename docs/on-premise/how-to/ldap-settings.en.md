@@ -6,27 +6,24 @@ hide:
 
 ## LDAP integration capabilities
 
-**CodeScoring** supports authentication and authorization of users via **LDAP** and mapping of attributes
-user records in **LDAP** to user attributes in the system.
+**CodeScoring** supports authentication and authorization of users via **LDAP** and mapping of user attributes in **LDAP** to user attributes in the system.
 
 ## CodeScoring Authentication Page
 
 On the authentication page, a menu is available with a choice of authentication provider. In addition to the default provider (local
 accounts, `internal directory`), active integrations with **LDAP** servers are available for selection.
 
-<p float="left">
-  <img src="/assets/img/ldap/login-2.png" alt="authentication provider selection" width="350" />
-  <img src="/assets/img/ldap/login-1.png" alt="authentication via default provider" width="350" /> 
-</p>
+![authentication provider selection](/assets/img/ldap/login-2.png)
+![authentication via default provider](/assets/img/ldap/login-1.png)
 
 ## Mapping LDAP user record attributes to CodeScoring user attributes
 
 When authenticating via **LDAP**, the following data is mapped from a directory entry to an account in CodeScoring:
 
-* username
-* first name
-* last name
-* e-mail
+- username;
+- first name;
+- last name;
+- e-mail.
 
 ![mapping attributes of user records to CodeScoring](/assets/img/ldap/user_field_mapping.png)
 
@@ -44,17 +41,15 @@ CodeScoring performs mapping according to the rules, the management of which is 
 
 Mapping is triggered only in two cases:
 
-* when the user logs in
-* when the `Apply all rules` button is pressed in `Settings -> Group mapping` section.
+- when the user logs in;
+- when the `Apply all rules` button is pressed in `Settings -> Group mapping` section.
 
 Mapping rules are applied as follows:
 
-* during the mapping process the composition of the user's groups is updated
-* adding, modifying and deleting mapping rules will not update the user groups.
-* in order to apply the changed rules, the mapping process must be initiated in one of the two ways specified above.
-* user groups added or edited manually by the administrator are not changed during the mapping process.
-during the mapping process, i.e. manual changes take precedence.
-* if an error occurs when searching for LDAP groups after successful authentication in LDAP, the user groups applied according to the mapping rules will be deleted.
+- during the mapping process the composition of the user's groups is updated;
+- adding, modifying and deleting mapping rules will not update the user groups. In order to apply the changed rules, the mapping process must be initiated in one of the two ways specified above;
+- user groups added or edited manually by the administrator are not changed during the mapping process, i.e. manual changes take precedence;
+- if an error occurs when searching for LDAP groups after successful authentication in LDAP, the user groups applied according to the mapping rules will be deleted.
 
 ![creating LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/group_mapping_create.png)
 
@@ -73,23 +68,22 @@ Detailed view opens by clicking on the link with the name of the integration or 
 
 When viewing, the following actions are available:
 
-* deleting an integration (`Delete`)
-* editing the integration (`Edit`)
-* checking availability (`Refresh status`).
+- deleting an integration (`Delete`);
+- editing the integration (`Edit`);
+- checking availability (`Refresh status`).
 
 In addition to the basic configuration fields (described below), when viewing details about an integration with **LDAP**, data about:
 
-* creation date
-* date of the last update
-* availability status
-* (optional) reason for unavailability
+- creation date;
+- date of the last update;
+- availability status;
+- (optional) reason for unavailability.
 
 ![view LDAP integration details](/assets/img/ldap/view.png)
 
 ## Create or edit an LDAP integration
 
-In order to create a new integration with **LDAP**, you must click on the `Setup new` button in the list of integrations view.
-In order to edit an existing integration, you must click the `Edit` button on the page or in the list of integrations. The create and edit forms are identical.
+In order to create a new integration with **LDAP**, you must click on the `Setup new` button in the list of integrations view. In order to edit an existing integration, you must click the `Edit` button on the page or in the list of integrations. The create and edit forms are identical.
 
 ### Description of form fields
 
@@ -99,7 +93,6 @@ In order to edit an existing integration, you must click the `Edit` button on th
 - `LDAP port` - port of **LDAP** server;
 - `User search base` - specifies where to search for user records;
 - `User search filter` - filter for searching user records. Must contain the `%USERNAME%` pattern, when searching it will be replaced by the name of the user;
-will be replaced by the name of the user for which LDAP authentication is performed;
 - `Username field` - attribute storing the name of the user's KM in the record about it;
 - `Email field` - attribute storing the user's email in the record about it;
 - `First name field` - attribute storing user's name in its record;
@@ -109,8 +102,7 @@ will be replaced by the name of the user for which LDAP authentication is perfor
 - `Service user` - login of the user with permissions to read directories on the **LDAP** server;
 - `Service user password` - password of the user with directory reading rights on the **LDAP server**;
 - `Group search base` - specifies where to search for group records;
-- `Group search filter for user` - filter to search for records of groups to which the user belongs. Must 
-contain the `%USERNAME%` template, during the search it will be replaced by the name of the KM for which authentication via **LDAP** is performed;
+- `Group search filter for user` - filter to search for records of groups to which the user belongs. Must contain the `%USERNAME%` template, during the search it will be replaced by the name of the KM for which authentication via **LDAP** is performed;
 - `Group search filter for all groups` - filter to search for records of all groups in **LDAP**;
 - `Group name field` - attribute that stores the name of the group in the group record;
 - `Group member field` - attribute that stores group member identifiers in the group record;
@@ -127,30 +119,28 @@ contain the `%USERNAME%` template, during the search it will be replaced by the 
 
 For ease of configuration, 2 forms for connection testing are available to users:
 
-* connection and authentication testing (`test bind`)
-* testing of search (`test search`).
+- connection and authentication testing (`test bind`);
+- testing of search (`test search`).
 
 Both tests combine data from the main form with data from the test form. Data from the fields `Service user` and `Service user password` fields are ignored.
 
 #### Connection and authentication testing
 
-When you click on the test button (`Test it`), connection to the LDAP server takes place (`bind` operation). In case of successful
-test a notification about the success of the operation is displayed. In case of test failure - an error message.
+When the button (`Test it`) in the **Test bind** section is clicked, connection to the LDAP server is made (`bind` operation). In case of successful test a notification about the success of the operation is displayed. In case of test failure - an error message.
 
 ![successful connection test](/assets/img/ldap/test_bind_success.png)
 ![failed connection test](/assets/img/ldap/test_bind_fail.png) 
 
 #### User Data Load Test
 
-When the test button (`Test it`) is clicked, the connection to the LDAP server is made (`bind` operation) and the data about the user data (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
+When the button (`Test it`) in the **Test user search** is clicked, the connection to the LDAP server is made (`bind` operation) and the data about the user data (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
 
 ![successful test of loading user data](/assets/img/ldap/test_search_success.png)
 ![failed user data load test](/assets/img/ldap/test_search_fail.png) 
 
 #### Group Data Loading Test
 
-When you click on the test button (`Test it`), you connect to the LDAP server (`bind` operation) and search for data on the
-groups (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
+When the test button (`Test it`) in the **Test load groups** is clicked, the connection to the LDAP server (`bind` operation) is made and search for data on the groups (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
 ![successful test of group data loading](/assets/img/ldap/test_load_groups_success.png)
 ![failed group data load test](/assets/img/ldap/test_load_groups_fail.png) 
 
