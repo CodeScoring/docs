@@ -62,12 +62,13 @@ disablePlugin: false
 
 codeScoringAPI:
   # The base URL for all CodeScoring API endpoints.
-  # Required field. https://host:port
-  url: https://example.com:443
+  # Required.
+  # Example: https://host:port or https://host
+  url:
 
   # Your CodeScoring API Token for authentication.
   # Required.
-  token: 0d496e5e7153d98fd346d7498cdf2dc61a669077
+  token:
 
   # Http client connection pool size to CodeScoring BE service.
   # By default, value is 200 since it correlates with the default artifactory thread pool size for tomcat.
@@ -81,8 +82,8 @@ codeScoringAPI:
 
   # If you are using a proxy, you must provide both Hostname/IP and port.
   proxy:
-    host: 192.168.1.100
-    port: 8080
+    host:
+    port:
 
 # Artifactory's response status code for blocked packages.
 blockedBuildResponseCode: 403
@@ -90,7 +91,14 @@ blockedBuildResponseCode: 403
 # If set to 'false' allows artifact downloads regardless of errors from CodeScoringAPI or plugin
 blockOnErrors: true
 
-# Default settings for all repositories. Can be overridden by repositories.repo-name: settings
+# If set to 'true', the plugin will scan all supported repositories
+# except specified in the "excludeRepositories" section.
+scanAllRepositories: false
+
+# Store scan date and blocking reasons in the artifact properties.
+storeScanProperties: false
+
+# Default settings for all repositories. Can be overridden by repositories.repo-name settings
 defaults:
   dockerRegistryUrl: jfrog.my.domain
 
@@ -105,38 +113,62 @@ defaults:
   # Allows this user to skip scan
   skipScanUser: codescoring
 
-  # Set to 'true' if you use Docker Access Method 'Sub domain' or 'Port'(ex: docker-local.company-jfrog.com, company-jfrog.com:25000 ).
-  # Default: false
+  # Set to 'true' if you use Docker Access Method 'Sub domain' (repo-name.jfrog.my.domain) or 'Port' (jfrog.my.domain:25000)
   stripRepoNameInDockerImageName: false
 
-# Settings per repository, you must specify repository name for it to be scanned by plugin.
+  # Artifactory url for CodeScoring to apply policies.
+  # Value MUST BE equal to Repository Manager URL in CodeScoring
+  # Example: https://jfrog.my.domain
+  repositoryManagerUrl:
+
+  # Delete artifact from the repository if it is blocked by the policies
+  deleteBlocked: false
+
+# Settings per repository
+# Example:
+# repositories:
+#   docker-remote:
+#   docker-local:
+#     dockerRegistryUrl: another-jfrog.my.domain
+#     skipScanUser: codescoring
+#     workMode: spectator
+#   pypi-remote:
+#     workMode: warmup
 repositories:
-  docker-remote:
-  docker-local:
-    dockerRegistryUrl: another-jfrog.my.domain
-    skipScanUser: codescoring
-    workMode: spectator
-  pypi-remote:
-    workMode: warmup
+
+# List of the excluded repositories. Used, if scanAllRepositories=true
+# Example:
+# excludeRepositories:
+#   - npm-remote
+#   - maven-local
+excludeRepositories:
+
 ```
 
-### Значение параметров
+### Описание параметров
 
 - **disablePlugin** – отключение плагина;
-- **url** – адрес **on-premise** инсталляции **CodeScoring** (обязательно указание протокола);
-- **token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
-- **connectionPoolSize** – размер пула соединений с CodeScoring;
-- **timeout** - время ожидания ответа (в миллисекундах). По умолчанию, если CodeScoring API не отвечает в течение 60 секунд, запрос будет отменен.
-- **host** - IP (в случае использования прокси-сервера);
-- **port** - порт (в случае использования прокси-сервера);
+- **codeScoringAPI** - настройки параметров взаимодействия плагина с инсталляцией CodeScoring;
+  - **url** – адрес инсталляции CodeScoring (обязательно указание протокола);
+  - **token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
+  - **connectionPoolSize** – размер пула соединений с инсталляцией CodeScoring;
+  - **timeout** - время ожидания ответа (в миллисекундах). По умолчанию, если CodeScoring API не отвечает в течение 60 секунд, запрос будет отменен;
+  - **proxy** - настройки прокси-сервера;
+    - **host** - хост/IP;
+    - **port** - порт;
 - **blockedBuildResponseCode** – код ошибки, возвращаемый при срабатывании политик безопасности;
-- **blockOnErrors** - блокирование загрузки компонентов. В случае выставления значения `false` компоненты будут загружаться в независимости от наличия ошибок CodeScoring API или плагина;
-- **defaults** – настройки сканирования по умолчанию для всех указанных репозиториев;
-- **dockerRegistryUrl** – адрес репозитория с контейнерными образами;
-- **workMode** – режим работы плагина. Условия каждого режима работы описаны в секции ниже.
-- **skipScanUser** – пользователь, для которого пропускается сканирование компонентов;
-- **stripRepoNameInDockerImageName** – наличие названия репозитория в названии образа. По умолчанию значение `false`;
-- **repositories** – список названий репозиториев, для которых работает сканирование компонентов. Для каждого репозитория можно отдельно указать переменные dockerRegistryUrl, skipScanUser и workMode.
+- **blockOnErrors** - блокирование загрузки компонентов в случае ошибки при взаимодействии с инсталляцией CodeScoring;
+- **scanAllRepositories** - подключение всех поддерживаемых репозиториев за исключением указанных в параметре **excludeRepositories**;
+- **storeScanProperties** - сохранение причины блокировки и отметки о времени сканирования в свойства артефакта;
+- **defaults** – настройки сканирования по умолчанию для всех подключенных репозиториев;
+  - **dockerRegistryUrl** – адрес docker registry;
+  - **workMode** – режим работы плагина. Условия каждого режима работы описаны в секции ниже;
+  - **skipScanUser** – пользователь, для которого пропускается сканирование компонентов. Необходимо для того, чтобы CodeScoring мог самостоятельно забрать компонент для сканирования;
+  - **stripRepoNameInDockerImageName** – убирать название репозитория из имени образа. Используется в подходе Repository Path при работе с docker registry. По умолчанию название репозитория добавляется к имени образа;
+  - **repositoryManagerUrl** - URL Artifactory. Тот же URL должен быть указан в CodeScoring для применения политик по репозиториям.
+  - **deleteBlocked** - удалять заблокированный политиками артефакт;
+- **repositories** – список репозиториев, для которых работает сканирование компонентов. Для каждого репозитория можно отдельно указать параметры, как в параметре **defaults**;
+- **excludeRepositories** - список названий репозиториев, исключенных из обработки плагином.
 
 **Важно**: для generic и VCS репозиториев обязательно указать один из следующих типов репозитория в поле [Internal Description](https://www.jfrog.com/confluence/display/JFROG/Repository+Management):
 
