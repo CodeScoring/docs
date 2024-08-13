@@ -55,13 +55,13 @@ hide:
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Check policies*|Проверка политик SCA анализа проекта запущена|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Update project metrics*|Обновление метрик проекта для SCA анализа проекта запущено|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analyze dependencies*|Анализ зависимостей проекта для SCA анализа проекта запущен|
-|*(Run #{task.id}) Analysis started via API*|Анализ запущен через консольный агент по API с uuid запуска|
+|*(Run #{task.id}) Analysis started via API*|Анализ запущен через консольный агент по API (с uuid запуска)|
 |*Some tasks in analysis failed*|Некоторые задачи при анализе не выполнены|
 |*Could not connect to OSS Index, reason: {err}*|Не удалось подключиться к индексу OSS с указанием ошибки|
 |*[[SCA][{project.name}] Analysis didn't start (Reason: {err.message})]*|SCA анализ проекта не запустился с указанием ошибки|
 |*Overall SCA run started for {len(projects)} project(s)*|Запущен SCA анализ для проектов|
 
-Каждое событие SCA анализа содержит последовательный номер анализа в проекте и uuid запуска.
+Каждое событие SCA анализа содержит последовательный номер анализа в проекте и **UUID** запуска.
 
 ## Запуск TQI анализа
 
@@ -77,20 +77,18 @@ hide:
 |*(Run #{run_id}) Authors analysis failed. Check server logs.*|Анализ авторов завершен с ошибкой. Необходимо проверить логи сервера|
 |*(Run #{run_id}) Authors analysis cancelled*|Анализ авторов отменен|
 |*(Run #{run_id}) Update project {project.name}*|Обновление проекта|
-|*(Run #{run_id}) Clones analysis started*|Запущен анализ клонированного кода запущен |
-|*(Run #{run_id}) Clones analysis completed*|Завершен анализ клонированного кода |
-|*(Run #{run_id}) Clones analysis failed. Check server logs.*|Анализ клонированного кода  завершен с ошибкой. Необходимо проверить логи сервера|
-|*(Run #{run_id}) Clones analysis cancelled*|Анализ клонированного кода  отменен|
+|*(Run #{run_id}) Clones analysis started*|Запущен анализ клонированного кода запущен|
+|*(Run #{run_id}) Clones analysis completed*|Завершен анализ клонированного кода|
+|*(Run #{run_id}) Clones analysis failed. Check server logs.*|Анализ клонированного кода завершен с ошибкой. Необходимо проверить логи сервера|
+|*(Run #{run_id}) Clones analysis cancelled*|Анализ клонированного кода отменен|
 |*(Run #{run_id}) Clone source code for project {project.name}*|Клонирование репозитория исходного кода проекта запущено|
 
-Каждое событие TQI анализа содержит ID запуска.
+Каждое событие TQI анализа содержит **ID** запуска.
 
 ## Управление политиками
 
 | Текст события  |  Расшифровка |
 |----------------|--------------|
-|*Policy ignore {policy_ignore} created*|Создание политики игнорирования из алертов|
-|*Policy ignore {policy_ignore} activated*|Активация политики игнорирования из алертов|
+|*Policy ignore {policy_ignore} created*|Создание правила игнорирования политики|
+|*Policy ignore {policy_ignore} activated*|Активация правила игнорирования политики|
 |*To Policy ignore {policy_ignore} added Policy {policy_alert.policy}*|Добавлена политика в существующее правило игнорирования|
-
-

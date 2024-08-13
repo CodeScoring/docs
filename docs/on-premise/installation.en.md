@@ -68,5 +68,5 @@ Usually no changes are required for correct operation. If you need to configure 
 11. To log in, you must first create a user with administrator rights using the following command (replacing `prefix` with the `PROJECT_NAME` value from step 8):
 
    ```bash
-   docker exec -it prefix_backend_1 python ./manage.py createsuperuser
+   docker exec -it prefix-backend-1 python ./manage.py createsuperuser
    ```
