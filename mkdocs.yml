@@ -70,7 +70,8 @@ plugins:
           project-control: "Managing projects"
           policies: "Policy management"
           launch-analysis: "Launching analysis"
-          registries: "Working with Docker images"
+          registries: "Connecting container registries"
+          groups: "Creating groups"
           users: "Managing user accounts"
           ldap: "LDAP settings"
           graph: "Working with dependency graph"
@@ -127,6 +128,7 @@ plugins:
           policies: "Настройка политик"
           launch-analysis: "Запуск анализа"
           registries: "Работа с Docker-образами"
+          groups: "Создание групп"
           users: "Управление учетными записями"
           ldap: "Работа с LDAP"
           graph: "Работа с визуализацией графов зависимостей"
@@ -189,6 +191,10 @@ nav:
   - beginning:
     - activation: on-premise/how-to/activation.md
     - activation: on-premise/how-to/activation.en.md
+    - users: on-premise/how-to/users.md
+    - users: on-premise/how-to/users.en.md
+    - groups: on-premise/how-to/groups.md
+    - groups: on-premise/how-to/groups.en.md
     - proprietors: on-premise/how-to/proprietors.md
     - proprietors: on-premise/how-to/proprietors.en.md
     - vcs: on-premise/how-to/vcs-git.md
@@ -203,8 +209,6 @@ nav:
     - launch-analysis: on-premise/how-to/launch-analysis.en.md
     - registries: on-premise/how-to/registries.md
     - registries: on-premise/how-to/registries.en.md
-    - users: on-premise/how-to/users.md
-    - users: on-premise/how-to/users.en.md
     - ldap: on-premise/how-to/ldap-settings.md
     - ldap: on-premise/how-to/ldap-settings.en.md
     - graph: on-premise/how-to/graphs.md
