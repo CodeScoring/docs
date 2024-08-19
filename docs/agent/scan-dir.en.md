@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Scanning directory
+# Scanning a directory
 
 Scanning a directory is done using the `scan dir` subcommand.
 

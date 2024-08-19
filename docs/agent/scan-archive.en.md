@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Scanning archives
+# Scanning an archive
 
 To scan archives for manifests, use the `--scan-archives` flag.
 
