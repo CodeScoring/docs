@@ -26,10 +26,13 @@ The general architecture of the work is shown in the image below.
 
 ![CodeScoring on-premise architecture](/assets/img/on-premise-architecture-en.png)
 
-The source code is not transferred from the installation to the CodeScoring cloud. However, to obtain information on dependencies, the following is being sent:
+The source code is not transferred from the installation to the CodeScoring cloud. However, to obtain information on dependencies and control licensing terms, the following is sent:
 
 1. anonymized information on found package manager manifests and their contents;
-2. hashes of source code files to search for direct inclusions of Open Source libraries in project code.
+2. hashes of source code files to search for direct inclusions of Open Source libraries in project code;
+3. number of active authors over the past year;
+4. number of projects in the system;
+5. installation version.
 
 The paths of the manifests and the names of the hashed files are specifically anonymized. The hashes of files whose size does not exceed **512 bytes** are not being sent from the installation to the cloud.
 
