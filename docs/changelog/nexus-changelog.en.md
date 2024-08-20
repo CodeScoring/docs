@@ -4,6 +4,10 @@ hide:
 ---
 # Nexus OSA Changelog
 
+### [2024.34.0] - 2024-08-19
+
+- Added support for Nexus 3.71
+
 ### [2024.28.0] - 2024-07-10
 
 - Added scanning of archives in `.gem` format for Ruby repositories
