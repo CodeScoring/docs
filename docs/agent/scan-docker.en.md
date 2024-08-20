@@ -2,7 +2,7 @@
 hide:
   - footer
 ---
-# Scanning Docker image
+# Scanning a Docker image
 
 The agent supports image scanning functionality in the OCI and Docker standards and can be launched in one of the following ways, indicating:
 

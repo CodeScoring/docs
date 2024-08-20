@@ -2,7 +2,7 @@
 hide:
   - footer
 ---
-# Codescoring Documentation
+# CodeScoring Documentation
 
 The documentation contains general information for working with the **CodeScoring** system.
 

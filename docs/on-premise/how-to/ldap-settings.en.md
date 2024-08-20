@@ -13,8 +13,11 @@ hide:
 On the authentication page, a menu is available with a choice of authentication provider. In addition to the default provider (local
 accounts, `internal directory`), active integrations with **LDAP** servers are available for selection.
 
-![authentication provider selection](/assets/img/ldap/login-2.png)
-![authentication via default provider](/assets/img/ldap/login-1.png)
+<p float="left">
+  <img src="/assets/img/ldap/login-2.png" alt="choice of provider of authenticating" width="350" />
+  <img src="/assets/img/ldap/login-1.png" alt="authentication via default provider" width="350" /> 
+</p>
+
 
 ## Mapping LDAP user record attributes to CodeScoring user attributes
 
