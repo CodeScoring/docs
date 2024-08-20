@@ -188,7 +188,7 @@ excludeRepositories:
 
 ### Setting up operating modes
 
-The plugin's operating mode is determined by the **workMode** variable in the `codescoring.properties` file.
+The plugin's operating mode is determined by the **workMode** variable in the `codescoring.yaml` file.
 
 The plugin has 6 operating modes that determine the severity of checking components before loading.
 
