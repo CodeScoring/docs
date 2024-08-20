@@ -16,7 +16,7 @@ Python                      |    pip, Poetry, Pipenv    |  `setup.py`<br/>`Pipfi
 С и C++                     |    Conan          |  `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`|
 Go                          |    Go Modules     |  `go.mod`<br/>`go.sum` |
 PHP                         |    Composer       |  `composer.json`<br/>`composer.lock`|
-Ruby                        |    RubyGems       |  `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`|
+Ruby                        |    RubyGems       |  `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked`|
 C#                          |    Nuget          |  `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
 Objective-C и Swift         |    CocoaPods      |  `Podfile`<br/>`Podfile.lock`<br/>`*.podspec`|
 Rust                        |    Cargo          |  `Cargo.lock`<br/>`Cargo.toml`|
