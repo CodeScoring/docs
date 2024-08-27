@@ -306,3 +306,6 @@ extra:
       site_name: "Публичная документация CodeScoring"
     - en:
       site_name: "CodeScoring Public Docs"
+
+  analytics:
+    provider: custom
