@@ -4,6 +4,20 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.35.0] - 2024-08-29
+
+- Added a new condition for policies - Dependency Vulnerabilities Count
+- Added OSA metrics to the dashboard
+- Added the number of blocking Policy Alerts to the dashboard
+- Added the ability to run a project scan in the UI in parallel with the scan in Johnny
+- Added a column with the number of Policy Alerts in the `Settings -> Policies` subsection
+- Added a filter by the date of the last request in the `Components -> Container Images` subsection
+- Implemented background generation of downloaded files and accelerated their download
+- Implemented pagination when interacting with LDAP
+- Accelerated work of the Dependencies section
+- Supplemented the list of repository types so that all repositories, including unsupported ones, are displayed in the Repository Managers section
+- Packages in the Dependencies section are now sorted by default by component name and version
+
 ### [2024.32.0] - 2024-08-09
 
 - Added support for Bearer authorization for Container Registries
