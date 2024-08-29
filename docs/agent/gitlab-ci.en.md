@@ -11,7 +11,7 @@ The CLI agent supports integration into Gitlab CI using the `.gitlab-ci.yaml` fi
 
 An example of the contents of the `.gitlab-ci.yaml` file when using a Docker image of the agent:
 
-`<version>` must be replaced with the agent version. A list of current versions with descriptions is available [here](/changelog.en/#johnny).
+`<version>` must be replaced with the agent version. A list of current versions with descriptions is available in [Changelog](/changelog/johnny-changelog.en/).
 
 ```yaml
 stages:
@@ -51,7 +51,7 @@ To use the agent binary file, you must first perform the following steps on the 
  ```bash
  curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
  ```
- `JOHNNY_VERSION` must be replaced with the agent version. A list of current versions with descriptions is available [here](/changelog.en/#johnny). `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` must be replaced with the login and password received from the vendor.
+ `JOHNNY_VERSION` must be replaced with the agent version. A list of current versions with descriptions is available in [Changelog](/changelog/johnny-changelog.en/). `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` must be replaced with the login and password received from the vendor.
 2. Allow file execution
  ```bash
  chmod +x /usr/local/bin/johnny

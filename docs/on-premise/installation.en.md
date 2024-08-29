@@ -42,7 +42,7 @@ Usually no changes are required for correct operation. If you need to configure 
    - Exception paths
     - `ANALYSIS_IGNORED_PATHS` - list of paths that will be ignored by the system during analysis. More details on adding exclusion paths can be found [here](/on-premise/analysis-ignore-paths/)
    - System version
-    - `CODESCORING_VERSION` is a required variable. The current version can be found in the [Changelog](/changelog) section
+    - `CODESCORING_VERSION` is a required variable. The current version can be found in the [Changelog](/changelog/on-premise-changelog.en) section
 
  **Note**: do not use the `#` symbol in the parameters, it may be interpreted incorrectly by the system during installation.
 
