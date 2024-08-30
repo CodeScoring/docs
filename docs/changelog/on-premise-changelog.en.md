@@ -16,7 +16,6 @@ hide:
 - Implemented pagination when interacting with LDAP
 - Accelerated work of the Dependencies section
 - Supplemented the list of repository types so that all repositories, including unsupported ones, are displayed in the Repository Managers section
-- Packages in the Dependencies section are now sorted by default by component name and version
 
 ### [2024.32.0] - 2024-08-09
 
