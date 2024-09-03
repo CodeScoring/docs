@@ -480,3 +480,17 @@ codescoring:
         my-root-ca-2.crt: |-
           ...
 ```
+
+## Обновление системы
+
+Для обновления системы необходимо актуализировать helm-репозиторий командой 
+
+```commandline
+helm repo update
+```
+
+и далее выполнить команду обновления инсталляции, где CHART_VERSION - версия чарта, на которую происходит обновление
+
+```commandline
+helm upgrade codescoring codescoring-org/codescoring -n codescoring -f values.yaml --version CHART_VERSION
+```
