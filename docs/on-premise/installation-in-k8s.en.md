@@ -465,3 +465,17 @@ codescoring:
         my-root-ca-2.crt: |-
           ...
 ```
+
+## Upgrading CodeScoring
+
+In order to upgrade CodeScoring you need to actualize the helm repository by running
+
+```commandline
+helm repo update
+```
+
+and then upgrade the installation with the following command, where the CHART_NAME variable must contain the version you're going to upgrade to
+
+```commandline
+helm upgrade codescoring codescoring-org/codescoring -n codescoring -f values.yaml --version CHART_VERSION
+```
