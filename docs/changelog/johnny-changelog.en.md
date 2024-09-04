@@ -4,6 +4,10 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.35.0] - 2024-08-20
+
+- Fixed gradle-dependency-tree kotlin parsing
+
 ### [2024.32.0] - 2024-08-09
 
 - Added analysis of standard go libraries to the parser in the go environment (`--go-resolve`)

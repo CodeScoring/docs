@@ -38,41 +38,41 @@ hide:
 
  ```
  codescoring:
- config:
- ## codescoring-backend configuration parameters
- siteScheme: https # site scheme http or https
- siteHost: "codescoring.k8s.local" # domain where CodeScoring will be available
- djangoCSRFTrustedOptions: "https://codescoring.k8s.local" # Domain where CodeScoring will be available, including schema
- secretKey: "" # secret key for the application backend, random string of characters
- defaultSuperuserUsername: "admin" # administrator name on the system
- defaultSuperuserPassword: "changeme" # system administrator password
- defaultSuperuserEmail: "mail@example.com" # e-mail of the administrator in the system
- databaseHost: ipcs-pgcat
- databasePort: 5432
- postgresqlDatabase: "codescoring"
- postgresqlUsername: "codescoring"
- postgresqlPassword: "changeme" # password must match the password for pgcat.postgresql.password
+  config:
+    ## codescoring-backend configuration parameters
+    siteScheme: https # site scheme http or https
+    siteHost: "codescoring.k8s.local" # domain where CodeScoring will be available
+    djangoCSRFTrustedOptions: "https://codescoring.k8s.local" # Domain where CodeScoring will be available, including schema
+    secretKey: "" # secret key for the application backend, random string of characters
+    defaultSuperuserUsername: "admin" # administrator name on the system
+    defaultSuperuserPassword: "changeme" # system administrator password
+    defaultSuperuserEmail: "mail@example.com" # e-mail of the administrator in the system
+    databaseHost: ipcs-pgcat
+    databasePort: 5432
+    postgresqlDatabase: "codescoring"
+    postgresqlUsername: "codescoring"
+    postgresqlPassword: "changeme" # password must match the password for pgcat.postgresql.password
 
  pgcat:
- adminPassword: "changeme"
+  adminPassword: "changeme"
 
  postgresql:
- host: "codescoring-postgresql"
- port: 5432
- username: "codescoring"
- password: "changeme" # password must match the password in codescoring.postgresqlPassword
- database: "codescoring"
+  host: "codescoring-postgresql"
+  port: 5432
+  username: "codescoring"
+  password: "changeme" # password must match the password in codescoring.postgresqlPassword
+  database: "codescoring"
 
 
  frontend:
- ingress:
- enabled: true
- className: "nginx"
- hosts:
- - host: codescoring.k8s.local # domain where CodeScoring will be available
- paths:
- - path: /
- pathType: ImplementationSpecific
+  ingress:
+    enabled: true
+    className: "nginx"
+    hosts:
+    - host: codescoring.k8s.local # domain where CodeScoring will be available
+    paths:
+    - path: /
+    pathType: ImplementationSpecific
  ```
 
 6. Run the command to install the chart
@@ -117,17 +117,17 @@ This option is suitable if PostgreSQL is already deployed in the existing infras
 2. Connect the PgCat pooler to external PostgreSQL, replacing the appropriate parameters with the required ones:
 ```
 codescoring:
- config:
- postgresqlDatabase: "codescoring"
- postgresqlUsername: "codescoring"
- postgresqlPassword: "changeme"
- pgcat:
- postgresql:
- host: "postgresql.example.host"
- port: 5432
- username: "codescoring"
- password: "changeme"
- database: "codescoring"
+  config:
+    postgresqlDatabase: "codescoring"
+    postgresqlUsername: "codescoring"
+    postgresqlPassword: "changeme"
+  pgcat:
+    postgresql:
+      host: "postgresql.example.host"
+      port: 5432
+      username: "codescoring"
+      password: "changeme"
+      database: "codescoring"
 ```
 
 #### Connecting to an external PostgreSQL pooler.
@@ -160,6 +160,7 @@ By default, the chart creates the required volumes via [Dynamic Volume Provision
 You can set the required `StorageClass` in the following variables:
 
 - `codescoring.persistentVolumes.analysisRoot.storageClass`
+- `codescoring.persistentVolumes.mediaRoot.storageClass`
 - `codescoring.persistentVolumes.djangoStatic.storageClass`
 - `codescoring.backup.persistentVolume.storageClass`
 - `redis.persistentVolume.storageClass` (if using built-in Redis)
@@ -172,6 +173,7 @@ In this case, volumes will be created using the specified `StorageClass`
 The name of pre-created volumes can be set in the following variables:
 
 - `codescoring.persistentVolumes.analysisRoot.volumeName`
+- `codescoring.persistentVolumes.mediaRoot.volumeName`
 - `codescoring.persistentVolumes.djangoStatic.volumeName`
 - `codescoring.backup.persistentVolume.volumeName`
 - `redis.persistentVolume.volumeName` (if using built-in Redis)
@@ -184,6 +186,7 @@ In this case, only `PersistentVolumeClaim` will be created for the volumes speci
 The name of pre-created PVCs can be set in the following variables:
 
 - `codescoring.persistentVolumes.analysisRoot.existingClaim`
+- `codescoring.persistentVolumes.mediaRoot.existingClaim`
 - `codescoring.persistentVolumes.djangoStatic.existingClaim`
 - `codescoring.backup.persistentVolume.existingClaim`
 - `redis.persistentVolume.existingClaim` (if using built-in Redis)
@@ -200,6 +203,7 @@ To create local volumes, you must perform the following steps:
 1. Assign the value `true` to the following variables:
 
  - `codescoring.persistentVolumes.analysisRoot.localVolume.enabled`
+ - `codescoring.persistentVolumes.mediaRoot.localVolume.enabled`
  - `codescoring.persistentVolumes.djangoStatic.localVolume.enabled`
  - `codescoring.backup.persistentVolume.localVolume.enabled`
  - `redis.persistentVolume.localVolume.enabled` (if using built-in Redis)
@@ -208,6 +212,7 @@ To create local volumes, you must perform the following steps:
 2. Set the path to the **directory on the cluster node**, in which the data in the following variables will be placed:
 
  - `codescoring.persistentVolumes.analysisRoot.localVolume.path`
+ - `codescoring.persistentVolumes.mediaRoot.localVolume.path`
  - `codescoring.persistentVolumes.djangoStatic.localVolume.path`
  - `codescoring.backup.persistentVolume.localVolume.path`
  - `redis.persistentVolume.localVolume.path` (if using built-in Redis)
@@ -235,45 +240,45 @@ However, in some cases you may need to use Persistent Volume instead of Ephemera
 
 ```
 codescoring:
- huey:
- ipcsQueue:
- ephemeralVolumes:
- volumeMounts:
- # - mountPath: /tmp
- # name: ipcs-queue-tmp
- - mountPath: /etc/ssl/certs
- name: ipcs-queue-ssl-certs
- volumes:
- # - name: ipcs-queue-tmp
- # emptyDir: {}
- - name: ipcs-queue-ssl-certs
- emptyDir: {}
+  huey:
+    ipcsQueue:
+      ephemeralVolumes:
+        volumeMounts:
+        # - mountPath: /tmp
+        #   name: ipcs-queue-tmp
+        - mountPath: /etc/ssl/certs
+          name: ipcs-queue-ssl-certs
+        volumes:
+        # - name: ipcs-queue-tmp
+        #   emptyDir: {}
+        - name: ipcs-queue-ssl-certs
+          emptyDir: {}
 
- tasksOsaContainerImageScan:
- ephemeralVolumes:
- volumeMounts:
- # - mountPath: /tmp
- # name: container-image-scan-tmp
- - mountPath: /etc/ssl/certs
- name: container-image-scan-ssl-certs
- volumes:
- # - name: container-image-scan-tmp
- # emptyDir: {}
- - name: container-image-scan-ssl-certs
- emptyDir: {}
+    tasksOsaContainerImageScan:
+      ephemeralVolumes:
+        volumeMounts:
+        # - mountPath: /tmp
+        #   name: container-image-scan-tmp
+        - mountPath: /etc/ssl/certs
+          name: container-image-scan-ssl-certs
+        volumes:
+        # - name: container-image-scan-tmp
+        #   emptyDir: {}
+        - name: container-image-scan-ssl-certs
+          emptyDir: {}
 
- tasksOsaPackageScan:
- ephemeralVolumes:
- volumeMounts:
- # - mountPath: /tmp
- # name: package-scan-tmp
- - mountPath: /etc/ssl/certs
- name: package-scan-ssl-certs
- volumes:
- # - name: package-scan-tmp
- # emptyDir: {}
- - name: package-scan-ssl-certs
- emptyDir: {}
+    tasksOsaPackageScan:
+      ephemeralVolumes:
+        volumeMounts:
+        # - mountPath: /tmp
+        #   name: package-scan-tmp
+        - mountPath: /etc/ssl/certs
+          name: package-scan-ssl-certs
+        volumes:
+        # - name: package-scan-tmp
+        #   emptyDir: {}
+        - name: package-scan-ssl-certs
+          emptyDir: {}
 ```
 
 Then you need to set the value `enabled: true` in one or more of the following sections:
@@ -290,11 +295,12 @@ When horizontally scaling services, you need to configure volumes in accordance 
 
 **Important!**: To horizontally scale the CodeScoring system, the Kubernetes cluster must have the ability to create volumes with the access type **ReadWriteMany (RWX)**
 
-To scale CodeScoring horizontally, you need to create `analysis-root` and `django-static` volumes with an access type of `ReadWriteMany`.
+To scale CodeScoring horizontally, you need to create `analysis-root`, `media-root` and `django-static` volumes with an access type of `ReadWriteMany`.
 
 To do this, you need to replace the value of `ReadWriteOnce` with `ReadWriteMany` in the variables:
 
 - `codescoring.persistentVolumes.analysisRoot.accessModes`
+- `codescoring.persistentVolumes.mediaRoot.accessModes`
 - `codescoring.persistentVolumes.djangoStatic.accessModes`
 
 Then, you need to comment out the variables:
@@ -317,91 +323,97 @@ When running in a **production environment**, you may need to configure resource
 - `codescoring.huey.tasksOsaContainerImageScan.resources`
 - `codescoring.huey.tasksOsaPackageScan.resources`
 - `codescoring.huey.tasksPolicy.resources`
+- `codescoring.huey.tasksMedia.resources`
 
 It is possible to specify both `resources` and `limits` together or separately, for example:
 
 ```
 codescoring:
- backend:
- resources:
- limits:
- cpu: 1000m
- memory: 2000Mi
- huey:
- ipcsQueue:
- resources:
- limits:
- cpu: 2000m
- memory: 3000Mi
- requests:
- cpu: 1000m
- memory: 1000Mi
+  backend:
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 2000Mi
+  huey:
+    ipcsQueue:
+      resources:
+        limits:
+          cpu: 2000m
+          memory: 3000Mi
+        requests:
+          cpu: 1000m
+          memory: 1000Mi
 ```
 
 Below are approximate `limits` values for a CodeScoring installation with 8-10 projects:
 ```
 codescoring:
- backend:
- resources:
- limits:
- cpu: 250m
- memory: 2500Mi
- huey:
- ipcsQueue:
- scheduler:
- resources:
- limits:
- cpu: 500m
- memory: 500Mi
- resources:
- limits:
- cpu: 2250m
- memory: 4000Mi
- highPriorityQueue:
- resources:
- limits:
- cpu: 2250m
- memory: 4000Mi
- tasksOsaContainerImageScan:
- resources:
- limits:
- cpu: 2250m
- memory: 4000Mi
- tasksOsaPackageScan:
- resources:
- limits:
- cpu: 2250m
- memory: 4000Mi
- tasksOsaPackageScan:
- resources:
- limits:
- cpu: 2250m
- memory: 4000Mi
- tasksPolicy:
- resources:
- limits:
- cpu: 2250m
- memory: 4000Mi
- tasksTqi:
- resources:
- limits:
- cpu: 2250m
- memory: 4000Mi
- frontend:
- resources:
- limits:
- cpu: 250m
- memory: 500Mi
- redis:
- resources:
- limits:
- cpu: 1000m
- memory: 2000Mi
- postgresql:
- resources:
- limits:
- cpu: 1000m
- memory: 2000Mi
+  backend:
+    resources:
+      limits:
+        cpu: 250m
+        memory: 2500Mi
+  huey:
+    ipcsQueue:
+      scheduler:
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    highPriorityQueue:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksOsaContainerImageScan:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksOsaPackageScan:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksOsaPackageScan:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksPolicy:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksTqi:
+      resources:
+        limits:
+          cpu: 2250m
+          memory: 4000Mi
+    tasksMedia:
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 1500Mi
+  frontend:
+    resources:
+      limits:
+        cpu: 250m
+        memory: 500Mi
+  redis:
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 2000Mi
+  postgresql:
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 2000Mi
 ```
 
 ## Adding a Certificate Authority (CA) certificate

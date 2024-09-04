@@ -161,6 +161,7 @@ postgresqlPassword: "changeme"
 Задать требуемый `StorageClass` можно в следующих переменных:
 
 - `codescoring.persistentVolumes.analysisRoot.storageClass`
+- `codescoring.persistentVolumes.mediaRoot.storageClass`
 - `codescoring.persistentVolumes.djangoStatic.storageClass`
 - `codescoring.backup.persistentVolume.storageClass`
 - `redis.persistentVolume.storageClass` (если используется встроенный Redis)
@@ -173,6 +174,7 @@ postgresqlPassword: "changeme"
 Название предварительно созданных томов можно задать в следующих переменных:
 
 - `codescoring.persistentVolumes.analysisRoot.volumeName`
+- `codescoring.persistentVolumes.mediaRoot.volumeName`
 - `codescoring.persistentVolumes.djangoStatic.volumeName`
 - `codescoring.backup.persistentVolume.volumeName`
 - `redis.persistentVolume.volumeName` (если используется встроенный Redis)
@@ -185,6 +187,7 @@ postgresqlPassword: "changeme"
 Название предварительно созданных PVC можно задать в следующих переменных:
 
 - `codescoring.persistentVolumes.analysisRoot.existingClaim`
+- `codescoring.persistentVolumes.mediaRoot.existingClaim`
 - `codescoring.persistentVolumes.djangoStatic.existingClaim`
 - `codescoring.backup.persistentVolume.existingClaim`
 - `redis.persistentVolume.existingClaim` (если используется встроенный Redis)
@@ -201,6 +204,7 @@ postgresqlPassword: "changeme"
 1. Присвоить значение `true` следующим переменным:
 
     - `codescoring.persistentVolumes.analysisRoot.localVolume.enabled`
+    - `codescoring.persistentVolumes.mediaRoot.localVolume.enabled`
     - `codescoring.persistentVolumes.djangoStatic.localVolume.enabled`
     - `codescoring.backup.persistentVolume.localVolume.enabled`
     - `redis.persistentVolume.localVolume.enabled` (если используется встроенный Redis)
@@ -209,6 +213,7 @@ postgresqlPassword: "changeme"
 2. Задать путь до **каталога на ноде кластера**, в котором будут размещены данные в следующих переменных:
 
     - `codescoring.persistentVolumes.analysisRoot.localVolume.path`
+    - `codescoring.persistentVolumes.mediaRoot.localVolume.path`
     - `codescoring.persistentVolumes.djangoStatic.localVolume.path`
     - `codescoring.backup.persistentVolume.localVolume.path`
     - `redis.persistentVolume.localVolume.path` (если используется встроенный Redis)
@@ -217,6 +222,7 @@ postgresqlPassword: "changeme"
 3. Указать название ноды, на которой будет создан локальный том в следующих переменных:
 
     - `codescoring.persistentVolumes.analysisRoot.localVolume.nodeHostname`
+    - `codescoring.persistentVolumes.mediaRoot.localVolume.nodeHostname`
     - `codescoring.persistentVolumes.djangoStatic.localVolume.nodeHostname`
     - `codescoring.backup.persistentVolume.localVolume.nodeHostname`
     - `redis.persistentVolume.localVolume.nodeHostname` (если используется встроенный Redis)
@@ -291,11 +297,12 @@ codescoring:
 
 **Важно!**: Для горизонтального масштабирования системы CodeScoring необходимо наличие в кластере Kubernetes возможности создания томов с типом доступа **ReadWriteMany (RWX)**
 
-Для горизонтального масштабирования CodeScoring необходимо создать тома `analysis-root` и `django-static` с типом доступа `ReadWriteMany`. 
+Для горизонтального масштабирования CodeScoring необходимо создать тома `analysis-root`, `media-root` и `django-static` с типом доступа `ReadWriteMany`. 
 
 Для этого необходимо заменить значение `ReadWriteOnce` на `ReadWriteMany` в переменных:
 
 - `codescoring.persistentVolumes.analysisRoot.accessModes`
+- `codescoring.persistentVolumes.mediaRoot.accessModes`
 - `codescoring.persistentVolumes.djangoStatic.accessModes`
 
 Затем, необходимо закоментировать переменные:
@@ -318,6 +325,7 @@ codescoring:
 - `codescoring.huey.tasksOsaContainerImageScan.resources`
 - `codescoring.huey.tasksOsaPackageScan.resources`
 - `codescoring.huey.tasksPolicy.resources`
+- `codescoring.huey.tasksMedia.resources`
 
 Возможно указание как `resources` и `limits` вместе, так и по отдельности, например:
 
@@ -388,6 +396,11 @@ codescoring:
         limits:
           cpu: 2250m
           memory: 4000Mi
+    tasksMedia:
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 1500Mi
   frontend:
     resources:
       limits:
