@@ -115,6 +115,13 @@ To connect to external Redis, you must do the following:
 1. Disable Redis deployment by specifying the variable - `redis.enabled: false`
 2. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis.
 
+##### Connecting to external Redis via TLS
+To connect to external Redis, in addition to abovementioned you must do the following:
+
+1. Set the `codescoring.trustedCA.enabled` variable to `true`
+2. Add the Redis-server root certificate to `codescoring.trustedCA.certificates`
+3. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis using the following format: `rediss://redis.example.com:6379/0`, where 0 is the Redis database number.  
+
 #### Connecting to PostgreSQL via PgCat pooler
 
 **Important!**: Connecting to external PostgreSQL must be done using a connection pooler.
