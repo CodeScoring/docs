@@ -14,71 +14,80 @@ hide:
 
 1. Create a namespace.
 
- ```
- kubectl create namespace codescoring
- ```
+     ```
+     kubectl create namespace codescoring
+     ```
 
 2. Create a secret to access the private registry of Docker images of the "CodeScoring" system, using the address (`REGISTRY_URL`), login (`USERNAME`) and password (`PASSWORD`) received from the vendor.
 
- ```
- kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
- ```
+     ```
+     kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
+     ```
 
 3. Install [Helm](https://helm.sh/docs/intro/install/) using your preferred method.
 
 4. Run the following commands to add the current Helm repository to the local machine:
- ```
- helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
- helm repo update
- ```
+
+     ```
+     helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
+     helm repo update
+     ```
 
 5. Create a `values.yaml` file with the following content:
 
- **Important!**: Please replace the values in the sensitive data fields with your own. These fields include `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, and all fields containing `username` or `password`. It is also important to note that all such variables are mandatory.
+     **Important!**: Please replace the values in the sensitive data fields with your own. These fields include `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, and all fields containing `username` or `password`. It is also important to note that all such variables are mandatory.
 
- ```
- codescoring:
-  config:
-    ## codescoring-backend configuration parameters
-    siteScheme: https # site scheme http or https
-    siteHost: "codescoring.k8s.local" # domain where CodeScoring will be available
-    djangoCSRFTrustedOptions: "https://codescoring.k8s.local" # Domain where CodeScoring will be available, including schema
-    secretKey: "" # secret key for the application backend, random string of characters
-    defaultSuperuserUsername: "admin" # administrator name on the system
-    defaultSuperuserPassword: "changeme" # system administrator password
-    defaultSuperuserEmail: "mail@example.com" # e-mail of the administrator in the system
-    databaseHost: ipcs-pgcat
-    databasePort: 5432
-    postgresqlDatabase: "codescoring"
-    postgresqlUsername: "codescoring"
-    postgresqlPassword: "changeme" # password must match the password for pgcat.postgresql.password
+     ```
+     codescoring:
+      config:
+        ## codescoring-backend configuration parameters
+        siteScheme: https # site scheme http or https
+        siteHost: "codescoring.k8s.local" # domain where CodeScoring will be available
+        djangoCSRFTrustedOptions: "https://codescoring.k8s.local" # Domain where CodeScoring will be available, including schema
+        secretKey: "" # secret key for the application backend, random string of characters
+        defaultSuperuserUsername: "admin" # administrator name on the system
+        defaultSuperuserPassword: "changeme" # system administrator password
+        defaultSuperuserEmail: "mail@example.com" # e-mail of the administrator in the system
+        databaseHost: ipcs-pgcat
+        databasePort: 5432
+        postgresqlDatabase: "codescoring"
+        postgresqlUsername: "codescoring"
+        postgresqlPassword: "changeme" # password must match the password for pgcat.postgresql.password
 
- pgcat:
-  adminPassword: "changeme"
+     pgcat:
+      adminPassword: "changeme"
 
- postgresql:
-  host: "codescoring-postgresql"
-  port: 5432
-  username: "codescoring"
-  password: "changeme" # password must match the password in codescoring.postgresqlPassword
-  database: "codescoring"
+     postgresql:
+      host: "codescoring-postgresql"
+      port: 5432
+      username: "codescoring"
+      password: "changeme" # password must match the password in codescoring.postgresqlPassword
+      database: "codescoring"
 
 
- frontend:
-  ingress:
-    enabled: true
-    className: "nginx"
-    hosts:
-    - host: codescoring.k8s.local # domain where CodeScoring will be available
-    paths:
-    - path: /
-    pathType: ImplementationSpecific
- ```
+     frontend:
+      ingress:
+        enabled: true
+        className: "nginx"
+        hosts:
+        - host: codescoring.k8s.local # domain where CodeScoring will be available
+        paths:
+        - path: /
+        pathType: ImplementationSpecific
+     ```
 
 6. Run the command to install the chart
  ```
  helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
  ```
+
+## Changing the admin password
+
+To change the admin password without manually editing the `values.yaml` file, you can use the following command:
+
+  ```bash
+  kubectl exec -it your-backend-pod -- python manage.py changepassword <user_name>
+  ```
 
 ## Advanced settings for Helm chart parameters
 

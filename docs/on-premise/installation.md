@@ -14,9 +14,9 @@ hide:
     ```bash
     cp app.env.template app.env
     ```
-Как правило, для корректной работы никаких изменений в файле не требуется. При необходимости настройки работы **CodeScoring** через прокси, обратите внимание на [инструкцию](/on-premise/proxy)
 
-
+    Как правило, для корректной работы никаких изменений в файле не требуется. При необходимости настройки работы **CodeScoring** через прокси, обратите внимание на [инструкцию](/on-premise/proxy).
+    
 7. Скопировать шаблонный файл с секретами:
 
     ```
@@ -69,4 +69,9 @@ hide:
 
     ```bash
     docker exec -it prefix-backend-1 python ./manage.py createsuperuser
+    ```
+12. Для изменения пароля администратора можно использовать следующую команду:
+
+    ```bash
+    docker exec -it prefix_backend_1 python ./manage.py changepassword <user_name>
     ```

@@ -25,8 +25,8 @@ hide:
     ```
 
 3. Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
-
 4. Выполнить следующие команды для добавления актуального Helm-репозитория на локальную машину:
+
     ```
     helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
     helm repo update
@@ -79,6 +79,14 @@ hide:
     ```
     helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
     ```
+
+## Изменение пароля администратора
+
+Для изменения пароля администратора без ручного редактирования файла `values.yaml` можно использовать следующую команду:
+
+  ```bash
+  kubectl exec -it your-backend-pod -- python manage.py changepassword <user_name>
+  ```
 
 ## Расширенные настройки параметров Helm-чарта
 
