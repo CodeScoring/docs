@@ -4,6 +4,12 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.36.0] - 2024-09-05
+
+- Added the ability to configure the used parsers via the configuration file
+- Added the ability to specify the parser used in the scan file command
+- Fixed parsing of multi-project/module gradle-dependency-tree
+
 ### [2024.35.0] - 2024-08-20
 
 - Fixed gradle-dependency-tree kotlin parsing
