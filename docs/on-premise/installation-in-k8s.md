@@ -114,6 +114,12 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 1. Отключить развертывание Redis, указав переменную -  `redis.enabled: false`
 2. В переменных `codescoring.config.djangoCachesRedisUrls` и `codescoring.config.hueyRedisUrl` указать строки подключения для внешнего Redis.
 
+##### Подключение к внешнему Redis с использованием TLS
+Для подключения к внешнему Redis с использованием TLS, дополнительно необходимо:
+
+1. Задать значение `true` в переменной `codescoring.trustedCA.enabled`
+2. Добавить корневой сертификат сервера Redis в `codescoring.trustedCA.certificates`
+3. В переменных `codescoring.config.djangoCachesRedisUrls` и `codescoring.config.hueyRedisUrl` указать строки подключения для внешнего Redis в формате `rediss://redis.example.com:6379/0`, где 0 - номер базы данных в Redis. 
 
 #### Подключение к PostgreSQL через пулер PgCat
 
