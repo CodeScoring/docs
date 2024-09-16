@@ -37,7 +37,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 
 - **CodeScoring Configuration** — настройка взаимодействия с **on-premise** инсталляцией **CodeScoring**;
 - **CodeScoring Scan** — настройка сканирования для отдельно выбранного прокси-репозитория;
-- **CodeScoring Docker Repository Scan** – настройка сканирования для отдельно выбранного hosted docker репозитория;
+- **CodeScoring Docker Repository Scan** – настройка сканирования для отдельно выбранного hosted или proxy docker репозитория;
 - **CodeScoring All Repositories Scan** – настройка сканирования для всех репозиториев.
 
 После установки плагина **CodeScoring OSA** в разделе `System -> Capabilities` появится возможность создания **Capability** через элемент (`+ Create capability`) интерфейса.
