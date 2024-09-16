@@ -4,6 +4,13 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.37.0] - 2024-09-12
+
+- Added team table to the project page
+- Added ability to export to CSV in the Components section
+- Accelerated SCA analysis in cases where the same package occurs multiple times within a manifest 
+- Fixed an error when generating a project report if there are incorrect PURLs in SBOM.
+
 ### [2024.35.0] - 2024-08-29
 
 - Added a new condition for policies - Dependency Vulnerabilities Count

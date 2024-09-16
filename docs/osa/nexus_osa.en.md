@@ -37,7 +37,7 @@ The **CodeScoring OSA** plugin provides four new **Capabilities**:
 
 - **CodeScoring Configuration** — setting up interaction with the on-premise installation of **CodeScoring**;
 - **CodeScoring Scan** — setting up scanning for a separately selected proxy repository;
-- **CodeScoring Docker Repository Scan** – setting up scanning for a separately selected hosted docker repository;
+- **CodeScoring Docker Repository Scan** – setting up scanning for a separately selected hosted or proxy docker repository;
 - **CodeScoring All Repositories Scan** – scan settings for all repositories.
 
 After installing the **CodeScoring OSA** plugin in the `System -> Capabilities` section, it will be possible to create **Capability** through the (`+ Create capability`) interface element.
