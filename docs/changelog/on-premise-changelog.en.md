@@ -4,6 +4,10 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.38.0] - 2024-09-18
+
+- Fixed CSV export in the Dependencies section
+
 ### [2024.37.0] - 2024-09-12
 
 - Added team table to the project page
