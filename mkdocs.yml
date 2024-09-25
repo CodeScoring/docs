@@ -95,6 +95,7 @@ plugins:
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integration into Gitlab CI"
           agent-jenkins: "Integration into Jenkins Pipeline"
+          agent-gitflic-ci: "Integration into GitFlic CI"
           agent-save-results: "Saving scan results"
           agent-resolve: "Resolving dependencies"
           jfrog-changelog: "JFrog OSA"
@@ -152,6 +153,7 @@ plugins:
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
           agent-jenkins: "Добавление в Jenkins"
+          agent-gitflic-ci: "Добавление в GitFlic CI"
           agent-save-results: "Сохранение результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
           jfrog-changelog: "JFrog OSA"
@@ -251,6 +253,8 @@ nav:
     - agent-gitlab-ci: agent/gitlab-ci.en.md
     - agent-jenkins: agent/jenkins-pipeline.md
     - agent-jenkins: agent/jenkins-pipeline.en.md
+    - agent-gitflic-ci: agent/gitflic-ci.md
+    - agent-gitflic-ci: agent/gitflic-ci.en.md
     - agent-save-results: agent/save-results.md
     - agent-save-results: agent/save-results.en.md
     - agent-resolve: agent/resolve.md
