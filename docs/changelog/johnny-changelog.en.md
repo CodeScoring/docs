@@ -4,6 +4,15 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.39.0] - 2024-09-23
+
+- Changed vulnerability identification in sarif format for better display in DefectDojo
+- Changed severity and tags export in sarif format for better display in DefectDojo
+- Fixed bom scanning error with golang packages
+- Fixed error when parsing empty `cargo.lock`
+- Removed duplication of vulnerabilities in sarif format (for cases of multiple versions of one package)
+- Removed the ability to simultaneously use the `format` and `no-summary` flags
+
 ### [2024.36.0] - 2024-09-05
 
 - Added the ability to configure the used parsers via the configuration file
