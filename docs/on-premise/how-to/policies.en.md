@@ -14,7 +14,9 @@ Policies can be configured for:
 - an entire organization;
 - a business unit;
 - a project;
-- a development environment.
+- a development environment;
+- a repository;
+- a type of component.
 
 The policy mechanism takes into account the specified stage of software development: from the download of third-party components to tracking builds and writing new code.
 
