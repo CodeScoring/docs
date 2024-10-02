@@ -4,13 +4,18 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.40.0] - 2024-10-02
+
+- Added workspaces parsing when working with npm manifests
+- Fixed `Gemfile.lock` parser for cases with multiple Gem sections
+
 ### [2024.39.0] - 2024-09-23
 
-- Changed vulnerability identification in sarif format for better display in DefectDojo
-- Changed severity and tags export in sarif format for better display in DefectDojo
-- Fixed bom scanning error with golang packages
-- Fixed error when parsing empty `cargo.lock`
-- Removed duplication of vulnerabilities in sarif format (for cases of multiple versions of one package)
+- Separated tags when unloading in sarif format to display all versions of the found package in DefectDojo
+- Changed unloading severity in sarif format to correctly detect by CVSS3 in DefectDojo
+- Fixed SBoM scanning error with golang packages
+- Fixed panic when parsing empty `cargo.lock`
+- Removed duplication of vulnerabilities in sarif format for cases of multiple versions of the same package
 - Removed the ability to simultaneously use the `format` and `no-summary` flags
 
 ### [2024.36.0] - 2024-09-05
