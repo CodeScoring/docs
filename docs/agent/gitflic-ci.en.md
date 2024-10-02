@@ -5,7 +5,7 @@ hide:
 
 # Integration into Gitflic CI
 
-The johnny console agent supports integration into GitFlic CI with two possible runner types – GitFlic shell or GitFlic docker.
+Using the johnny console agent, you can configure component scanning in GitFlic CI. The supported runner types are GitFlic shell and GitFlic docker.
 
 ## Using the agent with the GitFlic shell runner type
 
@@ -30,28 +30,29 @@ chmod +x /usr/local/bin/johnny
 
 Example of requesting the agent binary in `gitflic-ci.yaml`:
 
-```yaml
-stages:
+  ```yaml
+    stages:
+      - test
 
-\- test
-<br/>sca:
-stage: test
-<br/>script:
-\- >
-./usr/local/bin/johnny
-scan dir
-\--api_token $JOHNNY_API_TOKEN
-\--api_url $JOHNNY_API_URL
-\--ignore .git
-\--ignore fixtures
-\--ignore parsers
-.
-<br/>artifacts:
-reports:
-paths:
-dependency_scanning:
-\- "bom.json"
-```
+    sca:
+      stage: test
+
+    script:
+        - >
+          johnny
+          scan dir
+          --api_token $JOHNNY_API_TOKEN
+          --api_url $JOHNNY_API_URL
+          --ignore .git
+          --ignore fixtures
+          --ignore parsers
+          .
+
+  artifacts:  
+    reports:  
+    paths:  
+    dependency_scanning:  "bom.json"
+  ```
 
 The results of the scan can be managed in the **Security** tab in the project interface.
 
@@ -74,7 +75,7 @@ To use the console agent with the GitFlic docker runner type, you must first per
 2. Copy the agent to the container that you plan to use it in
 
     ```bash
-    docker cp ./johnn CONTAINER:/usr/bin
+    docker cp ./johnny CONTAINER:/usr/bin
     ```
 
 3. Allow file execution
@@ -93,14 +94,29 @@ To use the console agent with the GitFlic docker runner type, you must first per
 
 An example of requesting the agent binary file in `gitflic-ci.yaml`: 
 
-```yaml 
-stages: \- test <br/>sca: stage: test image: &lt;repository&gt;:&lt;tag&gt;
-script: \- > ./usr/bin/johnny scan dir \--api_token $JOHNNY_API_TOKEN \--api_url $JOHNNY_API_URL \--ignore .git \--ignore fixtures \--ignore parsers .
-<br/>artifacts:
-reports:
-paths:
-dependency_scanning:
-\- "bom.json"
+```yaml
+    stages:
+      - test
+
+    sca:
+      stage: test 
+    image: <repository><tag>  
+
+    script:
+        - >
+          johnny
+          scan dir
+          --api_token $JOHNNY_API_TOKEN
+          --api_url $JOHNNY_API_URL
+          --ignore .git
+          --ignore fixtures
+          --ignore parsers
+          .
+
+  artifacts:  
+    reports:  
+    paths:  
+    dependency_scanning:  "bom.json"
 ```
 
 You can manage the results of the scan in the **Security** tab of the project interface.
@@ -110,16 +126,16 @@ You can manage the results of the scan in the **Security** tab of the project in
 Example of an image scan using the agent:
 
 ```
-image: angelikade/mvn-npm-jdk:codescoring
-stage: test-codescoring-image
-when: manual
-scripts:
-\- ls -la
-\- >
-/usr/bin/johnny
-scan image &lt;registry&gt;/&lt;repository&gt;/&lt;imagename&gt;:&lt;tag&gt;
-\--api_token "${CS_TOKEN}"
-\--api_url "${CS_URL}"
+image: angelikade/mvn-npm-jdk:codescoring  
+stage: test-codescoring-image  
+when: manual  
+scripts:  
+- ls - la  
+- >  
+/usr/bin/johnny  
+scan image <registry>/<repository>/<imagename><tag>  
+--api_token "${CS_TOKEN}"  
+--api_url "${CS_URL}"
 ```
 
 **Important**: access to the file `/v2/\_catalog` in GitFlic is disabled for security reasons. Currently, it is not possible to recurse through all images in the registry.
@@ -132,26 +148,26 @@ scan image &lt;registry&gt;/&lt;repository&gt;/&lt;imagename&gt;:&lt;tag&gt;
 
     ```yaml
     stages:
+      - test
 
-    \- test
-    <br/>sca:
-    stage: test
-    <br/>script:
-    \- >
-    ./usr/local/bin/johnny
-    scan dir
+    sca:
+      stage: test
 
-    \--api_token $JOHNNY_API_TOKEN
-    \--api_url $JOHNNY_API_URL
-    \--ignore .git
-    \--ignore fixtures
-    \--ignore parsers
-    .
-    <br/>artifacts:
-    reports:
-    paths:
-    dependency_scanning:
-    \- "bom.json"
+    script:
+        - >
+          johnny
+          scan dir
+          --api_token $JOHNNY_API_TOKEN
+          --api_url $JOHNNY_API_URL
+          --ignore .git
+          --ignore fixtures
+          --ignore parsers
+          .
+
+  artifacts:  
+    reports:  
+    paths:  
+    dependency_scanning:  "bom.json"
     ```
 
 3. When the policies are triggered, the agent will exit with an error code and the GitFlic runner will automatically stop the pipeline.

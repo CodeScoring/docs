@@ -5,11 +5,11 @@ hide:
 
 # Добавление в Gitflic CI
 
-Консольный агент johnny поддерживает добавление в GitFlic CI с двумя возможными типами раннера – GitFlic shell или GitFlic docker.
+С помощью консольного агента johnny можно настроить сканирование компонентов в GitFlic CI. Поддерживаются типы раннера GitFlic shell и GitFlic docker.
 
 ## Использование агента c типом раннера GitFlic shell
 
-Для использования консольного агента с типом раннера GitFlic Shell необходимо предварительно выполнить следующие действия на машине с агентом:
+Для использования консольного агента с типом раннера GitFlic Shell необходимо предварительно выполнить следующие действия:
 
 1. Скачать файл командой
 
@@ -32,25 +32,27 @@ hide:
   Пример вызова бинарного файла агента в `gitflic-ci.yaml`:
 
   ```yaml
-  stages:  
-  \- test  
-  <br/>sca:  
-  stage: test  
-  <br/>script:  
-  \- >  
-  ./usr/local/bin/johnny  
-  scan dir  
-  \--api_token $JOHNNY_API_TOKEN  
-  \--api_url $JOHNNY_API_URL  
-  \--ignore .git  
-  \--ignore fixtures  
-  \--ignore parsers  
-  .  
-  <br/>artifacts:  
-  reports:  
-  paths:  
-  dependency_scanning:  
-  \- "bom.json"
+    stages:
+      - test
+
+    sca:
+      stage: test
+
+    script:
+        - >
+          johnny
+          scan dir
+          --api_token $JOHNNY_API_TOKEN
+          --api_url $JOHNNY_API_URL
+          --ignore .git
+          --ignore fixtures
+          --ignore parsers
+          .
+
+  artifacts:  
+    reports:  
+    paths:  
+    dependency_scanning:  "bom.json"
   ```
 
   Результатами выполненного сканирования можно управлять на вкладке **Безопасность** в интерфейсе проекта.
@@ -74,7 +76,7 @@ hide:
 2. Скопировать агента в контейнер, который планируется использовать в задаче
 
     ```bash
-    docker cp ./johnn CONTAINER:/usr/bin
+    docker cp ./johnny CONTAINER:/usr/bin
     ```
 
 3. Разрешить исполнение файла
@@ -94,26 +96,28 @@ docker commit &lt;container name&gt; &lt;repository&gt;:&lt;tag&gt;
 Пример вызова бинарного файла агента в `gitflic-ci.yaml`:
 
 ```yaml
-stages:  
-\- test  
-<br/>sca:  
-stage: test  
-image: &lt;repository&gt;:&lt;tag&gt;  
-script:  
-\- >  
-./usr/bin/johnny  
-scan dir  
-\--api_token $JOHNNY_API_TOKEN  
-\--api_url $JOHNNY_API_URL  
-\--ignore .git  
-\--ignore fixtures  
-\--ignore parsers  
-.  
-<br/>artifacts:  
-reports:  
-paths:  
-dependency_scanning:  
-\- "bom.json"
+    stages:
+      - test
+
+    sca:
+      stage: test 
+    image: <repository><tag>  
+
+    script:
+        - >
+          johnny
+          scan dir
+          --api_token $JOHNNY_API_TOKEN
+          --api_url $JOHNNY_API_URL
+          --ignore .git
+          --ignore fixtures
+          --ignore parsers
+          .
+
+  artifacts:  
+    reports:  
+    paths:  
+    dependency_scanning:  "bom.json"
 ```
 
 Результатами выполненного сканирования можно управлять на вкладке **Безопасность** в интерфейсе проекта.
@@ -127,12 +131,12 @@ image: angelikade/mvn-npm-jdk:codescoring
 stage: test-codescoring-image  
 when: manual  
 scripts:  
-\- ls -la  
-\- >  
+- ls - la  
+- >  
 /usr/bin/johnny  
-scan image &lt;registry&gt;/&lt;repository&gt;/&lt;imagename&gt;:&lt;tag&gt;  
-\--api_token "${CS_TOKEN}"  
-\--api_url "${CS_URL}"
+scan image <registry>/<repository>/<imagename><tag>  
+--api_token "${CS_TOKEN}"  
+--api_url "${CS_URL}"
 ```
 
 **Важно**: доступ к файлу `/v2/\_catalog` в GitFlic выключен из соображений безопасности. На текущий момент, рекуррентный проход по всем образам в реестре невозможен.
