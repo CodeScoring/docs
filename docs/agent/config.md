@@ -112,7 +112,6 @@ scan:
   # Prevents from recursively scan directories
   dir:
     no-recursion: false
-  # specific parsers options
   # Supported technologies
   technologies:
     # C
