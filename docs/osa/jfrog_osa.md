@@ -61,7 +61,7 @@ curl -X POST https://[JFROG_URL]/api/plugins/execute/codeScoringReload
 disablePlugin: false
 
 codeScoringAPI:
-  # The base URL for all CodeScoring API endpoints.
+  # The base URL for all CodesSoring API endpoint.
   # Required.
   # Example: https://host:port or https://host
   url:
@@ -143,6 +143,13 @@ repositories:
 #   - maven-local
 excludeRepositories:
 
+# List of repository types to scan. Used, if scanAllRepositories=true
+# Supported values are: maven, npm, pypi, nuget, cocoapods, go, gems, debian, yum, alpine, docker, composer, cargo
+# Example:
+# repositoryTypes:
+#   - npm
+#   - go
+repositoryTypes:
 ```
 
 ### Описание параметров
