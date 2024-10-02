@@ -113,63 +113,429 @@ scan:
   dir:
     no-recursion: false
   # specific parsers options
-  parsers:
-    # gradle parser options
-    gradle:
-      # gradle dependency tree options
-      gdt:
-        # section name for parse
-        match: compileClasspath
-      # path to gradle
-      gradle-path: gradle
-      # enable resolve with gradle
-      resolve-enabled: false
-    # maven parser options
-    maven:
-      # path to mvn
-      maven-path: mvn
-      # enable resolve with mvn
-      resolve-enabled: false
-    # go parser options
+  # Supported technologies
+  technologies:
+    # C
+    clang:
+      # Use C parsers
+      enabled: true
+      # C parsers
+      parsers:
+        # conan.lock parser
+        conan_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("conan.lock")
+        # conanfile.py parser  
+        conanfile_py:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("conanfile.py")
+        conanfile_txt:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("conanfile.txt")
+    # C#
+    csharp:
+      # Use C# parsers
+      enabled: true
+      # C# parsers
+      parsers:
+        # .csporj parser
+        csproj:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".csproj")
+        # dependencyReport.json parser
+        dependencyreport_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("dependencyReport.json")
+        # .csproj dotnet environment parser
+        dotnet_csproj_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: extension(".csproj")
+          # parser properties
+          properties:
+            # path to dotnet for resolve
+            dotnet-path: dotnet
+        # .nuspec parser
+        nuspec:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".nuspec")
+        # packages.config parser
+        packages_config:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("packages.config")
+        # packages.lock.json parser
+        packages_lock_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("packages.lock.json")
+        # paket.dependencies parser
+        paket_dependencies:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("paket.dependencies")
+        # paket.lock parser
+        paket_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("paket.lock")
+        # project.assets.json parser
+        project_assets_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("project.assets.json")
+        # Project.json parser
+        project_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Project.json")
+        # Project.lock.json parser
+        project_lock_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Project.lock.json")
+    # Golang
     go:
-      # path to go
-      go-path: go
-      # enable resolve with go
-      resolve-enabled: false
-    # yarn parser options
-    yarn:
-      # path to yarn
-      yarn-path: yarn
-      # enable resolve with yarn
-      resolve-enabled: false
-    # scala parser options
-    scala:
-      # path to sbt
-      sbt-path: sbt
-      # enable resolve with sbt
-      resolve-enabled: false
-    # npm parser options
-    npm:
-      # path to npm
-      npm-path: npm
-      # enable resolve with npm
-      resolve-enabled: false
-    # poetry parser options
-    poetry:
-      # path to poetry
-      poetry-path: poetry
-      # enable resolve with poetry
-      resolve-enabled: false
-    # pypi parsers options
-    pypi:
-      # python version
-      python-version: ""
-    # dotnet parser options
-    dotnet:
-      # path to dotnet
-      dotnet-path: dotnet
-      # enable resolve with dotnet
-      resolve-enabled: false
+      # Use Golang parsers
+      enabled: true
+      # Golang parsers
+      parsers:
+        # go.mod parser
+        go_mod:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("go.mod")
+        # go.mod environment parser
+        go_mod_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("go.mod")
+          # parser properties
+          properties:
+            # path to go for resolve
+            go-path: go
+        # go.sum parser
+        go_sum:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("go.sum")
+    # Java
+    java:
+      # Use Java parsers
+      enabled: true
+      # Java parsers
+      parsers:
+        # build.gradle, build.gradle.kts environment parser
+        build_gradle_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: extension("build.gradle") || extension("build.gradle.kts")
+          # parser properties
+          properties:
+            # path to gradle for resolve
+            gradle-path: ./gradlew
+        # .gradle parser
+        gradle:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".gradle")
+        # gradle dependency tree parser
+        gradle-dependency-tree_txt:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("gradle-dependency-tree.txt") || equal("gradle-dependencies.txt")
+          # parser properties
+          properties:
+            # configuration for parse
+            configuration: ""
+        # .gradle.kts parser
+        gradle_kts:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".gradle.kts")
+        # gradle.lockfile parser
+        gradle_lockfile:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension("gradle.lockfile")
+        # ivy.xml parser
+        ivy_xml:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("ivy.xml")
+        # jar parser
+        jar:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".jar") || extension(".war") || extension(".ear")
+          # parser properties
+          properties:
+            # parse depth
+            depth: 1
+        # maven dependency tree parser
+        maven-dependency-tree_txt:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("maven-dependency-tree.txt") || equal("mvn-dependency-tree.txt")
+        # pom.xml maven environment parser
+        maven_pom_xml_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("pom.xml")
+          # parser properties
+          properties:
+            # path to maven for resolve
+            maven-path: mvn
+        # pom.xml parser
+        pom_xml:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("pom.xml")
+        # scala dependency tree parser
+        scala-dependency-tree_txt:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("scala-dependency-tree.txt") || equal("sbt-dependency-tree.txt")
+        # build.sbt environment parser
+        scala_build_sbt_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("build.sbt")
+          # parser properties
+          properties:
+            # path to sbt for resolve
+            sbt-path: sbt
+    # JavaScript
+    js:
+      # Use JavaScript parsers
+      enabled: true
+      # JavsScript parsers
+      parsers:
+        # npm-shrinkwrap.json parser
+        npm-shrinkwrap_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("npm-shrinkwrap.json")
+        # package.json npm environment parser
+        npm_package_json_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("package.json")
+          # parser properties
+          properties:
+            # path to npm for resolve
+            npm-path: npm
+        # package-lock.json parser
+        package-lock_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("package-lock.json")
+        # package.json parser
+        package_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("package.json")
+        # yarn.lock parser
+        yarn_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("yarn.lock")
+        # package.json yarn environment parser
+        yarn_package_json_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("package.json")
+          # parser properties
+          properties:
+            # path to yarn for resolve
+            yarn-path: yarn
+    # Objective-C
+    objective_c:
+      # Use Objective-C parsers
+      enabled: true
+      # Objective-C parsers
+      parsers:
+        # Podfile parser
+        podfile:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Podfile")
+        # Podfile.lock parser
+        podfile_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Podfile.lock")
+        # .podspec parser
+        podspec:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".podspec")
+    # PHP
+    php:
+      # Use PHP parsers
+      enabled: true
+      # PHP parsers
+      parsers:
+        # composer.json parser
+        composer_json:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("composer.json")
+        # composer.lock parser
+        composer_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("composer.lock")
+    # Python
+    python:
+      # Use Python parsers
+      enabled: true
+      # Python parsers
+      parsers:
+        # pip-resolved-dependencies.txt parser
+        pip-resolved-dependencies_txt:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("pip-resolved-dependencies.txt")
+        # Pipfile parser
+        pipfile:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Pipfile")
+        # Pipfile.lock parser
+        pipfile_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Pipfile.lock")
+        # poetry.lock parser
+        poetry_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("poetry.lock")
+        # pyproject.toml poetry environment parser
+        poetry_pyproject_toml_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("pyproject.toml")
+          # parser properties
+          properties:
+            # path to poetry for resolve
+            poetry-path: poetry
+        # pyproject.toml parser
+        pyproject_toml:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("pyproject.toml")
+        # requirements.txt parser
+        requirements_txt:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: match(".*require[^/]*(/)?[^/]*.(txt|pip)$")
+        # setup.py parser
+        setup_py:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("setup.py")
+      # technology properties
+      properties:
+        # python version
+        python-version: ""
+    # Ruby
+    ruby:
+      # Use Ruby parsers
+      enabled: true
+      # Ruby parsers
+      parsers:
+        # Gemfile parser
+        gemfile:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Gemfile") || equal("gems.rb")
+        # Gemfile.lock parser
+        gemfile_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Gemfile.lock") || equal("gems.locked")
+        # .gemspec parser
+        gemspec:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".gemspec")
+    # Rust
+    rust:
+      # Use Rust parsers
+      enabled: true
+      # Rust parsers
+      parsers:
+        # cargo.lock parser
+        cargo_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("cargo.lock")
+        # cargo.toml parser
+        cargo_toml:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("cargo.toml")
   # scan archives options
   scan-archives:
     # scan archives
