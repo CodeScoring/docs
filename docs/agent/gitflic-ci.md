@@ -88,7 +88,7 @@ hide:
 4. Сохранить изменения в контейнере
 
 ```bash
-docker commit &lt;container name&gt; &lt;repository&gt;:&lt;tag&gt;
+docker commit <container name><repository>:<tag>
 ```
 
 **Важно**: при необходимости сохраните контейнер в удаленном репозитории.
@@ -124,19 +124,18 @@ docker commit &lt;container name&gt; &lt;repository&gt;:&lt;tag&gt;
 
 ## Подключение к реестру и проверка образов
 
-Пример выборочной проверки образа с помощью агента:
+Пример выборочной проверки образа с помощью агента в `gitflic-ci.yaml`:
 
 ```
-image: angelikade/mvn-npm-jdk:codescoring  
-stage: test-codescoring-image  
-when: manual  
-scripts:  
-- ls - la  
-- >  
-/usr/bin/johnny  
-scan image <registry>/<repository>/<imagename><tag>  
---api_token "${CS_TOKEN}"  
---api_url "${CS_URL}"
+image: angelikade/mvn-npm-jdk:codescoring
+stage: test-codescoring-image
+when: manual
+scripts:
+  - ls -la
+  - |
+    /usr/bin/johnny scan image <registry>/<repository>/<imagename>:<tag> \
+    --api_token "${CS_TOKEN}" \
+    --api_url "${CS_URL}"
 ```
 
 **Важно**: доступ к файлу `/v2/\_catalog` в GitFlic выключен из соображений безопасности. На текущий момент, рекуррентный проход по всем образам в реестре невозможен.
@@ -148,25 +147,27 @@ scan image <registry>/<repository>/<imagename><tag>
 2. Запустите конвейер, используя стандартные настройки сканирования
 
     ```yaml
-    stages:  
-    \- test  
-    <br/>sca:  
-    stage: test  
-    <br/>script:  
-    \- >  
-    ./usr/local/bin/johnny  
-    scan dir  
-    \--api_token $JOHNNY_API_TOKEN  
-    \--api_url $JOHNNY_API_URL  
-    \--ignore .git  
-    \--ignore fixtures  
-    \--ignore parsers  
-    .  
-    <br/>artifacts:  
+    stages:
+      - test
+
+    sca:
+      stage: test
+
+    script:
+        - >
+          johnny
+          scan dir
+          --api_token $JOHNNY_API_TOKEN
+          --api_url $JOHNNY_API_URL
+          --ignore .git
+          --ignore fixtures
+          --ignore parsers
+          .
+
+  artifacts:  
     reports:  
     paths:  
-    dependency_scanning:  
-    \- "bom.json"
+    dependency_scanning:  "bom.json"
     ```
 
 3. При срабатывании политик агент завершит работу с возвратом кода ошибки и раннер GitFlic автоматически остановит конвейер.

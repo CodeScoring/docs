@@ -87,7 +87,7 @@ To use the console agent with the GitFlic docker runner type, you must first per
 4. Save changes to the container
 
     ```bash
-    docker commit &lt;container name&gt; &lt;repository&gt;:&lt;tag&gt;
+    docker commit <container name><repository>:<tag>
     ```
 
 **Important**: if necessary, save the container to a remote repository.
@@ -123,19 +123,18 @@ You can manage the results of the scan in the **Security** tab of the project in
 
 ## Connecting to the registry and scanning images
 
-Example of an image scan using the agent:
+Example of an image scan using the agent в `gitflic-ci.yaml`:
 
 ```
-image: angelikade/mvn-npm-jdk:codescoring  
-stage: test-codescoring-image  
-when: manual  
-scripts:  
-- ls - la  
-- >  
-/usr/bin/johnny  
-scan image <registry>/<repository>/<imagename><tag>  
---api_token "${CS_TOKEN}"  
---api_url "${CS_URL}"
+image: angelikade/mvn-npm-jdk:codescoring
+stage: test-codescoring-image
+when: manual
+scripts:
+  - ls -la
+  - |
+    /usr/bin/johnny scan image <registry>/<repository>/<imagename>:<tag> \
+    --api_token "${CS_TOKEN}" \
+    --api_url "${CS_URL}"
 ```
 
 **Important**: access to the file `/v2/\_catalog` in GitFlic is disabled for security reasons. Currently, it is not possible to recurse through all images in the registry.
