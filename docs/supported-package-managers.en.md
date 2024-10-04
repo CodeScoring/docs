@@ -41,7 +41,7 @@ If there is no lock file the system will try to resolve transitive OSS dependenc
  + uses Node.js version 16
 - Nuget
  + for csproj format generation of `project.assets.json` using built-in nuget tools
- + uses .NET SDK version 5
+ + uses .NET SDK version 8
 -Packagist
  + generation of `composer.lock` using the Composer package manager
  + PHP version 8 is used

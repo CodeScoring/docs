@@ -41,7 +41,7 @@ Scala                       |    sbt            |  `scala-dependency-tree.txt`<b
     + используется Node.js версии 16
 - Nuget
     + для формата csproj генерация project.assets.json с помощью встроенных инструментов nuget
-    + используется .NET SDK версии 5
+    + используется .NET SDK версии 8
 - Packagist
     + генерация composer.lock с помощью пакетного менеджера Composer
     + используется PHP версии 8
