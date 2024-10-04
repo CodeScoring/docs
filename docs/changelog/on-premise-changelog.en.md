@@ -4,7 +4,7 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
-## [2024.40.0]-2024-10-04
+### [2024.40.0]-2024-10-04
 
 - Added beta version of the new Secrets module, access for testing can be requested from the vendor
 - Implemented the dependence of filters on each other in the sections Policy Alerts, Dependencies and Vulnerabilities
