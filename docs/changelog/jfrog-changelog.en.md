@@ -4,6 +4,11 @@ hide:
 ---
 # JFrog OSA Changelog
 
+### [2024.39.0] - 2024-09-26
+
+- Added a setting to scan the selected repository type `repositoryTypes` (maven, npm, etc)
+- Fixed crash in Artifactory 7.49
+
 ### [2024.33.0] - 2024-08-12
 
 - Added support for `cargo` and `composer` repositories

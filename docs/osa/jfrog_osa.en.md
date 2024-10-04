@@ -61,29 +61,29 @@ Example of file content:
 disablePlugin: false
 
 codeScoringAPI:
- # The base URL for all CodeScoring API endpoints.
- # Required.
- # Example: https://host:port or https://host
+  # The base URL for all CodesSoring API endpoint.
+  # Required.
+  # Example: https://host:port or https://host
   url:
 
- # Your CodeScoring API Token for authentication.
- # Required.
- token: 
+  # Your CodeScoring API Token for authentication.
+  # Required.
+  token:
 
- # Http client connection pool size to CodeScoring BE service.
- # By default, value is 200 since it correlates with the default artifactory thread pool size for tomcat.
- # If you tuned yours instance of the artifactory https://jfrog.com/help/r/how-do-i-tune-artifactory-for-heavy-loads
- # you should scale this value for better performance maximum up to tomcat.connector.maxThreads value.
- connectionPoolSize: 200
+  # Http client connection pool size to CodeScoring BE service.
+  # By default, value is 200 since it correlates with the default artifactory thread pool size for tomcat.
+  # If you tuned yours instance of the artifactory https://jfrog.com/help/r/how-do-i-tune-artifactory-for-heavy-loads
+  # you should scale this value for better performance maximum up to tomcat.connector.maxThreads value.
+  connectionPoolSize: 200
 
- # By default, if CodeScoring API hasn't responded within a duration of 60 seconds, the request will be cancelled.
- # This property lets you customize the timeout duration in seconds.
- timeout: 60
+  # By default, if CodeScoring API hasn't responded within a duration of 60 seconds, the request will be cancelled.
+  # This property lets you customize the timeout duration in seconds.
+  timeout: 60
 
- # If you are using a proxy, you must provide both Hostname/IP and port.
- proxy:
- host: 
- port:
+  # If you are using a proxy, you must provide both Hostname/IP and port.
+  proxy:
+    host:
+    port:
 
 # Artifactory's response status code for blocked packages.
 blockedBuildResponseCode: 403
@@ -100,23 +100,23 @@ storeScanProperties: false
 
 # Default settings for all repositories. Can be overridden by repositories.repo-name settings
 defaults:
- dockerRegistryUrl: jfrog.my.domain
+  dockerRegistryUrl: jfrog.my.domain
 
- #warmup | Scan cache warmup without requests monitoring, no blocking
- # spectator | Scan cache warmup with requests monitoring, no blocking
- #moderate | Policy-based blocking using cache results, not scanned component downloads allowed
- # strict | Policy-based blocking using cache results, not scanned component downloads blocked
- # strict_wait | Policy-based blocking, wait until component is scanned
- # default value is strict_wait if not specified in default or repository settings or in case of a typo
- workMode: strict_wait
+  # warmup |  Scan cache warmup without requests monitoring, no blocking
+  # spectator | Scan cache warmup with requests monitoring, no blocking
+  # moderate | Policy-based blocking using cache results, not scanned component downloads allowed
+  # strict | Policy-based blocking using cache results, not scanned component downloads blocked
+  # strict_wait | Policy-based blocking, wait until component is scanned
+  # default value is strict_wait if not specified in default or repository settings or in case of a typo
+  workMode: strict_wait
 
- # Allows this user to skip scan
- skipScanUser: codescoring
+  # Allows this user to skip scan
+  skipScanUser: codescoring
 
- # Set to 'true' if you use Docker Access Method 'Sub domain' (repo-name.jfrog.my.domain) or 'Port' (jfrog.my.domain:25000)
- stripRepoNameInDockerImageName: false
+  # Set to 'true' if you use Docker Access Method 'Sub domain' (repo-name.jfrog.my.domain) or 'Port' (jfrog.my.domain:25000)
+  stripRepoNameInDockerImageName: false
 
-# Artifactory url for CodeScoring to apply policies.
+  # Artifactory url for CodeScoring to apply policies.
   # Value MUST BE equal to Repository Manager URL in CodeScoring
   # Example: https://jfrog.my.domain
   repositoryManagerUrl:
@@ -135,20 +135,21 @@ defaults:
 #   pypi-remote:
 #     workMode: warmup
 repositories:
- docker-remote:
- docker-local:
- dockerRegistryUrl: another-jfrog.my.domain
- skipScanUser: codescoring
- workMode: spectator
- pypi-remote:
- workMode: warmup
 
- # List of the excluded repositories. Used, if scanAllRepositories=true
+# List of the excluded repositories. Used, if scanAllRepositories=true
 # Example:
 # excludeRepositories:
 #   - npm-remote
 #   - maven-local
 excludeRepositories:
+
+# List of repository types to scan. Used, if scanAllRepositories=true
+# Supported values are: maven, npm, pypi, nuget, cocoapods, go, gems, debian, yum, alpine, docker, composer, cargo
+# Example:
+# repositoryTypes:
+#   - npm
+#   - go
+repositoryTypes:
 ```
 
 ### Parameter description
