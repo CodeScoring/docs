@@ -11,21 +11,15 @@ The `CODESCORING_VERSION` variable inside the `.env` file specifies the required
 Then you need to follow these steps:
 
 1. Go to the directory with the startup files:
-
- ```bash linenums="1"
- cd /path/to/docker-compose
- ```
-
+   ```bash linenums="1"
+   cd /path/to/docker-compose
+   ```
 2. Run the container image update command:
-
-
- ```bash linenums="2"
- docker-compose -p PROJECT_NAME pull
- ```
-
+   ```bash linenums="2"
+   docker-compose -p PROJECT_NAME pull
+   ```
 3. Restart the installation:
-
- ```bash linenums="3"
- docker-compose -p PROJECT_NAME down --remove-orphans
- docker-compose -p PROJECT_NAME up -d --renew-anon-volumes
- ```
+   ```bash linenums="3"
+   docker-compose -p PROJECT_NAME down --remove-orphans
+   docker-compose -p PROJECT_NAME up -d --renew-anon-volumes
+   ```
