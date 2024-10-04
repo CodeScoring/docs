@@ -4,6 +4,23 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+## [2024.40.0]-2024-10-04
+
+- Added beta version of the new Secrets module, access for testing can be requested from the vendor
+- Implemented the dependence of filters on each other in the sections Policy Alerts, Dependencies and Vulnerabilities
+- Added a display of Has Exploit to the vulnerabilities table and on the vulnerability page
+- Implemented the ability to hide the filter block in sections with filtering
+- Added Policy Alerts to PDF report on the project
+- Added the possibility of sorting by the Fixed Version column in the vulnerabilities table
+- Added sorting vulnerabilities in the PDF report
+- Fixed recalculation of the dates for the criteria of the Dependency Age (Days) policy
+- Fixed timing issue of the launch of daily analysis
+- Fixed LDAP group matching if several LDAP groups are matched with one group in Codescoring
+- Fixed incorrect display of the active tab on the dependency page
+- Fixed the display of licenses in the Policies settings
+- Fixed Last Updated field value for CLI projects
+- Optimized the search for the names of groups in LDAP
+
 ### [2024.38.0] - 2024-09-18
 
 - Fixed CSV export in the Dependencies section
