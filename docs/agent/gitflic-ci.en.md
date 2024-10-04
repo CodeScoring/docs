@@ -146,27 +146,27 @@ scripts:
 2. Run the pipeline using the default scan settings
 
     ```yaml
-    stages:
-      - test
+        stages:
+          - test
 
-    sca:
-      stage: test
+        sca:
+          stage: test
 
-    script:
-        - >
-          johnny
-          scan dir
-          --api_token $JOHNNY_API_TOKEN
-          --api_url $JOHNNY_API_URL
-          --ignore .git
-          --ignore fixtures
-          --ignore parsers
-          .
+        script:
+            - >
+              johnny
+              scan dir
+              --api_token $JOHNNY_API_TOKEN
+              --api_url $JOHNNY_API_URL
+              --ignore .git
+              --ignore fixtures
+              --ignore parsers
+              .
 
-  artifacts:  
-    reports:  
-    paths:  
-    dependency_scanning:  "bom.json"
+      artifacts:  
+        reports:  
+        paths:  
+        dependency_scanning:  "bom.json"
     ```
 
 3. When the policies are triggered, the agent will exit with an error code and the GitFlic runner will automatically stop the pipeline.
