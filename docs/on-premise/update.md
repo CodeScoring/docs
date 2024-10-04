@@ -26,5 +26,6 @@ hide:
 3. Перезапустить инсталляцию:
 
     ```bash linenums="3"
-    docker-compose -p PROJECT_NAME up -d --force-recreate --renew-anon-volumes
-    ```
+    docker-compose -p PROJECT_NAME down --remove-orphans
+    docker-compose -p PROJECT_NAME up -d --renew-anon-volumes
+     ```
