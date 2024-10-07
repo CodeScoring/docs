@@ -61,7 +61,7 @@ curl -X POST https://[JFROG_URL]/api/plugins/execute/codeScoringReload
 disablePlugin: false
 
 codeScoringAPI:
-  # The base URL for all CodesSoring API endpoint.
+  # The base URL for all CodeSсoring API endpoints.
   # Required.
   # Example: https://host:port or https://host
   url:
@@ -72,7 +72,7 @@ codeScoringAPI:
 
   # Http client connection pool size to CodeScoring BE service.
   # By default, value is 200 since it correlates with the default artifactory thread pool size for tomcat.
-  # If you tuned yours instance of the artifactory https://jfrog.com/help/r/how-do-i-tune-artifactory-for-heavy-loads
+  # If you tuned your instance of the artifactory https://jfrog.com/help/r/how-do-i-tune-artifactory-for-heavy-loads
   # you should scale this value for better performance maximum up to tomcat.connector.maxThreads value.
   connectionPoolSize: 200
 
