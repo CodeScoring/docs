@@ -12,8 +12,8 @@ hide:
 ### [2024.39.0] - 2024-09-23
 
 - Separated tags when unloading in sarif format to display all versions of the found package in DefectDojo
-- Changed unloading severity in sarif format to correctly detect by CVSS3 in DefectDojo
-- Fixed SBoM scanning error with golang packages
+- Changed export of severity in sarif format to correctly display CVSS3 in DefectDojo
+- Fixed issues with scanning SBoM containing Go packages
 - Fixed panic when parsing empty `cargo.lock`
 - Removed duplication of vulnerabilities in sarif format for cases of multiple versions of the same package
 - Removed the ability to simultaneously use the `format` and `no-summary` flags
