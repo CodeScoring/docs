@@ -4,6 +4,10 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.40.1] - 2024-10-09
+
+- Fixed display of repository branch/tag when selecting it in project settings
+
 ### [2024.40.0]-2024-10-04
 
 - Added beta version of the new Secrets module, access for testing can be requested from the vendor
