@@ -4,6 +4,11 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.40.1] - 2024.10.10
+
+- Added merging of `pom.xml` and `mvn-dependency-tree.txt` parsing results to avoid unnecessary dependency resolution
+- Fixed an error in checking for the presence of a lock file when using dependency resolution in the environment
+
 ### [2024.40.0] - 2024-10-02
 
 - Added workspaces parsing when working with npm manifests
