@@ -174,3 +174,66 @@ curl -X GET https://test.nexus.com/service/rest/v1/analysis?userName=example_use
 Ответ также содержит ссылку на страницу компонента в CodeScoring с информацией о сработавших политиках безопасности и найденных уязвимостях:
 
 ![Component page](/assets/img/osa/component-page.png)
+
+
+## Настройка SSL-соединения
+
+Для настройки SSL-соединения между плагином и инсталляцией необходимо выполнить импорт сертификатов в Java Truststore.
+
+### Определение местоположения установки Java
+
+Чтобы импортировать сертификаты в Java Truststore, сначала необходимо найти установку Java. Это можно сделать одним из следующих способов:
+
+1. **Использование переменной окружения `JAVA_HOME`**:
+    ```bash
+    echo $JAVA_HOME
+    ```
+
+2. **Использование команды `java` с параметром `-XshowSettings:properties`**:
+    ```bash
+    java -XshowSettings:properties 2>&1 > /dev/null | grep 'java.home'
+    ```
+
+3. **Использование команды `readlink` с путем к `java`**:
+    ```bash
+    readlink -f $(which java)
+    ```
+
+Дальнейшие действия подразумевают, что переменная `$JAVA_HOME` установлена.
+
+### Загрузка сертификата
+
+Скачать сертификат можно следующей командой:
+
+```bash
+openssl s_client -connect {codescoring.domain.ru}:443 2>/dev/null | openssl x509 > codescoring_ca.pem
+```
+
+Убедитесь, что вы заменили `{codescoring.domain.ru}` на соответствующий адрес вашей инсталляции.
+
+### Импорт сертификата
+
+После загрузки сертификата его можно импортировать в Java Truststore с помощью следующей команды:
+
+```bash
+keytool -import -alias {mycert} -keystore $JAVA_HOME/lib/security/cacerts -file {codescoring_ca.pem}
+```
+
+**Примечания**:
+- Замените `{mycert}` на уникальное имя для вашего сертификата.
+- Замените `{codescoring_ca.pem}` на фактическое имя вашего файла сертификата.
+- Вас могут попросить ввести пароль для Truststore. Стандартный пароль: `changeit`.
+
+### Проверка импорта
+
+Чтобы убедиться, что сертификат был успешно импортирован, используйте команду `keytool` для отображения списка сертификатов в Truststore:
+
+```bash
+keytool -list -keystore $JAVA_HOME/lib/security/cacerts
+```
+
+**Примечание**:
+- Для фильтрации результатов по вашему алиасу сертификата можно использовать команду `grep`:
+    ```bash
+    keytool -list -keystore $JAVA_HOME/lib/security/cacerts | grep mycert
+    ```
