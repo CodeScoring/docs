@@ -83,7 +83,7 @@ This extension allows you to enable component check for the selected hosted or p
 - **Host and port used for CodeScoring to download container image to scan** – address (without specifying the protocol) and port through which images for scanning will be downloaded. Used to communicate between Nexus and repository via Docker;
 - **Block not scanned images** – block the downloading of images that have not been scanned;
 - **Select capability work mode** – plugin operating mode. The operating modes are described in the section below;
-- **Append repository name to image name for Docker repositories** – adding the repository name to the URL (for example: `nexus.domain.com` -> `nexus.domain.com/repoName`).
+- **Append repository name to image name for Docker repositories** – adding repository name to `qualifier repository url` in PURL.
 
 ![CodeScoring capability docker repository example](/assets/img/osa/capability_docker_settings_example.png)
 
@@ -96,7 +96,7 @@ The extension allows you to enable component checking for all repositories withi
 - **This user skips container image scan** – user for which image scanning is not applied. Used when downloading and checking components by the console agent;
 - **Host and port used for CodeScoring to download container image to scan** – address (without specifying the protocol) and port through which images for scanning will be downloaded. Used to communicate between Nexus and repository via Docker;
 - **Select capability work mode** – plugin operating mode. The operating modes are described in the section below;
-- **Append repository name to image name for Docker repositories** – adding the repository name to the URL (for example: `nexus.domain.com` -> `nexus.domain.com/repoName`).
+- **Append repository name to image name for Docker repositories** – adding repository name to `qualifier repository url` in PURL.
 
 ![CodeScoring capability all repositories scan](/assets/img/osa/capability_all_repositories_settings_example.png)
 
