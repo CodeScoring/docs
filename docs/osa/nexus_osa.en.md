@@ -205,22 +205,22 @@ The following steps assume that the `$JAVA_HOME` variable is set.
 You can download the certificate with the following command:
 
 ```bash
-openssl s_client -connect {codescoring.domain.ru}:443 2>/dev/null | openssl x509 > codescoring_ca.pem
+openssl s_client -connect <codescoring.domain.ru>:443 2>/dev/null | openssl x509 > codescoring_ca.pem
 ```
 
-Make sure you replace `{codescoring.domain.ru}` with the corresponding address of your installation.
+Make sure you replace `<codescoring.domain.ru>` with the corresponding address of your installation.
 
 ### Importing a certificate
 
 Once the certificate has been downloaded, it can be imported into the Java Truststore using the following command:
 
 ```bash
-keytool -import -alias {mycert} -keystore $JAVA_HOME/lib/security/cacerts -file {codescoring_ca.pem}
+keytool -import -alias <mycert> -keystore $JAVA_HOME/lib/security/cacerts -file <codescoring_ca.pem>
 ```
 
 **Notes**:
-- Replace `{mycert}` with a unique name for your certificate.
-- Replace `{codescoring_ca.pem}` with the actual name of your certificate file.
+- Replace `<mycert>` with a unique name for your certificate.
+- Replace `<codescoring_ca.pem>` with the actual name of your certificate file.
 - You may be asked to enter a password for the Truststore. The default password is `changeit`.
 
 ### Verifying the import

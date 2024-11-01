@@ -206,22 +206,22 @@ curl -X GET https://test.nexus.com/service/rest/v1/analysis?userName=example_use
 Скачать сертификат можно следующей командой:
 
 ```bash
-openssl s_client -connect {codescoring.domain.ru}:443 2>/dev/null | openssl x509 > codescoring_ca.pem
+openssl s_client -connect <codescoring.domain.ru>:443 2>/dev/null | openssl x509 > codescoring_ca.pem
 ```
 
-Убедитесь, что вы заменили `{codescoring.domain.ru}` на соответствующий адрес вашей инсталляции.
+Убедитесь, что вы заменили `<codescoring.domain.ru>` на соответствующий адрес вашей инсталляции.
 
 ### Импорт сертификата
 
 После загрузки сертификата его можно импортировать в Java Truststore с помощью следующей команды:
 
 ```bash
-keytool -import -alias {mycert} -keystore $JAVA_HOME/lib/security/cacerts -file {codescoring_ca.pem}
+keytool -import -alias <mycert> -keystore $JAVA_HOME/lib/security/cacerts -file <codescoring_ca.pem>
 ```
 
 **Примечания**:
-- Замените `{mycert}` на уникальное имя для вашего сертификата.
-- Замените `{codescoring_ca.pem}` на фактическое имя вашего файла сертификата.
+- Замените `<mycert>` на уникальное имя для вашего сертификата.
+- Замените `<codescoring_ca.pem>` на фактическое имя вашего файла сертификата.
 - Вас могут попросить ввести пароль для Truststore. Стандартный пароль: `changeit`.
 
 ### Проверка импорта
