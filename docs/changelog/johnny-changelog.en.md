@@ -4,7 +4,11 @@ hide:
 ---
 # Johnny Changelog
 
-### [2024.40.1] - 2024.10.10
+### [2024.40.2] - 2024-10-18
+
+- Fixed dependency graph construction in cases where a component occurs multiple times with different `bom-ref`
+
+### [2024.40.1] - 2024-10-10
 
 - Added merging of `pom.xml` and `mvn-dependency-tree.txt` parsing results to avoid unnecessary dependency resolution
 - Fixed an error in checking for the presence of a lock file when using dependency resolution in the environment
