@@ -11,7 +11,7 @@ hide:
 Язык <div style="width:140px">| Пакетный менеджер или инструмент сборки <div style="width:280px"> | Формат файла <div style="width:250px"> |
 ----------------| :---------------- | :----------- |
 Java и Kotlin               |   Gradle, Maven   | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`gradle-dependency-tree.txt`<br/>`*.gradle`<br/>`*.gradle.kts`<br/> `gradle.lockfile`|
-JavaScript и TypeScript     |    npm, yarn      |  `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock` |
+JavaScript и TypeScript     |    npm, yarn      |  `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock`<br/>`pnpm-lock.yaml`|
 Python                      |    pip, Poetry, Pipenv    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`   |
 С и C++                     |    Conan          |  `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`|
 Go                          |    Go Modules     |  `go.mod`<br/>`go.sum` |
