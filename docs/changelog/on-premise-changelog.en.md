@@ -4,6 +4,36 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.44.1] - 2024-11-05
+
+- Added Russian localization of the UI in the beta version, switching languages is available on the user profile page
+- Added the “Malware” classification and the corresponding policy for the OSA module. Packages with malware and certain types of CWE in vulnerabilities will be marked in the UI
+- Added support for the CycloneDX 1.6 specification for importing and exporting SBoM
+- Added the ability to select the CycloneDX version when downloading SBoM for new SCA analysis results
+- Improved SBoM export for all CycloneDX versions: added information about the scanned application to `metadata->component`, added information about the installation version to `metadata->tools`, updated the outdated format for indicating the authorship of components for CycloneDX versions 1.5 and 1.6, fixed the format of the component license. Changes are available for new SCA analysis results
+- Added display of dependency tree in PDF reports
+- Added additional dates on the package view page in the OSA module: dates of the first and last request to the package, date of the last policy calculation, and date of updating information on the package
+- Added the `Source files` value to the vulnerability dump in the Vulnerabilities section
+- Added policy conditions for case-sensitive search of a string in the package name `contains (case sensitive)`, and changed the names of case-insensitive conditions from `icontains` to `contains (case insensitive)`
+- Added the `Has vulnerabilities` filter and a column with the number of vulnerabilities when viewing the list in the Components and Container images sections of the OSA module
+- Added the ability to run mass analysis of secrets in Workmode
+- Added processing of a new type of manifest `application/vnd.docker.distribution.manifest.list.v2+json` when analyzing container images
+- Added a table with projects that use the component to the component's view page in the OSA module
+- Added a new template `%USER_DN%` for the filter by groups when configuring LDAP
+- Added the ability to start a package analysis from its page in the Components section
+- Added a notification about the expiration of the activation key
+- Frozen key columns in tables during horizontal scrolling
+- Implemented a periodic reset of background tasks to optimize memory consumption
+- Stabilized the launch time of scheduled analysis
+- Optimized updating of information on the secrets list page when marking up results
+- Fixed errors in the behavior of some multiple selection lists
+- Fixed the display of user group records in the LDAP integration diagnostics section
+- Fixed loading a list of container images from registries if metadata could not be obtained from some images
+- Fixed errors in the operation of filters in the Secrets section table
+- Fixed an error when trying to filter dependencies by `License Category = N/A`
+- Fixed display of pagination on the SCA and TQI tabs on the project page
+- Changed the configuration of connection pools to PostgreSQL. To optimize memory consumption by the installation, a division of connections to Postgres into connections through connection pools operating in session and transaction mode has been implemented. If the system is installed via docker compose, you need to update the `docker-compose.yml` file. When using custom connection pool configurations, please consult with the support service on the update process.
+
 ### [2024.40.1] - 2024-10-09
 
 - Fixed display of repository branch/tag when selecting it in project settings
