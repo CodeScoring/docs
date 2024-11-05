@@ -12,6 +12,7 @@ hide:
 - For new SCA analysis results, the ability to select the CycloneDX version when downloading SBoM has been added
 - Improved SBoM export into all CycloneDX versions: added information about the scanned application to `metadata->component`, added information about the installation version to `metadata->tools`, updated the outdated format for indicating the authorship of components for CycloneDX versions 1.5 and 1.6, fixed the format of the component license. Changes are available for new SCA analysis results
 - Added display of dependency tree in PDF reports
+- Added collection of data on malware from [GitHub Security Advisory](https://github.com/advisories?query=type%3Amalware)
 - Added “Dangerous package” classification and corresponding policy for OSA module. Packages with known Malware and certain types of CWE in vulnerabilities are marked as dangerous
 - Added additional dates to the package view page in the OSA module: dates of the first and last request to the package, date of the last policy calculation, and date of updating information on the package
 - Added the `Source files` value to the vulnerability dump in the Vulnerabilities section
