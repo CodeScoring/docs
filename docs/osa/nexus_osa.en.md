@@ -174,3 +174,65 @@ When a component is blocked from downloading, the user console displays one of t
 The response also contains a link to the component page in CodeScoring with information about triggered security policies and found vulnerabilities:
 
 ![Component page](/assets/img/osa/component-page.png)
+
+## Setting up an SSL connection
+
+To set up an SSL connection between the plugin and the installation, you need to import certificates into the Java Truststore.
+
+### Finding the location of your Java installation
+
+To import certificates into the Java Truststore, you first need to locate your Java installation. This can be done in one of the following ways:
+
+1. **Using the `JAVA_HOME` environment variable**:
+```bash
+echo $JAVA_HOME
+```
+
+2. **Using the `java` command with the `-XshowSettings:properties` parameter**:
+```bash
+java -XshowSettings:properties 2>&1 > /dev/null | grep 'java.home'
+```
+
+3. **Using the `readlink` command with the path to `java`**:
+```bash
+readlink -f $(which java)
+```
+
+The following steps assume that the `$JAVA_HOME` variable is set.
+
+### Downloading the certificate
+
+You can download the certificate with the following command:
+
+```bash
+openssl s_client -connect <codescoring.domain.ru>:443 2>/dev/null | openssl x509 > codescoring_ca.pem
+```
+
+Make sure you replace `<codescoring.domain.ru>` with the corresponding address of your installation.
+
+### Importing a certificate
+
+Once the certificate has been downloaded, it can be imported into the Java Truststore using the following command:
+
+```bash
+keytool -import -alias <mycert> -keystore $JAVA_HOME/lib/security/cacerts -file <codescoring_ca.pem>
+```
+
+**Notes**:
+- Replace `<mycert>` with a unique name for your certificate.
+- Replace `<codescoring_ca.pem>` with the actual name of your certificate file.
+- You may be asked to enter a password for the Truststore. The default password is `changeit`.
+
+### Verifying the import
+
+To verify that the certificate was successfully imported, use the `keytool` command to list the certificates in the Truststore:
+
+```bash
+keytool -list -keystore $JAVA_HOME/lib/security/cacerts
+```
+
+**Note**:
+- You can use the `grep` command to filter the results by your certificate alias:
+```bash
+keytool -list -keystore $JAVA_HOME/lib/security/cacerts | grep mycert
+```
