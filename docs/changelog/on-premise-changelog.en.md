@@ -8,7 +8,7 @@ hide:
 
 - Added beta version of interface localization into Russian, language switching is available on the user profile page
 - Added support for CycloneDX 1.6 specification for SBoM import and export
-- Added export into CycloneDX 1.6 Ext format with the addition of the fields `GOST:source_lang`, `GOST:attack_surface` and `GOST:security_function` to comply with GOST on information security and compositional analysis of software. The fields are filled with the default value
+- Added export into CycloneDX 1.6 Ext format with the addition of the fields `GOST:source_lang`, `GOST:attack_surface` and `GOST:security_function` to comply with FSTEC of Russia requirements. The fields are filled with the default value
 - For new SCA analysis results, the ability to select the CycloneDX version when downloading SBoM has been added
 - Improved SBoM export into all CycloneDX versions: added information about the scanned application to `metadata->component`, added information about the installation version to `metadata->tools`, updated the outdated format for indicating the authorship of components for CycloneDX versions 1.5 and 1.6, fixed the format of the component license. Changes are available for new SCA analysis results
 - Added display of dependency tree in PDF reports
