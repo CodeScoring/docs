@@ -1,10 +1,26 @@
 ---
 hide:
- -footer
+  - footer
 ---
 # Johnny Changelog
 
-### [2024.40.1] - 2024.10.10
+### [2024.44.0] - 2024-11-02
+
+- Added parsing of `pnpm-lock.yaml` manifests. Supported versions: 5.0-5.4, 6.0, 9.0
+- Added parsing in the pnpm environment
+- Takes into account the use of the `pnpm-workspaces.yaml` configuration file when parsing `package.json`
+- Added the ability to specify a group when creating a CLI project, for admin role only
+- Added the ability to specify the format of the generated SBoM using the `--bom-format` parameter
+- Implemented parsing in the pip environment
+- Implemented parsing in the composer environment
+- When resolving dependencies in the go environment, the mechanism for determining the parent library for transitive dependencies obtained from the test environment has been improved
+- Fixed the `unsupported type` error for composer components in the `scan bom` command
+
+### [2024.40.2] - 2024-10-18
+
+- Fixed dependency graph construction in cases where a component occurs multiple times with different `bom-ref`
+
+### [2024.40.1] - 2024-10-10
 
 - Added merging of `pom.xml` and `mvn-dependency-tree.txt` parsing results to avoid unnecessary dependency resolution
 - Fixed an error in checking for the presence of a lock file when using dependency resolution in the environment

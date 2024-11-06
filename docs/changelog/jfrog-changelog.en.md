@@ -4,6 +4,11 @@ hide:
 ---
 # JFrog OSA Changelog
 
+### [2024.42.0] - 2024-10-16
+
+- Packages that do not contain a version are no longer sent for analysis to CodeScoring and will be skipped by the plugin
+- Fixed parsing of `deb` versions for alternative separators in the format `package-version-architecture.type`
+
 ### [2024.39.0] - 2024-09-26
 
 - Added a setting to scan the selected repository type `repositoryTypes` (maven, npm, etc)

@@ -1,8 +1,40 @@
 ---
 hide:
- -footer
+  - footer
 ---
 # Codescoring On-premise Changelog
+
+### [2024.44.1] - 2024-11-05
+
+- Added beta version of interface localization into Russian, language switching is available on the user profile page
+- Added support for CycloneDX 1.6 specification for SBoM import and export
+- Added export into CycloneDX 1.6 Ext format with the addition of the fields `GOST:source_lang`, `GOST:attack_surface` and `GOST:security_function` to comply with GOST on information security and compositional analysis of software. The fields are filled with the default value
+- For new SCA analysis results, the ability to select the CycloneDX version when downloading SBoM has been added
+- Improved SBoM export into all CycloneDX versions: added information about the scanned application to `metadata->component`, added information about the installation version to `metadata->tools`, updated the outdated format for indicating the authorship of components for CycloneDX versions 1.5 and 1.6, fixed the format of the component license. Changes are available for new SCA analysis results
+- Added display of dependency tree in PDF reports
+- Added collection of data on malware from [GitHub Security Advisory](https://github.com/advisories?query=type%3Amalware)
+- Added “Dangerous package” classification and corresponding policy for OSA module. Packages with known Malware and certain types of CWE in vulnerabilities are marked as dangerous
+- Added additional dates to the package view page in the OSA module: dates of the first and last request to the package, date of the last policy calculation, and date of updating information on the package
+- Added the `Source files` value to the vulnerability dump in the Vulnerabilities section
+- Added policy conditions for case-sensitive search of a string in the package name `contains (case sensitive)`, and changed the names of case-insensitive conditions from `icontains` to `contains (case insensitive)`
+- Added the `Has vulnerabilities` filter and a column with the number of vulnerabilities when viewing the list in the Components and Container images sections of the OSA module
+- Added the ability to run mass analysis of secrets in Workmode
+- Added processing of the new manifest type `application/vnd.docker.distribution.manifest.list.v2+json` when analyzing container images
+- Added a table with projects that use the component to the component view page in the OSA module
+- Added a new template `%USER_DN%` for the filter by groups when configuring LDAP
+- Added the ability to start a package analysis from its page in the Components section
+- Added a notification about the expiration of the activation key
+- Fixed key columns in tables during horizontal scrolling
+- Implemented a periodic restart of background tasks to optimize memory consumption
+- Stabilized the launch time of scheduled analyzes
+- Optimized updating of information on the secrets list page when marking up results
+- Fixed errors in the behavior of some lists with multiple selection
+- Fixed the display of user group records in the LDAP integration diagnostics section
+- Fixed loading a list of container images from registries if metadata on some images could not be obtained
+- Fixed errors in the operation of filters in the Secrets section table
+- Fixed an error when trying to filter dependencies by `License Category = N/A`
+- Fixed display of paginators on the SCA and TQI tabs on the project page
+- Changed the configuration of connection pools to PostgreSQL. To optimize the memory consumption of the installation, a division of connections to Postgres into connections through connection pools operating in session and transaction mode has been implemented. If the system is installed via docker compose, it is necessary to update the `docker-compose.yml` file. When using custom connection pool configurations, please consult with the support service on the update process.
 
 ### [2024.40.1] - 2024-10-09
 

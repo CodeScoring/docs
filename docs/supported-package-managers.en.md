@@ -11,7 +11,7 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 Language <div style="width:140px">| Package manager or build tool <div style="width:280px"> | File format <div style="width:250px"> |
 ----------------| :---------------- | :---------- |
 Java and Kotlin | Gradle, Maven | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`gradle-dependency-tree.txt`<br/>`*.gradle`< br/>`*.gradle.kts`<br/> `gradle.lockfile`|
-JavaScript and TypeScript | npm, yarn | `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock` |
+JavaScript and TypeScript | npm, yarn | `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock`<br/>`pnpm-lock.yaml`|
 Python | pip, Poetry, Pipenv | `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br />`requirements.pip`<br/>`requires.txt` |
 C and C++ | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`|
 Go | Go Modules | `go.mod`<br/>`go.sum` |

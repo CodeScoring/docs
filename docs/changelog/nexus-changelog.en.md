@@ -4,6 +4,10 @@ hide:
 ---
 # Nexus OSA Changelog
 
+### [2024.42.0] - 2024-10-16
+
+- Added ability to specify format of repositories to analyze using the `All Repositories Scan` capability
+
 ### [2024.34.0] - 2024-08-19
 
 - Added support for Nexus 3.71
