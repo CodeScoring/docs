@@ -4,7 +4,7 @@ hide:
 ---
 # Installation in Kubernetes
 
-## Installation using Helm chart with default parameters
+## Installation using Helm chart with default parameters {#helm-installation-default}
 
 **Important!**: This installation option does not provide an ability to scale CodeScoring horizontally. To install CodeScoring with horizontal scaling support, please refer to the relevant documentation section below.
 
@@ -81,7 +81,7 @@ hide:
  helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
  ```
 
-## Changing the admin password
+## Changing the admin password {#changing-admin-password}
 
 To change the admin password without manually editing the `values.yaml` file, you can use the following command:
 
@@ -89,7 +89,7 @@ To change the admin password without manually editing the `values.yaml` file, yo
   kubectl exec -it your-backend-pod -- python manage.py changepassword <user_name>
   ```
 
-## Advanced settings for Helm chart parameters
+## Advanced settings for Helm chart parameters {#extended-helm-parameters}
 
 **Important**: It is highly recommended that you make the necessary changes **before installing CodeScoring**, otherwise a complete system reinstall may be required. These instructions assume that the **specialist has experience working with a Kubernetes cluster and the Helm utility**.
 
@@ -105,24 +105,24 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 ```
 
 
-### Connecting to external PostgreSQL and Redis
+### Connecting to external PostgreSQL and Redis {#external-databases}
 By default, PostgreSQL and Redis run in separate `StatefulSets`. This option may not be suitable for usage in a **production environment**, because it is not fault tolerant.
 
 
-#### Connecting to external Redis
+#### Connecting to external Redis {#external-redis}
 To connect to external Redis, you must do the following:
 
 1. Disable Redis deployment by specifying the variable - `redis.enabled: false`
 2. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis.
 
-##### Connecting to external Redis via TLS
+##### Connecting to external Redis via TLS {#external-redis-tls}
 To connect to external Redis, in addition to abovementioned you must do the following:
 
 1. Set the `codescoring.trustedCA.enabled` variable to `true`
 2. Add the Redis-server root certificate to `codescoring.trustedCA.certificates`
 3. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis using the following format: `rediss://redis.example.com:6379/0`, where 0 is the Redis database number.  
 
-#### Connecting to PostgreSQL via PgCat pooler
+#### Connecting to PostgreSQL via PgCat pooler {#external-postgres}
 
 **Important!**: Connecting to external PostgreSQL must be done using a connection pooler.
 
@@ -146,7 +146,7 @@ codescoring:
       database: "codescoring"
 ```
 
-#### Connecting to an external PostgreSQL pooler.
+#### Connecting to an external PostgreSQL pooler {#external-postgres-pooler}
 This option is suitable if PostgreSQL and a connection pooler (for example, PgBouncer) are already deployed in the existing infrastructure.
 In this case, deployment of the PgCat pooler is not required. You need to do the following:
 
@@ -162,7 +162,7 @@ postgresqlUsername: "codescoring"
 postgresqlPassword: "changeme"
 ```
 
-### Setting up volumes (PV)
+### Setting up volumes (PV) {#volumes}
 
 By default, the chart creates the required volumes via [Dynamic Volume Provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) using the default `StorageClass`. If this volume deployment option is not suitable, you can configure volume creation in several ways.
 
@@ -171,7 +171,7 @@ By default, the chart creates the required volumes via [Dynamic Volume Provision
 !!! note
  To change the size of created volumes (except for local ones), you need to change the `size` parameter in the corresponding sections.
 
-#### Dynamic Volume Provisioning using the required StorageClass
+#### Dynamic Volume Provisioning using the required StorageClass {#dynamic-volume-provisioning}
 
 You can set the required `StorageClass` in the following variables:
 
@@ -184,7 +184,7 @@ You can set the required `StorageClass` in the following variables:
 
 In this case, volumes will be created using the specified `StorageClass`
 
-#### PersistentVolumeClaim for pre-created PersistentVolumes
+#### PersistentVolumeClaim for pre-created PersistentVolumes {#persistent-volume}
 
 The name of pre-created volumes can be set in the following variables:
 
@@ -197,7 +197,7 @@ The name of pre-created volumes can be set in the following variables:
 
 In this case, only `PersistentVolumeClaim` will be created for the volumes specified in these variables
 
-#### Using pre-created PersistentVolumeClaim
+#### Using pre-created PersistentVolumeClaim {#persistent-volume-claim}
 
 The name of pre-created PVCs can be set in the following variables:
 
@@ -210,7 +210,7 @@ The name of pre-created PVCs can be set in the following variables:
 
 In this case, the specified PVC name will be inserted directly into the `volumes` section for `Pod`.
 
-#### Using local volumes
+#### Using local volumes {#local-volumes}
 
 If there is no external data storage in the Kubernetes cluster, it is possible to run CodeScoring using local volumes. In this case, the data will be stored on one of the cluster nodes.
 
@@ -244,7 +244,7 @@ To create local volumes, you must perform the following steps:
 
 It is allowed to use different nodes for different volumes.
 
-#### Setting up storage for temporary scan files
+#### Setting up storage for temporary scan files {#temporary-files-storage}
 
 By default, temporary files during the scanning process are stored in the `/tmp` directory inside containers, to which Ephemeral Volumes of type `emptyDir` are mounted:
 
@@ -307,7 +307,7 @@ As a result, PersistentVolumeClaim will be created for the corresponding service
 
 When horizontally scaling services, you need to configure volumes in accordance with the instructions in the [Horizontal scaling CodeScoring](#codescoring) section.
 
-### Horizontal scaling CodeScoring
+### Horizontal scaling CodeScoring {#horizontal scaling}
 
 **Important!**: To horizontally scale the CodeScoring system, the Kubernetes cluster must have the ability to create volumes with the access type **ReadWriteMany (RWX)**
 
@@ -325,7 +325,7 @@ Then, you need to comment out the variables:
 
 If this is not done, then all pods will be launched on only one node in the cluster.
 
-## Setting resource limits
+## Setting resource limits {#resource-limits}
 
 By default, `requests` and `limits` are not specified. This is done to ensure the ability to run the CodeScoring system in clusters with a small number of resources (for example, minikube) for testing purposes.
 When running in a **production environment**, you may need to configure resource limits. This can be done by setting the following variables:
@@ -432,7 +432,7 @@ codescoring:
         memory: 2000Mi
 ```
 
-## Adding a Certificate Authority (CA) certificate
+## Adding a Certificate Authority (CA) certificate {#ca-certificate}
 
 To access CodeScoring resources with TLS certificates signed by a corporate certification authority (CA), you must:
 
@@ -482,7 +482,7 @@ codescoring:
           ...
 ```
 
-## Upgrading CodeScoring
+## Upgrading CodeScoring {#update}
 
 In order to upgrade CodeScoring you need to actualize the helm repository by running
 
