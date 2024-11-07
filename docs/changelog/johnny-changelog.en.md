@@ -10,7 +10,7 @@ hide:
 - Added parsing in the pnpm environment
 - Takes into account the use of the `pnpm-workspaces.yaml` configuration file when parsing `package.json`
 - Added the ability to specify a group when creating a CLI project, for admin role only
-- Added the ability to specify the format of the generated SBoM using the `--bom-format` parameter
+- Added the ability to specify the format of the generated SBoM using the `--bom-format` parameter (starting with on-premise version 2024.44.1)
 - Implemented parsing in the pip environment
 - Implemented parsing in the composer environment
 - When resolving dependencies in the go environment, the mechanism for determining the parent library for transitive dependencies obtained from the test environment has been improved
