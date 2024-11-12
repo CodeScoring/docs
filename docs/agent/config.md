@@ -11,8 +11,10 @@ hide:
 
 - **project** – название проекта в инсталляции CodeScoring;
 - **save-results** – сохранение результатов в инсталляции CodeScoring. Используется в паре с названием проекта. Значение по умолчанию – `false`;
+- **license** – лицензия анализируемого проекта, например `mit`;
 - **stage** – этап разработки. Возможные значения: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
 - **bom-path** – путь (с названием файла), по которому будет сохраняться сформированный файл `bom.json`;
+- **bom-format** – формат формируемого SBoM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
 - **timeout** – ограничение по времени ожидания анализа (в секундах).
 
 ### Общие параметры сканирования
@@ -21,7 +23,8 @@ hide:
 - **no-summary** – скрытие сводной информацию по проведенному сканированию в консоли. По умолчанию значение `false`;
 - **only-hashes** – поиск **только** прямых включений Open Source библиотек по хэшам. По умолчанию значение `false`;
 - **with-hashes** – поиск прямых включений Open Source библиотек по хэшам. По умолчанию значение `false`;
-- **no-recursion** – выключение рекурсивного скана для команды `scan dir`. По умолчанию значение `false`.
+- **no-recursion** – выключение рекурсивного скана для команды `scan dir`. По умолчанию значение `false`;
+- **block-on-empty-result** – блокирование сборки при получении пустого результата. При активации агент возвращает exit code **3** в случае отсутствия артефактов для анализа.
 
 ### Параметры сканирования Docker-образов
 
@@ -33,9 +36,19 @@ hide:
 - **password** – пароль учетной записи для подключения к реестру образов;
 - **token** – токен для подключения к реестру образов. 
 
-### Параметры парсинга манифестов
+### Параметры парсинга для разных технологий
 
-- **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path** – пути к пакетным менеджерам для разрешения зависимостей в окружении;
+#### Общие параметры
+
+- **enabled** – включение парсеров для данной технологии.
+- **parsers** – набор парсеров для манифестов
+
+#### Параметры парсеров
+
+- **enabled** – включение данного парсера;
+- **match** – условие для определения подходящих манифестов, может быть по названию (`equal`) или расширению (`extension`);
+- **properties** – дополнительные свойства для парсеров окружения, такие как путь к исполняемым файлам;
+- **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**, **pnpm-path** – пути к пакетным менеджерам для разрешения зависимостей в окружении;
 - **resolve-enabled** – разрешение зависимостей в окружении. По умолчанию значение `false`.
 
 ### Параметры сканирования архивов
@@ -65,8 +78,12 @@ analysis:
   save-results: false
   # Policy stage (build, dev, source, stage, test, prod, proxy)
   stage: build
+  # License code
+  license: mit
   # Path for save bom
   bom-path: "bom.json"
+  # Format for bom
+  bom-format: cyclonedx_v1_6_json
   # Timeout of analysis results waiting in seconds
   timeout: 3600
 # scan options
@@ -389,6 +406,22 @@ scan:
           properties:
             # path to yarn for resolve
             yarn-path: yarn
+        # pnpm-lock.yaml parser
+        pnpm_lock_yaml:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("pnpm-lock.yaml")
+        # package.json pnpm environment parser
+        pnpm_package_json_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("package.json")
+          # parser properties
+          properties:
+            # path to npm for resolve
+            pnpm-path: pnpm
     # Objective-C
     objective_c:
       # Use Objective-C parsers
@@ -431,6 +464,16 @@ scan:
           enabled: true
           # matching criteria
           match: equal("composer.lock")
+        # composer environment parser
+        composer_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("composer.json")
+          # parser properties
+          properties:
+            # path to composer for resolve
+            composer-path: composer
     # Python
     python:
       # Use Python parsers
@@ -443,6 +486,16 @@ scan:
           enabled: true
           # matching criteria
           match: equal("pip-resolved-dependencies.txt")
+        # pip environment parser
+        pip_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("codescoring_pip_for_freeze")
+          # parser properties
+          properties:
+            # path to pip for resolve
+            pip-path: pip
         # Pipfile parser
         pipfile:
           # use parser
