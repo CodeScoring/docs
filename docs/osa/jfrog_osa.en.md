@@ -242,3 +242,5 @@ When a component is blocked from downloading, the user console displays one of t
 The response also contains a link to the component page in CodeScoring with information about triggered security policies and found vulnerabilities:
 
 ![Component page](/assets/img/osa/component-page.png)
+
+**Important**: if a component does not contain a version, it is not sent for analysis to CodeScoring and, accordingly, is not blocked by the plugin.

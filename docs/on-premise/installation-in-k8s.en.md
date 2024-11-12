@@ -307,7 +307,7 @@ As a result, PersistentVolumeClaim will be created for the corresponding service
 
 When horizontally scaling services, you need to configure volumes in accordance with the instructions in the [Horizontal scaling CodeScoring](#codescoring) section.
 
-### Horizontal scaling CodeScoring {#horizontal scaling}
+### Horizontal scaling CodeScoring {#horizontal-scaling}
 
 **Important!**: To horizontally scale the CodeScoring system, the Kubernetes cluster must have the ability to create volumes with the access type **ReadWriteMany (RWX)**
 

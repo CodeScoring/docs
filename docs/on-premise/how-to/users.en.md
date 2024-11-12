@@ -33,7 +33,7 @@ Session time for an inactive user is limited. By default, a user's session expir
 
 An environment variable is available to configure the session lifetime (in seconds): `SESSION_COOKIE_AGE`. 
 
-## Difference between access levels
+## Separating access levels
 
 When an account is created, it must be assigned one of the following access levels – **User**, **Administrator** or **Auditor**.
 
@@ -42,6 +42,8 @@ For the **User** access level, three roles are available within an individual pr
 - **Viewer** - access only to viewing the results of analyses within the project;
 - **Developer** - access to run the analysis in the UI, through the agent and through the proxy repository plugin;
 - **Owner** - access to view project policies, change project settings and manage access of other project users.
+
+For each role within the **User** access level, creation of CLI projects via API is available if the **Can create CLI projects via API**parameter is enabled in the user profile.
 
 For **Administrator** access level it is possible to view and change all settings and projects in the system without restrictions.
 
@@ -88,7 +90,7 @@ More detailed listing of available actions for each access level is presented in
 | **Projects**: viewing projects | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: viewing Contribution map | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: viewing Complexity map | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
-| **Projects**: creating projects | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
+| **Projects**: creating projects | :material-tilde:{ .icon_optional } | :material-tilde:{ .icon_optional } | :material-tilde:{ .icon_optional } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: editing project settings | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: deleting projects | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: managing group permissions for projects | :material-minus:{ .icon_check } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
