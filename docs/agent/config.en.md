@@ -16,7 +16,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - **license** – license of the analyzed project, for example `mit`;
 - **stage** – development stage. Possible values: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
 - **bom-path** – path (with file name) where the generated `bom.json` file will be saved;
-- **bom-format** – формат формируемого SBoM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
+- **bom-format** – format of the generated SBoM. Possible values: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Default value: `cyclonedx_v1_6_json`;
 - **timeout** – limit on analysis waiting time (in seconds).
 
 ### General scan options
