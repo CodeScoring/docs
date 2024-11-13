@@ -4,6 +4,14 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.44.3] - 2024-11-13
+
+- Fixed CVSS Score and CVSS Severity inconsistency when a vulnerability is present in multiple data feeds
+
+### [2024.44.2] - 2024-11-07
+
+- Accelerated loading of `Components -> Packages` and `Components -> Container Images` sections
+
 ### [2024.44.1] - 2024-11-05
 
 - Added beta version of interface localization into Russian, language switching is available on the user profile page
