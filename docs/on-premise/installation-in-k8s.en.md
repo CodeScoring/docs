@@ -161,6 +161,24 @@ postgresqlDatabase: "codescoring"
 postgresqlUsername: "codescoring"
 postgresqlPassword: "changeme"
 ```
+4. Enable an external pooler and adjust the connection settings in the `codescoring.config.externalPooler` section:
+
+**Important!**: An external pooler must support both transaction and session work modes. The connection settings for the pools must be adjusted in corresponding sections: `externalPooler.transactionPool` and `externalPooler.sessionPool`.
+
+```
+externalPooler:
+  enabled: true
+  transctionPool:
+    host: ipcs-pgcat
+    port: 5432
+    username: "codescoring"
+    password: "changeme"
+  sessionPool:
+    host: ipcs-pgcat
+    port: 5432
+    username: "codescoring"
+    password: "changeme"
+```
 
 ### Setting up volumes (PV) {#volumes}
 
