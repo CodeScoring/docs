@@ -83,7 +83,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **Host and port used for CodeScoring to download container image to scan** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
 - **Block not scanned images** – блокировка загрузки образов, которые не были просканированы;
 - **Select capability work mode** – режим работы плагина. Режимы работы описаны в секции ниже;
-- **Append repository name to image name for Docker repositories** – добавление названия репозитория в URL (например: `nexus.domain.com` -> `nexus.domain.com/repoName`).
+- **Append repository name to image name for Docker repositories** – добавление названия репозитория в PURL для корректной работы в режиме **RepoPath** (в случае обращения за компонентом через команду `docker pull registry/repository/image_name`).
 
 ![CodeScoring capability docker repository example](/assets/img/osa/capability_docker_settings_example.png)
 
@@ -96,7 +96,7 @@ docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-co
 - **This user skips container image scan** – имя пользователя, для которого не применяется сканирование образов. Используется при загрузке и проверке компонентов консольным агентом;
 - **Host and port used for CodeScoring to download container image to scan** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
 - **Select capability work mode** – режим работы плагина. Режимы работы описаны в секции ниже;
-- **Append repository name to image name for Docker repositories** – добавление названия репозитория в URL (например: `nexus.domain.com` -> `nexus.domain.com/repoName`).
+- **Append repository name to image name for Docker repositories** – добавление названия репозитория в PURL для корректной работы в режиме **RepoPath** (в случае обращения за компонентом через команду `docker pull registry/repository/image_name`).
 
 ![CodeScoring capability all repositories scan](/assets/img/osa/capability_all_repositories_settings_example.png)
 
