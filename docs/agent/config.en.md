@@ -42,8 +42,8 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 
 #### General parameters
 
-- **enabled** – enabling parsers for this technology.
-- **parsers** – a set of parsers for manifests
+- **enabled** – enabling parsers for this technology;
+- **parsers** – a set of parsers for manifests.
 
 #### Parser parameters
 
