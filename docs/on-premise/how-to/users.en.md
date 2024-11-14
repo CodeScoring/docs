@@ -43,7 +43,7 @@ For the **User** access level, three roles are available within an individual pr
 - **Developer** - access to run the analysis in the UI, through the agent and through the proxy repository plugin;
 - **Owner** - access to view project policies, change project settings and manage access of other project users.
 
-For each role within the **User** access level, creation of CLI projects via API is available if the **Can create CLI projects via API**parameter is enabled in the user profile.
+For each role within the **User** access level, creation of CLI projects via API is available if the **Can create CLI projects via API** parameter is enabled in the user profile.
 
 For **Administrator** access level it is possible to view and change all settings and projects in the system without restrictions.
 
