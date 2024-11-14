@@ -20,12 +20,12 @@ hide:
 
 
     ```bash linenums="2"
-    docker-compose -p PROJECT_NAME pull
+    docker compose -p PROJECT_NAME pull
     ```
 
 3. Перезапустить инсталляцию:
 
     ```bash linenums="3"
-    docker-compose -p PROJECT_NAME down --remove-orphans
-    docker-compose -p PROJECT_NAME up -d --renew-anon-volumes
+    docker compose -p PROJECT_NAME down --remove-orphans
+    docker compose -p PROJECT_NAME up -d --renew-anon-volumes
     ```
