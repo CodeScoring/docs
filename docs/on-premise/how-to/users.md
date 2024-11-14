@@ -43,6 +43,8 @@ hide:
 - **Developer** — доступ к запуску анализа в веб-интерфейсе, через агента и через плагин прокси-репозитория;
 - **Owner** — доступ к просмотру политик проекта, изменению настроек проекта и управлению доступами других пользователей проекта.
 
+Для каждой роли в рамках уровня доступа **User** доступно создание CLI проектов через API при активации параметра **Can create CLI projects via API** в профиле пользователя. 
+
 Для уровня доступа **Administrator** доступен просмотр и изменение всех настроек и проектов в системе без ограничений.
 
 Для уровня доступа **Auditor** доступен просмотр всех настроек и проектов в системе без возможности вносить и сохранять изменения.
@@ -88,7 +90,7 @@ hide:
 | **Projects**: просмотр проектов                                     | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: просмотр Contribution map                             | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: просмотр Complexity map                               |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
-| **Projects**: создание проектов                                     |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } |
+| **Projects**: создание проектов                                     |        :material-tilde:{ .icon_optional }         |        :material-tilde:{ .icon_optional }         |        :material-tilde:{ .icon_optional }         |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: редактирование настроек проектов                      |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: удаление проектов                                     |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } |
 | **Projects**: управление правами доступа групп для проектов         |        :material-minus:{ .icon_check }         |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } |        :material-minus:{ .icon_check }         | :material-check-circle-outline:{ .icon_check } |

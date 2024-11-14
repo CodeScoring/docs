@@ -5,11 +5,10 @@ hide:
 # Installation guide
 
 1. Install Docker Engine for the desired operating system in accordance with the documentation: <https://docs.docker.com/engine/install/>.
-2. Install [Docker Compose](https://github.com/docker/compose/releases/tag/1.29.2) according to the documentation: <https://docs.docker.com/compose/install/>.
-3. Log in to the private registry of Docker images of the CodeScoring system using the command `docker login registry-one.codescoring.ru`, with the login and password received from the vendor.
-4. Download the archive with installation files received from the vendor and unpack it.
-5. Go to the created directory in the console.
-6. Copy the template file with settings:
+2. Log in to the private registry of Docker images of the CodeScoring system using the command `docker login registry-one.codescoring.ru`, with the login and password received from the vendor.
+3. Download the archive with installation files received from the vendor and unpack it.
+4. Go to the created directory in the console.
+5. Copy the template file with settings:
 
       ```bash
       cp app.env.template app.env
@@ -17,7 +16,7 @@ hide:
 
       As a rule, no changes to the file are required for correct operation. If you need to configure **CodeScoring** to work through a proxy, please refer to the [instructions](/on-premise/proxy).
 
-7. Copy the template file with secrets:
+6. Copy the template file with secrets:
 
       ```
       cp.env.template.env
@@ -46,31 +45,31 @@ hide:
 
     **Note**: do not use the `#` symbol in the parameters, it may be interpreted incorrectly by the system during installation.
 
-8. Run the CodeScoring installation command (the command must be executed with system superuser rights):
+7. Run the CodeScoring installation command (the command must be executed with system superuser rights):
 
       ```bash
       cd /path/to/docker-compose
-      docker-compose -p PROJECT_NAME -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
+      docker compose -p PROJECT_NAME -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
       ```
 
       `PROJECT_NAME` - hereinafter the selected project name, by default it uses the name of the current directory
 
-9. To view the logs you can use the command:
+8. To view the logs you can use the command:
 
       ```bash
-      docker-compose -p PROJECT_NAME logs -f
+      docker compose -p PROJECT_NAME logs -f
       ```
 
-10. After starting, the service will be available at the configured domain or address `http://localhost:8081`. During the first launch, additional database migrations are performed; the operation may take longer than on subsequent runs.
+9. After starting, the service will be available at the configured domain or address `http://localhost:8081`. During the first launch, additional database migrations are performed; the operation may take longer than on subsequent runs.
 
       **Note**: for the installation to work via the https protocol, you need an external balancer that implements ssl termination.
 
-11. To log in, you must first create a user with administrator rights using the following command (replacing `prefix` with the `PROJECT_NAME` value from step 8):
+10. To log in, you must first create a user with administrator rights using the following command (replacing `prefix` with the `PROJECT_NAME` value from step 8):
 
    ```bash
    docker exec -it prefix_backend_1 python ./manage.py createsuperuser
    ```
-12. To change the administrator password, you can use the following command:
+11. To change the administrator password, you can use the following command:
 
    ```bash
    docker exec -it prefix_backend_1 python ./manage.py changepassword <user_name>
