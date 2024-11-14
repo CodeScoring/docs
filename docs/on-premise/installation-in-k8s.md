@@ -160,6 +160,24 @@ postgresqlDatabase: "codescoring"
 postgresqlUsername: "codescoring"
 postgresqlPassword: "changeme"
 ```
+4. Включить использование внешнего пулера и настроить параметры подключения в секции `codescoring.config.externalPooler`:
+
+**Важно!**: Внешний пулер соединений должен поддерживать работу в двух режимах: транзакционном и сессионном. Данные для подключения к пулам указываются в соответствующих секциях: `externalPooler.transactionPool` и `externalPooler.sessionPool`.
+
+```
+externalPooler:
+  enabled: true
+  transctionPool:
+    host: ipcs-pgcat
+    port: 5432
+    username: "codescoring"
+    password: "changeme"
+  sessionPool:
+    host: ipcs-pgcat
+    port: 5432
+    username: "codescoring"
+    password: "changeme"
+```
 
 ### Настройка томов (PV) {#volumes}
 
