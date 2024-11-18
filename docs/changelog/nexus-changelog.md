@@ -4,6 +4,13 @@ hide:
 ---
 # Nexus OSA Changelog
 
+### [2024.46.0] - 2024-11-15
+
+- Добавлена поддержка PHP composer репозиториев
+- Обновлена поддержка версий Nexus для плагина:
+  - `nexus-codescoring-plugin-{release}.jar` - подходит для OSS Nexus 3.71+ и PRO Nexus с 3.33.1-01 по 3.71+ (если используется H2/Postgres вместо Orientdb)
+  - `nexus-codescoring-plugin-legacy-{release}.jar` - legacy версия плагина подходит для OSS Nexus начиная 3.33.1-01 по 3.70.Х включительно
+
 ### [2024.42.0] - 2024-10-16
 
 - Добавлена возможность указывать формат репозиториев для анализа с помощью capability `All Repositories Scan`

@@ -4,6 +4,13 @@ hide:
 ---
 # Nexus OSA Changelog
 
+### [2024.46.0] - 2024-11-15
+
+- Added support for PHP composer repositories
+- Updated support for Nexus versions for the plugin:
+    - `nexus-codescoring-plugin-{release}.jar` - suitable for OSS Nexus 3.71+ and PRO Nexus from 3.33.1-01 to 3.71+ (if H2/Postgres is used instead of Orientdb)
+    - `nexus-codescoring-plugin-legacy-{release}.jar` - legacy version of the plugin is suitable for OSS Nexus from 3.33.1-01 to 3.70.X inclusive
+
 ### [2024.42.0] - 2024-10-16
 
 - Added ability to specify format of repositories to analyze using the `All Repositories Scan` capability

@@ -6,7 +6,11 @@ hide:
 
 ## Installing the plugin
 
-The **CodeScoring Nexus OSA** plugin comes as a JAR file and supports Sonatype Nexus Repository Manager (NXRM) versions **3.39.0-01** and higher.
+The **CodeScoring Nexus OSA** plugin comes as a JAR file and supports the following Sonatype Nexus Repository versions:
+
+- `nexus-codescoring-plugin-{release}.jar` - suitable for OSS Nexus **3.71+** and PRO Nexus from **3.33.1-01** to **3.71+** (if H2/Postgres is used instead of Orientdb)
+- `nexus-codescoring-plugin-legacy-{release}.jar` - legacy version of the plugin suitable for OSS Nexus from **3.33.1-01** to **3.70.Х** inclusive
+
 
 To add a plugin to **NXRM** you must:
 
