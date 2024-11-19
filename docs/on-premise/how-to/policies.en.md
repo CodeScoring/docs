@@ -48,14 +48,14 @@ In the form of policy creation the context of policy operation is set by the fol
 
 Next, the policy triggering conditions are configured, the following parameters are supported:
 
-- **PURL** - [package URL](https://github.com/package-url/purl-spec), the package identifier;
-- **Dependency Name** - the name of the dependency;
+- **PURL** - [package URL](https://github.com/package-url/purl-spec), package identifier;
+- **Dependency Name** - name of the dependency;
 - **Dependency Version** - dependency version;
-- **Dependency Author** - the author of the dependency;
-- **Dependency Release Date** - the release date of the dependency version;
+- **Dependency Author** - author of the dependency;
+- **Dependency Release Date** - release date of the dependency version;
 - **Dependency Age** - age of the dependency;
 - **Dependency Vulnerability Count** - number of vulnerabilities in the dependency;
-- **Dependency is dangerous** - the dependency is dangerous;
+- **Dependency is dangerous** - dependency is dangerous;
 - **Technology** - technology (language or ecosystem);
 - **License** - license;
 - **License Category** - license category;
