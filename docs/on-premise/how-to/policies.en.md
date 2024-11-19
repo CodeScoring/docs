@@ -20,7 +20,7 @@ Policies can be configured for:
 
 The policy mechanism takes into account the specified stage of software development: from the download of third-party components to tracking builds and writing new code.
 
-Policies are configured by conditions combined by the logical expressions **AND/OR**. In addition to standard security policy settings by vulnerability criticality level, conditions can be configured according to component information: release date, license, author, and others. A total of **30 conditions** are supported. The checks also include a built-in vendor-specific license compatibility policy.
+Policies are configured by conditions combined by the logical expressions **AND/OR**. In addition to standard security policy settings by vulnerability criticality level, conditions can be configured according to component information: release date, license, author, and others. A total of **40 conditions** are supported. The checks also include a built-in vendor-specific license compatibility policy.
 
 When a policy is triggered, the CodeScoring system creates corresponding **Policy Alerts**. Selected alerts can be temporarily or permanently ignored. Alerts can be exported as a report.
 
@@ -54,6 +54,8 @@ Next, the policy triggering conditions are configured, the following parameters 
 - **Dependency Author** - the author of the dependency;
 - **Dependency Release Date** - the release date of the dependency version;
 - **Dependency Age** - age of the dependency;
+- **Dependency Vulnerability Count** - number of vulnerabilities in the dependency;
+- **Dependency is dangerous** - the dependency is dangerous;
 - **Technology** - technology (language or ecosystem);
 - **License** - license;
 - **License Category** - license category;
@@ -66,6 +68,8 @@ Next, the policy triggering conditions are configured, the following parameters 
 - **CVSS2 Availability Impact (A)** - degree of data availability loss;
 - **CVSS2 Confidentiality Impact (C)** - extent of loss of data confidentiality;
 - **CVSS2 Integrity Impact (I)** - degree of loss of data integrity;
+- **CVSS3 Score** - CVSS 3 threat score;
+- **CVSS3 Severity** - CVSS 3 threat level;
 - **CVSS3 Attack Vector (AV)** - attack vector;
 - **CVSS3 Attack Complexity (AC)** - attack complexity;
 - **CVSS3 Priviliges Required (PR)** - the required level of access to exploit the vulnerability;
@@ -74,12 +78,10 @@ Next, the policy triggering conditions are configured, the following parameters 
 - **CVSS3 Confidentiality (C)** - degree of loss of data confidentiality;
 - **CVSS3 Integrity (I)** - degree of loss of data integrity;
 - **CVSS3 Availability (A)** - degree of loss of data availability;
-- **CVSS3 Score** - CVSS 3 threat score;
-- **CVSS3 Severity** - CVSS 3 threat level;
 - **Vulnerability Publish Date** - vulnerability publication date;
 - **Vulnerability Update Date** - vulnerability update date;
 - **Vulnerability has exploit** - presence of an exploit in the vulnerability;
-- **Vulnerability impacts** - scope of the vulnerability;
+- **Vulnerability impacts (Kaspersky)** - scope of the vulnerability;
 - **Vulnerability has fixed version** - vulnerability has been fixed in a new version; 
 - **Vulnerability Age (days)** - age of the vulnerability 
 - **Env** - environment;
@@ -109,7 +111,7 @@ Policy results are displayed in the `Policy alerts` section. The section has thr
 - **Ignored** - list of ignored policies;
 - **Resolved** - list of notifications that were resolved after the last analysis (the policy condition is no longer relevant).
 
-The reason for triggering the policy is displayed in the **Matched criteria** field, including the conditions set and the component data found. For example, a value of `CVSS3 Score >= 3.00 (9.1)` implies that a policy to block components with a CVSS 3 equal to or greater than 3.00 was triggered on a component with a vulnerability rating of 9.1.
+The reason for triggering the policy is displayed in the **Matched criteria** field, including the conditions set and the component data found. For example, a value of `django@4.2.2 has CVE-2024-38875, CVSS3 Score 7.5 >= 7.00` implies that a policy to block components with a CVSS 3 equal to or greater than 7.00 was triggered on the component django@4.2.2 with the vulnerability rating of 7.5.
 
 ## Ignore Policies
 
