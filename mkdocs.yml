@@ -98,6 +98,14 @@ plugins:
           agent-gitflic-ci: "Integration into GitFlic CI"
           agent-save-results: "Saving scan results"
           agent-resolve: "Resolving dependencies"
+          secrets: "CodeScoring Secrets"
+          secrets-general: "General"
+          secrets-setup: "Setting up engine configuration"
+          secrets-vcs: "Configuring VCS project for secret search"
+          secrets-manual: "Manual launch of secret search"
+          secrets-cli: "Importing report to a CLI project"
+          secrets-findings: "Working with findings"
+          secrets-model: "ML Model management"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
@@ -156,6 +164,14 @@ plugins:
           agent-gitflic-ci: "Добавление в GitFlic CI"
           agent-save-results: "Сохранение результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
+          secrets: "Работа с CodeScoring Secrets"
+          secrets-general: "Общее"
+          secrets-setup: "Создание конфигурации для поиска секретов"
+          secrets-vcs: "Настройка VCS проекта для работы с секретами"
+          secrets-manual: "Ручной запуск поиска секретов"
+          secrets-cli: "Загрузка отчета в CLI проект"
+          secrets-findings: "Работа с найденными секретами"
+          secrets-model: "Управление моделью машинного обучения"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Nexus OSA"
@@ -259,6 +275,20 @@ nav:
     - agent-save-results: agent/save-results.en.md
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
+  - secrets:
+      secrets-general: secrets/index.md
+      secrets-general: secrets/index.en.md
+      secrets-setup: secrets/secrets-setup.md
+      secrets-setup: secrets/secrets-setup.en.md
+      secrets-vcs: secrets/secrets-vcs.md
+      secrets-vcs: secrets/secrets-vcs.en.md
+      secrets-manual: secrets/secrets-manual.md
+      secrets-cli: secrets/secrets-cli.md
+      secrets-cli: secrets/secrets-cli.en.md
+      secrets-findings: secrets/secrets-findings.md
+      secrets-findings: secrets/secrets-findings.en.md
+      secrets-model: secrets/secrets-model.md
+      secrets-model: secrets/secrets-model.en.md
   - changelog:
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
