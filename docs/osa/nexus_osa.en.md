@@ -8,9 +8,8 @@ hide:
 
 The **CodeScoring Nexus OSA** plugin comes as a JAR file and supports the following Sonatype Nexus Repository versions:
 
-- `nexus-codescoring-plugin-{release}.jar` - suitable for OSS Nexus **3.71+** and PRO Nexus from **3.33.1-01** to **3.71+** (if H2/Postgres is used instead of Orientdb)
-- `nexus-codescoring-plugin-legacy-{release}.jar` - legacy version of the plugin suitable for OSS Nexus from **3.33.1-01** to **3.70.Х** inclusive
-
+- `nexus-codescoring-plugin-{release}.jar` - for Nexus Repository OSS **3.71+** and Nexus Repository Pro versions from **3.33.1-01** to **3.71+** (supports H2 and PostgreSQL);
+- `nexus-codescoring-plugin-legacy-{release}.jar` - for Nexus Repository OSS versions from **3.33.1-01** to **3.70.Х** (supports OrientDB).
 
 To add a plugin to **NXRM** you must:
 
@@ -31,7 +30,7 @@ If **NXRM** is running in a Docker container:
 docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
 
-After the completed operations, you need to restart NXRM.
+After the completed operations, you need to restart **NXRM**.
 
 ## Plugin setup
 
