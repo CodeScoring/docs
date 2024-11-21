@@ -26,6 +26,10 @@ If **NXRM** is running in a Docker container:
 ```bash
 docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
+3. Check that the user has a minimum set of privileges to work correctly with the plugin:
+```
+nx-repository-view-*-*-{read,browse}
+```
 
 After the completed operations, you need to restart NXRM.
 

@@ -6,7 +6,10 @@ hide:
 
 ## Установка плагина
 
-Плагин **CodeScoring Nexus OSA** поставляется в виде JAR-файла и поддерживает версии Sonatype Nexus Repository Manager (NXRM) **3.39.0-01** и выше.
+Плагин **CodeScoring Nexus OSA** поставляется в виде JAR-файла и поддерживает следующие версии Sonatype Nexus Repository (NXRM):
+
+- `nexus-codescoring-plugin-{release}.jar` - для Nexus Repository OSS **3.71+** и Nexus Repository Pro версий с **3.33.1-01** по **3.71+** (поддерживает H2 и PostgreSQL);
+- `nexus-codescoring-plugin-legacy-{release}.jar` - для Nexus Repository OSS версий с **3.33.1-01** по **3.70.Х** (поддерживает OrientDB).
 
 Для добавления плагина в **NXRM** необходимо:
 
@@ -26,8 +29,12 @@ chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```bash
 docker exec -it -u 0 nexus chown nexus:nexus /opt/sonatype/nexus/deploy/nexus-codescoring-plugin.jar
 ```
+3. Проверить, что у пользователя есть минимальный набор привилегий для корректной работы с плагином:
+```
+nx-repository-view-*-*-{read,browse}
+```
 
-После выполненных операций, необходимо произвести перезапуск NXRM.
+После выполненных операций, необходимо произвести перезапуск **NXRM**.
 
 ## Настройка плагина
 
