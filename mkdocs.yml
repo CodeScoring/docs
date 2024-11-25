@@ -92,6 +92,7 @@ plugins:
           agent-scan-dir: "Scanning a directory"
           agent-scan-archive: "Scanning an archive"
           agent-scan-docker: "Scanning a Docker image"
+          agent-scan-build: "Scanning a build"
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integration into Gitlab CI"
           agent-jenkins: "Integration into Jenkins Pipeline"
@@ -150,6 +151,7 @@ plugins:
           agent-scan-dir: "Сканирование директории"
           agent-scan-archive: "Сканирование архивов"
           agent-scan-docker: "Сканирование Docker образов"
+          agent-scan-build: "Сканирование сборки"
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
           agent-jenkins: "Добавление в Jenkins"
@@ -247,6 +249,8 @@ nav:
     - agent-scan-archive: agent/scan-archive.en.md
     - agent-scan-docker: agent/scan-docker.md
     - agent-scan-docker: agent/scan-docker.en.md
+    - agent-scan-build: agent/scan-build.md
+    - agent-scan-build: agent/scan-build.en.md
     - agent-launch-docker: agent/launch-docker.md
     - agent-launch-docker: agent/launch-docker.en.md
     - agent-gitlab-ci: agent/gitlab-ci.md

@@ -4,6 +4,12 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.44.1] - 2024-11-15
+
+- Fixed a bug with skipping gem packages in the `scan bom` command
+- Fixed the `ignore` flag on Windows OS
+- Fixed a bug in the parser in the Go environment on projects without dependencies
+
 ### [2024.44.0] - 2024-11-02
 
 - Added parsing of `pnpm-lock.yaml` manifests. Supported versions: 5.0-5.4, 6.0, 9.0
