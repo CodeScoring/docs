@@ -9,7 +9,7 @@ If the Conan package manager and corresponding manifests are not used to build a
 
 Johnny intercepts the build process, analyzing the compiler flags and identifying the libraries used. Then, using the system cache, the location of the libraries and their source are determined.
 
-The version of the used library can be found if the library was dynamically linked. In this case, the agent analyzes the `.pc` file, which contains metadata about the component.
+The version of the used library can be found if the library was statically linked. In this case, the agent analyzes the `.pc` file, which contains metadata about the component.
 
 ## Example of work
 
