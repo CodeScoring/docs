@@ -6,7 +6,7 @@ hide:
 
 ### [2024.46.0] - 2024-11-15
 
-- Добавлена поддержка PHP composer репозиториев (с учетом установки [community-плагина](https://github.com/sonatype-nexus-community/nexus-repository-composer/tree/master))
+- Добавлена поддержка PHP Composer репозиториев. Доступно при использовании [community-плагина](https://github.com/sonatype-nexus-community/nexus-repository-composer/tree/master))
 - Обновлена поддержка совместимости плагина с разными версиями Nexus Repository:
   - для Nexus Repository OSS **3.71+** и Nexus Repository Pro версий с **3.33.1-01** по **3.71+** выпущена версия плагина с поддержкой H2 и PostgreSQL
   - для Nexus Repository OSS версий с **3.33.1-01** по **3.70.Х** выделена legacy версия плагина с поддержкой OrientDB
