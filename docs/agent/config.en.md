@@ -50,7 +50,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - **enabled** – enabling this parser;
 - **match** – a condition for determining suitable manifests, can be by name (`equal`) or extension (`extension`);
 - **properties** – additional properties for environment parsers, such as the path to executable files;
-- **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**, **pnpm-path** – paths to package managers for resolving dependencies in the environment;
+- **dotnet-path**, **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**,**npm-path**, **pnpm-path**, **composer-path**, **pip-path**, **poetry-path**, **conda-lock-path** – paths to package managers for resolving dependencies in the environment;
 - **resolve-enabled** – resolving dependencies in the environment. The default value is `false`.
 
 ### Archive scanning options
@@ -590,6 +590,28 @@ scan:
           enabled: true
           # matching criteria
           match: equal("cargo.toml")
+    # Conda
+    conda:
+      # Use Conda parsers
+      enabled: true
+      # Conda parsers
+      parsers:
+        # Conda-lock parser
+        conda-lock_yml:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("conda-lock.yml")
+        # Conda env parser
+        conda_yml_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("environment.yml") || equal("environment.yaml") || equal("meta.yml") || equal("meta.yaml")
+          # parser properties
+          properties:
+            # path to conda-lock for resolve
+            conda-lock-path: conda-lock
   # scan archives options
   scan-archives:
     # scan archives
