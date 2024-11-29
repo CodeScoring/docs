@@ -5,5 +5,7 @@
 Для локальной работы:
 
 ```
-docker-compose up
+docker compose up
 ```
+
+http://localhost:8888/
