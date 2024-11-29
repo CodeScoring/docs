@@ -4,6 +4,18 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.48.0] – 2024-11-29
+
+- Added support for parsing Conda ecosystem manifests: `environment.yml`, `meta.yml`, `conda-lock.yml`
+- Added support for parsing Conda components in the build environment
+- Added warning output for packages with an invalid name
+- Improved dependency graph construction for formats that allow multiple versions of a single package
+- Improved dependency graph construction when both files of a manifest-lockfile pair are present
+- Fixed errors in generating PURL and go package versions when scanning Docker images
+- Fixed handling of SBoM files in CycloneDX format containing information in the `components[i].evidence.identity` fields
+- Changed the logic for generating the distro property for PURL ALT Linux packages when scanning Docker images
+- Added information about Location and Fixed Version of a vulnerability to the `sarif` format export
+
 ### [2024.44.1] - 2024-11-15
 
 - Fixed a bug with skipping gem packages in the `scan bom` command
