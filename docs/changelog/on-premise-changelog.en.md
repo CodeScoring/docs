@@ -4,7 +4,7 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
-### [2024.48.0] - ???
+### [2024.48.0] - 2024-11-30
 
 - Added the ability to send webhooks for key events in the system
 - Added the ability for the admin user to specify values for the SBoM fields `GOST:attack_surface`, `GOST:security_function` and links to VCS, the values will be taken into account when unloading SBoM in the `CycloneDX 1.6 Ext` format
