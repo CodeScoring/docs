@@ -314,3 +314,7 @@ extra:
       site_name: "Публичная документация CodeScoring"
     - en:
       site_name: "CodeScoring Public Docs"
+
+
+extra_css:
+  - css/hide_lang_links.css
