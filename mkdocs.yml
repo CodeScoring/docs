@@ -5,7 +5,7 @@ site_name: Публичная документация CodeScoring
 
 theme:
   name: material
-  custom_dir: 'overrides'
+  custom_dir: overrides
   language: ru
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
@@ -314,6 +314,3 @@ extra:
       site_name: "Публичная документация CodeScoring"
     - en:
       site_name: "CodeScoring Public Docs"
-
-  analytics:
-    provider: custom
