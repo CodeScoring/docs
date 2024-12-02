@@ -2,7 +2,7 @@
 hide:
   - footer
 ---
-# Supported package managers
+# Supported ecosystems and analysis methods
 
 ## Manifest files
 
@@ -72,3 +72,9 @@ Currently, hash searches occur for the following package manager indexes and the
 
 
 Hashes of files whose size does not exceed 512 bytes **are not sent** to the cloud.
+
+## Build scanning for C and C++
+
+If the Conan package manager and corresponding manifests are not used to build a C/C++ project, a special [mode for analyzing the build process output](/agent/scan-build.en) can be used to get a list of used libraries.
+
+In this mode, the Johnny console agent analyzes the build process using compiler flags and identifies the libraries used. Then, using the system cache, the location of the libraries and their source are determined.
