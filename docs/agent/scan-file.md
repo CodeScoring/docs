@@ -29,5 +29,4 @@ hide:
 ./johnny scan file path/to/file \
 --api_token <api_token> \
 --api_url <api_url> \
---ignore .tmp --ignore fixtures --ignore .git
 ```
