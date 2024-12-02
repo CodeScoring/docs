@@ -8,7 +8,7 @@ hide:
 
 - **Secrets scan schedule** – график сканирования на наличие секретов (ежедневное или еженедельное);
 - **Secrets engine configuration** – конфигурация [движка секретов](/secrets/secrets-setup);
-- **Secrets scan scope** – область применения сканирования (**Repo**, для сканирования в рамках всего репозитория или **Default branch** для сканирования стандартной ветки).
+- **Secrets scan scope** – область применения сканирования (**Repo**, для сканирования всех веток в рамках репозитория или **Default branch** для сканирования стандартной ветки).
 
 ![VCS configuration example](/assets/img/secrets/vcs-configuration.png)
 

@@ -13,7 +13,6 @@ The page displays the following summary information:
 - Date of first scan;
 - Date of last scan;
 - Number of found secrets by category (true positive, false positive, all);
-- Number of policy triggers (in development).
 
 The table with found secrets has the following fields:
 
@@ -27,8 +26,8 @@ The table with found secrets has the following fields:
 - **Appeared at** – date and time the secret was added to the code;
 - **Author email** – email of the author responsible for adding the secret;
 - **Author fullname** – name of the author responsible for adding the secret;
-- **Fixed by** – name of the user who fixed the secret (if the fix was manually specified in CodeScoring);
-- **Fixed at** – date of fix (if the fix was manually specified in CodeScoring);
+- **Fixed by** – name of the user who marked the secret as fixed;
+- **Fixed at** – date of fix;
 - **Commit** – hash of the commit in which the secret was added.
 
 ![Findings in a project](/assets/img/secrets/findings-project.png)
@@ -61,5 +60,3 @@ Manual markup will be used for [additional training of the machine learning mode
 ## Unloading data on secrets
 
 To get an export of data on found secrets, you can use the **Export** button in the upper right corner of the section.
-
-To export secrets without internal data, you must use the **Export Features** button.
