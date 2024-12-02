@@ -4,6 +4,13 @@ hide:
 ---
 # JFrog OSA Changelog
 
+### [2024.48.0] - 2024-11-29
+
+- Added sending to CodeScoring a link to the artifact and the user downloading it
+- Added support for JFrog Artifactory v7.90+
+- Improved parsing of `deb` packages
+- Visually highlighted plugin initialization and config reload in logs
+
 ### [2024.42.0] - 2024-10-16
 
 - Packages that do not contain a version are no longer sent for analysis to CodeScoring and will be skipped by the plugin
