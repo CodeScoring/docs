@@ -12,7 +12,7 @@ hide:
 ----------------| :---------------- | :----------- |
 Java и Kotlin               |   Gradle, Maven   | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`gradle-dependency-tree.txt`<br/>`*.gradle`<br/>`*.gradle.kts`<br/> `gradle.lockfile`|
 JavaScript и TypeScript     |    npm, yarn      |  `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock`<br/>`pnpm-lock.yaml`|
-Python                      |    pip, Poetry, Pipenv    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`   |
+Python                      |    pip, Poetry, Pipenv, Conda    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
 С и C++                     |    Conan          |  `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`|
 Go                          |    Go Modules     |  `go.mod`<br/>`go.sum` |
 PHP                         |    Composer       |  `composer.json`<br/>`composer.lock`|
@@ -51,6 +51,21 @@ Scala                       |    sbt            |  `scala-dependency-tree.txt`<b
 
 Самостоятельная генерация lock-файлов системой не может давать результат в 100% случаев, так как результат часто зависит от окружения.
 
+## Разрешение зависимостей в окружении
+
+Пакетные менеджеры некоторых экосистем по умолчанию не включают транзитивные зависимости в манифесты. Для качественного проведения композиционного анализа при работе с ними рекомендуется применять механизм [разрешения зависимостей в окружении сборки](/agent/resolve).
+
+При разрешении зависимостей в окружении система проверяет отсутствие lock-файла, самостоятельно запускает пакетный менеджер или инструмент сборки и формирует полный список компонентов с учетом корректной версии сборки. На данный момент функциональность доступна для следующих экосистем:
+
+- .NET
+- Go
+- Gradle
+- Maven
+- npm
+- Poetry
+- sbt
+- yarn
+- Conda
 
 ## Механизм поиска зависимостей по хэшам
 
@@ -69,6 +84,5 @@ Scala                       |    sbt            |  `scala-dependency-tree.txt`<b
     + `.egg`
 - Nuget
     + `.nupkg`
-
 
 От инсталляции в облако **не уходят** хэши файлов, размер которых не превышает 512 байт.

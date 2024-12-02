@@ -12,12 +12,12 @@ Language <div style="width:140px">| Package manager or build tool <div style="wi
 ----------------| :---------------- | :---------- |
 Java and Kotlin | Gradle, Maven | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`gradle-dependency-tree.txt`<br/>`*.gradle`< br/>`*.gradle.kts`<br/> `gradle.lockfile`|
 JavaScript and TypeScript | npm, yarn | `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock`<br/>`pnpm-lock.yaml`|
-Python | pip, Poetry, Pipenv | `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br />`requirements.pip`<br/>`requires.txt` |
+Python                      |    pip, Poetry, Pipenv, Conda    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
 C and C++ | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`|
 Go | Go Modules | `go.mod`<br/>`go.sum` |
 PHP | Composer | `composer.json`<br/>`composer.lock`|
 Ruby | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked`|
-C# | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>` paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
+C# | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
 Objective-C and Swift | CocoaPods | `Podfile`<br/>`Podfile.lock`<br/>`*.podspec`|
 Rust | Cargo | `Cargo.lock`<br/>`Cargo.toml`|
 Scala | sbt | `scala-dependency-tree.txt`<br/>`sbt-dependency-tree.txt`|
@@ -51,6 +51,21 @@ If there is no lock file the system will try to resolve transitive OSS dependenc
 
 Generation of lock files by the system does not produce the best results in every case, since it often depends on the environment.
 
+## Resolving dependencies in the build environment
+
+Some package managers do not include transitive dependencies in their manifests by default. For high-quality compositional analysis when working with them, it is recommended to use a [dependency resolution mechanism in the build environment](/agent/resolve.en.md).
+
+When resolving dependencies in the environment, the agent checks for the absence of a lock file, independently launches the package manager or build tool, and generates a complete list of components taking into account the correct version of the build. The functionality is currently available for the following ecosystems:
+
+- .NET
+- Go
+- Gradle
+- Maven
+- npm
+- Poetry
+- sbt
+- yarn
+- Conda
 
 ## Mechanism for searching dependencies using hashes
 
