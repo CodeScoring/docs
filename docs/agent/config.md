@@ -48,7 +48,7 @@ hide:
 - **enabled** – включение данного парсера;
 - **match** – условие для определения подходящих манифестов, может быть по названию (`equal`) или расширению (`extension`);
 - **properties** – дополнительные свойства для парсеров окружения, такие как путь к исполняемым файлам;
-- **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**, **pnpm-path** – пути к пакетным менеджерам для разрешения зависимостей в окружении;
+- **dotnet-path**, **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**,**npm-path**, **pnpm-path**, **composer-path**, **pip-path**, **poetry-path**, **conda-lock-path**  – пути к пакетным менеджерам для разрешения зависимостей в окружении;
 - **resolve-enabled** – разрешение зависимостей в окружении. По умолчанию значение `false`.
 
 ### Параметры сканирования архивов
@@ -588,6 +588,28 @@ scan:
           enabled: true
           # matching criteria
           match: equal("cargo.toml")
+    # Conda
+    conda:
+      # Use Conda parsers
+      enabled: true
+      # Conda parsers
+      parsers:
+        # Conda-lock parser
+        conda-lock_yml:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("conda-lock.yml")
+        # Conda env parser
+        conda_yml_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("environment.yml") || equal("environment.yaml") || equal("meta.yml") || equal("meta.yaml")
+          # parser properties
+          properties:
+            # path to conda-lock for resolve
+            conda-lock-path: conda-lock
   # scan archives options
   scan-archives:
     # scan archives

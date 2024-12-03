@@ -17,6 +17,7 @@ When resolving dependencies in the environment, the agent checks for the absence
 - Poetry
 - sbt
 - yarn
+- Conda
 
 Options for resolving dependencies in the environment and the path to the package manager are controlled by the following flags in the `scan` command:
 
@@ -28,6 +29,7 @@ Options for resolving dependencies in the environment and the path to the packag
 - `--poetry-resolve` / `--poetry-path`
 - `--sbt-resolve` / `--sbt-path`
 - `--yarn-resolve` / `--yarn-path`
+- `--conda-resolve` / `--conda-lock-path`
 
 Request example:
 
