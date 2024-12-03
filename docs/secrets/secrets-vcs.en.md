@@ -10,6 +10,6 @@ For the Secrets module to work within a project, you need to set the scanning pa
 - **Secrets engine configuration** – configuration of the [secrets engine](/secrets/secrets-setup.en);
 - **Secrets scan scope** – scope of scanning:
 	 - **Repo** – for scanning all the branches within repository
-	 - **Default branch** – for scanning the standard branch)
+	 - **Default branch** – for scanning the standard branch
 
 ![VCS configuration example](/assets/img/secrets/vcs-configuration.png)

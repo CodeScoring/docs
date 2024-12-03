@@ -4,9 +4,9 @@ hide:
 ---
 # Launching secret search
 
-## Search for secrets in an individual project
+## Search for secrets in a single project
 
-To launch the search for secrets, go to the page `Projects -> Project -> Secrets` and click the **Run secrets analysis** button, after which the search for secrets in this project will start.
+To launch the search for secrets, go to the `Secrets` tab of the selected project and click the **Run secrets analysis** button, after which the search for secrets in this project will start.
 
 ![Launch for one project](/assets/img/secrets/manual-launch.png)
 
