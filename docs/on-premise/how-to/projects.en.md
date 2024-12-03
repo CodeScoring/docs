@@ -57,7 +57,16 @@ After the project has been analyzed, the resulting list of used components (SBOM
 
 You can export the resulting SBOM on the project page in the `Projects` section using the **Export SBOM** button.
 
+Export SBoM is supported in the following formats:
+- [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/)
+- [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/)
+- [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/)
+- CycloneDX v1.6 Ext JSON -- an extended CycloneDX format containing additional properties for components: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`.
+
 For CLI projects it is also possible to load SBOM through the interface by clicking the **Import SBOM** button. The SBOM to be uploaded must be in CycloneDX format and have a `.json` extension.
+
+You can configure component fields for export on the [project dependency settings page](on-premise/how-to/export-results.en.md/#bom-settings).
+
 
 ## PDF report generation
 
