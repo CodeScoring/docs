@@ -78,6 +78,7 @@ plugins:
           notifications: "Notification settings"
           audit-log: "Audit log"
           metrics: "Configuring metrics"
+          webhooks: "Setting up webhooks"
           api: "Working with API"
           osa: "CodeScoring OSA"
           osa-general: "General"
@@ -137,6 +138,7 @@ plugins:
           notifications: "Настройка уведомлений"
           audit-log: "Работа с аудит-логом"
           metrics: "Настройка метрик"
+          webhooks: "Настройка вебхуков"
           api: "Работа с API"
           osa: "Работа с CodeScoring OSA"
           osa-general: "Общее"
@@ -223,6 +225,8 @@ nav:
     - audit-log: on-premise/how-to/audit-log.en.md
     - metrics: on-premise/how-to/metrics.md
     - metrics: on-premise/how-to/metrics.en.md
+    - webhooks: on-premise/how-to/webhooks.md
+    - webhooks: on-premise/how-to/webhooks.en.md
     - api: on-premise/how-to/api.md
     - api: on-premise/how-to/api.en.md
   - osa:
