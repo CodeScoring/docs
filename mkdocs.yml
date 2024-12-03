@@ -102,7 +102,7 @@ plugins:
           secrets-general: "General"
           secrets-setup: "Setting up engine configuration"
           secrets-vcs: "Configuring VCS project for secret search"
-          secrets-manual: "Launching secret search"
+          secrets-launch: "Launching secret search"
           secrets-cli: "Importing report to a CLI project"
           secrets-findings: "Working with findings"
           secrets-model: "ML Model management"
@@ -168,7 +168,7 @@ plugins:
           secrets-general: "Общее"
           secrets-setup: "Создание конфигурации для поиска секретов"
           secrets-vcs: "Настройка VCS проекта для работы с секретами"
-          secrets-manual: "Запуск поиска секретов"
+          secrets-launch: "Запуск поиска секретов"
           secrets-cli: "Загрузка отчета в CLI проект"
           secrets-findings: "Работа с найденными секретами"
           secrets-model: "Управление моделью машинного обучения"
@@ -282,7 +282,8 @@ nav:
       secrets-setup: secrets/secrets-setup.en.md
       secrets-vcs: secrets/secrets-vcs.md
       secrets-vcs: secrets/secrets-vcs.en.md
-      secrets-manual: secrets/secrets-manual.md
+      secrets-launch: secrets/secrets-launch.md
+      secrets-launch: secrets/secrets-launch.md
       secrets-cli: secrets/secrets-cli.md
       secrets-cli: secrets/secrets-cli.en.md
       secrets-findings: secrets/secrets-findings.md
