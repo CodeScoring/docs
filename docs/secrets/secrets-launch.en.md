@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 # Launching secret search
 

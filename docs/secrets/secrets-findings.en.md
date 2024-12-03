@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 # Working with findings
 

@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 
 # Integration into Gitflic CI

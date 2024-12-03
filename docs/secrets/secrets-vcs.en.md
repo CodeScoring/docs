@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 # Configuring VCS project for secret search
 

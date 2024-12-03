@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 # Machine learning model management
 

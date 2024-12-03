@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 
 # Connecting webhooks

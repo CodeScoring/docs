@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 # Importing report to a CLI project
 

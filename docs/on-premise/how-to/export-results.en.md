@@ -1,6 +1,6 @@
 ---
 hide:
-- footer
+  - footer
 ---
 # Exporting analysis results
 
