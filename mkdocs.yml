@@ -292,13 +292,18 @@ nav:
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
   - secrets:
-      secrets-general: secrets/index.md
-      secrets-setup: secrets/secrets-setup.md
-      secrets-vcs: secrets/secrets-vcs.md
-      secrets-launch: secrets/secrets-launch.md
-      secrets-cli: secrets/secrets-cli.md
-      secrets-findings: secrets/secrets-findings.md
-      secrets-model: secrets/secrets-model.md
+    - secrets-setup: secrets/secrets-setup.md
+    - secrets-setup: secrets/secrets-setup.en.md
+    - secrets-vcs: secrets/secrets-vcs.md
+    - secrets-vcs: secrets/secrets-vcs.en.md
+    - secrets-launch: secrets/secrets-launch.md
+    - secrets-launch: secrets/secrets-launch.en.md
+    - secrets-cli: secrets/secrets-cli.md
+    - secrets-cli: secrets/secrets-cli.en.md
+    - secrets-findings: secrets/secrets-findings.md
+    - secrets-findings: secrets/secrets-findings.en.md
+    - secrets-model: secrets/secrets-model.md
+    - secrets-model: secrets/secrets-model.en.md
   - changelog:
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
