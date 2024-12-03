@@ -91,6 +91,7 @@ plugins:
           agent-config: "Configuration"
           agent-scan: "Scan command"
           agent-scan-dir: "Scanning a directory"
+          agent-scan-file: "Scanning a file"
           agent-scan-archive: "Scanning an archive"
           agent-scan-docker: "Scanning a Docker image"
           agent-scan-build: "Scanning a C/C++ build"
@@ -151,6 +152,7 @@ plugins:
           agent-config: "Настройка через конфигурационный файл"
           agent-scan: "Команда сканирования"
           agent-scan-dir: "Сканирование директории"
+          agent-scan-file: "Сканирование файла"
           agent-scan-archive: "Сканирование архивов"
           agent-scan-docker: "Сканирование Docker образов"
           agent-scan-build: "Сканирование сборки C/C++"
@@ -249,6 +251,8 @@ nav:
     - agent-scan: agent/scan.en.md
     - agent-scan-dir: agent/scan-dir.md
     - agent-scan-dir: agent/scan-dir.en.md
+    - agent-scan-file: agent/scan-file.md
+    - agent-scan-file: agent/scan-file.en.md
     - agent-scan-archive: agent/scan-archive.md
     - agent-scan-archive: agent/scan-archive.en.md
     - agent-scan-docker: agent/scan-docker.md
