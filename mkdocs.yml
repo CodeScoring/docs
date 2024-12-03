@@ -1,11 +1,11 @@
-site_name: Публичная документация CodeScoring
+site_name: CodeScoring Documentation
 
 # repo_url: https://gitlab.com/mkdocs-i18n/mkdocs-i18n
 # edit_uri: ''
 
 theme:
   name: material
-  custom_dir: 'overrides'
+  custom_dir: overrides
   language: ru
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
@@ -50,7 +50,7 @@ plugins:
           begin: "Beginning"
           functionality: "Functionality"
           integration-stages: "Integration stages"
-          supported-package-managers: "Supported package managers"
+          supported-package-managers: "Supported ecosystems and analysis methods"
           changelog: "Changelog"
           installation: "On-premise installation and maintenance"
           hardware: "Hardware requirements"
@@ -70,6 +70,7 @@ plugins:
           project-control: "Managing projects"
           policies: "Policy management"
           launch-analysis: "Launching analysis"
+          export-results: "Exporting analysis results"
           registries: "Connecting container registries"
           groups: "Creating groups"
           users: "Managing user accounts"
@@ -92,7 +93,7 @@ plugins:
           agent-scan-dir: "Scanning a directory"
           agent-scan-archive: "Scanning an archive"
           agent-scan-docker: "Scanning a Docker image"
-          agent-scan-build: "Scanning a build"
+          agent-scan-build: "Scanning a C/C++ build"
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integration into Gitlab CI"
           agent-jenkins: "Integration into Jenkins Pipeline"
@@ -109,7 +110,7 @@ plugins:
           begin: "Начало"
           functionality: "Функциональные характеристики"
           integration-stages: "Этапы интеграции"
-          supported-package-managers: "Поддержка пакетных менеджеров"
+          supported-package-managers: "Поддерживаемые экосистемы и способы анализа"
           changelog: "Changelog"
           installation: "Установка и эксплуатация on-premise"
           hardware: "Аппаратные требования"
@@ -129,6 +130,7 @@ plugins:
           project-control: "Управление проектами"
           policies: "Настройка политик"
           launch-analysis: "Запуск анализа"
+          export-results: "Выгрузка результатов анализа"
           registries: "Работа с Docker-образами"
           groups: "Создание групп"
           users: "Управление учетными записями"
@@ -151,7 +153,7 @@ plugins:
           agent-scan-dir: "Сканирование директории"
           agent-scan-archive: "Сканирование архивов"
           agent-scan-docker: "Сканирование Docker образов"
-          agent-scan-build: "Сканирование сборки"
+          agent-scan-build: "Сканирование сборки C/C++"
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
           agent-jenkins: "Добавление в Jenkins"
@@ -211,6 +213,8 @@ nav:
     - policies: on-premise/how-to/policies.en.md
     - launch-analysis: on-premise/how-to/launch-analysis.md
     - launch-analysis: on-premise/how-to/launch-analysis.en.md
+    - export-results: on-premise/how-to/export-results.md
+    - export-results: on-premise/how-to/export-results.en.md
     - registries: on-premise/how-to/registries.md
     - registries: on-premise/how-to/registries.en.md
     - ldap: on-premise/how-to/ldap-settings.md
@@ -311,9 +315,10 @@ extra:
       lang: en
   i18n:
     - ru:
-      site_name: "Публичная документация CodeScoring"
+      site_name: "CodeScoring Documentation"
     - en:
-      site_name: "CodeScoring Public Docs"
+      site_name: "CodeScoring Documentation"
 
-  analytics:
-    provider: custom
+
+extra_css:
+  - css/hide_lang_links.css

@@ -4,6 +4,22 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.48.0] - 2024-11-30
+
+- Added the ability to send webhooks for key events in the system
+- Added the ability for the admin user to specify values for the SBoM fields `GOST:attack_surface`, `GOST:security_function` and links to VCS, the values will be taken into account when unloading SBoM in the `CycloneDX 1.6 Ext` format
+- Updated display of matched criteria in alerts
+- Added the ability to display the Source files column in the Vulnerabilities section table and in the Affected dependencies table on the vulnerability page
+- Added hints for the user in the policy creation and editing form
+- Added links from the project scan results page to the project settings page and back
+- Improved link typification in the `externalReferences` section when unloading SBoM in CycloneDX
+- Accelerated loading of the license distribution graph
+- Changed the technology distribution graph on the main page of the system and on the SCA tab for VCS projects, the calculation is based on the project dependency technologies based on the results of compositional analysis
+- Fixed the logic of policies when combining several conditions for the environment (`env`) of a dependency
+- Fixed import of SBoM files in CycloneDX format containing information in the `components[i].evidence.identity` fields
+- Fixed translations into Russian for numerals and some dictionaries of the system
+- In emails with alert notifications, the vulnerability identifier is now a hyperlink
+
 ### [2024.44.3] - 2024-11-13
 
 - Fixed CVSS Score and CVSS Severity inconsistency when a vulnerability is present in multiple data feeds
