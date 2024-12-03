@@ -1,4 +1,4 @@
-site_name: Публичная документация CodeScoring
+site_name: CodeScoring Documentation
 
 # repo_url: https://gitlab.com/mkdocs-i18n/mkdocs-i18n
 # edit_uri: ''
@@ -315,9 +315,9 @@ extra:
       lang: en
   i18n:
     - ru:
-      site_name: "Публичная документация CodeScoring"
+      site_name: "CodeScoring Documentation"
     - en:
-      site_name: "CodeScoring Public Docs"
+      site_name: "CodeScoring Documentation"
 
 
 extra_css:
