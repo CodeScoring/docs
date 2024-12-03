@@ -70,6 +70,7 @@ plugins:
           project-control: "Managing projects"
           policies: "Policy management"
           launch-analysis: "Launching analysis"
+          export-results: "Exporting analysis results"
           registries: "Connecting container registries"
           groups: "Creating groups"
           users: "Managing user accounts"
@@ -129,6 +130,7 @@ plugins:
           project-control: "Управление проектами"
           policies: "Настройка политик"
           launch-analysis: "Запуск анализа"
+          export-results: "Выгрузка результатов анализа"
           registries: "Работа с Docker-образами"
           groups: "Создание групп"
           users: "Управление учетными записями"
@@ -211,6 +213,8 @@ nav:
     - policies: on-premise/how-to/policies.en.md
     - launch-analysis: on-premise/how-to/launch-analysis.md
     - launch-analysis: on-premise/how-to/launch-analysis.en.md
+    - export-results: on-premise/how-to/export-results.md
+    - export-results: on-premise/how-to/export-results.en.md
     - registries: on-premise/how-to/registries.md
     - registries: on-premise/how-to/registries.en.md
     - ldap: on-premise/how-to/ldap-settings.md

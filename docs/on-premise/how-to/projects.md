@@ -57,9 +57,17 @@ hide:
 
 Экспортировать полученный SBOM можно на странице проекта в разделе `Projects` по кнопке **Export SBOM**.
 
+Экспорт SBoM поддерживается в следующих форматах:
+- [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/)
+- [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/)
+- [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/)
+- CycloneDX v1.6 Ext JSON -- расширенный формат CycloneDX, содержащий у компонентов дополнительные property: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`.
+
+Настроить свойства компонентов при экспорте можно на [странице настройки зависимостей проекта](/on-premise/how-to/export-results.md/#bom-settings).
+
 Для CLI-проектов также доступна загрузка SBOM через интерфейс по кнопке **Import SBOM**. Загружаемый SBOM должен быть в формате CycloneDX и иметь расширение `.json`.
 
-## Формирование PDF-отчета
+## Формирование PDF-отчета по проекту
 
 После проведения анализа также становится доступным формирование PDF-отчета со сводной информацией по проекту.
 
