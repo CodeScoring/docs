@@ -4,6 +4,11 @@ hide:
 ---
 # JFrog OSA Changelog
 
+### [2024.49.0] - 2024-12-05
+
+- Added new execution `codeScoringVersion`, allowing to find out the plugin version. To do this, run the command:
+`curl http://localhost:8082/artifactory/api/plugins/execute/codeScoringVersion`. If the version is not displayed, restart JFrog.
+
 ### [2024.48.0] - 2024-11-29
 
 - Added sending to CodeScoring a link to the artifact and the user downloading it. Compatible with installation version 2024.48.0 and higher
