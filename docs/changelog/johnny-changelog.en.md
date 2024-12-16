@@ -4,6 +4,16 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.48.2] - 2024-12-13
+
+- Fixed crash when processing some `gradle-dependency-tree.txt` files
+- Fixed parsing of npm and yarn lock files paired with a manifest
+
+### [2024.48.1] - 2024-12-10
+
+- Added support for multiple versions of a single package in the `poetry.lock` file
+- Added the ability to run without waiting for analysis results (`--no-wait` parameter)
+
 ### [2024.48.0] – 2024-11-29
 
 - Added support for parsing Conda ecosystem manifests: `environment.yml`, `meta.yml`, `conda-lock.yml`
