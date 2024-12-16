@@ -6,7 +6,7 @@ hide:
 
 ### [2024.49.0] - 2024-12-05
 
-- Добавлен новый execution `codeScoringVersion`, позволяющий узнать версию плагина. Для этого выполните команду:  
+- Добавлен новый метод `codeScoringVersion`, позволяющий узнать версию плагина. Для этого выполните команду:  
 `curl http://localhost:8082/artifactory/api/plugins/execute/codeScoringVersion`. Если версия не отображается, перезагрузите JFrog.
 
 ### [2024.48.0] - 2024-11-29
