@@ -4,6 +4,10 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.48.1] - 2024-12-04
+
+- Fixed a bug when starting an image scan from the UI
+
 ### [2024.48.0] - 2024-11-30
 
 - Added the ability to send webhooks for key events in the system

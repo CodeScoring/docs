@@ -4,12 +4,17 @@ hide:
 ---
 # Nexus OSA Changelog
 
+### [2024.49.0] - 2024-12-05
+
+- Добавлена отправка в CodeScoring ссылки на пакет и пользователя, скачивающего его. Cовместимо с версией инсталляции 2024.48.0 и выше
+- Добавлена поддержка Nexus 3.75
+
 ### [2024.46.0] - 2024-11-15
 
-- Добавлена поддержка PHP Composer репозиториев. Доступно при использовании [community-плагина](https://github.com/sonatype-nexus-community/nexus-repository-composer/tree/master))
+- Добавлена поддержка PHP Composer репозиториев. Доступно при использовании [community-плагина](https://github.com/sonatype-nexus-community/nexus-repository-composer/tree/master)
 - Обновлена поддержка совместимости плагина с разными версиями Nexus Repository:
-  - для Nexus Repository OSS **3.71+** и Nexus Repository Pro версий с **3.33.1-01** по **3.71+** выпущена версия плагина с поддержкой H2 и PostgreSQL
-  - для Nexus Repository OSS версий с **3.33.1-01** по **3.70.Х** выделена legacy версия плагина с поддержкой OrientDB
+    - для Nexus Repository OSS **3.71+** и Nexus Repository Pro версий с **3.33.1-01** по **3.71+** выпущена версия плагина с поддержкой H2 и PostgreSQL
+    - для Nexus Repository OSS версий с **3.33.1-01** по **3.70.Х** выделена legacy версия плагина с поддержкой OrientDB
 
 ### [2024.42.0] - 2024-10-16
 

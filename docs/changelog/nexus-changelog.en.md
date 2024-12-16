@@ -4,12 +4,17 @@ hide:
 ---
 # Nexus OSA Changelog
 
+### [2024.49.0] - 2024-12-05
+
+- Added sending to CodeScoring a link to the package and the user downloading it. Compatible with installation version 2024.48.0 and higher
+- Added support for Nexus 3.75
+
 ### [2024.46.0] - 2024-11-15
 
-- Added support for PHP Composer repositories. Available when using [community plugin](https://github.com/sonatype-nexus-community/nexus-repository-composer/tree/master))
+- Added support for PHP Composer repositories. Available when using [community plugin](https://github.com/sonatype-nexus-community/nexus-repository-composer/tree/master)
 - Updated support for plugin compatibility with different versions of Nexus Repository:
-    - for Nexus Repository OSS **3.71+** and Nexus Repository Pro versions from **3.33.1-01** to **3.71+**, a version of the plugin with H2 and PostgreSQL support has been released
-    - for Nexus Repository OSS versions from **3.33.1-01** to **3.70.Х**, a legacy version of the plugin with OrientDB support has been allocated
+        - for Nexus Repository OSS **3.71+** and Nexus Repository Pro versions from **3.33.1-01** to **3.71+**, a version of the plugin with H2 and PostgreSQL support has been released
+        - for Nexus Repository OSS versions from **3.33.1-01** to **3.70.Х**, a legacy version of the plugin with OrientDB support has been allocated
 
 ### [2024.42.0] - 2024-10-16
 
