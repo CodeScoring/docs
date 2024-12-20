@@ -15,7 +15,10 @@ hide:
 - **stage** – этап разработки. Возможные значения: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
 - **bom-path** – путь (с названием файла), по которому будет сохраняться сформированный файл `bom.json`;
 - **bom-format** – формат формируемого SBoM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
-- **timeout** – ограничение по времени ожидания анализа (в секундах).
+- **timeout** – ограничение по времени ожидания анализа (в секундах);
+- **branch-or-tag** – ссылка на ветку репозитория или тег, например `refs/tags/v1.0` (для команд `scan dir` и `scan file`);
+- **commit** – хэш коммита в системе контроля версий (для команд `scan dir` и `scan file`);
+- **hash** – хэш образа (для команды `scan image`).
 
 ### Общие параметры сканирования
 
@@ -86,6 +89,12 @@ analysis:
   bom-format: cyclonedx_v1_6_json
   # Timeout of analysis results waiting in seconds
   timeout: 3600
+  # Reference to repository branch or tag (e.g. refs/tags/v1.0). For scan dir and scan file commands
+  branch-or-tag: ""
+  # Commit. For scan dir and scan file commands
+  commit: ""
+  # Hash. For scan image command
+  hash: ""
 # scan options
 scan:
   # general scan options

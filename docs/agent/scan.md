@@ -8,7 +8,7 @@ hide:
 Запуск агента производится при помощи команды `scan` с четыремя возможными вариантами сканирования:
 
 - `scan dir` – [сканирование директории](/agent/scan-dir/);
-- `scan file` – сканирование файла;
+- `scan file` – [сканирование файла](/agent/scan-file);
 - `scan image` – [сканирование контейнерного образа](/agent/scan-docker);
 - `scan bom` – сканирование SBoM.
 
@@ -27,7 +27,7 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2024.44.0
+Version: 2024.48.2
 
 Usage:
    scan [command]
@@ -50,6 +50,8 @@ Global Flags:
       --bom-path string                   Path for save bom file (default "bom.json")
       --composer-path string              Path to composer for resolve (default "composer")
       --composer-resolve                  Enable resolve using composer
+      --conda-lock-path string            Path to conda-lock for resolve (default "conda-lock")
+      --conda-resolve                     Enable resolve using conda-lock
       --config string                     Config file (default "codescoring-johnny-config.yaml")
       --create-project                    Create project in CodeScoring if not exists
       --debug                             Output detailed log
@@ -67,6 +69,7 @@ Global Flags:
       --maven-path string                 Path to mvn for resolve (default "mvn")
       --maven-resolve                     Enable resolve using mvn
       --no-summary                        Do not print summary
+      --no-wait                           No wait analysis results
       --npm-path string                   Path to npm for resolve (default "npm")
       --npm-resolve                       Enable resolve using npm
       --only-hashes                       Search only for direct inclusion of dependencies using file hashes
