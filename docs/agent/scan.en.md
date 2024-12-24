@@ -27,13 +27,14 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2024.44.0
+Version: 2024.52.0
 
 Usage:
    scan [command]
 
 Available Commands:
   bom         Scan bom
+  build       Scan build
   dir         Scan directory
   file        Scan file
   image       Scan image
@@ -50,12 +51,14 @@ Global Flags:
       --bom-path string                   Path for save bom file (default "bom.json")
       --composer-path string              Path to composer for resolve (default "composer")
       --composer-resolve                  Enable resolve using composer
+      --conda-lock-path string            Path to conda-lock for resolve (default "conda-lock")
+      --conda-resolve                     Enable resolve using conda-lock
       --config string                     Config file (default "codescoring-johnny-config.yaml")
       --create-project                    Create project in CodeScoring if not exists
       --debug                             Output detailed log
       --dotnet-path string                Path to dotnet for resolve (default "dotnet")
       --dotnet-resolve                    Enable resolve using dotnet
-  -f, --format string                     Report format. Supported formats: coloredtable, table, text, junit, sarif, csv. Default output to console. Supports multiformat. Example: 'coloredtable,junit>>junit.xml'  (default "coloredtable")
+  -f, --format string                     Report format. Supported formats: coloredtable, table, text, junit, sarif, csv, gl-dependency-scanning-report, gl-code-quality-report. Default output to console. Supports multiformat. Example: 'coloredtable,junit>>junit.xml'  (default "coloredtable")
       --gdt-match string                  Section in gradle dependency tree for scan. By default - parse all sections
       --go-path string                    Path to go for resolve (default "go")
       --go-resolve                        Enable resolve using go
@@ -67,6 +70,7 @@ Global Flags:
       --maven-path string                 Path to mvn for resolve (default "mvn")
       --maven-resolve                     Enable resolve using mvn
       --no-summary                        Do not print summary
+      --no-wait                           No wait analysis results
       --npm-path string                   Path to npm for resolve (default "npm")
       --npm-resolve                       Enable resolve using npm
       --only-hashes                       Search only for direct inclusion of dependencies using file hashes

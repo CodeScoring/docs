@@ -58,7 +58,7 @@ hide:
 
 ### Параметры вывода результатов
 
-- **format** – формат вывода. По умолчанию `coloredtable`;
+- **format** – формат вывода. По умолчанию `coloredtable`. Возможна выгрузка в форматы `table`, `text`, `junit`, `sarif`, `csv`, `gl-dependency-scanning-report`, `gl-code-quality-report`;
 - **group-vulnerabilities-by** – переменная для группировки уязвимостей в таблице;
 - **sort-vulnerabilities-by** – порядок переменных для сортировки уязвимостей в таблице.
 

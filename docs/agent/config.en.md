@@ -60,7 +60,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 
 ### Results output options
 
-- **format** – output format. Default value is `coloredtable`;
+- **format** – output format. Default value is `coloredtable`. It is possible to export to the following formats: `table`, `text`, `junit`, `sarif`, `csv`, `gl-dependency-scanning-report`, `gl-code-quality-report`;
 - **group-vulnerabilities-by** – variable for grouping vulnerabilities in the table;
 - **sort-vulnerabilities-by** – order of variables for sorting vulnerabilities in the table.
 
