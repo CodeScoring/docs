@@ -4,6 +4,22 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.52.0] - 2024-12-24
+
+- Added [scan build](/agent/scan-build.en) command for build analysis for C and C++ languages
+- Added new formats for exporting work results: [GitLab Dependency Scanning Report](https://docs.gitlab.com/ee/user/application_security/dependency_scanning/) and [GitLab Code Quality Report](https://docs.gitlab.com/ee/ci/testing/code_quality.html)
+- Added handling of the `--ignore` parameter when scanning archives and files inside images
+- Added the ability to specify a link to a branch/tag and commit using the `branch-or-tag` and `commit` parameters when scanning a file and directory
+- Added the ability to specify a hash using the `hash` parameter when scanning images
+- Added the ability to specify a policy stage when creating a CLI project
+- Added specifying paths to manifests inside scanned images where information about a vulnerable package was found
+- Added paths to manifests where a vulnerable package was found in `sarif` format
+- Fixed crash when processing an incorrect file in `yaml` format
+- Added handling of an error that occurs when a file was deleted during scanning
+- Fixed the presence of extra characters when unloading in `sarif` format
+- Fixed environment detection when parsing Poetry manifests
+- Fixed scanning of RedHat-based images
+
 ### [2024.48.2] - 2024-12-13
 
 - Fixed crash when processing some `gradle-dependency-tree.txt` files
