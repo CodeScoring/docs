@@ -15,5 +15,7 @@ The documentation contains general information for working with the **CodeScorin
  - [Getting started](/on-premise/how-to/activation.en)
  - [OSA module](/osa/index.en)
  - [CLI agent](/agent/index.en)
+ - [Secrets module](/secrets/index.en)
+ - [Changelog](/changelog/on-premise-changelog.en)
 
 In case of any questions, please write to <hello@codescoring.ru>.

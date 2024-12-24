@@ -54,8 +54,8 @@ As a result of the work, the agent displays one of three codes:
 The **scan build** command has four unique options:
 
 - `--build-result` – input is the result of the previous build process, including compiled artifacts.
-- `-L, --lib-versions string` – path to a JSON file with a list of versions of the libraries being analyzed.
-- `--output string` – path to a file where the scan results will be saved.
-- `-U, --unresolved-file string` – path to a file where information about libraries with unresolved versions will be saved.
+- `--lib-versions` – path to a JSON file with a list of versions of the libraries being analyzed.
+- `--output` – path to a file where the scan results will be saved.
+- `--unresolved-file` – path to a file where information about libraries with unresolved versions will be saved.
 
 For a summary of available command options and usage instructions, you can call the command with the `-h, --help` flag.

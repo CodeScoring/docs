@@ -500,6 +500,20 @@ codescoring:
           ...
 ```
 
+## Secret Management {#secret-management}
+
+By default, the **Secret** objects are created for `ipcs-backend`, `ipcs-pgcat` and `postgresql` templates. The values for their variables are provided in the values file. 
+
+It is also possible to use external secret storages. To achieve that, it is necessary to have an **External Secrets Operator (ESO)** installed in the cluster. It adds all required CRDs (Custom Resource Definitions) to the cluster and connects to an external secret provider. 
+
+In order to connect ESO to an external secret storage, you must configure a provider for the **SecretStore** in the `codescoring.secretStore` block. 
+
+Next, you need to configure the **ExternalSecret** objects to fetch secrets from the external provider in the `codescoring.config.externalSecret,` `codescoring.pgcat.externalSecret`, `postgresql.externalSecret` blocks. 
+
+All the configurations must be made in accordance with the official ESO documentation. 
+
+**Important!**: Some providers may bill requests to secret storages. The request interval can be configured using the `externalSecret.refreshInterval` parameter for each particular service. 
+
 ## Upgrading CodeScoring {#update}
 
 In order to upgrade CodeScoring you need to actualize the helm repository by running

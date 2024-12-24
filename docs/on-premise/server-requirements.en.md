@@ -10,7 +10,9 @@ Installation of the on-premise version is possible on **GNU/Linux** distribution
 
 ## Server resources
 
-**General resource recommendation: 16Gb RAM, 8 CPU cores.**
+Minimum requirements to run: **16Gb RAM, 8 CPU cores**.
+
+Recommended requirements: **32Gb RAM, 16 CPU cores**.
 
 Additionally, make sure that the space where the directory with docker data is located (data-root docker, by default /var) has at least **20Gb of memory**. At the same time, for smooth operation of the system, it is necessary to reserve **disk space based on the size of the analyzed repositories, multiplied by three**.
 
