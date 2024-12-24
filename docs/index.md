@@ -15,6 +15,8 @@ hide:
  - [Настройка и применение](on-premise/how-to/activation)
  - [Модуль OSA](osa)
  - [Консольный агент](agent)
+ - [Модуль Secrets](secrets)
+ - [История обновлений](changelog/on-premise-changelog)
 
 По всем вопросам пишите на <hello@codescoring.ru>.
 
