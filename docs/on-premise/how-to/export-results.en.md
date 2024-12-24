@@ -57,7 +57,7 @@ The values entered are taken into account:
 - during subsequent scans of the project;
 - when scanning the project via the Johnny console agent.
 
-**Important**: Changes to values do not apply to previous scans of the project.
+**Important**: Changes to values do not apply to previous scans of the project and only relate to the SBoM of the current project, even if a dependency is used in multiple projects.
 
 ### VCS
 
