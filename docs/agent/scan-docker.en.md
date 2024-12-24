@@ -2,7 +2,7 @@
 hide:
   - footer
 ---
-# Scanning a Docker image
+# Scanning a container image
 
 The agent supports image scanning functionality in the OCI and Docker standards and can be launched in one of the following ways, indicating:
 
@@ -58,3 +58,13 @@ or through similar variables in the config file:
 ## Scanning the file system inside a Docker image
 
 To scan files inside an image, you need to add the `--scan-files` parameter to the command or specify the `scan-files` variable in the `image` section in the config file.
+
+When scanning a file system, you can use the `--ignore` option to exclude specific files from analysis. For example:
+
+```bash
+./johnny scan image ./my_own.tar \
+--api_url <api_url> \
+--api_token <api_token> \
+--scan-files \
+--ignore "**/node_modules"
+```

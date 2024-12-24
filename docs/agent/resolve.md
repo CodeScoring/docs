@@ -17,6 +17,9 @@ hide:
 - Poetry
 - sbt
 - yarn
+- pip
+- Composer
+- pnpm
 - Conda
 
 Параметры разрешения зависимостей в окружении и пути к пакетному менеджеру регулируются следующими флагами в команде `scan`:
@@ -29,6 +32,9 @@ hide:
 - `--poetry-resolve` / `--poetry-path`
 - `--sbt-resolve` / `--sbt-path`
 - `--yarn-resolve` / `--yarn-path`
+- `--pip-resolve` / `--pip-path`
+- `--composer-resolve` / `--composer-path`
+- `--pnpm-resolve` / `--pnpm-path`
 - `--conda-resolve` / `--conda-lock-path`
 
 Пример команды:
