@@ -9,8 +9,8 @@ hide:
 - Added separation of modules in the menu
 - Added separate project lists in the SCA, TQI and Secrets modules
 - Added support for the Conda ecosystem
-- Added editing of container image dependencies for SBoM dump
-- Added multiple selection of projects and images in the creation of an ignore policy
+- Added editing of container image dependencies for SBoM export
+- Added multiple selection of projects and images in the creation of Policy Ignore
 - Added the ability to specify a policy stage when creating a CLI project
 - Added the ability to filter lists in the Vulnerabilities, Policy Alerts and Projects sections by multiple Severity, Policy and Technology values
 - Added saving and displaying SBoM editing in the audit log
@@ -18,10 +18,10 @@ hide:
 - Added filter by image tag to Container Images section
 - Added dates of first and last SCA scan to projects list
 - Implemented ability to add projects to existing groups via API, interface and console agent options for users with active flag **Can create CLI projects via API* *
-- The full display of the secret in the section has been moved to a separate window Secrets
-- Added installation translation into Russian
+- The full display of the secret in the section has been moved to a separate Secrets window
+- Updated translation into Russian
 - Added validation of API token update
-- Changed the format of the recommendation field in the SBoM CycloneDX format dump to correctly handle cases where a vulnerability affects several versions of the same library
+- Changed the format of the recommendation field in the SBoM CycloneDX format export to correctly handle cases where a vulnerability affects several versions of the same library
 - Fixed an error creating a task in Jira when a policy is triggered
 - Fixed an error filtering by status in Policy Alerts section when resetting filters
 - URL input errors are now shown after input is complete
