@@ -90,6 +90,7 @@ plugins:
           agent: "CLI agent Johnny"
           agent-general: "General"
           agent-config: "Configuration"
+          agent-variables: "Setting environment variables"
           agent-scan: "Scan command"
           agent-scan-dir: "Scanning a directory"
           agent-scan-file: "Scanning a file"
@@ -160,6 +161,7 @@ plugins:
           agent: "Консольный агент Johnny"
           agent-general: "Общее"
           agent-config: "Настройка через конфигурационный файл"
+          agent-variables: "Настройка через переменные окружения"
           agent-scan: "Команда сканирования"
           agent-scan-dir: "Сканирование директории"
           agent-scan-file: "Сканирование файла"
@@ -267,6 +269,8 @@ nav:
     - agent-general: agent/index.en.md
     - agent-config: agent/config.md
     - agent-config: agent/config.en.md
+    - agent-varables: agent/env-variables.md
+    - agent-variables: agent/env-variables.en.md
     - agent-scan: agent/scan.md
     - agent-scan: agent/scan.en.md
     - agent-scan-dir: agent/scan-dir.md

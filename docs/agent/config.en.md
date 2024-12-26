@@ -642,3 +642,11 @@ cli:
   # API token for integration with CodeScoring server
   api_token: example_token
 ```
+
+### Priority of settings
+
+Since the agent startup parameters can be configured in three ways, when using several methods simultaneously, the agent will accept parameters in the following order of priority:
+
+1. Value of the [command flag](/agent/scan.en);
+2. Value of the [environment variable](/agent/env-variables.en);
+3. Value in config file.
