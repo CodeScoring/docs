@@ -113,3 +113,11 @@ Depending on the run result and launch parameters, the agent returns the corresp
 - 1: issues found after a successful run, user action required;
 - 2: run failure;
 - 3: empty result, no artifacts were found for analysis. Returned only if the `--block-on-empty-result` parameter is set to `true`.
+
+### Priority of settings
+
+Since the agent startup parameters can be configured in three ways, when using several methods simultaneously, the agent will accept parameters in the following order of priority:
+
+1. Value of the command flag;
+2. Value of the [environment variable](/agent/env-variables.en);
+3. Value in [config file](/agent/config.en).
