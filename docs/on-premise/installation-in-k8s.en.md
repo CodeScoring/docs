@@ -522,7 +522,7 @@ The ServiceMonitor can be configured in the following values sections: `codescor
 
 In addition there are **PrometheusRule** resources provided for the abovementioned services. They are required for the alerting rule setup and can be configured in the following values sections: `codescoring.backend.prometheus.alerts`, `codescoring.osa_api.prometheus.alerts`.
 
-All the settings must be adjusted in accordance with the official Prometheus Operator documentation.
+All the settings must be adjusted in accordance with the [official Prometheus Operator documentation](https://prometheus-operator.dev/docs/).
 
 ## Upgrading CodeScoring {#update}
 

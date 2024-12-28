@@ -548,7 +548,7 @@ codescoring:
 
 Также для вышеуказанных сервисов предусмотрены ресурсы **PrometheusRule**, необходимые для настройки правил алертинга. Настройка данных ресурсов осуществляется в следующих разделах values: `codescoring.backend.prometheus.alerts`, `codescoring.osa_api.prometheus.alerts`. 
 
-Все настройки осуществляются в соответствии с документацией Prometheus Operator. 
+Все настройки осуществляются в соответствии с [документацией Prometheus Operator](https://prometheus-operator.dev/docs/). 
 
 ## Обновление системы {#update}
 
