@@ -4,7 +4,7 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
-### [2024.52.0] - 2024-12-??
+### [2024.52.0] - 2024-12-28
 
 - Added separation of modules in the menu
 - Added separate project lists in the SCA, TQI and Secrets modules
