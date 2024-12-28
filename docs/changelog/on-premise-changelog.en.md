@@ -4,6 +4,28 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.52.0] - 2024-12-??
+
+- Added separation of modules in the menu
+- Added separate project lists in the SCA, TQI and Secrets modules
+- Added support for the Conda ecosystem
+- Added editing of container image dependencies for SBoM export
+- Added multiple selection of projects and images in the creation of Policy Ignore
+- Added the ability to specify a policy stage when creating a CLI project
+- Added the ability to filter lists in the Vulnerabilities, Policy Alerts and Projects sections by multiple Severity, Policy and Technology values
+- Added saving and displaying SBoM editing in the audit log
+- Added displaying the name of CLI projects in the audit log
+- Added filter by image tag to Container Images section
+- Added dates of first and last SCA scan to projects list
+- Implemented ability to add projects to existing groups via API, interface and console agent options for users with active flag **Can create CLI projects via API* *
+- The full display of the secret in the section has been moved to a separate Secrets window
+- Updated translation into Russian
+- Added validation of API token update
+- Changed the format of the recommendation field in the SBoM CycloneDX format export to correctly handle cases where a vulnerability affects several versions of the same library
+- Fixed an error creating a task in Jira when a policy is triggered
+- Fixed an error filtering by status in Policy Alerts section when resetting filters
+- URL input errors are now shown after input is complete
+
 ### [2024.48.1] - 2024-12-04
 
 - Fixed a bug when starting an image scan from the UI
