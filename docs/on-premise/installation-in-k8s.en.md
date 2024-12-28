@@ -514,6 +514,16 @@ All the configurations must be made in accordance with the official ESO document
 
 **Important!**: Some providers may bill requests to secret storages. The request interval can be configured using the `externalSecret.refreshInterval` parameter for each particular service. 
 
+## Monitoring {#monitoring}
+
+For metrics collection purpose there are the **ServiceMonitor** resources provided in the chart. The metrics are collected from the backend and the osa-api services. 
+
+The ServiceMonitor can be configured in the following values sections: `codescoring.backend.prometheus.serviceMonitor`, `codescoring.osa_api.prometheus.serviceMonitor`.
+
+In addition there are **PrometheusRule** resources provided for the abovementioned services. They are required for the alerting rule setup and can be configured in the following values sections: `codescoring.backend.prometheus.alerts`, `codescoring.osa_api.prometheus.alerts`.
+
+All the settings must be adjusted in accordance with the [official Prometheus Operator documentation](https://prometheus-operator.dev/docs/).
+
 ## Upgrading CodeScoring {#update}
 
 In order to upgrade CodeScoring you need to actualize the helm repository by running

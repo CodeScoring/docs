@@ -540,6 +540,16 @@ codescoring:
 
 **Важно!**: Некоторые провайдеры могут тарифицировать запросы к хранилищам секретов. Интервал запроса данных регулируется параметром `externalSecret.refreshInterval` для каждого отдельного сервиса. 
 
+## Мониторинг {#monitoring}
+
+Для сбора метрик с сервисов в чарте предусмотрены ресурсы **ServiceMonitor**. Метрики собираются с сервисов `backend` и `osa-api`. Для использования **ServiceMonitor** в кластере должен быть установлен и настроен Prometheus Operator. 
+
+**ServiceMonitor** настраивается в следующих разделах values: `codescoring.backend.prometheus.serviceMonitor`, `codescoring.osa_api.prometheus.serviceMonitor`. 
+
+Также для вышеуказанных сервисов предусмотрены ресурсы **PrometheusRule**, необходимые для настройки правил алертинга. Настройка данных ресурсов осуществляется в следующих разделах values: `codescoring.backend.prometheus.alerts`, `codescoring.osa_api.prometheus.alerts`. 
+
+Все настройки осуществляются в соответствии с [документацией Prometheus Operator](https://prometheus-operator.dev/docs/). 
+
 ## Обновление системы {#update}
 
 Для обновления системы необходимо актуализировать helm-репозиторий командой 
