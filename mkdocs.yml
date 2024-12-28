@@ -269,7 +269,7 @@ nav:
     - agent-general: agent/index.en.md
     - agent-config: agent/config.md
     - agent-config: agent/config.en.md
-    - agent-varables: agent/env-variables.md
+    - agent-variables: agent/env-variables.md
     - agent-variables: agent/env-variables.en.md
     - agent-scan: agent/scan.md
     - agent-scan: agent/scan.en.md
