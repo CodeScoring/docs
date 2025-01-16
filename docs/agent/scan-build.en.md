@@ -43,19 +43,21 @@ Then the build analysis command is called and the path to the config file is spe
 ./johnny scan build ./buildConfig.json
 ```
 
+**Important**: the command is intended for use in Linux-based operating systems only.
+
 As a result of the work, the agent displays one of three codes:
 
 - **0** – successful analysis, no problems were found in the build;
 - **1** – problems were found in the build, action is required;
 - **2** – analysis failed.
 
-## Analysis command options
+## Сommand parameters
 
-The **scan build** command has four unique options:
+The **scan build** command has four unique parameters, in addition to [general scan command settings](/agent/scan.en/#launch-options:
 
-- `--build-result` – input is the result of the previous build process, including compiled artifacts.
-- `--lib-versions` – path to a JSON file with a list of versions of the libraries being analyzed.
-- `--output` – path to a file where the scan results will be saved.
+- `--build-result` – input is the result of the previous build process, including compiled artifacts;
+- `--lib-versions` – path to a JSON file with a list of versions of the libraries being analyzed;
+- `--output` – path to a file where the scan results will be saved;
 - `--unresolved-file` – path to a file where information about libraries with unresolved versions will be saved.
 
 For a summary of available command options and usage instructions, you can call the command with the `-h, --help` flag.
