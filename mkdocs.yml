@@ -102,6 +102,7 @@ plugins:
           agent-jenkins: "Integration into Jenkins Pipeline"
           agent-gitflic-ci: "Integration into GitFlic CI"
           agent-save-results: "Saving scan results"
+          agent-export: "Exporting scan results"
           agent-resolve: "Resolving dependencies"
           secrets: "CodeScoring Secrets"
           secrets-general: "General"
@@ -173,6 +174,7 @@ plugins:
           agent-jenkins: "Добавление в Jenkins"
           agent-gitflic-ci: "Добавление в GitFlic CI"
           agent-save-results: "Сохранение результатов сканирования"
+          agent-export: "Экспорт результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
           secrets: "CodeScoring Secrets"
           secrets-general: "Общее"
@@ -293,6 +295,8 @@ nav:
     - agent-gitflic-ci: agent/gitflic-ci.en.md
     - agent-save-results: agent/save-results.md
     - agent-save-results: agent/save-results.en.md
+    - agent-export: agent/export.md
+    - agent-export: agent/export.en.md
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
   - secrets:
