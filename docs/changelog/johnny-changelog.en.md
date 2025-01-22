@@ -4,6 +4,10 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.52.1] - 2025-01-16
+
+- Fixed handling of multiple `gradle.lockfile` files per module
+
 ### [2024.52.0] - 2024-12-24
 
 - Added [scan build](/agent/scan-build.en) command for build analysis for C and C++ languages
