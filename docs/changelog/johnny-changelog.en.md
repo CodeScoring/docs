@@ -6,7 +6,7 @@ hide:
 
 ### [2024.52.1] - 2025-01-16
 
-- Fixed handling of multiple `gradle.lockfile` files
+- Fixed handling of multiple `gradle.lockfile` files per module
 
 ### [2024.52.0] - 2024-12-24
 
