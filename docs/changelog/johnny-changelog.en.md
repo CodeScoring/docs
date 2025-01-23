@@ -4,6 +4,10 @@ hide:
 ---
 # Johnny Changelog
 
+### [2024.52.2] - 2025-01-23
+
+- Fixed tasks-policy queue growth when parsing container images
+
 ### [2024.52.1] - 2025-01-16
 
 - Fixed handling of multiple `gradle.lockfile` files per module
