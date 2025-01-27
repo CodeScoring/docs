@@ -6,14 +6,9 @@ hide:
 
 ### [2024.52.1] - 2025-01-24
 
-- Fixed image scanning time increase
-- Changed approach to image policy recalculation when updating package vulnerability information, so that policies for the same images are not recalculated multiple times
-- A separate queue (celery) is now used for rescanning packages, so as not to load the package scanning queue in OSA
-- Added commands:
-  - To get a list of huey queues: `./manage.py runscript get_huey_queues`
-  - To reset the huey queue: `./manage.py runscript reset_huey_queue --script-args queue1 queue2`
-  - To reset the key with the date of the last package vulnerability update: `./manage.py runscript delete_vulnerable_dependency_updater_cache_key`
-  - To run an unscheduled package vulnerability update: `./manage.py runscript run_update_vulnerable_dependencies`
+- Fixed a bug that could lead to a sharp increase in container image scanning time
+- Changed the approach to background policy recalculation for container images in the OSA module to optimize speed and resource consumption
+- Added a separate queue for background package rescanning in the OSA module to unload the main queue
 
 ### [2024.52.0] - 2024-12-28
 
