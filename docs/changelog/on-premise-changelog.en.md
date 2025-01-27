@@ -4,6 +4,12 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2024.52.1] - 2025-01-24
+
+- Fixed a bug that could lead to a sharp increase in container image scanning time
+- Changed the approach to background policy recalculation for container images in the OSA module to optimize speed and resource consumption
+- Added a separate queue for background package rescanning in the OSA module to unload the main queue
+
 ### [2024.52.0] - 2024-12-28
 
 - Added separation of modules in the menu

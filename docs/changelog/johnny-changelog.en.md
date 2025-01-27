@@ -6,7 +6,7 @@ hide:
 
 ### [2024.52.2] - 2025-01-23
 
-- Fixed tasks-policy queue growth when parsing container images
+- Fixed agent behavior that caused installation's tasks-policy queue to grow
 
 ### [2024.52.1] - 2025-01-16
 
