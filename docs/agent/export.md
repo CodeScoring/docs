@@ -9,12 +9,12 @@ hide:
 
 ## Доступные форматы отчетов
 
-- **coloredtable** – цветная таблица в консоли. Формат по умолчанию;
-- **table** – простая таблица;
-- **text** – текстовый отчет;
-- **junit** – стандарт для интеграции с инструментами CI;
-- **sarif** – стандарт для инструментов статического анализа;
-- **csv** – формат CSV;
+- **coloredtable** – цветная таблица в консоли. Формат по умолчанию;  
+- **table** – простая таблица;  
+- **text** – текстовый отчет;  
+- **junit** – используется в CI/CD (Jenkins, GitLab CI, GitHub Actions);  
+- **sarif** – выгружается в DefectDojo, CodeQL, Semgrep;  
+- **csv** – применяется в BI-системах, Excel, Pandas, SQL;
 - **gl-dependency-scanning-report** – формат отчета для [GitLab Dependency Scanning](https://docs.gitlab.com/ee/user/application_security/dependency_scanning/);
 - **gl-code-quality-report** – формат отчета для [GitLab Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html).
 

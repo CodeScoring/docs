@@ -12,9 +12,9 @@ The Johnny console agent supports exporting scan results to several formats. Thi
 - **coloredtable** – colored table in the console. Default format;
 - **table** – simple table;
 - **text** – text report;
-- **junit** – standard for integration with CI tools;
-- **sarif** – standard for static analysis tools;
-- **csv** – CSV format;
+- **junit** – used in CI/CD (Jenkins, GitLab CI, GitHub Actions);
+- **sarif** – unloaded to DefectDojo, CodeQL, Semgrep;
+- **csv** – used in BI systems, Excel, Pandas, SQL;
 - **gl-dependency-scanning-report** – report format for [GitLab Dependency Scanning](https://docs.gitlab.com/ee/user/application_security/dependency_scanning/);
 - **gl-code-quality-report** – report format for [GitLab Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html).
 
