@@ -358,7 +358,7 @@ To manage webhooks, an API is provided at the endpoint `/api/settings/webhooks` 
   "repo_ref_name": "repo_ref_name",
   "error": "error_description"
   ```
-</pre>
+<!--</pre>
       </td>
     </tr>
     <tr>
@@ -471,12 +471,12 @@ To manage webhooks, an API is provided at the endpoint `/api/settings/webhooks` 
         <pre>
   ```
   Empty payload
-  ```
+  ``` -->
  </pre>
       </td>
     </tr>
   </tbody>
-</table>
+</table> 
 
 
 ## Example of a simple Flask application
