@@ -68,3 +68,12 @@ When scanning a file system, you can use the `--ignore` option to exclude specif
 --scan-files \
 --ignore "**/node_modules"
 ```
+
+## Command parameters
+
+The **scan image** command has two unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
+
+- `--hash` – specifying the image hash;
+- `--scan-files` – scanning files in the image.
+
+For a summary of the available command parameters and usage instructions, you can call the command with the `-h, --help` flag.

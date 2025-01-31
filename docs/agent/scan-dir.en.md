@@ -29,3 +29,12 @@ By default, the agent traverses the contents of a directory recursively (includi
 --ignore .tmp --ignore fixtures --ignore .git
 ```
 
+## Command parameters
+
+The **scan dir** command has three unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
+
+- `--branch-or-tag` – a reference to a branch or repository tag (e.g. `refs/tags/v1.0`);
+- `--commit` – specifying a commit hash;
+- `--no-recursion` – disabling recursive directory scanning.
+
+For a summary of available command parameters and usage instructions, you can call the command with the `-h, --help` flag.
