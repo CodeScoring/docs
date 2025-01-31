@@ -383,6 +383,130 @@ Codescoring поддерживает систему оповещений на б
  </pre>
       </td>
     </tr>
+    <tr>
+      <td>Project Secrets analysis started</td>
+      <td>Начался анализ секретов проекта</td>
+      <td>project_secrets_analysis_started</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Project Secrets analysis finished</td>
+      <td>Завершился анализ секретов проекта</td>
+      <td>project_secrets_analysis_finished</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Project Secrets analysis cancelled</td>
+      <td>Анализ секретов проекта был отменен</td>
+      <td>project_secrets_analysis_cancelled</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Project Secrets analysis failed</td>
+      <td>Анализ секретов проекта был завершен с ошибкой</td>
+      <td>project_secrets_analysis_failed</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML model user training run started</td>
+      <td>Началось обучение ML модели для модуля Секретов</td>
+      <td>ml_model_user_secrets_training_run_started</td>
+      <td>
+        <pre>
+  ```
+  Пустой payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML model user training run finished</td>
+      <td>Обучение ML модели для модуля Секретов завершено</td>
+      <td>ml_model_user_secrets_training_run_finished</td>
+      <td>
+        <pre>
+  ```
+  Пустой payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML model user training run cancelled</td>
+      <td>Обучение ML модели для модуля Секретов отменено</td>
+      <td>ml_model_user_secrets_training_run_cancelled</td>
+      <td>
+        <pre>
+  ```
+  Пустой payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML model user training run failed</td>
+      <td>Обучение ML модели для модуля Секретов завершено с ошибкой</td>
+      <td>ml_model_user_secrets_training_run_failed</td>
+      <td>
+        <pre>
+  ```
+  Пустой payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML model user accepted</td>
+      <td>ML модель для модуля Секретов принята</td>
+      <td>ml_model_user_secrets_accepted</td>
+      <td>
+        <pre>
+  ```
+  Пустой payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML model user purged</td>
+      <td>ML модель для модуля Секретов очищена</td>
+      <td>ml_model_user_secrets_purged</td>
+      <td>
+        <pre>
+  ```
+  Пустой payload
+  ```
+ </pre>
+      </td>
+    </tr>
   </tbody>
 </table>
 
