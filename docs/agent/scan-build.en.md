@@ -43,13 +43,13 @@ Then the build analysis command is called and the path to the config file is spe
 ./johnny scan build ./buildConfig.json
 ```
 
-**Important**: the command is intended for use in Linux-based operating systems only.
-
 As a result of the work, the agent displays one of three codes:
 
 - **0** – successful analysis, no problems were found in the build;
 - **1** – problems were found in the build, action is required;
 - **2** – analysis failed.
+
+**Important**: the command is intended for use in Linux-based operating systems only.
 
 ## Сommand parameters
 

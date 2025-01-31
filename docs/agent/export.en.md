@@ -5,7 +5,7 @@ hide:
 
 # Exporting scan results
 
-The Johnny console agent supports exporting scan results to several formats. This allows to adapt reporting to various needs, including integration with vulnerability management systems.
+The Johnny console agent supports exporting scan results in several formats. This allows to adapt reporting to various needs, including integration with vulnerability management systems.
 
 ## Available report formats
 
