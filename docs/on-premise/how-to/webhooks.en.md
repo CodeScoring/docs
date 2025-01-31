@@ -361,6 +361,120 @@ To manage webhooks, an API is provided at the endpoint `/api/settings/webhooks` 
 </pre>
       </td>
     </tr>
+    <tr>
+      <td>Project Secrets analysis started</td>
+      <td>project_secrets_analysis_started</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Project Secrets analysis finished</td>
+      <td>project_secrets_analysis_finished</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Project Secrets analysis cancelled</td>
+      <td>project_secrets_analysis_cancelled</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Project Secrets analysis failed</td>
+      <td>project_secrets_analysis_failed</td>
+      <td>
+        <pre>
+  ```
+  "project_id": 0,
+  "project_name": "project_name"
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML user model training started</td>
+      <td>ml_model_user_secrets_training_run_started</td>
+      <td>
+        <pre>
+  ```
+  Empty payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML user model training finished</td>
+      <td>ml_model_user_secrets_training_run_finished</td>
+      <td>
+        <pre>
+  ```
+  Empty payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML user model training cancelled</td>
+      <td>ml_model_user_secrets_training_run_cancelled</td>
+      <td>
+        <pre>
+  ```
+  Empty payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML model user training run failed</td>
+      <td>ml_model_user_secrets_training_run_failed</td>
+      <td>
+        <pre>
+  ```
+  Empty payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML user model accepted</td>
+      <td>ml_model_user_secrets_accepted</td>
+      <td>
+        <pre>
+  ```
+  Empty payload
+  ```
+ </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Secrets ML user model purged</td>
+      <td>ml_model_user_secrets_purged</td>
+      <td>
+        <pre>
+  ```
+  Empty payload
+  ```
+ </pre>
+      </td>
+    </tr>
   </tbody>
 </table>
 
