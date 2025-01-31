@@ -380,8 +380,7 @@ Codescoring поддерживает систему оповещений на б
   "repo_ref_name": "repo_ref_name",
   "error": "error_description"
   ```
-
- <!--</pre>
+ </pre>
       </td>
     </tr>
     <tr>
@@ -504,7 +503,7 @@ Codescoring поддерживает систему оповещений на б
         <pre>
   ```
   Пустой payload
-  ``` -->
+  ```
  </pre>
       </td>
     </tr>
