@@ -35,7 +35,7 @@ The map can be filtered by the following parameters:
 
 ![Contribution map](/assets/img/tqi/en/contribution-map.png)
 
-The map can be saved as a PNG image, or downloaded in html format.
+The map can be saved as a PNG image, or downloaded in HTML format.
 
 ## Author page
 

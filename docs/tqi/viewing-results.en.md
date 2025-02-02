@@ -74,7 +74,7 @@ The activity map is available in the `TQI –> Projects` section on the **Activi
 
 ![Contribution map](/assets/img/tqi/en/contribution-map.png)
 
-The map can be saved as a PNG image, or downloaded in html format.
+The map can be saved as a PNG image, or downloaded in HTML format.
 
 ### Complexity map
 
@@ -86,4 +86,4 @@ The complexity map is available in the `TQI –> Projects` section on the **Comp
 
 ![Complexity map](/assets/img/tqi/en/contribution-map.png)
 
-The map can be saved as a PNG image, or downloaded in html format.
+The map can be saved as a PNG image, or downloaded in HTML format.
