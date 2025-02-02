@@ -113,6 +113,13 @@ plugins:
           secrets-cli: "Importing report to a CLI project"
           secrets-findings: "Working with findings"
           secrets-model: "Managing ML Model"
+          tqi: "CodeScoring TQI"
+          tqi-general: "General description"
+          tqi-analysis: "Launching TQI analysis"
+          tqi-results: "Viewing analysis results"
+          tqi-authors: "Building author profiles"
+          tqi-clones: "Tracking code clones"
+          tqi-metrics: "Calculating technical debt metrics"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
@@ -186,6 +193,13 @@ plugins:
           secrets-cli: "Загрузка отчета в CLI проект"
           secrets-findings: "Работа с найденными секретами"
           secrets-model: "Управление моделью машинного обучения"
+          tqi: "CodeScoring TQI"
+          tqi-general: "Общее описание"
+          tqi-analysis: "Запуск TQI анализа"
+          tqi-results: "Просмотр результатов анализа"
+          tqi-authors: "Построение профилей авторов"
+          tqi-clones: "Отслеживание дубликатов кода"
+          tqi-metrics: "Расчет метрик технического долга"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Nexus OSA"
@@ -318,6 +332,19 @@ nav:
     - secrets-findings: secrets/secrets-findings.en.md
     - secrets-model: secrets/secrets-model.md
     - secrets-model: secrets/secrets-model.en.md
+  - tqi:
+    - tqi-general: tqi/index.md
+    - tqi-general: tqi/index.en.md
+    - tqi-analysis: tqi/launch-analysis.md
+    - tqi-analysis: tqi/launch-analysis.en.md
+    - tqi-results: tqi/viewing-results.md
+    - tqi-results: tqi/viewing-results.en.md
+    - tqi-authors: tqi/authors.md
+    - tqi-authors: tqi/authors.en.md
+    - tqi-clones: tqi/clones.md
+    - tqi-clones: tqi/clones.en.md
+    - tqi-metrics: tqi/metrics.md
+    - tqi-metrics: tqi/metrics.en.md
   - changelog:
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
