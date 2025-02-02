@@ -61,6 +61,6 @@ This indicator evaluates the extent to which duplicated code is distributed thro
 
 Categories:
 
-**Low level** - if there are less than 50 duplicated lines.
-**Medium level** - if there are from 50 to 300 duplicated lines.
-**High level** - if there are more than 300 duplicated lines.
+- **Low level** - if there are less than 50 duplicated lines;
+- **Medium level** - if there are from 50 to 300 duplicated lines;
+- **High level** - if there are more than 300 duplicated lines.
