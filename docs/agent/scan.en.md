@@ -10,7 +10,7 @@ The agent is launched using the `scan` command with four possible scanning optio
 - `scan dir` – [scanning a directory](/agent/scan-dir.en/);
 - `scan file` – [scanning a file](/agent/scan-file.en);
 - `scan image` – [scanning a container image](/agent/scan-docker.en);
-- `scan bom` – scanning a SBoM.
+- `scan bom` – [scanning a SBoM](/agent/scan-bom.en).
 
 ## Launch options
 
