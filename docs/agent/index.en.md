@@ -7,7 +7,7 @@ hide:
 
 The CLI agent **Johnny** is provided with the on-premise version of CodeScoring.
 
-Agent is an executable binary file that parses manifests of known package managers, scans Docker images and searches for direct inclusions of Open Source libraries using hashes. The agent can work both independently of the installation and in tandem with it, receiving data about configured policies and saving scan results to existing projects.
+Agent is an executable binary file that parses manifests of well-known package managers, scans Docker images, analyzes C and C++ builds, parses archives, and searches for direct inclusions of Open Source libraries by hashes. The agent works in tandem with the installation, receiving enriched data on vulnerabilities, licenses, and configured policies from it, and saving scan results to CLI projects.
 
 By default, the agent build is provided for Linux-compatible systems. Builds for Windows and MacOS are available upon request.
 
