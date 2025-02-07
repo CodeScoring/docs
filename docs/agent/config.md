@@ -16,9 +16,9 @@ hide:
 - **bom-path** – путь (с названием файла), по которому будет сохраняться сформированный файл `bom.json`;
 - **bom-format** – формат формируемого SBoM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
 - **timeout** – ограничение по времени ожидания анализа (в секундах);
-- **branch-or-tag** – ссылка на ветку репозитория или тег, например `refs/tags/v1.0` (для команд `scan dir` и `scan file`);
-- **commit** – хэш коммита в системе контроля версий (для команд `scan dir` и `scan file`);
-- **hash** – хэш образа (для команды `scan image`).
+- <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **branch-or-tag** – ссылка на ветку репозитория или тег, например `refs/tags/v1.0` (для команд `scan dir` и `scan file`);
+- <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **commit** – хэш коммита в системе контроля версий (для команд `scan dir` и `scan file`);
+- <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **hash** – хэш образа (для команды `scan image`).
 
 ### Общие параметры сканирования
 

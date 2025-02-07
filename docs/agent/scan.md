@@ -10,7 +10,7 @@ hide:
 - `scan dir` – [сканирование директории](/agent/scan-dir/);
 - `scan file` – [сканирование файла](/agent/scan-file);
 - `scan image` – [сканирование контейнерного образа](/agent/scan-docker);
-- `scan bom` – сканирование SBoM.
+- `scan bom` – [сканирование SBoM](/agent/scan-bom).
 
 ## Опции запуска
 
