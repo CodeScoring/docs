@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Launching TQI analysis
 
 ## Analysis of a single project

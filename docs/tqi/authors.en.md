@@ -2,9 +2,10 @@
 hide:
 - footer
 ---
+
 # Building author profiles
 
-CodeScoring TQI allows to study the individual contribution of authors to projects from interactive profiles and activity visualization. Information about authors is available in several formats, allowing to evaluate their work in the most complete way.
+CodeScoring TQI allows to study the individual contribution of authors to projects using interactive profiles and activity visualization. Information about authors is available in several formats, allowing to evaluate their work in the most complete way.
 
 ## List of authors
 
@@ -35,7 +36,7 @@ The map can be filtered by the following parameters:
 
 ![Contribution map](/assets/img/tqi/en/contribution-map.png)
 
-The map can be saved as a PNG image, or downloaded in HTML format.
+The map can also be saved as a PNG image.
 
 ## Author page
 

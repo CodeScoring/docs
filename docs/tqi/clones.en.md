@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Tracking code clones
 
 CodeScoring TQI allows you to track code fragments that were copied from one project of the organization to another, or duplicated within a single project.
@@ -39,4 +40,4 @@ The `TQI -> Code clones -> Clones map` section displays a visualization of borro
 
 ![Clones map](/assets/img/tqi/en/clones-map.png)
 
-Clicking on the intersection between two projects will transfer user to a page with a detailed description of the clones. The map can be saved as a PNG image, or downloaded in HTML format.
+Clicking on the intersection between two projects will transfer user to a page with a detailed description of the clones. The map can also be saved as a PNG image.
