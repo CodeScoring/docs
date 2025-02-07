@@ -7,6 +7,8 @@ hide:
 
 Some package managers do not include transitive dependencies in their manifests by default. For high-quality compositional analysis when working with them, it is recommended to use a dependency resolution mechanism in the build environment.
 
+## Configuring dependency resolution
+
 When resolving dependencies in the environment, the agent checks for the absence of a lock file, independently launches the package manager or build tool, and generates a complete list of components taking into account the correct version of the build. The functionality is currently available for the following ecosystems:
 
 - .NET
@@ -50,7 +52,7 @@ scan dir. \
 
 If necessary, the listed parameters can be added to the [agent configuration file](/agent/config.en).
 
-## Working with Java
+## Working with dependencies in Java
 
 When working with Java, you can alternatively create additional artifacts that contain the complete dependency structure of the project.
 
@@ -74,3 +76,31 @@ scan file ./maven-dependency-tree.txt \
 --api_token <api_token> \
 --api_url <api_url>
 ```
+
+## Working with dependencies in Scala
+
+To correctly perform composition analysis in Scala projects using `sbt`, follow these steps:
+
+1. **Setting the width of the dependency graph**
+
+    To generate a full dependency graph, add the following line to the `build.sbt` file:
+
+    ```scala
+    ThisBuild / asciiGraphWidth := 999999999
+    ```
+
+    Alternatively, you can set the `asciiGraphWidth` value globally.
+
+2. **Generating the dependency tree**
+
+    Run the following command to generate the dependency tree:
+
+    ```bash
+    sbt clean compile "dependencyTree::toFile target/tree.txt"
+    ```
+
+    Make sure to save the file with the name `scala-dependency-tree.txt` or `sbt-dependency-tree.txt`, as these are the only names supported for correct parsing.
+
+3. **Scanning the generated file**
+
+    The `--sbt-resolve` flag in the scan command is not needed in this case, as it scans the already generated tree with the full dependency structure.
