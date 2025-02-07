@@ -98,36 +98,36 @@ hide:
 | Текст события | Расшифровка |
 |--------------|------------|
 | *[Secrets][{analysis_run.analysis_object}] Analysis started* | Запущен анализ секретов |
-| *[Secrets] Training run started* | Запущен обучающий процесс для секретов |
+| *[Secrets] Training run started* | Запущено обучение пользовательской модели на основе результатов разметки |
 | *[Secrets][{analysis_run.analysis_object}] Analysis finished* | Завершен анализ секретов |
-| *[Secrets] Training run finished* | Завершен обучающий процесс для секретов |
+| *[Secrets] Training run finished* | Завершено обучение пользовательской модели на основе результатов разметки |
 | *[Secrets][{analysis_run.analysis_object}] Analysis failed. Check server logs.* | Ошибка анализа секретов |
-| *[Secrets] Training run failed. Check server logs.* | Ошибка обучающего процесса для секретов |
+| *[Secrets] Training run failed. Check server logs.* | Ошибка обучения пользовательской модели |
 
 ## Анализ контейнерных образов
 
 | Текст события | Расшифровка |
 |--------------|------------|
 | *In container image {container_image} dependency {dep_name_and_version} was changed* | В контейнерном образе изменена зависимость |
-| *Updating images list for registry {container_registry} triggered via update button.* | Обновление списка образов в реестре |
+| *Updating images list for registry {container_registry} triggered via update button.* | Запущено принудительное обновление списка образов из реестра |
 
 ## Работа с LDAP
 
 | Текст события | Расшифровка |
 |--------------|------------|
-| *Applying all LDAP group mapping rules triggered* | Запуск применения всех правил сопоставления LDAP |
-| *{message} While processing, failed to apply some of rules related to following LDAP servers: {', '.join(ldap_servers_mapping_failed_for)}. Check server logs.* | Ошибка применения правил для LDAP-серверов |
+| *Applying all LDAP group mapping rules triggered* | Запуск применения всех правил сопоставления групп LDAP |
+| *{message} While processing, failed to apply some of rules related to following LDAP servers: {', '.join(ldap_servers_mapping_failed_for)}. Check server logs.* | Ошибка применения правил сопоставления групп для указанных LDAP-серверов |
 
 
 ## Прочее
 
 | Текст события  |  Расшифровка |
 |----------------|--------------|
-|*(Run #{task.id}) Analysis started via API*|Анализ запущен через консольный агент с использованием API (с uuid запуска)|
+|*(Run #{task.id}) Analysis started via API*|Анализ запущен через API|
 |*Some tasks in analysis failed*|Некоторые задачи при анализе не выполнены|
 |*Could not connect to OSS Index, reason: {err}*|Не удалось подключиться к индексу OSS из-за ошибки|
 |*Could not connect to OSS Index, reason: {err}* | Ошибка подключения к OSS Index |
-|*There is already running analysis* | Уже запущен анализ |
+|*There is already running analysis* | Анализ уже запущен |
 |*Another analysis in progress. Parallel execution forbidden.* | Запрещен параллельный запуск анализа |
 |*Repo path for {project} does not exist, setting status to Not cloned* | Путь к репозиторию не найден, статус установлен как "Не клонирован" |
 |*Failed to clone for repository {project.repo_name} because project was deleted* | Не удалось клонировать репозиторий, так как проект был удален |
