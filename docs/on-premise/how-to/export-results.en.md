@@ -42,11 +42,11 @@ For CLI projects, SBoM can also be loaded via the interface using the **Import S
 
 ## Configuring dependency properties for SBoM export {#bom-settings}
 
-To configure dependency properties, go to the page by clicking the `Configure dependencies` button in the **Dependencies** table of the project.
+To configure dependency properties, go to the page by clicking the `Configure BOM` button in the **Dependencies** table of the project.
 
 ![Dependencies settings button](/assets/img/dependencies_settings_button.png)
 
-The page allows you to specify the attack surface (**Attack surface**), security function (**Security function**), version control system (**VCS**) and licenses for each project component.
+The page allows you to specify the attack surface (**Attack surface**), security function (**Security function**) and code storage system (**VCS**) for each project component.
 
 ![Dependencies settings](/assets/img/dependencies_settings.png)
 
@@ -55,9 +55,7 @@ The values entered are taken into account:
 - when exporting SBoM from the project page;
 - when exporting SBoM from the scan results history page (for the most recent successful SCA scan);
 - during subsequent scans of the project;
-- when scanning the project via the Johnny console agent;
-- in the project dashboard;
-- on the license page.
+- when scanning the project via the Johnny console agent.
 
 **Important**: Changes to values do not apply to previous scans of the project and only relate to the SBoM of the current project, even if a dependency is used in multiple projects.
 
@@ -84,11 +82,3 @@ The **Security function** field allows you to specify whether the component belo
 - `no` — if the component functions do not participate in the implementation of security functions (default value).
 
 When exporting SBoM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `"GOST:security_function"` property of the component.
-
-### Licenses
-
-The **Licenses** field allows you to specify the licenses of the component.
-
-If an empty list is specified, the values found during the last SCA analysis are selected.
-
-When exporting SBoM, the selected values are taken into account in the `licenses` field of the component.
