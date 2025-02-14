@@ -7,7 +7,7 @@ hide:
 ### [2025.7.0] - 2025-02-14
 
 - Added ability to select a license in the dependency fields management UI
-- Added ability to select a group when [creating a policy](on-premise/how-to/policies.en/)
+- Added ability to select a group when [creating a policy](/on-premise/how-to/policies.en/)
 - Added ability to select projects in a policy without first selecting an owner
 - Added a setting for enabling and disabling cloud resolve for projects in the SCA module
 - Added advanced settings for VCS projects: ignores, enabling/disabling recursive search
