@@ -25,6 +25,7 @@ hide:
 - Fixed an error setting up columns in the project list in the SCA module
 - Fixed translation errors when using numerals
 - Fixed links to dependencies and vulnerabilities in the Email digest and Jira Issue
+- Fixed incorrect behavior while testing connection configuration for Email server settings
 - Removed the API method `get_package_info`
 
 ### [2024.52.1] - 2025-01-24
