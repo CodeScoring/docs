@@ -11,7 +11,7 @@ The agent is launched using the `scan` command with possible scanning options:
 - `scan file` – [scanning a file](/agent/scan-file.en);
 - `scan image` – [scanning a container image](/agent/scan-docker.en);
 - `scan bom` – [scanning a SBoM](/agent/scan-bom.en);
-- `scan <technology>` - [scannig a directory using only selected technology parsers](/agent/scan-technologies.en);
+- `scan <technology>` - [scanning a directory using settings for selected technology](/agent/scan-technology.en);
 
 ## Launch options
 
@@ -28,7 +28,7 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2024.52.0
+Version: 2025.7.0
 
 Usage:
    scan [command]
@@ -131,8 +131,10 @@ Depending on the run result and launch parameters, the agent returns the corresp
 
 ### Priority of settings
 
-Since the agent startup parameters can be configured in three ways, when using several methods simultaneously, the agent will accept parameters in the following order of priority:
+Since agent startup parameters can be configured in multiple ways, if two or more methods are used at the same time, the agent will accept parameters in the following priority order:
 
-1. Value of the command flag;
-2. Value of the [environment variable](/agent/env-variables.en);
-3. Value in [config file](/agent/config.en).
+1. Value of the [scan-technology](/agent/scan-technology.en) command (if used);
+2. Value of the command flag;
+3. Value of [environment variable](/agent/env-variables.en);
+4. Value from [config file](/agent/config.en).
+

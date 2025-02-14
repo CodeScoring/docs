@@ -20,7 +20,8 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - **timeout** – limit on analysis waiting time (in seconds);
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **branch-or-tag** – a reference to a repository branch or tag, such as `refs/tags/v1.0` (for the `scan dir` and `scan file` commands);
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **commit** – a commit hash in the version control system (for the `scan dir` and `scan file` commands);
-- <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **hash** – an image hash (for the `scan image` command).
+- <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **hash** – an image hash (for the `scan image` command);
+- <a href="/changelog/on-premise-changelog.en/#202570-2025-02-14" class="version-tag">2025.7.0</a> **cloud-resolve** – use dependency resolution in cloud. Default value is `false`.
 
 ### General scan options
 
@@ -97,6 +98,8 @@ analysis:
   commit: ""
   # Hash. For scan image command
   hash: ""
+  # Use cloud resolve
+  cloud-resolve: false
 # scan options
 scan:
   # general scan options
@@ -137,9 +140,20 @@ scan:
         # note: token and username/password are mutually exclusive
         # same as JOHNNY_REGISTRY_AUTH_TOKEN env var
         token: ""
-  # Prevents from recursively scan directories
+  # Directory scan options
   dir:
+    # Prevents from recursively scan directories
     no-recursion: false
+  # Scanning a build for C and C++ languages options
+  build:
+    # input is the result of the previous build process, including compiled artifacts
+    build-result: false
+    # path to a JSON file with a list of versions of the libraries being analyzed
+    lib-versions: ""
+    # path to a file where the build results will be saved
+    output: ""
+    # path to a file where information about libraries with unresolved versions will be saved
+    unresolved-file: UnresolvedLibs20241030_123655.json
   # Supported technologies
   technologies:
     # C
@@ -599,7 +613,7 @@ scan:
           enabled: true
           # matching criteria
           match: equal("cargo.toml")
-    # Conda
+    # conda
     conda:
       # Use Conda parsers
       enabled: true
@@ -645,8 +659,9 @@ cli:
 
 ### Priority of settings
 
-Since the agent startup parameters can be configured in three ways, when using several methods simultaneously, the agent will accept parameters in the following order of priority:
+Since agent startup parameters can be configured in multiple ways, if two or more methods are used at the same time, the agent will accept parameters in the following priority order:
 
-1. Value of the [command flag](/agent/scan.en);
-2. Value of the [environment variable](/agent/env-variables.en);
-3. Value in config file.
+1. Value of the [scan-technology](/agent/scan-technology.en) command (if used);
+2. Value of the command flag;
+3. Value of [environment variable](/agent/env-variables.en);
+4. Value from [config file](/agent/config.en).

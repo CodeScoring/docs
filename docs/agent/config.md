@@ -18,7 +18,8 @@ hide:
 - **timeout** – ограничение по времени ожидания анализа (в секундах);
 - <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **branch-or-tag** – ссылка на ветку репозитория или тег, например `refs/tags/v1.0` (для команд `scan dir` и `scan file`);
 - <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **commit** – хэш коммита в системе контроля версий (для команд `scan dir` и `scan file`);
-- <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **hash** – хэш образа (для команды `scan image`).
+- <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **hash** – хэш образа (для команды `scan image`);
+- <a href="/changelog/on-premise-changelog/#202570-2025-02-14" class="version-tag">2025.7.0</a> **cloud-resolve** – использование разрешения зависимостей в облаке. По умолчанию значение `false`.
 
 ### Общие параметры сканирования
 
@@ -95,6 +96,8 @@ analysis:
   commit: ""
   # Hash. For scan image command
   hash: ""
+  # Use cloud resolve
+  cloud-resolve: false
 # scan options
 scan:
   # general scan options
@@ -135,9 +138,20 @@ scan:
         # note: token and username/password are mutually exclusive
         # same as JOHNNY_REGISTRY_AUTH_TOKEN env var
         token: ""
-  # Prevents from recursively scan directories
+  # Directory scan options
   dir:
+    # Prevents from recursively scan directories
     no-recursion: false
+  # Scanning a build for C and C++ languages options
+  build:
+    # input is the result of the previous build process, including compiled artifacts
+    build-result: false
+    # path to a JSON file with a list of versions of the libraries being analyzed
+    lib-versions: ""
+    # path to a file where the build results will be saved
+    output: ""
+    # path to a file where information about libraries with unresolved versions will be saved
+    unresolved-file: UnresolvedLibs20241030_123655.json
   # Supported technologies
   technologies:
     # C
@@ -597,7 +611,7 @@ scan:
           enabled: true
           # matching criteria
           match: equal("cargo.toml")
-    # Conda
+    # conda
     conda:
       # Use Conda parsers
       enabled: true
@@ -643,8 +657,9 @@ cli:
 
 ### Приоритет настроек
 
-Поскольку параметры запуска агента можно настроить тремя способами, при одновременном использовании нескольких способов агент будет принимать параметры в следующем порядке приоритетов:
+Поскольку параметры запуска агента можно настроить несколькими способами, при одновременном использовании двух и более способов агент будет принимать параметры в следующем порядке приоритетов:
 
-1. Значение [флага команды](/agent/scan);
-2. Значение [переменной окружения](/agent/env-variables);
-3. Значение из конфиг-файла.
+1. Значение команды [scan-technology](/agent/scan-technology) (если она используется);
+2. Значение флага команды;
+3. Значение [переменной окружения](/agent/env-variables);
+4. Значение из [конфиг-файла](/agent/config).
