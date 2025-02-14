@@ -5,12 +5,13 @@ hide:
 
 # Команда сканирования
 
-Запуск агента производится при помощи команды `scan` с четыремя возможными вариантами сканирования:
+Запуск агента производится при помощи команды `scan` с возможными вариантами сканирования:
 
 - `scan dir` – [сканирование директории](/agent/scan-dir/);
 - `scan file` – [сканирование файла](/agent/scan-file);
 - `scan image` – [сканирование контейнерного образа](/agent/scan-docker);
-- `scan bom` – [сканирование SBoM](/agent/scan-bom).
+- `scan bom` – [сканирование SBoM](/agent/scan-bom);
+- `scan <technology>` - [сканирование директории с применением настроек для указанной технологии](/agent/scan-technology);
 
 ## Опции запуска
 
@@ -27,17 +28,30 @@ Exit codes:
 - 1: some issues found, action required
 - 2: run failure
 
-Version: 2024.52.0
+Version: 2025.7.0
 
 Usage:
    scan [command]
 
-Available Commands:
+Additional Commands:
   bom         Scan bom
   build       Scan build
   dir         Scan directory
   file        Scan file
   image       Scan image
+
+Scan Technologies Commands:
+  clang       Scan clang
+  conda       Scan conda
+  csharp      Scan csharp
+  go          Scan go
+  java        Scan java
+  js          Scan js
+  objective_c Scan objective_c
+  php         Scan php
+  python      Scan python
+  ruby        Scan ruby
+  rust        Scan rust
 
 Flags:
   `-h`, `--help`      help for scan
@@ -49,22 +63,23 @@ Global Flags:
       `--block-on-empty-result`             Block on empty result
       `--bom-format` string                 Bom format. Supported formats: cyclonedx_v1_6_json","cyclonedx_v1_5_json","cyclonedx_v1_4_json","cyclonedx_v1_6_ext_json (default "cyclonedx_v1_6_json")
       `--bom-path` string                   Path for save bom file (default "bom.json")
+      `--cloud-resolve`                     Activate cloud resolve
       `--composer-path` string              Path to composer for resolve (default "composer")
       `--composer-resolve`                  Enable resolve using composer
       `--conda-lock-path` string            Path to conda-lock for resolve (default "conda-lock")
-      `--conda-resolve`                    Enable resolve using conda-lock
+      `--conda-resolve`                     Enable resolve using conda-lock
       `--config string`                     Config file (default "codescoring-johnny-config.yaml")
       `--create-project`                    Create project in CodeScoring if not exists
       `--debug`                             Output detailed log
       `--dotnet-path` string                Path to dotnet for resolve (default "dotnet")
       `--dotnet-resolve`                    Enable resolve using dotnet
-  `-f`, `--format` string                     Report format. Supported formats: coloredtable, table, text, junit, sarif, csv, gl-dependency-scanning-report, gl-code-quality-report. Default output to console. Supports multiformat. Example: 'coloredtable,junit>>junit.xml'  (default "coloredtable")
+  `-f`, `--format` string                   Report format. Supported formats: coloredtable, table, text, junit, sarif, csv, gl-dependency-scanning-report, gl-code-quality-report. Default output to console. Supports multiformat. Example: 'coloredtable,junit>>junit.xml'  (default "coloredtable")
       `--gdt-match` string                  Section in gradle dependency tree for scan. By default - parse all sections
       `--go-path` string                    Path to go for resolve (default "go")
       `--go-resolve`                        Enable resolve using go
       `--gradle-path` string                Path to gradle for resolve (default "./gradlew")
       `--gradle-resolve`                    Enable resolve using gradle
-  `-g`, `--group-vulnerabilities-by` string   Group vulnerabilities by. Supported kinds 'vulnerability', 'affect' (default "vulnerability")
+  `-g`, `--group-vulnerabilities-by` string Group vulnerabilities by. Supported kinds 'vulnerability', 'affect' (default "vulnerability")
       `--ignore` stringArray                Ignore paths (--ignore first --ignore "/**/onem?re")
       `--license` string                    Project license code
       `--maven-path` string                 Path to mvn for resolve (default "mvn")
@@ -91,7 +106,7 @@ Global Flags:
   `-s`, `--sort-vulnerabilities-by` string    Sort vulnerabilities by. Comma separated field names. For DESC - write field name with prefix '-'.
                                           FieldNames: 'vulnerability', 'fixedversion', 'cvss2', 'cvss3', 'cwes', 'links', 'affect' (default "-cvss3,-cvss2,fixedversion,vulnerability,cwes,links,affect")
       `--stage` string                      Policy stage (build, dev, source, stage, test, prod, proxy) (default "build")
-  `-t`, `--timeout` uint16                    Timeout of analysis results waiting in seconds (default 3600)
+  `-t`, `--timeout` uint16                  Timeout of analysis results waiting in seconds (default 3600)
       `--with-hashes`                       Search for direct inclusion of dependencies using file hashes
       `--yarn-path` string                  Path to yarn for resolve (default "yarn")
       `--yarn-resolve`                      Enable resolve using yarn
@@ -116,9 +131,10 @@ Use " scan [command] --help" for more information about a command.
 
 ### Приоритет настроек
 
-Поскольку параметры запуска агента можно настроить тремя способами, при одновременном использовании нескольких способов агент будет принимать параметры в следующем порядке приоритетов:
+Поскольку параметры запуска агента можно настроить несколькими способами, при одновременном использовании двух и более способов агент будет принимать параметры в следующем порядке приоритетов:
 
-1. Значение флага команды;
-2. Значение [переменной окружения](/agent/env-variables);
-3. Значение из [конфиг-файла](/agent/config).
+1. Значение команды [scan-technology](/agent/scan-technology) (если она используется);
+2. Значение флага команды;
+3. Значение [переменной окружения](/agent/env-variables);
+4. Значение из [конфиг-файла](/agent/config).
 
