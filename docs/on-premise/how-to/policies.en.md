@@ -35,6 +35,7 @@ Policies are created in the `Settings -> Policies` section. You can go to the po
 In the form of policy creation the context of policy operation is set by the following parameters:
 
 - **Name** - name of the policy;
+- **Groups** — group to which the policy applies, if empty - the policy applies to the whole organization;
 - **Proprietors** - owner of the code to which the policy applies, if empty - the policy applies to the whole organization;
 - **Projects** - projects to which the policy applies;
 - **Stages** - project stages for which the policy is applied;
@@ -82,8 +83,8 @@ Next, the policy triggering conditions are configured, the following parameters 
 - **Vulnerability Update Date** - vulnerability update date;
 - **Vulnerability has exploit** - presence of an exploit in the vulnerability;
 - **Vulnerability impacts (Kaspersky)** - scope of the vulnerability;
-- **Vulnerability has fixed version** - vulnerability has been fixed in a new version; 
-- **Vulnerability Age (days)** - age of the vulnerability 
+- **Vulnerability has fixed version** - vulnerability has been fixed in a new version;
+- **Vulnerability Age (days)** - age of the vulnerability
 - **Env** - environment;
 - **Match type** - dependency match type (by manifest, content or resolution);
 - **Relation** - direct or transitive dependency;
@@ -101,7 +102,7 @@ The policy becomes active immediately after creation by clicking the **Create** 
 
 **Important!** Policies are triggered during analysis, so it is important to create them before running the analysis.
 
-**Recommendation!** If you leave the `Proprietor` and `Project` fields empty, the policy will be applied to all active projects in the system.
+**Recommendation!** If you leave the `Proprietors`, `Groups` and `Projects` fields empty, the policy will be applied to all active projects in the system.
 
 ## Policy results
 
