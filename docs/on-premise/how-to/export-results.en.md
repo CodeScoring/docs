@@ -40,7 +40,7 @@ SBoM export is supported in the following formats:
 
 For CLI projects, SBoM can also be loaded via the interface using the **Import SBoM** button. The loaded SBOM must be in CycloneDX format and have the `.json` extension.
 
-## Configuring dependency properties for SBoM export {#bom-settings}
+### Configuring dependency properties for SBoM export {#bom-settings}
 
 To configure dependency properties, go to the page by clicking the `Configure dependencies` button in the **Dependencies** table of the project.
 
@@ -61,11 +61,11 @@ The values entered are taken into account:
 
 **Important**: Changes to values do not apply to previous scans of the project and only relate to the SBoM of the current project, even if a dependency is used in multiple projects.
 
-### VCS
+#### VCS
 
 The **VCS** field allows you to specify the URL of the repository where the dependency code is stored. When exporting SBoM, the selected value is taken into account in the [externalReferences](https://cyclonedx.org/docs/1.6/json/#components_items_externalReferences) field.
 
-### Attack surface
+#### Attack surface
 
 The **Attack surface** field allows you to specify whether the component belongs to an attack surface. You can select one of the following values:
 
@@ -75,7 +75,7 @@ The **Attack surface** field allows you to specify whether the component belongs
 
 When exporting SBoM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `GOST:attack_surface` property of the component.
 
-### Security function
+#### Security function
 
 The **Security function** field allows you to specify whether the component belongs to the security functions of the information security tool. You can select one of the following values:
 
@@ -85,7 +85,7 @@ The **Security function** field allows you to specify whether the component belo
 
 When exporting SBoM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `"GOST:security_function"` property of the component.
 
-### Licenses
+#### Licenses
 
 The **Licenses** field allows you to specify the licenses of the component.
 
