@@ -30,14 +30,14 @@ The beginning of the report records key indicators based on the analysis results
 
 The list of authors can be viewed as a table. It is possible to change the display of columns and export the table in CSV format.
 
-- **Author** – the author's name and email;
-- **Start date** – the date of the author's first commit;
-- **Last seen** – the date of the author's last commit in the project;
-- **Activity, months** – the number of months during which the author actively committed changes;
-- **Commits** – the total number of commits made by the author in the project;
-- **Complexity** – the average cyclomatic complexity of the author's commits in the project;
-- **Clones made** – the number of borrowed code fragments made by the author;
-- **Technologies** – the programming languages the author works with (determined by his commits).
+- **Author** – author's name and email;
+- **Start date** – date of the author's first commit;
+- **Last seen** – date of the author's last commit in the project;
+- **Activity, months** – number of months during which the author actively committed changes;
+- **Commits** – total number of commits made by the author in the project;
+- **Complexity** – average cyclomatic complexity of the author's commits in the project;
+- **Clones made** – number of borrowed code fragments made by the author;
+- **Technologies** – programming languages the author works with (determined by his commits).
 
 ### Project dynamics
 
@@ -57,11 +57,11 @@ For each commit, cyclomatic complexity is calculated, and its context is shown:
 
 - **Hash** – unique commit identifier with a link to the version control system;
 - **Commit message** – a short description of the changes made, specified by the author when committing;
-- **Commit date** – the date and time when the change was made;
-- **Lines added** – the number of lines of code added in the commit;
-- **Lines deleted** – the number of lines removed in the commit;
-- **Complexity** – the cyclomatic complexity value calculated based on the changes made;
-- **Author** – the name of the developer who made the commit.
+- **Commit date** – date and time when the change was made;
+- **Lines added** – number of lines of code added in the commit;
+- **Lines deleted** – number of lines removed in the commit;
+- **Complexity** – cyclomatic complexity value calculated based on the changes made;
+- **Author** – name of the developer who made the commit.
 
 ## Results visualization
 
@@ -69,6 +69,8 @@ For each commit, cyclomatic complexity is calculated, and its context is shown:
 
 The activity map is available in the `TQI –> Projects` section on the **Activity map** tab. It displays all the contributions of authors for the selected time period for a set of projects, which can be filtered by the following parameters:
 
+- **Commit Date** – period during which the commit was made in the version control system;
+- **Number of Projects** – total number of projects displayed on the map;
 - **Proprietor** – part of the organization that manages the project;
 - **Project category** – category assigned within the CodeScoring system;
 - **Technologies** – programming languages used in the creation of the project.
@@ -81,6 +83,8 @@ The map can also be saved as a PNG image.
 
 The complexity map is available in the `TQI –> Projects` section on the **Complexity map** tab. It displays the change in the complexity of a set of projects, which can be filtered by the following parameters:
 
+- **Commit Date** – period during which the commit was made in the version control system;
+- **Number of Projects** – total number of projects displayed on the map;
 - **Proprietor** – part of the organization that manages the project;
 - **Project Category** – category assigned within the CodeScoring system;
 - **Technologies** – programming languages used within the project.

@@ -36,7 +36,7 @@ The `TQI -> Code clones -> Intra project` section displays a list of projects wh
 The `TQI -> Code clones -> Clones map` section displays a visualization of borrowings between projects. The clones map can be filtered by the following fields:
 
 - **Proprietor** – part of the organization to which the project belongs;
-- **Category** – project category within the CodeScoring system.
+- **Project category** – project category within the CodeScoring system.
 
 ![Clones map](/assets/img/tqi/en/clones-map.png)
 
