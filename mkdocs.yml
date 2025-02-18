@@ -106,7 +106,7 @@ plugins:
           agent-save-results: "Saving scan results"
           agent-export: "Exporting scan results"
           agent-resolve: "Resolving dependencies"
-          agent-aliases: "Processing package substitution"
+          agent-aliases: "Processing selective dependency resolution"
           secrets: "CodeScoring Secrets"
           secrets-general: "General"
           secrets-setup: "Setting up engine configuration"

@@ -3,7 +3,7 @@ hide:
 - footer
 ---
 
-# Processing package substitution
+# Processing selective dependency resolution
 
 In case of [selective dependency resolution](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) in manifest files, the console agent can detect these changes and work with them.
 
