@@ -14,6 +14,7 @@ The list of scanned packages can be viewed in the `Components -> Packages` subse
 - **Technology** – technology (programming language or assembly tool);
 - **Licenses** – licenses;
 - **Authors** – authors;
+- **Vulnerabilities** - number of vulnerabilities found;
 - **Block status** – component blocking status at the time of the last request;
 - **Release date** – date of publication of the package in the public domain;
 - **Last requested at** – date and time of the last package request.
@@ -32,7 +33,8 @@ Container images are displayed in the `Components -> Container images` subsectio
 - **Vulnerabilities** - number of vulnerabilities found;
 - **Scan status** – image scanning status;
 - **Block status** – component blocking status at the time of the last request (for repositories with the OSA plugin);
-- **Last scanned** – date and time of the last scan.
+- **Last scanned** – date and time of the last scan;
+- **Last requested at** – date and time of the last package request.
 
 The table with images can be filtered by registry name, as well as scanning and blocking status.
 
