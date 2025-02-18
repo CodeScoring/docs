@@ -382,6 +382,10 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
   - css/hide_lang_links.css
+  - css/print.css
+
+extra_javascript:
+  - js/print.js
 
 extra:
   # Default mkdocs-material alternate links for untranslated pages

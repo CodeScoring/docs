@@ -1,5 +1,35 @@
 {% extends "base.html" %}
 
+{% block content %}
+    {{ super() }}  {# Keeps the existing page content #}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let header = document.querySelector("h1");
+            if (header) {
+                let printButton = document.createElement("button");
+                printButton.id = "print-pdf-btn";
+                printButton.title = "Print PDF";
+                printButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9V2h12v7"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                `;
+                printButton.onclick = () => window.print();
+
+                // Find the anchor link (¶) next to the h1
+                let anchorLink = header.querySelector(".headerlink");
+                if (anchorLink) {
+                    anchorLink.insertAdjacentElement("afterend", printButton);
+                }
+            }
+        });
+    </script>
+{% endblock %}
+
+
 {% block site_meta %}
     {{ super() }}
     <meta name="yandex-verification" content="87065ff836ee1f0a" />
@@ -27,5 +57,6 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/97226980" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 {% endblock %}
+
 
 
