@@ -4,11 +4,11 @@ hide:
 ---
 # Working with OSA components
 
-Components that are checked by the OSA plugin are displayed in the `Components` section of the CodeScoring UI.
+Components that are checked by the plugin are displayed in the `OSA` section of the CodeScoring UI.
 
 ## View package list
 
-The list of scanned packages can be viewed in the `Components -> Packages` subsection. The Packages table contains **all** packages that were scanned while the OSA plugin was running, with the following information:
+The list of scanned packages can be viewed in the `OSA -> Packages` subsection. The Packages table contains **all** packages that were scanned while the OSA plugin was running, with the following information:
 
 - **Package** – name of the package (with a link to its page);
 - **Technology** – technology (programming language or assembly tool);
@@ -25,7 +25,7 @@ By clicking on the name of the package, you can go to its individual page, where
 
 ## View a list of container images
 
-Container images are displayed in the `Components -> Container images` subsection after connecting the corresponding [registry](/on-premise/how-to/registries.en/). Each entry in the list contains the following information:
+Container images are displayed in the `OSA -> Container images` subsection after connecting the corresponding [registry](/on-premise/how-to/registries.en/). Each entry in the list contains the following information:
 
 - **Name** – name of the image;
 - **Container registry** – name of the registry that contains the image;
@@ -44,7 +44,7 @@ For each scanned image, you can download a SBoM and a PDF report, as well as vie
 
 ## View component requests
 
-The list of component requests from proxy repositories with the plugin connected can be viewed in the `Components -> Requests` subsection.
+The list of component requests from proxy repositories with the plugin connected can be viewed in the `OSA -> Requests` subsection.
 
 Package requests appear on the **Packages** tab and by default contain the following information:
 
