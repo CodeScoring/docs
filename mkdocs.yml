@@ -84,7 +84,6 @@ plugins:
           graph: "Visualizing dependency graph"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
-          docker-analysis: "Scanning Docker images"
           osa: "CodeScoring OSA"
           osa-general: "General description"
           nexus-osa: "Nexus OSA"
@@ -171,7 +170,6 @@ plugins:
           graph: "Визуализация графа зависимостей"
           scan-history: "Отслеживание истории сканирований"
           export-results: "Выгрузка результатов анализа"
-          docker-analysis: "Анализ контейнерных образов"
           osa: "CodeScoring OSA"
           osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
@@ -301,8 +299,6 @@ nav:
     - scan-history: sca/scan-history.en.md
     - export-results: sca/export-results.md
     - export-results: sca/export-results.en.md
-    - docker-analysis: sca/docker-analysis.md
-    - docker-analysis: sca/docker-analysis.en.md
   - agent:
     - agent-general: agent/index.md
     - agent-general: agent/index.en.md
