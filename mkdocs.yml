@@ -66,10 +66,10 @@ plugins:
           activation: "System activation"
           proprietors: "Creating proprietors"
           vcs: "Connecting to VCS"
-          repo-managers: "Connecting to repository managers"
           project-control: "Managing projects"
           policies: "Managing policies"
-          registries: "Connecting container registries"
+          launch-analysis: "Launching analysis"
+          export-results: "Exporting analysis results"
           groups: "Creating user groups"
           users: "Managing user accounts"
           ldap: "Setting up LDAP"
@@ -89,6 +89,8 @@ plugins:
           osa-general: "General description"
           nexus-osa: "Nexus OSA"
           jfrog-osa: "JFrog OSA"
+          repo-managers: "Connecting a repository manager"
+          registries: "Connecting a container registry"
           osa-policies: "Setting up OSA policies"
           osa-components: "Working with OSA components"
           agent: "CLI agent Johnny"
@@ -151,10 +153,10 @@ plugins:
           activation: "Активация системы"
           proprietors: "Создание подразделений"
           vcs: "Подключение системы контроля версий"
-          repo-managers: "Подключение менеджеров репозиториев"
           project-control: "Управление проектами"
           policies: "Настройка политик"
-          registries: "Подключение реестра с контейнерными образами"
+          launch-analysis: "Запуск анализа"
+          export-results: "Выгрузка результатов анализа"
           groups: "Создание групп пользователей"
           users: "Управление учетными записями"
           ldap: "Настройка LDAP"
@@ -174,6 +176,8 @@ plugins:
           osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
           jfrog-osa: "JFrog OSA"
+          repo-managers: "Подключение менеджера репозиториев"
+          registries: "Подключение реестра с образами"
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA на инсталляции"
           agent: "Консольный агент Johnny"
@@ -255,10 +259,6 @@ nav:
     - proprietors: on-premise/how-to/proprietors.en.md
     - vcs: on-premise/how-to/vcs-git.md
     - vcs: on-premise/how-to/vcs-git.en.md
-    - repo-managers: on-premise/how-to/repo-managers.md
-    - repo-managers: on-premise/how-to/repo-managers.en.md
-    - registries: on-premise/how-to/registries.md
-    - registries: on-premise/how-to/registries.en.md
     - project-control: on-premise/how-to/projects.md
     - project-control: on-premise/how-to/projects.en.md
     - policies: on-premise/how-to/policies.md
@@ -282,6 +282,10 @@ nav:
     - nexus-osa: osa/nexus_osa.en.md
     - jfrog-osa: osa/jfrog_osa.md
     - jfrog-osa: osa/jfrog_osa.en.md
+    - repo-managers: osa/repo-managers.md
+    - repo-managers: osa/repo-managers.en.md
+    - registries: osa/registries.md
+    - registries: osa/registries.en.md
     - osa-policies: osa/osa-policies.md
     - osa-policies: osa/osa-policies.en.md
     - osa-components: osa/components.md
@@ -396,7 +400,9 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+  - css/logo.css
   - css/hide_lang_links.css
+  - css/print.css
 
 extra:
   # Default mkdocs-material alternate links for untranslated pages

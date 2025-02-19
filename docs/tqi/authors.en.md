@@ -29,6 +29,8 @@ The authors' work is visualized as an activity map, which can be seen on the **A
 
 The map can be filtered by the following parameters:
 
+- **Commit Date** – the period during which the commit was made in the version control system;
+- **Authors Number** – the total number of authors displayed on the map;
 - **Proprietor** – part of the organization that manages the project;
 - **Project Category** – category assigned within the CodeScoring system;
 - **Project** – name of the project;
