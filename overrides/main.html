@@ -1,33 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     {{ super() }}  {# Keeps the existing page content #}
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let header = document.querySelector("h1");
-            if (header) {
-                let container = document.createElement("span");
-                container.classList.add("header-end"); // Style for right alignment
-
-                let printButton = document.createElement("button");
-                printButton.id = "print-pdf-btn";
-                printButton.title = "Print PDF";
-                
-                // Use the printer-outline icon from Material Design Icons
-                printButton.innerHTML = `{% include ".icons/material/printer-outline.svg" %}`;
-                printButton.onclick = () => window.print();
-
-                container.appendChild(printButton);
-                header.appendChild(container); // Add to the end of the header line
-            }
+            let printButton = document.getElementById("print-pdf-btn");
+            printButton.onclick = () => window.print();
         });
     </script>
+
 {% endblock %}
-
-
-
-
 
 
 {% block site_meta %}
@@ -57,6 +41,3 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/97226980" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 {% endblock %}
-
-
-
