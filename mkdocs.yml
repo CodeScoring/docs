@@ -384,9 +384,6 @@ extra_css:
   - css/hide_lang_links.css
   - css/print.css
 
-extra_javascript:
-  - js/print.js
-
 extra:
   # Default mkdocs-material alternate links for untranslated pages
   # https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language-selector
