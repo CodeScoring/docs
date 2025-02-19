@@ -66,12 +66,10 @@ plugins:
           activation: "Activation"
           proprietors: "Creating proprietors"
           vcs: "Connecting to VCS"
-          repo-managers: "Connecting to repository managers"
           project-control: "Managing projects"
           policies: "Managing policies"
           launch-analysis: "Launching analysis"
           export-results: "Exporting analysis results"
-          registries: "Connecting container registries"
           groups: "Creating user groups"
           users: "Managing user accounts"
           ldap: "Setting up LDAP"
@@ -85,6 +83,8 @@ plugins:
           osa-general: "General"
           nexus-osa: "Nexus OSA"
           jfrog-osa: "JFrog OSA"
+          repo-managers: "Connecting a repository manager"
+          registries: "Connecting a container registry"
           osa-policies: "OSA policies settings"
           osa-components: "OSA components"
           agent: "CLI agent Johnny"
@@ -147,12 +147,10 @@ plugins:
           activation: "Активация системы"
           proprietors: "Создание владельцев"
           vcs: "Подключение системы контроля версий"
-          repo-managers: "Подключение менеджеров репозиториев"
           project-control: "Управление проектами"
           policies: "Настройка политик"
           launch-analysis: "Запуск анализа"
           export-results: "Выгрузка результатов анализа"
-          registries: "Работа с Docker-образами"
           groups: "Создание групп пользователей"
           users: "Управление учетными записями"
           ldap: "Настройка LDAP"
@@ -166,6 +164,8 @@ plugins:
           osa-general: "Общее"
           nexus-osa: "Nexus OSA"
           jfrog-osa: "JFrog OSA"
+          repo-managers: "Подключение менеджера репозиториев"
+          registries: "Подключение реестра с образами"
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA на инсталляции"
           agent: "Консольный агент Johnny"
@@ -247,8 +247,6 @@ nav:
     - proprietors: on-premise/how-to/proprietors.en.md
     - vcs: on-premise/how-to/vcs-git.md
     - vcs: on-premise/how-to/vcs-git.en.md
-    - repo-managers: on-premise/how-to/repo-managers.md
-    - repo-managers: on-premise/how-to/repo-managers.en.md
     - project-control: on-premise/how-to/projects.md
     - project-control: on-premise/how-to/projects.en.md
     - policies: on-premise/how-to/policies.md
@@ -257,8 +255,6 @@ nav:
     - launch-analysis: on-premise/how-to/launch-analysis.en.md
     - export-results: on-premise/how-to/export-results.md
     - export-results: on-premise/how-to/export-results.en.md
-    - registries: on-premise/how-to/registries.md
-    - registries: on-premise/how-to/registries.en.md
     - ldap: on-premise/how-to/ldap-settings.md
     - ldap: on-premise/how-to/ldap-settings.en.md
     - graph: on-premise/how-to/graphs.md
@@ -280,6 +276,10 @@ nav:
     - nexus-osa: osa/nexus_osa.en.md
     - jfrog-osa: osa/jfrog_osa.md
     - jfrog-osa: osa/jfrog_osa.en.md
+    - repo-managers: osa/repo-managers.md
+    - repo-managers: osa/repo-managers.en.md
+    - registries: osa/registries.md
+    - registries: osa/registries.en.md
     - osa-policies: osa/osa-policies.md
     - osa-policies: osa/osa-policies.en.md
     - osa-components: osa/components.md
