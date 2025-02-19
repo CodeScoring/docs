@@ -4,6 +4,30 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.7.0] - 2025-02-14
+
+- Added ability to select a license in the dependency fields management UI
+- Added ability to select a group when [creating a policy](/on-premise/how-to/policies.en/)
+- Added ability to select projects in a policy without first selecting an owner
+- Added a setting for enabling and disabling cloud resolve for projects in the SCA module
+- Added advanced settings for VCS projects: ignores, enabling/disabling recursive search
+- Changed the grouping and display of project settings
+- Added the output of the Index API availability metric to the standard [installation metrics tracking mechanism](/on-premise/how-to/metrics.en/)
+- Added a setting via the environment variable `INDEX_API_FAILURE_RATE_THRESHOLD`, which determines how much failed requests to the Index API in the OSA module must occur before the system considers the index unreachable
+- Added the `Skip TLS Verification` setting when [creating a connection to the image registry](/on-premise/how-to/registries.en/)
+- Added [webhooks](/on-premise/how-to/webhooks.en/) for Secrets module events
+- Added pre-connection to Postgres when the connection is lost in the osa-registration service
+- Updated maps in the TQI module. Rendering has been moved to the frontend, more convenient navigation has been implemented, and additional filters by period and number of projects have been added
+- Optimized dependency list in SCA modules
+- Optimized request list in the OSA module
+- Fixed saving of filter state and pagination settings in the dependency editing table
+- Fixed a validation error when autofilling the Instance URL field when creating connections to VCS
+- Fixed an error setting up columns in the project list in the SCA module
+- Fixed translation errors when using numerals
+- Fixed links to dependencies and vulnerabilities in the Email digest and Jira Issue
+- Fixed incorrect behavior while testing connection configuration for Email server settings
+- Removed the API method `get_package_info`
+
 ### [2024.52.1] - 2025-01-24
 
 - Fixed a bug that could lead to a sharp increase in container image scanning time

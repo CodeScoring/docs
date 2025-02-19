@@ -17,78 +17,115 @@ The records in the journal can be filtered by date range or username, and specif
 
 Events in the audit log are divided into several categories. Below is a complete list of possible events for each category, along with their descriptions.
 
-## Activation
+## License Activation
 
-| Text of the event | Decoding |
-| --------------- | ----------------------------------------------------------
-|*Object ActivationKey: Owner: {Owner.name}. Expired: yyyy-mm-dd hh: mm: ss+hh: mm (Timezone). Authors limit: {limit.number} created* | Activation of the PO license indicating the owner of the key and restrictions on the number of authors |
+| Event Text  |  Description |
+|-------------|-------------|
+|*Object <ActivationKey: Owner: {owner.name}. Expired: YYYY-MM-DD HH:MM:SS+HH:MM (timezone). Authors limit: {limit.number}> created* | Activation of software license with owner and author limit specified |
+|*No activation key* | No activation key present |
+|*Problem with activation key: {status.lower()}* | Issue with activation key |
 
-## Authentication of the user
+## User Authentication
 
-| Text of the event | Decoding |
-| --------------- | ----------------------------------------------------------
-|*User logged in*| The user has successfully logged into the system |
-|*User logged out*| The user has logged out of the system |
-|*Failed Login Attempt {Username}*| The wrong password has been used when trying to log in |
+| Event Text  |  Description |
+|-------------|-------------|
+|*User logged in* | User successfully authenticated in the system |
+|*User logged out* | User logged out of the system |
+|*Failed login attempt {username}* | Incorrect password entered during authentication attempt |
 
 ## Object Management
 
-| Text of the event | Decoding |
-| --------------- | ----------------------------------------------------------
-|*Object {Instance! R} created*| Creation of any object in the system by a user through the UI |
-|*Object {Instance! R} updated*| Updating any object in the system by a user through the UI |
-|*Object {Instance! R} Deleted*| Removing any object in the system by a user through the UI |
+| Event Text  |  Description |
+|-------------|-------------|
+|*Object {instance!r} created* | Creation of any object in the system via user interface |
+|*Object {instance!r} updated* | Update of any object in the system via user interface |
+|*Object {instance!r} deleted* | Deletion of any object in the system via user interface |
 
-## SCA analysis launch
+## SCA Analysis Execution
 
-| The text of the event | Decoding |
-| --------------- | ----------------------------------------------------------
-|*[SCA][{analysis_run.project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Analysis started*| SCA analysis of a project has been launched |
-|*[SCA][{analysis_run.project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Analysis finished*| SCA analysis of a project has completed |
-|*[SCA][{analysis_run.project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Analysis failed. Check server logs.*| SCA analysis of the project ended with an error. It is necessary to check the server logs. |
-|*Failed to clone for repository {repository.name}.*| Cloning of the repository has failed |
-|*Failed to detect branch for repository "{repository.name}"*| It was not possible to find the branch for the repository |
-|*[SCA][{project.name}] [{analysis_run.sequence}/{analysis_run.pk}] clone source code*| cloning the source code of the project launched |
-|*[SCA][{project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Collect Files Data*| Search for data on project files launched |
-|*[SCA][{project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Collect manifests*| Search for project manifestos is launched |
-|*[SCA][{project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Create pipeline*| Creation of Pipeline for SCA Analysis of the project is launched |
-|*[SCA][{project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Check policies*| Checking the policies analysis is launched |
-|*[SCA][{project.name}] [{analysis_run.sequence}/{analysis_run.pk}] Update project metrics*| Updating the project metrics for the SCA analysis of the project is launched |
-|*[SCA][{project.name}] [{analysis_run.sequence}/{analysis_run.pk}] analyze dependencies*| Analysis of the dependencies for the SCA analysis of the project is launched |
-|*(Run #{task.id}) analysis started via API*| Analysis launched through the CLI agent in the API (with UUID of the launch) |
-|*Some tasks in analysis failed*| Some tasks in the analysis are not completed |
-|*Could not connect to OSS Index, Reason: {Err}*| It was not possible to connect to the OSS index (with error code)|
-|*[[SCA][{project.name}] Analysis disidn't start (reason: {err.message})]*| SCA analysis of the project did not start with an indication of error |
-|*Overall SCA run started for {len(projects)} project(s)*| Launched SCA analysis for all projects (with number of projects) |
+| Event Text  |  Description |
+|-------------|-------------|
+|*[SCA][{analysis_run.project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analysis started* | SCA analysis of the project started |
+|*[SCA][{analysis_run.project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analysis finished* | SCA analysis of the project completed |
+|*[SCA][{analysis_run.project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analysis failed. Check server logs.* | SCA analysis of the project failed. Check server logs. |
+|*Failed to clone for repository {repository.name}.* | Repository cloning failed |
+|*Failed to detect branch for repository "{repository.name}* | Failed to detect branch for repository |
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Clone source code* | Project source code cloning started |
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Collect files data* | File data collection for the project started |
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Collect manifests* | Manifest collection for the project started |
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Create pipeline* | Pipeline creation for SCA analysis started |
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Check policies* | Policy checking for SCA analysis started |
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Update project metrics* | Project metrics update for SCA analysis started |
+|*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analyze dependencies* | Dependency analysis for SCA started |
+|*[[SCA][{project.name}] Analysis didn't start (Reason: {err.message})]* | SCA analysis did not start due to an error |
+|*Overall SCA run started for {len(projects)} project(s)* | Overall SCA analysis for projects started |
 
-Each SCA analysis event contains a sequential analysis number in the project and **UUID** of the launch.
+Each SCA analysis event contains a sequential analysis number in the project and a **UUID** of the execution.
 
-## TQI analysis launch
+## TQI Analysis Execution
 
-| The text of the event | Decoding |
-| --------------- | ----------------------------------------------------------
-|*Rebuild author {primary_email}*| Updating information on the author based on the default email in Authors Merge rules|
-|*Generate authors merge rules*| Creation of the merge rules for authors |
-|*(Run #{run_id}) Collect commits data for project*| Collection of commits data for a project has started|
-|*(Run #{run_id}) Create authors*| Creation of authors |
-|*(Run #{run_id}) Load authors OSS Contributions*| Loading the authors contribution in Open Source projects |
-|*(Run #{run_id}) Authors analysis started*| Analysis of the authors began |
-|*(Run #{run_id}) Authors analysis completed*| Analysis of the authors successfully completed |
-|*(Run #{run_id}) Authors analysis failed. Check server logs.*| Analysis of the authors has not been completed due to an error. It is necessary to check the server logs |
-|*(Run #{run_id}) Authors analysis cancelled*| Analysis of the authors cancelled |
-|*(Run #{run_id}) Update project {project.name}*| Updating a project |
-|*(Run #{run_id}) Clones analysis started*| Analysis of the code clones has started |
-|*(Run #{run_id}) Clones analysis completed*| Analysis of the code clones has completed |
-|*(Run #{run_id}) Clones analysis failed. Check server logs.*| Analysis of the code clones has not been completed due to an error. It is necessary to check the server logs |
-|*(Run #{run_id}) Clones analysis cancelled*| Analysis of the code clones canceled |
-|*(Run #{run_id}) Clone source code for project {project.name}*|Cloning of the source code repository for a project has started|
+| Event Text  |  Description |
+|-------------|-------------|
+|*Rebuild author {primary_email}* | Updating author information based on merge rules by primary email |
+|*Generate authors merge rules* | Creating author merge rules |
+|*(Run #{run_id}) Collect commits data for project {project.name}* | Commit data collection for the project started |
+|*(Run #{run_id}) Create authors* | Author creation started |
+|*(Run #{run_id}) Load authors OSS contributions* | Loading authors' contributions to OSS |
+|*(Run #{run_id}) Authors analysis started* | Author analysis started |
+|*(Run #{run_id}) Authors analysis completed* | Author analysis successfully completed |
+|*(Run #{run_id}) Authors analysis failed. Check server logs.* | Author analysis failed. Check server logs. |
+|*(Run #{run_id}) Authors analysis cancelled* | Author analysis canceled |
+|*(Run #{run_id}) Update project {project.name}* | Project update started |
+|*(Run #{run_id}) Clones analysis started* | Cloned code analysis started |
+|*(Run #{run_id}) Clones analysis completed* | Cloned code analysis completed |
+|*(Run #{run_id}) Clones analysis failed. Check server logs.* | Cloned code analysis failed. Check server logs. |
+|*(Run #{run_id}) Clones analysis cancelled* | Cloned code analysis canceled |
+|*(Run #{run_id}) Clone source code for project {project.name}* | Project source code repository cloning started |
 
-Each TQI analysis event contains an **ID** of the launch.
+Each TQI analysis event contains a **UUID** of the execution.
 
-## Policy management
+## Policy Management
 
-| Text of the event | Decoding |
-| --------------- | ----------------------------------------------------------
-|*Policy ignore {Policy_ignore} created*| Policy ignore rule has been created|
-|*Policy ignore {Policy_ignore} фctivated*| Policy ignore rule has been activated|
-|*To policy ignore {policy_ignore} added policy {Policy_Alert.policy}*| Policy has been added to a current policy ignore rule|
+| Event Text  |  Description |
+|-------------|-------------|
+|*Policy ignore {policy_ignore} created* | Creation of a policy ignore rule |
+|*Policy ignore {policy_ignore} activated* | Activation of a policy ignore rule |
+|*To Policy ignore {policy_ignore} added Policy {policy_alert.policy}* | Policy added to an existing ignore rule |
+| *Policy "{policy.name}" (id: {policy.pk}) skipped. Reason: {err!r}* | Policy skipped due to an error |
+
+## Secrets Analysis
+
+| Event Text  |  Description |
+|-------------|-------------|
+| *[Secrets][{analysis_run.analysis_object}] Analysis started* | Secrets analysis started |
+| *[Secrets] Training run started* | Training of the user model based on labeling results started |
+| *[Secrets][{analysis_run.analysis_object}] Analysis finished* | Secrets analysis completed |
+| *[Secrets] Training run finished* | Training of the user model based on labeling results completed |
+| *[Secrets][{analysis_run.analysis_object}] Analysis failed. Check server logs.* | Secrets analysis failed |
+| *[Secrets] Training run failed. Check server logs.* | User model training failed |
+
+## Container Image Analysis
+
+| Event Text  |  Description |
+|-------------|-------------|
+| *In container image {container_image} dependency {dep_name_and_version} was changed* | A dependency was changed in the container image |
+| *Updating images list for registry {container_registry} triggered via update button.* | Forced update of the image list from the registry started |
+
+## LDAP Operations
+
+| Event Text  |  Description |
+|-------------|-------------|
+| *Applying all LDAP group mapping rules triggered* | Execution of all LDAP group mapping rules started |
+| *{message} While processing, failed to apply some of rules related to following LDAP servers: {', '.join(ldap_servers_mapping_failed_for)}. Check server logs.* | Error applying group mapping rules for specified LDAP servers |
+
+## Miscellaneous
+
+| Event Text  |  Description |
+|-------------|-------------|
+|*(Run #{task.id}) Analysis started via API* | Analysis started via API |
+|*Some tasks in analysis failed* | Some tasks in the analysis failed |
+|*Could not connect to OSS Index, reason: {err}* | Could not connect to OSS Index due to an error |
+|*There is already running analysis* | Analysis is already running |
+|*Another analysis in progress. Parallel execution forbidden.* | Parallel execution of analysis is forbidden |
+|*Repo path for {project} does not exist, setting status to Not cloned* | Repository path not found, status set to "Not cloned" |
+|*Failed to clone for repository {project.repo_name} because project was deleted* | Failed to clone the repository because the project was deleted |

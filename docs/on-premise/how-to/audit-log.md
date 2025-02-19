@@ -22,6 +22,8 @@ hide:
 | Текст события  |  Расшифровка |
 |----------------|--------------|
 |*Object <ActivationKey: Owner: {owner.name}. Expired: YYYY-ММ-DD HH:MM:SS+HH:MM (timezone). Authors limit: {limit.number}> created* | Активация лицензии на ПО с указанием владельца ключа и ограничения по количеству авторов|
+|*No activation key* | Отсутствует ключ активации |
+|*Problem with activation key: {status.lower()}* | Проблема с ключом активации |
 
 ## Аутентификация пользователя
 
@@ -55,11 +57,8 @@ hide:
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Check policies*|Проверка политик SCA анализа проекта запущена|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Update project metrics*|Обновление метрик проекта для SCA анализа проекта запущено|
 |*[SCA][{project.name}][{analysis_run.sequence}/{analysis_run.pk}] Analyze dependencies*|Анализ зависимостей проекта для SCA анализа проекта запущен|
-|*(Run #{task.id}) Analysis started via API*|Анализ запущен через консольный агент по API (с uuid запуска)|
-|*Some tasks in analysis failed*|Некоторые задачи при анализе не выполнены|
-|*Could not connect to OSS Index, reason: {err}*|Не удалось подключиться к индексу OSS с указанием ошибки|
-|*[[SCA][{project.name}] Analysis didn't start (Reason: {err.message})]*|SCA анализ проекта не запустился с указанием ошибки|
-|*Overall SCA run started for {len(projects)} project(s)*|Запущен SCA анализ для проектов|
+|*[[SCA][{project.name}] Analysis didn't start (Reason: {err.message})]*|SCA анализ проекта не запустился из-за ошибки|
+|*Overall SCA run started for {len(projects)} project(s)*|Запущен  общий SCA анализ для проектов|
 
 Каждое событие SCA анализа содержит последовательный номер анализа в проекте и **UUID** запуска.
 
@@ -83,7 +82,7 @@ hide:
 |*(Run #{run_id}) Clones analysis cancelled*|Анализ клонированного кода отменен|
 |*(Run #{run_id}) Clone source code for project {project.name}*|Клонирование репозитория исходного кода проекта запущено|
 
-Каждое событие TQI анализа содержит **ID** запуска.
+Каждое событие TQI анализа содержит **UUID** запуска.
 
 ## Управление политиками
 
@@ -92,3 +91,43 @@ hide:
 |*Policy ignore {policy_ignore} created*|Создание правила игнорирования политики|
 |*Policy ignore {policy_ignore} activated*|Активация правила игнорирования политики|
 |*To Policy ignore {policy_ignore} added Policy {policy_alert.policy}*|Добавлена политика в существующее правило игнорирования|
+| *Policy "{policy.name}" (id: {policy.pk}) skipped. Reason: {err!r}* | Политика пропущена по причине ошибки |
+
+## Анализ секретов
+
+| Текст события | Расшифровка |
+|--------------|------------|
+| *[Secrets][{analysis_run.analysis_object}] Analysis started* | Запущен анализ секретов |
+| *[Secrets] Training run started* | Запущено обучение пользовательской модели на основе результатов разметки |
+| *[Secrets][{analysis_run.analysis_object}] Analysis finished* | Завершен анализ секретов |
+| *[Secrets] Training run finished* | Завершено обучение пользовательской модели на основе результатов разметки |
+| *[Secrets][{analysis_run.analysis_object}] Analysis failed. Check server logs.* | Ошибка анализа секретов |
+| *[Secrets] Training run failed. Check server logs.* | Ошибка обучения пользовательской модели |
+
+## Анализ контейнерных образов
+
+| Текст события | Расшифровка |
+|--------------|------------|
+| *In container image {container_image} dependency {dep_name_and_version} was changed* | В контейнерном образе изменена зависимость |
+| *Updating images list for registry {container_registry} triggered via update button.* | Запущено принудительное обновление списка образов из реестра |
+
+## Работа с LDAP
+
+| Текст события | Расшифровка |
+|--------------|------------|
+| *Applying all LDAP group mapping rules triggered* | Запуск применения всех правил сопоставления групп LDAP |
+| *{message} While processing, failed to apply some of rules related to following LDAP servers: {', '.join(ldap_servers_mapping_failed_for)}. Check server logs.* | Ошибка применения правил сопоставления групп для указанных LDAP-серверов |
+
+
+## Прочее
+
+| Текст события  |  Расшифровка |
+|----------------|--------------|
+|*(Run #{task.id}) Analysis started via API*|Анализ запущен через API|
+|*Some tasks in analysis failed*|Некоторые задачи при анализе не выполнены|
+|*Could not connect to OSS Index, reason: {err}*|Не удалось подключиться к индексу OSS из-за ошибки|
+|*Could not connect to OSS Index, reason: {err}* | Ошибка подключения к OSS Index |
+|*There is already running analysis* | Анализ уже запущен |
+|*Another analysis in progress. Parallel execution forbidden.* | Запрещен параллельный запуск анализа |
+|*Repo path for {project} does not exist, setting status to Not cloned* | Путь к репозиторию не найден, статус установлен как "Не клонирован" |
+|*Failed to clone for repository {project.repo_name} because project was deleted* | Не удалось клонировать репозиторий, так как проект был удален |

@@ -24,8 +24,9 @@ Thus, to change the value of this parameter through environment variables, you n
 
 ### Priority of settings
 
-Since the agent startup parameters can be configured in three ways, when using several methods simultaneously, the agent will accept parameters in the following order of priority:
+Since agent startup parameters can be configured in multiple ways, if two or more methods are used at the same time, the agent will accept parameters in the following priority order:
 
-1. Value of the [command flag](/agent/scan.en);
-2. Value of the environment variable;
-3. Value in [config file](/agent/config.en).
+1. Value of the [scan-technology](/agent/scan-technology.en) command (if used);
+2. Value of the command flag;
+3. Value of [environment variable](/agent/env-variables.en);
+4. Value from [config file](/agent/config.en).
