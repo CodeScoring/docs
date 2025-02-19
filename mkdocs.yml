@@ -383,6 +383,7 @@ extra_css:
   - stylesheets/extra.css
   - css/logo.css
   - css/hide_lang_links.css
+  - css/print.css
 
 extra:
   # Default mkdocs-material alternate links for untranslated pages

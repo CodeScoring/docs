@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 
+{% block content %}
+
+    {{ super() }}  {# Keeps the existing page content #}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let printButton = document.getElementById("print-pdf-btn");
+            printButton.onclick = () => window.print();
+        });
+    </script>
+
+{% endblock %}
+
+
 {% block site_meta %}
     {{ super() }}
     <meta name="yandex-verification" content="87065ff836ee1f0a" />
@@ -27,5 +41,3 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/97226980" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 {% endblock %}
-
-
