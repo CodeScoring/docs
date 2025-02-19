@@ -62,8 +62,8 @@ plugins:
           ssl: "Self signed SSL certificates"
           analysis-ignore-paths: "Analysis paths and exceptions"
           troubleshooting: "Troubleshooting"
-          beginning: "Getting started with on-premise"
-          activation: "Activation"
+          getting-started: "Getting started with on-premise"
+          activation: "System activation"
           proprietors: "Creating proprietors"
           vcs: "Connecting to VCS"
           project-control: "Managing projects"
@@ -73,22 +73,27 @@ plugins:
           groups: "Creating user groups"
           users: "Managing user accounts"
           ldap: "Setting up LDAP"
-          graph: "Visualizing dependency graph"
           notifications: "Setting up notifications"
           audit-log: "Working with audit log"
           metrics: "Collecting metrics"
           webhooks: "Setting up webhooks"
           api: "Working with API"
+          sca: "CodeScoring SCA"
+          sca-general: "General description"
+          launch-analysis: "Launching a scan"
+          graph: "Visualizing dependency graph"
+          scan-history: "Tracking scan history"
+          export-results: "Exporting analysis results"
           osa: "CodeScoring OSA"
-          osa-general: "General"
+          osa-general: "General description"
           nexus-osa: "Nexus OSA"
           jfrog-osa: "JFrog OSA"
           repo-managers: "Connecting a repository manager"
           registries: "Connecting a container registry"
-          osa-policies: "OSA policies settings"
-          osa-components: "OSA components"
+          osa-policies: "Setting up OSA policies"
+          osa-components: "Working with OSA components"
           agent: "CLI agent Johnny"
-          agent-general: "General"
+          agent-general: "General description"
           agent-config: "Configuration"
           agent-variables: "Setting environment variables"
           agent-scan: "Scan command"
@@ -107,7 +112,7 @@ plugins:
           agent-export: "Exporting scan results"
           agent-resolve: "Resolving dependencies"
           secrets: "CodeScoring Secrets"
-          secrets-general: "General"
+          secrets-general: "General description"
           secrets-setup: "Setting up engine configuration"
           secrets-vcs: "Configuring VCS project for secret search"
           secrets-launch: "Launching secret search"
@@ -143,9 +148,9 @@ plugins:
           ssl: "Самоподписанные SSL сертификаты"
           analysis-ignore-paths: "Пути анализа и исключения"
           troubleshooting: "Диагностика неполадок"
-          beginning: "Начало работы с инсталляцией"
+          getting-started: "Начало работы с инсталляцией"
           activation: "Активация системы"
-          proprietors: "Создание владельцев"
+          proprietors: "Создание подразделений"
           vcs: "Подключение системы контроля версий"
           project-control: "Управление проектами"
           policies: "Настройка политик"
@@ -154,14 +159,19 @@ plugins:
           groups: "Создание групп пользователей"
           users: "Управление учетными записями"
           ldap: "Настройка LDAP"
-          graph: "Визуализация графа зависимостей"
           notifications: "Настройка уведомлений"
           audit-log: "Работа с аудит-логом"
           metrics: "Сбор метрик"
           webhooks: "Подключение вебхуков"
           api: "Работа с API"
+          sca: "CodeScoring SCA"
+          sca-general: "Общее"
+          launch-analysis: "Запуск сканирования"
+          graph: "Визуализация графа зависимостей"
+          scan-history: "Отслеживание истории сканирований"
+          export-results: "Выгрузка результатов анализа"
           osa: "CodeScoring OSA"
-          osa-general: "Общее"
+          osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
           jfrog-osa: "JFrog OSA"
           repo-managers: "Подключение менеджера репозиториев"
@@ -169,7 +179,7 @@ plugins:
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA на инсталляции"
           agent: "Консольный агент Johnny"
-          agent-general: "Общее"
+          agent-general: "Общее описание"
           agent-config: "Настройка через конфигурационный файл"
           agent-variables: "Настройка через переменные окружения"
           agent-scan: "Команда сканирования"
@@ -188,7 +198,7 @@ plugins:
           agent-export: "Экспорт результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
           secrets: "CodeScoring Secrets"
-          secrets-general: "Общее"
+          secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
           secrets-vcs: "Настройка VCS проекта для работы с секретами"
           secrets-launch: "Запуск поиска секретов"
@@ -236,7 +246,7 @@ nav:
     - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
     - troubleshooting: on-premise/troubleshooting.md
     - troubleshooting: on-premise/troubleshooting.en.md
-  - beginning:
+  - getting-started:
     - activation: on-premise/how-to/activation.md
     - activation: on-premise/how-to/activation.en.md
     - users: on-premise/how-to/users.md
@@ -251,16 +261,10 @@ nav:
     - project-control: on-premise/how-to/projects.en.md
     - policies: on-premise/how-to/policies.md
     - policies: on-premise/how-to/policies.en.md
-    - launch-analysis: on-premise/how-to/launch-analysis.md
-    - launch-analysis: on-premise/how-to/launch-analysis.en.md
-    - export-results: on-premise/how-to/export-results.md
-    - export-results: on-premise/how-to/export-results.en.md
-    - ldap: on-premise/how-to/ldap-settings.md
-    - ldap: on-premise/how-to/ldap-settings.en.md
-    - graph: on-premise/how-to/graphs.md
-    - graph: on-premise/how-to/graphs.en.md
     - notifications: on-premise/how-to/notifications.md
     - notifications: on-premise/how-to/notifications.en.md
+    - ldap: on-premise/how-to/ldap-settings.md
+    - ldap: on-premise/how-to/ldap-settings.en.md
     - audit-log: on-premise/how-to/audit-log.md
     - audit-log: on-premise/how-to/audit-log.en.md
     - metrics: on-premise/how-to/metrics.md
@@ -284,6 +288,17 @@ nav:
     - osa-policies: osa/osa-policies.en.md
     - osa-components: osa/components.md
     - osa-components: osa/components.en.md
+  - sca:
+    - sca-general: sca/index.md
+    - sca-general: sca/index.en.md
+    - launch-analysis: sca/launch-analysis.md
+    - launch-analysis: sca/launch-analysis.en.md
+    - graph: sca/graphs.md
+    - graph: sca/graphs.en.md
+    - scan-history: sca/scan-history.md
+    - scan-history: sca/scan-history.en.md
+    - export-results: sca/export-results.md
+    - export-results: sca/export-results.en.md
   - agent:
     - agent-general: agent/index.md
     - agent-general: agent/index.en.md

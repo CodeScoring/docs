@@ -2,8 +2,7 @@
 hide:
   - footer
 ---
-
-# Connecting a container registry
+# Connecting registry with container images
 
 To work with Docker images, it is necessary to connect registry with images in `System -> Registries` section.
 
