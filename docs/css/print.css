@@ -1,25 +1,36 @@
+/* Ensure the print button aligns to the end of the header */
+.header-end {
+    float: right; /* Push to the right */
+}
+
 /* Print Button Styling */
 #print-pdf-btn {
     background: none;
     border: none;
     cursor: pointer;
-    color: white; /* Ensure visibility */
-    display: inline-flex;
+    color: #9597B1; /* Correct grey color */
+    display: flex;
     align-items: center;
     padding: 5px;
-    margin-left: 8px; /* Space from the anchor link */
+    position: relative;
+    top: 5px; /* Slightly lower the icon */
 }
 
-/* SVG Icon Styling */
+/* Icon Styling */
 #print-pdf-btn svg {
-    width: 22px;
-    height: 22px;
-    stroke: currentColor;
+    width: 24px;
+    height: 24px;
+    fill: #9597B1; /* Use fill color instead of stroke */
+    stroke: none; /* Remove stroke */
 }
 
 /* Hover Effect */
 #print-pdf-btn:hover {
-    color: #ccc;
+    color: var(--md-accent-fg-color); /* Blue on hover */
+}
+
+#print-pdf-btn:hover svg {
+    fill: var(--md-accent-fg-color); /* Icon fills with blue on hover */
 }
 
 /* Hide button when printing */
@@ -28,3 +39,4 @@
         display: none;
     }
 }
+

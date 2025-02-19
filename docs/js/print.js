@@ -1,3 +1,0 @@
-function printPDF() {
-    window.print();
-}
