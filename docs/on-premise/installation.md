@@ -67,10 +67,10 @@ hide:
 10. Для входа в систему необходимо предварительно создать пользователя с правами администратора с помощью следующей команды:
 
     ```bash
-    docker exec -it ${PROJECT_NAME}_backend_1 python ./manage.py createsuperuser
+    docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py createsuperuser
     ```
 11. Для изменения пароля администратора можно использовать следующую команду:
 
     ```bash
-    docker exec -it prefix_backend_1 python ./manage.py changepassword <user_name>
+    docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py changepassword <user_name>
     ```

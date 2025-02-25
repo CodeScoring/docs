@@ -67,10 +67,10 @@ hide:
 10. To log in, you must first create a user with administrator rights using the following command:
 
    ```bash
-   docker exec -it ${PROJECT_NAME}_backend_1 python ./manage.py createsuperuser
+   docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py createsuperuser
    ```
 11. To change the administrator password, you can use the following command:
 
    ```bash
-   docker exec -it ${PROJECT_NAME}_backend_1 python ./manage.py changepassword <user_name>
+   docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py changepassword <user_name>
    ```
