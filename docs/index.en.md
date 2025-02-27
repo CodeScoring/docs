@@ -4,9 +4,9 @@ hide:
 ---
 # CodeScoring Documentation
 
-The documentation contains general information for working with the **CodeScoring** system.
+The documentation contains basic information for working with the **CodeScoring** platform.
 
-**CodeScoring** is a software composition analysis solution designed to parse dependencies, search for Open Source vulnerabilities, identify Open Source license compatibility, and review the quality of developed projects.
+**CodeScoring** is a platform for secure software development designed to analyze dependencies, search for vulnerabilities in open source components, identify license compatibility, review the quality of projects and search for confidential information in source code.
 
 **Table of contents**:
 
@@ -14,8 +14,10 @@ The documentation contains general information for working with the **CodeScorin
  - [Installation guide](/on-premise/installation.en)
  - [Getting started](/on-premise/how-to/activation.en)
  - [OSA module](/osa/index.en)
+ - [SCA module](/sca/index.en)
  - [CLI agent](/agent/index.en)
  - [Secrets module](/secrets/index.en)
+ - [TQI module](/tqi/index.en)
  - [Changelog](/changelog/on-premise-changelog.en)
 
 In case of any questions, please write to <hello@codescoring.ru>.

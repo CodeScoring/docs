@@ -49,7 +49,7 @@ As a result of the work, the agent displays one of three codes:
 - **1** – problems were found in the build, action is required;
 - **2** – analysis failed.
 
-**Important**: the command is intended for use in Linux-based operating systems only.
+**Important**: at the moment the command supports only Debian-based and RPM-based Linux distributions.
 
 ## Сommand parameters
 

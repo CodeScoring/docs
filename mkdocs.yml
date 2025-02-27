@@ -90,7 +90,7 @@ plugins:
           jfrog-osa: "JFrog OSA"
           repo-managers: "Connecting a repository manager"
           registries: "Connecting a container registry"
-          osa-policies: "Setting up OSA policies"
+          osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
           agent: "CLI agent Johnny"
           agent-general: "General description"
@@ -375,7 +375,7 @@ nav:
     - jfrog-changelog: changelog/jfrog-changelog.en.md
 
 
-copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
+copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> CodeScoring
 
 markdown_extensions:
   - attr_list
