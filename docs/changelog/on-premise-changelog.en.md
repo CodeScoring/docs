@@ -28,7 +28,7 @@ hide:
 - Fixed incorrect behavior while testing connection configuration for Email server settings
 - Removed the API method `get_package_info`
 
-## [2024.52.2] - 2025-02-26
+### [2024.52.2] - 2025-02-26
 
 - Fixed the operation of the alert ignoring mechanism
 
