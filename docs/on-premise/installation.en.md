@@ -48,8 +48,8 @@ hide:
 7. Run the CodeScoring installation command (the command must be executed with system superuser rights):
 
       ```bash
-      cd /path/to/docker-compose
-      docker compose -p PROJECT_NAME -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
+      export PROJECT_NAME="cs" 
+      docker compose -p ${PROJECT_NAME} -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
       ```
 
       `PROJECT_NAME` - hereinafter the selected project name, by default it uses the name of the current directory
@@ -57,20 +57,20 @@ hide:
 8. To view the logs you can use the command:
 
       ```bash
-      docker compose -p PROJECT_NAME logs -f
+      docker compose -p ${PROJECT_NAME} logs -f
       ```
 
 9. After starting, the service will be available at the configured domain or address `http://localhost:8081`. During the first launch, additional database migrations are performed; the operation may take longer than on subsequent runs.
 
       **Note**: for the installation to work via the https protocol, you need an external balancer that implements ssl termination.
 
-10. To log in, you must first create a user with administrator rights using the following command (replacing `prefix` with the `PROJECT_NAME` value from step 8):
+10. To log in, you must first create a user with administrator rights using the following command:
 
    ```bash
-   docker exec -it prefix_backend_1 python ./manage.py createsuperuser
+   docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py createsuperuser
    ```
 11. To change the administrator password, you can use the following command:
 
    ```bash
-   docker exec -it prefix_backend_1 python ./manage.py changepassword <user_name>
+   docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py changepassword <user_name>
    ```
