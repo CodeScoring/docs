@@ -6,7 +6,7 @@ hide:
 
 ### [2025.9.0] - 2025-02-25
 
-- Fixed the incorrect Docker image link sent by the plugin for analysis in codescoring (nexus 3.75)
+- Fixed the Docker image link sent by the plugin for analysis in the CodeScoring installation. The link format changed in Nexus Repository 3.75 release
 
 ### [2025.5.2] - 2025-01-31
 
@@ -14,11 +14,11 @@ hide:
 
 ### [2025.5.1] - 2025-01-27
 
-- Fixed an incomplete NPM package name in `purl`
+- Fixed the missing namespace in PURL for NPM packages in Nexus Repository 3.75 release
 
 ### [2025.5.0] - 2025-01-27
 
-- Trimmed spaces in the list of ignored repository names and in the list of repository formats for scanning.
+- Fixed an issue with spaces in the ignored repository names list and the repository formats list for scanning 
 
 ### [2024.49.0] - 2024-12-05
 
