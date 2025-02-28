@@ -28,6 +28,10 @@ hide:
 - Fixed incorrect behavior while testing connection configuration for Email server settings
 - Removed the API method `get_package_info`
 
+## [2024.52.2] - 2025-02-26
+
+- Fixed the operation of the alert ignoring mechanism
+
 ### [2024.52.1] - 2025-01-24
 
 - Fixed a bug that could lead to a sharp increase in container image scanning time
