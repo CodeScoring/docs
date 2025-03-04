@@ -4,6 +4,22 @@ hide:
 ---
 # Nexus OSA Changelog
 
+### [2025.9.0] - 2025-02-25
+
+- Fixed the Docker image link sent by the plugin for analysis in the CodeScoring installation. The link format changed in Nexus Repository 3.75 release
+
+### [2025.5.2] - 2025-01-31
+
+- Fixed a 500 error when attempting to scan an unknown repository format plugin
+
+### [2025.5.1] - 2025-01-27
+
+- Fixed the missing namespace in PURL for NPM packages in Nexus Repository 3.75 release
+
+### [2025.5.0] - 2025-01-27
+
+- Fixed an issue with spaces in the ignored repository names list and the repository formats list for scanning 
+
 ### [2024.49.0] - 2024-12-05
 
 - Added sending to CodeScoring a link to the package and the user downloading it. Compatible with installation version 2024.48.0 and higher
