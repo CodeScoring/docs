@@ -28,6 +28,23 @@ Policies can be **blocking**: when such a policy is triggered, the used componen
 
 Additionally, when the policy is triggered, a notification can be sent to the responsible specialists in the task management system or an email with a description of the problem.
 
+## Policy stages
+
+The stages of policy operation are configured by the user when editing the project parameters in the **Settings → Projects** section in the **Policy stage** field. The names of the stages correspond to the following logic:
+
+- `dev` – development stage;
+- `stage` – intermediate (pre-production) stage;
+- `test` – testing stage;
+- `prod` – production stage.
+
+When creating or editing a policy in the **Settings → Policies** section, the user has to specify the stages to which it will be applied.
+
+In addition, there are special stage values used for certain tasks:
+
+- `proxy` – for the plugin in the OSA module;
+- `source` – for VCS project analysis;
+- `build` – for the Johnny console agent.
+
 ## Customization in the system
 
 Policies are created in the `Settings -> Policies` section. You can go to the policy creation form by clicking the **Create new** button.
