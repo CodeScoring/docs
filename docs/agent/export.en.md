@@ -26,7 +26,7 @@ If necessary, you can specify multiple formats, separating them with commas, for
 ./johnny scan file path/to/file \
 --api_token <api_token> \
 --api_url <api_url> \
---format coloredtable,junit>>junit.xml
+--format "coloredtable, junit>>junit.xml"
 ```
 
 In this example, the output will be in the `coloredtable` format to the console, and also saved to the `junit.xml` file in the `junit` format.
