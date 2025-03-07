@@ -30,7 +30,7 @@ Additionally, when the policy is triggered, a notification can be sent to the re
 
 ## Policy stages
 
-The stages of policy operation are configured by the user when editing the project parameters in the **Settings → Projects** section in the **Policy stage** field. The names of the stages correspond to the following logic:
+The stages of policy operation are configured by the user when editing the project parameters in the **Settings → Projects** section in the **Policy stage** field or specified via the `--stage` parameter when launching the [Johnny console agent](/agent/scan.en). The names of the stages correspond to the following logic:
 
 - `dev` – development stage;
 - `stage` – intermediate (pre-production) stage;
