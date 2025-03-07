@@ -6,7 +6,7 @@ hide:
 
 The documentation contains basic information for working with the **CodeScoring** platform.
 
-**CodeScoring** is a platform for secure software development designed to analyze dependencies, search for vulnerabilities in open source components, identify license compatibility, review the quality of projects and search for confidential information in source code.
+**CodeScoring** is a platform for secure software development designed to analyze dependencies, search for vulnerabilities in open source components, identify license compatibility, search for confidential information in source code and review the quality of developed projects.
 
 **Table of contents**:
 
