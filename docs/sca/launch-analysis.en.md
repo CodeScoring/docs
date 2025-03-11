@@ -2,7 +2,19 @@
 hide:
   - footer
 ---
-# Launching analysis
+# Configuring and launching analysis
+
+## Configuring analysis  
+
+When starting an analysis from the installation, you can select the analysis parameters.  
+
+Management is done on the project page under `Settings -> Projects`.  
+
+- **Scan with hashes** - scans the project using file hash sums to detect direct dependency inclusions;  
+- **Scan ignored paths** - list of paths that will be ignored during scanning;
+- **Prevent recursive scan** - turns off deep directory traversal during scanning. Only manifests in the root directory will be found;
+- **Activate cloud resolve** - activate dependency resolution in cloud. Warning! Cloud resolution could provide inaccurate results and lead to extended scan time;
+- **Exclude from SCA** - exclude current project from SCA analysis;
 
 ## Starting manual analysis
 
