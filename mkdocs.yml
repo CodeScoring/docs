@@ -111,6 +111,7 @@ plugins:
           agent-save-results: "Saving scan results"
           agent-export: "Exporting scan results"
           agent-resolve: "Resolving dependencies"
+          agent-working-with-dependencies: "Working with dependencies"
           secrets: "CodeScoring Secrets"
           secrets-general: "General description"
           secrets-setup: "Setting up engine configuration"
@@ -197,6 +198,7 @@ plugins:
           agent-save-results: "Сохранение результатов сканирования"
           agent-export: "Экспорт результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
+          agent-working-with-dependencies: "Работа с зависимостями"
           secrets: "CodeScoring Secrets"
           secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
@@ -336,6 +338,8 @@ nav:
     - agent-export: agent/export.en.md
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
+    - agent-working-with-dependencies: agent/working-with-dependencies.md
+    - agent-working-with-dependencies: agent/working-with-dependencies.en.md
   - secrets:
     - secrets-general: secrets/index.md
     - secrets-general: secrets/index.en.md
