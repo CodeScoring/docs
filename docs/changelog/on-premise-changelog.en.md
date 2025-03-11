@@ -4,6 +4,13 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.7.1]-2025-03-07
+
+- Fixed error in the operation of the mechanism of ignoring the Alerts
+- Optimized background policy re-scan for OSA when updating information about vulnerabilities
+- Fixed error in the operation of integration with OSSIndex
+- Optimized the work of updating the date of the last request of the package or image to reduce the load on the disk
+
 ### [2025.7.0] - 2025-02-14
 
 - Added ability to select a license in the dependency fields management UI
