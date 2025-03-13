@@ -4,6 +4,13 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.7.1]-2025-03-07
+
+- Fixed error in the operation of the mechanism of ignoring the Alerts
+- Optimized background policy re-scan for OSA when updating information about vulnerabilities
+- Fixed error in the operation of integration with OSSIndex
+- Optimized the work of updating the date of the last request of the package or image to reduce the load on the disk
+
 ### [2025.7.0] - 2025-02-14
 
 - Added ability to select a license in the dependency fields management UI
@@ -27,6 +34,10 @@ hide:
 - Fixed links to dependencies and vulnerabilities in the Email digest and Jira Issue
 - Fixed incorrect behavior while testing connection configuration for Email server settings
 - Removed the API method `get_package_info`
+
+### [2024.52.2] - 2025-02-26
+
+- Fixed the operation of the alert ignoring mechanism
 
 ### [2024.52.1] - 2025-01-24
 

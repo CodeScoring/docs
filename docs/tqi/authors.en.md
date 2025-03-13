@@ -29,10 +29,28 @@ The authors' work is visualized as an activity map, which can be seen on the **A
 
 The map can be filtered by the following parameters:
 
+- **Commit Date** – the period during which the commit was made in the version control system;
+- **Authors Number** – the total number of authors displayed on the map;
 - **Proprietor** – part of the organization that manages the project;
 - **Project Category** – category assigned within the CodeScoring system;
 - **Project** – name of the project;
 - **Technologies** – programming languages used in the project.
+
+The technology (language) filter is applied to commits. If a commit contains changes in the specified language, it is included in the selection.
+
+Suppose the following commits are present:
+
+| Author | Language 1 | Share | Language 2 | Share |
+|---------|-----------|--------|-------|
+| Author 1 | Python | 100% | JS | 1% |
+| Author 1 | Python | 50% | Java | 50% |
+| Author 2 | Java | 100% | — | — |
+| Author 2 | JS | 100% | — | — |
+| Author 2 | JS | 99% | Python | 1% |
+
+If you set the filter to **Python**, then commits **1, 2, and 5** will be included in the sample, since they contain changes in this language.
+
+After filtering, commits are grouped by month and aggregated. As a result, there may be situations when the main language of the month is JS, and Python takes up only **1%**, but it still gets into the sample.
 
 ![Contribution map](/assets/img/tqi/en/contribution-map.png)
 

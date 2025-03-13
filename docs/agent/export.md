@@ -26,7 +26,7 @@ hide:
 ./johnny scan file path/to/file \
 --api_token <api_token> \
 --api_url <api_url> \
---format coloredtable,junit>>junit.xml
+--format "coloredtable, junit>>junit.xml"
 ```
 
 В этом примере вывод будет в формате `coloredtable` в консоль, а также сохранится в файл `junit.xml` в формате `junit`.

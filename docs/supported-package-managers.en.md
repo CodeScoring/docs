@@ -32,22 +32,22 @@ If there is no lock file the system will try to resolve transitive OSS dependenc
 
 - Maven
  + for pom.xml and build.gradle format generation of `maven-dependency-tree` via the corresponding maven plugin
- + Maven version 3.8.3 and OpenJDK version 11 are used
+ + Maven version 3.8.8 and OpenJDK version 11 are used
 - PyPi
  + generation of `poetry.lock` using the Poetry package manager
- + Python version 3.8 is used
+ + Python version 3.11.7 is used
 - N.P.M.
  + generation of `yarn.lock` using the Yarn package manager
- + uses Node.js version 16
+ + uses Node.js version 20.9.0
 - Nuget
  + for csproj format generation of `project.assets.json` using built-in nuget tools
- + uses .NET SDK version 8
+ + uses .NET SDK version 8.0.404
 -Packagist
  + generation of `composer.lock` using the Composer package manager
- + PHP version 8 is used
+ + PHP version 8.2.26 is used
 -Rubygems
  + generation of `Gemfile.lock` using the Bundler package manager
- + uses Ruby version 3
+ + uses Ruby version 3.1.2p20
 
 Generation of lock files by the system does not produce the best results in every case, since it often depends on the environment.
 
