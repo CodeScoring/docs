@@ -4,8 +4,6 @@ hide:
 ---
 # Работа с зависимостями в Java
 
-При работе с Java можно создать дополнительные артефакты, содержащие полную структуру зависимостей проекта.
-
 ## Apache Maven:
 
 ### Создание файла `maven-dependency-tree.txt`
@@ -14,7 +12,7 @@ hide:
 mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
 ```
 
-### Gradle:
+## Gradle:
 
 ### Создание файла `gradle-dependency-tree.txt`
 

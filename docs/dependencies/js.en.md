@@ -8,7 +8,7 @@ hide:
 
 ### Creating a `package-lock.json` file
 
-1. Initialize the project (if not already done):
+1. Initialize the project:
 ```sh
 npm init -y
 ```
@@ -36,7 +36,7 @@ The console agent Johnny correctly processes this entry, recognizing that **@bab
 
 ## Yarn
 
-### `yarn.lock`
+### Creating a `yarn.lock` file
 
 1. Initialize the project:
 ```sh

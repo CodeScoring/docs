@@ -8,15 +8,15 @@ When working with Java, you can create additional artifacts that contain the ful
 
 ## Apache Maven:
 
-### Generate `maven-dependency-tree.txt` file
+### Creating a `maven-dependency-tree.txt` file
 
 ```
 mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
 ```
 
-### Gradle:
+## Gradle:
 
-### Generate `gradle-dependency-tree.txt` file
+### Creating a `gradle-dependency-tree.txt` file
 
 ```
 ./gradlew dependencies > gradle-dependency-tree.txt

@@ -20,8 +20,6 @@ hide:
 
 ### Создание файла `paket.lock`
 
-#### `paket.lock`
-
 1. Создайте lock-file:
    ```sh
    paket install
