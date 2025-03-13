@@ -1,31 +1,30 @@
 ---
 hide:
-  - footer
+- footer
 ---
-# Activation of the system
+# System activation
 
 ## Entering the activation key
 
-For the operation of the system, it is necessary to activate it using the key, which is transmitted to the client along with the installation instructions in a separate `txt` file.
+To operate the system, it must be activated using a key that is transferred to the client in a separate `txt` file.
 
-To enter the key, go to the `Settings -> Activation key`, copy the text from the file to the field without any changes and press the **Save** button. In case of success, the page will appear on the page on the key and the **Status** field will be active.
+To enter the key, go to the `Settings -> Activation key` section, copy the text from the file into the field without any changes and click the **Save** button. If successful, information on the key will appear on the page and the Status field will change to **Active**.
 
 ## Key parameters
 
-After successful activation of the system in the `Settings -> Activation key` section the parameters of the used key are displayed:
+If the system is successfully activated, the `Settings -> Activation key` section displays the parameters of the key used:
 
-- **Status** - system activation status;
-- **Owner** - name of the issued key;
-- **Issued** - the day of release of the key;
-- **Expiration** The day of the expiration of the key;
-- **Authors limit** - the maximum number of authors (developers) for which the system is licensed;
-- **Private feeds** - a list of connected private datebases of vulnerabilities, for example **Kaspersky OSS Threats Data Feed**;
-- **Available modules** - a list of available modules (OSA, SCA, Secrets, TQI);
+- **Status** – system activation status;
+- **Owner** – name of the organization in whose name the key was issued;
+- **Issued** – day the key was issued;
+- **Expiration** – day the key expires;
+- **Authors limit** – the maximum number of authors (developers) for which the system is licensed;
+- **Private feeds** – a list of connected private vulnerability databases, such as **Kaspersky OSS Threats Data Feed**;
+- **Available modules** – a list of connected modules with the key expiration date for each.
 
-## Key expiration
+## Activation key expiration
 
-When the activation key expires, the platform continues to work with restrictions:
+When the activation key expires, the platform continues to operate with limitations:
 
-- updates of the system and its components remain accessible;
-- previously performed scanning and their results are available for viewing;
-- an attempt to perform a new scan leads to an error associated with the expiration of the activation key.
+- Previously performed scans and their results remain available for viewing;
+- An attempt to perform a new scan results in an error related to the activation key expiration.
