@@ -6,7 +6,7 @@ hide:
 
 ### [2025.12.0] - 2025-03-17
 
-- Improved accuracy of analysis in RPM and Debian repositories: Improved detection of namespaces, distribution and architecture qualifiers to PURLs
+- Improved accuracy of analysis in RPM and Debian repositories: improved detection of namespaces, distribution and architecture qualifiers to PURLs
 
 ### [2025.11.0] - 2024-03-13
 
