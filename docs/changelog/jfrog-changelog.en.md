@@ -4,6 +4,10 @@ hide:
 ---
 # JFrog OSA Changelog
 
+### [2025.11.0] - 2024-03-13
+
+- A Circuit Breaker mechanism has been added to the plugin to prevent Artifactory performance degradation in case of unavailability or timeouts from the on-premise installation
+
 ### [2024.49.0] - 2024-12-05
 
 - Added new execution `codeScoringVersion`, allowing to find out the plugin version. To do this, run the command:
