@@ -3,6 +3,10 @@ hide:
  -footer
 ---
 # Nexus OSA Changelog
+### [2025.12.0] - 2025-03-17
+
+- Improved accuracy of analysis in RPM and Debian repositories: improved detection of namespaces, distribution and architecture qualifiers to PURLs
+- Added Circuit Breaker mechanism to the plugin to prevent Nexus performance degradation in case of unavailability or timeouts on the installation side
 
 ### [2025.9.0] - 2025-02-25
 
