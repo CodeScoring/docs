@@ -4,6 +4,10 @@ hide:
 ---
 # JFrog OSA Changelog
 
+### [2025.12.0] - 2025-03-17
+
+- Improved accuracy of analysis in RPM and Debian repositories: added namespaces, distribution and architecture qualifiers to PURLs
+
 ### [2025.11.0] - 2024-03-13
 
 - A Circuit Breaker mechanism has been added to the plugin to prevent Artifactory performance degradation in case of unavailability or timeouts from the on-premise installation
