@@ -6,7 +6,7 @@ hide:
 
 To update, you must have current versions of the `docker-compose.yml`, `app.env` and `.env` files, which can be obtained from the vendor.
 
-The `CODESCORING_VERSION` variable inside the `.env` file specifies the required system version. The current version can be found in the [Changelog](/changelog.en) section.
+The `CODESCORING_VERSION` variable inside the `.env` file specifies the required system version. The current version can be found in the [Changelog](/changelog/on-premise-changelog.en) section.
 
 Then you need to follow these steps:
 
