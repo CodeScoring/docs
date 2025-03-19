@@ -111,7 +111,16 @@ plugins:
           agent-save-results: "Saving scan results"
           agent-export: "Exporting scan results"
           agent-resolve: "Resolving dependencies"
-          agent-working-with-dependencies: "Working with dependencies"
+          dependencies: "Working with dependencies"
+          dependencies-general: "General"
+          dependencies-java: "Java"
+          dependencies-scala: "Scala"
+          dependencies-go: "Go"
+          dependencies-js: "JavaScript"
+          dependencies-dotnet: ".NET"
+          dependencies-php: "PHP"
+          dependencies-python: "Python"
+          dependencies-ruby: "Ruby"
           secrets: "CodeScoring Secrets"
           secrets-general: "General description"
           secrets-setup: "Setting up engine configuration"
@@ -198,7 +207,16 @@ plugins:
           agent-save-results: "Сохранение результатов сканирования"
           agent-export: "Экспорт результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
-          agent-working-with-dependencies: "Работа с зависимостями"
+          dependencies: "Работа с зависимостями"
+          dependencies-general: "Общее описание"
+          dependencies-java: "Java"
+          dependencies-scala: "Scala"
+          dependencies-go: "Go"
+          dependencies-js: "JavaScript"
+          dependencies-dotnet: ".NET"
+          dependencies-php: "PHP"
+          dependencies-python: "Python"
+          dependencies-ruby: "Ruby"
           secrets: "CodeScoring Secrets"
           secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
@@ -338,8 +356,25 @@ nav:
     - agent-export: agent/export.en.md
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
-    - agent-working-with-dependencies: agent/working-with-dependencies.md
-    - agent-working-with-dependencies: agent/working-with-dependencies.en.md
+  - dependencies:
+    - dependencies-general: dependencies/index.md
+    - dependencies-general: dependencies/index.en.md
+    - dependencies-java: dependencies/java.md
+    - dependencies-java: dependencies/java.en.md
+    - dependencies-scala: dependencies/scala.md
+    - dependencies-scala: dependencies/scala.en.md
+    - dependencies-go: dependencies/go.md
+    - dependencies-go: dependencies/go.en.md
+    - dependencies-js: dependencies/js.md
+    - dependencies-js: dependencies/js.en.md
+    - dependencies-dotnet: dependencies/dotnet.md
+    - dependencies-dotnet: dependencies/dotnet.en.md
+    - dependencies-php: dependencies/php.md
+    - dependencies-php: dependencies/php.en.md
+    - dependencies-python: dependencies/python.md
+    - dependencies-python: dependencies/python.en.md
+    - dependencies-ruby: dependencies/ruby.md
+    - dependencies-ruby: dependencies/ruby.en.md
   - secrets:
     - secrets-general: secrets/index.md
     - secrets-general: secrets/index.en.md
