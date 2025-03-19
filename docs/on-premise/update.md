@@ -4,7 +4,7 @@ hide:
 ---
 # Обновление системы
 
-Для обновления необходимо иметь актуальные версии файлов `docker-compose.yml`, `external-db.override.yml`, `app.env` и `.env`, которые можно получить у вендора.
+Для обновления необходимо иметь актуальные версии файлов `docker-compose.yml`, `app.env` и `.env`, которые можно получить у вендора.
 
 В переменной `CODESCORING_VERSION` внутри файла `.env` указывается требуемая версия системы. Актуальную версию можно узнать в разделе [Changelog](/changelog/on-premise-changelog).
 
@@ -13,19 +13,19 @@ hide:
 1. Перейти в директорию с файлами запуска:
 
     ```bash linenums="1"
-    cd /path/to/docker/compose
+    cd /path/to/docker-compose
     ```
 
 2. Выполнить команду обновления образов:
 
 
     ```bash linenums="2"
-    docker compose pull
+    docker compose -p PROJECT_NAME pull
     ```
 
 3. Перезапустить инсталляцию:
 
     ```bash linenums="3"
-    docker compose down --remove-orphans
-    docker compose up -d --renew-anon-volumes
+    docker compose -p PROJECT_NAME down --remove-orphans
+    docker compose -p PROJECT_NAME up -d --renew-anon-volumes
     ```

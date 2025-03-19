@@ -9,14 +9,14 @@ hide:
 1. Go to the directory with the startup files:
 
  ```bash linenums="1"
- cd /path/to/docker/compose
+ cd /path/to/docker-compose
  ```
 
 2. To create a backup, run the command:
 
 
  ```bash linenums="2"
- docker compose run backup create
+ docker-compose -p PROJECT_NAME run backup create
  ```
 
  The backup file will be saved to the `backup` directory.
@@ -28,7 +28,7 @@ hide:
 
 
  ```bash linenums="1"
- docker compose run backup restore BACKUP_FILENAME
+ docker-compose -p PROJECT_NAME run backup restore BACKUP_FILENAME
  ```
 
  `BACKUP_FILENAME` is the name of the backup file. A list of available copies can be obtained by running the command:
@@ -40,6 +40,6 @@ hide:
 2. Restart the installation:
 
  ```bash linenums="2"
- docker compose up -d --force-recreate --renew-anon-volumes
+ docker-compose -p PROJECT_NAME up -d --force-recreate --renew-anon-volumes
  ```
 
