@@ -137,6 +137,7 @@ plugins:
           tqi-authors: "Building author profiles"
           tqi-clones: "Tracking code clones"
           tqi-metrics: "Calculating technical debt metrics"
+          changelog-general: "CodeScoring Changelog"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
@@ -234,6 +235,7 @@ plugins:
           tqi-authors: "Построение профилей авторов"
           tqi-clones: "Отслеживание дубликатов кода"
           tqi-metrics: "Расчет метрик технического долга"
+          changelog-general: "CodeScoring Changelog"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Nexus OSA"
@@ -408,6 +410,8 @@ nav:
     - tqi-metrics: tqi/metrics.md
     - tqi-metrics: tqi/metrics.en.md
   - changelog:
+    - changelog-general: changelog/index.md
+    - changelog-general: changelog/index.md
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
     - johnny-changelog: changelog/johnny-changelog.md
