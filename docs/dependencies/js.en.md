@@ -19,20 +19,19 @@ npm install
 
 ### Support for the NPM package alias mechanism
 
-The [NPM package alias](https://medium.com/@mahesh.jsdev/demystifying-npm-package-name-aliasing-a-comprehensive-guide-5a0a59519de9) mechanism allows you to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
+The [NPM package alias](https://docs.npmjs.com/cli/v8/using-npm/package-spec#aliases) mechanism allows you to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
 
-Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updating, and dependency compatibility.
+Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updates, and dependency compatibility.
 
-Suppose that when scanning the **@babel/core** dependency, the transitive dependencies show a non-existent package **@babel/legacy-core**. However, in `package.json`, **@babel/core** has:
+In `package.json`, the dependencies section may contain the following entry:
 
 ```json
 "dependencies": {
-"@babel/legacy-core": "npm:@babel/core@=7.12.0",
-"tslib": "^2.4.0"
+"@babel/legacy-core": "npm:@babel/core@=7.12.0"
 }
 ```
 
-The console agent Johnny correctly processes this entry, recognizing that **@babel/legacy-core** is an alias for **@babel/core**. The dependency analysis takes the original package into account, preventing errors related to non-existent names.
+The Johnny console agent handles this entry correctly, recognizing that **@babel/legacy-core** is an alias for **@babel/core** version 7.12.0. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
 
 ## Yarn
 
@@ -49,13 +48,13 @@ yarn install
 
 ### Support for Yarn's selective dependency resolution mechanism
 
-Yarn supports [selective version resolution](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) via the `resolutions` field in `package.json`, which allows you to specify specific versions of dependencies without editing `yarn.lock`.
+Yarn supports [selective version resolution](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) via the `resolutions` field in `package.json`, allowing you to specify specific versions of dependencies without editing `yarn.lock`.
 
-This mechanism is useful if you need to update a subdependency that is not updated frequently, fix a vulnerability in a subdependency, or lock in a version due to a problematic update.
+This mechanism is useful if you need to update a sub-dependency that is not updated frequently, fix a vulnerability in a transitive dependency, or lock a version due to a problematic update.
 
-CodeScoring supports handling this mechanism in the Johnny console agent. Here are some scenarios for how it works:
+CodeScoring supports handling this mechanism in the Johnny console agent. Here are some scenarios for its operation:
 
-#### Package replacement
+#### Replacing a package
 
 To replace a package via the resolutions mechanism, the following entry is added to `package.json`. In this example, the **parcel/watcher** package is replaced with the **favware/skip-dependency** package.
 
@@ -65,7 +64,7 @@ To replace a package via the resolutions mechanism, the following entry is added
 }
 ```
 
-The entries in the `yarn.lock` file corresponding to this package will be as follows:
+The corresponding entry in the `yarn.lock` file for this package will be as follows:
 
 ```yaml
 dependencies:
@@ -80,7 +79,7 @@ version: 1.2.2
 resolution: "@favware/skip-dependency@npm:1.2.2"
 ```
 
-#### Fixating the version
+#### Fixing the version of a transitive dependency
 
 To fix the version via the resolutions mechanism, the following entry is added to `package.json`. In this example, the version of the **http-signature** package is fixed to **1.3.4**.
 
@@ -90,7 +89,7 @@ To fix the version via the resolutions mechanism, the following entry is added t
 }
 ```
 
-The entries in `yarn.lock` corresponding to this package will be as follows:
+The entries in the `yarn.lock` file corresponding to this package will be as follows:
 
 ```yaml
 dependencies:
@@ -107,7 +106,7 @@ resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-1.3.4.tgz
 
 #### Fixating the version with multiple dependencies
 
-To fixate the version with multiple dependencies, the following entry is added to `package.json` via the resolutions mechanism. In this example, the version of the **yaml** package is fixed to **2.2.2**.
+To fixate the version with multiple dependencies, the following entry is added to `package.json` via the resolutions mechanism. In this example, the version of the **yaml** package is fixated to **2.2.2**.
 
 ```json
 "resolutions": {
@@ -128,10 +127,10 @@ yaml: 2.3.1
 yaml: ^2.1.1
 ```
 
-When installing, the build will use version **2.2.2**. The console agent analyzes only the package version recorded in `resolutions`.
+When installing, the build will use version **2.2.2**. The console agent analyzes only the package version fixated in `resolutions`.
 
 ```yaml
 "yaml@npm:2.2.2":
- version: 2.2.2
- resolution: "yaml@npm:2.2.2"
+version: 2.2.2
+resolution: "yaml@npm:2.2.2"
 ```
