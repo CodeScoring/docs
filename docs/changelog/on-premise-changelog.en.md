@@ -4,6 +4,12 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.7.2] - 2025-03-14
+
+- Fixed OSA API service crash when accessing a non-existent key in Redis in version 2025.7.0
+- Fixed display of pages with OSA module scan results if the package was requested periodically with an interval of less than a week
+- Increased the period for requesting code updates in VCS projects to reduce the load on VCS
+
 ### [2025.7.1]-2025-03-07
 
 - Fixed error in the operation of the mechanism of ignoring the Alerts
