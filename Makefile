@@ -10,23 +10,23 @@ help: ## This help.
 
 
 export COMPOSE_FILE ?= docker-compose.yml
-export COMPOSE_PROJECT_NAME ?= mkdocs
+export COMPOSE_PROJECT ?= mkdocs
 
 
 # TASKS
 
 .PHONY: up
 up: ## Docker-compose up
-	@docker compose up --build --detach --force-recreate --remove-orphans
+	@docker-compose -f $(COMPOSE_FILE) -p $(COMPOSE_PROJECT) up --build --detach --force-recreate --remove-orphans
 
 .PHONY: stop
 stop: ## Docker-compose stop
-	@docker compose stop
+	@docker-compose -f $(COMPOSE_FILE) -p $(COMPOSE_PROJECT) stop
 
 .PHONY: down
 down: ## Docker-compose down
-	@docker compose down
+	@docker-compose -f $(COMPOSE_FILE) -p $(COMPOSE_PROJECT) down
 
 .PHONY: logs
 logs: ## Get logs (follow, tail 10), for example: make logs args="app" OR make logs
-	@docker compose logs --timestamps -f --tail 10 $(args)
+	@docker-compose -f $(COMPOSE_FILE) -p $(COMPOSE_PROJECT) logs --timestamps -f --tail 10 $(args)

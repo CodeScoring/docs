@@ -55,7 +55,6 @@ plugins:
           installation: "On-premise installation and maintenance"
           hardware: "Hardware requirements"
           installation-docker: "Installation in Docker"
-          external-database: "External database in Docker"
           installation-kubernetes: "Installation in Kubernetes"
           update: "Updating the system in Docker"
           backup: "Backup"
@@ -153,7 +152,6 @@ plugins:
           installation: "Установка и эксплуатация"
           hardware: "Аппаратные требования"
           installation-docker: "Установка системы в Docker"
-          external-database: "Работа со внешней СУБД в Docker"
           installation-kubernetes: "Работа системы в Kubernetes"
           update: "Обновление системы в Docker"
           backup: "Резервное копирование"
@@ -256,8 +254,6 @@ nav:
     - hardware: on-premise/server-requirements.en.md
     - installation-docker: on-premise/installation.md
     - installation-docker: on-premise/installation.en.md
-    - external-database: on-premise/external-database.md
-    - external-database: on-premise/external-database.en.md
     - update: on-premise/update.md
     - update: on-premise/update.en.md
     - installation-kubernetes: on-premise/installation-in-k8s.md

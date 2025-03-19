@@ -42,21 +42,22 @@ hide:
        - `ANALYSIS_IGNORED_PATHS` - list of paths that will be ignored by the system during analysis. More details on adding exclusion paths can be found [here](/on-premise/analysis-ignore-paths/)
       - System version
        - `CODESCORING_VERSION` is a required variable. The current version can be found in the [Changelog](/changelog/on-premise-changelog.en) section
-      - Compose-related settings
-        - `COMPOSE_PROJECT_NAME` - docker compose project name, used to prefix the names of resources created by docker compose
 
     **Note**: do not use the `#` symbol in the parameters, it may be interpreted incorrectly by the system during installation.
 
 7. Run the CodeScoring installation command (the command must be executed with system superuser rights):
 
       ```bash
-      docker compose -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
+      export PROJECT_NAME="cs" 
+      docker compose -p ${PROJECT_NAME} -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
       ```
+
+      `PROJECT_NAME` - hereinafter the selected project name, by default it uses the name of the current directory
 
 8. To view the logs you can use the command:
 
       ```bash
-      docker compose logs -f
+      docker compose -p ${PROJECT_NAME} logs -f
       ```
 
 9. After starting, the service will be available at the configured domain or address `http://localhost:8081`. During the first launch, additional database migrations are performed; the operation may take longer than on subsequent runs.
@@ -66,10 +67,10 @@ hide:
 10. To log in, you must first create a user with administrator rights using the following command:
 
    ```bash
-   docker compose exec -it backend python ./manage.py createsuperuser
+   docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py createsuperuser
    ```
 11. To change the administrator password, you can use the following command:
 
    ```bash
-   docker compose exec -it backend python ./manage.py changepassword <user_name>
+   docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py changepassword <user_name>
    ```
