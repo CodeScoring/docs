@@ -5,7 +5,7 @@ hide:
 
 # Exporting scan results
 
-The Johnny console agent supports exporting scan results in several formats. This allows to adapt reporting to various needs, including integration with vulnerability management systems.
+The Johnny console agent supports exporting scan results in various formats. This allows to adapt reporting to different needs, including integration with vulnerability management systems.
 
 ## Available report formats
 
@@ -16,7 +16,8 @@ The Johnny console agent supports exporting scan results in several formats. Thi
 - **sarif** – unloaded to DefectDojo, CodeQL, Semgrep;
 - **csv** – used in BI systems, Excel, Pandas, SQL;
 - **gl-dependency-scanning-report** – report format for [GitLab Dependency Scanning](https://docs.gitlab.com/ee/user/application_security/dependency_scanning/);
-- **gl-code-quality-report** – report format for [GitLab Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html).
+- **gl-code-quality-report** – report format for [GitLab Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html);
+- **gl-secrets-report** – формат отчета для [GitLab Secret Detection](https://docs.gitlab.com/user/application_security/secret_detection/).
 
 ### Usage example
 

@@ -5,7 +5,7 @@ hide:
 
 # Экспорт результатов сканирования
 
-Консольный агент Johnny поддерживает выгрузку результатов сканирования в нескольких форматах. Это позволяет адаптировать отчетность под различные нужды, включая интеграцию с системами управления уязвимостями.
+Консольный агент Johnny поддерживает выгрузку результатов сканирования в различных форматах. Это позволяет адаптировать отчетность под разные нужды, включая интеграцию с системами управления уязвимостями.
 
 ## Доступные форматы отчетов
 
@@ -16,7 +16,8 @@ hide:
 - **sarif** – выгружается в DefectDojo, CodeQL, Semgrep;  
 - **csv** – применяется в BI-системах, Excel, Pandas, SQL;
 - **gl-dependency-scanning-report** – формат отчета для [GitLab Dependency Scanning](https://docs.gitlab.com/ee/user/application_security/dependency_scanning/);
-- **gl-code-quality-report** – формат отчета для [GitLab Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html).
+- **gl-code-quality-report** – формат отчета для [GitLab Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html);
+- **gl-secrets-report** – формат отчета для [GitLab Secret Detection](https://docs.gitlab.com/user/application_security/secret_detection/).
 
 ### Пример использования
 

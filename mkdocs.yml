@@ -104,6 +104,7 @@ plugins:
           agent-scan-build: "Scanning a C/C++ build"
           agent-scan-bom: "Scanning a SBOM"
           agent-scan-technology: "Scanning a technology"
+          agent-scan-secrets: "Scanning for secrets"
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integrating into Gitlab CI"
           agent-jenkins: "Integrating into Jenkins Pipeline"
@@ -201,6 +202,7 @@ plugins:
           agent-scan-build: "Сканирование сборки C/C++"
           agent-scan-bom: "Сканирование SBOM"
           agent-scan-technology: "Сканирование технологии"
+          agent-scan-secrets: "Сканирование на наличие секретов"
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
           agent-jenkins: "Добавление в Jenkins"
@@ -344,6 +346,8 @@ nav:
     - agent-scan-bom: agent/scan-bom.en.md
     - agent-scan-technology: agent/scan-technology.md
     - agent-scan-technology: agent/scan-technology.en.md
+    - agent-scan-secrets: agent/agent-scan-secrets.md
+    - agent-scan-secrets: agent/agent-scan-secrets.en.md
     - agent-launch-docker: agent/launch-docker.md
     - agent-launch-docker: agent/launch-docker.en.md
     - agent-gitlab-ci: agent/gitlab-ci.md

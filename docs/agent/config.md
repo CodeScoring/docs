@@ -71,6 +71,23 @@ hide:
 - **api_url** – адрес инсталляции;
 - **api_token** – токен для доступа к инсталляции.
 
+### Параметры сканирования секретов  
+
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **baseline-path** – путь к baseline файлу отчета gitleaks. Все обнаруженные ранее секреты, зафиксированные в этом файле, будут проигнорированы при повторном сканировании;
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **enable-rule** – список ID правил, которые будут **включены** при сканировании; 
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gitleaks-ignore-path** – путь к файлу `.gitleaksignore` или директории, содержащей его. По умолчанию `.` (текущая директория);  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gitleaks-path** – путь к исполняемому файлу `gitleaks`, который будет использоваться при сканировании; 
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – игнорирование комментариев `gitleaks:allow`. По умолчанию `false`;
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **log-level** – уровень логирования. Возможные значения: `trace`, `debug`, `info`, `warn`, `error`, `fatal`. По умолчанию `info`;
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **max-decode-depth** – максимальная глубина рекурсивного декодирования. Значение `0` отключает декодирование;
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **max-target-megabytes** – максимальный размер файлов (в мегабайтах), которые будут обрабатываться. Файлы, превышающие этот размер, будут пропущены. По умолчанию `0` (ограничение отсутствует);
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **no-banner** – отключение баннера `gitleaks` при запуске. По умолчанию `false`;
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **no-color** – отключение цветного вывода для подробного (`verbose`) режима. По умолчанию `false`; 
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **redact** – маскирование найденных секретов в логах и консоли. Значение `0` полностью отображает секреты, `100` – полностью скрывает. Можно задать промежуточное значение, например, `20` (маскирует 20% секрета). По умолчанию `0`; 
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **verbose** – включение подробного (`verbose`) вывода при сканировании. По умолчанию `false`; 
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gl-secrets-report** – включение формирования отчета о найденных секретах в формате GitLab. По умолчанию `false`;
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gl-secrets-report-filename** – имя формируемого файла для отчета в формате GitLab. По умолчанию `gl-secrets-report.json`.
+
 ### Пример файла
 
 ```yaml
@@ -633,6 +650,38 @@ scan:
           properties:
             # path to conda-lock for resolve
             conda-lock-path: conda-lock
+  # scan secrets
+  secrets:
+    # gitleaks options
+    gitleaks:
+      # path to baseline with issues that can be ignored
+      baseline-path: ""
+      # only enable specific rules by id
+      enable-rule: [ ]
+      # path to .gitleaksignore file or folder containing one
+      gitleaks-ignore-path: .
+      # path to gitleaks binary to be used during scanning
+      gitleaks-path: gitleaks
+      # ignore gitleaks:allow comments
+      ignore-gitleaks-allow: false
+      # log level (trace, debug, info, warn, error, fatal)
+      log-level: info
+      # allow recursive decoding up to this depth (default \"0\", no decoding is done)
+      max-decode-depth: 0
+      # files larger than this will be skipped
+      max-target-megabytes: 0
+      # suppress banner
+      no-banner: false
+      # turn off color for verbose output
+      no-color: false
+      # redact secrets from logs and stdout. To redact only parts of the secret just apply a percent value from 0..100. For example --redact=20 (default 100%)
+      redact: "0"
+      # show verbose output from scan
+      verbose: false
+    # output report in gitlab format
+    gl-secrets-report: false
+    # output file for report in gitlab format
+    gl-secrets-report-filename: gl-secrets-report.json
   # scan archives options
   scan-archives:
     # scan archives
