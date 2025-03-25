@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block site_nav %}{% endblock %}  {# Hide sidebar only on 404 #}
+
+{% block content %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.location.pathname.includes(".en")) {
+        document.getElementById("not-found-title").innerText = "Whoops! Page not found";
+        document.getElementById("not-found-text").innerText = "Sorry, the page is missing.";
+        document.getElementById("home-link").innerText = "Go to homepage";
+        document.getElementById("home-link").href = "/index.en/";
+      }
+    });
+  </script>
+
+  <h1 id="not-found-title">Упс! Страница не найдена</h1>
+  <p id="not-found-text">К сожалению, страница отсутствует.</p>
+  <a id="home-link" href="/">На главную</a>
+{% endblock %}
