@@ -244,3 +244,25 @@ The response also contains a link to the component page in CodeScoring with info
 ![Component page](/assets/img/osa/component-page.png)
 
 **Important**: if a component does not contain a version, it is not sent for analysis to CodeScoring and, accordingly, is not blocked by the plugin.
+
+## Working with system packages
+
+For JFrog OSA to work correctly with system packages of some ecosystems, additional actions are required.
+
+### Setting up a Debian repository
+
+For correct package analysis, you must specify the name of the distribution from the remote repository. In Artifactory, this name is entered in the **Internal Description** field. It is used in PURL (Package URL) to improve the accuracy of package analysis.
+
+![Debian repository settings](/assets/img/osa/jfrog_debian_setup.png)
+
+### Viewing information about a Debian package
+
+JFrog OSA retrieves information about a package from several sources. First of all, it gets the package name, version, and architecture from the **Properties** of the artifact. If Properties are missing, the data for PURL is parsed from the **Repository Path**.
+
+![Debian package browse](/assets/img/osa/jfrog_debian_browse.png)
+
+### Viewing information on a RPM package
+
+For RPM packages, JFrog OSA gets the name, version, and architecture by analyzing the **Repository Path**.
+
+![RPM package browse](/assets/img/osa/jfrog_rpm_browse.png)

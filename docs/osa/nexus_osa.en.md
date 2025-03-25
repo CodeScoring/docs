@@ -243,3 +243,25 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 ```bash
 keytool -list -keystore $JAVA_HOME/lib/security/cacerts | grep mycert
 ```
+
+## Working with system packages
+
+For Nexus OSA to work correctly with system packages of some ecosystems, additional steps must be taken:
+
+### Setting up a Debian repository
+
+For the plugin to work correctly, you must specify the name of the distribution from the remote repository. This name is used in PURL (Package URL) to improve the accuracy of package analysis.
+
+![Debian repository settings](/assets/img/osa/nexus_debian_setup.png)
+
+### Viewing information on a Debian package
+
+Nexus OSA retrieves information about a package from various sources. In particular, it gets the package name, version, and architecture from the asset's Summary field. If Summary is missing, the data for PURL is parsed from Path.
+
+![Debian package browse](/assets/img/osa/nexus_debian_browse.png)
+
+### Viewing information on a RPM package
+
+For RPM packages, Nexus OSA extracts data from the asset's attributes. This includes the package name, version, and architecture.
+
+![RPM package browse](/assets/img/osa/nexus_rpm_browse.png)

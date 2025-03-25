@@ -244,3 +244,25 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
     ```bash
     keytool -list -keystore $JAVA_HOME/lib/security/cacerts | grep mycert
     ```
+
+## Работа с системными пакетами
+
+Для корректной работы Nexus OSA с системными пакетами некоторых экосистем необходимо произвести дополнительные действия:
+
+### Настройка репозитория Debian
+
+Для корректной работы плагина необходимо указать имя дистрибутива из удалённого репозитория. Это имя используется в PURL (Package URL) для повышения точности анализа пакета.
+
+![Debian repository settings](/assets/img/osa/nexus_debian_setup.png)
+
+### Просмотр информации о пакете Debian
+
+Nexus OSA извлекает информацию о пакете из различных источников. В частности, он получает название пакета, версию и архитектуру из поля Summary asset'a. Если Summary отсутствует, данные для PURL парсятся из Path.
+
+![Debian package browse](/assets/img/osa/nexus_debian_browse.png)
+
+### Просмотр информации о пакете RPM
+
+Для пакетов RPM Nexus OSA извлекает данные из атрибутов asset'a. Это включает название пакета, версию и архитектуру.
+
+![RPM package browse](/assets/img/osa/nexus_rpm_browse.png)

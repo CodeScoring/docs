@@ -244,3 +244,25 @@ repositoryTypes:
 ![Component page](/assets/img/osa/component-page.png)
 
 **Важно**: если компонент не содержит версию, то он не отправляется на анализ в CodeScoring и, соответственно, не блокируется плагином.
+
+## Работа с системными пакетами  
+
+Для корректной работы JFrog OSA с системными пакетами некоторых экосистем необходимо произвести дополнительные действия.  
+
+### Настройка репозитория Debian  
+
+Для корректного анализа пакетов необходимо указать имя дистрибутива из удалённого репозитория. В Artifactory это имя вписывается в поле **Internal Description**. Оно используется в PURL (Package URL) для повышения точности анализа пакета.  
+
+![Debian repository settings](/assets/img/osa/jfrog_debian_setup.png)  
+
+### Просмотр информации о пакете Debian  
+
+JFrog OSA извлекает информацию о пакете из нескольких источников. В первую очередь, он получает название пакета, версию и архитектуру из **Properties** артефакта. Если Properties отсутствуют, данные для PURL парсятся из **Repository Path**.  
+
+![Debian package browse](/assets/img/osa/jfrog_debian_browse.png)  
+
+### Просмотр информации о пакете RPM  
+
+Для пакетов RPM JFrog OSA получает название, версию и архитектуру, анализируя **Repository Path**.  
+
+![RPM package browse](/assets/img/osa/jfrog_rpm_browse.png)
