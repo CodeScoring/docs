@@ -2,15 +2,16 @@
 hide:
 - footer
 ---
+
 # Scanning for secrets
 
 Scanning for secrets is performed using the `johnny secrets gitleaks dir` command.
 
 When launched, the agent:
 
-1. Analyzes files in the specified directory for secrets (passwords, tokens, access keys, etc.) using the specified engine;
-	1. Excludes files and directories specified in `.gitleaksignore`;
-	2. Ignores secrets recorded in the Gitleaks report if `baseline-path` is specified;
+1. Analyzes files in the specified directory for secrets (passwords, tokens, access keys, etc.).
+	- excludes files and directories specified in `.gitleaksignore`;
+	- ignores secrets recorded in the Gitleaks report if `baseline-path` is specified.
 2. Generates a report with the secrets found, optionally saving it in GitLab format.
 
 ## Example of running the command
