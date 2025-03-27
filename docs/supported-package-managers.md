@@ -14,7 +14,7 @@ hide:
 | | Maven | `pom.xml`<br/>`maven-dependency-tree.txt` |
 | | Apache Ivy | `ivy.xml` |
 | **JavaScript и TypeScript** | npm | `package.json`<br/>`package-lock.json`<br/>`npm-shrinkwrap.json` |
-| | yarn | `yarn.lock` |
+| | yarn | `yarn.lock`<br/>`package.json`<br/>`package-lock.json`|
 | | pnpm | `pnpm-lock.yaml` |
 | **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt` |
 | | Poetry | `pyproject.toml`<br/>`poetry.lock` |
