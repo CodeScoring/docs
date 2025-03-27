@@ -247,13 +247,79 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 
 ## Работа с системными пакетами
 
-Для корректной работы Nexus OSA с системными пакетами некоторых экосистем необходимо произвести дополнительные действия:
+## Настройка репозиториев
 
-### Настройка репозитория Debian
+Для корректной работы Nexus OSA с системными пакетами некоторых экосистем необходимо произвести дополнительные действия.
 
-Для корректной работы плагина необходимо указать имя дистрибутива из удалённого репозитория. Это имя используется в PURL (Package URL) для повышения точности анализа пакета.
+#### Настройка репозитория Debian
+
+Для корректной работы плагина необходимо указать название дистрибутива из удалённого репозитория. Это название используется в PURL (Package URL) для повышения точности анализа пакета.
 
 ![Debian repository settings](/assets/img/osa/nexus_debian_setup.png)
+
+Список поддерживаемых дистрибутивов Debian:
+
+- **Debian 2.0** – *hamm*  
+- **Debian 2.1** – *slink*  
+- **Debian 2.2** – *potato*  
+- **Debian 3.0** – *woody*  
+- **Debian 3.1** – *sarge*  
+- **Debian 4** – *etch*  
+- **Debian 5** – *lenny*  
+- **Debian 6** – *squeeze*  
+- **Debian 7** – *wheezy*  
+- **Debian 8** – *jessie*  
+- **Debian 9** – *stretch*  
+- **Debian 10** – *buster*  
+- **Debian 11** – *bullseye*  
+- **Debian 12** – *bookworm*  
+- **Debian 13** – *trixie*  
+- **Debian 14** – *forky* 
+
+Список поддерживаемых дистрибутивов Ubuntu:
+
+- **Ubuntu 4.10** – *Warty*  
+- **Ubuntu 5.04** – *Hoary*  
+- **Ubuntu 5.10** – *Breezy*  
+- **Ubuntu 6.06** – *Dapper*  
+- **Ubuntu 6.10** – *Edgy*  
+- **Ubuntu 7.04** – *Feisty*  
+- **Ubuntu 7.10** – *Gutsy*  
+- **Ubuntu 8.04** – *Hardy*  
+- **Ubuntu 8.10** – *Intrepid*  
+- **Ubuntu 9.04** – *Jaunty*  
+- **Ubuntu 9.10** – *Karmic*  
+- **Ubuntu 10.04** – *Lucid*  
+- **Ubuntu 10.10** – *Maverick*  
+- **Ubuntu 11.04** – *Natty*  
+- **Ubuntu 11.10** – *Oneiric*  
+- **Ubuntu 12.04** – *Precise*  
+- **Ubuntu 12.10** – *Quantal*  
+- **Ubuntu 13.04** – *Raring*  
+- **Ubuntu 13.10** – *Saucy*  
+- **Ubuntu 14.04** – *Trusty*  
+- **Ubuntu 14.10** – *Utopic*  
+- **Ubuntu 15.04** – *Vivid*  
+- **Ubuntu 15.10** – *Wily*  
+- **Ubuntu 16.04** – *Xenial*  
+- **Ubuntu 16.10** – *Yakkety*  
+- **Ubuntu 17.04** – *Zesty*  
+- **Ubuntu 17.10** – *Artful*  
+- **Ubuntu 18.04** – *Bionic*  
+- **Ubuntu 18.10** – *Cosmic*  
+- **Ubuntu 19.04** – *Disco*  
+- **Ubuntu 19.10** – *Eoan*  
+- **Ubuntu 20.04** – *Focal*  
+- **Ubuntu 20.10** – *Groovy*  
+- **Ubuntu 21.04** – *Hirsute*  
+- **Ubuntu 21.10** – *Impish*  
+- **Ubuntu 22.04** – *Jammy*  
+- **Ubuntu 22.10** – *Kinetic*  
+- **Ubuntu 23.04** – *Lunar*  
+- **Ubuntu 23.10** – *Mantic*  
+- **Ubuntu 24.04** – *Noble*  
+- **Ubuntu 24.10** – *Oracular*  
+- **Ubuntu 25.04** – *Plucky*  
 
 ### Просмотр информации о пакете Debian
 
