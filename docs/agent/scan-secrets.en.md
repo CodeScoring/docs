@@ -5,8 +5,7 @@ hide:
 
 # Scanning for secrets
 
-Scanning for secrets is performed using the `johnny secrets gitleaks dir` command.\
-**Gitleaks should be set in the PATH environment variable**
+Scanning for secrets is performed using the `johnny secrets gitleaks dir` command.
 
 When launched, the agent:
 
@@ -36,7 +35,7 @@ The **johnny secrets gitleaks dir** command has the following unique parameters,
 
 ### Secrets search startup parameters
 
-- `--gitleaks-path` – path to the Gitleaks executable file that will be used during scanning.
+- `--gitleaks-path` – path to the Gitleaks executable file that will be used during scanning. If not set system command `gitleaks` will be executed.
 - `--gl-secrets-report` – enable generation of a report on found secrets in GitLab format.
 - `--gl-secrets-report-filename` – name of the output file for the report in GitLab format (by default `gl-secrets-report.json`).
 
