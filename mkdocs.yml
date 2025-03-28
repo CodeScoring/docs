@@ -346,8 +346,8 @@ nav:
     - agent-scan-bom: agent/scan-bom.en.md
     - agent-scan-technology: agent/scan-technology.md
     - agent-scan-technology: agent/scan-technology.en.md
-    - agent-scan-secrets: agent/agent-scan-secrets.md
-    - agent-scan-secrets: agent/agent-scan-secrets.en.md
+    - agent-scan-secrets: agent/scan-secrets.md
+    - agent-scan-secrets: agent/scan-secrets.en.md
     - agent-launch-docker: agent/launch-docker.md
     - agent-launch-docker: agent/launch-docker.en.md
     - agent-gitlab-ci: agent/gitlab-ci.md

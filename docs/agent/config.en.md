@@ -73,22 +73,25 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - **api_url** – installation address;
 - **api_token** – token for access to the installation.
 
-### Secret Scanning Parameters  
+### Secret scanning launch parameters
 
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **baseline-path** – path to the baseline file of the Gitleaks report. All previously detected secrets recorded in this file will be ignored during re-scanning;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **enable-rule** – list of rule IDs that will be **enabled** during scanning;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gitleaks-path** – path to the Gitleaks executable file to be used during scanning;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gl-secrets-report** – enables the generation of a secrets report in GitLab format. Default: `false`;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gl-secrets-report-filename** – name of the generated GitLab secrets report file. Default: `gl-secrets-report.json`.  
+
+### [Gitleaks secret scanning tool](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#readme) parameters
+
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **baseline-path** – path to the Gitleaks baseline report file. All previously detected secrets recorded in this file will be ignored during rescanning;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **enable-rule** – list of rule IDs to be **enabled** during scanning;  
 - <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gitleaks-ignore-path** – path to the `.gitleaksignore` file or the directory containing it. Default: `.` (current directory);  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gitleaks-path** – path to the `gitleaks` executable that will be used for scanning;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – ignore `gitleaks:allow` comments. Default: `false`;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **log-level** – logging level. Possible values: `trace`, `debug`, `info`, `warn`, `error`, `fatal`. Default: `info`;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **max-decode-depth** – maximum depth of recursive decoding. A value of `0` disables decoding;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – ignores `gitleaks:allow` comments. Default: `false`;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **log-level** – logging level. Possible values: `trace, debug, info, warn, error, fatal`. Default: `info`;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **max-decode-depth** – maximum depth for recursive decoding. A value of `0` disables decoding;  
 - <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **max-target-megabytes** – maximum file size (in megabytes) to be processed. Files exceeding this size will be skipped. Default: `0` (no limit);  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **no-banner** – disable the `gitleaks` banner on startup. Default: `false`;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **no-color** – disable colored output in verbose mode. Default: `false`;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **redact** – mask detected secrets in logs and console output. A value of `0` displays secrets fully, `100` hides them completely. Intermediate values, e.g., `20`, mask 20% of the secret. Default: `0`;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **verbose** – enable verbose output during scanning. Default: `false`;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gl-secrets-report** – enable the generation of a GitLab-format secrets report. Default: `false`;  
-- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **gl-secrets-report-filename** – filename for the generated GitLab-format report. Default: `gl-secrets-report.json`.
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **no-banner** – disables the Gitleaks startup banner. Default: `false`;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **no-color** – disables colored output in verbose mode. Default: `false`;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **redact** – masks detected secrets in logs and console output. A value of 0 fully reveals secrets, while 100 completely hides them. Intermediate values, such as 20, mask 20% of the secret. Default: `0`;  
+- <a href="/changelog/on-premise-changelog/#2025140-2025-03-??" class="version-tag">2025.13.0</a> **verbose** – enables verbose output during scanning. Default: `false`.
 
 ### Example file
 
