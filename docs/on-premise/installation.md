@@ -15,7 +15,7 @@ hide:
     ```
 
     Как правило, для корректной работы никаких изменений в файле не требуется. При необходимости настройки работы **CodeScoring** через прокси, обратите внимание на [инструкцию](/on-premise/proxy).
-    
+
 6. Скопировать шаблонный файл с секретами:
 
     ```
@@ -42,22 +42,21 @@ hide:
         - `ANALYSIS_IGNORED_PATHS` - список путей, которые будут игнорироваться системой при анализе. Подробнее с добавлением путей исключения можно ознакомиться [тут](/on-premise/analysis-ignore-paths/)
     - Версия системы
         - `CODESCORING_VERSION` – обязательная переменная. Актуальную версию можно узнать в разделе [Changelog](/changelog/on-premise-changelog)
+    - Настройки Docker Compose
+      - `COMPOSE_PROJECT_NAME` - название проекта в Compose, используется как префикс для ресурсов, создаваемых Docker Compose
 
     **Примечание**: не используйте в параметрах символ `#`, он может некорректно восприниматься системой при установке.
 
 7. Выполнить команду установки CodeScoring (выполнение команды должно быть с правами суперпользователя системы):
 
     ```bash
-    export PROJECT_NAME="cs"
-    docker compose -p ${PROJECT_NAME} -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
+    docker compose -f ./docker-compose.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
     ```
-
-    `PROJECT_NAME` — здесь и далее выбранное название проекта, по умолчанию использует название текущей директории
 
 8. Для просмотра логов можно использовать команду:
 
     ```bash
-    docker compose -p ${PROJECT_NAME} logs -f
+    docker compose logs -f
     ```
 
 9. После запуска сервис будет доступен по настроенному домену или адресу `http://localhost:8081`. При первом запуске дополнительно выполняются миграции базы данных, операция может занять больше времени, чем при последующих запусках.
@@ -67,10 +66,10 @@ hide:
 10. Для входа в систему необходимо предварительно создать пользователя с правами администратора с помощью следующей команды:
 
     ```bash
-    docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py createsuperuser
+    docker compose exec -it backend python ./manage.py createsuperuser
     ```
 11. Для изменения пароля администратора можно использовать следующую команду:
 
     ```bash
-    docker exec -it ${PROJECT_NAME}-backend-1 python ./manage.py changepassword <user_name>
+    docker compose exec -it backend python ./manage.py changepassword <user_name>
     ```

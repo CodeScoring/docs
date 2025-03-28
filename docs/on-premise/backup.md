@@ -9,14 +9,14 @@ hide:
 1. Перейти в директорию с файлами запуска:
 
     ```bash linenums="1"
-    cd /path/to/docker-compose
+    cd /path/to/docker/compose
     ```
 
 2. Для создания резервной копии выполнить команду:
 
 
     ```bash linenums="2"
-    docker-compose -p PROJECT_NAME run backup create
+    docker compose run backup create
     ```
 
     Файл резервной копии сохранится в директорию `backup`.
@@ -28,11 +28,11 @@ hide:
 
 
     ```bash linenums="1"
-    docker-compose -p PROJECT_NAME run backup restore BACKUP_FILENAME
+    docker compose run backup restore BACKUP_FILENAME
     ```
 
     `BACKUP_FILENAME` — имя файла резервной копии. Список доступных резервных копий можно получить выполнив команду:
-    
+
     ```bash
     ls -la ./backup
     ```
@@ -40,5 +40,5 @@ hide:
 2. Перезапустить инсталляцию:
 
     ```bash linenums="2"
-    docker-compose -p PROJECT_NAME up -d --force-recreate --renew-anon-volumes
+    docker compose up -d --force-recreate --renew-anon-volumes
     ```
