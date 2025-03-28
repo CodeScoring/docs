@@ -2,7 +2,17 @@
 hide:
   - footer
 ---
+
 # Connecting registry with container images
+
+CodeScoring supports integration with image registries in the following tools:
+
+- Sonatype Nexus Repository;
+- JFrog Artifactory;
+- GitLab;
+- Harbor;
+- GitFlic;
+- Others that use the Docker Registry V2 API protocol.
 
 To work with Docker images, it is necessary to connect registry with images in `System -> Registries` section.
 
