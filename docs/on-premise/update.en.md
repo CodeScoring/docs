@@ -6,7 +6,7 @@ hide:
 
 ## Standard update guide
 
-To update, you must have current versions of the `docker-compose.yml`, `app.env` and `.env` files, which can be obtained from the vendor.
+To update, you must have current versions of the `docker-compose.yml`, `external-db.override.yml`, `app.env` and `.env` files, which can be obtained from the vendor.
 
 The `CODESCORING_VERSION` variable inside the `.env` file specifies the required system version. The current version can be found in the [Changelog](/changelog/on-premise-changelog.en) section.
 
@@ -14,14 +14,15 @@ Then you need to follow these steps:
 
 1. Go to the directory with the startup files:
    ```bash linenums="1"
-   cd /path/to/docker-compose
+   cd /path/to/docker/compose
    ```
 2. Run the container image update command:
    ```bash linenums="2"
-   docker compose -p PROJECT_NAME pull
+   docker compose pull
    ```
 3. Restart the installation:
    ```bash linenums="3"
+<<<<<<< docs/on-premise/update.en.md
    docker compose -p PROJECT_NAME down --remove-orphans
    docker compose -p PROJECT_NAME up -d --renew-anon-volumes
    ```
@@ -50,3 +51,8 @@ Upgrade instructions for all users with installation in Docker Compose:
 - **IMPORTANT!** If you do not do this, the installation will not start. If you enter an incorrect value, volumes with a new prefix will be created, and the installation on the new version will start "from scratch"
 - After the value is added to the `.env` file, requests to `docker compose` can be made without the `-p PROJECT_NAME` option
 - You need to download the updated `docker-compose.yml` and `external-db.override.yml` files from the [CodeScoring registry](https://registry-one.codescoring.ru) and place them in the directory with the compose file.
+=======
+   docker compose down --remove-orphans
+   docker compose up -d --renew-anon-volumes
+   ```
+>>>>>>> docs/on-premise/update.en.md

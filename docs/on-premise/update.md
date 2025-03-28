@@ -6,7 +6,7 @@ hide:
 
 ## Стандартная инструкция по обновлению
 
-Для обновления необходимо иметь актуальные версии файлов `docker-compose.yml`, `app.env` и `.env`, которые можно получить у вендора.
+Для обновления необходимо иметь актуальные версии файлов `docker-compose.yml`, `external-db.override.yml`, `app.env` и `.env`, которые можно получить у вендора.
 
 В переменной `CODESCORING_VERSION` внутри файла `.env` указывается требуемая версия системы. Актуальную версию можно узнать в разделе [Changelog](/changelog/on-premise-changelog).
 
@@ -15,19 +15,20 @@ hide:
 1. Перейти в директорию с файлами запуска:
 
     ```bash linenums="1"
-    cd /path/to/docker-compose
+    cd /path/to/docker/compose
     ```
 
 2. Выполнить команду обновления образов:
 
 
     ```bash linenums="2"
-    docker compose -p PROJECT_NAME pull
+    docker compose pull
     ```
 
 3. Перезапустить инсталляцию:
 
     ```bash linenums="3"
+<<<<<<< docs/on-premise/update.md
     docker compose -p PROJECT_NAME down --remove-orphans
     docker compose -p PROJECT_NAME up -d --renew-anon-volumes
     ```
@@ -56,3 +57,8 @@ hide:
     - **ВАЖНО!** Если этого не сделать, то инсталляция не запустится. Если вписать некорректное значение, то создадутся томы с новым префиксом, и инсталляция на новой версии запустится "с нуля"
     - После того, как значение добавлено в `.env` файл, вызовы к `docker compose` можно делать без опции `-p PROJECT_NAME`
 - Необходимо скачать из [реестра CodeScoring](https://registry-one.codescoring.ru) обновлённые файлы `docker-compose.yml` и `external-db.override.yml` и поместить их в директорию с compose файлом.
+=======
+    docker compose down --remove-orphans
+    docker compose up -d --renew-anon-volumes
+    ```
+>>>>>>> docs/on-premise/update.md

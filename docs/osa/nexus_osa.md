@@ -8,7 +8,7 @@ hide:
 
 Плагин **CodeScoring Nexus OSA** поставляется в виде JAR-файла и поддерживает следующие версии Sonatype Nexus Repository (NXRM):
 
-- `nexus-codescoring-plugin-{release}.jar` - для Nexus Repository OSS **3.71+** и Nexus Repository Pro версий с **3.33.1-01** по **3.71+** (поддерживает H2 и PostgreSQL);
+- `nexus-codescoring-plugin-{release}.jar` - для Nexus Repository Community Edition версий с **3.71** по **3.77** и Nexus Repository Pro версий с **3.33.1-01** по **3.77** (поддерживает H2 и PostgreSQL);
 - `nexus-codescoring-plugin-legacy-{release}.jar` - для Nexus Repository OSS версий с **3.33.1-01** по **3.70.Х** (поддерживает OrientDB).
 
 Для добавления плагина в **NXRM** необходимо:
