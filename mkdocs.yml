@@ -93,6 +93,7 @@ plugins:
           registries: "Connecting a container registry"
           osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
+          osa-archives: "Scanning archives"
           agent: "CLI agent Johnny"
           agent-general: "General description"
           agent-config: "Configuration"
@@ -191,6 +192,7 @@ plugins:
           registries: "Подключение реестра с образами"
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA на инсталляции"
+          osa-archives: "Сканирование архивов"
           agent: "Консольный агент Johnny"
           agent-general: "Общее описание"
           agent-config: "Настройка через конфигурационный файл"
@@ -314,6 +316,8 @@ nav:
     - osa-policies: osa/osa-policies.en.md
     - osa-components: osa/components.md
     - osa-components: osa/components.en.md
+    - osa-archives: osa/archives.md
+    - osa-archives: osa/archives.en.md
   - sca:
     - sca-general: sca/index.md
     - sca-general: sca/index.en.md
