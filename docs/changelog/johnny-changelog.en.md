@@ -4,6 +4,28 @@ hide:
 ---
 # Johnny Changelog
 
+### [2025.13.0] - 2025-03-28
+
+- Added support for parsing Swift ecosystem manifests: `Package.swift` and `Package.resolved` (starting with version 2025.13.0 of the installation)
+- Added a beta version of the console agent with the Secrets module (starting with version 2025.13.0 of the installation)
+- Added processing of corrupted `scala-dependency-tree.txt` files
+- Added parsing of dependencies declared in an unmerged format in the `build.gradle.kts` file
+- Added ignoring `.nuspec` files in the `scan csharp` command
+- Added support for AltLinux operating systems in the `scan build` command
+- Excluded Java archives from scanning when the `--scan-archives` flag is inactive
+- Fixed import SBoM in which the library has multiple values of the `env` property
+- Fixed processing of SBoM files in CycloneDX format containing information about components within components
+
+### [2025.7.0] - 2025-02-13
+
+- Added commands for scanning a directory with predefined settings depending on the selected technology (for example, `./johnny scan java`)
+- Added output of information about the presence of Exploit for vulnerabilities in the agent's results
+- Added the `--cloud-resolve` parameter to activate cloud resolver (compatible with installation of version 2025.7.0 and higher)
+- Added support for the Selective dependency resolutions mechanism for Yarn
+- Added support for the NPM Package Aliases mechanism for `package-lock.json`
+- Optimized processing of large `gradle-dependency-tree.txt` files
+- Fixed a bug in determining package versions in the `gradle.lockfile` file if there are suffix versions
+
 ### [2024.52.2] - 2025-01-23
 
 - Fixed agent behavior that caused installation's tasks-policy queue to grow

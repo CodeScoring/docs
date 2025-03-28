@@ -4,6 +4,33 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.13.0] - 2025-03-28
+
+- The CodeScoring configuration in Docker Compose has been deeply rewritten and modernized. Please read the [how-to](/on-premise/update/#2025130-2025-03-28) before upgrading.
+- Added support for Swift Package Manager ecosystem manifests
+- Added granular projects configuration and groups in policy actions to send notifications to different email addresses or different projects in Jira within a single policy
+- Added modes for sending email notifications and creating issues in Jira within policy actions: one per alert or digest per scan
+- Added processing of secrets analysis results when working with a module via CLI using the johnny console agent
+- Added the ability to recalculate secrets information in the ML model management section
+- Added basic work with the history of secrets scans
+- Added the "does not match" operator in dictionary policies
+- Added module icons to the system menu
+- Added hiding of the API token on the user settings page
+- Added returning of the uuid of the blocked component in the OSA API in a separate field
+- Added detailed display of the password validation error when creating a new user
+- Added detailed display of the password validation error in the password change form
+- Fixed the filter by project name in the `Settings -> Policy ignores` section
+- Fixed display of package links in policy conditions in the Alerts section
+- Fixed system behavior when receiving results from johnny without the `--save-results` key specifying a project, now the results will not be saved
+- Fixed incorrect sorting by project name in project lists
+- Added hiding of mutually exclusive Access Token and SSH Key fields in different connection settings to VCS to avoid incorrect validation
+- Fixed incorrect display of the environment on the dependency graph
+- Fixed the activity of the analysis start button for CLI projects without loaded dependencies
+- Fixed an error in the logic of applying policies when using groups
+- Optimized the speed of the policy page
+- Fixed an error with possible duplication of vulnerabilities
+- Optimized the mechanism for updating vulnerability information to reduce the number of entries in the database
+
 ### [2025.7.2] - 2025-03-14
 
 - Fixed OSA API service crash when accessing a non-existent key in Redis in version 2025.7.0
