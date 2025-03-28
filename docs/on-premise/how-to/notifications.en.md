@@ -17,11 +17,20 @@ You can check if the configuration is correct by clicking the **Test it** button
 
 ![CodeScoring email settings example](/assets/img/email-settings.png)
 
-After configuring the mail server, in the `Actions` section of the policy page you can add an email address to which emails with policy alerts will be sent.
+After configuring the mail server, in the `Actions` section of the policy page you can add an email address to which emails with policy alerts will be sent:
 
-![Add email](/assets/img/actions-email.png)
+![CodeScoring Policy Actions example](/assets/img/policy_actions_email-en.png)
 
-The policy results email is sent **after the project or container image** has been scanned. The email contains a list of all policies for which notifications were configured and triggered at least once, as well as the following information about those policies:
+- **Email** — email address;
+- **Mode** — email sending mode:
+  - Send all the alerts together;
+  - Send each alert separately.
+- **Groups** — groups of projects to which notification is made. If not specified, all groups are implied;
+- **Projects** — the specific projects for which the notification is made. If not specified, all projects are implied.
+
+If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
+
+The policy results email is sent **after the project** has been scanned. The email contains a list of all policies for which notifications were configured and triggered at least once, as well as the following information about those policies:
 
 - **Policy name** - the name of the triggered policy;
 - **Blocker** - the attribute of the blocking policy;
@@ -43,4 +52,19 @@ After filling in the fields, you can test the connection to the server by clicki
 
 ![CodeScoring Jira settings example](/assets/img/jira-settings.png)
 
-Once the integration is configured, under `Actions` on the policy page, you can add a Jira server on which to create a task with the policy results.
+Once the integration is configured, under `Actions` on the policy page, you can add a Jira server on which to create a task with the policy results:
+
+![CodeScoring Jira settings example](/assets/img/policy_actions_task_manager-en.png)
+
+- **Mode** — task sending mode:
+  - Send all the alerts together;
+  - Send each alert separately.
+- **Groups** — groups of projects to which notification is made. If not specified, all groups are implied;
+- **Projects** — the specific projects for which the notification is made. If not specified, all projects are implied.
+- **Server** — task manager (in this case Jira);
+- **Project** — Jira-project;
+- **Task** — card type: *Task*, *Story* or *Bug*.
+
+If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
+
+![CodeScoring Policy Actions example](/assets/img/policy_actions-en.png)
