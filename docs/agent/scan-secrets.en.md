@@ -5,7 +5,8 @@ hide:
 
 # Scanning for secrets
 
-Scanning for secrets is performed using the `johnny secrets gitleaks dir` command.
+Scanning for secrets is performed using the `johnny secrets gitleaks dir` command.\
+**Gitleaks should be set in the PATH environment variable**
 
 When launched, the agent:
 
