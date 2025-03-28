@@ -16,15 +16,15 @@ hide:
 | **JavaScript и TypeScript** | npm | `package.json`<br/>`package-lock.json`<br/>`npm-shrinkwrap.json` |
 | | yarn | `yarn.lock`<br/>`package.json`<br/>`package-lock.json`|
 | | pnpm | `pnpm-lock.yaml` |
-| **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt` |
+| **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`pip-resolved-dependencies.txt` |
 | | Poetry | `pyproject.toml`<br/>`poetry.lock` |
 | | Pipenv | `Pipfile`<br/>`Pipfile.lock` |
 | | Conda | `environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
 | **C и C++** | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py` |
 | **Go** | Go Modules | `go.mod`<br/>`go.sum` |
 | **PHP** | Composer | `composer.json`<br/>`composer.lock` |
-| **Ruby** | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked` |
-| **C#** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json` |
+| **Ruby** | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked`<br/>`gems.rb` |
+| **.NET** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`<br/>`dependencyReport.json` |
 | **Objective-C** | CocoaPods | `Podfile`<br/>`Podfile.lock`<br/>`*.podspec` |
 | **Swift** | Swift Package Manager | `Package.swift`<br/>`Package.resolved` |
 | **Rust** | Cargo | `Cargo.toml`<br/>`Cargo.lock` |
