@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # CodeScoring OSA
 
 ## Overview
@@ -14,21 +15,3 @@ The plugin is built into the *request|response* chain of **Sonatype Nexus Reposi
 
 - [Sonatype Nexus Repository](/osa/nexus_osa.en)
 - [JFrog Artifactory](/osa/jfrog_osa.en)
-
-## Archive analysis
-
-The plugins support scanning archives in the following formats:
-
-| Ecosystem | Archive format |
-|----------------|-------------------------------- ------|
-| Maven | `.jar`, `.war`, `.ear` |
-| NPM | `.tgz` |
-| PyPI | `.zip`, `.tar`, `.tgz`, `.tar,gz`, `.tar.bz2`, `.egg`, `.whl` |
-| Nuget | `.nupkg` |
-| Cocoapods | `.tar.gz`, `.zip` |
-| Go | `.mod`, `.zip` |
-| Gems | `.rz`, `gz` `.gem` |
-| Debian | `.deb`, `.xz`, `.gz` |
-| Yum | `.rpm` |
-| Alpine | `.apk` |
-| Docker | `.json` |
