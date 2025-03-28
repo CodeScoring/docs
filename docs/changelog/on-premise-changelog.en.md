@@ -11,6 +11,7 @@ hide:
 - Added granular projects configuration and groups in policy actions to send notifications to different email addresses or different projects in Jira within a single policy
 - Added modes for sending email notifications and creating issues in Jira within policy actions: one per alert or digest per scan
 - Added processing of secrets analysis results when working with a module via CLI using the johnny console agent
+- Added button for secrets data recalculation in the `Settings -> Workmode` section
 - Added basic work with the history of secrets scans
 - Added the "does not match" operator in dictionary policies
 - Added module icons to the system menu
