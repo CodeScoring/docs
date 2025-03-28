@@ -28,7 +28,6 @@ hide:
 3. Перезапустить инсталляцию:
 
     ```bash linenums="3"
-<<<<<<< docs/on-premise/update.md
     docker compose -p PROJECT_NAME down --remove-orphans
     docker compose -p PROJECT_NAME up -d --renew-anon-volumes
     ```
@@ -36,16 +35,6 @@ hide:
 ## Инструкции по обновлению на версии с измененной конфигурацией
 
 ### [2025.13.0] - 2025-03-28
-
-В данном релизе:
-
-- Добавлены инструкции для проверок здоровья (healthcheck) сервисов
-- Последовательность запуска сервисов реализована на основе механизма выше и критериев `service_healthy`, `service_completed_successfully`
-- Пулер соединений `pgcat` заменён на `pgbouncer`
-- Добавлены отдельные one-shot сервисы, выполняемые при старте инсталляции: `migrate` и `collectstatic`
-- Произведён отказ от поддержки отдельной конфигурации со внешней СУБД (split-db), теперь вместо отдельного `docker-compose.yml` поставляется файл `external-db.override.yml`
-
-Инструкция по обновлению для всех пользователей с инсталляцией в Docker Compose:
 
 - Необходимо убедиться, что версия `Docker Engine` больше или равна 25. Для этого нужно выполнить команду `docker version` на машине с инсталляцией. В случае, если версия Docker Engine ниже, чем 25, необходимо обновить Docker.
     - **ВАЖНО!** Перед обновлением Docker необходимо штатно остановить инсталляцию.
@@ -57,8 +46,3 @@ hide:
     - **ВАЖНО!** Если этого не сделать, то инсталляция не запустится. Если вписать некорректное значение, то создадутся томы с новым префиксом, и инсталляция на новой версии запустится "с нуля"
     - После того, как значение добавлено в `.env` файл, вызовы к `docker compose` можно делать без опции `-p PROJECT_NAME`
 - Необходимо скачать из [реестра CodeScoring](https://registry-one.codescoring.ru) обновлённые файлы `docker-compose.yml` и `external-db.override.yml` и поместить их в директорию с compose файлом.
-=======
-    docker compose down --remove-orphans
-    docker compose up -d --renew-anon-volumes
-    ```
->>>>>>> docs/on-premise/update.md
