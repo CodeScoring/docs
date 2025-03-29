@@ -22,8 +22,8 @@ Then you need to follow these steps:
    ```
 3. Restart the installation:
    ```bash linenums="3"
-   docker compose -p PROJECT_NAME down --remove-orphans
-   docker compose -p PROJECT_NAME up -d --renew-anon-volumes
+   docker compose down --remove-orphans
+   docker compose up -d --renew-anon-volumes
    ```
 
 ## Update guides for versions with changes in configuration
