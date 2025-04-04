@@ -70,15 +70,15 @@ hide:
         postgresqlUsername: "codescoring"
         postgresqlPassword: "changeme" 
 
-        frontend:
-          ingress:
-            enabled: true
-            className: "nginx"
-            hosts:
-            - host: codescoring.k8s.local # domain where CodeScoring will be available
-            paths:
-            - path: /
-            pathType: ImplementationSpecific
+      frontend:
+        ingress:
+          enabled: true
+          className: "nginx"
+          hosts:
+          - host: codescoring.k8s.local # domain where CodeScoring will be available
+          paths:
+          - path: /
+          pathType: ImplementationSpecific
 
      ```
 
