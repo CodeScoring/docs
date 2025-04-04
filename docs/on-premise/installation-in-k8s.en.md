@@ -38,6 +38,22 @@ hide:
      **Important!**: Please replace the values in the sensitive data fields with your own. These fields include `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, and all fields containing `username` or `password`. It is also important to note that all such variables are mandatory.
 
      ```
+     pgbouncer:
+      enabled: true
+      postgresql:
+        host: "codescoring-postgresql"
+        port: 5432
+        username: "codescoring"
+        password: "changeme"
+        database: "codescoring"
+      config:
+        transactionPoolSize: 50
+        transactionPoolMinSize: 1
+        sessionPoolSize: 50
+        sessionPoolMinSize: 1
+        transactionPoolDatabaseName: "codescoring"
+        sessionPoolDatabaseName: "codescoring-session"
+
      codescoring:
       config:
         ## codescoring-backend configuration parameters
@@ -48,32 +64,11 @@ hide:
         defaultSuperuserUsername: "admin" # administrator name on the system
         defaultSuperuserPassword: "changeme" # system administrator password
         defaultSuperuserEmail: "mail@example.com" # e-mail of the administrator in the system
-        databaseHost: ipcs-pgcat
-        databasePort: 5432
+        databaseHost: pgbouncer
+        databasePort: 6432
         postgresqlDatabase: "codescoring"
         postgresqlUsername: "codescoring"
-        postgresqlPassword: "changeme" # password must match the password for pgcat.postgresql.password
-
-     pgcat:
-      adminPassword: "changeme"
-
-     postgresql:
-      host: "codescoring-postgresql"
-      port: 5432
-      username: "codescoring"
-      password: "changeme" # password must match the password in codescoring.postgresqlPassword
-      database: "codescoring"
-
-
-     frontend:
-      ingress:
-        enabled: true
-        className: "nginx"
-        hosts:
-        - host: codescoring.k8s.local # domain where CodeScoring will be available
-        paths:
-        - path: /
-        pathType: ImplementationSpecific
+        postgresqlPassword: "changeme" 
      ```
 
 6. Run the command to install the chart
@@ -122,40 +117,49 @@ To connect to external Redis, in addition to abovementioned you must do the foll
 2. Add the Redis-server root certificate to `codescoring.trustedCA.certificates`
 3. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis using the following format: `rediss://redis.example.com:6379/0`, where 0 is the Redis database number.  
 
-#### Connecting to PostgreSQL via PgCat pooler {#external-postgres}
+#### Connecting to PostgreSQL via Pgbouncer pooler {#external-postgres}
 
 **Important!**: Connecting to external PostgreSQL must be done using a connection pooler.
 
-This option is suitable if PostgreSQL is already deployed in the existing infrastructure, but the connection pool is not used. Helm-chart will deploy the [PgCat](https://github.com/postgresml/pgcat) puller and connect it to the existing PostgreSQL. You need to do the following:
+This option is suitable if PostgreSQL is already deployed in the existing infrastructure, but the connection pool is not used. Helm-chart will deploy the [Pgbouncer](https://github.com/pgbouncer/pgbouncer) puller and connect it to the existing PostgreSQL. You need to do the following:
 
 1. Disable PostgreSQL deployment by specifying the variable - `postgresql.enabled: false`
 
-2. Connect the PgCat pooler to external PostgreSQL, replacing the appropriate parameters with the required ones:
+2. Connect the Pgbouncer pooler to external PostgreSQL, replacing the appropriate parameters with the required ones:
 ```
+pgbouncer:
+  postgresql:
+    host: "postgresql.example.host"
+    port: 5432
+    username: "codescoring"
+    password: "changeme"
+    database: "codescoring"
+  config:
+    transactionPoolSize: 50
+    transactionPoolMinSize: 1
+    sessionPoolSize: 50
+    sessionPoolMinSize: 1
+    transactionPoolDatabaseName: "codescoring"
+    sessionPoolDatabaseName: "codescoring-session"
 codescoring:
   config:
+    databaseHost: pgbouncer
+    databasePort: 6432
     postgresqlDatabase: "codescoring"
     postgresqlUsername: "codescoring"
     postgresqlPassword: "changeme"
-  pgcat:
-    postgresql:
-      host: "postgresql.example.host"
-      port: 5432
-      username: "codescoring"
-      password: "changeme"
-      database: "codescoring"
 ```
 
 #### Connecting to an external PostgreSQL pooler {#external-postgres-pooler}
 This option is suitable if PostgreSQL and a connection pooler (for example, PgBouncer) are already deployed in the existing infrastructure.
-In this case, deployment of the PgCat pooler is not required. You need to do the following:
+In this case, deployment of the Pgbouncer pooler is not required. You need to do the following:
 
 1. Disable PostgreSQL deployment by specifying the variable - `postgresql.enabled: false`
-2. Disable PgCat deployment by specifying the variable - `codescoring.pgcat.enabled: false`
+2. Disable Pgbouncer deployment by specifying the variable - `pgbouncer.enabled: false`
 3. Connect codescoring directly to an external pooler, in the `codescoring.config` section the parameters are:
 
 ```
-posgtresqlHost: ipcs-pgcat
+posgtresqlHost: "external-pooler.example.host"
 posgtresqlPort: 5432
 postgresqlDatabase: "codescoring"
 postgresqlUsername: "codescoring"
@@ -169,15 +173,17 @@ postgresqlPassword: "changeme"
 externalPooler:
   enabled: true
   transctionPool:
-    host: ipcs-pgcat
+    host: "external-pooler.example.host"
     port: 5432
     username: "codescoring"
     password: "changeme"
+    database: "codescoring"
   sessionPool:
-    host: ipcs-pgcat
+    host: "external-pooler.example.host"
     port: 5432
-    username: "codescoring"
+    username: "codescoring-session"
     password: "changeme"
+    database: "codescoring-session"
 ```
 
 ### Setting up volumes (PV) {#volumes}
@@ -502,13 +508,13 @@ codescoring:
 
 ## Secret Management {#secret-management}
 
-By default, the **Secret** objects are created for `ipcs-backend`, `ipcs-pgcat` and `postgresql` templates. The values for their variables are provided in the values file. 
+By default, the **Secret** objects are created for `ipcs-backend`, `pgbouncer` and `postgresql` templates. The values for their variables are provided in the values file. 
 
 It is also possible to use external secret storages. To achieve that, it is necessary to have an **External Secrets Operator (ESO)** installed in the cluster. It adds all required CRDs (Custom Resource Definitions) to the cluster and connects to an external secret provider. 
 
 In order to connect ESO to an external secret storage, you must configure a provider for the **SecretStore** in the `codescoring.secretStore` block. 
 
-Next, you need to configure the **ExternalSecret** objects to fetch secrets from the external provider in the `codescoring.config.externalSecret,` `codescoring.pgcat.externalSecret`, `postgresql.externalSecret` blocks. 
+Next, you need to configure the **ExternalSecret** objects to fetch secrets from the external provider in the `codescoring.config.externalSecret,` `pgbouncer.externalSecret`, `postgresql.externalSecret` blocks. 
 
 All the configurations must be made in accordance with the official ESO documentation. 
 

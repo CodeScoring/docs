@@ -37,6 +37,22 @@ hide:
     **Важно!**: Пожалуйста, замените значения в полях с чувствительными данными на собственные. К таким полям относятся `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, а также все поля, содержащие `username` или `password`. Также важно учитывать, что все подобные переменные являются обязательными. 
 
     ```
+    pgbouncer:
+      enabled: true
+      postgresql:
+        host: "codescoring-postgresql"
+        port: 5432
+        username: "codescoring"
+        password: "changeme"
+        database: "codescoring"
+      config:
+        transactionPoolSize: 50
+        transactionPoolMinSize: 1
+        sessionPoolSize: 50
+        sessionPoolMinSize: 1
+        transactionPoolDatabaseName: "codescoring"
+        sessionPoolDatabaseName: "codescoring-session"
+
     codescoring:
       config:
         ## codescoring-backend configuration parameters
@@ -47,22 +63,11 @@ hide:
         defaultSuperuserUsername: "admin" # имя администратора в системе 
         defaultSuperuserPassword: "changeme" # пароль администратора в системе
         defaultSuperuserEmail: "mail@example.com" # e-mail администратора в системе
-        databaseHost: ipcs-pgcat
-        databasePort: 5432
+        databaseHost: pgbouncer
+        databasePort: 6432
         postgresqlDatabase: "codescoring"
         postgresqlUsername: "codescoring"
-        postgresqlPassword: "changeme" # пароль должен совпадать с паролем у pgcat.postgresql.password
-
-      pgcat:
-        adminPassword: "changeme"
-
-        postgresql:
-          host: "codescoring-postgresql"
-          port: 5432
-          username: "codescoring"
-          password: "changeme" # пароль должен совпадать с паролем в codescoring.postgresqlPassword
-          database: "codescoring"
-
+        postgresqlPassword: "changeme"
 
       frontend:
         ingress:
@@ -121,40 +126,49 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 2. Добавить корневой сертификат сервера Redis в `codescoring.trustedCA.certificates`
 3. В переменных `codescoring.config.djangoCachesRedisUrls` и `codescoring.config.hueyRedisUrl` указать строки подключения для внешнего Redis в формате `rediss://redis.example.com:6379/0`, где 0 - номер базы данных в Redis. 
 
-#### Подключение к PostgreSQL через пулер PgCat {#external-postgres}
+#### Подключение к PostgreSQL через пулер Pgbouncer {#external-postgres}
 
 **Важно!**: Подключение к внешней PostgreSQL необходимо выполнять с использованием пулера соединений.
 
-Данный вариант подходит, если в существующей инфраструктуре уже развернута PostgreSQL, но пулер соединений не используется. Helm-чарт развернет пулер [PgCat](https://github.com/postgresml/pgcat) и подключит его к существующей PostgreSQL. Необходимо выполнить следующие действия:
+Данный вариант подходит, если в существующей инфраструктуре уже развернута PostgreSQL, но пулер соединений не используется. Helm-чарт развернет пулер [Pgbouncer](https://github.com/pgbouncer/pgbouncer) и подключит его к существующей PostgreSQL. Необходимо выполнить следующие действия:
 
 1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
 
-2. Подключить пулер PgCat к внешней PostgreSQL, заменив соответствующие параметры на нужные:
+2. Подключить пулер Pgbouncer к внешней PostgreSQL, заменив соответствующие параметры на нужные:
 ```
+pgbouncer:
+  postgresql:
+    host: "postgresql.example.host"
+    port: 5432
+    username: "codescoring"
+    password: "changeme"
+    database: "codescoring"
+  config:
+    transactionPoolSize: 50
+    transactionPoolMinSize: 1
+    sessionPoolSize: 50
+    sessionPoolMinSize: 1
+    transactionPoolDatabaseName: "codescoring"
+    sessionPoolDatabaseName: "codescoring-session"
 codescoring:
   config:
+    databaseHost: pgbouncer
+    databasePort: 6432
     postgresqlDatabase: "codescoring"
     postgresqlUsername: "codescoring"
     postgresqlPassword: "changeme"
-  pgcat:
-    postgresql:
-      host: "postgresql.example.host"
-      port: 5432
-      username: "codescoring"
-      password: "changeme"
-      database: "codescoring"
 ```
 
 #### Подключение к внешнему пулеру PostgreSQL {#external-postgres-pooler}
 Данный вариант подходит, если в существующей инфраструктуре уже развернута PostgreSQL и пулер соединений (например, PgBouncer).
-В этом случае развертывание пулера PgCat не требуется. Необходимо выполнить следующие действия:
+В этом случае развертывание пулера Pgbouncer не требуется. Необходимо выполнить следующие действия:
 
 1. Отключить развертывание PostgreSQL, указав переменную - `postgresql.enabled: false`
-2. Отключить развертывание PgCat, указав переменную - `codescoring.pgcat.enabled: false`
+2. Отключить развертывание Pgbouncer, указав переменную - `pgbouncer.enabled: false`
 3. Подключить codescoring напрямую к внешнему пулеру, в секции `codescoring.config` параметры:
 
 ```
-posgtresqlHost: ipcs-pgcat
+posgtresqlHost: "external-pooler.example.host"
 posgtresqlPort: 5432
 postgresqlDatabase: "codescoring"
 postgresqlUsername: "codescoring"
@@ -168,15 +182,17 @@ postgresqlPassword: "changeme"
 externalPooler:
   enabled: true
   transctionPool:
-    host: ipcs-pgcat
+    host: "external-pooler.example.host"
     port: 5432
     username: "codescoring"
     password: "changeme"
+    database: "codescoring"
   sessionPool:
-    host: ipcs-pgcat
+    host: "external-pooler.example.host"
     port: 5432
-    username: "codescoring"
+    username: "codescoring-session"
     password: "changeme"
+    database: "codescoring-session"
 ```
 
 ### Настройка томов (PV) {#volumes}
@@ -528,13 +544,13 @@ codescoring:
 
 ## Управление секретами {#secret-management}
 
-По умолчанию для шаблонов `ipcs-backend`, `ipcs-pgcat` и `postgresql` предусмотрены объекты типа `Secret`. Значения переменных в этих объектах заполняются из содержимого `values`.
+По умолчанию для шаблонов `ipcs-backend`, `pgbouncer` и `postgresql` предусмотрены объекты типа `Secret`. Значения переменных в этих объектах заполняются из содержимого `values`.
 
 Также присутствует возможность подключать внешние хранилища секретов. Для этого в кластере должен должен быть установлен **External Secrets Operator (ESO)**. Он добавляет в кластер необходимые CRD (Custom Resource Definition) и обеспечивает связь с хранилищем секретов. 
 
 Для подключения ESO к внешнему хранилищу секретов необходимо сконфигурировать провайдера для **SecretStore** в разделе `codescoring.secretStore`.
 
-Далее, необходимо настроить объекты **ExternalSecret** для получения секретов из внешнего хранилища в разделах `codescoring.config.externalSecret,` `codescoring.pgcat.externalSecret`, `postgresql.externalSecret`.
+Далее, необходимо настроить объекты **ExternalSecret** для получения секретов из внешнего хранилища в разделах `codescoring.config.externalSecret,` `pgbouncer.externalSecret`, `postgresql.externalSecret`.
 
 Вся конфигурация осуществляется в соответствии с документацией ESO. 
 
