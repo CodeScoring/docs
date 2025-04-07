@@ -253,7 +253,9 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 
 #### Настройка репозитория Debian
 
-Для корректной работы плагина необходимо указать название дистрибутива из удалённого репозитория. Это название используется в PURL (Package URL) для повышения точности анализа пакета.
+Для корректной работы плагина необходимо указать название (codename) дистрибутива из удалённого репозитория, например "bullseye" для Debian. Это название используется в PURL (Package URL) для повышения точности анализа пакета.
+
+Название должно быть в нижнем регистре и без лишних символов.
 
 ![Debian repository settings](/assets/img/osa/nexus_debian_setup.png)
 
@@ -278,48 +280,48 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 
 Список поддерживаемых дистрибутивов Ubuntu:
 
-- **Ubuntu 4.10** – *Warty*  
-- **Ubuntu 5.04** – *Hoary*  
-- **Ubuntu 5.10** – *Breezy*  
-- **Ubuntu 6.06** – *Dapper*  
-- **Ubuntu 6.10** – *Edgy*  
-- **Ubuntu 7.04** – *Feisty*  
-- **Ubuntu 7.10** – *Gutsy*  
-- **Ubuntu 8.04** – *Hardy*  
-- **Ubuntu 8.10** – *Intrepid*  
-- **Ubuntu 9.04** – *Jaunty*  
-- **Ubuntu 9.10** – *Karmic*  
-- **Ubuntu 10.04** – *Lucid*  
-- **Ubuntu 10.10** – *Maverick*  
-- **Ubuntu 11.04** – *Natty*  
-- **Ubuntu 11.10** – *Oneiric*  
-- **Ubuntu 12.04** – *Precise*  
-- **Ubuntu 12.10** – *Quantal*  
-- **Ubuntu 13.04** – *Raring*  
-- **Ubuntu 13.10** – *Saucy*  
-- **Ubuntu 14.04** – *Trusty*  
-- **Ubuntu 14.10** – *Utopic*  
-- **Ubuntu 15.04** – *Vivid*  
-- **Ubuntu 15.10** – *Wily*  
-- **Ubuntu 16.04** – *Xenial*  
-- **Ubuntu 16.10** – *Yakkety*  
-- **Ubuntu 17.04** – *Zesty*  
-- **Ubuntu 17.10** – *Artful*  
-- **Ubuntu 18.04** – *Bionic*  
-- **Ubuntu 18.10** – *Cosmic*  
-- **Ubuntu 19.04** – *Disco*  
-- **Ubuntu 19.10** – *Eoan*  
-- **Ubuntu 20.04** – *Focal*  
-- **Ubuntu 20.10** – *Groovy*  
-- **Ubuntu 21.04** – *Hirsute*  
-- **Ubuntu 21.10** – *Impish*  
-- **Ubuntu 22.04** – *Jammy*  
-- **Ubuntu 22.10** – *Kinetic*  
-- **Ubuntu 23.04** – *Lunar*  
-- **Ubuntu 23.10** – *Mantic*  
-- **Ubuntu 24.04** – *Noble*  
-- **Ubuntu 24.10** – *Oracular*  
-- **Ubuntu 25.04** – *Plucky*  
+- **Ubuntu 4.10** – *warty*  
+- **Ubuntu 5.04** – *hoary*  
+- **Ubuntu 5.10** – *breezy*  
+- **Ubuntu 6.06** – *dapper*  
+- **Ubuntu 6.10** – *edgy*  
+- **Ubuntu 7.04** – *feisty*  
+- **Ubuntu 7.10** – *gutsy*  
+- **Ubuntu 8.04** – *hardy*  
+- **Ubuntu 8.10** – *intrepid*  
+- **Ubuntu 9.04** – *jaunty*  
+- **Ubuntu 9.10** – *karmic*  
+- **Ubuntu 10.04** – *lucid*  
+- **Ubuntu 10.10** – *maverick*  
+- **Ubuntu 11.04** – *natty*  
+- **Ubuntu 11.10** – *oneiric*  
+- **Ubuntu 12.04** – *precise*  
+- **Ubuntu 12.10** – *quantal*  
+- **Ubuntu 13.04** – *raring*  
+- **Ubuntu 13.10** – *saucy*  
+- **Ubuntu 14.04** – *trusty*  
+- **Ubuntu 14.10** – *utopic*  
+- **Ubuntu 15.04** – *vivid*  
+- **Ubuntu 15.10** – *wily*  
+- **Ubuntu 16.04** – *xenial*  
+- **Ubuntu 16.10** – *yakkety*  
+- **Ubuntu 17.04** – *zesty*  
+- **Ubuntu 17.10** – *artful*  
+- **Ubuntu 18.04** – *bionic*  
+- **Ubuntu 18.10** – *cosmic*  
+- **Ubuntu 19.04** – *disco*  
+- **Ubuntu 19.10** – *eoan*  
+- **Ubuntu 20.04** – *focal*  
+- **Ubuntu 20.10** – *groovy*  
+- **Ubuntu 21.04** – *hirsute*  
+- **Ubuntu 21.10** – *impish*  
+- **Ubuntu 22.04** – *jammy*  
+- **Ubuntu 22.10** – *kinetic*  
+- **Ubuntu 23.04** – *lunar*  
+- **Ubuntu 23.10** – *mantic*  
+- **Ubuntu 24.04** – *noble*  
+- **Ubuntu 24.10** – *oracular*  
+- **Ubuntu 25.04** – *plucky*  
 
 ### Просмотр информации о пакете Debian
 
