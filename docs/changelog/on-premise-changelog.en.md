@@ -4,6 +4,11 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.13.1] - 2025-04-08
+
+- Added the ability to specify days of the week and time in the analysis launch schedule for the SCA and Secrets modules
+- Changed the approach to specifying the date of the last artifact request in OSA to avoid increased disk load
+
 ### [2025.13.0] - 2025-03-28
 
 - The CodeScoring configuration in Docker Compose has been deeply rewritten and modernized. Please read the [how-to](/on-premise/update/#2025130-2025-03-28) before upgrading.
