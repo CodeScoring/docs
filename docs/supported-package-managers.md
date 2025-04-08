@@ -6,24 +6,40 @@ hide:
 
 ## Манифесты
 
-Для поиска зависимостей CodeScoring в первую очередь опирается на разбор файлов манифестов пакетных менеджеров. Система поддерживает разбор следующих технологий:
+Для поиска зависимостей CodeScoring в первую очередь опирается на разбор файлов манифестов пакетных менеджеров. Платформа поддерживает разбор следующих технологий:
 
-Язык <div style="width:140px">| Пакетный менеджер или инструмент сборки <div style="width:280px"> | Формат файла <div style="width:250px"> |
-----------------| :---------------- | :----------- |
-Java и Kotlin               |   Gradle, Maven   | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`gradle-dependency-tree.txt`<br/>`*.gradle`<br/>`*.gradle.kts`<br/> `gradle.lockfile`|
-JavaScript и TypeScript     |    npm, yarn      |  `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock`<br/>`pnpm-lock.yaml`|
-Python                      |    pip, Poetry, Pipenv, Conda    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
-С и C++                     |    Conan          |  `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`|
-Go                          |    Go Modules     |  `go.mod`<br/>`go.sum` |
-PHP                         |    Composer       |  `composer.json`<br/>`composer.lock`|
-Ruby                        |    RubyGems       |  `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked`|
-C#                          |    Nuget          |  `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
-Objective-C и Swift         |    CocoaPods      |  `Podfile`<br/>`Podfile.lock`<br/>`*.podspec`|
-Rust                        |    Cargo          |  `Cargo.lock`<br/>`Cargo.toml`|
-Scala                       |    sbt            |  `scala-dependency-tree.txt`<br/>`sbt-dependency-tree.txt`|
-
+| Экосистема <div style="width:140px"> | Пакетный менеджер или инструмент сборки <div style="width:280px"> | Формат файла <div style="width:250px"> |
+|----------------|:----------------|:-----------|
+| **Java и Kotlin** | Gradle | `*.gradle`<br/>`*.gradle.kts`<br/>`gradle-dependency-tree.txt`<br/>`gradle.lockfile` |
+| | Maven | `pom.xml`<br/>`maven-dependency-tree.txt` |
+| | Apache Ivy | `ivy.xml` |
+| **JavaScript и TypeScript** | npm | `package.json`<br/>`package-lock.json`<br/>`npm-shrinkwrap.json` |
+| | yarn | `yarn.lock`<br/>`package.json`<br/>`package-lock.json`|
+| | pnpm | `pnpm-lock.yaml` |
+| **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`pip-resolved-dependencies.txt` |
+| | Poetry | `pyproject.toml`<br/>`poetry.lock` |
+| | Pipenv | `Pipfile`<br/>`Pipfile.lock` |
+| | Conda | `environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
+| **C и C++** | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py` |
+| **Go** | Go Modules | `go.mod`<br/>`go.sum` |
+| **PHP** | Composer | `composer.json`<br/>`composer.lock` |
+| **Ruby** | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked`<br/>`gems.rb` |
+| **.NET** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`*.csproj`<br/>`project.assets.json`<br/>`dependencyReport.json` | 
+| | Paket | `paket.dependencies`<br/>`paket.lock` |
+| **Objective-C** | CocoaPods | `Podfile`<br/>`Podfile.lock`<br/>`*.podspec` |
+| **Swift** | Swift Package Manager | `Package.swift`<br/>`Package.resolved` |
+| **Rust** | Cargo | `Cargo.toml`<br/>`Cargo.lock` |
+| **Scala** | sbt | `scala-dependency-tree.txt`<br/>`sbt-dependency-tree.txt` |
 
 Лучший результат будет при наличии основного файла манифеста и соответствующего lock-файла, если он предусмотрен механизмом пакетного менеджера.
+
+## Системные пакеты
+
+В рамках работы модуля OSA платформа поддерживает разбор системных пакетов следующих форматов:
+
+- [Debian-based](https://www.debian.org/distrib/packages)
+- [Alpine-based](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html)
+- [RPM-based](https://rpm.org)
 
 ## Механизм резолва при отсутствии lock-файла
 

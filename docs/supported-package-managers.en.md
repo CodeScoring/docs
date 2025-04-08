@@ -4,27 +4,42 @@ hide:
 ---
 # Supported ecosystems and analysis methods
 
-## Manifest files
+## Manifests
 
-To find dependencies, CodeScoring primarily relies on parsing package manager manifest files. The system supports analysis of the following technologies:
+To find dependencies, CodeScoring primarily relies on parsing package manager manifest files. The platform supports parsing the following technologies:
 
-Language <div style="width:140px">| Package manager or build tool <div style="width:280px"> | File format <div style="width:250px"> |
-----------------| :---------------- | :---------- |
-Java and Kotlin | Gradle, Maven | `pom.xml`<br/>`ivy.xml`<br/>`maven-dependency-tree.txt`<br/>`gradle-dependency-tree.txt`<br/>`*.gradle`< br/>`*.gradle.kts`<br/> `gradle.lockfile`|
-JavaScript and TypeScript | npm, yarn | `package.json`<br/>`package-lock.json` <br/>`npm-shrinkwrap.json`<br/>`yarn.lock`<br/>`pnpm-lock.yaml`|
-Python                      |    pip, Poetry, Pipenv, Conda    |  `setup.py`<br/>`Pipfile`<br/>`Pipfile.lock`<br/>`pyproject.toml`<br/>`poetry.lock`<br/>`requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
-C and C++ | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`|
-Go | Go Modules | `go.mod`<br/>`go.sum` |
-PHP | Composer | `composer.json`<br/>`composer.lock`|
-Ruby | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked`|
-C# | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`paket.dependencies`<br/>`paket.lock`<br/>`*.csproj`<br/>`project.assets.json`|
-Objective-C and Swift | CocoaPods | `Podfile`<br/>`Podfile.lock`<br/>`*.podspec`|
-Rust | Cargo | `Cargo.lock`<br/>`Cargo.toml`|
-Scala | sbt | `scala-dependency-tree.txt`<br/>`sbt-dependency-tree.txt`|
+| Ecosystem <div style="width:140px"> | Package manager or build tool <div style="width:280px"> | File format <div style="width:250px"> |
+|----------------|:----------------|:-----------|
+| **Java and Kotlin** | Gradle | `*.gradle`<br/>`*.gradle.kts`<br/>`gradle-dependency-tree.txt`<br/>`gradle.lockfile` |
+| | Maven | `pom.xml`<br/>`maven-dependency-tree.txt` |
+| | Apache Ivy | `ivy.xml` |
+| **JavaScript and TypeScript** | npm | `package.json`<br/>`package-lock.json`<br/>`npm-shrinkwrap.json` |
+| | yarn | `yarn.lock`<br/>`package.json`<br/>`package-lock.json`|
+| | pnpm | `pnpm-lock.yaml` |
+| **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt` |
+| | Poetry | `pyproject.toml`<br/>`poetry.lock` |
+| | Pipenv | `Pipfile`<br/>`Pipfile.lock` |
+| | Conda | `environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
+| **C and C++** | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py` |
+| **Go** | Go Modules | `go.mod`<br/>`go.sum` |
+| **PHP** | Composer | `composer.json`<br/>`composer.lock` |
+| **Ruby** | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked` |
+| **.NET** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`*.csproj`<br/>`project.assets.json`<br/>`dependencyReport.json` | 
+| | Paket | `paket.dependencies`<br/>`paket.lock` |
+| **Objective-C** | CocoaPods | `Podfile`<br/>`Podfile.lock`<br/>`*.podspec` |
+| **Swift** | Swift Package Manager | `Package.swift`<br/>`Package.resolved` |
+| **Rust** | Cargo | `Cargo.toml`<br/>`Cargo.lock` |
+| **Scala** | sbt | `scala-dependency-tree.txt`<br/>`sbt-dependency-tree.txt` |
 
+The best result will be achieved by combining the main manifest file and the corresponding lock file, if provided by the package manager mechanism.
 
-The best result is achieved through a combination of a manifest file and a corresponding lock file (if it is provided by the package manager mechanism).
+## System packages
 
+As part of the OSA module, the platform supports analysing system packages of the following formats:
+
+- [Debian-based](https://www.debian.org/distrib/packages)
+- [Alpine-based](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html)
+- [RPM-based](https://rpm.org)
 
 ## Resolution mechanism in the absence of a lock file
 
