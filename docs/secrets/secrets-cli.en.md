@@ -3,7 +3,7 @@ hide:
 - footer
 ---
 
-# Analysis of secrets in CLI projects
+# Searching secrets in CLI projects
 
 ## Importing a report into a CLI project
 
