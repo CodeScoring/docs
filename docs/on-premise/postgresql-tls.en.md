@@ -17,7 +17,7 @@ hide:
 5. Uncomment and edit your SSL/TLS configuration files;
 
 ## Example of how to enable PostgreSQL/PgBouncer in TLS mode with self-signed certificates
-1. Generate certificates in the ssl directory in the system installation files using the `mkcert` utility
+1. Generate certificates in the `ssl` directory in the system installation files using the `mkcert` utility
     ```bash
     docker run -v ./ssl:/ssl -it --rm alpine/mkcert -cert-file /ssl/pgbouncer_server.crt -key-file /ssl/pgbouncer_server.key pgbouncer
     docker run -v ./ssl:/ssl -it --rm alpine/mkcert -cert-file /ssl/postgresql_server.crt -key-file /ssl/postgresql_server.key psql

@@ -17,7 +17,7 @@ hide:
 5. Раскомментировать и отредактировать файлы конфигурации SSL/TLS;
 
 ## Пример включения PostgreSQL/PgBouncer в режим TLS с самоподписанными сертификатами
-1. Генерируем сертификаты в каталоге ssl в установочных файлах системы, используя утилиту `mkcert`
+1. Генерируем сертификаты в каталоге `ssl` в установочных файлах системы, используя утилиту `mkcert`
     ```bash
     docker run -v ./ssl:/ssl -it --rm alpine/mkcert -cert-file /ssl/pgbouncer_server.crt -key-file /ssl/pgbouncer_server.key pgbouncer
     docker run -v ./ssl:/ssl -it --rm alpine/mkcert -cert-file /ssl/postgresql_server.crt -key-file /ssl/postgresql_server.key psql
