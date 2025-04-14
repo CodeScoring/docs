@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Connecting to PostgreSQL/PgBouncer using TLS
+<a href="/changelog/on-premise-changelog.en/#%version%" class="version-tag">%version%</a>
 
 ## To connect to PostgreSQL/PgBouncer using TLS
 1. Before starting the system, place certificate and key files in the `ssl` directory in the system installation files;
