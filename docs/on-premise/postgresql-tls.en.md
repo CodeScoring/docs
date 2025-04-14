@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-<a href="/changelog/on-premise-changelog.en/#%version%" class="version-tag">%version%</a>
+Connecting to PostgreSQL/PgBouncer using TLS provides secure and encrypted data transfer between client and server. This option is available starting from CodeScoring <a href="/changelog/on-premise-changelog.en/#%version%" class="version-tag">%version%</a> version.
 
 ## To connect to PostgreSQL/PgBouncer using TLS
 1. Before starting the system, place certificate and key files in the `ssl` directory in the system installation files;

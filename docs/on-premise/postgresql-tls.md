@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-<a href="/changelog/on-premise-changelog/#%version%" class="version-tag">%version%</a>
+Подключение к PostgreSQL/PgBouncer с использованием TLS обеспечивает безопасную и зашифрованную передачу данных между клиентом и сервером. Данная функциональность доступна начиная с версии CodeScoring <a href="/changelog/on-premise-changelog/#%version%" class="version-tag">%version%</a>.
 
 ## Для подключения к PostgreSQL/PgBouncer с использованием TLS
 1. Перед запуском системы разместить файлы сертификатов и ключей в каталоге `ssl` в установочных файлах системы;
