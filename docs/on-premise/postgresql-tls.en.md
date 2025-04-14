@@ -8,13 +8,13 @@ Connecting to PostgreSQL/PgBouncer using TLS provides secure and encrypted data 
 ## To connect to PostgreSQL/PgBouncer using TLS
 1. Before starting the system, place certificate and key files in the `ssl` directory in the system installation files;
 2. Give the files talking names, e.g. `pgbouncer_server.crt`, `pgbouncer_server.key`;
-3. Important: the extension of the certificate files must be `crt`;
+3. **Important**: the extension of the certificate files must be `crt`;
 4. Change the owner of the key files as follows:
     ```bash
     chown 999:0 ./ssl/postgresql_server.key
     chown 1050:0 ./ssl/pgbouncer_server.key
     ```
-5. Uncomment and edit your SSL/TLS configuration files;
+5. Uncomment and edit your SSL/TLS configuration files.
 
 ## Example of how to enable PostgreSQL/PgBouncer in TLS mode with self-signed certificates
 1. Generate certificates in the `ssl` directory in the system installation files using the `mkcert` utility
