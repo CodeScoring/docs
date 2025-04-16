@@ -326,7 +326,7 @@ Nexus OSA extracts package information from various sources. Specifically, it ge
 
 ![Debian package browse](/assets/img/osa/nexus_debian_browse.png)
 
-### Browse RPM package information
+### Browsing RPM package information
 
 For RPM packages, Nexus OSA extracts data from the asset's attributes. This includes the package name, version, and architecture.
 
