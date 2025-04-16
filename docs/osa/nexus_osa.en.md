@@ -246,11 +246,9 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts | grep mycert
 
 ## Working with system packages
 
-## Setting up repositories
+### Setting up repositories
 
 For Nexus OSA to work correctly with system packages of some ecosystems, additional actions must be taken.
-
-#### Setting up a Debian repository
 
 For the plugin to work correctly, you must specify the codename of the distribution from the remote repository, for example "bullseye" for Debian. This name is used in PURL (Package URL) to improve the accuracy of package analysis.
 
