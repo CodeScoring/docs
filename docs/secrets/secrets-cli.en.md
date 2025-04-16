@@ -7,7 +7,7 @@ hide:
 
 ## Importing a report into a CLI project
 
-You can import a separately created report in `json` format into a CLI project. You can read about using gitleaks in the command line in the [tool documentation](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#usage).
+You can import a separately created report in `json` format into a CLI project. You can read about using **Gitleaks** in the command line in the [tool documentation](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#usage).
 
 1. After receiving a report from the tool, you need to go to the Secrets tab of the selected project.
 
