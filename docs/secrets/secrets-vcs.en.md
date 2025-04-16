@@ -6,7 +6,7 @@ hide:
 
 For the Secrets module to work within a project, you need to set the scanning parameters on the project settings page in the `Settings -> Projects` section:
 
-- **Secrets scan schedule** - schedule for scanning for secrets (daily or weekly);
+- **Secrets scan schedule** - schedule for scanning for secrets (is set by time and days of week);
 - **Secrets engine configuration** - configuration of the [secrets engine](/secrets/secrets-setup.en);
 - **Secrets scan scope** - scope of scanning:
 	 - **Repo** - for scanning all the branches within repository;
