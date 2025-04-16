@@ -244,3 +244,93 @@ The response also contains a link to the component page in CodeScoring with info
 ![Component page](/assets/img/osa/component-page.png)
 
 **Important**: if a component does not contain a version, it is not sent for analysis to CodeScoring and, accordingly, is not blocked by the plugin.
+
+## Working with system packages
+
+### Setting up repositories
+
+For JFrog OSA to work correctly with system packages of some ecosystems, additional actions must be taken.
+
+#### Setting up a Debian repository
+
+For correct package analysis, you must specify the codename of the distribution from the remote repository, for example "bullseye" for Debian. This name is entered in the **Internal Description** field. It is used in PURL (Package URL) to improve the accuracy of package analysis.
+
+The codename should be in lowercase and without extra symbols.
+
+![Debian repository settings](/assets/img/osa/jfrog_debian_setup.png)
+
+List of supported Debian distributions:
+
+- **Debian 2.0** – *hamm*
+- **Debian 2.1** – *slink*
+- **Debian 2.2** – *potato*
+- **Debian 3.0** – *woody*
+- **Debian 3.1** – *sarge*
+- **Debian 4** – *etch*
+- **Debian 5** – *lenny*
+- **Debian 6** – *squeeze*
+- **Debian 7** – *wheezy*
+- **Debian 8** – *jessie*
+- **Debian 9** – *stretch*
+- **Debian 10** – *buster*
+- **Debian 11** – *bullseye*
+- **Debian 12** – *bookworm*
+- **Debian 13** – *trixie*
+- **Debian 14** – *forky*
+
+List of supported Ubuntu distributions:
+
+- **Ubuntu 4.10** – *warty*  
+- **Ubuntu 5.04** – *hoary*  
+- **Ubuntu 5.10** – *breezy*  
+- **Ubuntu 6.06** – *dapper*  
+- **Ubuntu 6.10** – *edgy*  
+- **Ubuntu 7.04** – *feisty*  
+- **Ubuntu 7.10** – *gutsy*  
+- **Ubuntu 8.04** – *hardy*  
+- **Ubuntu 8.10** – *intrepid*  
+- **Ubuntu 9.04** – *jaunty*  
+- **Ubuntu 9.10** – *karmic*  
+- **Ubuntu 10.04** – *lucid*  
+- **Ubuntu 10.10** – *maverick*  
+- **Ubuntu 11.04** – *natty*  
+- **Ubuntu 11.10** – *oneiric*  
+- **Ubuntu 12.04** – *precise*  
+- **Ubuntu 12.10** – *quantal*  
+- **Ubuntu 13.04** – *raring*  
+- **Ubuntu 13.10** – *saucy*  
+- **Ubuntu 14.04** – *trusty*  
+- **Ubuntu 14.10** – *utopic*  
+- **Ubuntu 15.04** – *vivid*  
+- **Ubuntu 15.10** – *wily*  
+- **Ubuntu 16.04** – *xenial*  
+- **Ubuntu 16.10** – *yakkety*  
+- **Ubuntu 17.04** – *zesty*  
+- **Ubuntu 17.10** – *artful*  
+- **Ubuntu 18.04** – *bionic*  
+- **Ubuntu 18.10** – *cosmic*  
+- **Ubuntu 19.04** – *disco*  
+- **Ubuntu 19.10** – *eoan*  
+- **Ubuntu 20.04** – *focal*  
+- **Ubuntu 20.10** – *groovy*  
+- **Ubuntu 21.04** – *hirsute*  
+- **Ubuntu 21.10** – *impish*  
+- **Ubuntu 22.04** – *jammy*  
+- **Ubuntu 22.10** – *kinetic*  
+- **Ubuntu 23.04** – *lunar*  
+- **Ubuntu 23.10** – *mantic*  
+- **Ubuntu 24.04** – *noble*  
+- **Ubuntu 24.10** – *oracular*  
+- **Ubuntu 25.04** – *plucky*
+
+### Browsing Debian package information
+
+JFrog OSA extracts package information from several sources. First, it gets the package name, version, and architecture from the **Properties** of the artifact. If Properties are missing, the data for PURL is parsed from the **Repository Path**.
+
+![Debian package browse](/assets/img/osa/jfrog_debian_browse.png)
+
+### Browsing RPM package information
+
+For RPM packages, JFrog OSA gets the name, version, and architecture by parsing the **Repository Path**.
+
+![RPM package browse](/assets/img/osa/jfrog_rpm_browse.png)
