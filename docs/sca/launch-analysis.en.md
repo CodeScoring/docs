@@ -38,7 +38,6 @@ In addition to manual runs, you can set up scheduled analysis of individual proj
 
 This is controlled on the project page in `Settings -> Projects`. 
 
-By default, the **Scan Schedule** parameter is set to **Off**. To activate scheduled analysis, you need to select one of two options:
+By default, the **SCA Scan Schedule** parameter is set to **Off**. To activate scheduled analysis, you need to select **On** and select time and days of week.
 
-- Daily;
-- Weekly.
+**Note**: Selected time will be treated as UTC +3.
