@@ -39,4 +39,4 @@ Then you need to follow these steps:
    - You must enter this value in the `.env` file with the key `COMPOSE_PROJECT_NAME=`
    - **IMPORTANT!** If you do not do this, the installation will not start. If you enter an incorrect value, volumes with a new prefix will be created, and the installation on the new version will start "from scratch"
    - After the value is added to the `.env` file, requests to `docker compose` can be made without the `-p PROJECT_NAME` option
-- You need to download the updated `docker-compose.yml` and `external-db.override.yml` files from the [CodeScoring registry](https://registry-one.codescoring.ru) and place them in the directory with the compose file.
+- You need to download the updated `docker-compose.yml` and `external-db.override.yml` files from the CodeScoring registry and place them in the directory with the compose file.
