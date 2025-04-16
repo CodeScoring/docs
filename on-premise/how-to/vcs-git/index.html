@@ -1,0 +1,3255 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../proprietors/">
+      
+      
+        <link rel="next" href="../projects/">
+      
+      
+      <link rel="icon" href="../../../assets/favicon/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    <meta name="yandex-verification" content="87065ff836ee1f0a" />
+
+    
+      
+        <title>Подключение системы контроля версий - CodeScoring Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/logo.css">
+    
+      <link rel="stylesheet" href="../../../css/hide_lang_links.css">
+    
+      <link rel="stylesheet" href="../../../css/print.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+    
+      
+
+    
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(97226980, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/97226980" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="CodeScoring Documentation" class="md-header__button md-logo" aria-label="CodeScoring Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeScoring Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Подключение системы контроля версий
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../vcs-git.en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CodeScoring Documentation" class="md-nav__button md-logo" aria-label="CodeScoring Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    CodeScoring Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Общая информация
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Общая информация
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../functionality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Функциональные характеристики
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integration-stages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Этапы интеграции
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supported-package-managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Поддерживаемые экосистемы и способы анализа
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Установка и эксплуатация
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Установка и эксплуатация
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Аппаратные требования
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Установка системы в Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Работа со внешней СУБД в Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Обновление системы в Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation-in-k8s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Работа системы в Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Резервное копирование
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Работа через прокси
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-signed-ssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Самоподписанные SSL сертификаты
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis-ignore-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Пути анализа и исключения
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Диагностика неполадок
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Начало работы с инсталляцией
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Начало работы с инсталляцией
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../activation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Активация системы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Управление учетными записями
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Создание групп пользователей
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proprietors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Создание подразделений
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Подключение системы контроля версий
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Подключение системы контроля версий
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление SSH-ключа
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для GitLab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitbucket-data-center-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для BitBucket Data Center и Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-devops-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для Azure DevOps Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitflic-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение GitFlic через ssh
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Управление проектами
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Настройка политик
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Настройка уведомлений
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Настройка LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audit-log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Работа с аудит-логом
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сбор метрик
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webhooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Подключение вебхуков
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Работа с API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../osa/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CodeScoring OSA
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CodeScoring OSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/nexus_osa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus OSA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/jfrog_osa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JFrog OSA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/repo-managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Подключение менеджера репозиториев
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/registries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Подключение реестра с образами
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/osa-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Настройка политик OSA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Работа с компонентами OSA на инсталляции
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/archives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование архивов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../sca/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CodeScoring SCA
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CodeScoring SCA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sca/launch-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Запуск сканирования
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sca/graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Визуализация графа зависимостей
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sca/scan-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Отслеживание истории сканирований
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sca/export-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Выгрузка результатов анализа
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../agent/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Консольный агент Johnny
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Консольный агент Johnny
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Настройка через конфигурационный файл
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/env-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Настройка через переменные окружения
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Команда сканирования
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-dir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование директории
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование файла
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование архивов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование контейнерных образов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование сборки C/C++
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-bom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование SBOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-technology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование технологии
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сканирование на наличие секретов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/launch-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Запуск с помощью Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/gitlab-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Добавление в Gitlab CI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Добавление в Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/gitflic-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Добавление в GitFlic CI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/save-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Сохранение результатов сканирования
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Экспорт результатов сканирования
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/resolve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Разрешение зависимостей в окружении сборки
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../dependencies/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Работа с зависимостями
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Работа с зависимостями
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/scala/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scala
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/js/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/dotnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    .NET
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PHP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dependencies/ruby/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ruby
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../secrets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CodeScoring Secrets
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            CodeScoring Secrets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secrets/secrets-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Создание конфигурации для поиска секретов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secrets/secrets-vcs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Настройка VCS проекта для работы с секретами
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secrets/secrets-launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Запуск поиска секретов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secrets/secrets-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Поиск секретов в CLI проектах
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secrets/secrets-findings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Работа с найденными секретами
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secrets/secrets-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Управление моделью машинного обучения
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tqi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CodeScoring TQI
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            CodeScoring TQI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tqi/launch-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Запуск TQI анализа
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tqi/viewing-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Просмотр результатов анализа
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tqi/authors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Построение профилей авторов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tqi/clones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Отслеживание дубликатов кода
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tqi/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Расчет метрик технического долга
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../changelog/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Changelog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/on-premise-changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeScoring on-premise
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/johnny-changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Консольный агент Johnny
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/nexus-changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus OSA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/jfrog-changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JFrog OSA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление SSH-ключа
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для GitLab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitbucket-data-center-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для BitBucket Data Center и Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-devops-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление токена для Azure DevOps Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitflic-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение GitFlic через ssh
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+    
+                  
+  
+
+
+<a class="md-content__button md-icon" title="Print PDF" id="print-pdf-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 8c1.66 0 3 1.34 3 3v6h-4v4H6v-4H2v-6c0-1.66 1.34-3 3-3h1V3h12v5zM8 5v3h8V5zm8 14v-4H8v4zm2-4h2v-4c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4h2v-2h12zm1-3.5c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1"/></svg></a>
+
+
+
+<ul>
+<li class="i18n-link i18n-link-found i18n-link-en"><a href="../../../on-premise/how-to/vcs-git.en/">English</a></li>
+</ul>
+<h1 id="_1">Подключение системы контроля версий<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Для добавления в систему проектов (Git репозиториев) на анализ необходимо предварительно создать подключение к системе контроля версий (VCS). CodeScoring поддерживает следующие платформы:</p>
+<ul>
+<li>GitLab</li>
+<li>GitHub</li>
+<li>BitBucket (только Data Center и Server)</li>
+<li>Azure DevOps Git</li>
+<li>GitFlic</li>
+<li>Другие платформы, использующие Git</li>
+</ul>
+<p>Интеграция происходит через два возможных механизма: Personal Access Token или ключ SSH. Для механизма Personal Access Token возможно подключение нескольких систем контроля версий с одним адресом, но разными токенами.</p>
+<p>После подключения системы контроля версий невозможно поменять ее тип (<code>Instance type</code>) и адрес (<code>Instance URL</code>).</p>
+<p><strong>Примечание</strong>: в случае, если для обращения к системе контроля версий используются приватные NS сервера, их надо указать в настройках инсталляции. Для получения соответствующих шаблонов необходимо обратиться к вендору.</p>
+<h2 id="ssh-">Добавление SSH-ключа<a class="headerlink" href="#ssh-" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Скопировать существующий или сгенерировать новый приватный SSH ключ в системе контроля версий по инструкции для:<ul>
+<li><a href="https://docs.gitlab.com/ee/user/ssh.html]">Gitlab</a></li>
+<li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Github</a></li>
+<li><a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/">BitBucket</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops">Azure DevOps Git</a></li>
+</ul>
+</li>
+<li>В интерфейсе CodeScoring перейти в раздел <code>Settings -&gt; SSH Keys</code></li>
+<li>Нажать <strong>Setup new</strong> в правом верхнем углу.</li>
+<li>Заполнить форму. Приватный SSH ключ вставляется в поле <strong>Instance private key</strong>.</li>
+<li>Перейти в раздел <code>Settings -&gt; VCS</code>.</li>
+<li>Нажать <strong>Setup new</strong> в правом верхнем углу.</li>
+<li>Заполнить форму, как показано на скриншоте. SSH ключ выбирается из списка в поле <strong>SSH key</strong>.
+    <img alt="VCS form with SSH key" src="/assets/img/vcs-ssh-key.png" /></li>
+<li>Проверить подключение можно по кнопке <strong>Test it</strong>. Для создания подключения необходимо нажать на кнопку <strong>Setup now</strong>.</li>
+</ol>
+<h2 id="gitlab">Добавление токена для GitLab<a class="headerlink" href="#gitlab" title="Permanent link">&para;</a></h2>
+<p>Оригинальная инструкция для генерации токена на английском: <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token">https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token</a></p>
+<ol>
+<li>Войти в свой аккаунт в GitLab, для облачной версии логин доступен по ссылке <a href="https://gitlab.com/users/sign_in">https://gitlab.com/users/sign_in</a>.</li>
+<li>
+<p>Через меню пользователя в правом верхнем углу перейти в раздел <strong>Edit profile</strong>.</p>
+<p><img alt="Edit profile" src="/assets/img/gitlab/edit-profile-link.png" /></p>
+</li>
+<li>
+<p>Далее в левом меню выбрать раздел <strong>Access Tokens</strong>.</p>
+<p><img alt="Access tokens" src="/assets/img/gitlab/access-tokens-link.png" /></p>
+</li>
+<li>
+<p>Задать название токену, например, "<em>codescoring-demo</em>", дату можно оставить пустой</p>
+</li>
+<li>В секции <em>scopes</em> выбрать <strong>read_api</strong> и <strong>read_repository</strong>.
+    <img alt="Token scopes" src="/assets/img/gitlab/scopes.png" /></li>
+<li>Нажать кнопку <strong>Create personal access token</strong>.</li>
+<li>Скопировать сгенерированный токен.</li>
+<li>В интерфейсе CodeScoring перейти в раздел <code>Settings -&gt; VCS</code>.</li>
+<li>Нажать <strong>Setup new</strong> в правом верхнем углу.</li>
+<li>Заполнить форму, как показано на скриншоте. Токен вставляется в поле <em>Access token</em>.
+    <img alt="VCS form for GitLab" src="/assets/img/gitlab/cs-vcs-form-gitlab.png" /></li>
+</ol>
+<h2 id="github">Добавление токена для GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h2>
+<p>Оригинальная инструкция для генерации токена на английском: <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
+<ol>
+<li>Войти в свой аккаунт в GitHub, для облачной версии логин доступен по ссылке <a href="https://github.com/login">https://github.com/login</a>.</li>
+<li>Если у аккаунта не верифицирован email, обязательно это сделать по <a href="https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address">инструкции</a>.</li>
+<li>Через меню пользователя в правом верхнем углу перейти в раздел <strong>Settings</strong>.</li>
+<li>Далее в левом меню выбрать раздел <strong>Developer settings</strong>.</li>
+<li>В левом меню выбрать раздел <strong>Personal access tokens</strong>.</li>
+<li>Задать название токену, например, "codescoring-demo".</li>
+<li>В секции Select scopes выбрать все опции списка <em>repos</em>.</li>
+<li>Нажать кнопку <strong>Generate token</strong>.</li>
+<li>Скопировать сгенерированный токен.</li>
+<li>В интерфейсе CodeScoring перейти в раздел <code>Settings -&gt; VCS</code>.</li>
+<li>Нажать <strong>Setup new</strong> в правом верхнем углу.</li>
+<li>Заполнить форму, как показано на скриншоте. Токен вставляется в поле <em>Access token</em>.
+    <img alt="VCS form for GitHub" src="/assets/img/github/cs-vcs-form-github.png" /></li>
+</ol>
+<h2 id="bitbucket-data-center-server">Добавление токена для BitBucket Data Center и Server<a class="headerlink" href="#bitbucket-data-center-server" title="Permanent link">&para;</a></h2>
+<p>Оригинальная инструкция для генерации токена на английском: <a href="https://confluence.atlassian.com/bitbucketserver072/personal-access-tokens-1005335924.html">https://confluence.atlassian.com/bitbucketserver072/personal-access-tokens-1005335924.html</a></p>
+<ol>
+<li>Войти в свой аккаунт в BitBucket.</li>
+<li>Через меню пользователя в правом верхнем углу перейти в раздел <strong>Manage account</strong>.</li>
+<li>Далее в левом меню выбрать раздел <strong>Personal access tokens</strong>.</li>
+<li>Нажать на <strong>Create token</strong>.</li>
+<li>Задать название токену, например, "codescoring-demo".</li>
+<li>В секции <strong>Permissions</strong> дать права на чтение для проектов и репозиториев.</li>
+<li>В секции <strong>Expiry</strong> при желании задать срок жизни токена.</li>
+<li>Нажать кнопку <strong>Create</strong>.</li>
+<li>Скопировать сгенерированный токен.</li>
+<li>В интерфейсе CodeScoring перейти в раздел <code>Settings -&gt; VCS</code>.</li>
+<li>Нажать <strong>Setup new</strong> в правом верхнем углу.</li>
+<li>Заполнить форму, как показано на скриншоте. Токен вставляется в поле <em>Access token</em>.
+    <img alt="VCS form for BitBucket Server" src="/assets/img/bitbucket/cs-vcs-form-bitbucket.png" /></li>
+</ol>
+<h2 id="azure-devops-git">Добавление токена для Azure DevOps Git<a class="headerlink" href="#azure-devops-git" title="Permanent link">&para;</a></h2>
+<p>Оригинальная инструкция для генерации токена на английском: <a href="https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops">https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops</a></p>
+<ol>
+<li>Войти в свой аккаунт в Azure DevOps.</li>
+<li>
+<p>Через меню пользователя в правом верхнем углу перейти в раздел <strong>Personal access tokens</strong>.</p>
+<p><img alt="PAT menu item" src="/assets/img/azure/pat-menu-item.png" /></p>
+</li>
+<li>
+<p>Далее нажать кнопку <strong>New token</strong>.</p>
+</li>
+<li>Задать название токену, например, "codescoring-demo", и срок действия токена.</li>
+<li>В секции <em>Scopes</em> обязательно отметить доступ на <strong>Read</strong> для сущностей <strong>Code</strong> и <strong>Identity</strong>.</li>
+<li>Нажать кнопку <strong>Create</strong>.</li>
+<li>Скопировать сгенерированный токен.</li>
+<li>В интерфейсе CodeScoring перейти в раздел <code>Settings -&gt; VCS</code>.</li>
+<li>Нажать <strong>Setup new</strong> в правом верхнем углу.</li>
+<li>Заполнить форму, как показано на скриншоте. Токен вставляется в поле <em>Access token</em>.
+    <img alt="VCS form for Azure" src="/assets/img/azure/cs-vcs-form-azure.png" /></li>
+</ol>
+<h2 id="gitflic-ssh">Подключение GitFlic через ssh<a class="headerlink" href="#gitflic-ssh" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Создайте новую пару ключей ssh без passphase с типом <strong>RSA_SHA512</strong>,<strong>SSH_ED25519</strong> или <strong>ECDSA-SHA2-nistp256</strong>.
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>-q<span class="w"> </span>-f<span class="w"> </span>/tmp/id25519
+</code></pre></div></li>
+<li>
+<p>Перейдите в веб-интерфейс GitFlic в раздел <code>Настройки -&gt; Ключи</code> и добавьте <strong>публичный</strong> ключ в пул ключей GitFlic.</p>
+<p>Посмотреть содержимое публичного ключа можно при помощи следующей команды:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cat<span class="w"> </span>/tmp/id25519.pub
+</code></pre></div></p>
+</li>
+<li>
+<p>Перейдите в интерфейс CodeScoring в раздел <code>Settings -&gt; SSH Keys</code>, откройте форму добавления ключа по кнопке <strong>Setup New</strong>  и добавьте <strong>приватный</strong> ключ в пул ключей CodeScoring.</p>
+<p>Посмотреть содержимое приватного ключа можно при помощи следующей команды:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span>/tmp/id25519
+</code></pre></div></p>
+</li>
+<li>
+<p>Перейдите в раздел <code>Settings -&gt; VCS</code>, откройте форму добавления VCS по кнопке <strong>Setup New</strong> и заполните поля создания VCS инстанса:</p>
+<ul>
+<li><strong>Instance name</strong> – название VCS подключения;</li>
+<li><strong>Instance clone type</strong> – тип клонирования (выбрать тип SSH);</li>
+<li><strong>Instance type</strong> – тип инстанса VCS (выбрать тип Other git);</li>
+<li><strong>Instance url</strong> – адрес, по которому доступен VCS;</li>
+<li><strong>SSH key</strong> – ключ SSH, созданный в пункте 4.</li>
+</ul>
+</li>
+<li>
+<p>Перейдите  в раздел <code>Settings -&gt; Project</code>, откройте форму создания нового проекта по кнопке <strong>Create New</strong> и заполните поля создания проекта:</p>
+<ul>
+<li><strong>Repository</strong> – ссылка на репозиторий в GitFlic;</li>
+<li><strong>VCS</strong> – название инстанса VCS, созданного в пункте 6.</li>
+</ul>
+<p><strong>Важно</strong>: ввиду особенностей работы GitFlic и CodeScoring, стандартную ссылку на репозиторий необходимо модифицировать, убрав из нее часть пути <code>/project/</code>. Например:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&lt;https://gitflic.ru/project/kovalevaa/utils.git&gt; -&gt; &lt;https://gitflic.ru/kovalevaa/utils.git&gt;_
+</code></pre></div></p>
+</li>
+<li>
+<p>Сохраните проект.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                  
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let printButton = document.getElementById("print-pdf-btn");
+            printButton.onclick = () => window.print();
+        });
+    </script>
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> CodeScoring
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.indexes", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>
