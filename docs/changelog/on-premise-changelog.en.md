@@ -4,6 +4,12 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.13.2] - 2025-04-23
+
+- Added view of detailed information on vulnerabilities for installations that only have the OSA module
+- Added checking for connection to Gerrit via SSH
+- Optimized memory utilization when calculating policies
+
 ### [2025.13.1] - 2025-04-08
 
 - Added the ability to specify days of the week and time in the analysis launch schedule for the SCA and Secrets modules
