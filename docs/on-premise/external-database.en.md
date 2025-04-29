@@ -5,8 +5,8 @@ hide:
 
 # Running CodeScoring in Docker Compose with an external DBMS
 
-1. In case the CodeScoring database is located in a non-default schema, you must explicitly set the `search_path`
-for the user to include the target schema in order to ensure correct object resolution:
+1. If a database schema other than `public` is used, the user's `search_path` must be explicitly set to include
+the target schema to ensure correct object resolution:
   ```sql
   ALTER USER codescoring_user_name SET search_path = non_default_schema_name;
   ```
