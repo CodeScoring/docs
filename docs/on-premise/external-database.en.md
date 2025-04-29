@@ -5,7 +5,13 @@ hide:
 
 # Running CodeScoring in Docker Compose with an external DBMS
 
-1. You must configure necessary variables in the `.env` file:
+1. In case the CodeScoring database is located in a non-default schema, you must explicitly set the `search_path`
+for the user to include the target schema in order to ensure correct object resolution:
+  ```sql
+  ALTER USER codescoring_user_name SET search_path = non_default_schema_name;
+  ```
+
+2. You must configure necessary variables in the `.env` file:
 
     - `POSTGRES_DB`
     - `POSTGRES_USER`
@@ -13,7 +19,7 @@ hide:
     - `POSTGRES_HOST`
     - `POSTGRES_PORT`
 
-2. For managing the installation, you must apply the `external-db.override.yml` file, which is shipped with `docker-compose.yml` file:
+3. For managing the installation, you must apply the `external-db.override.yml` file, which is shipped with `docker-compose.yml` file:
 
     - Launch CodeScoring:
         ```bash
