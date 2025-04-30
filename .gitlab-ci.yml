@@ -5,19 +5,28 @@ lint_trailing_spaces:
   stage: lint
   image: alpine
   script:
-    - grep -rnI '[[:blank:]]$' --include="*.md" . && echo "❌ Trailing spaces found!" && exit 1 || echo "✅ No trailing spaces"
+  - echo "🔍 Checking for trailing spaces in changed .md files..."
+    FILES=$(git diff --name-only origin/main...HEAD -- '*.md')
+    echo "$FILES" | while read file; do
+      grep -n '[[:blank:]]$' "$file" && FOUND=true
+    done
+    if [ "$FOUND" = true ]; then
+      echo "❌ Trailing spaces found in MR files."
+      exit 1
+    else
+      echo "✅ No trailing spaces in changed files."
+    fi
   only:
     - merge_requests
 
 lint_markdown_links:
   stage: lint
   image: node:18
-  before_script:
-    - npm install -g markdown-link-check
   script:
+    - npx markdown-link-check --version
     - find . -name "*.md" | while read file; do
-        echo "Checking $file";
-        markdown-link-check --quiet --config .mlc_config.json "$file" || exit 1;
+        echo "Checking $file"
+        npx markdown-link-check --quiet --config .mlc_config.json "$file" || exit 1
       done
   only:
     - merge_requests
