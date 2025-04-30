@@ -5,29 +5,28 @@ lint_trailing_spaces:
   stage: lint
   image: alpine:latest
   script:
-    - echo "🔍 Checking for trailing spaces in changed .md files..."
-    - FILES=$(git diff --name-only "$CI_MERGE_REQUEST_DIFF_BASE_SHA"...HEAD -- '*.md')
+  - echo "🔍 Checking for trailing spaces in changed .md files..."
+  - |
+    FILES=$(git diff --name-only "$CI_MERGE_REQUEST_DIFF_BASE_SHA"...HEAD -- '*.md')
 
-      if [ -z "$FILES" ]; then
-        echo "ℹ️  No .md files changed. Skipping check."
-        exit 0
+    if [ -z "$FILES" ]; then
+      echo "ℹ️  No .md files changed. Skipping check."
+      exit 0
+    fi
+
+    echo "📄 Changed .md files:"
+    echo "$FILES"
+
+    FOUND=false
+    for file in $FILES; do
+      if grep -n '[[:blank:]]$' "$file"; then
+        FOUND=true
       fi
+    done
 
-      echo "📄 Changed .md files:"
-      echo "$FILES"
-
-      FOUND=false
-      for file in $FILES; do
-        if grep -n '[[:blank:]]$' "$file"; then
-          FOUND=true
-        fi
-      done
-
-      if [ "$FOUND" = true ]; then
-        echo "❌ Trailing spaces found in .md files."
-        exit 1
-      else
-        echo "✅ No trailing spaces in changed files."
-      fi
-  only:
-    - merge_requests
+    if [ "$FOUND" = true ]; then
+      echo "❌ Trailing spaces found in .md files."
+      exit 1
+    else
+      echo "✅ No trailing spaces in changed files."
+    fi
