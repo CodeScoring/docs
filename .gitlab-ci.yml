@@ -6,7 +6,6 @@ fix_trailing_spaces:
   image: alpine:latest
   script:
     - echo "🧹 Removing trailing spaces in changed .md files..."
-
     - |
       if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
         BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
@@ -29,14 +28,26 @@ fix_trailing_spaces:
         sed -i 's/[[:blank:]]\+$//' "$file"
       done
 
-      echo "🔍 Checking if there are changes after cleanup..."
+    - echo "🔍 Checking if there are changes after cleanup..."
+    - |
       if ! git diff --exit-code --quiet; then
-        echo "❌ Found and fixed trailing spaces. Please commit the updated files:"
-        git --no-pager diff
-        exit 1
+        LAST_COMMITTER=$(git log -1 --pretty=format:'%an')
+        if [ "$LAST_COMMITTER" = "CI Linter Bot" ]; then
+          echo "🛑 Already auto-fixed in last commit. Exiting to avoid loop."
+          exit 0
+        fi
+
+        echo "✅ Found and fixed trailing spaces. Committing changes..."
+        git config user.name "CI Linter Bot"
+        git config user.email "ci-linter@codescoring.local"
+
+        git add $FILES
+        git commit -m "chore(ci): auto-fix trailing spaces in markdown files [ci skip]"
+        git push origin "HEAD:$CI_COMMIT_REF_NAME"
       else
         echo "✅ No trailing spaces were found."
       fi
   only:
     - merge_requests
     - branches
+
