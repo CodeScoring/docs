@@ -7,7 +7,14 @@ lint_trailing_spaces:
   script:
   - echo "🔍 Checking for trailing spaces in changed .md files..."
   - |
-    FILES=$(git diff --name-only "$CI_MERGE_REQUEST_DIFF_BASE_SHA"...HEAD -- '*.md')
+    if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
+      BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+    else
+      git fetch origin main
+      BASE_REF="origin/main"
+    fi
+
+    FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md')
 
     if [ -z "$FILES" ]; then
       echo "ℹ️  No .md files changed. Skipping check."
@@ -29,4 +36,5 @@ lint_trailing_spaces:
       exit 1
     else
       echo "✅ No trailing spaces in changed files."
+      exit 0
     fi
