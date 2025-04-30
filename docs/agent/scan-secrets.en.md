@@ -14,6 +14,8 @@ When launched, the agent:
 	- ignores secrets recorded in the Gitleaks report if `baseline-path` is specified.
 2. Generates results for the found secrets, saves them on the CodeScoring installation if necessary, and creates a report in GitLab format.
 
+**Important**: The agent only works with Gitleaks version 8.19.0 and above.
+
 ## Example of running the command
 
 ```bash

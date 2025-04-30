@@ -23,4 +23,6 @@ You can import a separately created report in `json` format into a CLI project. 
 
 To scan secrets in CLI projects and integrate scans into the CI/CD pipeline, use the `secrets gitleaks dir` command in the Johnny console agent.
 
+**Important**: The agent only works with Gitleaks version 8.19.0 and above.
+
 You can read more about using the command [in the agent's documentation](/agent/scan-secrets.en).
