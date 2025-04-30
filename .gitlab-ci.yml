@@ -1,0 +1,23 @@
+stages:
+  - lint
+
+lint_trailing_spaces:
+  stage: lint
+  image: alpine
+  script:
+    - grep -rnI '[[:blank:]]$' --include="*.md" . && echo "❌ Trailing spaces found!" && exit 1 || echo "✅ No trailing spaces"
+  only:
+    - merge_requests
+
+lint_markdown_links:
+  stage: lint
+  image: node:18
+  before_script:
+    - npm install -g markdown-link-check
+  script:
+    - find . -name "*.md" | while read file; do
+        echo "Checking $file";
+        markdown-link-check --quiet --config .mlc_config.json "$file" || exit 1;
+      done
+  only:
+    - merge_requests
