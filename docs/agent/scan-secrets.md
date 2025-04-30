@@ -16,7 +16,7 @@ hide:
   - игнорирует секреты, зафиксированные в отчете Gitleaks, если задан `baseline-path`.
 2. Формирует результаты по найденным секретами, при необходимости сохраняет их на инсталляции CodeScoring и создает отчет в формате GitLab.
 
-## Пример запуска команды  
+## Пример запуска команды
 
 ```bash
 johnny secrets gitleaks dir . \
@@ -27,7 +27,7 @@ johnny secrets gitleaks dir . \
 --gitleaks-ignore-path .gitleaksignore \
 --gl-secrets-report \
 --gl-secrets-report-filename secrets-report.json
-``` 
+```
 
 Данная команда запускает сканирование секретов в текущей директории, игнорируя файлы, перечисленные в `.gitleaksignore`, отправляет результаты на инсталляцию CodeScoring, и формирует отчет в формате GitLab, записывая его в `secrets-report.json`.
 
