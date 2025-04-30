@@ -39,7 +39,7 @@ johnny secrets gitleaks dir . \
 
 - `--gitleaks-path` – путь к исполняемому файлу Gitleaks, который будет использоваться при сканировании. Если не задан, будет выполняться вызов системной команды `gitleaks`;
 - `--gl-secrets-report` – включение формирования отчета о найденных секретах в формате GitLab;
-- `--gl-secrets-report-filename` – имя выходного файла для отчета в формате GitLab (по умолчанию `gl-secrets-report.json`). 
+- `--gl-secrets-report-filename` – имя выходного файла для отчета в формате GitLab (по умолчанию `gl-secrets-report.json`).
 
 #### Параметры Gitleaks
 
