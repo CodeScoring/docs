@@ -4,8 +4,6 @@ stages:
 lint_trailing_spaces:
   stage: lint
   image: alpine:latest
-  before_script:
-    - apk add --no-cache git grep
   script:
     - echo "🔍 Checking for trailing spaces in changed .md files..."
     - FILES=$(git diff --name-only "$CI_MERGE_REQUEST_DIFF_BASE_SHA"...HEAD -- '*.md')
