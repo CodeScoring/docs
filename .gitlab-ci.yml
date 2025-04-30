@@ -1,53 +1,40 @@
 stages:
   - lint
 
-fix_trailing_spaces:
+lint_trailing_spaces:
   stage: lint
   image: alpine:latest
   script:
-    - echo "🧹 Removing trailing spaces in changed .md files..."
-    - |
-      if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
-        BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
-      else
-        git fetch origin main
-        BASE_REF="origin/main"
+  - echo "🔍 Checking for trailing spaces in changed .md files..."
+  - |
+    if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
+      BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+    else
+      git fetch origin main
+      BASE_REF="origin/main"
+    fi
+
+    FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md')
+
+    if [ -z "$FILES" ]; then
+      echo "ℹ️  No .md files changed. Skipping check."
+      exit 0
+    fi
+
+    echo "📄 Changed .md files:"
+    echo "$FILES"
+
+    FOUND=false
+    for file in $FILES; do
+      if grep -n '[[:blank:]]$' "$file"; then
+        FOUND=true
       fi
+    done
 
-      FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md')
-
-      if [ -z "$FILES" ]; then
-        echo "ℹ️  No .md files changed. Skipping."
-        exit 0
-      fi
-
-      echo "📄 Fixing files:"
-      echo "$FILES"
-
-      for file in $FILES; do
-        sed -i 's/[[:blank:]]\+$//' "$file"
-      done
-
-    - echo "🔍 Checking if there are changes after cleanup..."
-    - |
-      if ! git diff --exit-code --quiet; then
-        LAST_COMMITTER=$(git log -1 --pretty=format:'%an')
-        if [ "$LAST_COMMITTER" = "CI Linter Bot" ]; then
-          echo "🛑 Already auto-fixed in last commit. Exiting to avoid loop."
-          exit 0
-        fi
-
-        echo "✅ Found and fixed trailing spaces. Committing changes..."
-        git config user.name "CI Linter Bot"
-        git config user.email "ci-linter@codescoring.local"
-
-        git add $FILES
-        git commit -m "chore(ci): auto-fix trailing spaces in markdown files [ci skip]"
-        git push origin "HEAD:$CI_COMMIT_REF_NAME"
-      else
-        echo "✅ No trailing spaces were found."
-      fi
-  only:
-    - merge_requests
-    - branches
-
+    if [ "$FOUND" = true ]; then
+      echo "❌ Trailing spaces found in .md files."
+      exit 1
+    else
+      echo "✅ No trailing spaces in changed files."
+      exit 0
+    fi
