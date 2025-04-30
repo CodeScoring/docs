@@ -1,40 +1,42 @@
 stages:
   - lint
 
-lint_trailing_spaces:
+fix_trailing_spaces:
   stage: lint
   image: alpine:latest
   script:
-  - echo "🔍 Checking for trailing spaces in changed .md files..."
-  - |
-    if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
-      BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
-    else
-      git fetch origin main
-      BASE_REF="origin/main"
-    fi
+    - echo "🧹 Removing trailing spaces in changed .md files..."
 
-    FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md')
-
-    if [ -z "$FILES" ]; then
-      echo "ℹ️  No .md files changed. Skipping check."
-      exit 0
-    fi
-
-    echo "📄 Changed .md files:"
-    echo "$FILES"
-
-    FOUND=false
-    for file in $FILES; do
-      if grep -n '[[:blank:]]$' "$file"; then
-        FOUND=true
+    - |
+      if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
+        BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+      else
+        git fetch origin main
+        BASE_REF="origin/main"
       fi
-    done
 
-    if [ "$FOUND" = true ]; then
-      echo "❌ Trailing spaces found in .md files."
-      exit 1
-    else
-      echo "✅ No trailing spaces in changed files."
-      exit 0
-    fi
+      FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md')
+
+      if [ -z "$FILES" ]; then
+        echo "ℹ️  No .md files changed. Skipping."
+        exit 0
+      fi
+
+      echo "📄 Fixing files:"
+      echo "$FILES"
+
+      for file in $FILES; do
+        sed -i 's/[[:blank:]]\+$//' "$file"
+      done
+
+      echo "🔍 Checking if there are changes after cleanup..."
+      if ! git diff --exit-code --quiet; then
+        echo "❌ Found and fixed trailing spaces. Please commit the updated files:"
+        git --no-pager diff
+        exit 1
+      else
+        echo "✅ No trailing spaces were found."
+      fi
+  only:
+    - merge_requests
+    - branches
