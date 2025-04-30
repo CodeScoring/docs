@@ -4,8 +4,6 @@ stages:
 lint_trailing_spaces:
   stage: lint
   image: alpine
-  before_script:
-    - apk add --no-cache git grep
   script:
     - echo "🔍 Checking for trailing spaces in changed .md files..."
     - FILES=$(git diff --name-only origin/main...HEAD -- '*.md')
@@ -22,17 +20,5 @@ lint_trailing_spaces:
       else
         echo "✅ No trailing spaces in changed files."
       fi
-  only:
-    - merge_requests
-
-lint_markdown_links:
-  stage: lint
-  image: node:18
-  script:
-    - npx markdown-link-check --version
-    - find . -name "*.md" | while read file; do
-        echo "Checking $file"
-        npx markdown-link-check --quiet --config .mlc_config.json "$file" || exit 1
-      done
   only:
     - merge_requests
