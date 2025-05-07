@@ -1,104 +1,166 @@
 ---
 hide:
-  - footer
+- footer
 ---
-# Functional Characteristics
+# Functional characteristics
 
-## General Functional Characteristics
+## General functional characteristics
 
-- analysis of 20 programming languages;  
-- analysis of package ecosystem manifests: **Maven, Gradle, NPM, NuGet, PyPi, Ruby Gems, Cocoapods, Composer, Conan, Go Modules, Cargo, and sbt**;  
-- integration with repository managers: **Nexus Repository Manager, JFrog Artifactory Pro, Harbor, Gitlab**;  
-- integration with **hosted and cloud-based** code hosting systems: **GitFlic, Gitlab, Github, Bitbucket, and Azure DevOps**;  
-- universal integration into build systems using an agent: **Jenkins, Gitlab, TeamCity, etc.**;  
-- maintaining a registry of component relationships (**SBoM, Software Bill of Materials**);  
-- report generation;  
-- notification policy management;  
-- email notification integration;  
-- integration with task management systems **Jira**;  
-- user management system and integration via **LDAP**;  
-- webhook creation;  
-- access control for different users;  
-- logging of all executed operations (audit log);  
-- open **API** for integration with any system component.  
+The modular platform for secure development **CodeScoring** provides solutions for the problems of secure use of **open source**, identification of secrets in code and assessment of development quality.
 
-## Functional Characteristics of SCA (Software Composition Analysis)
+The platform includes the following modules:
 
-- analysis of **Docker** images;  
-- analysis of system packages;  
-- analysis of package manager manifests;  
-- **Open Source** verification at all stages of the development cycle with the ability to set security policies for specific project stages (**stages**):  
-    + continuous monitoring (repository branch scanning);  
-    + post-release monitoring (repository tag scanning);  
-    + verification in the **CI pipeline** using a universal agent with build-blocking capability;  
-    + local machine verification for developers (**CLI agent**);  
-- detection of **Open Source** dependencies:  
-    + by ecosystem, package name, and version;  
-    + by package manager configuration files (manifests);  
-    + through a mechanism for resolving transitive dependencies;  
-    + through a mechanism for identifying **Open Source inclusions** using a vendor metadata database with flexible search algorithms;  
-    + through build analysis for **C and C++** languages;  
-- differentiation between direct and transitive dependencies and determining their relation to development environments (**runtime, compile, test, provided, etc.**);  
-- building a dependency graph with the ability to trace transitive component usage;  
-- updating information about detected dependencies:  
-    + general dependency information: detection method; package release date; package author; official website; link to the package index; usage environment (**scope**) and dependency graph link; manifest link;  
-    + vulnerability information;  
-    + license information;  
-    + usage in organizational projects;  
-- providing vulnerability information:  
-    + identifiers in knowledge bases;  
-    + vulnerability description;  
-    + criticality assessment based on **CVSS 2 and CVSS 3.1**;  
-    + links to additional vulnerability indexes;  
-    + recommended package version for updates;  
-    + list of all projects affected by the vulnerability;  
-    + additional links to vulnerabilities containing links to patches, exploits, and vulnerable commits;  
-- providing license information:  
-    + project licensing landscape;  
-    + **SPDX** license identifier;  
-    + license text;  
-    + brief overview of license terms;  
-    + license compliance information;  
-- identification and deduplication of vulnerabilities from 20 aggregated and ecosystem knowledge bases, including:  
-    + **NIST National Vulnerability Database (NVD)**;  
-    + **Information Security Threats Database (BDU FSTEC)**;  
-    + **Github Security Advisory (GHSA)**;  
-    + **Open Source Vulnerabilities (OSV)**;  
-    + **Sonatype OSSIndex**;  
-    + **Kaspersky Open Source Software Threats Data Feed** (available upon request);  
-    + Vendor feed (**protestware**).  
-- configuring security criteria (policies) based on 40 parameters, including:  
-    + package metadata: **name, version, author, age, date**;  
-    + vulnerability criteria: **identifier, score, severity, publish date**;  
-    + license categories and types, **vendor license compliance policy**;  
-    + package usage characteristics: **direct/transitive and environment (scope)**;  
-    + blacklisted packages, including the pre-configured **protestware** feed;  
-- configuring security policies separately for code scanning in repositories, proxy repositories, **CI pipelines**, and local developer machines, specifying project development stages (**stages**);  
-- system for displaying scan results for each stage with the ability to manage ignored events;  
-- ability to configure protection against common supply chain attacks;  
-- ability to configure policy exceptions at different levels across the organization: project; technology; package; license type; vulnerability identifier; individual policies; temporary event exceptions.  
+- **CodeScoring.OSA (Open Source Analysis)** – supply chain protection: verification of third-party components for compliance with security policies and blocking in case of non-compliance;
+- **CodeScoring.SCA (Software Composition Analysis)** – compositional analysis: auto-detection of **open source** dependencies, identification of vulnerabilities and malicious components, verification of license compatibility, formation of a list of software components and construction of a dependency graph;
+- **CodeScoring.Secrets** – search for secrets in code: orchestration of source code checks for confidential information (**secrets**) and assessment of truth using our own machine learning model;
+- **CodeScoring.TQI (Teams & Quality Analysis)** – assessment of code quality through calculation of key quality metrics, tracking development dynamics and building profiles of development participants with confirmed competence in projects.
 
-## Functional Characteristics of TQI (Teams & Quality Intelligence)
+The platform comprehensively provides:
 
-- building project profiles, detailing technical and author composition of development;  
-- building developer profiles, detailing their contributions to analyzed projects in terms of work volume and quality of changes made;  
-- automatic scoring of similar developers in analyzed projects:  
-    + based on experience in projects and technologies;  
-    + based on technical background similarity;  
-    + based on similarity of quality attributes;  
-- searching for developer activity in **Open Source** projects;  
-- plagiarism analysis using fuzzy search algorithms (tolerant to object renaming in code):  
-    + searching for intra-project code duplicates;  
-    + searching for cross-project code duplicates;  
-    + determining the volume of detected borrowings;  
-    + building an interactive borrowing map;  
-    + identifying the time of borrowing occurrence;  
-    + linking authorship to detected code duplicates;  
-- assessing project maintainability complexity:  
-    + calculating cyclomatic code complexity by project;  
-    + calculating cyclomatic code complexity by author;  
-- building analytical retrospective maps:  
-    + project evolution;  
-    + author contributions;  
-    + project complexity evolution.  
-- integration into the **SDLC** (Software Development Lifecycle) via source code versioning systems.  
+- analysis of 20 programming languages (the list of languages may vary for individual modules): **Java**, **Kotlin**, **JavaScript**, **TypeScript**, **Python**, **C**, **C++**, **Go**, **PHP**, **Ruby**, **C#**, **Objective-C**, **Swift**, **Rust**, **Scala**, **Bash**, **Perl**, **SQL**, **PLSQL**, **PGSQL**;
+- analysis of manifests of packaging ecosystems: **Maven**, **Gradle**, **Apache Ivy**, **NPM**, **Yarn**, **pnpm**, **NuGet**, **Paket**, **pip**, **Poetry**, **Pipenv**, **Conda**, **Ruby Gems**, **Cocoapods**, **Swift**, **Composer**, **Conan**, **Go Modules**, **Cargo** and **sbt**;
+- integration with repository managers and container image registries: **Nexus Repository Manager**, **JFrog Artifactory Pro**, **Harbor**, **GitLab**, **GitFlic**;
+- integration with **hosted** and **cloud** code hosting systems: **GitFlic**, **GitLab**, **Github**, **Bitbucket** and **Azure DevOps**;
+- universal integration into build systems using an agent: **Jenkins**, **GitLab**, **GitFlic**, **TeamCity** and others;
+- management of organizational security policies;
+- automation of scheduled scan launches;
+- integration for email notifications;
+- integration with the **Jira** task management system;
+- user management system;
+- **LDAP** integration;
+- creation of webhooks;
+- differentiation of access rights for different users;
+- logging of all performed operations (**audit log**);
+- collection of metrics on performed operations;
+- open and documented programming interface (**API**).
+
+## Functional characteristics of the **CodeScoring.OSA** module
+
+- blocking the download of unwanted components when trying to download them through the command interface of the package manager or the web interface;
+- forming a list of software components (**SBoM**, Software Bill of Materials);
+- checking artifacts in the registries of container images;
+- archive analysis, including:
+        - parsing the contents of popular archive formats (**zip**, **jar**, **tar**, **war**, **tgz** and others);
+        - analysis of system packages, including support for popular package managers:
+            - **DEB** (Debian, Ubuntu);
+            - **RPM** (RHEL, CentOS, Fedora);
+            - **APK** (Alpine Linux);
+- setting up security criteria (**policies**) by 40 criteria, including:
+        - package metadata: name, version, package author, age, date;
+        - vulnerability criteria: identifier, **CVSS** score, threat level, publication date, age, presence of exploit, impact;
+        - license categories and types, license compatibility (**license purity**);
+        - package usage indicators: directive/transitive and environment (**scope**);
+        - presence of malicious code;
+        - package blacklists, including a prepared **protestware** feed;
+- detection and deduplication of vulnerabilities from 20 knowledge bases, including aggregation (**NVD**, **OSV**, **GHSA** and others), ecosystem (**Debian**, **RPM**, **Alpine** and others), commercial (**Kaspersky OSS Threats Data Feed**) and proprietary, including data on **protestware**;
+- component management in the interface, including:
+        - viewing and filtering the list of packages;
+        - viewing and filtering the list of container images;
+        - viewing and filtering component requests;
+- export of reports.
+
+## Functional characteristics of the **CodeScoring.SCA** module
+
+- analysis of package manager manifests;
+- formation of a list of software components (**SBoM, Software Bill of Materials**);
+- checking **open source** at all stages of the development cycle with the ability to set security policies for individual stages of the development cycle:
+        - code checking in development environments (**IDE**): **IntelliJ**, **VSCode**, **Eclipse**, **OpenIDE**;
+        - checking on the developer's local machine (**CLI agent**);
+        - continuous code monitoring (scanning repository branches);
+        - checking in the **CI pipeline** with a universal agent with the ability to block the build;
+        - post-release monitoring **SBoM**;
+        - post-release code monitoring (scanning repository tags);
+- detection of **open source** dependencies:
+        - by ecosystem, package name and version;
+        - by configuration files (**manifests**) of package managers;
+        - via the mechanism for resolving transitive dependencies;
+        - via the mechanism for identifying **open source** inclusions in the vendor metadata base, using flexible search algorithms;
+        - via assembly analysis for the **C** and **C++** languages;
+        - separation of directive and transitive dependencies and determination of the relationship to the development environments (**scope**): **runtime**, **compile**, **test**, **provided** and others;
+- construction of a dependency graph with the ability to trace the use of transitive components;
+- updating information about detected dependencies:
+        - general information about the dependency: detection method; package release date; package author; official web page; link to placement in the package index; scope of use (**scope**) and link to the relationship graph; link to the manifest;
+        - vulnerability information;
+        - license information;
+        - usability in the organization's projects;
+- provision of vulnerability information:
+        - identifiers in knowledge bases;
+        - vulnerability description;
+        - severity assessment according to **CVSS 2** and **CVSS 3.1**;
+        - links to additional vulnerability indices;
+        - recommended package version for update;
+        - list of all projects affected by the vulnerability;
+        - additional materials containing links to patches, exploits, and vulnerable commits;
+- provision of license information:
+        - project license landscape;
+        - **SPDX** license identifier;
+        - license text;
+        - brief overview of the license terms;
+        - information on license compatibility (**license compliance**);
+- detection and deduplication of vulnerabilities from 20 knowledge bases, including aggregation (**NVD**, **OSV**, **GHSA** and others), ecosystem (**Debian**, **RPM**, **Alpine** and others), commercial (**Kaspersky OSS Threats Data Feed**) and proprietary, including data on **protestware**;
+- configuration of security policies by 40 criteria, including:
+        - package metadata: name, version, package author, age, date;
+        - vulnerability criteria: identifier, **CVSS** score, threat level, publication date, age, presence of exploit, impact;
+        - license categories and types, license compatibility (**license purity**);
+        - package use indicators: directive/transitive and environment (**scope**);
+        - presence of malicious code;
+        - package blacklists, including a prepared **protestware** feed;
+- configuring security policies separately for scanning code in repositories, **CI pipeline** and the local developer machine, indicating the stage of the development cycle;
+- a system for displaying scan results for each individual stage and the ability to manage ignored events;
+- the ability to configure protection against popular attacks on the supply chain;
+- the ability to configure temporary ignoring of triggering policies based on various criteria: project, technology, package, license type, vulnerability identifier, for individual policies;
+- unloading reports in popular formats: **CycloneDX**, **JUnit**, **SARIF**, **CSV**, **GitLab Dependency Scanning Report**, **GitLab Code Quality Report**.
+
+## Functional characteristics of the **CodeScoring.Secrets** module
+
+- detection of sensitive data in code, including passwords, **API keys**, tokens, credentials;
+- use of a proprietary machine learning model to filter false positives;
+- integration with version control systems (**VCS**) for automatic repository monitoring;
+- customization of secret search criteria with the ability to configure detection rules;
+- launching secrets analysis:
+        - selection of scanning of a separate branch or the entire repository;
+        - manual launch of analysis in individual projects;
+        - general scanning of all projects of the organization;
+        - uploading reports on secrets found by third-party tools to the system;
+- providing detailed information on found secrets:
+        - detection context (project, file, change author);
+        - assessment of the probability of the truth of the secret;
+        - date of secret detection and correction;
+- management of found secrets:
+        - viewing the list of found secrets;
+        - confirmation of false positives and their exclusion from further scans;
+        - marking secrets as resolved;
+- managing the **ML model** training process to improve detection accuracy:
+        - marking detected secrets by the user;
+        - retraining the model on the marked data;
+        - comparing the results of the retrained model with the original version;
+        - ability to roll back to the base model;
+- integration with **DevSecOps** processes:
+        - work in the **CI/CD pipeline** with the ability to interrupt the build when secrets are detected;
+        - analysis of secrets on the developer's local machine via the **CLI agent**;
+- flexible reporting and notification system:
+        - displaying scan results at the level of the organization, project, and individual repository;
+        - filtering results;
+        - exporting reports with a list of secrets or their properties.
+
+## Functional characteristics of the **CodeScoring.TQI** module
+
+- building a project profile, detailing the technical and authoring composition of the development;
+- building a developer profile, detailing their work in the analyzed projects taking into account the volume of work and the quality of the changes made;
+- automatic assessment of the similarity of developers in the analyzed projects by experience of participation and technologies;
+- searching for developer activity in **open source** projects;
+- analysis of borrowings using fuzzy search algorithms (tolerance to renaming of objects in the code):
+        - searching for intra-project code duplicates;
+        - searching for cross-project code duplicates;
+        - determining the volume of found borrowings;
+        - building an interactive map of borrowings;
+        - determining the time of borrowing;
+        - linking authorship to found code duplicates;
+- assessing the complexity of project maintenance:
+- calculating the cyclomatic complexity of the code in the context of the project;
+- calculation of cyclomatic complexity of code in terms of the author;
+- construction of analytical retrospective maps:
+        - development of projects;
+        - work of authors;
+        - evolution of project complexity;
+- integration into the software development cycle (**SDLC**) through integration with source code versioning systems.
