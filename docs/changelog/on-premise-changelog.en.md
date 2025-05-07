@@ -6,8 +6,7 @@ hide:
 
 ### [2025.13.3] - 2025-05-07
 
-- Added the `USE_SMART_FILTERS` setting (default value is **True**). If you set it to **False**, the filters will show all possible values. If you leave **True**, the filters will show only those values that are relevant for already filtered data
-- The behavior of policy ignores has been fixed when alerts outside the scope of ignoring projects and images were ignored. 
+- The behavior of policy ignores has been fixed when alerts outside the scope of ignoring projects and images were ignored
 - Fixed an issue where a project could not be saved due to the new format of project scan schedules
 
 ### [2025.13.2] - 2025-04-23
