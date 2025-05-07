@@ -17,6 +17,7 @@ hide:
 
 ### [2025.13.0] - 2025-03-28
 
+- Support for specifying a database schema other than `public` via the `DATABASE_SCHEMA` environment variable has been discontinued. If this configuration is used, please refer to the [how-to](/on-premise/external-database).
 - The CodeScoring configuration in Docker Compose has been deeply rewritten and modernized. Please read the [how-to](/on-premise/update/#2025130-2025-03-28) before upgrading.
 - Added support for Swift Package Manager ecosystem manifests
 - Added granular projects configuration and groups in policy actions to send notifications to different email addresses or different projects in Jira within a single policy
@@ -200,7 +201,7 @@ hide:
 
 - Added team table to the project page
 - Added ability to export to CSV in the Components section
-- Accelerated SCA analysis in cases where the same package occurs multiple times within a manifest 
+- Accelerated SCA analysis in cases where the same package occurs multiple times within a manifest
 - Fixed an error when generating a project report if there are incorrect PURLs in SBOM.
 
 ### [2024.35.0] - 2024-08-29
