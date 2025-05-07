@@ -4,6 +4,11 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.13.3] - 2025-05-07
+
+- The behavior of policy ignores has been fixed when alerts outside the scope of ignoring projects and images were ignored
+- Fixed an issue where a project could not be saved due to the new format of project scan schedules
+
 ### [2025.13.2] - 2025-04-23
 
 - Added view of detailed information on vulnerabilities for installations that only have the OSA module
