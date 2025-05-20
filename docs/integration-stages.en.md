@@ -1,55 +1,53 @@
 ---
 hide:
-  - footer
+- footer
 ---
 
 # Integration stages
 
-The software composition analysis system **CodeScoring** is integrated into the software development life cycle in order to prevent known vulnerabilities and license-incompatible or dangerous components from entering the final product at all stages of software product creation:
+The **CodeScoring** secure development platform is integrated into the development lifecycle at all stages of software product creation:
 
-- The stage of downloading Open Source components from external sources into a proxy repository of an organization;
-- Stage of development or maintenance of program code;
-- Stage of assembling software products;
+- Local development stage;
+- Source code storage stage;
+- Software product assembly stage;
+- Post-release maintenance stage.
 
-The general diagram of the controlled stages of software development is presented below:
+The general diagram of controlled software development stages is presented below:
 
-![All integration stages](/assets/img/integration-stages-en.png)
+![Integration stages](/assets/img/integration/integration-stages-en.png)
 
-## Stage of downloading Open Source components
+## Local development
 
-![osa](/assets/img/integration/integration-stage-osa.png)
+![OSA](/assets/img/integration/integration-osa-en.png)
 
-To speed up software assembly processes, intermediate storages of software components are used in development - **proxy repositories**. Typically, proxy repositories are located within an organization's secure loop and provide caching processes for software libraries used by developers. Additionally, these repositories can be used to store your own versions of assemblies and modules that make up the organization's software products.
+As part of local development, CodeScoring provides [search for confidential information](/secrets/index.en) (secrets) in the source code, as well as analysis of third-party components at the time of downloading from a proxy repository (intermediate storage of software components).
 
-The leaders in this class of solutions are systems such as **Nexus Repository Manager** from Sonatype and **JFrog Artifactory PRO** from JFrog.
+Proxy repositories are usually located within the organization's secure environment and provide caching processes for software libraries used by developers. Additionally, these repositories can be used to store custom versions of assemblies and modules that make up the organization's software products. The leaders in this class of solutions are systems such as **Nexus Repository Manager** from Sonatype and **JFrog Artifactory PRO** from JFrog.
 
-The CodeScoring solution provides integration with both presented systems using a special extension plugin [**CodeScoring OSA**](/osa/index.en). The task of the plugin is to perform a check for compliance with the configured policies for each request to the stored component and, in case of non-compliance, block the downloading of the component with the option of completely removing it from the storage. This approach makes it possible to prevent the emergence of new vulnerable components in artifact repositories, as well as to remove existing packages when vulnerabilities are identified in them.
+CodeScoring provides integration with both of these systems using special [**CodeScoring OSA**](/osa/index.en) plugins. The task of the plugins is to check for compliance with configured security policies and, in case of non-compliance, block the component (with an option to completely remove it from the repository). This approach prevents the appearance of new vulnerable components in artifact repositories, as well as removes existing packages if vulnerabilities are detected in them.
 
-## Stage of assembling software products
+## Source сode storage
 
-![CI](/assets/img/integration/integration-stage-ci.png)
+Modern projects use version control systems (VCS) as a central element of team development and change control. At this stage, it is important not only to monitor the quality of the code and leaks of sensitive information, but also to control the flow of vulnerable components into the repository.
 
-To build software products, developers use automation tools such as **Gitlab CI/CD**, **Jenkins**, **Bitbucket Pipelines**. The task of such tools is to ensure the assembly of a software product from available artifacts, consisting of its own code and third-party components.
+CodeScoring supports integration with the main storage and version control systems (VCS): **GitFlic**, **Github**, **Gitlab**, **Bitbucket** and **Azure DevOps**.
 
-For security purposes before the final assembly of the software the following processes are established:
+Interaction with these systems is carried out via API. By studying the data in the product source code, CodeScoring performs composition analysis of third-party components for threats, as well as searches for confidential information in the source code and forms a profile on [development quality](/tqi/index.en).
 
-- Compositional analysis of software **Software Composition Analysis** for checking third-party components;
-- Static application security analysis **Static Application Security Testing** for verification to check your own code.
+## Build
 
-SCA systems provide software inventory with [**Software Bill of Materials**](https://cyclonedx.org/capabilities/sbom/), identification of known vulnerabilities and determination of license purity.
+![CI](/assets/img/integration/integration-ci.png)
 
-The CodeScoring solution provides **three modes for identifying third-party components** in the analyzed code base:
+To assemble software products, developers use automation tools such as **Gitlab CI/CD**, **Jenkins**, **Bitbucket Pipelines**. The purpose of such tools is to ensure the assembly of a software product from available artifacts consisting of proprietary code and third-party components.
 
-- Analysis of manifests – lists of dependencies generated by developers manually or automatically;
-- Resolution of transitive dependencies – a chain of components introduced into the product by first-level dependencies;
-- Identification of direct inclusions of Open Source libraries - situations when a third-party component is physically copied into the organization’s own development and is not included by the developers in the manifests of package managers.
+CodeScoring provides inventory and verification of software at the assembly stage with the formation of a list of used components **Software Bill of Materials**, identification of known vulnerabilities and determination of the license compatibility of components.
 
-As part of the build phase, the CodeScoring system applies a special [CLI agent](/agent/index.en) in the form of a binary file. The agent checks the identified components against the configured security policies for the selected product and, if they do not comply with policies with a block status, returns the appropriate error code, which signals the build to stop.
+As part of the assembly stage, the CodeScoring system uses the binary agent [Johnny](/agent/index.en) in the form of a binary file or container image. The agent checks the components for compliance with the configured security policies and, in case of non-compliance with the policies with a blocking status, returns the corresponding error code, which signals the termination of the assembly.
 
-## Stage of development and maintenance of program code
+## Post-release monitoring
 
-![Development](/assets/img/integration/integration-stage-development.png)
+![VCS](/assets/img/integration/integration-vcs.png)
 
-CodeScoring supports integration with the main version control systems - **Github**, **Gitlab**, **Bitbucket** and **Azure DevOps**,
+Security monitoring does not end after a release: components continue to become obsolete, new vulnerabilities appear, and licensing terms may change. Therefore, post-release monitoring is a critical part of the security lifecycle.
 
-To monitor the safety of source code during the process of writing it, the CodeScoring system implements a mechanism for **Continuous Risk Monitoring**. The system checks the source code according to a customizable scanning schedule and can signal detected problems to related systems, such as **Jira task management system** or **SOAR/SIEM security incident aggregation and orchestration systems** or simply notify the responsible specialist by email.
+To track the security of the source code, CodeScoring has a continuous risk monitoring mechanism. The platform checks the source code and the generated list of software components according to a customizable scanning schedule and signals any detected problems to the specialist’s email, task manager or **ASPM/SIEM** system.
