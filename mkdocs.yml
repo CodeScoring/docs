@@ -85,6 +85,7 @@ plugins:
           graph: "Visualizing dependency graph"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
+          oss-index: "OSS Index integration"
           osa: "CodeScoring OSA"
           osa-general: "General description"
           nexus-osa: "Nexus OSA"
@@ -185,6 +186,7 @@ plugins:
           graph: "Визуализация графа зависимостей"
           scan-history: "Отслеживание истории сканирований"
           export-results: "Выгрузка результатов анализа"
+          oss-index: "Интеграция OSS Index"
           osa: "CodeScoring OSA"
           osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
@@ -331,6 +333,8 @@ nav:
     - scan-history: sca/scan-history.en.md
     - export-results: sca/export-results.md
     - export-results: sca/export-results.en.md
+    - oss-index: sca/oss-index.md
+    - oss-index: sca/oss-index.en.md
   - agent:
     - agent-general: agent/index.md
     - agent-general: agent/index.en.md
