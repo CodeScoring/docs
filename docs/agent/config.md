@@ -83,7 +83,7 @@ https://docs.codscoring.ru/agent/
 
 ### Параметры [инструмента поиска секретов Gitleaks](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#readme)
 
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **baseline-path** – путь к baseline файлу отчета gitleaks. Все обнаруженные ранее секреты, зафиксированные в этом файле, будут проигнорированы при повторном сканировании; 
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **baseline-path** – путь к baseline файлу отчета gitleaks. Все обнаруженные ранее секреты, зафиксированные в этом файле, будут проигнорированы при повторном сканировании;
 - <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **enable-rule** – список ID правил, которые будут **включены** при сканировании;
 - <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-ignore-path** – путь к файлу .gitleaksignore или директории, содержащей его. По умолчанию `.` (текущая директория);
 - <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – игнорирование комментариев gitleaks:allow. По умолчанию `false`;
