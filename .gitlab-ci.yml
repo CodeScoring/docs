@@ -52,7 +52,8 @@ lint_markdown:
                 TARGET_FILE="$file"
                 ANCHOR=$(echo "$link" | sed 's/^#//')
               else
-                TARGET_FILE=$(echo "$link" | sed 's/#.*$//' | sed 's|^/||; s|\.md$||; s|$|.md|')
+                # Убираем лишний .md и корректно формируем путь
+                TARGET_FILE=$(echo "$link" | sed 's/#.*$//; s|^/||; s|/$||; s|$|.md|')
                 ANCHOR=$(echo "$link" | sed 's|^.*/#||')
                 TARGET_FILE="docs/$TARGET_FILE"
               fi
@@ -64,6 +65,8 @@ lint_markdown:
                 if ! echo "$ANCHORS $ANCHORS_WITH_NUM" | grep -Fx "$ANCHOR" >/dev/null; then
                   echo "❌ Broken internal link '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
                   ERROR_FOUND=true
+                else
+                  echo "✅ Anchor '$ANCHOR' found in $TARGET_FILE"
                 fi
               else
                 echo "❌ Broken internal link '$link' in $file (target file $TARGET_FILE not found)"
@@ -76,12 +79,12 @@ lint_markdown:
         fi
       done
 
-      # 3. Проверка URL (включая голые ссылки)
+      # 3. Проверка URL (исключая example)
       echo "🔍 Checking URLs..."
       if command -v wget >/dev/null; then
         for file in $FILES; do
-          # Извлекаем ссылки в формате [text](http://...) и голые http://, https://
-          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" || true)
+          # Извлекаем ссылки [text](http://...) и голые http://, https://, исключая example
+          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | grep -v 'example' || true)
           if [ -n "$URLS" ]; then
             echo "🔗 Checking URLs in $file: $URLS"
             while IFS= read -r url; do
@@ -91,12 +94,12 @@ lint_markdown:
               fi
             done <<< "$URLS"
           else
-            echo "ℹ️ No URLs in $file"
+            echo "ℹ️ No URLs (excluding example) in $file"
           fi
         done
       elif command -v curl >/dev/null; then
         for file in $FILES; do
-          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" || true)
+          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | grep -v 'example' || true)
           if [ -n "$URLS" ]; then
             echo "🔗 Checking URLs in $file: $URLS"
             while IFS= read -r url; do
@@ -106,7 +109,7 @@ lint_markdown:
               fi
             done <<< "$URLS"
           else
-            echo "ℹ️ No URLs in $file"
+            echo "ℹ️ No URLs (excluding example) in $file"
           fi
         done
       else
