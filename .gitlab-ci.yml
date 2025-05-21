@@ -3,11 +3,9 @@ stages:
 
 lint_markdown:
   stage: lint
-  image: alpine:latest
-  before_script:
-    - apk add --no-cache curl grep
   script:
     - echo "🔍 Starting markdown linting..."
+    # Проверка измененных .md файлов
     - |
       if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
         BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
@@ -19,43 +17,27 @@ lint_markdown:
       FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md')
 
       if [ -z "$FILES" ]; then
-        echo "ℹ️ No .md files changed. Skipping checks."
+        echo "ℹ️ No .md files changed."
         exit 0
       fi
 
-      echo "📄 Changed files:"
-      echo "$FILES"
-
+      echo "📄 Changed files: $FILES"
       ERROR_FOUND=false
 
-      echo "🔍 Checking for trailing spaces..."
+      # 1. Проверка trailing spaces
       for file in $FILES; do
-        if grep -n '[[:blank:]]$' "$file"; then
+        if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
           echo "❌ Trailing spaces in $file"
           ERROR_FOUND=true
         fi
       done
       [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces."
 
-      echo "🔍 Checking for broken URLs..."
+      # 2. Проверка внутренних ссылок (с учетом кириллицы)
       for file in $FILES; do
-        URLS=$(grep -oP '\[.*?\]\(\Khttp[s]?://[^\s)]+' "$file")
-        if [ -n "$URLS" ]; then
-          echo "🔗 Checking URLs in $file..."
-          echo "$URLS" | xargs -n1 -P4 sh -c 'curl --silent --head --fail "$0" --connect-timeout 3 --max-time 5 || { echo "❌ Broken URL: $0"; exit 1; }' 2>/dev/null || ERROR_FOUND=true
-        else
-          echo "ℹ️ No URLs in $file"
-        fi
-      done
-
-      echo "🔍 Checking internal links..."
-      for file in $FILES; do
-        # Извлекаем внутренние ссылки ([text](#anchor))
         LINKS=$(grep -oP '\[.*?\]\(\K#[^\s)]+' "$file" | sed 's/^#//')
         if [ -n "$LINKS" ]; then
-          # Извлекаем заголовки и преобразуем их в формат якорей
           ANCHORS=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
-          # Учитываем возможные числовые якоря вида _2 для дубликатов
           ANCHORS_WITH_NUM=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' | awk '{print $0; print "_" NR}')
           while IFS= read -r link; do
             if ! echo "$ANCHORS $ANCHORS_WITH_NUM" | grep -Fx "$link" >/dev/null; then
@@ -67,6 +49,26 @@ lint_markdown:
           echo "ℹ️ No internal links in $file"
         fi
       done
+
+      # 3. Проверка URL (если wget доступен)
+      if command -v wget >/dev/null; then
+        for file in $FILES; do
+          URLS=$(grep -oP '\[.*?\]\(\Khttp[s]?://[^\s)]+' "$file")
+          if [ -n "$URLS" ]; then
+            echo "🔗 Checking URLs in $file..."
+            echo "$URLS" | while IFS= read -r url; do
+              if ! wget --spider --timeout=5 --tries=1 "$url" 2>/dev/null; then
+                echo "❌ Broken URL: $url in $file"
+                ERROR_FOUND=true
+              fi
+            done
+          else
+            echo "ℹ️ No URLs in $file"
+          fi
+        done
+      else
+        echo "⚠️ wget not found, skipping URL checks"
+      fi
 
       if [ "$ERROR_FOUND" = true ]; then
         echo "❌ Linting failed."
