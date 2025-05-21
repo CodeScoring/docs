@@ -5,7 +5,6 @@ lint_markdown:
   stage: lint
   script:
     - echo "🔍 Starting markdown linting..."
-    # Диагностика доступных утилит
     - echo "Available tools:"
     - which git grep sed tr awk wget curl || echo "Some tools missing"
     # Проверка измененных .md файлов
@@ -38,31 +37,51 @@ lint_markdown:
       done
       [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces."
 
-      # 2. Проверка внутренних ссылок (с учетом кириллицы)
+      # 2. Проверка внутренних ссылок (с учетом путей и кириллицы)
       echo "🔍 Checking internal links..."
       for file in $FILES; do
         echo "Processing $file..."
-        LINKS=$(grep -oP '\[.*?\]\(\K#[^\s)]+' "$file" | sed 's/^#//' || true)
+        # Извлекаем ссылки вида [text](#anchor) и [text](/path#anchor)
+        LINKS=$(grep -oP '\[.*?\]\(\K(?:#[^\s)]+|/[^\s)]+#[^\s)]+)' "$file" | sed 's/^\(#[^/]\+\|\/[^#]\+#\)/\1/' || true)
         if [ -n "$LINKS" ]; then
           echo "Found links: $LINKS"
-          ANCHORS=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' || true)
-          ANCHORS_WITH_NUM=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' | awk '{print $0; if (NR > 1) print "_" NR}' || true)
           while IFS= read -r link; do
-            if [ -n "$link" ] && ! echo "$ANCHORS $ANCHORS_WITH_NUM" | grep -Fx "$link" >/dev/null; then
-              echo "❌ Broken internal link '#$link' in $file"
-              ERROR_FOUND=true
+            if [ -n "$link" ]; then
+              # Разделяем ссылку на путь и якорь
+              if echo "$link" | grep -q '^#'; then
+                TARGET_FILE="$file"
+                ANCHOR=$(echo "$link" | sed 's/^#//')
+              else
+                TARGET_FILE=$(echo "$link" | sed 's/#.*$//' | sed 's|^/||; s|\.md$||; s|$|.md|')
+                ANCHOR=$(echo "$link" | sed 's|^.*/#||')
+                TARGET_FILE="docs/$TARGET_FILE"
+              fi
+              # Проверяем существование файла
+              if [ -f "$TARGET_FILE" ]; then
+                # Извлекаем якоря из целевого файла
+                ANCHORS=$(grep '^##\+' "$TARGET_FILE" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' || true)
+                ANCHORS_WITH_NUM=$(grep '^##\+' "$TARGET_FILE" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' | awk '{print $0; if (NR > 1) print "_" NR}' || true)
+                if ! echo "$ANCHORS $ANCHORS_WITH_NUM" | grep -Fx "$ANCHOR" >/dev/null; then
+                  echo "❌ Broken internal link '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
+                  ERROR_FOUND=true
+                fi
+              else
+                echo "❌ Broken internal link '$link' in $file (target file $TARGET_FILE not found)"
+                ERROR_FOUND=true
+              fi
             fi
-          done <<< "$LINKS" || true
+          done <<< "$LINKS"
         else
           echo "ℹ️ No internal links in $file"
         fi
       done
 
-      # 3. Проверка URL (если доступен wget или curl)
+      # 3. Проверка URL (включая голые ссылки)
       echo "🔍 Checking URLs..."
       if command -v wget >/dev/null; then
         for file in $FILES; do
-          URLS=$(grep -oP '\[.*?\]\(\Khttp[s]?://[^\s)]+' "$file" || true)
+          # Извлекаем ссылки в формате [text](http://...) и голые http://, https://
+          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" || true)
           if [ -n "$URLS" ]; then
             echo "🔗 Checking URLs in $file: $URLS"
             while IFS= read -r url; do
@@ -77,7 +96,7 @@ lint_markdown:
         done
       elif command -v curl >/dev/null; then
         for file in $FILES; do
-          URLS=$(grep -oP '\[.*?\]\(\Khttp[s]?://[^\s)]+' "$file" || true)
+          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" || true)
           if [ -n "$URLS" ]; then
             echo "🔗 Checking URLs in $file: $URLS"
             while IFS= read -r url; do
