@@ -5,16 +5,20 @@ lint_markdown:
   stage: lint
   script:
     - echo "🔍 Starting markdown linting..."
+    # Диагностика доступных утилит
+    - echo "Available tools:"
+    - which git grep sed tr awk wget curl || echo "Some tools missing"
     # Проверка измененных .md файлов
     - |
       if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
         BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
       else
-        git fetch origin main
+        echo "Fetching origin/main..."
+        git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
         BASE_REF="origin/main"
       fi
 
-      FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md')
+      FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md') || { echo "❌ Failed to get changed files"; exit 1; }
 
       if [ -z "$FILES" ]; then
         echo "ℹ️ No .md files changed."
@@ -25,6 +29,7 @@ lint_markdown:
       ERROR_FOUND=false
 
       # 1. Проверка trailing spaces
+      echo "🔍 Checking trailing spaces..."
       for file in $FILES; do
         if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
           echo "❌ Trailing spaces in $file"
@@ -34,42 +39,62 @@ lint_markdown:
       [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces."
 
       # 2. Проверка внутренних ссылок (с учетом кириллицы)
+      echo "🔍 Checking internal links..."
       for file in $FILES; do
-        LINKS=$(grep -oP '\[.*?\]\(\K#[^\s)]+' "$file" | sed 's/^#//')
+        echo "Processing $file..."
+        LINKS=$(grep -oP '\[.*?\]\(\K#[^\s)]+' "$file" | sed 's/^#//' || true)
         if [ -n "$LINKS" ]; then
-          ANCHORS=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
-          ANCHORS_WITH_NUM=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' | awk '{print $0; print "_" NR}')
+          echo "Found links: $LINKS"
+          ANCHORS=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' || true)
+          ANCHORS_WITH_NUM=$(grep '^##\+' "$file" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' | awk '{print $0; if (NR > 1) print "_" NR}' || true)
           while IFS= read -r link; do
-            if ! echo "$ANCHORS $ANCHORS_WITH_NUM" | grep -Fx "$link" >/dev/null; then
+            if [ -n "$link" ] && ! echo "$ANCHORS $ANCHORS_WITH_NUM" | grep -Fx "$link" >/dev/null; then
               echo "❌ Broken internal link '#$link' in $file"
               ERROR_FOUND=true
             fi
-          done <<< "$LINKS"
+          done <<< "$LINKS" || true
         else
           echo "ℹ️ No internal links in $file"
         fi
       done
 
-      # 3. Проверка URL (если wget доступен)
+      # 3. Проверка URL (если доступен wget или curl)
+      echo "🔍 Checking URLs..."
       if command -v wget >/dev/null; then
         for file in $FILES; do
-          URLS=$(grep -oP '\[.*?\]\(\Khttp[s]?://[^\s)]+' "$file")
+          URLS=$(grep -oP '\[.*?\]\(\Khttp[s]?://[^\s)]+' "$file" || true)
           if [ -n "$URLS" ]; then
-            echo "🔗 Checking URLs in $file..."
-            echo "$URLS" | while IFS= read -r url; do
+            echo "🔗 Checking URLs in $file: $URLS"
+            while IFS= read -r url; do
               if ! wget --spider --timeout=5 --tries=1 "$url" 2>/dev/null; then
                 echo "❌ Broken URL: $url in $file"
                 ERROR_FOUND=true
               fi
-            done
+            done <<< "$URLS"
+          else
+            echo "ℹ️ No URLs in $file"
+          fi
+        done
+      elif command -v curl >/dev/null; then
+        for file in $FILES; do
+          URLS=$(grep -oP '\[.*?\]\(\Khttp[s]?://[^\s)]+' "$file" || true)
+          if [ -n "$URLS" ]; then
+            echo "🔗 Checking URLs in $file: $URLS"
+            while IFS= read -r url; do
+              if ! curl --silent --head --fail "$url" --connect-timeout 3 --max-time 5 2>/dev/null; then
+                echo "❌ Broken URL: $url in $file"
+                ERROR_FOUND=true
+              fi
+            done <<< "$URLS"
           else
             echo "ℹ️ No URLs in $file"
           fi
         done
       else
-        echo "⚠️ wget not found, skipping URL checks"
+        echo "⚠️ Neither wget nor curl found, skipping URL checks"
       fi
 
+      # Итоговый результат
       if [ "$ERROR_FOUND" = true ]; then
         echo "❌ Linting failed."
         exit 1
