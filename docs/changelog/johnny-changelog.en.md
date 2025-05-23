@@ -7,7 +7,7 @@ hide:
 ### [2025.21.0] - 2025-05-21
 
 - Added `scan build ebpf` command to scan C/C++ project builds using eBPF
-- Added upload of dependency relation data of the type `results.properties.relation: direct|indirect` to sarif
+- Added export to sarif of data on dependency relationships within a project, direct or transitive, in the format: `results.properties.relation: direct|indirect`
 - Added ignoring of commented lines when parsing `conanfile.py` files
 - Fixed version detection from requirements of the type `==3.0.0.post1` in Python manifests
 - Fixed upload of vulnerabilities to sarif that have criticality specified without a numerical assessment
