@@ -4,6 +4,42 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.21.0] - 2025-05-21
+
+- Added new policy condition "Dependency is Protestware". Threats that are associated with protest software are marked with the CSPW identifier
+- Added interface adaptability for different screen sizes, the system is now easier to use on tablets and mobile devices
+- Added ability to run SCA analysis for VCS project with selection of a specific branch or tag
+- Changed creation and editing of policies: now it is possible to specify a project regardless of selected groups and owners, the policy will work for all selected groups and projects
+- Added a link to the repository manager to the package page in OSA
+- Added filter by technology and corresponding column in the "Alerts" section, the column is hidden by default
+- Added ability to select a branch or tag when running an SCA scan for VCS projects
+- Added filter by project group in "Alerts" and "Dependencies" sections
+- Added multiple selection for "Attack Surface", "Security Function", "Found", "Dependency Environment" filters in project dependencies settings
+- Added "Note" column to the "Policy Ignores" section, the column is hidden by default
+- Added filters "Type", "Authorisation type", "Active" and search by name and address to "Registries" section
+- Added time zone in PDF report generation date
+- Added limitation of the number of login requests from the same user per time unit
+- Added TLS encryption support for PostgreSQL and PgBouncer when installing via docker compose
+- Added filters to SCA scan history page
+- Updated project and author activity maps, as well as complexity and duplicates map: changed image file name when downloading, removed captions in cells, improved scaling, fixed rendering errors
+- Changed handling of sensitive data such as tokens, keys and passwords in API and UI of the system
+- Changed the logic of how filters work throughout the system. Filters are now loaded on demand (lazy load), optimised part of requests. When returning to the page, filters are not loaded again
+- Changed adding a user or project to a group: existing ones will not be offered for selection
+- Updated OpenAPI specification for the References field in the `VulnerabilitySummaryDetail` type
+- Added information to metadata tools section when uploading SBoM in CycloneDX format
+- Changed autovacuum settings to lower thresholds for tables with frequent updates
+- Added `max_client_conn` setting for pgbouncer, the parameter regulates the total number of connections, increased default value
+- Changed validation of phone number field to support international numbers
+- Changed output of parent dependencies in the project dependencies table, only the first 5 values are shown
+- Changed output of events in the webhooks table, only the first 5 values are shown
+- Fixed sorting of image vulnerabilities by Fixed Version
+- Fixed export of project data to CSV, reduced memory consumption
+- Added masking of sensitive data in installation logs
+- Improved Russian localisation
+- Fixed error output in UI when trying to create an existing project
+- Fixed access rights restriction errors
+- Fixed animation when switching between tabs of the project editing form
+
 ### [2025.13.3] - 2025-05-07
 
 - The behavior of policy ignores has been fixed when alerts outside the scope of ignoring projects and images were ignored
