@@ -38,7 +38,7 @@ hide:
 - **authority** – URL для подключения к реестру образов;
 - **login** – логин учетной записи для подключения к реестру образов;
 - **password** – пароль учетной записи для подключения к реестру образов;
-- **token** – токен для подключения к реестру образов. 
+- **token** – токен для подключения к реестру образов.
 
 ### Параметры парсинга для разных технологий
 
@@ -73,22 +73,22 @@ hide:
 
 ### Параметры запуска поиска секретов
 
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-path** – путь к исполняемому файлу gitleaks, который будет использоваться при сканировании;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report** – включение формирования отчета о найденных секретах в формате GitLab. По умолчанию `false`;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report-filename** – имя формируемого файла для отчета в формате GitLab. По умолчанию `gl-secrets-report.json`.  
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-path** – путь к исполняемому файлу gitleaks, который будет использоваться при сканировании;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report** – включение формирования отчета о найденных секретах в формате GitLab. По умолчанию `false`;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report-filename** – имя формируемого файла для отчета в формате GitLab. По умолчанию `gl-secrets-report.json`.
 
 ### Параметры [инструмента поиска секретов Gitleaks](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#readme)
 
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **baseline-path** – путь к baseline файлу отчета gitleaks. Все обнаруженные ранее секреты, зафиксированные в этом файле, будут проигнорированы при повторном сканировании;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **enable-rule** – список ID правил, которые будут **включены** при сканировании;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-ignore-path** – путь к файлу .gitleaksignore или директории, содержащей его. По умолчанию `.` (текущая директория);  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – игнорирование комментариев gitleaks:allow. По умолчанию `false`;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **log-level** – уровень логирования. Возможные значения: `trace, debug, info, warn, error, fatal`. По умолчанию `info`;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-decode-depth** – максимальная глубина рекурсивного декодирования. Значение `0` отключает декодирование;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-target-megabytes** – максимальный размер файлов (в мегабайтах), которые будут обрабатываться. Файлы, превышающие этот размер, будут пропущены. По умолчанию 0 (ограничение отсутствует);  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-banner** – отключение баннера gitleaks при запуске. По умолчанию `false`;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-color** – отключение цветного вывода для подробного (verbose) режима. По умолчанию `false`;  
-- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **redact** – маскирование найденных секретов в логах и консоли. Значение 0 полностью отображает секреты, 100 – полностью скрывает. Можно задать промежуточное значение, например, 20 (маскирует 20% секрета). По умолчанию `0`;  
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **baseline-path** – путь к baseline файлу отчета gitleaks. Все обнаруженные ранее секреты, зафиксированные в этом файле, будут проигнорированы при повторном сканировании;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **enable-rule** – список ID правил, которые будут **включены** при сканировании;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-ignore-path** – путь к файлу .gitleaksignore или директории, содержащей его. По умолчанию `.` (текущая директория);
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – игнорирование комментариев gitleaks:allow. По умолчанию `false`;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **log-level** – уровень логирования. Возможные значения: `trace, debug, info, warn, error, fatal`. По умолчанию `info`;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-decode-depth** – максимальная глубина рекурсивного декодирования. Значение `0` отключает декодирование;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-target-megabytes** – максимальный размер файлов (в мегабайтах), которые будут обрабатываться. Файлы, превышающие этот размер, будут пропущены. По умолчанию 0 (ограничение отсутствует);
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-banner** – отключение баннера gitleaks при запуске. По умолчанию `false`;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-color** – отключение цветного вывода для подробного (verbose) режима. По умолчанию `false`;
+- <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **redact** – маскирование найденных секретов в логах и консоли. Значение 0 полностью отображает секреты, 100 – полностью скрывает. Можно задать промежуточное значение, например, 20 (маскирует 20% секрета). По умолчанию `0`;
 - <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **verbose** – включение подробного (verbose) вывода при сканировании. По умолчанию `false`.
 
 ### Пример файла
@@ -186,7 +186,7 @@ scan:
           enabled: true
           # matching criteria
           match: equal("conan.lock")
-        # conanfile.py parser  
+        # conanfile.py parser
         conanfile_py:
           # use parser
           enabled: true
