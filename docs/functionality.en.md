@@ -13,7 +13,7 @@ The platform includes the following modules:
 - **CodeScoring.OSA (Open Source Analysis)** – supply chain protection: verification of third-party components for compliance with security policies and blocking in case of non-compliance;
 - **CodeScoring.SCA (Software Composition Analysis)** – compositional analysis: auto-detection of **open source** dependencies, identification of vulnerabilities and malicious components, verification of license compatibility, formation of a list of software components and construction of a dependency graph;
 - **CodeScoring.Secrets** – search for secrets in code: orchestration of source code checks for confidential information (**secrets**) and assessment of truth using our own machine learning model;
-- **CodeScoring.TQI (Teams & Quality Analysis)** – assessment of code quality through calculation of key quality metrics, tracking development dynamics and building profiles of development participants with confirmed competence in projects.
+- **CodeScoring.TQI (Teams & Quality Intelligence)** – assessment of code quality through calculation of key quality metrics, tracking development dynamics and building profiles of development participants with confirmed competence in projects.
 
 The platform comprehensively provides:
 
