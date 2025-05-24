@@ -4,6 +4,15 @@ hide:
 ---
 # Johnny Changelog
 
+### [2025.21.0] - 2025-05-21
+
+- Added `scan build ebpf` command to scan C/C++ project builds using eBPF
+- Added export to sarif of data on dependency relationships within a project, direct or transitive, in the format: `results.properties.relation: direct|indirect`
+- Added ignoring of commented lines when parsing `conanfile.py` files
+- Fixed version detection from requirements of the type `==3.0.0.post1` in Python manifests
+- Fixed upload of vulnerabilities to sarif that have criticality specified without a numerical assessment
+- Fixed parsing in the Go environment: transitive dependencies for which it was not possible to determine the parent package are excluded from the scanning results
+
 ### [2025.13.0] - 2025-03-28
 
 - Added support for parsing Swift ecosystem manifests: `Package.swift` and `Package.resolved` (starting with version 2025.13.0 of the installation)
