@@ -61,6 +61,7 @@ plugins:
           backup: "Backup"
           proxy: "Proxy usage"
           ssl: "Self signed SSL certificates"
+          postgresql-tls: "Connecting to PostgreSQL/PgBouncer using TLS"
           analysis-ignore-paths: "Analysis paths and exceptions"
           troubleshooting: "Troubleshooting"
           getting-started: "Getting started with on-premise"
@@ -162,6 +163,7 @@ plugins:
           backup: "Резервное копирование"
           proxy: "Работа через прокси"
           ssl: "Самоподписанные SSL сертификаты"
+          postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
           troubleshooting: "Диагностика неполадок"
           getting-started: "Начало работы с инсталляцией"
@@ -274,6 +276,8 @@ nav:
     - proxy: on-premise/proxy.en.md
     - ssl: on-premise/self-signed-ssl.md
     - ssl: on-premise/self-signed-ssl.en.md
+    - postgresql-tls: on-premise/postgresql-tls.md
+    - postgresql-tls: on-premise/postgresql-tls.en.md
     - analysis-ignore-paths: on-premise/analysis-ignore-paths.md
     - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
     - troubleshooting: on-premise/troubleshooting.md
