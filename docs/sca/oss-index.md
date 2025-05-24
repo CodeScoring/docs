@@ -14,6 +14,6 @@ hide:
 **Важно**:
 
 1. OSS Index используется только во время запуска SCA.
-2, OSS Index будет ссылаться на сторонний URL-адрес: [https://ossindex.sonatype.org/](https://ossindex.sonatype.org/).
+2. OSS Index будет ссылаться на сторонний URL-адрес: [https://ossindex.sonatype.org/](https://ossindex.sonatype.org/).
 3. Скорость SCA может снизиться при использовании OSS Index.
 4. При использовании OSS Index без токена система может возвращать данные, отличные от авторизованных запросов.
