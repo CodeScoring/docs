@@ -56,21 +56,30 @@ lint_markdown:
             fi
 
             if [ -f "$TARGET_FILE" ]; then
-              # Извлекаем заголовки и генерируем якоря
               HEADINGS=$(grep -E '^#{1,6} ' "$TARGET_FILE" | sed 's/^#\+ //')
               GENERATED_ANCHORS=""
               COUNT=1
               while IFS= read -r heading; do
-                # Приводим к нижнему регистру, удаляем неалфавитные символы, заменяем пробелы на '-'
-                safe=$(echo "$heading" | tr '[:upper:]' '[:lower:]' | \
-                       iconv -c -t ascii//TRANSLIT | \
-                       sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
+                # Приводим к нижнему регистру
+                lower=$(echo "$heading" | tr '[:upper:]' '[:lower:]')
+
+                # Проверяем наличие не-ASCII символов
+                if LC_ALL=C grep -q '[^ -~]' <<< "$lower"; then
+                  # Содержит не-ASCII: транслитерация
+                  safe=$(echo "$lower" | iconv -c -t ascii//TRANSLIT | \
+                    sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
+                else
+                  # Только ASCII
+                  safe=$(echo "$lower" | sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
+                fi
+
                 if [ -z "$safe" ]; then
                   anchor="_$COUNT"
                   COUNT=$((COUNT + 1))
                 else
                   anchor="$safe"
                 fi
+
                 GENERATED_ANCHORS="$GENERATED_ANCHORS
       $anchor"
               done <<< "$HEADINGS"
@@ -90,8 +99,6 @@ lint_markdown:
           echo "No internal links in $file"
         fi
       done
-
-
 
       # 3. Проверка URL (исключая example)
       echo "🔍 Checking URLs..."
