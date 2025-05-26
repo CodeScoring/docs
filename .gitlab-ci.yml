@@ -61,8 +61,10 @@ lint_markdown:
               GENERATED_ANCHORS=""
               COUNT=1
               while IFS= read -r heading; do
+                # Приводим к нижнему регистру, удаляем неалфавитные символы, заменяем пробелы на '-'
                 safe=$(echo "$heading" | tr '[:upper:]' '[:lower:]' | \
-                       sed 's/[^а-яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
+                       iconv -c -t ascii//TRANSLIT | \
+                       sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
                 if [ -z "$safe" ]; then
                   anchor="_$COUNT"
                   COUNT=$((COUNT + 1))
@@ -88,6 +90,7 @@ lint_markdown:
           echo "No internal links in $file"
         fi
       done
+
 
 
       # 3. Проверка URL (исключая example)
