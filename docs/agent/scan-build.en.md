@@ -53,7 +53,7 @@ As a result of the work, the agent displays one of three codes:
 
 ## Сommand parameters
 
-The **scan build** command has four unique parameters, in addition to [general scan command settings](/agent/scan.en/#launch-options:
+The **scan build** command has four unique parameters, in addition to [general scan command settings](/agent/scan.en/#launch-options):
 
 - `--build-result` – input is the result of the previous build process, including compiled artifacts;
 - `--lib-versions` – path to a JSON file with a list of versions of the libraries being analyzed;
