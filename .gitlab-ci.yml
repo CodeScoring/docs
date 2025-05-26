@@ -36,9 +36,8 @@ lint_markdown:
       done
       [ "$ERROR_FOUND" = false ] && echo "No trailing spaces."
 
-      # 2. Проверка внутренних ссылок (с учетом поведения Material for MkDocs)
+      # 2. Проверка внутренних ссылок
       echo "Checking internal links..."
-      export LC_ALL=C
       for file in $FILES; do
         echo "Processing $file..."
         LINKS=$(grep -oP '\[.*?\]\(\K(?:#[^\s)]+|/[^\s)]+#[^\s)]+)' "$file" | sed 's/^\(#[^/]\+\|\/[^#]\+#\)/\1/' || true)
@@ -52,45 +51,39 @@ lint_markdown:
               ANCHOR="${link#\#}"
             else
               PATH_PART=$(echo "$link" | sed 's/#.*$//; s|^/||; s|/$||')
-              if [ -f "docs/${PATH_PART}.md" ]; then
-                TARGET_FILE="docs/${PATH_PART}.md"
-              elif [ -f "docs/${PATH_PART%.en}.en.md" ]; then
-                TARGET_FILE="docs/${PATH_PART%.en}.en.md"
-              else
-                TARGET_FILE="docs/${PATH_PART}.md"
-              fi
+              TARGET_FILE="docs/${PATH_PART}.md"
               ANCHOR="${link##*#}"
             fi
 
             if [ -f "$TARGET_FILE" ]; then
-              echo "Extracting headings from $TARGET_FILE..."
               HEADINGS=$(grep -E '^#{1,6} ' "$TARGET_FILE" | sed 's/^#\+ //')
-              echo "Headings found: $HEADINGS"
               GENERATED_ANCHORS=""
               COUNT=1
               while IFS= read -r heading; do
+                # Приводим к нижнему регистру
                 lower=$(echo "$heading" | tr '[:upper:]' '[:lower:]')
-                if echo "$TARGET_FILE" | grep -q '\.en\.md$'; then
-                  safe=$(echo "$lower" | sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
+
+                # Проверяем наличие не-ASCII символов
+                if LC_ALL=C grep -q '[^ -~]' <<< "$lower"; then
+                  # Содержит не-ASCII: транслитерация
+                  safe=$(echo "$lower" | iconv -c -t ascii//TRANSLIT | \
+                    sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
                 else
-                  if LC_ALL=C grep -q '[^ -~]' <<< "$lower"; then
-                    safe=$(echo "$lower" | iconv -c -t ascii//TRANSLIT | \
-                      sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
-                  else
-                    safe=$(echo "$lower" | sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
-                  fi
+                  # Только ASCII
+                  safe=$(echo "$lower" | sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
                 fi
+
                 if [ -z "$safe" ]; then
                   anchor="_$COUNT"
                   COUNT=$((COUNT + 1))
                 else
                   anchor="$safe"
                 fi
-                echo "Generated anchor: $anchor"
+
                 GENERATED_ANCHORS="$GENERATED_ANCHORS
       $anchor"
               done <<< "$HEADINGS"
-              GENERATED_ANCHORS=$(echo "$GENERATED_ANCHORS" | grep -v '^$')
+
               if ! echo "$GENERATED_ANCHORS" | grep -Fxq "$ANCHOR"; then
                 echo "Broken internal link '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
                 ERROR_FOUND=true

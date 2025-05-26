@@ -119,7 +119,7 @@ To create such a policy, you need to add two groups united by the **OR** express
 
 ![Policy example](/assets/img/policy-example-en.png)
 
-The policy becomes active immediately after creation by clicking the **Create** button. For the created policy, you can configure actions when it is triggered: [email notification](/on-premise/how-to/notifications.en/#email) or [creation of a task in Jira](/on-premise/how-to/notifications.en/#jira).
+The policy becomes active immediately after creation by clicking the **Create** button. For the created policy, you can configure actions when it is triggered: [email notification](/on-premise/how-to/notifications.en/#email-notifications) or [creation of a task in Jira](/on-premise/how-to/notifications.en/#create-tasks-in-jira).
 
 **Important**: policies are triggered during analysis, so it is important to create them before running the analysis.
 
