@@ -1,43 +1,43 @@
 ---
 hide:
-  - footer
+- footer
 ---
-# Configuring and launching analysis
+# Setting up and running the analysis
 
-## Configuring analysis  
+## Setting up the analysis
 
-When starting an analysis from the installation, you can select the analysis parameters.  
+When running the analysis on the installation, you can select parameters for individual projects.
 
-Management is done on the project page under `Settings -> Projects`.  
+Management is performed on the project page in the `Settings -> Projects` section.
 
-- **Scan with hashes** - scans the project using file hash sums to detect direct dependency inclusions;  
-- **Scan ignored paths** - list of paths that will be ignored during scanning;
-- **Prevent recursive scan** - turns off deep directory traversal during scanning. Only manifests in the root directory will be found;
-- **Activate cloud resolve** - activate dependency resolution in cloud. Warning! Cloud resolution could provide inaccurate results and lead to extended scan time;
-- **Exclude from SCA** - exclude current project from SCA analysis;
+- **Scan with hashes** - scans the project using the hash sums of files to search for direct inclusion of dependencies;
+- **Analysis path exclusions** - a list of directories that will be ignored during scanning;
+- **Disable recursive scanning** - disables directory depth traversal during scanning. Only manifests in the root directory will be found;
+- **Activate cloud resolve** - enable dependency resolution in the cloud. Warning! Using cloud resolve may give inaccurate results and increase the analysis time;
+- **Exclude from SCA analysis** - exclude this project from SCA analysis;
 
-## Starting manual analysis
+## Manual launch of analysis
 
-Composition analysis (SCA) starts immediately after a project is added. To manually run the analysis for a project, use the **Run Now** button on the project page in the `Projects` section.
+Compositional analysis (SCA) is launched automatically immediately after adding a project. To manually launch the analysis for a project, use the **Run SCA** button on the project page. In this case, you can select a separate branch or tag for analysis, which will be taken into account in the scan history.
 
-You can also run the analysis for all projects and for each module (SCA, Quality, Authors) separately. To control the launch of the analysis for all projects go to the `Settings -> Workmode` section.
+You can also launch the analysis for all projects and for each analysis type (SCA, Quality, Authors) separately. You can manage the launch of the general analysis in the `Settings -> Workmode` section.
 
-**Important!** To ensure accurate results, run the analysis for each module **sequentially**, waiting for the previous run to complete before proceeding. The order of launching:
+**Important!** To obtain correct results, you need to launch the analysis sequentially for each module, having previously waited for the completion of the previous run. Launch order:
 
 1. Software Composition Analysis (SCA)
 2. Authors Analysis
 3. Quality Analysis
 
-The progress of the analysis can be tracked in the `Settings -> Audit log` section.
+The progress of the analysis can be monitored by messages in the `Settings -> Audit log` section.
 
-The first run of Authors analysis may take a while to complete, as it traverses the entire repository history. Subsequent runs will only parse the commit differences since the last run.
+The first launch of the authors analysis can take a noticeable time, since the entire repository history is traversed. Subsequent runs will only analyze the difference in commits for updates since the last run.
 
 ## Scheduled analysis
 
-In addition to manual runs, you can set up scheduled analysis of individual projects.
+In addition to manual launch, you can set up scheduled analysis of individual projects by defining .
 
-This is controlled on the project page in `Settings -> Projects`. 
+This is managed on the project page in the `Settings -> Projects` section.
 
-By default, the **SCA Scan Schedule** parameter is set to **Off**. To activate scheduled analysis, you need to select **On** and select time and days of week.
+By default, the **SCA scan schedule** parameter is set to **Off**. To activate scheduled analysis, select **On** and specify the time and days of the week.
 
-**Note**: Selected time will be treated as UTC +3.
+**Note**: The scan time will be calculated according to UTC +3.
