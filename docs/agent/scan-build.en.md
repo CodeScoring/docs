@@ -61,3 +61,19 @@ The **scan build** command has four unique parameters, in addition to [general s
 - `--unresolved-file` – path to a file where information about libraries with unresolved versions will be saved.
 
 For a summary of available command options and usage instructions, you can call the command with the `-h, --help` flag.
+
+## Scanning with eBPF
+
+**eBPF** (extended Berkeley Packet Filter) is a technology in the Linux kernel that allows to safely run user code in response to system events, such as network traffic, system calls, or process actions.
+
+The feature of the `scan build ebpf` command is that the analysis is performed not according to the protocol of the build tool, but by monitoring the launched processes and their parameters via the eBPF mechanism.
+
+**Important**: to ensure work with the eBPF mechanism, the command must be run with **root privileges**.
+
+### Example of work
+
+The parameters and results of the command are similar to the `scan build` command.
+
+```shell
+./johnny scan build ebpf ./buildConfig.json
+```
