@@ -26,7 +26,7 @@ A `buildConfig` JSON file is added to the project, describing the sequence of co
    "flags_and_args": "clean"
   },
   {
-   "command": "./configure"  
+   "command": "./configure"
   },
   {
    "command": "make",
