@@ -8,17 +8,17 @@ hide:
 
 - Added new policy condition "Dependency is Protestware". Threats that are associated with protest software are marked with the CSPW identifier
 - Added interface adaptability for different screen sizes, the system is now easier to use on tablets and mobile devices
-- Added ability to run SCA analysis for VCS project with selection of a specific branch or tag
+- Added the ability to specify the name of the VCS project and create multiple VCS projects for one repository
+- Added the ability to run SCA analysis for a VCS project by selecting a specific branch or tag without changing the default branch
 - Changed creation and editing of policies: now it is possible to specify a project regardless of selected groups and owners, the policy will work for all selected groups and projects
 - Added a link to the repository manager to the package page in OSA
 - Added filter by technology and corresponding column in the "Alerts" section, the column is hidden by default
-- Added ability to select a branch or tag when running an SCA scan for VCS projects
 - Added filter by project group in "Alerts" and "Dependencies" sections
 - Added multiple selection for "Attack Surface", "Security Function", "Found", "Dependency Environment" filters in project dependencies settings
 - Added "Note" column to the "Policy Ignores" section, the column is hidden by default
 - Added filters "Type", "Authorisation type", "Active" and search by name and address to "Registries" section
 - Added time zone in PDF report generation date
-- Added limitation of the number of login requests from the same user per time unit
+- Added limitation of the number of login requests from the same user, 10 attempts per minute by default
 - Added TLS encryption support for PostgreSQL and PgBouncer when installing via docker compose
 - Added filters to SCA scan history page
 - Updated project and author activity maps, as well as complexity and duplicates map: changed image file name when downloading, removed captions in cells, improved scaling, fixed rendering errors
