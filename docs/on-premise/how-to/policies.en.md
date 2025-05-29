@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Managing policies
 
 ## General description
@@ -19,7 +20,7 @@ Policies can be created for:
 
 The policy mechanism takes into account the specified stage of software development: from the download of third-party components into the organization's perimeter to tracking builds and writing new code.
 
-Policies are configured based on conditions combined by logical expressions **AND/OR**. In addition to the standard security policy settings based on vulnerability severity level, conditions can be configured based on component metadata: release date, license, author, and others. A total of **41 conditions** are supported. The checks also include a built-in policy for checking for license compatibility.
+Policies are configured based on conditions combined by logical expressions **AND/OR**. In addition to the standard security policy settings based on vulnerability severity level, conditions can be configured based on component metadata: release date, license, author, and others. A total of **40+ categorized conditions** are supported. The checks also include a built-in policy for checking for license compatibility.
 
 When a policy is triggered, corresponding **alerts** are created in CodeScoring. Alerts can be temporarily or permanently ignored, or they can be downloaded as a report.
 
@@ -133,7 +134,7 @@ The results of the policies are displayed in the `Policy alerts` section. The se
 - **Ignored** – a list of ignored alerts;
 - **Resolved** – a list of alerts that were resolved after the last analysis (the policy condition is no longer relevant).
 
-The alert reason is displayed in the **Matched criteria** field, including the specified conditions and the component data found. For example, the value `django@4.2.2 has CVE-2024-38875, CVSS3 Score 7.5 >= 7.00` implies that the component blocking policy with CVSS3 equal to or higher than 7.00 was triggered on the django component version 4.2.2 with a vulnerability score of 7.5.
+The policy trigger is displayed in the **Matched criteria** field, including the specified conditions and the component data found. For example, the value `django@4.2.2 has CVE-2024-38875, CVSS3 Score 7.5 >= 7.00` implies that the component blocking policy with CVSS3 equal to or higher than 7.00 was triggered on the django component version 4.2.2 with a vulnerability score of 7.5.
 
 ## Ignoring policies
 
