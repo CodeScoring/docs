@@ -1,150 +1,157 @@
 ---
 hide:
-  - footer
+- footer
 ---
 
-# Policy management
+# Managing policies
 
-## Overview
+## General description
 
-**Policy** in the CodeScoring system is a mechanism for tracking and blocking Open Source components in the software development process. They can be related to security checks, license compatibility, or other criteria for including third-party components in development.
+**Policies** on the CodeScoring platform are a mechanism for tracking and blocking open source components during software development. They can be related to security checks, license compatibility, or other criteria for including third-party components in development.
 
-Policies can be configured for:
+Policies can be created for:
 
-- an entire organization;
-- a business unit;
-- a project;
-- a development environment;
-- a repository;
-- a type of component.
+- the entire organization;
+- department;
+- project;
+- development environment;
+- repository;
+- component type.
 
-The policy mechanism takes into account the specified stage of software development: from the download of third-party components to tracking builds and writing new code.
+The policy mechanism takes into account the specified stage of software development: from the download of third-party components into the organization's perimeter to tracking builds and writing new code.
 
-Policies are configured by conditions combined by the logical expressions **AND/OR**. In addition to standard security policy settings by vulnerability criticality level, conditions can be configured according to component information: release date, license, author, and others. A total of **40 conditions** are supported. The checks also include a built-in vendor-specific license compatibility policy.
+Policies are configured based on conditions combined by logical expressions **AND/OR**. In addition to the standard security policy settings based on vulnerability severity level, conditions can be configured based on component metadata: release date, license, author, and others. A total of **40+ categorized conditions** are supported. The checks also include a built-in policy for checking for license compatibility.
 
-When a policy is triggered, the CodeScoring system creates corresponding **Policy Alerts**. Selected alerts can be temporarily or permanently ignored. Alerts can be exported as a report.
+When a policy is triggered, corresponding **alerts** are created in CodeScoring. Alerts can be temporarily or permanently ignored, or they can be downloaded as a report.
 
-Policies can be **blocking**: when such a policy is triggered, the used components are blocked in the artifact repository (proxy repositories) or the software build is stopped until the detected defect is fixed.
+Policies can be **blocking**: when such a policy is triggered, the components used are blocked in the artifact storage (proxy repositories), or the CI build is stopped until the detected defect is fixed.
 
-Additionally, when the policy is triggered, a notification can be sent to the responsible specialists in the task management system or an email with a description of the problem.
+Additionally, when a policy is triggered, a notification can be sent to the responsible specialists in the task management system or an email describing the problem.
 
 ## Policy stages
 
-The stages of policy operation are configured by the user when editing the project parameters in the **Settings → Projects** section in the **Policy stage** field or specified via the `--stage` parameter when launching the [Johnny console agent](/agent/scan.en). The names of the stages correspond to the following logic:
+Policy stages are configured by the user when editing project parameters in the **Settings → Projects** section in the **Policy stage** field or specified via the `--stage` parameter when running the [console agent Johnny](/agent/scan.en). The stages have the following meanings:
 
 - `dev` – development stage;
 - `stage` – intermediate (pre-production) stage;
 - `test` – testing stage;
-- `prod` – production stage.
+- `prod` – production circuit.
 
-When creating or editing a policy in the **Settings → Policies** section, the user has to specify the stages to which it will be applied.
+When creating or editing a policy in the **Settings → Policies** section, you must specify the stages to which it will be applied.
 
-In addition, there are special stage values used for certain tasks:
+In addition, there are special stage values used by default for certain tasks:
 
 - `proxy` – for the plugin in the OSA module;
 - `source` – for VCS project analysis;
 - `build` – for the Johnny console agent.
 
-## Customization in the system
+## Creating a policy
 
-Policies are created in the `Settings -> Policies` section. You can go to the policy creation form by clicking the **Create new** button.
+Policies are created in the `Settings -> Policies` section. You can go to the policy creation form by clicking the **Create** button.
 
-In the form of policy creation the context of policy operation is set by the following parameters:
+![Policy сreation](/assets/img/policy-creation-en.png)
 
-- **Name** - name of the policy;
-- **Groups** — group to which the policy applies, if empty - the policy applies to the whole organization;
-- **Proprietors** - owner of the code to which the policy applies, if empty - the policy applies to the whole organization;
-- **Projects** - projects to which the policy applies;
-- **Stages** - project stages for which the policy is applied;
-- **OSA Components** - type of components in OSA plugins for which the policy is applied (**Packages** or **Container images**).
-- **Repositories** - list of repositories for which the policy applies;
-- **Level** - criticality level of the policy;
-- **Blocker** - an indication of blocking a build or installation of a component from a proxy repository;
-- **Is active** - an indication that the policy is temporarily disabled;
-- **Description** - description of the policy;
-- **Conditions** - list of conditions in the policy.
+The policy creation form specifies the policy context using the following parameters:
 
-Next, the policy triggering conditions are configured, the following parameters are supported:
+- **Name**;
+- **Groups** — user groups to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
+- **Proprietors** — organization departments to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
+- **Projects** — projects to which the policy applies;
+- **Stages** — development cycle stages to which the policy applies;
+- **OSA Components** — component type in the repository manager with the OSA plugin to which the policy applies (**Packages** or **Container Images**);
+- **Repositories** — list of repositories with the OSA plugin to which the policy applies;
+- **Level** — policy criticality level (does not affect actions in the system);
+- **Blocker** — blocking CI build or download of a component from a proxy repository;
+- **Is active** — policy status;
+- **Description** — policy description;
+- **Conditions** — list of conditions in the policy.
 
-- **PURL** - [package URL](https://github.com/package-url/purl-spec), package identifier;
-- **Dependency Name** - name of the dependency;
-- **Dependency Version** - dependency version;
-- **Dependency Author** - author of the dependency;
-- **Dependency Release Date** - release date of the dependency version;
-- **Dependency Age** - age of the dependency;
-- **Dependency Vulnerability Count** - number of vulnerabilities in the dependency;
-- **Dependency is dangerous** - dependency is dangerous;
-- **Technology** - technology (language or ecosystem);
-- **License** - license;
-- **License Category** - license category;
-- **Vulnerability ID** - vulnerability identifier;
-- **CVSS2 Score** - CVSS 2 threat score;
-- **CVSS2 Severity** - CVSS 2 threat level;
-- **CVSS2 Access Vector (AV)** - vulnerability exploitation path (physical or network);
-- **CVSS2 Access Complexity (AC)** - complexity of vulnerability exploitation;
-- **CVSS2 Authentication (Au)** - authentication requirements for vulnerability exploitation;
-- **CVSS2 Availability Impact (A)** - degree of data availability loss;
-- **CVSS2 Confidentiality Impact (C)** - extent of loss of data confidentiality;
-- **CVSS2 Integrity Impact (I)** - degree of loss of data integrity;
-- **CVSS3 Score** - CVSS 3 threat score;
-- **CVSS3 Severity** - CVSS 3 threat level;
-- **CVSS3 Attack Vector (AV)** - attack vector;
-- **CVSS3 Attack Complexity (AC)** - attack complexity;
-- **CVSS3 Priviliges Required (PR)** - the required level of access to exploit the vulnerability;
-- **CVSS3 User Interaction (UI)** - presence of user interaction;
-- **CVSS3 Scope (S)** - the security scope of the component;
-- **CVSS3 Confidentiality (C)** - degree of loss of data confidentiality;
-- **CVSS3 Integrity (I)** - degree of loss of data integrity;
-- **CVSS3 Availability (A)** - degree of loss of data availability;
-- **Vulnerability Publish Date** - vulnerability publication date;
-- **Vulnerability Update Date** - vulnerability update date;
-- **Vulnerability has exploit** - presence of an exploit in the vulnerability;
-- **Vulnerability impacts (Kaspersky)** - scope of the vulnerability;
-- **Vulnerability has fixed version** - vulnerability has been fixed in a new version;
-- **Vulnerability Age (days)** - age of the vulnerability
-- **Env** - environment;
-- **Match type** - dependency match type (by manifest, content or resolution);
-- **Relation** - direct or transitive dependency;
-- **CWE** - classification in the Common Weakness Enumeration index.
+Next, the conditions for triggering the policy are configured; the following parameters are supported:
 
-Policy conditions (**Rules**) can be grouped into groups using **AND/OR** logical expressions. Groups have no restrictions on the level of nesting or the number of conditions.
+- **PURL** — [package URL](https://github.com/package-url/purl-spec), component identifier;
+- **Dependency name**;
+- **Dependency version**;
+- **Dependency author**
+- **Dependency release date**;
+- **Dependency age (days)**;
+- **Dependency vulnerability count**;
+- **Dependency is dangerous**;
+- **Dependency is protestware**;
+- **Technology** — programming language or ecosystem;
+- **License**;
+- **License category**;
+- **Vulnerability ID** — vulnerability identifier;
+- **CVSS2 Score** — numerical threat score according to the CVSS 2 standard;
+- **CVSS2 Severity** — threat level according to the CVSS 2 standard;
+- **CVSS2 Access Vector (AV)** — vulnerability exploitation path (physical or network);
+- **CVSS2 Access Complexity (AC)** — vulnerability exploitation complexity;
+- **CVSS2 Authentication (Au)** — authentication requirements for vulnerability exploitation;
+- **CVSS2 Availability Impact (A)** — degree of data availability loss;
+- **CVSS2 Confidentiality Impact (C)** — degree of data confidentiality loss;
+- **CVSS2 Integrity Impact (I)** — degree of data integrity loss;
+- **CVSS3 Score** - numerical CVSS 3 threat assessment;
+- **CVSS3 Severity** — threat level according to the CVSS 3 standard;
+- **CVSS3 Attack Vector (AV)** — attack vector;
+- **CVSS3 Attack Complexity (AC)** — attack complexity;
+- **CVSS3 Priviliges Required (PR)** — required access level to exploit the vulnerability;
+- **CVSS3 User Interaction (UI)** — presence of user interaction;
+- **CVSS3 Scope (S)** — component security scope;
+- **CVSS3 Confidentiality (C)** — degree of loss of data confidentiality;
+- **CVSS3 Integrity (I)** — degree of loss of data integrity;
+- **CVSS3 Availability (A)** — degree of loss of data availability;
+- **Vulnerability publication date**;
+- **Vulnerability update date**;
+- **Impacts (Kaspersky)**;
+- **Vulnerability has exploit**;
+- **Vulnerability has fixed version**;
+- **Vulnerability age (days)**;
+- **Env** — development environment;
+- **Match type** — dependency detection method (by manifest, project content, or as a result of dependency resolution);
+- **Relation** — dependency relationship in the project (direct or transitive);
+- **CWE** — vulnerability type identifier according to the [Common Weakness Enumeration](https://cwe.mitre.org/) standard.
 
-For example, you can set policy conditions for the following scenario - either the dependency contains a vulnerability with an exploit and a remediation recommendation, or the dependency is directive and contains a critical vulnerability according to CVSS 3 standard.
+## Policy example
 
-To create such a policy, you need to add two groups joined by the expression **OR**. This means that the policy will be triggered if any of the listed groups of conditions are met. Within a group, the conditions combined by the expression **AND** are specified.
+Policy conditions can be combined into groups using logical expressions **AND/OR**. Groups have no restrictions on the nesting level and the number of conditions.
 
-![Policy example](/assets/img/policy_example.png)
+For example, you can set policy conditions for the following scenario - either the dependency contains a vulnerability with an exploit and a fixed version, or the dependency is direct and contains a critical vulnerability according to the CVSS 3 standard.
 
-The policy becomes active immediately after creation by clicking the **Create** button. For a created policy, you can customize actions when the policy is triggered: [email notification](/on-premise/how-to/notifications.en/#email) or [task creation in Jira](/on-premise/how-to/notifications.en/#jira).
+To create such a policy, you need to add two groups united by the **OR** expression. This means that the policy will be triggered if any of the listed groups of conditions are met. Within the group, conditions are set, united by the **AND** expression.
 
-**Important!** Policies are triggered during analysis, so it is important to create them before running the analysis.
+![Policy example](/assets/img/policy-example-en.png)
 
-**Recommendation!** If you leave the `Proprietors`, `Groups` and `Projects` fields empty, the policy will be applied to all active projects in the system.
+The policy becomes active immediately after creation by clicking the **Create** button. For the created policy, you can configure actions when it is triggered: [email notification](/on-premise/how-to/notifications.en/#email-notifications) or [creation of a task in Jira](/on-premise/how-to/notifications.en/#create-tasks-in-jira).
+
+**Important**: policies are triggered during analysis, so it is important to create them before running the analysis.
+
+**Recommendation**: if you leave the `Proprietors`, `Groups` and `Projects` fields empty, the policy will apply to all active projects in the system.
 
 ## Policy results
 
-Policy results are displayed in the `Policy alerts` section. The section has three tabs:
+The results of the policies are displayed in the `Policy alerts` section. The section has three tabs:
 
-- **Active** - list of triggered policy alerts based on the results of the last analysis (of a project, image or component in the proxy repository);
-- **Ignored** - list of ignored policies;
-- **Resolved** - list of notifications that were resolved after the last analysis (the policy condition is no longer relevant).
+- **Active** – a list of alerts based on the results of the last analysis (project, build or component in the proxy repository);
+- **Ignored** – a list of ignored alerts;
+- **Resolved** – a list of alerts that were resolved after the last analysis (the policy condition is no longer relevant).
 
-The reason for triggering the policy is displayed in the **Matched criteria** field, including the conditions set and the component data found. For example, a value of `django@4.2.2 has CVE-2024-38875, CVSS3 Score 7.5 >= 7.00` implies that a policy to block components with a CVSS 3 equal to or greater than 7.00 was triggered on the component django@4.2.2 with the vulnerability rating of 7.5.
+The policy trigger is displayed in the **Matched criteria** field, including the specified conditions and the component data found. For example, the value `django@4.2.2 has CVE-2024-38875, CVSS3 Score 7.5 >= 7.00` implies that the component blocking policy with CVSS3 equal to or higher than 7.00 was triggered on the django component version 4.2.2 with a vulnerability score of 7.5.
 
-## Ignore Policies
+## Ignoring policies
 
-Created policies can be temporarily or permanently ignored during analysis. The ignore condition allows you to leave the policy in the system without receiving notifications about its triggering, for example, if the vulnerability cannot be fixed quickly. Creating and configuring ignore conditions is done in the `Settings -> Policy Ignores` section.
+Created policies can be temporarily or permanently ignored during analysis. The ignoring condition allows you to leave the policies in the system without receiving alerts about their triggering, for example, if the vulnerability in the component is not applicable to a specific project. Ignoring conditions are created and configured in the section `Settings -> Policy ignores`.
 
-To create an ignore condition for one or several policies, you should click the **Create New** button and fill in the following fields:
+To create an ignoring condition for one or more policies, click the **Create** button and fill in the following fields:
 
-- **Project** - name of the project in the system;
-- **Technology** - technology (language or ecosystem);
-- **Dependency name** - dependency name;
-- **Dependency version** - dependency version;
-- **License** - license;
+- **Projects** — projects to which the ignore is applied;
+- **Container images** – images in registries that are ignored;
+- **Technology** - programming language or ecosystem;
+- **Dependency PURl** — [package URL](https://github.com/package-url/purl-spec), component identifier;
+- **Dependency name**;
+- **Dependency version**;
+- **License**;
 - **Vulnerability ID** - vulnerability identifier;
-- **Policies** - ignored policies;
-- **Is enabled** - condition activity sign;
-- **Active from** - start date of the condition;
-- **Active to** - date of termination of the condition;
-- **Note** - note.
+- **Policies**;
+- **Is enabled** - ignore state;
+- **Active from** - date from which the ignore will start working;
+- **Active to** - date after which the ignore will stop working;
+- **Note**.

@@ -4,10 +4,9 @@ stages:
 lint_markdown:
   stage: lint
   script:
-    - echo "🔍 Starting markdown linting..."
+    - echo "Starting markdown linting..."
     - echo "Available tools:"
-    - which git grep sed tr awk wget curl || echo "Some tools missing"
-    # Проверка измененных .md файлов
+    - which git grep sed tr awk wget curl || echo "❌ Some tools missing"
     - |
       if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
         BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
@@ -37,41 +36,58 @@ lint_markdown:
       done
       [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces."
 
-      # 2. Проверка внутренних ссылок (с учетом путей и кириллицы)
-      echo "🔍 Checking internal links..."
+      # 2. Проверка внутренних ссылок
+      echo "🔗 Checking internal links..."
       for file in $FILES; do
         echo "Processing $file..."
-        # Извлекаем ссылки вида [text](#anchor) и [text](/path#anchor)
         LINKS=$(grep -oP '\[.*?\]\(\K(?:#[^\s)]+|/[^\s)]+#[^\s)]+)' "$file" | sed 's/^\(#[^/]\+\|\/[^#]\+#\)/\1/' || true)
         if [ -n "$LINKS" ]; then
           echo "Found links: $LINKS"
           while IFS= read -r link; do
-            if [ -n "$link" ]; then
-              # Разделяем ссылку на путь и якорь
-              if echo "$link" | grep -q '^#'; then
-                TARGET_FILE="$file"
-                ANCHOR=$(echo "$link" | sed 's/^#//')
-              else
-                # Убираем лишний .md и корректно формируем путь
-                TARGET_FILE=$(echo "$link" | sed 's/#.*$//; s|^/||; s|/$||; s|$|.md|')
-                ANCHOR=$(echo "$link" | sed 's|^.*/#||')
-                TARGET_FILE="docs/$TARGET_FILE"
-              fi
-              # Проверяем существование файла
-              if [ -f "$TARGET_FILE" ]; then
-                # Извлекаем якоря из целевого файла
-                ANCHORS=$(grep '^##\+' "$TARGET_FILE" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' || true)
-                ANCHORS_WITH_NUM=$(grep '^##\+' "$TARGET_FILE" | sed 's/^##\+[[:space:]]*//' | tr '[:upper:]' '[:lower:]' | sed 's/[^а-яА-Яa-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//' | awk '{print $0; if (NR > 1) print "_" NR}' || true)
-                if ! echo "$ANCHORS $ANCHORS_WITH_NUM" | grep -Fx "$ANCHOR" >/dev/null; then
-                  echo "❌ Broken internal link '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
-                  ERROR_FOUND=true
+            [ -z "$link" ] && continue
+
+            if echo "$link" | grep -q '^#'; then
+              TARGET_FILE="$file"
+              ANCHOR="${link#\#}"
+            else
+              PATH_PART=$(echo "$link" | sed 's/#.*$//; s|^/||; s|/$||')
+              TARGET_FILE="docs/${PATH_PART}.md"
+              ANCHOR="${link##*#}"
+            fi
+
+            if [ -f "$TARGET_FILE" ]; then
+              HEADINGS=$(grep -E '^#{1,6} ' "$TARGET_FILE" | sed 's/^#\+ //')
+              GENERATED_ANCHORS=""
+              COUNT=1
+              while IFS= read -r heading; do
+                lower=$(echo "$heading" | tr '[:upper:]' '[:lower:]')
+                if LC_ALL=C grep -q '[^ -~]' <<< "$lower"; then
+                  safe=$(echo "$lower" | iconv -c -t ascii//TRANSLIT | \
+                    sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
                 else
-                  echo "✅ Anchor '$ANCHOR' found in $TARGET_FILE"
+                  safe=$(echo "$lower" | sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
                 fi
-              else
-                echo "❌ Broken internal link '$link' in $file (target file $TARGET_FILE not found)"
+
+                if [ -z "$safe" ]; then
+                  anchor="_$COUNT"
+                  COUNT=$((COUNT + 1))
+                else
+                  anchor="$safe"
+                fi
+
+                GENERATED_ANCHORS="$GENERATED_ANCHORS
+      $anchor"
+              done <<< "$HEADINGS"
+
+              if ! echo "$GENERATED_ANCHORS" | grep -Fxq "$ANCHOR"; then
+                echo "❌ Broken internal link '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
                 ERROR_FOUND=true
+              else
+                echo "✅ Anchor '$ANCHOR' found in $TARGET_FILE"
               fi
+            else
+              echo "❌ Broken internal link '$link' in $file (target file $TARGET_FILE not found)"
+              ERROR_FOUND=true
             fi
           done <<< "$LINKS"
         else
@@ -79,14 +95,14 @@ lint_markdown:
         fi
       done
 
-      # 3. Проверка URL (исключая example)
+      # 3. Проверка URL
       echo "🔍 Checking URLs..."
       if command -v wget >/dev/null; then
         for file in $FILES; do
           # Извлекаем ссылки [text](http://...) и голые http://, https://, исключая example
           URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | grep -v 'example' || true)
           if [ -n "$URLS" ]; then
-            echo "🔗 Checking URLs in $file: $URLS"
+            echo "Checking URLs in $file: $URLS"
             while IFS= read -r url; do
               if ! wget --spider --timeout=5 --tries=1 "$url" 2>/dev/null; then
                 echo "❌ Broken URL: $url in $file"
@@ -101,7 +117,7 @@ lint_markdown:
         for file in $FILES; do
           URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | grep -v 'example' || true)
           if [ -n "$URLS" ]; then
-            echo "🔗 Checking URLs in $file: $URLS"
+            echo "Checking URLs in $file: $URLS"
             while IFS= read -r url; do
               if ! curl --silent --head --fail "$url" --connect-timeout 3 --max-time 5 2>/dev/null; then
                 echo "❌ Broken URL: $url in $file"
@@ -118,9 +134,9 @@ lint_markdown:
 
       # Итоговый результат
       if [ "$ERROR_FOUND" = true ]; then
-        echo "❌ Linting failed."
+        echo "🚫 Linting failed."
         exit 1
       else
-        echo "✅ All checks passed!"
+        echo "🎉 All checks passed!"
         exit 0
       fi
