@@ -2,7 +2,8 @@
 hide:
 - footer
 ---
-# Project management
+
+# Managing projects
 
 A project in CodeScoring is a part of the analyzed code base. It is possible to create two types of projects in the system:
 
@@ -52,7 +53,7 @@ Categories are used to group system projects by semantic groups.
 
 Categories are managed in the `Settings -> Categories` section. You can go to the category creation form by clicking the **Create** button. To create a category, simply give it a name.
 
-## Working with SBOM within a project
+## Working with SBoM within a project
 
 After analyzing the project, you can download the resulting list of used components (SBoM) in CycloneDX format.
 
@@ -67,7 +68,7 @@ SBoM export is supported in the following formats:
 
 You can configure the properties of components during export on the [project dependency settings page](/on-premise/how-to/export-results.en/#bom-settings).
 
-For CLI projects, you can also download SBOM via the interface by clicking the **Import SBOM** button. The downloaded SBOM must be in CycloneDX format and have the `.json` extension.
+For CLI projects, you can also download SBoM via the interface by clicking the **Import SBoM** button. The downloaded SBoM must be in CycloneDX format and have the `.json` extension.
 
 ## Generating a PDF report for the project
 
