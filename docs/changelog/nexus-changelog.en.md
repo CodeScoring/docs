@@ -4,6 +4,10 @@ hide:
 ---
 # Nexus OSA Changelog
 
+## [2025.23.0] - 2025-06-02
+
+- The general plugin configuration now includes the option to set a timeout for waiting for a response from the installation
+
 ### [2025.12.0] - 2025-03-17
 
 - Improved accuracy of analysis in RPM and Debian repositories: improved detection of namespaces, distribution and architecture qualifiers to PURLs
