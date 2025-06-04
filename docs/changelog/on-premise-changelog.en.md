@@ -4,6 +4,11 @@ hide:
 ---
 # Codescoring On-premise Changelog
 
+### [2025.21.1] - 2025-06-04
+
+- Optimized CSV report export in the "Dependencies" section
+- Optimized memory utilization when exporting PDF reports
+
 ### [2025.21.0] - 2025-05-21
 
 - Added new policy condition "Dependency is Protestware". Threats that are associated with protest software are marked with the CSPW identifier
