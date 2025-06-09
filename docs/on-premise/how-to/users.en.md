@@ -33,7 +33,7 @@ Created accounts can be edited or deleted in the `Settings -> Users` section. Yo
 
 The session time for an inactive user is limited. By default, a user's session ends 2 weeks after the last activity, after which you must log in to the system again.
 
-The environment variable (in seconds) `SESSION_COOKIE_AGE` is available for configuring the session lifetime
+The environment variable (in seconds) `SESSION_COOKIE_AGE` is available for configuring the session lifetime.
 
 ## Separatiion of access levels
 
