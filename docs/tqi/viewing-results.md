@@ -75,7 +75,7 @@ hide:
 - **Категория проекта** – категория проекта, назначенная в рамках системы CodeScoring;
 - **Технологии** – языки программирования, используемые в проекте.
 
-![Contribution map](/assets/img/tqi/contribution-map.png)
+![Contribution map](/assets/img/tqi/contribution-map-projects.png)
 
 Карту можно также сохранить как PNG изображение.
 
@@ -89,7 +89,7 @@ hide:
 - **Категория проектов** – категория, назначенная в рамках системы CodeScoring;
 - **Технологии** – языки программирования, используемые в проекте.
 
-![Complexity map](/assets/img/tqi/contribution-map.png)
+![Complexity map](/assets/img/tqi/complexity-map.png)
 
 Карту можно также сохранить как PNG изображение.
 
