@@ -17,7 +17,7 @@ The `TQI -> Authors` section contains all the authors involved in changing the o
 - **Activity, mos** - number of months during which the author actively committed changes;
 - **Project** – total number of projects that author has contributed to;
 - **Commits** - total number of commits made by the author in the project;
-- **Complexity** - the average cyclomatic complexity of the author's commits in the project; 
+- **Complexity** - the average cyclomatic complexity of the author's commits in the project;
 - **Clones** – the number of code fragments borrowed by the author;
 - **OSS count** – total number of Open Source projects in which the author participated;
 - **Proprietor** – part of the organization to which the author belongs;
