@@ -51,7 +51,7 @@ The platform comprehensively provides:
         - license categories and types, license compatibility (**license purity**);
         - package usage indicators: directive/transitive and environment (**scope**);
         - presence of malicious code;
-        - package blacklists, including a prepared **protestware** feed;
+        - package blacklists, including a proprietary **protestware** feed;
 - detection and deduplication of vulnerabilities from 20 knowledge bases, including aggregation (**NVD**, **OSV**, **GHSA** and others), ecosystem (**Debian**, **RPM**, **Alpine** and others), commercial (**Kaspersky OSS Threats Data Feed**) and proprietary, including data on **protestware**;
 - component management in the interface, including:
         - viewing and filtering the list of packages;
