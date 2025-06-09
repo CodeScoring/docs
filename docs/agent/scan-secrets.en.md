@@ -35,7 +35,7 @@ This command starts scanning secrets in the current directory, ignoring files li
 
 ## Command Parameters
 
-The **johnny secrets gitleaks dir** command has the following unique parameters, in addition to the [general scan command settings](/agent/scan.en/#_2):
+The **johnny secrets gitleaks dir** command has the following unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
 
 ### Secrets search startup parameters
 
