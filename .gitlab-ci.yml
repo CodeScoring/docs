@@ -81,12 +81,27 @@ lint_markdown:
 
               # Проверка якорей с датами/версиями
               if echo "$ANCHOR" | grep -qE '^[0-9]{6,}-[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
-                # Проверяем наличие якоря в заголовках без экранирования, но с точным совпадением
-                if grep -E "^#{1,6} .*$ANCHOR" "$TARGET_FILE" >/dev/null; then
+                # Извлекаем версию и дату из якоря
+                ANCHOR_VERSION=$(echo "$ANCHOR" | sed 's/-[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}$//')
+                ANCHOR_DATE=$(echo "$ANCHOR" | sed 's/^[0-9]\{6,\}-//')
+                # Проверяем заголовки на наличие версии (с точками) и даты
+                FOUND=false
+                while IFS= read -r heading; do
+                  # Извлекаем версию и дату из заголовка, например, [2025.13.0] - 2025-03-28
+                  if echo "$heading" | grep -qE '\[[0-9]+\.[0-9]+\.[0-9]+\] - [0-9]{4}-[0-9]{2}-[0-9]{2}'; then
+                    HEADING_VERSION=$(echo "$heading" | grep -oP '\[\K[0-9]+\.[0-9]+\.[0-9]+' | sed 's/\.//g')
+                    HEADING_DATE=$(echo "$heading" | grep -oP '[0-9]{4}-[0-9]{2}-[0-9]{2}')
+                    if [ "$HEADING_VERSION" = "$ANCHOR_VERSION" ] && [ "$HEADING_DATE" = "$ANCHOR_DATE" ]; then
+                      FOUND=true
+                      break
+                    fi
+                  fi
+                done <<< "$HEADINGS"
+                if [ "$FOUND" = true ]; then
                   echo "✅ Version anchor '$ANCHOR' found in $TARGET_FILE"
                 else
                   echo "❌ Broken version anchor '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
-                  echo "🔍 Debug: Anchor being searched: '$ANCHOR'"
+                  echo "🔍 Debug: Anchor being searched: '$ANCHOR' (version: $ANCHOR_VERSION, date: $ANCHOR_DATE)"
                   echo "🔍 Debug: Headings found in $TARGET_FILE:"
                   echo "$HEADINGS" | sed 's/^/  - /'
                   ERROR_FOUND=true
