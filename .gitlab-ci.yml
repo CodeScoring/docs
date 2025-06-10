@@ -50,9 +50,8 @@ lint_markdown:
               TARGET_FILE="$file"
               ANCHOR="${link#\#}"
             else
-              # Упрощаем формирование пути, убираем лишние слэши и добавляем .md
               PATH_PART=$(echo "$link" | sed 's/#.*$//; s|^/||; s|/$||')
-              TARGET_FILE="${PATH_PART}.md"
+              TARGET_FILE="docs/${PATH_PART}.md"
               ANCHOR="${link##*#}"
             fi
 
@@ -82,8 +81,9 @@ lint_markdown:
 
               # Проверка якорей с датами/версиями
               if echo "$ANCHOR" | grep -qE '^[0-9]{6,}-[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
-                # Ищем точное совпадение якоря в заголовках
-                if grep -qE "^#{1,6} .*\b${ANCHOR}\b" "$TARGET_FILE"; then
+                # Экранируем дефисы в ANCHOR для grep
+                ESCAPED_ANCHOR=$(echo "$ANCHOR" | sed 's/-/\\-/g')
+                if grep -qE "^#{1,6} .*\b${ESCAPED_ANCHOR}\b" "$TARGET_FILE"; then
                   echo "✅ Version anchor '$ANCHOR' found in $TARGET_FILE"
                 else
                   echo "❌ Broken version anchor '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
