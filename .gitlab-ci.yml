@@ -81,16 +81,20 @@ lint_markdown:
 
               # Проверка якорей с датами/версиями
               if echo "$ANCHOR" | grep -qE '^[0-9]{6,}-[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
-                # Экранируем дефисы в ANCHOR для grep
-                ESCAPED_ANCHOR=$(echo "$ANCHOR" | sed 's/-/\\-/g')
-                if grep -qE "^#{1,6} .*\b${ESCAPED_ANCHOR}\b" "$TARGET_FILE"; then
+                # Проверяем наличие якоря в заголовках без экранирования, но с точным совпадением
+                if grep -E "^#{1,6} .*$ANCHOR" "$TARGET_FILE" >/dev/null; then
                   echo "✅ Version anchor '$ANCHOR' found in $TARGET_FILE"
                 else
                   echo "❌ Broken version anchor '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
+                  echo "🔍 Debug: Anchor being searched: '$ANCHOR'"
+                  echo "🔍 Debug: Headings found in $TARGET_FILE:"
+                  echo "$HEADINGS" | sed 's/^/  - /'
                   ERROR_FOUND=true
                 fi
               elif ! echo "$GENERATED_ANCHORS" | grep -Fxq "$ANCHOR"; then
                 echo "❌ Broken internal link '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
+                echo "🔍 Debug: Generated anchors in $TARGET_FILE:"
+                echo "$GENERATED_ANCHORS" | sed 's/^/  - /'
                 ERROR_FOUND=true
               else
                 echo "✅ Anchor '$ANCHOR' found in $TARGET_FILE"
