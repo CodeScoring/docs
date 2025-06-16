@@ -28,6 +28,12 @@ Then you need to follow these steps:
 
 ## Update guides for versions with changes in configuration
 
+### [2025.21.0] – 2025-05-21
+
+Starting with this version, the value of the environment variable `$SECRET_KEY` will be used to encrypt sensitive data in the database and changing the value of this variable will require additional operations.
+
+Before upgrading, you must ensure that the `.env` file specifies the correct (**unique, unpredictable**) value of `$SECRET_KEY`, and not the default value.
+
 ### [2025.13.0] - 2025-03-28
 
 - You must ensure that the version of `Docker Engine` is greater than or equal to 25. To do this, run the `docker version` command on the machine with the installation. If the Docker Engine version is lower than 25, you need to update Docker.
@@ -40,9 +46,3 @@ Then you need to follow these steps:
    - **IMPORTANT!** If you do not do this, the installation will not start. If you enter an incorrect value, volumes with a new prefix will be created, and the installation on the new version will start "from scratch"
    - After the value is added to the `.env` file, requests to `docker compose` can be made without the `-p PROJECT_NAME` option
 - You need to download the updated `docker-compose.yml` and `external-db.override.yml` files from the CodeScoring registry and place them in the directory with the compose file.
-
-### [2025.21.0] – 2025-05-21
-
-Starting with this version, the value of the environment variable `$SECRET_KEY` will be used to encrypt sensitive data in the database and changing the value of this variable will require additional operations.
-
-Before upgrading, you must ensure that the `.env` file specifies the correct (**unique, unpredictable**) value of `$SECRET_KEY`, and not the default value.
