@@ -23,7 +23,9 @@ johnny secrets gitleaks dir . \
 --gitleaks-path <path-to-gitleaks> \
 --api_token <api_token> \
 --api_url <api_url> \
---save-results <project-name>\
+--save-results \
+--create-project \
+--project <project-name> \
 --gitleaks-ignore-path .gitleaksignore \
 --gl-secrets-report \
 --gl-secrets-report-filename secrets-report.json

@@ -23,7 +23,9 @@ johnny secrets gitleaks dir . \
 --gitleaks-path <path-to-gitleaks> \
 --api_token <api_token> \
 --api_url <api_url> \
---save-results <project-name>\
+--save-results \
+--create-project \
+--project <project-name> \
 --gitleaks-ignore-path .gitleaksignore \
 --gl-secrets-report \
 --gl-secrets-report-filename secrets-report.json
@@ -33,7 +35,7 @@ This command starts scanning secrets in the current directory, ignoring files li
 
 ## Command Parameters
 
-The **johnny secrets gitleaks dir** command has the following unique parameters, in addition to the [general scan command settings](/agent/scan.en/#_2):
+The **johnny secrets gitleaks dir** command has the following unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
 
 ### Secrets search startup parameters
 
