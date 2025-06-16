@@ -7,7 +7,7 @@ hide:
 
 CodeScoring integrates the [Kaspersky Open Source Software Threats Data Feed](https://www.kaspersky.com/open-source-feed) (Kaspersky OSSTDF) feed into the CodeScoring SCA and CodeScoring OSA modules, providing access to information about vulnerabilities found in detected open source components. The feed is useful not only as a source of data on new vulnerabilities, but also as a tool for enriching already known records from other sources.
 
-The feed is integrated natively at the CodeScoring Index knowledge base level, which ensures deduplication of detected vulnerabilities and a single data presentation for the user.
+The feed is integrated at the CodeScoring Index knowledge base level, which ensures deduplication of detected vulnerabilities and a single data presentation for the user.
 
 ## Connection check
 
@@ -19,39 +19,40 @@ If Kaspersky OSSTDF is successfully connected, the "Private feeds" field in the 
 
 ## Analysis results
 
-CodeScoring integrates the feed not only in terms of data, but also contextual extensions of functionality. In particular, with the connection of the feed, the "Impacts" field appears in the list of vulnerabilities and on their pages, for which a separate security policy can be configured. The value of the field indicates the impact on the system that the vulnerability has.
+CodeScoring integrates the feed not only from a data perspective, but also contextual extensions of functionality. In particular, with the connection of the feed, the Impacts field appears in the list of vulnerabilities and their individual pages, for which a separate security policy can be configured. The field value indicates the impact on the system that the threat has.
 
-For example, the abbreviation **RLF** means "Read Local Files" - such a vulnerability allows access to read files on the user's device. This information helps to understand the context of the vulnerability and determine the direction of a potential attack.
+For example, the abbreviation **RLF** means Read Local Files - such a vulnerability allows access to read files on the user's device. This information helps to understand the context of the vulnerability and determine the direction of a potential attack.
 
-A complete list of possible values of the variable:
+The list of possible values of the variable:
 
-- Arbitrary Code Execution (ACE);
-- Code Injection (CI);
-- Denial of Service (DoS);
-- Hacktool;
-- Loss of Integrity (LoI);
+- Arbitrary code execution (ACE);
+- Code injection (CI);
+- Denial of service (DoS);
+- Loss of integrity (LoI);
+- Overwriting arbitrary files (OAF);
+- Obtaining sensitive information (OSI);
+- Privilege escalation (PE);
+- Reading local files (RLF);
+- Security bypass (SB);
+- Substitution of the user interface (SUI);
+- Writing local files (WLF);
+- Cross-site scripting (XSS/CSS).
+
+In case of compromised packets, this field has the value `Other`.
+
+For packets with malicious code, the following values are possible, among others:
+
 - Malware;
-- Overwrite Arbitrary Files (OAF);
-- Obtain Sensitive Information (OSI);
-- Privilege Escalation (PE);
-- Read Local Files (RLF);
-- Security Bypass (SB);
-- Spoof User Interface (SUI);
-- Write Local Files (WLF);
-- Cross Site Scripting (XSS/CSS);
-- Other.
+- Hacktool.
+
+More details about the available fields can be found in the [OSSTDF documentation](https://tip.kaspersky.com/Help/TIDF/en-US/FieldStructure.htm).
 
 ## Vulnerability details
 
 Additional information appears on the vulnerability page obtained from the Kaspersky OSSTDF feed. The table with the main data contains the Kaspersky field, which can be used to determine the vulnerability ID, and the "Impacts (Kaspersky)" field.
 
-![Kaspersky vulnerability page](/assets/img/kaspersky-vulnerability-en.png)
-
 ## Setting up policies
 
 The data from the feed can be used to create security policies for both analyzing the current code base and checking downloaded components.
 
-The "Impacts" field allows to precisely specify the types of vulnerabilities that require attention. For example, to set up a policy that blocks the use of components with malicious code, one needs to create the condition `Vulnerability mpacts (Kaspersky) -> exactly match -> Malware` and specify the `proxy` value as the development stage to which the policy will apply.
-
-![Kaspersky policy](/assets/img/kaspersky-policy-en.png)
-
+The "Impacts" field allows to precisely specify the types of vulnerabilities that require attention. For example, to set up a policy that blocks the use of components with malicious code, one needs to create the condition `Vulnerability mpacts (Kaspersky) -> exactly match -> Malware`.
