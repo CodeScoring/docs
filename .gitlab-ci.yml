@@ -5,29 +5,18 @@ lint_markdown:
   stage: lint
   script:
     - echo "Starting markdown linting..."
-    - echo "Available tools:"
     - which git grep sed tr awk wget curl || echo "❌ Some tools missing"
     - |
-      if [ -n "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ]; then
-        BASE_REF="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
-      else
-        echo "Fetching origin/main..."
-        git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
-        BASE_REF="origin/main"
-      fi
+      BASE_REF="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-origin/main}"
+      [ -z "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ] && git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
 
       FILES=$(git diff --name-only "$BASE_REF"...HEAD -- '*.md') || { echo "❌ Failed to get changed files"; exit 1; }
-
-      if [ -z "$FILES" ]; then
-        echo "ℹ️ No .md files changed."
-        exit 0
-      fi
+      [ -z "$FILES" ] && { echo "ℹ️ No .md files changed."; exit 0; }
 
       echo "📄 Changed files: $FILES"
       ERROR_FOUND=false
 
-      # 1. Проверка trailing spaces
-      echo "🔍 Checking trailing spaces..."
+      # Trailing spaces
       for file in $FILES; do
         if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
           echo "❌ Trailing spaces in $file"
@@ -36,16 +25,14 @@ lint_markdown:
       done
       [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces."
 
-      # 2. Проверка внутренних ссылок
-      echo "🔗 Checking internal links..."
+      # Internal links
       for file in $FILES; do
         echo "Processing $file..."
-        LINKS=$(grep -oP '\[.*?\]\(\K(?:#[^\s)]+|/[^\s)]+#[^\s)]+)' "$file" | sed 's/^\(#[^/]\+\|\/[^#]\+#\)/\1/' || true)
+        LINKS=$(grep -oP '\[.*?\]\(\K(?:#[^\s)]+|/[^\s)]+#[^\s)]+)' "$file" || true)
         if [ -n "$LINKS" ]; then
           echo "Found links: $LINKS"
           while IFS= read -r link; do
             [ -z "$link" ] && continue
-
             if echo "$link" | grep -q '^#'; then
               TARGET_FILE="$file"
               ANCHOR="${link#\#}"
@@ -61,26 +48,35 @@ lint_markdown:
               COUNT=1
               while IFS= read -r heading; do
                 lower=$(echo "$heading" | tr '[:upper:]' '[:lower:]')
-                if LC_ALL=C grep -q '[^ -~]' <<< "$lower"; then
-                  safe=$(echo "$lower" | iconv -c -t ascii//TRANSLIT | \
-                    sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
-                else
-                  safe=$(echo "$lower" | sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
-                fi
-
-                if [ -z "$safe" ]; then
-                  anchor="_$COUNT"
-                  COUNT=$((COUNT + 1))
-                else
-                  anchor="$safe"
-                fi
-
-                GENERATED_ANCHORS="$GENERATED_ANCHORS
-      $anchor"
+                safe=$(echo "$lower" | iconv -c -t ascii//TRANSLIT | sed 's/[^a-z0-9]/-/g; s/-\+/-/g; s/^-//; s/-$//')
+                anchor=$([ -z "$safe" ] && echo "_$COUNT" || echo "$safe")
+                COUNT=$((COUNT + 1))
+                GENERATED_ANCHORS="$GENERATED_ANCHORS\n$anchor"
               done <<< "$HEADINGS"
 
-              if ! echo "$GENERATED_ANCHORS" | grep -Fxq "$ANCHOR"; then
-                echo "❌ Broken internal link '$link' in $file (anchor '$ANCHOR' not found in $TARGET_FILE)"
+              if echo "$ANCHOR" | grep -qE '^[0-9]{6,}-[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+                ANCHOR_VERSION=$(echo "$ANCHOR" | sed 's/-[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}$//')
+                ANCHOR_DATE=$(echo "$ANCHOR" | sed 's/^[0-9]\{6,\}-//')
+                FOUND=false
+                while IFS= read -r heading; do
+                  if echo "$heading" | grep -qE '\[[0-9]+\.[0-9]+\.[0-9]+\] - [0-9]{4}-[0-9]{2}-[0-9]{2}'; then
+                    HEADING_VERSION=$(echo "$heading" | grep -oP '\[\K[0-9]+\.[0-9]+\.[0-9]+' | sed 's/\.//g')
+                    HEADING_DATE=$(echo "$heading" | grep -oP '[0-9]{4}-[0-9]{2}-[0-9]{2}')
+                    [ "$HEADING_VERSION" = "$ANCHOR_VERSION" ] && [ "$HEADING_DATE" = "$ANCHOR_DATE" ] && FOUND=true
+                  fi
+                done <<< "$HEADINGS"
+                if [ "$FOUND" = true ]; then
+                  echo "✅ Version anchor '$ANCHOR' found in $TARGET_FILE"
+                else
+                  echo "❌ Broken version anchor '$link' in $file (anchor '$ANCHOR' not found)"
+                  echo "🔍 Debug: Headings in $TARGET_FILE:"
+                  echo "$HEADINGS" | sed 's/^/  - /'
+                  ERROR_FOUND=true
+                fi
+              elif ! echo -e "$GENERATED_ANCHORS" | grep -Fxq "$ANCHOR"; then
+                echo "❌ Broken internal link '$link' in $file (anchor '$ANCHOR' not found)"
+                echo "🔍 Debug: Generated anchors in $TARGET_FILE:"
+                echo "$GENERATED_ANCHORS" | sed 's/^/  - /'
                 ERROR_FOUND=true
               else
                 echo "✅ Anchor '$ANCHOR' found in $TARGET_FILE"
@@ -95,11 +91,9 @@ lint_markdown:
         fi
       done
 
-      # 3. Проверка URL
-      echo "🔍 Checking URLs..."
+      # URLs
       if command -v wget >/dev/null; then
         for file in $FILES; do
-          # Извлекаем ссылки [text](http://...) и голые http://, https://, исключая example
           URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | grep -v 'example' || true)
           if [ -n "$URLS" ]; then
             echo "Checking URLs in $file: $URLS"
@@ -129,10 +123,24 @@ lint_markdown:
           fi
         done
       else
-        echo "⚠️ Neither wget nor curl found, skipping URL checks"
+        echo "⚠️ Skipping URL checks: wget or curl not found"
       fi
 
-      # Итоговый результат
+      # Empty line after front matter
+      for file in $FILES; do
+        if grep -q '^---$' "$file"; then
+          if awk '/^---$/ {c++; next} c==1 && /^---$/ {c++; next} c==2 && !/^$/ {print "No empty line"; exit} c==2 && /^$/ {exit}' "$file" | grep -q "No empty line"; then
+            echo "❌ No empty line after front matter in $file"
+            ERROR_FOUND=true
+          else
+            echo "✅ Empty line after front matter in $file"
+          fi
+        else
+          echo "ℹ️ No front matter in $file"
+        fi
+      done
+
+      # Final result
       if [ "$ERROR_FOUND" = true ]; then
         echo "🚫 Linting failed."
         exit 1
