@@ -75,7 +75,7 @@ The activity map is available in the `TQI –> Projects` section on the **Activi
 - **Project category** – category assigned within the CodeScoring system;
 - **Technologies** – programming languages used in the creation of the project.
 
-![Contribution map](/assets/img/tqi/en/contribution-map.png)
+![Contribution map](/assets/img/tqi/en/contribution-map-projects.png)
 
 The map can also be saved as a PNG image.
 
@@ -89,6 +89,6 @@ The complexity map is available in the `TQI –> Projects` section on the **Comp
 - **Project Category** – category assigned within the CodeScoring system;
 - **Technologies** – programming languages used within the project.
 
-![Complexity map](/assets/img/tqi/en/contribution-map.png)
+![Complexity map](/assets/img/tqi/en/complexity-map.png)
 
 The map can also saved as a PNG image.
