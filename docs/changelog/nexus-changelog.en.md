@@ -1,8 +1,13 @@
 ---
 hide:
- -footer
+ - footer
 ---
+
 # Nexus OSA Changelog
+
+## [2025.23.0] - 2025-06-02
+
+- The general plugin configuration now includes the option to set a timeout for waiting for a response from the installation
 
 ### [2025.12.0] - 2025-03-17
 
@@ -23,7 +28,7 @@ hide:
 
 ### [2025.5.0] - 2025-01-27
 
-- Fixed an issue with spaces in the ignored repository names list and the repository formats list for scanning 
+- Fixed an issue with spaces in the ignored repository names list and the repository formats list for scanning
 
 ### [2024.49.0] - 2024-12-05
 
@@ -84,7 +89,7 @@ hide:
 
 ### [2023.43.0] – 2023-10-27
 
-- Added various [plugin operating modes](/osa/nexus_osa.en/#_3)
+- Added various [plugin operating modes](/osa/nexus_osa.en/#setting-the-plugin-operating-mode)
 
 ### [2023.40.0] - 2023-10-04
 
@@ -121,4 +126,4 @@ hide:
 
 ### [2022.51.0] - 2022-12-20
 
-- Improved [logging of installation responses](/osa/nexus_osa.en/#_4)
+- Improved [logging of installation responses](/osa/nexus_osa.en/#setting-up-logging)
