@@ -3,7 +3,7 @@ hide:
 - footer
 ---
 
-# OSS Index Integration
+# Integrating OSS Index
 
 In addition to the internal **CodeScoring Index** database, you can also connect a third-party feed [Sonatype OSS Index](https://ossindex.sonatype.org/) for advanced analysis.
 
