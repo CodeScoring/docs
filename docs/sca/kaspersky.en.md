@@ -5,7 +5,7 @@ hide:
 
 # Using Kaspersky Open Source Software Threats Data Feed
 
-CodeScoring integrates the [Kaspersky Open Source Software Threats Data Feed](https://www.kaspersky.com/open-source-feed) (Kaspersky OSSTDF) feed into the CodeScoring SCA and CodeScoring OSA modules, providing access to information about vulnerabilities found in detected open source components. The feed is useful not only as a source of data on new vulnerabilities, but also as a tool for enriching already known records from other sources.
+CodeScoring integrates the [Kaspersky Open Source Software Threats Data Feed](https://www.kaspersky.com/open-source-feed) (Kaspersky OSSTDF) feed into the CodeScoring SCA and CodeScoring OSA modules, providing access to information about threats in detected open source components. The feed is useful not only as a source of data on new vulnerabilities, but also as a tool for enriching already known records from other sources.
 
 The feed is integrated at the CodeScoring Index knowledge base level, which ensures deduplication of detected vulnerabilities and a single data presentation for the user.
 
