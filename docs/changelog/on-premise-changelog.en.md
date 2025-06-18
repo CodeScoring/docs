@@ -2,7 +2,12 @@
 hide:
   - footer
 ---
+
 # Codescoring On-premise Changelog
+
+### [2025.21.2] - 2025-06-18
+
+- Optimized data migration process when updating the project scan schedule
 
 ### [2025.21.1] - 2025-06-04
 
