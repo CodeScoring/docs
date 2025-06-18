@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Codescoring On-premise Changelog
 
 ### [2025.21.2] - 2025-06-18
