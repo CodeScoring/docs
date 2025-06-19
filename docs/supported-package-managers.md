@@ -21,6 +21,7 @@ hide:
 | | Pipenv | `Pipfile`<br/>`Pipfile.lock` |
 | | Conda | `environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
 | **C и C++** | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py` |
+| | GCC, Clang, CMake, Make и др. | [`buildConfig.json`](/agent/scan-build/)|
 | **Go** | Go Modules | `go.mod`<br/>`go.sum` |
 | **PHP** | Composer | `composer.json`<br/>`composer.lock` |
 | **Ruby** | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked`<br/>`gems.rb` |
