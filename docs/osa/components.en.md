@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Working with OSA components
 
 Components that are checked by the plugin are displayed in the `OSA` section of the CodeScoring UI.
