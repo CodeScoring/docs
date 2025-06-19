@@ -51,7 +51,7 @@ Package requests appear on the **Packages** tab and by default contain the follo
 
 - **Package** – name of the package (with a link to its individual page);
 - **Technology** – technology;
-- **Plugin mode** – [plugin operating mode](/osa/nexus_osa.en/#_3);
+- **Plugin mode** – [plugin operating mode](/osa/nexus_osa.en/#setting-the-plugin-operating-mode);
 - **Block status** – blocking status;
 - **Requested at** – date and time of the request.
 
@@ -59,7 +59,7 @@ Container image requests appear on the **Container images** tab and by default c
 
 - **Container image** – name of the image (with a link to its individual page);
 - **Registry** – name of the registry that contains the image;
-- **Plugin mode** – [plugin operating mode](/osa/nexus_osa.en/#_3);
+- **Plugin mode** – [plugin operating mode](/osa/nexus_osa.en/#setting-the-plugin-operating-mode);
 - **Block status** – blocking status;
 - **Requested at** – date and time of the request.
 

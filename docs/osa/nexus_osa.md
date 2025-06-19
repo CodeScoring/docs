@@ -76,7 +76,7 @@ nx-repository-view-*-*-{read,browse}
 - **Repository** – выбор репозитория, для которого будет применена функция экранирования;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **Delete blocked by policy component from repository** – принудительное удаление блокируемых компонентов из репозитория (*создание "стерильного" репозитория*);
-- **Select capability work mode** – режим работы плагина. 
+- **Select capability work mode** – режим работы плагина.
 
 ![CodeScoring capability scan settings example](/assets/img/osa/capability_scan_settings_example.png)
 
@@ -261,7 +261,7 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 - **Ubuntu 14.10** – *utopic*
 - **Ubuntu 15.04** – *vivid*
 - **Ubuntu 15.10** – *wily*
-- **Ubuntu 16.04** – *xenial*  
+- **Ubuntu 16.04** – *xenial*
 - **Ubuntu 16.10** – *yakkety*
 - **Ubuntu 17.04** – *zesty*
 - **Ubuntu 17.10** – *artful*
