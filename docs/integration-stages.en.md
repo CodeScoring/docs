@@ -73,4 +73,4 @@ Functionality:
 
 - periodic scanning of source code and SBoM;
 - automatic updates of threat data;
-- sending risk notifications via email, task trackers and integration with **ASPM/SIEM**-systems.
+- notifications via email, task trackers and integration with **ASPM/SIEM**-systems.
