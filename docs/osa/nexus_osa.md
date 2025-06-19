@@ -53,14 +53,13 @@ nx-repository-view-*-*-{read,browse}
 
 ### CodeScoring Configuration
 
-Расширение позволяет задать общие настройки плагина для работы с **on-premise** версией **CodeScoring**:
+Расширение позволяет задать общие настройки плагина для работы с инсталляцией **CodeScoring**:
 
-- **CodeScoring Token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
 - **CodeScoring URL** – адрес **on-premise** инсталляции **CodeScoring**;
+- **CodeScoring Token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
 - **HttpClient Connection Pool Size** – количество доступных соединений. Параметр позволяет управлять количеством параллельных запросов, чтобы ускорить сканирование;
 - **HTTP Proxy Host** – адрес прокси-сервера. Используется в случае, если нет возможности наладить прямое соединение между NXRM и CodeScoring;
 - **HTTP Proxy Port** – порт прокси-сервера;
-- **Store artifact analysis in the DB to retrieve them via REST** – сохранение результатов сканирования артефакта в базе NXRM с возможностью извлечения из Nexus API;
 - **Block downloads in case of plugin or CodeScoring errors** – блокировка загрузки компонента при наличии ошибок от плагина или CodeScoring API.
 - **Custom message for blocked packages** – сообщение для пользователя при блокировке компонентов;
 - **Nexus URL for identification in CodeScoring** – адрес Nexus Repository Manager с протоколом для отображения результатов на инсталляции.
@@ -87,8 +86,7 @@ nx-repository-view-*-*-{read,browse}
 - **Repository** – выбор репозитория, для которого будет применена функция экранирования;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **This user skips container image scan** – имя пользователя, для которого не применяется сканирование образов. Используется при загрузке и проверке компонентов консольным агентом;
-- **Host and port used for CodeScoring to download container image to scan** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
-- **Block not scanned images** – блокировка загрузки образов, которые не были просканированы;
+- **Container registry host as used in the `docker pull host/image_name` command** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
 - **Select capability work mode** – режим работы плагина. Режимы работы описаны в секции ниже;
 - **Append repository name to image name for Docker repositories** – добавление названия репозитория в PURL для корректной работы в режиме **RepoPath** (в случае обращения за компонентом через команду `docker pull registry/repository/image_name`).
 
@@ -99,9 +97,10 @@ nx-repository-view-*-*-{read,browse}
 Расширение позволяет включить проверку компонентов на все репозитории в рамках Sonatype Nexus Repository Manager со следующими параметрами:
 
 - **List of comma separated repositories to ignore** – список репозиториев, которые не будут сканироваться;
+- **List of comma separated repository formats to scan** – список форматов репозиториев, которые будут сканироваться. Доступные форматы: `maven2`, `npm`, `pypi`, `nuget`, `cocoapods`, `go`, `rubygems`, `conan`, `apt`, `yum`, `apk`, `docker`;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **This user skips container image scan** – имя пользователя, для которого не применяется сканирование образов. Используется при загрузке и проверке компонентов консольным агентом;
-- **Host and port used for CodeScoring to download container image to scan** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
+- **Container registry host as used in the `docker pull host/image_name` command** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
 - **Select capability work mode** – режим работы плагина. Режимы работы описаны в секции ниже;
 - **Append repository name to image name for Docker repositories** – добавление названия репозитория в PURL для корректной работы в режиме **RepoPath** (в случае обращения за компонентом через команду `docker pull registry/repository/image_name`).
 
@@ -126,46 +125,6 @@ nx-repository-view-*-*-{read,browse}
 ![NXRM logs](/assets/img/osa/nxrm_logs.png)
 
 Результаты логирования событий доступны в разделе `Support -> Logs`.
-
-### Сохранение и извлечение результатов сканирования артефакта
-
-При активации признака **Store artifact analysis in the DB to retrieve them via REST** в конфигурации плагина результаты сканирования артефактов будут сохраняться в базу данных Nexus. Это позволяет получить информацию о том, какие компоненты запрашивались пользователями и какой был статус загрузки данных компонентов.
-
-Извлечь результаты сканирования через Nexus REST API можно с помощью эндпоинта `v1/analysis` с тремя опциональными параметрами:
-
-- **userName** – имя пользователя в Nexus;
-- **date** – дата сканирования в формате ГГГГ-ММ-ДД;
-- **repositoryName** – название репозитория в Nexus.
-
-Пример запроса с помощью `curl`:
-
-``` bash
-curl -X GET https://test.nexus.com/service/rest/v1/analysis?userName=example_user&date=2023-10-19&repositoryName=example_repository
-```
-
-Пример ответа с результатом сканирования:
-``` bash
-[
- {
-    "userName": "bobbi",
-    "artifactName": "specs",
-    "artifactVersion": "4.8",
-    "repositoryName": "gems",
-    "downloadState": "LOADED",
-    "scanDate": "2023-08-12",
-    "scanTime": "10:17:59"
- },
- {
-    "userName": "bobbi",
-    "artifactName": "kmod",
-    "artifactVersion": "27-1ubuntu2",
-    "repositoryName": "ubuntu",
-    "downloadState": "LOADED",
-    "scanDate": "2023-08-12",
-    "scanTime": "11:52:53"
-  },
-]
-```
 
 ## Блокировка компонента
 
