@@ -5,7 +5,7 @@ hide:
 
 # Integration stages
 
-The **CodeScoring** secure development platform integrates into the software development lifecycle, providing security control, policy compliance, and quality analysis at each key stage:
+The **CodeScoring** secure development platform integrates into the software development lifecycle, providing security control, policy compliance, and quality analysis at every key stage:
 
 - local development;
 - source code storage;
@@ -73,4 +73,5 @@ Functionality:
 
 - periodic scanning of source code and SBoM;
 - automatic updates of threat data;
-- notifications via email, task trackers and integration with **ASPM/SIEM**-systems.
+- notifications via Email and task managers;
+- integration with **ASPM/SIEM**-systems.
