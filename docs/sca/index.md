@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # CodeScoring SCA
 
 ## Общее описание
