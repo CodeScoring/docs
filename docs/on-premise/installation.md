@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Установка системы
 
 1. Установить Docker Engine под нужную операционную систему в соответствии с документацией: <https://docs.docker.com/engine/install/>.

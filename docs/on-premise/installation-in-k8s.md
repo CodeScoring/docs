@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Работа системы в Kubernetes
 
 ## Установка с помощью Helm-чарта c параметрами по умолчанию {#helm-installation-default}

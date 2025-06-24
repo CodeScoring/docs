@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Installation in Kubernetes
 
 ## Installation using Helm chart with default parameters {#helm-installation-default}
