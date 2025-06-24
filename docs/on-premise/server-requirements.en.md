@@ -16,6 +16,22 @@ Recommended requirements: **32Gb RAM, 16 CPU cores**.
 
 Additionally, make sure that the space where the directory with docker data is located (data-root docker, by default /var) has at least **20Gb of memory**. At the same time, for smooth operation of the system, it is necessary to reserve **disk space based on the size of the analyzed repositories, multiplied by three**.
 
+## Supported versions of external services
+
+When using your own database instances, make sure that their versions meet the requirements below:
+
+### Redis
+
+- Minimum version: **7.0.0**
+- Tested version: **7.4.3**
+
+### PostgreSQL
+
+- Minimum version: **13.x** (any minor)
+- Tested version: **13.21**
+
+Using other major branches does not guarantee correct results and may lead to errors or performance degradation.
+
 ## External requests
 
 To install the system, the Docker Registry with CodeScoring container images must be available, the address of which is provided along with the activation key.
