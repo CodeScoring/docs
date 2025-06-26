@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Installation guide
 
 1. Install Docker Engine for the desired operating system in accordance with the documentation: <https://docs.docker.com/engine/install/>.
@@ -26,7 +27,7 @@ hide:
 
       - List of domains for proper operation of CSRF protection. It is recommended to list localhost on the internal and external ports, as well as the external domain (or ip:port combination). Specifying the protocol is mandatory, for example:
        - `DJANGO_CSRF_TRUSTED_ORIGINS=http://localhost:18000,https://localhost:8081,https://external ip:8081`
-      - Connection parameters to the PostgreSQL database. The base is supplied with the installation. Specifying accesses separately is a precaution and control measure. If you are using your own database, you must ensure that it corresponds to PostgreSQL version 13.0 or higher.
+      - Connection parameters to the PostgreSQL database. The base is supplied with the installation. Specifying accesses separately is a precaution and control measure. When using your own database, you must ensure that it corresponds to [requirements](/on-premise/server-requirements.en/#supported-versions-of-external-services).
         - `POSTGRES_DB` — database name
         - `POSTGRES_USER` — username. When using your own database, you must ensure that the user has the following rights: **Superuser**, **Create role**, **Create DB**, **Replication**, **Bypass RLS**.
         - `POSTGRES_PASSWORD` - password

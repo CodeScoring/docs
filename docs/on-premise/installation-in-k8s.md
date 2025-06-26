@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Работа системы в Kubernetes
 
 ## Установка с помощью Helm-чарта c параметрами по умолчанию {#helm-installation-default}
@@ -111,6 +112,8 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 
 ### Подключение к внешним PostgreSQL и Redis {#external-databases}
 По умолчанию PostgreSQL и Redis запускаются в отдельных `StatefulSet`. Данный вариант может не подходить для использования в **production-окружении** , т.к. не является отказоустойчивым.
+
+**Важно**: При использовании собственной базы данных необходимо убедиться, что она соответствует [требованиям](/on-premise/server-requirements/#_4).
 
 
 #### Подключение к внешнему Redis {#external-redis}

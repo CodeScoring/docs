@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Installation in Kubernetes
 
 ## Installation using Helm chart with default parameters {#helm-installation-default}
@@ -114,6 +115,7 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 ### Connecting to external PostgreSQL and Redis {#external-databases}
 By default, PostgreSQL and Redis run in separate `StatefulSets`. This option may not be suitable for usage in a **production environment**, because it is not fault tolerant.
 
+**Important**: when using your own database, you must ensure that it corresponds to [requirements](/on-premise/server-requirements.en/#supported-versions-of-external-services).
 
 #### Connecting to external Redis {#external-redis}
 To connect to external Redis, you must do the following:
