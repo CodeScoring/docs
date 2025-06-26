@@ -9,4 +9,4 @@ To effectively search for threats in open source components, CodeScoring integra
 
 Threat knowledge sources complement the unified **CodeScoring Index** database with information about published components, including its own [protestware feed](/feeds/protestware.en).
 
-This section is devoted to a more detailed coverage of individual feeds and the process of working with them.
+This section contains a detailed description of individual feeds and the process of working with them.
