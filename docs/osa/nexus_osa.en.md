@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # CodeScoring Nexus OSA
 
 ## Installing the plugin
@@ -53,14 +54,13 @@ After installing the **CodeScoring OSA** plugin in the `System -> Capabilities` 
 
 ### CodeScoring Configuration
 
-This extension allows you to set general plugin settings for working with the **on-premise** version of **CodeScoring**:
+This extension allows you to set general plugin settings for working with the **CodeScoring** installation:
 
-- **CodeScoring Token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
 - **CodeScoring URL** – address of the on-premise installation of **CodeScoring**;
+- **CodeScoring Token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
 - **HttpClient Connection Pool Size** – number of available connections. This parameter allows you to control the number of parallel requests to speed up scanning;
 - **HTTP Proxy Host** – proxy server address. Used if it is not possible to establish a direct connection between NXRM and CodeScoring;
 - **HTTP Proxy Port** – proxy server port;
-- **Store artifact analysis in the DB to retrieve them via REST** – saving the artifact scan results in the NXRM database with the ability to retrieve them from the Nexus API;
 - **Block downloads in case of plugin or CodeScoring errors** – blocking the download of a component if there are errors from the plugin or CodeScoring API.
 - **Custom message for blocked packages** – message for the user when components are blocked;
 - **Nexus URL for identification in CodeScoring** – address of the Nexus Repository Manager with the protocol for displaying the results on the installation.
@@ -87,8 +87,7 @@ This extension allows you to enable component check for the selected hosted or p
 - **Repository** – select the repository for which the escaping function will be applied;
 - **Security violation response status** – error code returned when security policies are triggered;
 - **This user skips container image scan** – user for which image scanning is not applied. Used when loading and checking components by the console agent;
-- **Host and port used for CodeScoring to download container image to scan** – address (without specifying the protocol) and port through which images for scanning will be downloaded. Used to communicate between Nexus and repository via Docker;
-- **Block not scanned images** – block the downloading of images that have not been scanned;
+- **Container registry host as used in the `docker pull host/image_name` command** – address (without specifying the protocol) and port through which images for scanning will be downloaded. Used to communicate between Nexus and repository via Docker;
 - **Select capability work mode** – plugin operating mode. The operating modes are described in the section below;
 - **Append repository name to image name for Docker repositories** – adding the repository name to PURL for correct operation in **RepoPath** mode (in case of accessing the component via the `docker pull registry/repository/image_name` command).
 
@@ -99,9 +98,10 @@ This extension allows you to enable component check for the selected hosted or p
 The extension allows you to enable component checking for all repositories within the Sonatype Nexus Repository Manager with the following parameters:
 
 - **List of comma separated repositories to ignore** – list of repositories that will not be scanned;
+- **List of comma separated repository formats to scan** – list of repository formats to scan. Available formats: `maven2`, `npm`, `pypi`, `nuget`, `cocoapods`, `go`, `rubygems`, `conan`, `apt`, `yum`, `apk`, `docker`;
 - **Security violation response status** – error code returned when security policies are triggered;
 - **This user skips container image scan** – user for which image scanning is not applied. Used when downloading and checking components by the console agent;
-- **Host and port used for CodeScoring to download container image to scan** – address (without specifying the protocol) and port through which images for scanning will be downloaded. Used to communicate between Nexus and repository via Docker;
+- **Container registry host as used in the `docker pull host/image_name` command** – address (without specifying the protocol) and port through which images for scanning will be downloaded. Used to communicate between Nexus and repository via Docker;
 - **Select capability work mode** – plugin operating mode. The operating modes are described in the section below;
 - **Append repository name to image name for Docker repositories** – adding the repository name to PURL for correct operation in **RepoPath** mode (in case of accessing the component via the `docker pull registry/repository/image_name` command).
 
@@ -126,46 +126,6 @@ To configure logging of plugin events, you need to go to the `Support -> Logging
 ![NXRM logs](/assets/img/osa/nxrm_logs.png)
 
 Event logging results are available in the `Support -> Logs` section.
-
-### Saving and retrieving artifact scan results
-
-When the **Store artifact analysis in the DB to retrieve them via REST** flag is activated in the plugin configuration, the results of scanning artifacts will be saved to the Nexus database. This allows you to obtain information about which components were requested by users and what the download status of these components was.
-
-You can retrieve scan results via the Nexus REST API using the `v1/analysis` endpoint with three optional parameters:
-
-- **userName** – user name in Nexus;
-- **date** – scan date in YYYY-MM-DD format;
-- **repositoryName** – name of the repository in Nexus.
-
-Example request using `curl`:
-
-```bash
-curl -X GET https://test.nexus.com/service/rest/v1/analysis?userName=example_user&date=2023-10-19&repositoryName=example_repository
-```
-
-Example response with scan result:
-```bash
-[
- {
- "userName": "bobby",
- "artifactName": "specs",
- "artifactVersion": "4.8",
- "repositoryName": "gems",
- "downloadState": "LOADED",
- "scanDate": "2023-08-12",
- "scanTime": "10:17:59"
- },
- {
- "userName": "bobby",
- "artifactName": "kmod",
- "artifactVersion": "27-1ubuntu2",
- "repositoryName": "ubuntu",
- "downloadState": "LOADED",
- "scanDate": "2023-08-12",
- "scanTime": "11:52:53"
- },
-]
-```
 
 ## Blocking components
 
@@ -277,48 +237,48 @@ List of supported Debian distributions:
 
 List of supported Ubuntu distributions:
 
-- **Ubuntu 4.10** – *warty*  
-- **Ubuntu 5.04** – *hoary*  
-- **Ubuntu 5.10** – *breezy*  
-- **Ubuntu 6.06** – *dapper*  
-- **Ubuntu 6.10** – *edgy*  
-- **Ubuntu 7.04** – *feisty*  
-- **Ubuntu 7.10** – *gutsy*  
-- **Ubuntu 8.04** – *hardy*  
-- **Ubuntu 8.10** – *intrepid*  
-- **Ubuntu 9.04** – *jaunty*  
-- **Ubuntu 9.10** – *karmic*  
-- **Ubuntu 10.04** – *lucid*  
-- **Ubuntu 10.10** – *maverick*  
-- **Ubuntu 11.04** – *natty*  
-- **Ubuntu 11.10** – *oneiric*  
-- **Ubuntu 12.04** – *precise*  
-- **Ubuntu 12.10** – *quantal*  
-- **Ubuntu 13.04** – *raring*  
-- **Ubuntu 13.10** – *saucy*  
-- **Ubuntu 14.04** – *trusty*  
-- **Ubuntu 14.10** – *utopic*  
-- **Ubuntu 15.04** – *vivid*  
-- **Ubuntu 15.10** – *wily*  
-- **Ubuntu 16.04** – *xenial*  
-- **Ubuntu 16.10** – *yakkety*  
-- **Ubuntu 17.04** – *zesty*  
-- **Ubuntu 17.10** – *artful*  
-- **Ubuntu 18.04** – *bionic*  
-- **Ubuntu 18.10** – *cosmic*  
-- **Ubuntu 19.04** – *disco*  
-- **Ubuntu 19.10** – *eoan*  
-- **Ubuntu 20.04** – *focal*  
-- **Ubuntu 20.10** – *groovy*  
-- **Ubuntu 21.04** – *hirsute*  
-- **Ubuntu 21.10** – *impish*  
-- **Ubuntu 22.04** – *jammy*  
-- **Ubuntu 22.10** – *kinetic*  
-- **Ubuntu 23.04** – *lunar*  
-- **Ubuntu 23.10** – *mantic*  
-- **Ubuntu 24.04** – *noble*  
-- **Ubuntu 24.10** – *oracular*  
-- **Ubuntu 25.04** – *plucky* 
+- **Ubuntu 4.10** – *warty*
+- **Ubuntu 5.04** – *hoary*
+- **Ubuntu 5.10** – *breezy*
+- **Ubuntu 6.06** – *dapper*
+- **Ubuntu 6.10** – *edgy*
+- **Ubuntu 7.04** – *feisty*
+- **Ubuntu 7.10** – *gutsy*
+- **Ubuntu 8.04** – *hardy*
+- **Ubuntu 8.10** – *intrepid*
+- **Ubuntu 9.04** – *jaunty*
+- **Ubuntu 9.10** – *karmic*
+- **Ubuntu 10.04** – *lucid*
+- **Ubuntu 10.10** – *maverick*
+- **Ubuntu 11.04** – *natty*
+- **Ubuntu 11.10** – *oneiric*
+- **Ubuntu 12.04** – *precise*
+- **Ubuntu 12.10** – *quantal*
+- **Ubuntu 13.04** – *raring*
+- **Ubuntu 13.10** – *saucy*
+- **Ubuntu 14.04** – *trusty*
+- **Ubuntu 14.10** – *utopic*
+- **Ubuntu 15.04** – *vivid*
+- **Ubuntu 15.10** – *wily*
+- **Ubuntu 16.04** – *xenial*
+- **Ubuntu 16.10** – *yakkety*
+- **Ubuntu 17.04** – *zesty*
+- **Ubuntu 17.10** – *artful*
+- **Ubuntu 18.04** – *bionic*
+- **Ubuntu 18.10** – *cosmic*
+- **Ubuntu 19.04** – *disco*
+- **Ubuntu 19.10** – *eoan*
+- **Ubuntu 20.04** – *focal*
+- **Ubuntu 20.10** – *groovy*
+- **Ubuntu 21.04** – *hirsute*
+- **Ubuntu 21.10** – *impish*
+- **Ubuntu 22.04** – *jammy*
+- **Ubuntu 22.10** – *kinetic*
+- **Ubuntu 23.04** – *lunar*
+- **Ubuntu 23.10** – *mantic*
+- **Ubuntu 24.04** – *noble*
+- **Ubuntu 24.10** – *oracular*
+- **Ubuntu 25.04** – *plucky*
 
 ### Browsing Debian package information
 
