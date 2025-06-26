@@ -86,8 +86,6 @@ plugins:
           graph: "Visualizing dependency graph"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
-          oss-index: "Integrationg OSS Index"
-          kaspersky: "Using Kaspersky OSS Threats Data Feed"
           osa: "CodeScoring OSA"
           osa-general: "General description"
           nexus-osa: "Nexus OSA"
@@ -127,6 +125,11 @@ plugins:
           dependencies-php: "PHP"
           dependencies-python: "Python"
           dependencies-ruby: "Ruby"
+          feeds: "Data feeds"
+          feeds-general: "General description"
+          feeds-protestware: "Working with protestware feed"
+          feeds-kaspersky: "Using Kaspersky OSS Threats Data Feed"
+          feeds-oss-index: "Integrating OSS Index"
           secrets: "CodeScoring Secrets"
           secrets-general: "General description"
           secrets-setup: "Setting up engine configuration"
@@ -189,8 +192,6 @@ plugins:
           graph: "Визуализация графа зависимостей"
           scan-history: "Отслеживание истории сканирований"
           export-results: "Выгрузка результатов анализа"
-          oss-index: "Интеграция OSS Index"
-          kaspersky: "Использование Kaspersky OSS Threats Data Feed"
           osa: "CodeScoring OSA"
           osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
@@ -230,6 +231,11 @@ plugins:
           dependencies-php: "PHP"
           dependencies-python: "Python"
           dependencies-ruby: "Ruby"
+          feeds: "Потоки данных"
+          feeds-general: "Общее описание"
+          feeds-protestware: "Работа с фидом protestware"
+          feeds-kaspersky: "Использование Kaspersky OSS Threats Data Feed"
+          feeds-oss-index: "Интеграция OSS Index"
           secrets: "CodeScoring Secrets"
           secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
@@ -339,10 +345,6 @@ nav:
     - scan-history: sca/scan-history.en.md
     - export-results: sca/export-results.md
     - export-results: sca/export-results.en.md
-    - oss-index: sca/oss-index.md
-    - oss-index: sca/oss-index.en.md
-    - kaspersky: sca/kaspersky.md
-    - kaspersky: sca/kaspersky.en.md
   - agent:
     - agent-general: agent/index.md
     - agent-general: agent/index.en.md
@@ -401,6 +403,15 @@ nav:
     - dependencies-python: dependencies/python.en.md
     - dependencies-ruby: dependencies/ruby.md
     - dependencies-ruby: dependencies/ruby.en.md
+  - feeds:
+    - feeds-general: feeds/index.md
+    - feeds-general: feeds/index.en.md
+    - feeds-protestware: feeds/protestware.md
+    - feeds-protestware: feeds/protestware.en.md
+    - feeds-kaspersky: feeds/kaspersky.md
+    - feeds-kaspersky: feeds/kaspersky.en.md
+    - feeds-oss-index: feeds/oss-index.md
+    - feeds-oss-index: feeds/oss-index.en.md
   - secrets:
     - secrets-general: secrets/index.md
     - secrets-general: secrets/index.en.md
