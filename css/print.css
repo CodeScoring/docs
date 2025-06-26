@@ -1,0 +1,14 @@
+/* Print Button Styling */
+#print-pdf-btn {
+    cursor: pointer;
+    position: relative;
+    top: 37px; /* Slightly lower the icon */
+}
+
+/* Hide button when printing */
+@media print {
+    #print-pdf-btn {
+        display: none;
+    }
+}
+
