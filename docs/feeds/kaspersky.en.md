@@ -19,7 +19,7 @@ If Kaspersky OSSTDF is successfully connected, the "Private feeds" field in the 
 
 ## Analysis results
 
-CodeScoring integrates the feed not only from a data perspective, but also contextual extensions of functionality. In particular, with the connection of the feed, the Impacts field appears in the list of vulnerabilities and their individual pages, for which a separate security policy can be configured. The field value indicates the impact on the system that the threat has.
+CodeScoring integrates the feed not only from a data perspective, but also contextual extensions of functionality. In particular, with the connection of the feed, the **Impacts** field appears in the list of vulnerabilities and their individual pages, for which a separate security policy can be configured. The field value indicates the impact on the system that the threat has.
 
 For example, the abbreviation **RLF** means Read Local Files - such a vulnerability allows access to read files on the user's device. This information helps to understand the context of the vulnerability and determine the direction of a potential attack.
 
@@ -49,7 +49,7 @@ More details about the available fields can be found in the [OSSTDF documentatio
 
 ## Vulnerability details
 
-Additional information appears on the vulnerability page obtained from the Kaspersky OSSTDF feed. The table with the main data contains the Kaspersky field, which can be used to determine the vulnerability ID, and the "Impacts (Kaspersky)" field.
+Additional information appears on the vulnerability page obtained from the Kaspersky OSSTDF feed. The table with the main data contains the Kaspersky field, which can be used to determine the vulnerability ID, and the **Impacts (Kaspersky)** field.
 
 ## Setting up policies
 
