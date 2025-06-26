@@ -34,9 +34,7 @@ The first launch of the authors analysis can take a noticeable time, since the e
 
 ## Scheduled analysis
 
-In addition to manual launch, you can set up scheduled analysis of individual projects by defining .
-
-This is managed on the project page in the `Settings -> Projects` section.
+In addition to manual launch, you can set up scheduled analysis of individual projects. This is managed on the project page in the `Settings -> Projects` section.
 
 By default, the **SCA scan schedule** parameter is set to **Off**. To activate scheduled analysis, select **On** and specify the time and days of the week.
 
