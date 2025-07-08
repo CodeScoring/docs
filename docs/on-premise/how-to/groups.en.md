@@ -10,7 +10,7 @@ Groups are managed in the `Settings -> Groups` section. You can go to the group 
 
 ## Configuring groups
 
-Each group has its own list of users and a set of associated projects. You can change these parameters on the **Edit** page.
+Each group has its own list of users and a set of associated projects. You can change these parameters using the **Edit** button.
 
 You can link a project to a group using the **Add project** button. After linking a group, each user will have access to the project according to the assigned role.
 

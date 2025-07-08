@@ -70,6 +70,7 @@ plugins:
           vcs: "Connecting to VCS"
           project-control: "Managing projects"
           policies: "Managing policies"
+          ignores: "Ignoring policies"
           launch-analysis: "Configuring and launching analysis"
           export-results: "Exporting analysis results"
           groups: "Creating user groups"
@@ -176,6 +177,7 @@ plugins:
           vcs: "Подключение системы контроля версий"
           project-control: "Управление проектами"
           policies: "Настройка политик"
+          ignores: "Игнорирование политик"
           launch-analysis: "Настройка и запуск анализа"
           export-results: "Выгрузка результатов анализа"
           groups: "Создание групп пользователей"
@@ -305,6 +307,8 @@ nav:
     - project-control: on-premise/how-to/projects.en.md
     - policies: on-premise/how-to/policies.md
     - policies: on-premise/how-to/policies.en.md
+    - ignores: on-premise/how-to/ignores.md
+    - ignores: on-premise/how-to/ignores.en.md
     - notifications: on-premise/how-to/notifications.md
     - notifications: on-premise/how-to/notifications.en.md
     - ldap: on-premise/how-to/ldap-settings.md
