@@ -142,7 +142,7 @@ Original instructions for generating a token in English: <https://docs.microsoft
     - **Instance clone type** – cloning type (select SSH type);
     - **Instance type** – VCS instance type (select Other git type);
     - **Instance url** – the address where VCS is available;
-    - **SSH key** – the SSH key created in step 4.
+    - **SSH key** – the SSH key created in step 3.
 
 5. Go to the `Settings -> Project` section, open the form for creating a new project by clicking the **Create New** button and fill in the project creation fields:
 
