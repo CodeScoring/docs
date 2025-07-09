@@ -3,33 +3,28 @@ hide:
   - footer
 ---
 
-# Working with SCA components
-
-Components that have checked the `SCA` module are displayed in the `SCA` section of the CodeScoring interface.
+# Working with dependencies
 
 ## View dependencies list¶
 
-The list of scanned Open Source dependencies can be viewed in the `SCA -> Dependencies` subsection.
-The table in this section contains **all** dependencies that were checked during the operation of the SCA module, with the following information:
+The list of scanned Open Source dependencies can be viewed in the `SCA -> Dependencies` subsection. The table in this section contains **all** dependencies that were checked during the operation of the SCA module, with the following information:
 
 - **Dependency** – dependency name (with a link to its individual page);
 - **Technology** – technology (programming language or build tool);
-- **Licenses** – licenses;
-- **Authors** – authors;
+- **Licenses** – license ID from the package index;
+- **Authors** – developer of the component the package index;
 - **Vulnerabilities** – number of vulnerabilities found in the dependency;
-- **Found** – dependency definition type: by manifest or by content (when the component code is included in the project code base);
+- **Found** – dependency definition type: by resolve, by manifest or by content (when the component code is included in the project code base);
 - **Relationship** – dependency type (direct or transitive);
-- **Environment** – development environment (scope);
+- **Environment** – development environment;
 - **Parent Dependencies** – related upstream dependencies;
-- **Project** – used in the project;
-- **Maximum patch version** - the version to which the dependency must be updated to close known vulnerabilities of the dependency;
+- **Project** – project that uses the dependency;
+- **Maximum fix version** - the version of the dependency to which an update should be performed in order to fix the vulnerabilities currently detected by the SCA module, while only dependencies with the specified fixed version are taken into account;
 - **Release date** - the date and time of the dependency release.
 
 The dependency table can be filtered by project, department, project category, project groups, technology, license, license category, as found, relationship, environment, release time period.
 
 Clicking on the dependency name takes you to its individual page, where information about its use in projects and found vulnerabilities is displayed.
-
-Note on calculating the maximum patch version. This value is the version to which the dependency must be updated to close vulnerabilities currently known in CodeScoring with a known patch version. Dependencies without a version are not taken into account in the calculation.
 
 ## Working with dependency graph
 
