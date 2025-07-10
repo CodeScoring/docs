@@ -23,7 +23,7 @@ hide:
 ## Добавление SSH-ключа
 
 1. Скопировать существующий или сгенерировать новый приватный SSH ключ в системе контроля версий по инструкции для:
-    - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html])
+    - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html)
     - [Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
     - [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/)
     - [Azure DevOps Git](https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)

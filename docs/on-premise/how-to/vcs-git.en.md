@@ -23,7 +23,7 @@ After connecting the version control system, it is impossible to change its type
 ## Adding an SSH key
 
 1. Copy an existing or generate a new private SSH key in the version control system according to the instructions for:
- - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html])
+ - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html)
  - [Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
  - [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/)
  - [Azure DevOps Git](https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
