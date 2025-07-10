@@ -77,7 +77,7 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Dependency vulnerability count**;
 - **Dependency is dangerous**;
 - **Dependency is protestware**;
-- **Dependency is a descendant of** - searching descendant dependencies at deeper levels for transitive dependencies;
+- **Dependency is a descendant of** - searches across all levels for lower-level transitive dependencies associated with the specified parent component;
 - **Technology** — programming language or ecosystem;
 - **License**;
 - **License category**;
