@@ -40,7 +40,7 @@ After connecting the version control system, it is impossible to change its type
 
 Original instructions for generating a token: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token>
 
-1. Log in to your GitLab account; for the cloud version, the login is available at the link <https://gitlab.com/users/sign_in>.
+1. Log in to your GitLab account.
 2. Through the user menu in the upper right corner, go to the **Edit profile** section.
 
  ![Edit profile](/assets/img/gitlab/edit-profile-link.png)

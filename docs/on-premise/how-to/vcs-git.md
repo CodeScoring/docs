@@ -40,7 +40,7 @@ hide:
 
 Оригинальная инструкция для генерации токена на английском: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token>
 
-1. Войти в свой аккаунт в GitLab, для облачной версии логин доступен по ссылке <https://gitlab.com/users/sign_in>.
+1. Войти в свой аккаунт в GitLab.
 2. Через меню пользователя в правом верхнем углу перейти в раздел **Edit profile**.
 
     ![Edit profile](/assets/img/gitlab/edit-profile-link.png)
