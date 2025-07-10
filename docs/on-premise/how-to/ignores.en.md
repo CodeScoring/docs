@@ -13,7 +13,7 @@ Ignore conditions are created and configured in the `Settings -> Policy ignores`
 
 To create an ignore condition for one or more policies, click the **Create** button and fill in the following fields:
 
-- **Groups** - groups to which the ignore is applied;
+- **Groups** - project groups to which the ignore is applied;
 - **Projects** - projects to which the ignore is applied;
 - **Container images** - images in registries to which the ignore is applied;
 - **Technology** - programming language or ecosystem;

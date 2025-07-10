@@ -12,7 +12,8 @@ hide:
 Policies can be created for:
 
 - the entire organization;
-- department;
+- proprietor;
+- groups;
 - project;
 - development environment;
 - repository;
@@ -54,7 +55,7 @@ Policies are created in the `Settings -> Policies` section. You can go to the po
 The policy creation form specifies the policy context using the following parameters:
 
 - **Name**;
-- **Groups** — user groups to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
+- **Groups** — project groups to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
 - **Proprietors** — organization departments to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
 - **Projects** — projects to which the policy applies;
 - **Stages** — development cycle stages to which the policy applies;
