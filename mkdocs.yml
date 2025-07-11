@@ -82,10 +82,8 @@ plugins:
           api: "Working with API"
           sca: "CodeScoring SCA"
           sca-general: "General description"
-          launch-analysis: "Launching a scan"
           graph: "Visualizing dependency graph"
           scan-history: "Tracking scan history"
-          export-results: "Exporting analysis results"
           osa: "CodeScoring OSA"
           osa-general: "General description"
           nexus-osa: "Nexus OSA"
@@ -115,6 +113,7 @@ plugins:
           agent-save-results: "Saving scan results"
           agent-export: "Exporting scan results"
           agent-resolve: "Resolving dependencies"
+          agent-resolve-gradle: "Gradle"
           dependencies: "Working with dependencies"
           dependencies-general: "General description"
           dependencies-java: "Java"
@@ -188,10 +187,8 @@ plugins:
           api: "Работа с API"
           sca: "CodeScoring SCA"
           sca-general: "Общее описание"
-          launch-analysis: "Запуск сканирования"
           graph: "Визуализация графа зависимостей"
           scan-history: "Отслеживание истории сканирований"
-          export-results: "Выгрузка результатов анализа"
           osa: "CodeScoring OSA"
           osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
@@ -221,6 +218,7 @@ plugins:
           agent-save-results: "Сохранение результатов сканирования"
           agent-export: "Экспорт результатов сканирования"
           agent-resolve: "Разрешение зависимостей в окружении сборки"
+          agent-resolve-gradle: "Gradle"
           dependencies: "Работа с зависимостями"
           dependencies-general: "Общее описание"
           dependencies-java: "Java"
@@ -382,8 +380,11 @@ nav:
     - agent-save-results: agent/save-results.en.md
     - agent-export: agent/export.md
     - agent-export: agent/export.en.md
-    - agent-resolve: agent/resolve.md
-    - agent-resolve: agent/resolve.en.md
+    - agent-resolve:
+        - agent-resolve: agent/resolve/index.md
+        - agent-resolve: agent/resolve/index.en.md
+        - agent-resolve-gradle: agent/resolve/gradle.md
+        - agent-resolve-gradle: agent/resolve/gradle.en.md
   - dependencies:
     - dependencies-general: dependencies/index.md
     - dependencies-general: dependencies/index.en.md

@@ -13,7 +13,7 @@ When resolving dependencies in the environment, the agent checks for the absence
 
 - .NET
 - Go
-- Gradle
+- [Gradle](gradle.en)
 - Maven
 - npm
 - Poetry

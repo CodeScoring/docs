@@ -13,7 +13,7 @@ hide:
 
 - .NET
 - Go
-- Gradle
+- [Gradle](gradle)
 - Maven
 - npm
 - Poetry

@@ -22,6 +22,36 @@ mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
 ./gradlew dependencies > gradle-dependency-tree.txt
 ```
 
+### Creating a  `gradle-dependency-tree.txt` file for multi-project builds
+
+In multi-project builds, the following actions are recommended to obtain all dependencies, including all submodule dependencies:
+
+#### Groovy
+
+Add to `build.gradle` file code:
+
+``` 
+subprojects {
+    task CodeScoring_All_Dependencies(type: DependencyReportTask) {}
+}
+
+```
+#### Kotlin
+
+Add to `build.gradle.kts` file code:
+```
+
+subprojects {
+    tasks.register<DependencyReportTask>("CodeScoring_All_Dependencies"){}
+}
+```
+
+Execute command:
+
+``` bash
+./gradlew CodeScoring_All_Dependencies > gradle-dependency-tree.txt
+```
+
 After generating artifacts, you need to use the console agent command [scan file](/agent/scan-file.en) on the resulting artifact, for example:
 
 ``` bash
