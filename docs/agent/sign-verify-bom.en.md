@@ -1,17 +1,17 @@
-# BOM Signing and Verification
+# SBOM Signing and Verification
 
-To confirm integrity and authenticity, signing and verification of BOM files using RSA SHA256 digital signatures is supported.
+To confirm integrity and authenticity, signing and verification of SBOM files using RSA SHA256 digital signatures is supported.
 
 ## Commands
 
-### sign bom - BOM File Signing
+### sign bom - SBOM File Signing
 
-The `sign bom` command creates a digital signature for a BOM file.
+The `sign bom` command creates a digital signature for a SBOM file.
 
 #### Parameters
 
 - `--private-key <path>` - path to RSA private key in PEM format (required)
-- `--include-public-key` - include public key in BOM file (optional)
+- `--include-public-key` - include public key in SBOM file (optional)
 
 #### Usage Examples
 
@@ -30,9 +30,9 @@ The `sign bom` command creates a digital signature for a BOM file.
 --include-public-key 
 ```
 
-### verify bom - BOM File Signature Verification
+### verify bom - SBOM File Signature Verification
 
-The `verify bom` command verifies the digital signature of a BOM file.
+The `verify bom` command verifies the digital signature of a SBOM file.
 
 #### Parameters
 
@@ -47,7 +47,7 @@ The `verify bom` command verifies the digital signature of a BOM file.
 --api_url <api_url> \
 --public-key <public_key_pem>
 
-# Verification using key from BOM file
+# Verification using key from SBOM file
 ./johnny verify bom <bom_json> \
 --api_token <api_token> \
 --api_url <api_url>
