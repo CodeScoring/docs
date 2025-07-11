@@ -33,6 +33,70 @@ In `package.json`, the dependencies section may contain the following entry:
 
 The Johnny console agent handles this entry correctly, recognizing that **@babel/legacy-core** is an alias for **@babel/core** version 7.12.0. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
 
+### Support for the NPM overrides mechanism
+
+The [NPM overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) mechanism allows you replacing the version of a dependency with a known security issue, replacing an existing dependency with a fork.
+
+In `package.json`, the overrides section may contain the following entry:
+
+```json
+"overrides": {
+  "foo": "1.0.0"
+}
+```
+
+### Support for the NPM workspaces mechanism
+
+The [NPM workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces) mechanism allows you support managing multiple packages from your local file system from within a singular top-level, root package.
+
+In `package.json`, the workspaces section may contain the following entry:
+
+```json
+"workspaces": [ "packages/a", "packages/b" ]
+```
+
+The Johnny console agent process all valid `package.json` from workspaces together.
+
+## PNPM
+
+### Creating a `pnpm-lock.yaml` file
+
+1. Initialize the project:
+   ```sh
+   pnpm init -y
+   ```
+2. Install dependencies:
+   ```sh
+   pnpm install
+   ```
+
+### Support for the PNPM overrides mechanism
+
+The PNPM overrides mechanism allows you replacing the version of a dependency with a known security issue, replacing an existing dependency with a fork.
+
+In `package.json`, the pnpm/overrides section may contain the following entry:
+
+```json
+"pnpm": {
+  "overrides": {
+    "example-package": "^1.3.0"
+  }
+}
+```
+
+### Support for the PNPM workspaces mechanism
+
+The [PNPM workspaces](https://pnpm.io/pnpm-workspace_yaml) mechanism allows you support managing multiple packages from your local file system from within a singular top-level, root package.
+
+In `pnpm-workspace.yaml` in folder with root package `package.json` may contain the following entry:
+
+```yaml
+packages:
+- 'packages/*'
+```
+
+The Johnny console agent process all valid `package.json` from workspaces together.
+
 ## Yarn
 
 ### Creating a `yarn.lock` file

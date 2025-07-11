@@ -33,6 +33,70 @@ hide:
 
 Консольный агент Johnny корректно обрабатывает эту запись, распознавая, что **@babel/legacy-core** – это alias для **@babel/core** версии 7.12.0. В ходе анализа зависимостей учитывается оригинальный пакет, предотвращая ошибки, связанные с несуществующими именами.
 
+### Поддержка механизма NPM overrides
+
+Механизм [NPM overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) позволяет изменить версии транзитивных зависимостей. Это полезно в случаях необходимости замены зависимости с известной уязвимостью, либо замены зависимости на форк.
+
+В `package.json` в секции overrides может быть указана следующая запись:
+
+```json
+"overrides": {
+  "foo": "1.0.0"
+}
+```
+
+### Поддержка механизма NPM workspaces
+
+Механизм [NPM workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces) позволяет централизованно управлять несколькими пакетами
+
+В `package.json` в секции workspaces может быть указана следующая запись:
+
+```json
+"workspaces": [ "packages/a", "packages/b" ]
+```
+
+В таком случае агент Johnny будет обрабатывать корневой package.json и все package.json всех пакетов из workspaces как единое целое.
+
+## PNPM
+
+### Создание файла `pnpm-lock.yaml`
+
+1. Инициализируйте проект:
+   ```sh
+   pnpm init -y
+   ```
+2. Установите зависимости:
+   ```sh
+   pnpm install
+   ```
+   
+### Поддержка механизма PNPM overrides
+
+Механизм PNPM overrides позволяет изменить версии транзитивных зависимостей. Это полезно в случаях необходимости замены зависимости с известной уязвимостью, либо замены зависимости на форк.
+
+В `package.json` в секции pnpm/overrides может быть указана следующая запись:
+
+```json
+"pnpm": {
+  "overrides": {
+    "example-package": "^1.3.0"
+  }
+}
+```
+
+### Поддержка механизма PNPM workspaces
+
+Механизм [PNPM workspaces](https://pnpm.io/pnpm-workspace_yaml) позволяет централизованно управлять несколькими пакетами
+
+В `pnpm-workspace.yaml` расположенном рядом с корневым `package.json` быть указана следующая запись:
+
+```yaml
+packages:
+- 'packages/*'
+```
+
+В таком случае агент Johnny будет обрабатывать корневой package.json и все package.json всех пакетов из workspaces как единое целое.
+
 ## Yarn
 
 ### Создание файла `yarn.lock`
@@ -134,3 +198,4 @@ dependencies:
   version: 2.2.2
   resolution: "yaml@npm:2.2.2"
 ```
+
