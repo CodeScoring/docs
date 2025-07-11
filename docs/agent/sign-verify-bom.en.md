@@ -53,10 +53,13 @@ The `verify bom` command verifies the digital signature of a SBOM file.
 --api_url <api_url>
 ```
 
-## Exit Codes
+## Run results
 
-- `0` - successful operation
-- `4` - signature verification error
+Agent returns the exit code:
+
+- 0: successful operation
+- 4: signature verification error
+
 
 ## Requirements
 
