@@ -69,6 +69,21 @@ The Johnny console agent process all valid `package.json` from workspaces togeth
    ```sh
    pnpm install
    ```
+## Support for the PNPM package alias mechanism
+
+The PNPM package alias mechanism allows you to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
+
+Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updates, and dependency compatibility.
+
+In `package.json`, the dependencies section may contain the following entry:
+
+```json
+"dependencies": {
+"lodash-old": "npm:lodash@3.10.1"
+}
+```
+
+The Johnny console agent handles this entry correctly, recognizing that **lodash-old** is an alias for **lodash** version 3.10.1. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
 
 ### Support for the PNPM overrides mechanism
 
@@ -109,6 +124,27 @@ yarn init -y
 ```sh
 yarn install
 ```
+
+## Support for the Yarn package alias mechanism
+
+The Yarn package alias mechanism allows you to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
+
+Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updates, and dependency compatibility.
+
+In `package.json`, the dependencies section may contain the following entry:
+
+```json
+"dependencies": {
+"lodash-old": "npm:lodash@3.10.1"
+}
+```
+
+In `yarn.lock` :
+```yaml
+"lodash-old@npm:lodash@3.10.1":
+```
+
+The Johnny console agent handles this entry correctly, recognizing that **lodash-old** is an alias for **lodash** version 3.10.1. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
 
 ### Support for Yarn's selective dependency resolution mechanism
 
