@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Working with dependencies in JavaScript
 
 ## NPM
@@ -35,7 +36,7 @@ The Johnny console agent handles this entry correctly, recognizing that **@babel
 
 ### Support for the NPM overrides mechanism
 
-The [NPM overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) mechanism allows you replacing the version of a dependency with a known security issue, replacing an existing dependency with a fork.
+The [NPM overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) mechanism allows to replace the version of a transitive dependency. It is helpful when replacing a version with a known security issue or replacing an existing dependency with a fork.
 
 In `package.json`, the overrides section may contain the following entry:
 
@@ -47,7 +48,7 @@ In `package.json`, the overrides section may contain the following entry:
 
 ### Support for the NPM workspaces mechanism
 
-The [NPM workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces) mechanism allows you support managing multiple packages from your local file system from within a singular top-level, root package.
+The [NPM workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces) mechanism allows to support managing multiple packages from your local file system within a singular top-level, root package.
 
 In `package.json`, the workspaces section may contain the following entry:
 
@@ -55,7 +56,7 @@ In `package.json`, the workspaces section may contain the following entry:
 "workspaces": [ "packages/a", "packages/b" ]
 ```
 
-The Johnny console agent process all valid `package.json` from workspaces together.
+The Johnny binary agent processes all valid `package.json` from workspaces together.
 
 ## PNPM
 
@@ -71,7 +72,7 @@ The Johnny console agent process all valid `package.json` from workspaces togeth
    ```
 ## Support for the PNPM package alias mechanism
 
-The PNPM package alias mechanism allows you to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
+The PNPM package alias mechanism allows to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
 
 Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updates, and dependency compatibility.
 
@@ -83,11 +84,11 @@ In `package.json`, the dependencies section may contain the following entry:
 }
 ```
 
-The Johnny console agent handles this entry correctly, recognizing that **lodash-old** is an alias for **lodash** version 3.10.1. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
+The Johnny binary agent handles this entry correctly, recognizing that **lodash-old** is an alias for **lodash** version 3.10.1. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
 
 ### Support for the PNPM overrides mechanism
 
-The PNPM overrides mechanism allows you replacing the version of a dependency with a known security issue, replacing an existing dependency with a fork.
+The PNPM overrides mechanism allows to replace the version of a transitive dependency. It is helpful when replacing a version with a known security issue or replacing an existing dependency with a fork.
 
 In `package.json`, the pnpm/overrides section may contain the following entry:
 
@@ -110,7 +111,7 @@ packages:
 - 'packages/*'
 ```
 
-The Johnny console agent process all valid `package.json` from workspaces together.
+The Johnny binary agent process all valid `package.json` from workspaces together.
 
 ## Yarn
 
@@ -127,7 +128,7 @@ yarn install
 
 ## Support for the Yarn package alias mechanism
 
-The Yarn package alias mechanism allows you to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
+The Yarn package alias mechanism allows to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
 
 Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updates, and dependency compatibility.
 
