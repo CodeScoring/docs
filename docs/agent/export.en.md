@@ -31,3 +31,28 @@ If necessary, you can specify multiple formats, separating them with commas, for
 ```
 
 In this example, the output will be in the `coloredtable` format to the console, and also saved to the `junit.xml` file in the `junit` format.
+
+# Exporting Policy Alerts report
+
+The Johnny console agent supports exporting Policy Alerts report in various formats. This allows to adapt reporting to different needs.
+
+## Available report formats
+
+- **coloredtable** – colored table in the console. Default format;
+- **table** – simple table;
+- **text** – text report;
+- **json** – **Attention**: data structure can be changed on next version;
+- **csv** – text format for table data;
+
+### Usage example
+
+If necessary, you can specify multiple formats, separating them with commas, for example:
+
+```bash
+./johnny scan file path/to/file \
+--api_token <api_token> \
+--api_url <api_url> \
+--alerts-format "coloredtable, json>>alerts.json"
+```
+
+In this example, the output will be in the `coloredtable` format to the console, and also saved to the `alerts.json` file in the `json` format.
