@@ -1,67 +1,62 @@
-# SBOM Signing and Verification
+---
+hide:
+- footer
+---
 
-To confirm integrity and authenticity, signing and verification of SBOM files using RSA SHA256 digital signatures is supported.
+# SBoM signing and verification
 
-## Commands
+Signing and verification using RSA SHA256 digital signatures is supported to confirm the integrity and authenticity of SBoM files. This functionality is available starting with binary agent version **2025.29.0**.
 
-### sign bom - SBOM File Signing
+**Important**: only RSA keys are supported, and they must be in PEM format.
 
-The `sign bom` command creates a digital signature for a SBOM file.
+## SBoM file signing
 
-#### Parameters
+The `sign bom` command is used to create a digital signature for an SBoM file. It has the following parameters:
 
-- `--private-key <path>` - path to RSA private key in PEM format (required)
-- `--include-public-key` - include public key in SBOM file (optional)
+- `--private-key <path>` - path to the RSA private key in PEM format (**required**);
+- `--include-public-key` - include the public key in the SBOM file (optional).
 
-#### Usage Examples
+### Launch examples
 
 ```bash
-# Sign file with private key
+# Signing a file with a private key
 ./johnny sign bom <bom_json> \
 --api_token <api_token> \
 --api_url <api_url> \
 --private-key <private_key_pem>
 
-# Sign file and include public key in the signature body
+# Signing a file with a public key included in SBOM
 ./johnny sign bom <bom_json> \
 --api_token <api_token> \
 --api_url <api_url> \
 --private-key <private_key_pem> \
---include-public-key 
+--include-public-key
 ```
 
-### verify bom - SBOM File Signature Verification
+## Verifying the signature of an SBoM file
 
-The `verify bom` command verifies the digital signature of a SBOM file.
+The `verify bom` command is used to verify the signature of an SBoM file. It has the following parameters:
 
-#### Parameters
+- `--public-key <path>` - path to the RSA public key in PEM format (optional).
 
-- `--public-key <path>` - path to RSA public key in PEM format (optional)
-
-#### Usage Examples
+### Run examples
 
 ```bash
-# Verification using public key from file
+# Verification using a public key from a file
 ./johnny verify bom <bom_json> \
 --api_token <api_token> \
 --api_url <api_url> \
 --public-key <public_key_pem>
 
-# Verification using key from SBOM file
+# Verification using a key from an SBoM file
 ./johnny verify bom <bom_json> \
 --api_token <api_token> \
 --api_url <api_url>
 ```
 
-## Run results
+## Results
 
-Agent returns the exit code:
+The agent returns the following exit code:
 
-- 0: successful operation
-- 4: signature verification error
-
-
-## Requirements
-
-- Only RSA keys are supported
-- Keys must be in PEM format
+- 0: successful run;
+- 4: signature verification error.
