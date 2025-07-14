@@ -13,7 +13,7 @@ hide:
 
 - .NET
 - Go
-- [Gradle](#gradle)
+- Gradle
 - Maven
 - npm
 - Poetry
@@ -24,7 +24,7 @@ hide:
 - pnpm
 - Conda
 
-Параметры разрешения зависимостей в окружении и пути к пакетному менеджеру регулируются следующими флагами в команде `scan`:
+Параметры разрешения зависимостей в окружении и пути к пакетному менеджеру регулируются следующими параметрами в команде `scan`:
 
 - `--dotnet-resolve` / `--dotnet-path`
 - `--go-resolve` / `--go-path`
@@ -52,8 +52,12 @@ scan dir . \
 
 При необходимости перечисленные параметры можно добавить в [конфигурационный файл агента](/agent/config).
 
-## Gradle
+### Gradle
 
-Значение по умолчанию `--gradle-path` : `./gradlew`
+Для разрешения зависимостей в Gradle по умолчанию необходимо задать следующее значение:
 
-Консольный агент Johnny формирует и анализирует файл [gradle-dependency-tree.txt](../../dependencies/java#gradle) 
+``` bash
+--gradle-path : ./gradlew
+```
+
+Консольный агент Johnny формирует и анализирует файл [gradle-dependency-tree.txt](../../dependencies/java#gradle).

@@ -13,7 +13,7 @@ When resolving dependencies in the environment, the agent checks for the absence
 
 - .NET
 - Go
-- [Gradle](#gradle)
+- Gradle
 - Maven
 - npm
 - Poetry
@@ -24,7 +24,7 @@ When resolving dependencies in the environment, the agent checks for the absence
 - pnpm
 - Conda
 
-Options for resolving dependencies in the environment and the path to the package manager are controlled by the following flags in the `scan` command:
+Options for resolving dependencies in the environment and the path to the package manager are controlled by the following parameters in the `scan` command:
 
 - `--dotnet-resolve` / `--dotnet-path`
 - `--go-resolve` / `--go-path`
@@ -52,8 +52,12 @@ scan dir. \
 
 If necessary, the listed parameters can be added to the [agent configuration file](/agent/config.en).
 
-## Gradle
+### Gradle
 
-By default `--gradle-path` : `./gradlew`
+To resolve dependencies in Gradle by default, you need to set the following value:
 
-The Johnny console agent generate and analyse [gradle-dependency-tree.txt](../../dependencies/java.en#gradle) file
+``` bash
+--gradle-path : ./gradlew
+```
+
+The Johnny console agent generates and parses the [gradle-dependency-tree.txt](../../dependencies/java#gradle) file.
