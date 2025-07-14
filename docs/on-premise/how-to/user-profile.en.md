@@ -30,8 +30,8 @@ The page displays the following parameters:
 
 Click the **Edit** button to open the profile editing form. The following fields can be updated:
 
-- First name  
-- Last name  
+- First name
+- Last name
 - Email
 
 Changes are saved immediately after clicking **Save**.
