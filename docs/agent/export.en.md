@@ -7,7 +7,9 @@ hide:
 
 The Johnny console agent supports exporting scan results in various formats. This allows to adapt reporting to different needs, including integration with vulnerability management systems.
 
-## Available report formats
+## Report on found vulnerabilities
+
+### Available formats
 
 - **coloredtable** – colored table in the console. Default format;
 - **table** – simple table;
@@ -32,17 +34,17 @@ If necessary, you can specify multiple formats, separating them with commas, for
 
 In this example, the output will be in the `coloredtable` format to the console, and also saved to the `junit.xml` file in the `junit` format.
 
-# Exporting Policy Alerts report
+## Report on triggered policy alerts
 
-The Johnny console agent supports exporting Policy Alerts report in various formats. This allows to adapt reporting to different needs.
-
-## Available report formats
+### Available formats
 
 - **coloredtable** – colored table in the console. Default format;
 - **table** – simple table;
 - **text** – text report;
-- **json** – **Attention**: data structure can be changed on next version;
+- **json** – a structured format based on JavaScript Object Notation, suitable for data processing;
 - **csv** – text format for table data;
+
+**Important**: data structure of the `json` format can be changed in the upcoming versions of the binary agent;
 
 ### Usage example
 
