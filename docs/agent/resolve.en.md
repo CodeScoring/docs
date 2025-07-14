@@ -13,7 +13,7 @@ When resolving dependencies in the environment, the agent checks for the absence
 
 - .NET
 - Go
-- [Gradle](gradle.en)
+- [Gradle](#gradle)
 - Maven
 - npm
 - Poetry
@@ -46,8 +46,14 @@ Request example:
 scan dir. \
 --api_token <api_token> \
 --api_url <api_url> \
---dotnet-resolve true
+--dotnet-resolve
 --dotnet-path <path/to/dotnet>
 ```
 
 If necessary, the listed parameters can be added to the [agent configuration file](/agent/config.en).
+
+## Gradle
+
+By default `--gradle-path` : `./gradlew`
+
+The Johnny console agent generate and analyse [gradle-dependency-tree.txt](../../dependencies/java.en#gradle) file
