@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Работа с зависимостями в Java
 
 ## Apache Maven:
@@ -28,7 +29,7 @@ mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
 
 Добавить в файл `build.gradle` код:
 
-``` 
+```
 subprojects {
     task CodeScoring_All_Dependencies(type: DependencyReportTask) {}
 }

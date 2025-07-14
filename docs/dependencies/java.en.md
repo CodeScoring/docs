@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Working with dependencies in Java
 
 When working with Java, you can create additional artifacts that contain the full dependency structure of the project.
@@ -30,7 +31,7 @@ In multi-project builds, the following actions are recommended to obtain all dep
 
 Add to `build.gradle` file code:
 
-``` 
+```
 subprojects {
     task CodeScoring_All_Dependencies(type: DependencyReportTask) {}
 }
