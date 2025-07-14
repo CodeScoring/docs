@@ -17,6 +17,6 @@ In addition, you can clarify the scope of the policy using two parameters:
 - **OSA Components** – type of components to which the policy will apply (packages or container images);
 - **Repositories** – list of repositories with components.
 
-**Important**: to select a repository, you must first [connect the repository manager](/on-premise/how-to/repo-managers.en) to the installation.
+**Important**: to select a repository, you must first [connect the repository manager](/osa/repo-managers.en) to the installation.
 
 ![Policy settings example](/assets/img/osa/policy_settings_example.png)

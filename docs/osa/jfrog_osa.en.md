@@ -159,7 +159,7 @@ repositoryTypes:
  - **url** – CodeScoring installation address (protocol must be specified);
  - **token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
  - **connectionPoolSize** – size of the connection pool with the CodeScoring installation;
- - **timeout** - response waiting time (in milliseconds). By default, if the CodeScoring API does not respond within 60 seconds, the request will be canceled;
+ - **timeout** - response waiting time (in seconds). By default, if the CodeScoring API does not respond within 60 seconds, the request will be canceled;
  - **proxy** - proxy server settings;
  - **host** - host/IP;
  - **port** - port;
