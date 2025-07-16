@@ -3,11 +3,11 @@ hide:
   - footer
 ---
 
-# Working with dependencies
+# Overviewing dependencies
 
-## View dependencies list¶
+## Viewing dependencies list¶
 
-The list of scanned Open Source dependencies can be viewed in the `SCA -> Dependencies` subsection. The table in this section contains **all** dependencies that were checked during the operation of the SCA module, with the following information:
+The list of scanned open source dependencies can be viewed in the `SCA -> Dependencies` subsection. The table in this section contains **all** dependencies that were checked during the operation of the SCA module, with the following information:
 
 - **Dependency** – dependency name (with a link to its individual page);
 - **Technology** – technology (programming language or build tool);
@@ -28,7 +28,7 @@ Clicking on the dependency name takes you to its individual page, where informat
 
 ## Working with dependency graph
 
-Open Source dependencies of software projects represent a graph – a structure in which individual components are depicted as nodes, and the connections between them as edges.
+Open source dependencies of software projects represent a graph – a structure in which individual components are depicted as nodes, and the connections between them as edges.
 
 You can see the visualization of the dependency graph in the `Dependencies` section or on the project page by clicking on the corresponding icon in the list of dependencies.
 
