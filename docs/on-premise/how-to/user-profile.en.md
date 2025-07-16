@@ -21,8 +21,8 @@ The page displays the following parameters:
 - **Email** — contact address displayed in user lists;
 - **API token** — used for integration with external tools. Can be copied or regenerated (the previous one becomes invalid);
 - **Language** — interface language;
-- **Number format** — numeric display format in the system. Possible values: `1 000,33`, `1.000,33`, `1,000.33`, `1`000.33`;
-- **Date format** — date display format. Possible values: `DD/MM/YYYY`, `MM/DD/YYYY`, `YYYY-MM-DD`, `DD.MM.YYYY`.
+- **Number format** — numeric display format in the system;
+- **Date format** — date display format.
 
 **Important**: number and date format affect display only. They do not influence data input or export.
 
