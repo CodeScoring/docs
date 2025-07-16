@@ -160,9 +160,9 @@ Original instructions for generating a token in English: <https://docs.microsoft
 
 CodeScoring automatically synchronizes data from version control systems when adding a project, running analysis, and as part of background tasks. All mechanisms for obtaining and updating data from `git` are described below:
 
-1. When adding a project with a link to VCS, CodeScoring creates a local copy of the repository in `bare` mode and saves it in the project directory.
-2. When running SCA, TQI or Secrets analysis, the system fetches the current state of the branch specified in the project settings.
-3. Once a month, CodeScoring initiates a background task that synchronizes all connected `VCS` projects with remote repositories.
+1. When adding a VCS-project, CodeScoring creates a local copy of the repository in `bare` mode and saves it in the project directory.
+2. When running SCA, TQI or Secrets analysis, the system downloads the current state of the branch specified in the project settings.
+3. Once a month, CodeScoring initiates a background task that synchronizes all connected VCS projects with remote repositories. This is a preventive update that does not replace synchronization when running analysis, but only speeds it up for projects where the analysis has not been performed for a long time.
     - `git fetch` is performed for all VCS projects
     - Tasks are distributed using the Huey tool to evenly distribute the load over the remaining days of the month
 
