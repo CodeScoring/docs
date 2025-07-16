@@ -23,7 +23,7 @@ mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
 
 ### Создание файла `gradle-dependency-tree.txt` для мульти-проектных сборок
 
-В мульти-проектных сборках для получения всех зависимостей, включая зависимости всех подмодулей, рекомендуются следующие действия:
+В мульти-проектных сборках Johnny в использует файл `gradle-dependency-tree.txt` для получения полного дерева зависимостей, включая все подмодули. Это стандартный механизм, позволяющий избежать дополнительных настроек или сложных конфигураций. Для его создания необходимо выполнить следующие действия:
 
 #### Groovy
 
@@ -55,7 +55,7 @@ subprojects {
 
 ``` bash
 ./johnny \
-scan file ./maven-dependency-tree.txt \
+scan file ./gradle-dependency-tree.txt \
 --api_token <api_token> \
 --api_url <api_url>
 ```

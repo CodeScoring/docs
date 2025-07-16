@@ -25,7 +25,7 @@ mvn dependency:tree -DoutputFile=maven-dependency-tree.txt
 
 ### Creating a  `gradle-dependency-tree.txt` file for multi-project builds
 
-In multi-project builds, the following actions are recommended to obtain all dependencies, including all submodule dependencies:
+In multi-project builds, Johnny uses the `gradle-dependency-tree.txt` file to get the full dependency tree, including all submodules. This is a standard mechanism to avoid any additional setup or complex configuration. To create it, follow these steps:
 
 #### Groovy
 
@@ -57,7 +57,7 @@ After generating artifacts, you need to use the console agent command [scan file
 
 ``` bash
 ./johnny \
-scan file ./maven-dependency-tree.txt \
+scan file ./gradle-dependency-tree.txt \
 --api_token <api_token> \
 --api_url <api_url>
 ```
