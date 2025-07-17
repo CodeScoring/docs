@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # CodeScoring Changelog
 
 Changelog contains the history of changes to the main components of the CodeScoring platform.

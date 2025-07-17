@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # CodeScoring Documentation
 
 The documentation contains basic information for working with the **CodeScoring** platform.
