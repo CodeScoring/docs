@@ -2,7 +2,41 @@
 hide:
   - footer
 ---
+
 # Johnny Changelog
+
+### [2025.29.0] - 2025-07-16
+
+#### Added
+
+- Added parsing of dependencies declared in unified format in `build.gradle`
+- Added `sign bom` command to sign SBoM files
+- Added `verify bom` command to verify the authenticity of the SBoM file signature
+- Added work with the predefined `CodeScoring_All_Dependencies` task for correct dependency resolution in multi-module projects of the gradle environment
+- Added the `project-proprietor` parameter to link the scanned project to the department (since version **2025.29.0** of the installation)
+- Added support for aliases for `yarn.lock` and `pnpm-lock.json`
+- Added support for reports for alerts in the following formats: coloredtable, table, text, json, csv. The format is controlled by the `--alerts-format` parameter
+- Added `--branch-or-tag` and `--commit` flags to the `scan build` and `scan build ebpf` commands
+- Added unloading of the HasExploit flag to the sarif format
+- Added output of license information to the text, table, coloredtable formats
+- Added unloading of Relation, Parents, Match type, Env data to the CSV format
+- Added the ability to pass flags to package managers when resolving dependencies
+- Added output of a warning about parsing errors during scanning
+- Added support for dependency groups with an arbitrary name in `pyproject.toml`
+- Added the ability to pass the SHA hash of an image in the `--hash` parameter of the `scan image` command (since version **2025.29.0** of the installation)
+- Added a check for the availability of the `dir` command of the local version of `gitleaks`
+
+#### Changed
+
+- In the `scan python` command, the parser in the pip environment is disabled by default. It is explicitly enabled by the `--pip-resolve` flag (https://codescoring.kaiten.ru/49258888)
+- Improved the performance of the `scan build ebpf` command
+
+#### Fixed
+
+- Fixed ignoring behavior for empty values of the `--ignore` parameter
+- Fixed an error in determining the relation dependency when parsing a pair of `package.json` and `yarn.lock` manifests
+- Fixed determining the environment in cases where a dependency of the same version is presented in several environments
+- Fixed `poetry-core` from the `build-system` section getting into the list of dependencies when parsing the `pyproject.toml` manifest
 
 ### [2025.21.0] - 2025-05-21
 

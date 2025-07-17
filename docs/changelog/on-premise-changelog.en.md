@@ -5,6 +5,69 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.29.0] - 2025-07-18
+
+#### Added
+
+- Added the ability to view the results of SCA analysis of a project from the scan history
+- Added the ability to customize the export of SBoM and PDF files
+- Added the ability to manually create a task in the task manager and send letters for selected alerts
+- Added the ability to configure deferred blocking in policies
+- Added the ability to apply policy ignores to project groups
+- Added a new Security Manager role
+- Added a condition for the `Dependency is a descendant` policy to search for child dependencies of a selected package at any level of the dependency graph
+- Added the `Max fixed version` column in the dependency table
+- Added the ability to download the current version of the Johnny binary agent directly from the installation
+- Added the "Technology" column to the alert list export
+- Added pop-up notifications with the analysis result upon its completion
+- Added search in drop-down list of criteria in policy creation and editing forms
+- Added duplicate block of buttons after the group of conditions in policy creation and editing forms
+- Added ability to expand the policy conditions management block
+- Added settings for date and number output format in the UI
+- Added legend for project dependency graph
+- Added analysis ID to webhooks related to SCA analysis completion
+- Added output of archive/activity flag for OSA packages, container images and alerts
+- Added background update of current OSA packages. By default, packages requested in the last 14 days are considered current
+- Added support for EDNS0 protocol and SOA records in DNS
+
+#### Changed
+
+- The `tasks-media` queue has been transferred to Celery. The number of workers is controlled by the variables `CELERY_MEDIA_WORKER_CONCURRENCY` (minimum, default is 2) and `CELERY_MEDIA_WORKER_MAX_CONCURRENCY` (maximum, default is 4). The `HUEY_MEDIA_WORKERS` variable has been removed
+- Improved display of the list of events in the "Webhooks" section
+- Improved logic for displaying the ML model management section in the Secrets module
+- Optimized the algorithm for launching policy recalculation when updating vulnerabilities: it is launched only when data that affects policies changes
+- Optimized loading of pages with images and alerts
+- Changed the choice of a secure protocol for connecting to a mail server from checkboxes to a field with a drop-down list
+- Added a check for the presence of data when exporting a PDF report
+- Unified action buttons in sections with entity tables
+- Updated the OpenAPI specification in terms of error handling
+- Updated the gitleaks version for the Secrets module to 8.27.0
+
+#### Removed
+
+- The `HUEY_MEDIA_WORKERS` variable has been removed
+
+#### Fixed
+
+- Added error handling when trying to download file that was deleted due to expiration
+- Improved error messages when checking the availability of repositories via SSH
+- Fixed search on the author profile page in the "Organization Projects" section
+- Fixed image hash validation error when passing a value via the `--hash` parameter when scanning an image via Johnny
+- Fixed some inaccuracies in the API scheme in Swagger
+- Fixed an error processing the list of entities from Docker Registry when receiving `null` instead of an empty list
+- Fixed an error processing image signature files with the `.sig` and `.att` extensions when working with container registries
+- Fixed an error on the "Similar Authors" tab on the author profile page in the case of authors without certain technologies
+- Fixed an error of incomplete output of connected version control systems when creating a VCS project
+- Fixed the output of a long file name in the list of exported files
+- Fixed the output of the "Until" field in the ignore policy modal window
+- Fixed resetting the state of the dependency graph when switching to another browser tab
+- Fixed problems updating data on the page after editing some entities
+- Fixed deadlocks when using multiple instances of the OSA Registration service
+- Fixed an error when editing the connection to the Jira task manager
+- Fixed incorrect hiding of sensitive data in an error when cloning a project
+- Fixed display of selected parameters in the policy condition
+- Fixed display of the list of authors on the page with detailed information about the package blocking in the OSA module
+
 ### [2025.21.2] - 2025-06-18
 
 - Optimized data migration process when updating the project scan schedule
