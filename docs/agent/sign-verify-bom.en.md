@@ -37,7 +37,7 @@ The `sign bom` command is used to create a digital signature for an SBoM file. I
 
 The `verify bom` command is used to verify the signature of an SBoM file. It has the following parameters:
 
-- `--public-key <path>` - path to the RSA public key in PEM format (optional).
+- `--public-key <path>` - path to the RSA public key in PEM format (optional). If this parameter is set and SBoM file contains public key, key from SBoM file will be used. 
 
 ### Run examples
 
