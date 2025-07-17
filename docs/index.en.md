@@ -18,6 +18,7 @@ The documentation contains basic information for working with the **CodeScoring*
  - [CLI agent](/agent/index.en)
  - [Secrets module](/secrets/index.en)
  - [TQI module](/tqi/index.en)
+ - [IDE plugins](/ide/index.en)
  - [Changelog](/changelog/on-premise-changelog.en)
 
 In case of any questions, please write to <hello@codescoring.ru>.

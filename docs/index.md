@@ -18,6 +18,7 @@ hide:
  - [Консольный агент](agent)
  - [Модуль Secrets](secrets)
  - [Модуль TQI](tqi)
+ - [Плагины для IDE](ide)
  - [История обновлений](changelog/on-premise-changelog)
 
 По всем вопросам пишите на <hello@codescoring.ru>.

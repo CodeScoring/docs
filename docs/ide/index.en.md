@@ -10,6 +10,7 @@ hide:
 **CodeScoring** provides Software Composition Analysis (SCA) directly within your development environment through specialized IDE plugins. These integrations enable developers to identify and fix vulnerable dependencies in real-time, shifting security left in the development lifecycle.
 
 By integrating vulnerability detection into the IDE, developers can:
+
 - Detect security issues as they write code, not after deployment
 - Get instant feedback on dependency vulnerabilities
 - Apply fixes without leaving their development environment
@@ -20,7 +21,7 @@ By integrating vulnerability detection into the IDE, developers can:
 
 **CodeScoring** offers plugins for the most popular development environments:
 
-- [Visual Studio Code Extension](./vscode-sca.en.md)
-- [Plugin for JetBrains IDEs](./intellij-sca.en.md)
+- [Visual Studio Code Extension](/ide/vscode-sca.en)
+- [Plugin for JetBrains IDEs](/ide/intellij-sca.en)
 
 Both integrations provide vulnerable component scanning, visual indicators in code, and one-click remediation options, ensuring developers can maintain secure dependencies without disrupting their workflow.
