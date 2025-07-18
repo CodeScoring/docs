@@ -5,6 +5,12 @@ hide:
 
 # Johnny Changelog
 
+### [2025.29.1] - 2025-07-18
+
+#### Fixed
+
+- Fixed error when exporting results in `junit` format
+
 ### [2025.29.0] - 2025-07-16
 
 #### Added
@@ -28,14 +34,14 @@ hide:
 
 #### Changed
 
-- In the `scan python` command, the parser in the pip environment is disabled by default. It is explicitly enabled by the `--pip-resolve` flag (https://codescoring.kaiten.ru/49258888)
+- Disabled running the parser in the pip environment by default in the `scan python` command. Enabled explicitly with the `--pip-resolve` flag
 - Improved the performance of the `scan build ebpf` command
 
 #### Fixed
 
-- Fixed ignoring behavior for empty values of the `--ignore` parameter
+- Fixed ignoring behavior for empty `--ignore` parameter values
 - Fixed an error in determining the relation dependency when parsing a pair of `package.json` and `yarn.lock` manifests
-- Fixed determining the environment in cases where a dependency of the same version is presented in several environments
+- Fixed determining the environment in cases where a dependency of the same version is present in multiple environments
 - Fixed `poetry-core` from the `build-system` section getting into the list of dependencies when parsing the `pyproject.toml` manifest
 
 ### [2025.21.0] - 2025-05-21

@@ -23,50 +23,54 @@ hide:
 - Added search in drop-down list of criteria in policy creation and editing forms
 - Added duplicate block of buttons after the group of conditions in policy creation and editing forms
 - Added ability to expand the policy conditions management block
-- Added settings for date and number output format in the UI
-- Added legend for project dependency graph
-- Added analysis ID to webhooks related to SCA analysis completion
-- Added output of archive/activity flag for OSA packages, container images and alerts
-- Added background update of current OSA packages. By default, packages requested in the last 14 days are considered current
-- Added support for EDNS0 protocol and SOA records in DNS
+- Added settings for the format of date and number output in the UI
+- Added legend for the project dependency graph
+- Added analysis identifier to webhooks associated with the completion of SCA analysis
+- Added output of the archive/activity flag for OSA packages, container images and alerts
+- Added check for data presence when exporting a PDF report
+- Added error handling when trying to download a file that was deleted due to expiration of the storage period
 
 #### Changed
 
-- The `tasks-media` queue has been transferred to Celery. The number of workers is controlled by the variables `CELERY_MEDIA_WORKER_CONCURRENCY` (minimum, default is 2) and `CELERY_MEDIA_WORKER_MAX_CONCURRENCY` (maximum, default is 4). The `HUEY_MEDIA_WORKERS` variable has been removed
+- The `tasks-media` queue has been transferred to Celery. The number of workers is controlled by the variables `CELERY_MEDIA_WORKER_CONCURRENCY` (minimum, default is 2) and `CELERY_MEDIA_WORKER_MAX_CONCURRENCY` (maximum, default is 4). The variable `HUEY_MEDIA_WORKERS` has been removed
+- The OSA background package update mechanism has been optimized. Only relevant packages are updated. By default, packages requested in the last 14 days are considered relevant, the parameter is configured in the installation settings
+- Improved error messages when checking the availability of repositories via SSH
 - Improved display of the list of events in the "Webhooks" section
 - Improved logic for displaying the ML model management section in the Secrets module
-- Optimized the algorithm for launching policy recalculation when updating vulnerabilities: it is launched only when data that affects policies changes
+- Optimized the algorithm for launching policy recalculation when updating vulnerabilities: launch occurs only when data that affects policies changes
 - Optimized loading of pages with images and alerts
 - Changed the choice of a secure protocol for connecting to a mail server from checkboxes to a field with a drop-down list
-- Added a check for the presence of data when exporting a PDF report
 - Unified action buttons in sections with entity tables
 - Updated the OpenAPI specification in terms of error handling
-- Updated the gitleaks version for the Secrets module to 8.27.0
+- Changed the base image in the OSA API service from Debian bookworm to Alpine
+- Updated the pgbouncer image to switch from libevent to c-ares as a DNS backend for support SOA record resource types and EDNS0 protocol
+- Updated gitleaks version for Secrets module to 8.27.0
+- Updated Redis image from 7.0.12 to 7.4.3
+- Updated PostgreSQL image from 13.4 to 13.21
+- Updated Johnny version on installation to 2025.29.0
 
 #### Removed
 
-- The `HUEY_MEDIA_WORKERS` variable has been removed
+- Removed `HUEY_MEDIA_WORKERS` variable
 
 #### Fixed
 
-- Added error handling when trying to download file that was deleted due to expiration
-- Improved error messages when checking the availability of repositories via SSH
-- Fixed search on the author profile page in the "Organization Projects" section
-- Fixed image hash validation error when passing a value via the `--hash` parameter when scanning an image via Johnny
-- Fixed some inaccuracies in the API scheme in Swagger
-- Fixed an error processing the list of entities from Docker Registry when receiving `null` instead of an empty list
-- Fixed an error processing image signature files with the `.sig` and `.att` extensions when working with container registries
+- Fixed search on author profile page in "Organization Projects" section
+- Fixed image hash validation error when passing value via `--hash` parameter when scanning image via Johnny
+- Fixed some API schema inaccuracies in Swagger
+- Fixed error processing list of entities from Docker Registry when receiving `null` instead of empty list
+- Fixed error processing image signature files with `.sig` extension and `.att` when working with container registries
 - Fixed an error on the "Similar Authors" tab on the author profile page in the case of authors without certain technologies
-- Fixed an error of incomplete output of connected version control systems when creating a VCS project
+- Fixed an error with incomplete output of connected version control systems when creating a VCS project
 - Fixed the output of a long file name in the list of exported files
-- Fixed the output of the "Until" field in the ignore policy modal window
-- Fixed resetting the state of the dependency graph when switching to another browser tab
+- Fixed the output of the "Until" field in the policy ignore modal window
+- Fixed the reset of the dependency graph state when switching to another browser tab
 - Fixed problems updating data on the page after editing some entities
 - Fixed deadlocks when using multiple instances of the OSA Registration service
 - Fixed an error when editing the connection to the Jira task manager
 - Fixed incorrect hiding of sensitive data in an error when cloning a project
-- Fixed display of selected parameters in the policy condition
-- Fixed display of the list of authors on the page with detailed information about the package blocking in the OSA module
+- Fixed the display of selected parameters in the policy condition
+- Fixed the output of the list of authors on the page with detailed information about the package blocking in the OSA module
 
 ### [2025.21.2] - 2025-06-18
 
