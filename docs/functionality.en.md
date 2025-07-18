@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Functional characteristics
 
 ## General functional characteristics
