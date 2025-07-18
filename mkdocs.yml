@@ -194,7 +194,6 @@ plugins:
           sca-dependencies: "Обзор зависимостей"
           launch-analysis: "Запуск сканирования"
           scan-history: "Отслеживание истории сканирований"
-          export-results: "Выгрузка результатов анализа"
           osa: "CodeScoring OSA"
           osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
