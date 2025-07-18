@@ -71,6 +71,7 @@ hide:
 - Fixed incorrect hiding of sensitive data in an error when cloning a project
 - Fixed the display of selected parameters in the policy condition
 - Fixed the output of the list of authors on the page with detailed information about the package blocking in the OSA module
+- Fixed saving policies when changing certain conditions
 
 ### [2025.21.2] - 2025-06-18
 
