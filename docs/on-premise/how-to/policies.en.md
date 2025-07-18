@@ -139,3 +139,15 @@ The results of the policies are displayed in the `Policy alerts` section. The se
 - **Resolved** – a list of alerts that were resolved after the last analysis (the policy condition is no longer relevant).
 
 The policy trigger is displayed in the **Matched criteria** field, including the specified conditions and the component data found. For example, the value `django@4.2.2 has CVE-2024-38875, CVSS3 Score 7.5 >= 7.00` implies that the component blocking policy with CVSS3 equal to or higher than 7.00 was triggered on the django component version 4.2.2 with a vulnerability score of 7.5.
+
+To create a task or send an email from the list of alerts, you need to select one or more alerts and click the corresponding button.
+
+For example:
+
+- creating tasks
+
+![New task](/assets/img/alerts_new_task-en.png)
+
+- sending emails
+
+![Send email](/assets/img/alerts_send_email-en.png)
