@@ -47,7 +47,7 @@ hide:
 - Updated gitleaks version for Secrets module to 8.27.0
 - Updated Redis image from 7.0.12 to 7.4.3
 - Updated PostgreSQL image from 13.4 to 13.21
-- Updated Johnny version on installation to 2025.29.0
+- Updated Johnny version on installation to 2025.29.1
 
 #### Removed
 
