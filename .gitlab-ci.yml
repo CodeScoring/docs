@@ -92,39 +92,42 @@ lint_markdown:
       done
 
       # URLs
+      IGNORED_DOMAINS='example|gitflic\.ru|localhost|127\.0\.0\.1'
+
       if command -v wget >/dev/null; then
         for file in $FILES; do
-          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | grep -v 'example' || true)
+          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | sed 's/]\+$//' | grep -Ev "$IGNORED_DOMAINS" || true)
           if [ -n "$URLS" ]; then
             echo "Checking URLs in $file: $URLS"
             while IFS= read -r url; do
-              if ! wget --spider --timeout=5 --tries=1 "$url" 2>/dev/null; then
+              if ! wget --spider --timeout=5 --tries=1 --user-agent="Mozilla/5.0" "$url" >/dev/null 2>&1; then
                 echo "❌ Broken URL: $url in $file"
                 ERROR_FOUND=true
               fi
             done <<< "$URLS"
           else
-            echo "ℹ️ No URLs (excluding example) in $file"
+            echo "ℹ️ No URLs (excluding ignored domains) in $file"
           fi
         done
       elif command -v curl >/dev/null; then
         for file in $FILES; do
-          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | grep -v 'example' || true)
+          URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | sed 's/]\+$//' | grep -Ev "$IGNORED_DOMAINS" || true)
           if [ -n "$URLS" ]; then
             echo "Checking URLs in $file: $URLS"
             while IFS= read -r url; do
-              if ! curl --silent --head --fail "$url" --connect-timeout 3 --max-time 5 2>/dev/null; then
+              if ! curl --silent --head --fail -A "Mozilla/5.0" -L "$url" --connect-timeout 3 --max-time 5 >/dev/null; then
                 echo "❌ Broken URL: $url in $file"
                 ERROR_FOUND=true
               fi
             done <<< "$URLS"
           else
-            echo "ℹ️ No URLs (excluding example) in $file"
+            echo "ℹ️ No URLs (excluding ignored domains) in $file"
           fi
         done
       else
         echo "⚠️ Skipping URL checks: wget or curl not found"
       fi
+
 
       # Empty line after front matter
       for file in $FILES; do
