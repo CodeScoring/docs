@@ -2,13 +2,14 @@
 hide:
   - footer
 ---
+
 # Exporting analysis results
 
 ## Exporting to CSV
 
 Each table with analysis results in CodeScoring can be exported in CSV format using the **Export** button in the upper right corner of the interface.
 
-The CSV table will take into account the filters used at the time of export, as well as the visibility of columns.
+The CSV table will take into account the filters used at the time of export.
 
 ## Generating a PDF report on a project
 
@@ -16,14 +17,23 @@ After performing composition analysis, the generation of a PDF report with summa
 
 You can export a PDF report with the latest analysis data on the project page using the **Export PDF** button. You can export an analysis report for a specific date on the `SCA Scan History` page.
 
-The resulting report contains the following data:
+The resulting report contains the following data by default:
 
 - general information on the project (name, VCS branch, time of the last analysis, commit hash);
 - distribution of vulnerabilities by CVSS;
 - distribution of vulnerabilities by technology;
 - table of found dependencies divided by technologies and development environment;
 - table of found vulnerabilities divided by technologies and development environment;
+- active policy alerts;
 - dependency graph.
+
+It's also possible to define a custom filename, choose required data blocks and filter data before export.
+If a filename is not set, it will be generated automatically according to the following rules:
+
+- For projects: `report_<project name>.pdf`
+- For container images: `report_<image name>_<first 8 hash chars>.pdf`
+
+![PDF export modal](/assets/img/pdf-export-modal-en.png)
 
 ## Working with SBOM within a project
 
@@ -37,6 +47,12 @@ SBoM export is supported in the following formats:
 - [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/);
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
 - CycloneDX v1.6 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`. The format is adapted to additional requirements for the SBoM from the FSTEC of Russia.
+
+SBoM export also supports additional export customization, like the PDF one.
+Automatic SBoM filename generation rules are following:
+
+- For projects: `bom_<project name>_<SBoM format>.json`
+- For container images: `bom_<image name>_<first 8 hash chars>_<SBoM format>.json`
 
 For CLI projects, SBoM can also be loaded via the interface using the **Import SBoM** button. The loaded SBOM must be in CycloneDX format and have the `.json` extension.
 

@@ -70,6 +70,7 @@ plugins:
           vcs: "Connecting to VCS"
           project-control: "Managing projects"
           policies: "Managing policies"
+          ignores: "Ignoring policies"
           launch-analysis: "Configuring and launching analysis"
           export-results: "Exporting analysis results"
           groups: "Creating user groups"
@@ -82,8 +83,8 @@ plugins:
           api: "Working with API"
           sca: "CodeScoring SCA"
           sca-general: "General description"
+          sca-dependencies: "Overviewing dependencies"
           launch-analysis: "Launching a scan"
-          graph: "Visualizing dependency graph"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
           osa: "CodeScoring OSA"
@@ -108,6 +109,7 @@ plugins:
           agent-scan-bom: "Scanning a SBOM"
           agent-scan-technology: "Scanning a technology"
           agent-scan-secrets: "Scanning for secrets"
+          agent-sign-verify-bom: "SBOM Signing and Verification"
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integrating into Gitlab CI"
           agent-jenkins: "Integrating into Jenkins Pipeline"
@@ -176,6 +178,7 @@ plugins:
           vcs: "Подключение системы контроля версий"
           project-control: "Управление проектами"
           policies: "Настройка политик"
+          ignores: "Игнорирование политик"
           launch-analysis: "Настройка и запуск анализа"
           export-results: "Выгрузка результатов анализа"
           groups: "Создание групп пользователей"
@@ -188,10 +191,9 @@ plugins:
           api: "Работа с API"
           sca: "CodeScoring SCA"
           sca-general: "Общее описание"
+          sca-dependencies: "Обзор зависимостей"
           launch-analysis: "Запуск сканирования"
-          graph: "Визуализация графа зависимостей"
           scan-history: "Отслеживание истории сканирований"
-          export-results: "Выгрузка результатов анализа"
           osa: "CodeScoring OSA"
           osa-general: "Общее описание"
           nexus-osa: "Nexus OSA"
@@ -214,6 +216,7 @@ plugins:
           agent-scan-bom: "Сканирование SBOM"
           agent-scan-technology: "Сканирование технологии"
           agent-scan-secrets: "Сканирование на наличие секретов"
+          agent-sign-verify-bom: "Подпись и верификация SBOM"
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
           agent-jenkins: "Добавление в Jenkins"
@@ -305,6 +308,8 @@ nav:
     - project-control: on-premise/how-to/projects.en.md
     - policies: on-premise/how-to/policies.md
     - policies: on-premise/how-to/policies.en.md
+    - ignores: on-premise/how-to/ignores.md
+    - ignores: on-premise/how-to/ignores.en.md
     - notifications: on-premise/how-to/notifications.md
     - notifications: on-premise/how-to/notifications.en.md
     - ldap: on-premise/how-to/ldap-settings.md
@@ -339,12 +344,12 @@ nav:
     - sca-general: sca/index.en.md
     - launch-analysis: sca/launch-analysis.md
     - launch-analysis: sca/launch-analysis.en.md
-    - graph: sca/graphs.md
-    - graph: sca/graphs.en.md
     - scan-history: sca/scan-history.md
     - scan-history: sca/scan-history.en.md
     - export-results: sca/export-results.md
     - export-results: sca/export-results.en.md
+    - sca-dependencies: sca/sca-dependencies.md
+    - sca-dependencies: sca/sca-dependencies.en.md
   - agent:
     - agent-general: agent/index.md
     - agent-general: agent/index.en.md
@@ -370,6 +375,8 @@ nav:
     - agent-scan-technology: agent/scan-technology.en.md
     - agent-scan-secrets: agent/scan-secrets.md
     - agent-scan-secrets: agent/scan-secrets.en.md
+    - agent-sign-verify-bom: agent/sign-verify-bom.md
+    - agent-sign-verify-bom: agent/sign-verify-bom.en.md
     - agent-launch-docker: agent/launch-docker.md
     - agent-launch-docker: agent/launch-docker.en.md
     - agent-gitlab-ci: agent/gitlab-ci.md

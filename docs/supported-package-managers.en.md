@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Supported ecosystems and analysis methods
 
 ## Manifests
@@ -21,10 +22,11 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 | | Pipenv | `Pipfile`<br/>`Pipfile.lock` |
 | | Conda | `environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml` |
 | **C and C++** | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py` |
+| | GCC, Clang, CMake, Make etc. | [Build scanning](/agent/scan-build.en/)|
 | **Go** | Go Modules | `go.mod`<br/>`go.sum` |
 | **PHP** | Composer | `composer.json`<br/>`composer.lock` |
 | **Ruby** | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked` |
-| **.NET** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`*.csproj`<br/>`project.assets.json`<br/>`dependencyReport.json` | 
+| **.NET** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`*.csproj`<br/>`project.assets.json`<br/>`dependencyReport.json` |
 | | Paket | `paket.dependencies`<br/>`paket.lock` |
 | **Objective-C** | CocoaPods | `Podfile`<br/>`Podfile.lock`<br/>`*.podspec` |
 | **Swift** | Swift Package Manager | `Package.swift`<br/>`Package.resolved` |
