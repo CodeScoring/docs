@@ -83,8 +83,8 @@ plugins:
           api: "Working with API"
           sca: "CodeScoring SCA"
           sca-general: "General description"
+          sca-dependencies: "Overviewing dependencies"
           launch-analysis: "Launching a scan"
-          graph: "Visualizing dependency graph"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
           osa: "CodeScoring OSA"
@@ -190,8 +190,8 @@ plugins:
           api: "Работа с API"
           sca: "CodeScoring SCA"
           sca-general: "Общее описание"
+          sca-dependencies: "Обзор зависимостей"
           launch-analysis: "Запуск сканирования"
-          graph: "Визуализация графа зависимостей"
           scan-history: "Отслеживание истории сканирований"
           export-results: "Выгрузка результатов анализа"
           osa: "CodeScoring OSA"
@@ -343,12 +343,12 @@ nav:
     - sca-general: sca/index.en.md
     - launch-analysis: sca/launch-analysis.md
     - launch-analysis: sca/launch-analysis.en.md
-    - graph: sca/graphs.md
-    - graph: sca/graphs.en.md
     - scan-history: sca/scan-history.md
     - scan-history: sca/scan-history.en.md
     - export-results: sca/export-results.md
     - export-results: sca/export-results.en.md
+    - sca-dependencies: sca/sca-dependencies.md
+    - sca-dependencies: sca/sca-dependencies.en.md
   - agent:
     - agent-general: agent/index.md
     - agent-general: agent/index.en.md

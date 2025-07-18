@@ -78,6 +78,7 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Dependency vulnerability count**;
 - **Dependency is dangerous**;
 - **Dependency is protestware**;
+- **Dependency is a descendant of** - searches across all levels for lower-level transitive dependencies associated with the specified parent component;
 - **Technology** — programming language or ecosystem;
 - **License**;
 - **License category**;
@@ -110,6 +111,8 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Match type** — dependency detection method (by manifest, project content, or as a result of dependency resolution);
 - **Relation** — dependency relationship in the project (direct or transitive);
 - **CWE** — vulnerability type identifier according to the [Common Weakness Enumeration](https://cwe.mitre.org/) standard.
+
+Note for the  **Dependency is a descendant of** parameter. Dependency search is performed for deeper levels of nesting of the dependency graph. For example, for the case of a dependency chain `a<-b<-c<-d`, the children of `b` are `c` and `d`.
 
 ## Policy example
 
