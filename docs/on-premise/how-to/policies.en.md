@@ -12,7 +12,8 @@ hide:
 Policies can be created for:
 
 - the entire organization;
-- department;
+- proprietor;
+- groups;
 - project;
 - development environment;
 - repository;
@@ -54,7 +55,7 @@ Policies are created in the `Settings -> Policies` section. You can go to the po
 The policy creation form specifies the policy context using the following parameters:
 
 - **Name**;
-- **Groups** — user groups to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
+- **Groups** — project groups to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
 - **Proprietors** — organization departments to which the policy applies. If the parameter is empty, the policy applies to the entire organization;
 - **Projects** — projects to which the policy applies;
 - **Stages** — development cycle stages to which the policy applies;
@@ -138,23 +139,3 @@ The results of the policies are displayed in the `Policy alerts` section. The se
 - **Resolved** – a list of alerts that were resolved after the last analysis (the policy condition is no longer relevant).
 
 The policy trigger is displayed in the **Matched criteria** field, including the specified conditions and the component data found. For example, the value `django@4.2.2 has CVE-2024-38875, CVSS3 Score 7.5 >= 7.00` implies that the component blocking policy with CVSS3 equal to or higher than 7.00 was triggered on the django component version 4.2.2 with a vulnerability score of 7.5.
-
-## Ignoring policies
-
-Created policies can be temporarily or permanently ignored during analysis. The ignoring condition allows you to leave the policies in the system without receiving alerts about their triggering, for example, if the vulnerability in the component is not applicable to a specific project. Ignoring conditions are created and configured in the section `Settings -> Policy ignores`.
-
-To create an ignoring condition for one or more policies, click the **Create** button and fill in the following fields:
-
-- **Projects** — projects to which the ignore is applied;
-- **Container images** – images in registries that are ignored;
-- **Technology** - programming language or ecosystem;
-- **Dependency PURl** — [package URL](https://github.com/package-url/purl-spec), component identifier;
-- **Dependency name**;
-- **Dependency version**;
-- **License**;
-- **Vulnerability ID** - vulnerability identifier;
-- **Policies**;
-- **Is enabled** - ignore state;
-- **Active from** - date from which the ignore will start working;
-- **Active to** - date after which the ignore will stop working;
-- **Note**.
