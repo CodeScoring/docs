@@ -2,11 +2,12 @@
 hide:
   - footer
 ---
+
 # Tracking scan history
 
 For each project analysis within the SCA module, a snapshot of the results of found dependencies and vulnerabilities is saved. To see the list of available snapshots, you should go to the SCA tab on the project page and click on the **SCA scan history** button.
 
-![Scan history](/assets/img/sca_history_button.png)
+![Scan history](/assets/img/sca_history_button_en.png)
 
 The snapshot contains the following data:
 
@@ -20,4 +21,8 @@ The snapshot contains the following data:
 
 The buttons on the right side of the list allow to download a SBOM generated during the analysis and export a PDF report.
 
-![Scan history page](/assets/img/sca_history_page.png)
+![Scan history page](/assets/img/sca_history_page_en.png)
+
+To view scan details, click on the link with the scan date in the first column. A list of project dependencies and vulnerabilities, as well as dependency graph for the particular scan are available on this page.
+
+![Scan history detail](/assets/img/sca_history_detail_en.png)
