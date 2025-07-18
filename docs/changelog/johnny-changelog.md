@@ -28,7 +28,7 @@ hide:
 
 #### Изменено
 
-- В команде `scan python` по умолчанию отключен парсер в окружении pip. Включается явно флагом `--pip-resolve` (https://codescoring.kaiten.ru/49258888)
+- Отключен запуск парсера в окружении pip по умолчанию в команде `scan python`. Включается явно флагом `--pip-resolve` (https://codescoring.kaiten.ru/49258888)
 - Улучшена работа команды `scan build ebpf`
 
 #### Исправлено
