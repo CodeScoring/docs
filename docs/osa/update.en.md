@@ -22,11 +22,11 @@ By default, data on archived components is saved in the system, but it is possib
 - `OSA_ARCHIVE_RETENTION_PERIOD_DAYS` — retention period of data about archived components before deletion (default: `30`);
 - `OSA_ARCHIVE_CHUNK_SIZE` — chunk size for batch processing of components during archiving and deletion (default: `1000`).
 
-## Filtering by relevance
+## Filtering by actuality
 
-The `OSA → Packages`, `OSA → Images` and Alerts sections have a filter **Relevant**, which allows you to control the display of components:
+The `OSA → Packages`, `OSA → Images` and Alerts sections have a filter **Is actual**, which allows you to control the display of components:
 
-- **Yes** — only relevant (updated) components are displayed;
+- **Yes** — only actual (updated) components are displayed;
 - **No** — only archived (not updated) components are displayed.
 
-By default, only relevant components are displayed.
+By default, only actual components are displayed.

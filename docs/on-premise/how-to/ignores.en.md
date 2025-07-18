@@ -35,5 +35,3 @@ To create an ignore condition for one or more policies, click the **Create** but
 The policies that were subject to the ignore condition are displayed on the "Ignored" tab of the `Alerts` section.
 
 Triggered active policies can also be quickly ignored from the "Active" tab using the **Ignore** button.
-
-![Ignore in Alerts section](/assets/img/ignore-alert-en.png)
