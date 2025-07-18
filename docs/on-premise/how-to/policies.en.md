@@ -63,6 +63,7 @@ The policy creation form specifies the policy context using the following parame
 - **Repositories** — list of repositories with the OSA plugin to which the policy applies;
 - **Level** — policy criticality level (does not affect actions in the system);
 - **Blocker** — blocking CI build or download of a component from a proxy repository;
+- **Delayed block** — delay (days) from the first policy trigger to blocking;
 - **Is active** — policy status;
 - **Description** — policy description;
 - **Conditions** — list of conditions in the policy.
