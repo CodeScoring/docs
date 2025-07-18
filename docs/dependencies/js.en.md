@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Working with dependencies in JavaScript
 
 ## NPM
@@ -33,6 +34,85 @@ In `package.json`, the dependencies section may contain the following entry:
 
 The Johnny console agent handles this entry correctly, recognizing that **@babel/legacy-core** is an alias for **@babel/core** version 7.12.0. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
 
+### Support for the NPM overrides mechanism
+
+The [NPM overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) mechanism allows to replace the version of a transitive dependency. It is helpful when replacing a version with a known security issue or replacing an existing dependency with a fork.
+
+In `package.json`, the overrides section may contain the following entry:
+
+```json
+"overrides": {
+  "foo": "1.0.0"
+}
+```
+
+### Support for the NPM workspaces mechanism
+
+The [NPM workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces) mechanism allows to support managing multiple packages from your local file system within a singular top-level, root package.
+
+In `package.json`, the workspaces section may contain the following entry:
+
+```json
+"workspaces": [ "packages/a", "packages/b" ]
+```
+
+The Johnny binary agent processes all valid `package.json` from workspaces together.
+
+## PNPM
+
+### Creating a `pnpm-lock.yaml` file
+
+1. Initialize the project:
+   ```sh
+   pnpm init -y
+   ```
+2. Install dependencies:
+   ```sh
+   pnpm install
+   ```
+## Support for the PNPM package alias mechanism
+
+The PNPM package alias mechanism allows to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
+
+Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updates, and dependency compatibility.
+
+In `package.json`, the dependencies section may contain the following entry:
+
+```json
+"dependencies": {
+"lodash-old": "npm:lodash@3.10.1"
+}
+```
+
+The Johnny binary agent handles this entry correctly, recognizing that **lodash-old** is an alias for **lodash** version 3.10.1. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
+
+### Support for the PNPM overrides mechanism
+
+The PNPM overrides mechanism allows to replace the version of a transitive dependency. It is helpful when replacing a version with a known security issue or replacing an existing dependency with a fork.
+
+In `package.json`, the pnpm/overrides section may contain the following entry:
+
+```json
+"pnpm": {
+  "overrides": {
+    "example-package": "^1.3.0"
+  }
+}
+```
+
+### Support for the PNPM workspaces mechanism
+
+The [PNPM workspaces](https://pnpm.io/pnpm-workspace_yaml) mechanism allows you support managing multiple packages from your local file system from within a singular top-level, root package.
+
+In `pnpm-workspace.yaml` in folder with root package `package.json` may contain the following entry:
+
+```yaml
+packages:
+- 'packages/*'
+```
+
+The Johnny binary agent process all valid `package.json` from workspaces together.
+
 ## Yarn
 
 ### Creating a `yarn.lock` file
@@ -45,6 +125,27 @@ yarn init -y
 ```sh
 yarn install
 ```
+
+## Support for the Yarn package alias mechanism
+
+The Yarn package alias mechanism allows to install packages under different names, which is convenient for using multiple versions of a library at the same time, replacing a dependency without changing its name in the code, and working with forks.
+
+Instead of the standard version specification, a syntax is used that explicitly specifies which package and its version to install under the desired name. This simplifies testing, updates, and dependency compatibility.
+
+In `package.json`, the dependencies section may contain the following entry:
+
+```json
+"dependencies": {
+"lodash-old": "npm:lodash@3.10.1"
+}
+```
+
+In `yarn.lock` :
+```yaml
+"lodash-old@npm:lodash@3.10.1":
+```
+
+The Johnny console agent handles this entry correctly, recognizing that **lodash-old** is an alias for **lodash** version 3.10.1. The original package is taken into account during dependency analysis, preventing errors related to non-existent names.
 
 ### Support for Yarn's selective dependency resolution mechanism
 

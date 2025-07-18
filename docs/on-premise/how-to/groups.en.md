@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Creating groups
 
 **Groups** are used to join [users](/on-premise/how-to/users.en) and associate them with specific projects. This allows to conveniently manage mass access to projects in the system.
@@ -10,7 +11,7 @@ Groups are managed in the `Settings -> Groups` section. You can go to the group 
 
 ## Configuring groups
 
-Each group has its own list of users and a set of associated projects. You can change these parameters on the **Edit** page.
+Each group has its own list of users and a set of associated projects. You can change these parameters using the **Edit** button.
 
 You can link a project to a group using the **Add project** button. After linking a group, each user will have access to the project according to the assigned role.
 
@@ -20,4 +21,4 @@ When adding a new user to a group using the **Add user** button, you must select
 - **Developer** - access to launch analysis in the web interface, through an agent and through a proxy repository plugin;
 - **Owner** - access to view project policies, change project settings and manage access of other project users.
 
-Within the system, it is also possible to configure [mapping of LDAP groups into CodeScoring groups and roles](/on-premise/how-to/ldap-settings.en/#ldap-codescoring_1).
+Within the system, it is also possible to configure [mapping of LDAP groups into CodeScoring groups and roles](/on-premise/how-to/ldap-settings.en/#mapping-ldap-groups-to-codescoring-groups-and-roles).

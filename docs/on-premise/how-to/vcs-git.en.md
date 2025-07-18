@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Connecting to a VCS
 
 To add projects (Git repositories) to the system for analysis, you must first create a connection to the version control system (VCS). CodeScoring supports the following platforms:
@@ -22,8 +23,8 @@ After connecting the version control system, it is impossible to change its type
 ## Adding an SSH key
 
 1. Copy an existing or generate a new private SSH key in the version control system according to the instructions for:
- - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html])
- - [Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh -agent)
+ - [Gitlab](https://docs.gitlab.com/ee/user/ssh.html)
+ - [Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
  - [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/)
  - [Azure DevOps Git](https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
 2. In the CodeScoring interface, go to the `Settings -> SSH Keys` section
@@ -39,7 +40,7 @@ After connecting the version control system, it is impossible to change its type
 
 Original instructions for generating a token: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token>
 
-1. Log in to your GitLab account; for the cloud version, the login is available at the link <https://gitlab.com/users/sign_in>.
+1. Log in to your GitLab account.
 2. Through the user menu in the upper right corner, go to the **Edit profile** section.
 
  ![Edit profile](/assets/img/gitlab/edit-profile-link.png)
@@ -136,13 +137,13 @@ Original instructions for generating a token in English: <https://docs.microsoft
     ```
 
 4. Go to the `Settings -> VCS` section, open the form for adding a VCS by clicking the **Setup New** button and fill in the fields for creating a VCS instance:
-  
+
     - **Instance name** – VCS connection name;
     - **Instance clone type** – cloning type (select SSH type);
     - **Instance type** – VCS instance type (select Other git type);
     - **Instance url** – the address where VCS is available;
-    - **SSH key** – the SSH key created in step 4.
-  
+    - **SSH key** – the SSH key created in step 3.
+
 5. Go to the `Settings -> Project` section, open the form for creating a new project by clicking the **Create New** button and fill in the project creation fields:
 
     - **Repository** – a link to the repository in GitFlic;
@@ -154,3 +155,15 @@ Original instructions for generating a token in English: <https://docs.microsoft
       ```
 
 6. Save the project.
+
+## Synchronization of data from VCS
+
+CodeScoring automatically synchronizes data from version control systems when adding a project, running analysis, and as part of background tasks. All mechanisms for obtaining and updating data from `git` are described below:
+
+1. When adding a VCS-project, CodeScoring creates a local copy of the repository in `bare` mode and saves it in the project directory.
+2. When running SCA, TQI or Secrets analysis, the system downloads the current state of the branch specified in the project settings.
+3. Once a month, CodeScoring initiates a background task that synchronizes all connected VCS projects with remote repositories. This is a preventive update that does not replace synchronization when running analysis, but only speeds it up for projects where the analysis has not been performed for a long time.
+    - `git fetch` is performed for all VCS projects
+    - Tasks are distributed using the Huey tool to evenly distribute the load over the remaining days of the month
+
+**Note:** if you need to synchronize the repository early, you can use a manual code update on the project page in the `Settings -> Projects` section.
