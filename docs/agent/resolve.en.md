@@ -24,20 +24,20 @@ When resolving dependencies in the environment, the agent checks for the absence
 - pnpm
 - Conda
 
-Options for resolving dependencies in the environment and the path to the package manager are controlled by the following parameters in the `scan` command:
+Options for resolving dependencies in the environment, the path to the package manager and package manager run parameters are controlled by the following parameters in the `scan` command:
 
-- `--dotnet-resolve` / `--dotnet-path`
+- `--dotnet-resolve` / `--dotnet-path` / `--dotnet-args`
 - `--go-resolve` / `--go-path`
-- `--gradle-resolve` / `--gradle-path`
-- `--maven-resolve` / `--maven-path`
-- `--npm-resolve` / `--npm-path`
-- `--poetry-resolve` / `--poetry-path`
-- `--sbt-resolve` / `--sbt-path`
-- `--yarn-resolve` / `--yarn-path`
-- `--pip-resolve` / `--pip-path`
-- `--composer-resolve` / `--composer-path`
-- `--pnpm-resolve` / `--pnpm-path`
-- `--conda-resolve` / `--conda-lock-path`
+- `--gradle-resolve` / `--gradle-path` / `--gradle-args`
+- `--maven-resolve` / `--maven-path` / `--maven-args`
+- `--npm-resolve` / `--npm-path` / `--npm-args`
+- `--poetry-resolve` / `--poetry-path` / `--poetry-args`
+- `--sbt-resolve` / `--sbt-path` / `--sbt-args`
+- `--yarn-resolve` / `--yarn-path` / `--yarn-args`
+- `--pip-resolve` / `--pip-path` / `--pip-args`
+- `--composer-resolve` / `--composer-path` / `--composer-args`
+- `--pnpm-resolve` / `--pnpm-path` / `--pnpm-args`
+- `--conda-resolve` / `--conda-lock-path` / `--conda-args`
 
 Request example:
 
