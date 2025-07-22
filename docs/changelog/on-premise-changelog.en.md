@@ -5,6 +5,13 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.29.1] - 2025-07-22
+
+#### Fixed
+
+- Optimized loading of dependencies page in SCA module
+- Fixed error when changing LDAP settings
+
 ### [2025.29.0] - 2025-07-18
 
 #### Added
