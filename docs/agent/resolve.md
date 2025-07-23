@@ -26,7 +26,7 @@ hide:
 
 Параметры разрешения зависимостей в окружении, пути к пакетному менеджеру и параметры выполнения регулируются следующими параметрами в команде `scan`:
 
-- `--dotnet-resolve` / `--dotnet-path` / `--dotnet-args` 
+- `--dotnet-resolve` / `--dotnet-path` / `--dotnet-args`
 - `--go-resolve` / `--go-path`
 - `--gradle-resolve` / `--gradle-path` / `--gradle-args`
 - `--maven-resolve` / `--maven-path` / `--maven-args`
