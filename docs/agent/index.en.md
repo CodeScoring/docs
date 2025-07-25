@@ -12,9 +12,9 @@ Agent is an executable binary file that parses manifests of well-known package m
 By default, the agent build is provided for Linux-compatible systems. Builds for Windows and MacOS are available upon request.
 You can download the agent executable file via installation using the following addresses:
 
-- [installation-url]/download/ – page with a list of available executable files;
-- [installation-url]/download/johnny_version – current version of the binary agent;
-- [installation-url]/download/<file-name> – download the executable file.
+- `[installation-url]/download/` – page with a list of available executable files;
+- `[installation-url]/download/johnny_version` – current version of the binary agent;
+- `[installation-url]/download/<file-name>` – download the executable file.
 
 To view the current version and download the file, you need to authorize using an API token.
 
