@@ -52,7 +52,7 @@ In `package.json`, the overrides section may contain the following entry:
 "version": "1.0.0",
 ```
 
-The Johnny console agent handles this entry correctly
+The Johnny console agent handles this entry correctly, recognizing package **foo** version 1.0.0.
 
 ### Support for the NPM workspaces mechanism
 
@@ -114,7 +114,7 @@ In `package.json`, the pnpm/overrides section may contain the following entry:
 example-package@1.3.0: {}
 ```
 
-The Johnny console agent handles this entry correctly
+The Johnny console agent handles this entry correctly, recognizing package **example-package** version 1.3.0.
 
 ### Support for the PNPM workspaces mechanism
 
