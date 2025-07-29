@@ -68,7 +68,6 @@ After installation and restart, you should see the CodeScoring tool window.
 #### 4.2 Generate and Set API Token
 
 1. Open your web browser and navigate to: `<API URL>/cabinet/profile`
-    - For example: `https://staging.demo.codescoring.com/cabinet/profile`
 2. Log in to your CodeScoring account
 3. Ensure you're on your profile page
 4. Locate the **"API token"** field

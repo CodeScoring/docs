@@ -62,7 +62,6 @@ After installation, you should see the CodeScoring logo in the VS Code Activity 
 #### 4.2 Generate and Set the API Token
 
 1. Open a web browser and navigate to: `<API URL>/cabinet/profile`
-    - For example: `https://staging.demo.codescoring.com/cabinet/profile`
 2. Log into your CodeScoring account
 3. Ensure you're on your profile page
 4. Find the **"API token"** field
