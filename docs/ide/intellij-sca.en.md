@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# CodeScoring SCA Plugin for IntelliJ
+# CodeScoring SCA Plugin for IntelliJ based IDEs
 
 The plugin provides Software Composition Analysis (SCA) capabilities for IntelliJ IDEA and other JetBrains IDEs, highlighting vulnerable dependencies in your project files and providing detailed vulnerability information through Johnny CLI integration.
 
@@ -15,7 +15,7 @@ The **CodeScoring SCA** plugin supports IntelliJ IDEA versions **2024.1** and ab
 
 Before you begin, ensure you have:
 
-- IntelliJ IDEA 2024.1 or newer (or any compatible supported JetBrains Platform-based IDE)
+- IntelliJ IDEA 2024.1 or newer (or any compatible supported IntelliJ based IDE)
 - Access to a CodeScoring installation with active credentials
 - The codescoring-intellij plugin distribution (.zip file)
 
@@ -25,8 +25,8 @@ The plugin is provided as a `codescoring-intellij-<version>.zip` file.
 
 ### Step 2: Install the Plugin from ZIP File
 
-1. Open IntelliJ IDEA
-2. Go to **File** → **Settings** (or **IntelliJ IDEA** → **Preferences** on macOS)
+1. Open IntelliJ based IDE
+2. Go to **File** → **Settings** (or **\<IDE Name\>** → **Preferences** on macOS)
 3. In the settings dialog, select **Plugins** in the left sidebar
 4. Click the **gear icon (⚙)** at the top of the plugins panel
 5. Select **"Install Plugin from Disk..."** from the dropdown menu
@@ -37,7 +37,7 @@ The plugin is provided as a `codescoring-intellij-<version>.zip` file.
 8. Wait for the installation to complete
 9. Confirm the installation of the plugin from CodeScoring
    ![Screenshot of third-party plugin installation confirmation dialog](/assets/img/ide/intellij/step2-3-accept-warning.png)
-10. Restart IntelliJ IDEA when prompted
+10. Restart IntelliJ based IDE when prompted
 
 ### Step 3: Locate the CodeScoring Plugin
 
@@ -75,7 +75,7 @@ After installation and restart, you should see the CodeScoring tool window.
 5. Click the **"Generate"** button next to the API token field
    ![Screenshot of CodeScoring web interface showing profile page with API token field and Generate button](/assets/img/ide/intellij/step4-3-generate-token.png)
 6. Copy the generated API token value
-7. Return to IntelliJ IDEA settings
+7. Return to IntelliJ based IDE settings
 8. Paste the token into the **"API Token"** field
 9. Click **"Validate Token"** to verify the token works
 10. The plugin should display confirmation that the token is valid
@@ -168,11 +168,11 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 
 ### Step 5: Run Your First Scan
 
-Now that the plugin is configured, you can run your first scan for vulnerable dependencies:
+Now that the plugin is configured, you can run your first dependency scan:
 
 #### Method 1: Using the Dashboard
 
-1. Open a project in IntelliJ
+1. Open a project in IntelliJ based IDE
 2. Open the CodeScoring SCA tool window
 3. In the Dashboard panel, click the **"Run Scan"** button
 

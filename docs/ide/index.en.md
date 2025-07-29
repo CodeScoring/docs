@@ -13,7 +13,7 @@ By integrating vulnerability detection into the IDE, developers can:
 
 - Detect security issues as they write code, not after deployment
 - Get instant feedback on dependency vulnerabilities
-- Apply fixes without leaving their development environment
+- Learn about safe versions and use them right in their development environment
 - Maintain secure code from the earliest stages of development
 - Track components over time
 
