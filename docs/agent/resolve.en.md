@@ -45,7 +45,7 @@ For .NET projects, the agent executes the command:
 
 ```bash
 dotnet restore
-````
+```
 
 After which the `obj/project.assets.json` file is analyzed, containing complete information about dependencies and their versions.
 
