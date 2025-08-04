@@ -5,6 +5,14 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.29.2] - 2025-08-05
+
+#### Fixed
+
+- Fixed background package update error
+- Fixed bug with duplicated vulnerabilities in project PDF report
+- Added timeout setting for Redis connections
+
 ### [2025.29.1] - 2025-07-22
 
 #### Fixed
