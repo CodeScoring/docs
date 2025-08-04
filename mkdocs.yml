@@ -59,7 +59,7 @@ plugins:
           installation-kubernetes: "Installation in Kubernetes"
           update: "Updating the system in Docker"
           backup: "Backup"
-          proxy: "Proxy usage"
+          system-proxy: "Proxy usage"
           ssl: "Self signed SSL certificates"
           postgresql-tls: "Connecting to PostgreSQL/PgBouncer using TLS"
           analysis-ignore-paths: "Analysis paths and exceptions"
@@ -98,6 +98,11 @@ plugins:
           osa-components: "Working with OSA components"
           osa-update: "Updating component data"
           osa-archives: "Scanning archives"
+          proxy: "Working over proxy"
+          cs_proxy: "CodeScoring Proxy"
+          cs_proxy-overview: "Overview"
+          cs_proxy-config: "Configuration"
+          cs_proxy-protocols: "Protocols"
           agent: "CLI agent Johnny"
           agent-general: "General description"
           agent-config: "Configuration"
@@ -170,6 +175,10 @@ plugins:
           update: "Обновление системы в Docker"
           backup: "Резервное копирование"
           proxy: "Работа через прокси"
+          cs_proxy: "CodeScoring Proxy"
+          cs_proxy-overview: "Обзор"
+          cs_proxy-config: "Конфигурирование"
+          cs_proxy-protocols: "Протоколы"
           ssl: "Самоподписанные SSL сертификаты"
           postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
@@ -328,6 +337,13 @@ nav:
     - webhooks: on-premise/how-to/webhooks.en.md
     - api: on-premise/how-to/api.md
     - api: on-premise/how-to/api.en.md
+  - cs_proxy:
+    - cs_proxy-overview: cs_proxy/index.md
+    - cs_proxy-overview: cs_proxy/index.en.md
+    - cs_proxy-config: cs_proxy/config.md
+    - cs_proxy-config: cs_proxy/config.en.md
+    - cs_proxy-protocols: cs_proxy/protocols.md
+    - cs_proxy-protocols: cs_proxy/protocols.en.md
   - osa:
     - osa-general: osa/index.md
     - osa-general: osa/index.en.md

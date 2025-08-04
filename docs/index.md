@@ -15,6 +15,7 @@ hide:
  - [Настройка и применение](on-premise/how-to/activation)
  - [Модуль OSA](osa)
  - [Модуль SCA](sca)
+ - [CodeScoring Proxy](/cs_proxy)
  - [Консольный агент](agent)
  - [Модуль Secrets](secrets)
  - [Модуль TQI](tqi)
