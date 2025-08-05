@@ -46,6 +46,14 @@ In `package.json`, the overrides section may contain the following entry:
 }
 ```
 
+`package-lock.json` contains single version of package `foo`:
+```json
+"node_modules/foo": {
+"version": "1.0.0",
+```
+
+The Johnny console agent handles this entry correctly, recognizing package **foo** version 1.0.0.
+
 ### Support for the NPM workspaces mechanism
 
 The [NPM workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces) mechanism allows to support managing multiple packages from your local file system within a singular top-level, root package.
@@ -99,6 +107,14 @@ In `package.json`, the pnpm/overrides section may contain the following entry:
   }
 }
 ```
+
+`pnpm-lock.yaml` contains package `example-package` with version equal or high 1.3.0:
+
+```yaml
+example-package@1.3.0: {}
+```
+
+The Johnny console agent handles this entry correctly, recognizing package **example-package** version 1.3.0.
 
 ### Support for the PNPM workspaces mechanism
 
