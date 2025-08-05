@@ -5,6 +5,12 @@ hide:
 
 # Johnny Changelog
 
+### [2025.29.2] - 2025-07-25
+
+#### Fixed
+
+- Fixed crash when processing dependencies for which the environment could not be determined
+
 ### [2025.29.1] - 2025-07-18
 
 #### Fixed
