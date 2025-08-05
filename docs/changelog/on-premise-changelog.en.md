@@ -9,9 +9,9 @@ hide:
 
 #### Fixed
 
-- Fixed background package update error
-- Fixed bug with duplicated vulnerabilities in project PDF report
-- Added timeout setting for Redis connections
+- Fixed background package update error in OSA module
+- Fixed duplication of vulnerabilities in PDF project report
+- Added timeout settings for Redis connections via variables `REDIS_SOCKET_CONNECT_TIMEOUT`, `REDIS_SOCKET_TIMEOUT`, `REDIS_SOCKET_KEEPALIVE`
 
 ### [2025.29.1] - 2025-07-22
 
