@@ -45,6 +45,12 @@ Before you begin, ensure you have:
 - Access to a CodeScoring installation with active credentials
 - The codescoring-sca extension distribution for vscode (.vsix)
 
+### Required Permissions
+
+- **File system**: Read project files, write .codescoring files, download executable, execute downloaded CLI
+- **Network**: Communication with CodeScoring API
+- **VS Code API**: Editor integration
+
 ### Step 1: Download the Extension
 
 The extension is provided as a platform-independent file `codescoring-sca-<version>.vsix`.
@@ -112,7 +118,7 @@ After installation, you should see the CodeScoring logo in the VS Code Activity 
 
 There are three ways to obtain Johnny CLI for analyzing your dependencies with our service.
 
-##### 4.4.1 Local Installation
+**4.4.1 Local Installation**
 
 **Prerequisites:**
 
@@ -136,7 +142,7 @@ There are three ways to obtain Johnny CLI for analyzing your dependencies with o
 
 ![Screenshot of file browser for selecting Johnny CLI executable](/assets/img/ide/vscode/step4-5-file-selection.png)
 
-##### 4.4.2 Automatic Client Download
+**4.4.2 Automatic Client Download**
 
 **Prerequisites:**
 
@@ -158,7 +164,7 @@ There are three ways to obtain Johnny CLI for analyzing your dependencies with o
     2. **Windows**: `%APPDATA%\Code\User\globalStorage\CodeScoring.codescoring-sca\johnny.exe`
     3. **MacOS**: `~/Library/Application Support/Code/User/globalStorage/CodeScoring.codescoring-sca/johnny`
 
-##### 4.4.3 Using Docker
+**4.4.3 Using Docker**
 
 Docker installation allows running Johnny CLI in an isolated container, which is useful when you don't want to install it directly on your system.
 
@@ -307,7 +313,8 @@ When hovering over highlighted dependencies, it displays:
 
 #### 7.3 Vulnerabilities Panel
 
-##### 7.3.1 Tree View Structure
+**7.3.1 Tree View Structure**
+
 ```
 📊 Vulnerabilities (247)
 ├── 🔴 Critical (12)
@@ -320,7 +327,7 @@ When hovering over highlighted dependencies, it displays:
 └── 🔵 Low (101)
 ```
 
-##### 7.3.2 Grouping Options
+**7.3.2 Grouping Options**
 
 - Use the vulnerabilities panel to filter by severity, package, or other criteria
 - Group vulnerabilities by different categories for better organization
@@ -336,7 +343,7 @@ Change grouping via toolbar button or command:
 
 #### 7.4 Search and Filtering
 
-##### Search Capabilities
+**Search Capabilities**
 
 - **Multiple fields**: Search by:
     - Package name (e.g., "lodash")
@@ -351,12 +358,12 @@ Change grouping via toolbar button or command:
 
 #### 7.5 Quick Fixes
 
-##### Quick Fixes
+**Quick Fixes**
 
 - Click on suggested version updates when hovering over a vulnerable component to automatically update to the latest dependency version
 - When pressing `Ctrl+.` (`Cmd+.` on Mac) while the cursor is on a vulnerable component, you'll be prompted to select a specific version to update to (if multiple are available)
 
-##### Individual Fixes
+**Individual Fixes**
 
 - Hover your mouse over a vulnerable dependency
 - Click on the suggested version in the tooltip
@@ -373,40 +380,42 @@ or
 
 - **Fix Selected Button**: Select one vulnerable component or a vulnerability belonging to that component, and the component will be updated to the latest safe version
 
-##### Bulk Fixes
+**Bulk Fixes**
 
 - **Fix All Button**: Updates all vulnerable components with available fixes that are currently visible in the tree, taking into account applied filters (magnifying glass)
 
 #### 7.6 Working with BOM Files
 
-##### Auto-loading
+**Auto-loading**
+
 The extension automatically loads BOM files from:
 
 1. `.codescoring/bom.json` (primary)
 2. `bom.json` (root directory)
 
-##### Manual Operations
+**Manual Operations**
 
 - **Load BOM**: `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) → "Load BOM File"
 - **Close BOM**: Clears all vulnerability data and frees memory
 
 #### 7.7 BOM Comparison
 
-##### Automatic Comparison
+**Automatic Comparison**
+
 When opening a project:
 
 - Loads current BOM (`bom.json`)
 - Compares with previous (`bom.json.0`)
 - Shows notification of changes
 
-##### Manual Comparison with Open BOM
+**Manual Comparison with Open BOM**
 
 1. Have a loaded BOM (target)
 2. Execute "Compare BOMs" command
 3. Select base BOM file
 4. Comparison result will be displayed in DIFF panel
 
-##### Manual Comparison of Two Arbitrary BOMs
+**Manual Comparison of Two Arbitrary BOMs**
 
 1. Close BOM if necessary
 2. Execute "Compare BOMs" command
@@ -414,7 +423,7 @@ When opening a project:
 4. Select target BOM file to compare with base
 5. Comparison result will be displayed in DIFF panel
 
-##### Comparison Views
+**Comparison Views**
 
 ```
 📊 BOM DIFF (Changes: 23 added, 15 removed, 45 updated, 73 unchanged)
@@ -428,7 +437,7 @@ When opening a project:
 └── ✓ Unchanged (73)
 ```
 
-##### Comparison Grouping Options
+**Comparison Grouping Options**
 
 - **By Change Type**: Added/Removed/Updated/Unchanged (note: updated means the vulnerability count was updated for a component)
 - **By Package**: Alphabetical package grouping without version. This is the most useful grouping for viewing updated components (added version and removed version will be grouped together)
@@ -437,12 +446,13 @@ When opening a project:
 
 ![Screenshot of bom comparison tree with expanded comparison grouping](/assets/img/ide/vscode/step6-comparison-grouping.png)
 
-###### Comparison Filtering
+**Comparison Filtering**
+
 You can also search/filter the BOM DIFF tree to focus on components of interest. To clear the search, click the "Clear Comparison Search" button in the top right of BOM DIFF.
 
 #### 7.8 Reports
 
-##### Scan Reports
+**Scan Reports**
 
 - **Automatically generated**: Created after each scan
 - **Location**: `.codescoring/report.html`
@@ -455,7 +465,7 @@ You can also search/filter the BOM DIFF tree to focus on components of interest.
     - Policy warnings
     - Error messages
 
-##### Viewing Reports
+**Viewing Reports**
 
 - **Command**: "View Latest Scan Report"
 - **Opens in**: HTML Preview in VS Code
@@ -463,7 +473,7 @@ You can also search/filter the BOM DIFF tree to focus on components of interest.
 
 #### 7.9 Settings and Customization
 
-##### Available Settings List
+**Available Settings List**
 
 | Setting                    | Description                                  | Default                       |
 |----------------------------|----------------------------------------------|-------------------------------|
@@ -482,7 +492,8 @@ You can also search/filter the BOM DIFF tree to focus on components of interest.
 | `batchProcessingSize`      | Number of items to process at once           | `100`                         |
 | `severityColors`           | Custom color mapping                         | _(default colors)_            |
 
-##### Keyboard Shortcuts
+**Keyboard Shortcuts**
+
 Configure in VS Code settings, for example:
 ```json
 {
@@ -493,7 +504,7 @@ Configure in VS Code settings, for example:
 
 ### Troubleshooting
 
-##### Extension Logs
+**Extension Logs**
 
 - For detailed understanding of plugin functionality, check the extension log file located at:
     - Windows: `%USERPROFILE%\.vscode\extensions\codescoring-sca-[version]\out\logs\extension.log`
@@ -501,14 +512,16 @@ Configure in VS Code settings, for example:
 
 #### Common Issues
 
-##### Scanning Issues
+**Scanning Issues**
+
 | Issue           | Solution                                                                                                                                   |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Scan hangs      | Try running the cli file manually, ensure the operating system and antivirus allow it to work, check internet connection, verify API token |
 | No results      | Ensure project has dependency files, check report.html output                                                                              |
 | Partial results | Check ignore patterns in configuration                                                                                                     |
 
-##### Display Issues
+**Display Issues**
+
 | Issue              | Solution                           |
 |--------------------|------------------------------------|
 | No highlighting    | Enable in settings, reload window  |
@@ -516,7 +529,8 @@ Configure in VS Code settings, for example:
 | Missing panel      | View → Open View → Vulnerabilities |
 | Hovers not showing | Enable hover in settings           |
 
-##### Fix Issues
+**Fix Issues**
+
 | Issue          | Solution                         |
 |----------------|----------------------------------|
 | Fix fails      | Check write permissions          |
@@ -526,23 +540,13 @@ Configure in VS Code settings, for example:
 
 Contact support: <hello@codescoring.ru>
 
-### Security and Privacy
-
-#### Data Handling
+### Security and Privacy, Data Handling
 
 - **Local scanning**: Code is not sent to servers
 - **API communication**: Only metadata is transmitted (your package manager configuration files)
 - **Token storage**: VS Code credential secure storage
 
-#### Required Permissions
-
-- **File system**: Read project files, write .codescoring files, download executable, execute downloaded CLI
-- **Network**: Communication with CodeScoring API
-- **VS Code API**: Editor integration
-
-### Best Practices
-
-#### Workflow Recommendations
+### Best Practices, Workflow Recommendations
 
 1. **Initial setup**: Full scan when starting a project
 4. **Reviews**: Compare BOMs between versions

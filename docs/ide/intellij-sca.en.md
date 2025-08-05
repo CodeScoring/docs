@@ -44,6 +44,13 @@ Before you begin, ensure you have:
 - Access to a CodeScoring installation with active credentials
 - The codescoring-intellij plugin distribution (.zip file)
 
+### Required Permissions
+
+- **File system**: Read project files, write .codescoring files, download executable file, execute downloaded CLI
+- **Network**: Communication with CodeScoring API
+- **VS Code API**: Editor integration
+
+
 ### Step 1: Download the Plugin
 
 The plugin is provided as a `codescoring-intellij-<version>.zip` file.
@@ -117,7 +124,7 @@ After installation and restart, you should see the CodeScoring tool window.
 
 There are three ways to get Johnny CLI for analyzing your dependencies with our service.
 
-##### 4.4.1 Local Installation
+**4.4.1 Local Installation**
 
 **Prerequisites:**
 
@@ -137,7 +144,7 @@ There are three ways to get Johnny CLI for analyzing your dependencies with our 
 
 ![Screenshot of settings page with Johnny CLI path configuration](/assets/img/ide/intellij/step4-5-johnny-path.png)
 
-##### 4.4.2 Automatic Client Download
+**4.4.2 Automatic Client Download**
 
 **Prerequisites:**
 
@@ -154,7 +161,7 @@ There are three ways to get Johnny CLI for analyzing your dependencies with our 
     - **Linux**/**MacOS**: `~/.codescoring/johnny`
     - **Windows**: `%USERPROFILE%\.codescoring\johnny.exe`
 
-##### 4.4.3 Using Docker
+**4.4.3 Using Docker**
 
 Docker installation allows running Johnny CLI in an isolated container, which is useful when you don't want to install it directly on your system.
 
@@ -319,7 +326,8 @@ When hovering over highlighted dependencies, displays:
 
 #### 7.3 Vulnerabilities Panel
 
-##### 7.3.1 Tree Structure
+**7.3.1 Tree Structure**
+
 ```
 📊 Vulnerabilities (247)
 ├── 🔴 Critical (12)
@@ -332,7 +340,7 @@ When hovering over highlighted dependencies, displays:
 └── 🔵 Low (101)
 ```
 
-##### 7.3.2 Grouping Options
+**7.3.2 Grouping Options**
 
 - Use the vulnerabilities panel to filter by severity, package, or other criteria
 - Group vulnerabilities by different categories for better organization
@@ -349,7 +357,7 @@ Change grouping via toolbar button or command:
 
 #### 7.4 Search and Filtering
 
-##### Search Capabilities
+**Search Capabilities**
 
 - **Multiple fields**: Search by:
     - Package name (e.g., "lodash")
@@ -360,7 +368,8 @@ Change grouping via toolbar button or command:
 - **Exact matching**: Search for exact word match in quotes
 - **Case insensitive**: Exact case not required
 
-##### Search Toolbar
+**Search Toolbar**
+
 For searching and filtering, the plugin has:
 
 - **Search field**: For entering search queries
@@ -369,7 +378,7 @@ For searching and filtering, the plugin has:
 
 #### 7.5 Quick Fixes
 
-##### In-code Quick Fixes
+**In-code Quick Fixes**
 
 - **IntelliJ lightbulb**: Click the lightbulb next to a vulnerable dependency
 
@@ -391,7 +400,7 @@ then
 
 ![Screenshot of quick fix options](/assets/img/ide/intellij/step7-5-quick-fixes.png)
 
-##### Bulk Fixes (doesn't work with severity groupings)
+**Bulk Fixes (doesn't work with severity groupings)**
 
 - **Fix All button**: Updates all vulnerable components with available fixes
 - **Intelligent update**: Automatically selects the most appropriate safe version
@@ -404,27 +413,29 @@ then
 
 #### 7.6 Working with BOM Files
 
-##### Auto-loading
+**Auto-loading**
+
 The plugin automatically loads BOM files from:
 
 1. `.codescoring/bom.json` (primary)
 2. `bom.json` (project root directory)
 
-##### Manual Operations
+**Manual Operations**
 
 - **Load BOM**: **Tools** → **CodeScoring SCA** → **Load BOM File**
 - **Close BOM**: **Tools** → **CodeScoring SCA** → **Close BOM**
 
 #### 7.7 BOM Comparison
 
-##### Automatic Comparison
+**Automatic Comparison**
+
 When opening a project:
 
 - Loads current BOM (`bom.json`)
 - Compares with previous (`bom.json.0`)
 - Shows change notification
 
-##### Manual Comparison
+**Manual Comparison**
 
 1. Select **Tools** → **CodeScoring SCA** → **Compare BOMs**
 2. Select base BOM file
@@ -434,7 +445,7 @@ When opening a project:
 
 ![Screenshot of BOM comparison feature](/assets/img/ide/intellij/step7-6-bom-comparison.png)
 
-##### Comparison Views
+**Comparison Views**
 
 ```
 📊 BOM DIFF (Changes: 23 added, 15 removed, 45 updated, 73 unchanged)
@@ -448,14 +459,15 @@ When opening a project:
 └── ✓ Unchanged (73)
 ```
 
-##### Comparison Grouping Options
+**Comparison Grouping Options**
 
 - **By change type**: Added/Removed/Updated/Unchanged (default)
 - **By package**: Alphabetical package grouping, most useful view for tracking changed package versions
 - **By location**: Grouped by file path
 - **By severity**: Grouped by vulnerability impact
 
-##### Comparison Filtering
+**Comparison Filtering**
+
 Use the search field to filter comparison results by:
 
 - Package name
@@ -464,7 +476,7 @@ Use the search field to filter comparison results by:
 
 #### 7.8 Reports
 
-##### Scan Reports
+**Scan Reports**
 
 - **Automatically generated**: Created after each scan
 - **Location**: `.codescoring/report.html`
@@ -477,7 +489,7 @@ Use the search field to filter comparison results by:
     - Policy warnings
     - Error messages
 
-##### Viewing Reports
+**Viewing Reports**
 
 - **Command**: **Tools** → **CodeScoring SCA** → **View Report**
 - **Opens in**: Choice of external browser, internal preview, code editor
@@ -518,21 +530,24 @@ Use the search field to filter comparison results by:
 
 #### Common Issues
 
-##### Installation Issues
+**Installation Issues**
+
 | Issue                                 | Solution                                                            |
 |---------------------------------------|---------------------------------------------------------------------|
 | Plugin not visible after installation | Fully restart IntelliJ IDEA, check **Settings** → **Plugins**       |
 | Compatibility error                   | Ensure IDE version is 2024.1 or newer, check for issues in log file |
 | Installation hangs                    | Check internet connection, try reinstalling                         |
 
-##### Configuration Issues
+**Configuration Issues**
+
 | Issue                  | Solution                                           |
 |------------------------|----------------------------------------------------|
 | Token validation fails | Check API URL, generate new token, check proxy/VPN |
 | Johnny CLI not found   | Check path, access permissions, antivirus          |
 | Docker not working     | Ensure Docker is running, check user permissions   |
 
-##### Scanning Issues
+**Scanning Issues**
+
 | Issue           | Solution                                         |
 |-----------------|--------------------------------------------------|
 | Scan hangs      | Check Event Log, try running Johnny CLI manually |
@@ -540,7 +555,8 @@ Use the search field to filter comparison results by:
 | Partial results | Check configuration in .codescoring/config.yaml  |
 | Token errors    | Check token expiration, access permissions       |
 
-##### Display Issues
+**Display Issues**
+
 | Issue            | Solution                                          |
 |------------------|---------------------------------------------------|
 | No highlighting  | Enable in settings, reload files                  |
@@ -548,7 +564,8 @@ Use the search field to filter comparison results by:
 | Missing panel    | **View** → **Tool Windows** → **CodeScoring SCA** |
 | Slow performance | Reduce pagination size in settings                |
 
-##### Fix Issues
+**Fix Issues**
+
 | Issue             | Solution                                       |
 |-------------------|------------------------------------------------|
 | Fix fails         | Check file write permissions                   |
@@ -567,17 +584,11 @@ Use the search field to filter comparison results by:
 
 Contact support: <hello@codescoring.ru>
 
-### Security and Privacy
+### Security and Privacy, Data Handling
 
-#### Data Handling
 - **Local scanning**: Code is not sent to servers
 - **API communication**: Only metadata is transmitted (your package manager configuration files)
 - **Token storage**: Secure VS Code credential storage
-
-#### Required Permissions
-- **File system**: Read project files, write .codescoring files, download executable file, execute downloaded CLI
-- **Network**: Communication with CodeScoring API
-- **VS Code API**: Editor integration
 
 ### Best Practices
 
