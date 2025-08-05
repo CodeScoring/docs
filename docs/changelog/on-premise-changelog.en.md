@@ -5,6 +5,14 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.29.2] - 2025-08-05
+
+#### Fixed
+
+- Fixed background package update error in OSA module
+- Fixed duplication of vulnerabilities in PDF project report
+- Added timeout settings for Redis connections via variables `REDIS_SOCKET_CONNECT_TIMEOUT`, `REDIS_SOCKET_TIMEOUT`, `REDIS_SOCKET_KEEPALIVE`
+
 ### [2025.29.1] - 2025-07-22
 
 #### Fixed
