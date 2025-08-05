@@ -5,9 +5,9 @@ hide:
 
 # CodeScoring SCA Plugin for IntelliJ based IDEs
 
-The plugin provides Software Composition Analysis (SCA) capabilities for IntelliJ IDEA and other JetBrains IDEs, highlighting vulnerable dependencies in your project files and providing detailed vulnerability information through Johnny CLI integration.
+The plugin provides Software Composition Analysis (SCA) capabilities for IntelliJ IDEA and other IntelliJ Platform based IDEs, highlighting vulnerable dependencies in your project files and providing detailed vulnerability information through Johnny CLI integration.
 
-The **CodeScoring SCA** plugin supports IntelliJ IDEA versions **2024.1** and above, as well as all IDEs based on IntelliJ Platform (OpenIDE, PyCharm, WebStorm, PhpStorm, RubyMine, GoLand, CLion, Rider, Android Studio).
+The **CodeScoring SCA** plugin supports IntelliJ IDEA versions **2024.1** and above, as well as all IDEs based on IntelliJ Platform (OpenIDE, GIGA IDE, PyCharm, WebStorm, PhpStorm, RubyMine, GoLand, CLion, Rider, Android Studio).
 
 ## Supported Ecosystems
 

@@ -95,7 +95,7 @@ plugins:
           osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
           osa-archives: "Scanning archives"
-          ide: "CodeScoring IDE integrations"
+          ide: "IDE integrations"
           ide-general: "General description"
           vscode-sca: "Visual Studio Code Extension"
           intellij-sca: "IntelliJ Plugin"

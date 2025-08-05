@@ -22,6 +22,6 @@ By integrating vulnerability detection into the IDE, developers can:
 **CodeScoring** offers plugins for the most popular development environments:
 
 - [Visual Studio Code Extension](/ide/vscode-sca.en)
-- [Plugin for JetBrains IDEs](/ide/intellij-sca.en)
+- [Plugin for IntelliJ based IDEs](/ide/intellij-sca.en)
 
 Both integrations provide vulnerable component scanning, visual indicators in code, and one-click remediation options, ensuring developers can maintain secure dependencies without disrupting their workflow.
