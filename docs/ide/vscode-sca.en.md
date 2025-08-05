@@ -9,6 +9,32 @@ The extension provides Software Composition Analysis (SCA) capabilities for VS C
 
 The **CodeScoring SCA** extension supports Visual Studio Code versions **1.95.0** and higher.
 
+## Supported Ecosystems
+
+### Languages and Package Managers
+
+| Ecosystem           | Manifest Files                                                        | Lock Files                                                                                    |
+|---------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| **JavaScript/Node** | package.json                                                          | package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, npm-lock.yaml              |
+| **Python**          | setup.py, pyproject.toml, Pipfile, require*.txt, require*.pip         | Pipfile.lock, poetry.lock                                                                     |
+| **Java**            | pom.xml, ivy.xml, *.gradle, *.gradle.kts                              | gradle.lockfile, maven-dependency-tree.txt, gradle-dependency-tree.txt                        |
+| **Ruby**            | Gemfile, gems.rb, *.gemspec                                           | Gemfile.lock, gems.locked                                                                     |
+| **Go**              | go.mod                                                                | go.sum                                                                                        |
+| **Rust**            | Cargo.toml                                                            | Cargo.lock                                                                                    |
+| **PHP**             | composer.json                                                         | composer.lock                                                                                 |
+| **C#/.NET**         | *.csproj, packages.config, Project.json, paket.dependencies, *.nuspec | packages.lock.json, Project.lock.json, paket.lock, project.assets.json, dependencyReport.json |
+| **Swift**           | Package.swift                                                         | Package.resolved                                                                              |
+| **Objective-C**     | Podfile, *.podspec                                                    | Podfile.lock                                                                                  |
+| **Conda**           | environment.yml, environment.yaml, meta.yml, meta.yaml                | conda-lock.yml                                                                                |
+| **Conan (C/C++)**   | conanfile.txt, conanfile.py                                           | conan.lock                                                                                    |
+
+### Default File Detection
+
+- **Automatic**: Scans all supported files
+- **Recursive**: Searches in subdirectories
+
+Fine-tuning the scan is done by modifying the config.yaml file
+
 ## Getting Started
 
 ### Prerequisites
@@ -499,28 +525,6 @@ Configure in VS Code settings, for example:
 | Conflicts      | Fix one by one                   |
 
 Contact support: <hello@codescoring.ru>
-
-### Supported Ecosystems
-
-#### Languages and Package Managers
-
-| Ecosystem           | Manifest Files            | Lock Files                                   |
-|---------------------|---------------------------|----------------------------------------------|
-| **JavaScript/Node** | package.json              | package-lock.json, yarn.lock, pnpm-lock.yaml |
-| **Python**          | setup.py, pyproject.toml  | requirements.txt, Pipfile.lock, poetry.lock  |
-| **Java**            | pom.xml, build.gradle     | gradle.lockfile                              |
-| **Ruby**            | Gemfile, *.gemspec        | Gemfile.lock                                 |
-| **Go**              | go.mod                    | go.sum                                       |
-| **Rust**            | Cargo.toml                | Cargo.lock                                   |
-| **PHP**             | composer.json             | composer.lock                                |
-| **C#/.NET**         | *.csproj, packages.config | packages.lock.json                           |
-| **Swift**           | Package.swift             | Package.resolved                             |
-| **Objective-C**     | Podfile                   | Podfile.lock                                 |
-
-#### Default File Detection
-
-- **Automatic**: Scans all supported files
-- **Recursive**: Searches in subdirectories
 
 ### Security and Privacy
 

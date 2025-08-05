@@ -9,6 +9,31 @@ The plugin provides Software Composition Analysis (SCA) capabilities for Intelli
 
 The **CodeScoring SCA** plugin supports IntelliJ IDEA versions **2024.1** and above, as well as all IDEs based on IntelliJ Platform (OpenIDE, PyCharm, WebStorm, PhpStorm, RubyMine, GoLand, CLion, Rider, Android Studio).
 
+## Supported Ecosystems
+
+### Languages and Package Managers
+
+| Ecosystem           | Manifest Files                                          | Lock Files                                                             | Features                          |
+|---------------------|---------------------------------------------------------|------------------------------------------------------------------------|-----------------------------------|
+| **Java/JVM**        | pom.xml, *.gradle, *.gradle.kts, ivy.xml                | gradle.lockfile, gradle-dependency-tree.txt, maven-dependency-tree.txt | Full support for Maven and Gradle |
+| **JavaScript/Node** | package.json                                            | package-lock.json, yarn.lock, npm-shrinkwrap.json, pnpm-lock.yaml      | NPM, Yarn, PNPM                   |
+| **Python**          | setup.py, pyproject.toml, pipfile                       | requirements.txt, requirements.pip, Pipfile.lock, poetry.lock          | Pip, Poetry, Pipenv               |
+| **Ruby**            | Gemfile, gems.rb, *.gemspec                             | Gemfile.lock, gems.locked                                              | Bundler and RubyGems              |
+| **Go**              | go.mod                                                  | go.sum                                                                 | Go modules                        |
+| **Rust**            | Cargo.toml                                              | Cargo.lock                                                             | Cargo                             |
+| **PHP**             | composer.json                                           | composer.lock                                                          | Composer                          |
+| **C#/.NET**         | *.csproj, packages.config, *.nuspec, paket.dependencies | packages.lock.json, project.assets.json, paket.lock, project.lock.json | NuGet and Paket                   |
+| **Swift**           | Package.swift                                           | Package.resolved                                                       | Swift Package Manager             |
+| **Objective-C**     | Podfile, *.podspec                                      | Podfile.lock                                                           | CocoaPods for iOS/macOS           |
+| **C/C++**           | conanfile.txt, conanfile.py                             | conan.lock                                                             | Conan package manager             |
+| **Conda**           | environment.yml, meta.yml, environment.yaml, meta.yaml  | conda-lock.yml                                                         | Conda environments                |
+
+#### Default File Detection
+- **Automatic**: Scans all supported files
+- **Recursive**: Searches in project subdirectories
+
+Fine-tuning the scan is done by modifying the config.yaml file
+
 ## Getting Started
 
 ### Prerequisites
@@ -541,29 +566,6 @@ Use the search field to filter comparison results by:
 3. **Error reports**: Review `.codescoring/report.html` for scan details
 
 Contact support: <hello@codescoring.ru>
-
-### Supported Ecosystems
-
-#### Languages and Package Managers
-
-| Ecosystem           | Manifest Files                                   | Lock Files                                                        | Features                          |
-|---------------------|--------------------------------------------------|-------------------------------------------------------------------|-----------------------------------|
-| **Java/JVM**        | pom.xml, build.gradle, build.gradle.kts, ivy.xml | gradle.lockfile                                                   | Full support for Maven and Gradle |
-| **JavaScript/Node** | package.json                                     | package-lock.json, yarn.lock, npm-shrinkwrap.json, pnpm-lock.yaml | NPM, Yarn, PNPM                   |
-| **Python**          | setup.py, pyproject.toml                         | requirements.txt, Pipfile.lock, poetry.lock                       | Pip, Poetry, Pipenv               |
-| **Ruby**            | Gemfile, *.gemspec                               | Gemfile.lock, gems.locked                                         | Bundler and RubyGems              |
-| **Go**              | go.mod                                           | go.sum                                                            | Go modules                        |
-| **Rust**            | Cargo.toml                                       | Cargo.lock                                                        | Cargo                             |
-| **PHP**             | composer.json                                    | composer.lock                                                     | Composer                          |
-| **C#/.NET**         | *.csproj, packages.config, .nuspec               | packages.lock.json, project.assets.json, paket.lock               | NuGet and Paket                   |
-| **Swift**           | Package.swift                                    | Package.resolved                                                  | Swift Package Manager             |
-| **Objective-C**     | Podfile, .podspec                                | Podfile.lock                                                      | CocoaPods for iOS/macOS           |
-| **C/C++**           | conanfile.txt, conanfile.py                      | conan.lock                                                        | Conan package manager             |
-| **Conda**           | environment.yml, meta.yml                        | conda-lock.yml                                                    | Conda environments                |
-
-#### Default File Detection
-- **Automatic**: Scans all supported files
-- **Recursive**: Searches in project subdirectories
 
 ### Security and Privacy
 

@@ -207,7 +207,7 @@ plugins:
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA на инсталляции"
           osa-archives: "Сканирование архивов"
-          ide: "Интеграция CodeScoring в среду разработки"
+          ide: "Интеграция с IDE"
           ide-general: "Общее описание"
           vscode-sca: "Расширение для Visual Studio Code"
           intellij-sca: "Плагин для IntelliJ"
