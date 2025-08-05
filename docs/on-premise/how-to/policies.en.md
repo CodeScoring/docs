@@ -113,7 +113,23 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Relation** — dependency relationship in the project (direct or transitive);
 - **CWE** — vulnerability type identifier according to the [Common Weakness Enumeration](https://cwe.mitre.org/) standard.
 
-Note for the  **Dependency is a descendant of** parameter. Dependency search is performed for deeper levels of nesting of the dependency graph. For example, for the case of a dependency chain `a<-b<-c<-d`, the children of `b` are `c` and `d`.
+Note for the **Dependency is a descendant of** parameter. Dependency search is performed for deeper levels of nesting of the dependency graph. For example, for the case of a dependency chain `a<-b<-c<-d`, the children of `b` are `c` and `d`.
+
+Note for the **Dependency is dangerous** parameter. Dependency is considered dangerous if it has vulnerabilities with:
+
+- `MAL-` prefix (OSV Malicious Packages Feed);
+- one of the following CWE:
+  - CWE-506: Embedded Malicious Code;;
+  - CWE-507: Trojan Horse;
+  - CWE-508: Non-Replicating Malicious Code;
+  - CWE-509: Replicating Malicious Code;
+  - CWE-510: Trapdoor;
+  - CWE-511: Logic/Time Bomb;
+  - CWE-512: Spyware;
+  - CWE-912: Hidden Functionality;
+- one of the impacts (Kaspersky):
+  - Malware;
+  - Other.
 
 ## Policy example
 
