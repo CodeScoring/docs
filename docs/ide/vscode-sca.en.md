@@ -183,8 +183,8 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 ```
 2. Configure the Docker image
 - **Image**: `johnny-depp:2025.29.0` (default)
-- **Registry**: `registry-one.codescoring.ru` (default)
-- Full image path: `registry-one.codescoring.ru/johnny-depp:2025.29.0`
+- **Registry**: `<codescoring-registry-host>`
+- Sample full image path: `sample-codescoring-registry.com/johnny-depp:2025.29.0`
 3. **Optional: Additional Docker Options**
    Add custom Docker run options if needed:
    ```json
@@ -202,7 +202,7 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 {
   "codescoringSca.installationType": "docker",
   "codescoringSca.dockerImage": "johnny-depp:2025.29.0",
-  "codescoringSca.dockerRegistry": "registry-one.codescoring.ru",
+  "codescoringSca.dockerRegistry": "sample-codescoring-registry.com",
   "codescoringSca.dockerOptions": ""
 }
 ```
@@ -219,6 +219,7 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 Now that the extension is configured, you can run your first scan for vulnerable dependencies:
 
 #### Method 1: Using the Sidebar Panel
+
 1. Open a project folder in VS Code
 2. Click on the CodeScoring icon in the Activity Bar
 3. In the "CODESCORING: CODESCORING SCA" sidebar panel, click the **"Run Scan"** button
@@ -226,6 +227,7 @@ Now that the extension is configured, you can run your first scan for vulnerable
 ![Screenshot of the Run Scan button in the sidebar panel](/assets/img/ide/vscode/step5-1-panel-scan-button.png)
 
 #### Method 2: Using the Command Palette
+
 1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the Command Palette
 2. Type "Run Johnny CLI Scan"
 3. Select **"CodeScoring SCA: Run Johnny CLI Scan"** from the list
@@ -233,6 +235,7 @@ Now that the extension is configured, you can run your first scan for vulnerable
 ![Screenshot of the Command Palette with the scan command highlighted](/assets/img/ide/vscode/step5-2-run-from-command-palette.png)
 
 #### Method 3: Using the Status Bar
+
 1. Look at the bottom status bar of VS Code
 2. Find the **"CodeScoring CLI"** indicator
 3. Click on it to open the Johnny CLI menu
@@ -262,6 +265,7 @@ your-project/
 ```
 
 #### Example Usage of CodeScoring Scan Configuration
+
 Edit `.codescoring/config.yaml` to customize:
 ```yaml
 scan:
@@ -301,6 +305,7 @@ After the scan completes:
 - **Hover** over highlighted dependencies to see vulnerability details
 
 #### 7.2 Hover Information
+
 When hovering over highlighted dependencies, it displays:
 
 - **Vulnerability ID**: CVE number with link
@@ -475,22 +480,22 @@ You can also search/filter the BOM DIFF tree to focus on components of interest.
 
 **Available Settings List**
 
-| Setting                    | Description                                  | Default                       |
-|----------------------------|----------------------------------------------|-------------------------------|
-| `apiUrl`                   | Your CodeScoring installation URL            |                               |
-| `apiToken`                 | API token. Securely stored                   | _(set via command)_           |
-| `installationType`         | local or docker                              | `local`                       |
-| `johnnyCliPath`            | Path to Johnny CLI (empty for auto-download) | _(auto-download)_             |
-| `dockerImage`              | Docker image name with Johnny CLI            | `johnny-depp:2025.29.0`       |
-| `dockerRegistry`           | Registry with Johnny CLI image               | `registry-one.codescoring.ru` |
-| `dockerOptions`            | Additional docker options                    |                               |
-| `enableHighlighting`       | Show in-code highlighting                    | `true`                        |
-| `enableHover`              | Show hover tooltips                          | `true`                        |
-| `enableQuickFixes`         | Allow one-click fixes                        | `true`                        |
-| `showVulnerabilityHeaders` | Display headers for vulnerability columns    | `false`                       |
-| `paginationSize`           | Number of items per page                     | `100`                         |
-| `batchProcessingSize`      | Number of items to process at once           | `100`                         |
-| `severityColors`           | Custom color mapping                         | _(default colors)_            |
+| Setting                    | Description                                  | Default                 |
+|----------------------------|----------------------------------------------|-------------------------|
+| `apiUrl`                   | Your CodeScoring installation URL            |                         |
+| `apiToken`                 | API token. Securely stored                   | _(set via command)_     |
+| `installationType`         | local or docker                              | `local`                 |
+| `johnnyCliPath`            | Path to Johnny CLI (empty for auto-download) | _(auto-download)_       |
+| `dockerImage`              | Docker image name with Johnny CLI            | `johnny-depp:2025.29.0` |
+| `dockerRegistry`           | Registry with Johnny CLI image               | _(provided by support)_ |
+| `dockerOptions`            | Additional docker options                    |                         |
+| `enableHighlighting`       | Show in-code highlighting                    | `true`                  |
+| `enableHover`              | Show hover tooltips                          | `true`                  |
+| `enableQuickFixes`         | Allow one-click fixes                        | `true`                  |
+| `showVulnerabilityHeaders` | Display headers for vulnerability columns    | `false`                 |
+| `paginationSize`           | Number of items per page                     | `100`                   |
+| `batchProcessingSize`      | Number of items to process at once           | `100`                   |
+| `severityColors`           | Custom color mapping                         | _(default colors)_      |
 
 **Keyboard Shortcuts**
 
@@ -538,7 +543,7 @@ Configure in VS Code settings, for example:
 | Breaks project | Use version control, rollback    |
 | Conflicts      | Fix one by one                   |
 
-Contact support: <hello@codescoring.ru>
+Contact support: <support@codescoring.ru>
 
 ### Security and Privacy, Data Handling
 
@@ -549,7 +554,7 @@ Contact support: <hello@codescoring.ru>
 ### Best Practices, Workflow Recommendations
 
 1. **Initial setup**: Full scan when starting a project
-4. **Reviews**: Compare BOMs between versions
+2. **Reviews**: Compare BOMs between versions
 3. **CI/CD**:
     - **Before commit**: Run full scan
     - **Share configuration**: Commit `.codescoring/config.yaml`

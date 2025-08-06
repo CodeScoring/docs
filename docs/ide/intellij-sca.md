@@ -193,8 +193,8 @@ Platform (OpenIDE, GIGA IDE, PyCharm, WebStorm, PhpStorm, RubyMine, GoLand, CLio
 2. Настройте Docker образ
 
 - **Docker Image**: `johnny-depp:2025.29.0` (по умолчанию)
-- **Docker Registry**: `registry-one.codescoring.ru` (по умолчанию)
-- Полный путь к образу: `registry-one.codescoring.ru/johnny-depp:2025.29.0`
+- **Docker Registry**: `<адрес-реестра-кодскоринг>`
+- Пример полного пути к образу: `sample-codescoring-registry.com/johnny-depp:2025.29.0`
 
 3. **Опционально: Дополнительные опции Docker**
    Добавьте пользовательские опции запуска Docker при необходимости в поле **Additional Docker Options**:
@@ -539,27 +539,27 @@ patterns:
 
 #### Список доступных настроек
 
-| Настройка                                        | Описание                                    | По умолчанию                  |
-|--------------------------------------------------|---------------------------------------------|-------------------------------|
-| **API Configuration**                            |                                             |                               |
-| `API URL`                                        | URL вашей установки CodeScoring             |                               |
-| `API Token`                                      | API токен. Безопасно сохраняется            | _(устанавливается через UI)_  |
-| **Installation Settings**                        |                                             |                               |
-| `Installation Type`                              | Local executable или Docker                 | `Local executable`            |
-| `Path to Johnny CLI`                             | Путь к Johnny CLI (пустой для автозагрузки) | _(автозагрузка)_              |
-| `Docker Image`                                   | Имя Docker образа                           | `johnny-depp:2025.29.0`       |
-| `Docker Registry`                                | Реестр Docker                               | `registry-one.codescoring.ru` |
-| `Additional Docker Options`                      | Дополнительные опции Docker                 |                               |
-| **UI Settings**                                  |                                             |                               |
-| `Enable vulnerability inspections`               | Включить инспекции кода                     | `true`                        |
-| `Enable quick fixes for vulnerable dependencies` | Разрешить быстрые исправления               | `true`                        |
-| `Automatically scan projects on open`            | Запускать сканирование при открытии проекта | `true`                        |
-| **Severity Colors**                              |                                             |                               |
-| `Critical Color`                                 | Цвет для критических уязвимостей            | _(красный)_                   |
-| `High Color`                                     | Цвет для высоких уязвимостей                | _(оранжевый)_                 |
-| `Medium Color`                                   | Цвет для средних уязвимостей                | _(желтый)_                    |
-| `Low Color`                                      | Цвет для низких уязвимостей                 | _(синий)_                     |
-| `Unknown Color`                                  | Цвет для неизвестной критичности            | _(серый)_                     |
+| Настройка                                        | Описание                                    | По умолчанию                 |
+|--------------------------------------------------|---------------------------------------------|------------------------------|
+| **API Configuration**                            |                                             |                              |
+| `API URL`                                        | URL вашей установки CodeScoring             |                              |
+| `API Token`                                      | API токен. Безопасно сохраняется            | _(устанавливается через UI)_ |
+| **Installation Settings**                        |                                             |                              |
+| `Installation Type`                              | Local executable или Docker                 | `Local executable`           |
+| `Path to Johnny CLI`                             | Путь к Johnny CLI (пустой для автозагрузки) | _(автозагрузка)_             |
+| `Docker Image`                                   | Имя Docker образа                           | `johnny-depp:2025.29.0`      |
+| `Docker Registry`                                | Реестр Docker                               | _(предоставляется заботой)_  |
+| `Additional Docker Options`                      | Дополнительные опции Docker                 |                              |
+| **UI Settings**                                  |                                             |                              |
+| `Enable vulnerability inspections`               | Включить инспекции кода                     | `true`                       |
+| `Enable quick fixes for vulnerable dependencies` | Разрешить быстрые исправления               | `true`                       |
+| `Automatically scan projects on open`            | Запускать сканирование при открытии проекта | `true`                       |
+| **Severity Colors**                              |                                             |                              |
+| `Critical Color`                                 | Цвет для критических уязвимостей            | _(красный)_                  |
+| `High Color`                                     | Цвет для высоких уязвимостей                | _(оранжевый)_                |
+| `Medium Color`                                   | Цвет для средних уязвимостей                | _(желтый)_                   |
+| `Low Color`                                      | Цвет для низких уязвимостей                 | _(синий)_                    |
+| `Unknown Color`                                  | Цвет для неизвестной критичности            | _(серый)_                    |
 
 ### Устранение неполадок
 
@@ -624,7 +624,7 @@ patterns:
     - Добавьте `com.codescoring.intellij`
 3. **Отчеты об ошибках**: Просмотрите `.codescoring/report.html` для деталей сканирования
 
-Свяжитесь с отделом заботы: <hello@codescoring.ru>
+Свяжитесь с отделом заботы: <support@codescoring.ru>
 
 ### Безопасность и конфиденциальность, обработка данных
 

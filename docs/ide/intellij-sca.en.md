@@ -29,6 +29,7 @@ The **CodeScoring SCA** plugin supports IntelliJ IDEA versions **2024.1** and ab
 | **Conda**           | environment.yml, meta.yml, environment.yaml, meta.yaml  | conda-lock.yml                                                         | Conda environments                |
 
 #### Default File Detection
+
 - **Automatic**: Scans all supported files
 - **Recursive**: Searches in project subdirectories
 
@@ -176,8 +177,8 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 - In settings, select **"Docker"** from the **Installation Type** dropdown
 2. Configure Docker image
 - **Docker Image**: `johnny-depp:2025.29.0` (default)
-- **Docker Registry**: `registry-one.codescoring.ru` (default)
-- Full image path: `registry-one.codescoring.ru/johnny-depp:2025.29.0`
+- **Docker Registry**: `<codescoring-registry-host>`
+- Sample full image path: `sample-codescoring-registry.com/johnny-depp:2025.29.0`
 3. **Optional: Additional Docker Options**
    Add custom Docker run options if needed in the **Additional Docker Options** field:
    ```
@@ -244,6 +245,7 @@ your-project/
 ```
 
 #### Example of Using CodeScoring Scan Configuration
+
 Edit `.codescoring/config.yaml` to customize:
 ```yaml
 scan:
@@ -259,6 +261,7 @@ scan:
 ```
 
 #### Configuring Quick Fix Exclusions
+
 The `.codescoring/donotfix.yml` file controls which files should not be modified by Quick Fix actions. This is particularly useful for generated files (like lock files) that should be regenerated rather than manually patched.
 
 **Example of using QuickFix Exclusion configuration:**
@@ -315,6 +318,7 @@ After the scan completes:
 ![Screenshot of code with highlighted vulnerable dependencies](/assets/img/ide/intellij/step7-3-code-highlighting.png)
 
 #### 7.2 Hover Information
+
 When hovering over highlighted dependencies, displays:
 
 - **Vulnerability ID**: CVE number with link
@@ -498,27 +502,27 @@ Use the search field to filter comparison results by:
 
 #### Available Settings List
 
-| Setting                                          | Description                                  | Default                       |
-|--------------------------------------------------|----------------------------------------------|-------------------------------|
-| **API Configuration**                            |                                              |                               |
-| `API URL`                                        | URL of your CodeScoring installation         |                               |
-| `API Token`                                      | API token. Securely stored                   | _(set via UI)_                |
-| **Installation Settings**                        |                                              |                               |
-| `Installation Type`                              | Local executable or Docker                   | `Local executable`            |
-| `Path to Johnny CLI`                             | Path to Johnny CLI (empty for auto-download) | _(auto-download)_             |
-| `Docker Image`                                   | Docker image name                            | `johnny-depp:2025.29.0`       |
-| `Docker Registry`                                | Docker registry                              | `registry-one.codescoring.ru` |
-| `Additional Docker Options`                      | Additional Docker options                    |                               |
-| **UI Settings**                                  |                                              |                               |
-| `Enable vulnerability inspections`               | Enable code inspections                      | `true`                        |
-| `Enable quick fixes for vulnerable dependencies` | Allow quick fixes                            | `true`                        |
-| `Automatically scan projects on open`            | Run scan when opening project                | `true`                        |
-| **Severity Colors**                              |                                              |                               |
-| `Critical Color`                                 | Color for critical vulnerabilities           | _(red)_                       |
-| `High Color`                                     | Color for high vulnerabilities               | _(orange)_                    |
-| `Medium Color`                                   | Color for medium vulnerabilities             | _(yellow)_                    |
-| `Low Color`                                      | Color for low vulnerabilities                | _(blue)_                      |
-| `Unknown Color`                                  | Color for unknown severity                   | _(gray)_                      |
+| Setting                                          | Description                                  | Default                  |
+|--------------------------------------------------|----------------------------------------------|--------------------------|
+| **API Configuration**                            |                                              |                          |
+| `API URL`                                        | URL of your CodeScoring installation         |                          |
+| `API Token`                                      | API token. Securely stored                   | _(set via UI)_           |
+| **Installation Settings**                        |                                              |                          |
+| `Installation Type`                              | Local executable or Docker                   | `Local executable`       |
+| `Path to Johnny CLI`                             | Path to Johnny CLI (empty for auto-download) | _(auto-download)_        |
+| `Docker Image`                                   | Docker image name                            | `johnny-depp:2025.29.0`  |
+| `Docker Registry`                                | Docker registry                              | _(provided by support)_  |
+| `Additional Docker Options`                      | Additional Docker options                    |                          |
+| **UI Settings**                                  |                                              |                          |
+| `Enable vulnerability inspections`               | Enable code inspections                      | `true`                   |
+| `Enable quick fixes for vulnerable dependencies` | Allow quick fixes                            | `true`                   |
+| `Automatically scan projects on open`            | Run scan when opening project                | `true`                   |
+| **Severity Colors**                              |                                              |                          |
+| `Critical Color`                                 | Color for critical vulnerabilities           | _(red)_                  |
+| `High Color`                                     | Color for high vulnerabilities               | _(orange)_               |
+| `Medium Color`                                   | Color for medium vulnerabilities             | _(yellow)_               |
+| `Low Color`                                      | Color for low vulnerabilities                | _(blue)_                 |
+| `Unknown Color`                                  | Color for unknown severity                   | _(gray)_                 |
 
 ### Troubleshooting
 
@@ -582,7 +586,7 @@ Use the search field to filter comparison results by:
     - Add `com.codescoring.intellij`
 3. **Error reports**: Review `.codescoring/report.html` for scan details
 
-Contact support: <hello@codescoring.ru>
+Contact support: <support@codescoring.ru>
 
 ### Security and Privacy, Data Handling
 

@@ -199,8 +199,8 @@ hide:
 2. Настройте Docker образ
 
 - **Образ**: `johnny-depp:2025.29.0` (по умолчанию)
-- **Реестр**: `registry-one.codescoring.ru` (по умолчанию)
-- Полный путь к образу: `registry-one.codescoring.ru/johnny-depp:2025.29.0`
+- **Реестр**: `<адрес-реестра-кодскоринг>`
+- Пример полного пути к образу: `sample-codescoring-registry.com/johnny-depp:2025.29.0`
 
 3. **Опционально: Дополнительные опции Docker**
    Добавьте пользовательские опции запуска Docker при необходимости:
@@ -220,7 +220,7 @@ hide:
 {
   "codescoringSca.installationType": "docker",
   "codescoringSca.dockerImage": "johnny-depp:2025.29.0",
-  "codescoringSca.dockerRegistry": "registry-one.codescoring.ru",
+  "codescoringSca.dockerRegistry": "sample-codescoring-registry.com",
   "codescoringSca.dockerOptions": ""
 }
 ```
@@ -517,22 +517,22 @@ scan:
 
 **Список доступных настроек**
 
-| Настройка                  | Описание                                     | По умолчанию                  |
-|----------------------------|----------------------------------------------|-------------------------------|
-| `apiUrl`                   | Ваш URL с установленной CodeScoring          |                               |
-| `apiToken`                 | API токен. Безопасно сохраняется             | _(устанавливается командой)_  |
-| `installationType`         | local или docker                             | `local`                       |
-| `johnnyCliPath`            | Путь к Johnny CLI (пустой для автозагрузки)  | _(автозагрузка)_              |
-| `dockerImage`              | Имя docker образа c Johnny CLI               | `johnny-depp:2025.29.0`       |
-| `dockerRegistry`           | Реестр с образом Johnny CLI                  | `registry-one.codescoring.ru` |
-| `dockerOptions`            | Дополнительные опции docker                  |                               |
-| `enableHighlighting`       | Показывать подсветку в коде                  | `true`                        |
-| `enableHover`              | Показывать всплывающие подсказки             | `true`                        |
-| `enableQuickFixes`         | Разрешить исправления в один клик            | `true`                        |
-| `showVulnerabilityHeaders` | Отображать заголовки для колонок уязвимостей | `false`                       |
-| `paginationSize`           | Количество элементов на странице             | `100`                         |
-| `batchProcessingSize`      | Количество элементов для обработки за раз    | `100`                         |
-| `severityColors`           | Пользовательское сопоставление цветов        | _(цвета по умолчанию)_        |
+| Настройка                  | Описание                                     | По умолчанию                 |
+|----------------------------|----------------------------------------------|------------------------------|
+| `apiUrl`                   | Ваш URL с установленной CodeScoring          |                              |
+| `apiToken`                 | API токен. Безопасно сохраняется             | _(устанавливается командой)_ |
+| `installationType`         | local или docker                             | `local`                      |
+| `johnnyCliPath`            | Путь к Johnny CLI (пустой для автозагрузки)  | _(автозагрузка)_             |
+| `dockerImage`              | Имя docker образа c Johnny CLI               | `johnny-depp:2025.29.0`      |
+| `dockerRegistry`           | Реестр с образом Johnny CLI                  | _(предоставляется заботой)_  |
+| `dockerOptions`            | Дополнительные опции docker                  |                              |
+| `enableHighlighting`       | Показывать подсветку в коде                  | `true`                       |
+| `enableHover`              | Показывать всплывающие подсказки             | `true`                       |
+| `enableQuickFixes`         | Разрешить исправления в один клик            | `true`                       |
+| `showVulnerabilityHeaders` | Отображать заголовки для колонок уязвимостей | `false`                      |
+| `paginationSize`           | Количество элементов на странице             | `100`                        |
+| `batchProcessingSize`      | Количество элементов для обработки за раз    | `100`                        |
+| `severityColors`           | Пользовательское сопоставление цветов        | _(цвета по умолчанию)_       |
 
 **Горячие клавиши**
 
@@ -581,7 +581,7 @@ scan:
 | Ломает проект          | Используйте контроль версий, откатитесь |
 | Конфликты              | Исправляйте по одному                   |
 
-Свяжитесь с отделом заботы: <hello@codescoring.ru>
+Свяжитесь с отделом заботы: <support@codescoring.ru>
 
 ### Безопасность и конфиденциальность, обработка данных
 
