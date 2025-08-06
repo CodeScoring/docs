@@ -4,6 +4,11 @@ hide:
 ---
 # JFrog OSA Changelog
 
+## [2025.32.0] - 2025-08-06
+
+### Changed
+- Plugin now allows Docker image downloads when registry is not configured in CodeScoring installation if the `blockOnErrors` configuration flag is set to `false`.
+
 ### [2025.12.0] - 2025-03-17
 
 - Improved accuracy of analysis in RPM and Debian repositories: improved detection of namespaces, distribution and architecture qualifiers to PURLs
