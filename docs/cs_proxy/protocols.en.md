@@ -11,9 +11,9 @@ This section contains data formats and response modification rules for each supp
 
 ### Processed Files
 
-* `maven-metadata.xml` - version information manifest
-* `.jar`, `.war`, `.ear` - package files
-* `.sha1`, `.md5` - checksum files
+- `maven-metadata.xml` - version information manifest
+- `.jar`, `.war`, `.ear` - package files
+- `.sha1`, `.md5` - checksum files
 
 ### maven-metadata.xml Field Modifications
 
@@ -35,8 +35,8 @@ This section contains data formats and response modification rules for each supp
 
 ### Files Processed
 
-* Package JSON manifest (path `/{repository}/*`)
-* `.tgz` - package archives
+- Package JSON manifest (path `/{repository}/*`)
+- `.tgz` - package archives
 
 ### NPM Manifest Field Modifications
 
@@ -59,13 +59,13 @@ This section contains data formats and response modification rules for each supp
 
 ### Files and Resources
 
-* Simple API HTML pages (path `/{repository}/simple/*`)
-* `.zip`, `.tar`, `.tgz`, `.tar.gz`, `.tar.bz2`, `.egg`, `.whl` - package files
+- Simple API HTML pages (path `/{repository}/simple/*`)
+- `.zip`, `.tar`, `.tgz`, `.tar.gz`, `.tar.bz2`, `.egg`, `.whl` - package files
 
 ### HTML Page Modifications
 
-* `<a>` elements for blocked versions are removed
-* URLs are rewritten for proxy downloading
+- `<a>` elements for blocked versions are removed
+- URLs are rewritten for proxy downloading
 
 ```html
 <!DOCTYPE html>
@@ -81,9 +81,9 @@ This section contains data formats and response modification rules for each supp
 
 ### Handled Resources
 
-* `index.json` - service index
-* Registration index JSON
-* `.nupkg` - package files
+- `index.json` - service index
+- Registration index JSON
+- `.nupkg` - package files
 
 ### Registration Index Modifications
 
