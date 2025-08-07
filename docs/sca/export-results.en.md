@@ -17,6 +17,8 @@ After performing composition analysis, the generation of a PDF report with summa
 
 You can export a PDF report with the latest analysis data on the project page using the **Export PDF** button. You can export an analysis report for a specific date on the `SCA Scan History` page.
 
+The report will be generated in the language set in the user profile.
+
 The resulting report contains the following data by default:
 
 - general information on the project (name, VCS branch, time of the last analysis, commit hash);
