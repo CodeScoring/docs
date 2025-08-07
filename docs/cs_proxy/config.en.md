@@ -1,63 +1,68 @@
-# Configuration
+---
+hide:
+  - footer
+---
 
-## Main Parameters
+# Service сonfiguration
 
-Service configuration is done through the `application.yml` file:
+## Main зarameters
+
+CodeScoring Proxy is configured via the `application.yml` file:
 
 ```yaml
-# CodeScoring Parameters
+# CodeScoring settings
 codescoring:
   host: CodeScoring server URL
   token: authorization token
-  work-mode: operating mode (e.g., strict_wait)
+  work-mode: work mode (e.g., strict_wait)
   proxy-manager-host: proxy manager host
   enable-status-line: enable status line
 
-# PyPI Configuration
+# PyPI configuration
 pypi:
   enabled: true/false
   registry: main registry URL
-  packages-registry: URL for package downloads
+  packages-registry: URL for downloading packages
   repository:
     - name: repository name
-      project: project in CodeScoring
+      project: CodeScoring project
       scan-manifest: true/false
       scan-package: true/false
 
-# Maven Configuration
+# Maven configuration
 maven:
   enabled: true/false
   registry: registry URL
   repository:
     - name: repository name
-      project: project in CodeScoring
+      project: CodeScoring project
       scan-manifest: true/false
       scan-package: true/false
 
-# NPM Configuration
+# NPM configuration
 npm:
   enabled: true/false
   registry: registry URL
   repository:
     - name: repository name
-      project: project in CodeScoring
+      project: CodeScoring project
       scan-manifest: true/false
       scan-package: true/false
 
-# NuGet Configuration
+# NuGet configuration
 nuget:
   enabled: true/false
   registry: registry URL
   repository:
     - name: repository name
-      project: project in CodeScoring
+      project: CodeScoring project
       scan-manifest: true/false
       scan-package: true/false
-```
+````
 
 ## Additional Settings
 
-* Log level configuration
-* Buffer size configuration for large file handling
-* Scanning results caching (Caffeine cache)
-* Retry policy configuration for CodeScoring requests
+- Logging level configuration
+- Buffer size for handling large files
+- Caching of scan results (Caffeine cache)
+- Retry policies for requests to CodeScoring

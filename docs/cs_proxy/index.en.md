@@ -1,66 +1,65 @@
-# CodeScoring Proxy
+---
+hide:
+  - footer
+---
 
-CodeScoring Proxy (repo-manager-proxy) is a proxy service built on Spring Cloud Gateway that acts as an intermediary between package managers and their repositories. The service integrates with the CodeScoring platform for scanning and blocking unsafe packages.
+# Overview
+
+**CodeScoring Proxy** (repo-manager-proxy) is a proxy service that acts as an intermediary between package managers and their remote repositories. It integrates with the CodeScoring platform to enable automatic scanning of downloaded components and block insecure packages according to security policies.
+
+The service intercepts requests made by package managers, forwards them to the original repositories, analyzes the resulting packages, modifies responses, and manages component access. It uses asynchronous processing, result caching, and automatic retry mechanisms in case of temporary failures. It also supports working with large files, with configurable buffer sizes.
 
 ## Supported Package Managers
 
-The service proxies requests to the following repositories:
+CodeScoring Proxy handles requests to the following repositories:
 
-* Maven Central (`https://repo1.maven.org`)
-* NPM Registry (`https://registry.npmjs.org`)
-* PyPI (`https://pypi.org`)
-* NuGet Gallery (`https://api.nuget.org`)
-* Docker (`https://hub.docker.com/v2/`)
+- Maven Central (`https://repo1.maven.org`)
+- NPM Registry (`https://registry.npmjs.org`)
+- PyPI (`https://pypi.org`)
+- NuGet Gallery (`https://api.nuget.org`)
+- Docker Hub (`https://hub.docker.com/v2/`)
 
-!!! note "Alternative Repository Support"
-    Repositories that implement the official specification of the corresponding package manager (e.g., Nexus, JFrog) are also supported.
+**Note**: alternative repositories implementing the official specification of the corresponding package manager are also supported (e.g. Nexus Repository, JFrog Artifactory).
 
-## Core Features
+## Key Features
 
 ### Package Scanning
 
-Two types of scanning are implemented for each package manager:
+Two levels of scanning are implemented for each ecosystem:
 
-* **Manifest Scanning** - checking package metadata
-* **Package Scanning** - checking package files themselves
+- **Manifest scanning** — analyzes package metadata (name, version, dependencies, licenses, release date);
+- **Package scanning** — downloads and inspects the actual package files or images, including nested files and dependencies.
 
-### Blocking Unsafe Packages
+### Blocking Insecure Components
 
-When security issues are detected, the service:
+If a component violates a configured security policy:
 
-* Removes unsafe versions from available version lists in manifests
-* Blocks downloading of unsafe package files
-* Returns a configurable status code with a blocking reason description
+- insecure versions are excluded from the list of available versions in manifests;
+- downloads of relevant archives are blocked;
+- a configurable HTTP status code is returned with a message explaining the reason for blocking.
 
 ### Response Modification
 
-The service automatically modifies responses from original repositories:
+CodeScoring Proxy automatically modifies responses from original repositories:
 
-* Redirects URLs through the proxy
-* Removes blocked versions from metadata
-* Updates checksums for modified manifests
+- rewrites all URLs;
+- removes blocked versions from metadata;
+- recalculates checksums of modified manifests to ensure proper formatting.
 
-## Operating Modes
+## Operation Modes
 
-The service supports various operating modes via the `work-mode` parameter:
+The service's behavior is controlled via the `work-mode` parameter. Depending on the selected value, the logic for scanning, waiting, and blocking changes. The following mode is currently supported:
 
-* `strict_wait` - waits for scanning completion, blocks on any issues
-* Other modes affect behavior during timeouts and scanning errors
+- `strict_wait` — waits for the scan to finish and blocks the component if any violation is found;
+- other modes control behavior under timeouts and scanning errors.
 
 ## Error Handling
 
-The service provides detailed error messages:
+The service returns detailed error codes when requests are rejected:
 
-* `blocked_by_policies` - blocked by CodeScoring policies
-* `blocked_not_scanned` - component not yet scanned
-* `failed_request` - error when requesting CodeScoring
-* `blocked_scan_failed` - scanning error
-* `blocked_scan_wait_timeout` - scanning wait timeout
-* `blocked_registry_not_configured` - repository not configured in CodeScoring
-
-## Implementation Features
-
-1. **Caching**: Scanning results are cached to reduce load on CodeScoring API
-2. **Asynchronous Processing**: Using Spring WebFlux reactive approach
-3. **Retry Mechanism**: Automatic retries for temporary failures
-4. **Large File Support**: Configurable buffer size for handling large packages
+- `blocked_by_policies` — the component is blocked by CodeScoring policies;
+- `blocked_not_scanned` — the component has not yet been scanned;
+- `failed_request` — error while contacting the CodeScoring installation;
+- `blocked_scan_failed` — scanning failed;
+- `blocked_scan_wait_timeout` — timeout while waiting for scan results;
+- `blocked_registry_not_configured` — the repository is not registered in the CodeScoring installation.

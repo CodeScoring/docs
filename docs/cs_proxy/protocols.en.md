@@ -1,6 +1,11 @@
-# Proxying Contracts
+---
+hide:
+- footer
+---
 
-This page describes data formats and response modification rules for each supported package manager.
+# Supported protocols
+
+This section contains data formats and response modification rules for each supported package manager.
 
 ## Maven
 
