@@ -2,6 +2,7 @@
 hide:
  -footer
 ---
+
 # JFrog OSA Changelog
 
 ## [2025.32.0] - 2025-08-06
@@ -96,7 +97,7 @@ hide:
 
 ### [2023.43.0] – 2023-10-27
 
-- Added various [plugin operating modes](/osa/jfrog_osa.en/#_5)
+- Added various [plugin operating modes](/osa/jfrog_osa.en/#setting-up-operating-modes)
 - Added support for scanning local/remote Docker repositories
 
 ###[2023.28.2]
