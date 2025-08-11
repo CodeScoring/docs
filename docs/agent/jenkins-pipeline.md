@@ -18,8 +18,8 @@ pipeline {
     agent any
 
   environment {
-    CODESCORING_REGISTRY_URL='{REGISTRY_URL}'
-    CODESCORING_AGENT_IMAGE='{REGISTRY_URL}/johnny-depp:<version>'
+    CODESCORING_REGISTRY_URL='REGISTRY_URL'
+    CODESCORING_AGENT_IMAGE='REGISTRY_URL/johnny-depp:<version>'
     CODESCORING_REGISTRY_CREDENTIALS=credentials('cs-registry-creds')
     CODESCORING_API_URL='https://localhost:8080'
   }
@@ -52,13 +52,13 @@ pipeline {
 1. Скачать файл командой
 
     ```bash
-    wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@{REGISTRY_URL}/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
     ```
 
     или
 
     ```bash
-    curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@{REGISTRY_URL}/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
     ```
 
     Переменную `JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий доступен [в разделе Changelog](/changelog/#johnny). 

@@ -18,8 +18,8 @@ pipeline {
  agent any
 
  environment {
- CODESCORING_REGISTRY_URL='{REGISTRY_URL}'
- CODESCORING_AGENT_IMAGE='{REGISTRY_URL}/johnny-depp:<version>'
+ CODESCORING_REGISTRY_URL='REGISTRY_URL'
+ CODESCORING_AGENT_IMAGE='REGISTRY_URL/johnny-depp:<version>'
  CODESCORING_REGISTRY_CREDENTIALS=credentials('cs-registry-creds')
  CODESCORING_API_URL='https://localhost:8080'
  }
@@ -52,13 +52,13 @@ To use the console agent binary file, you must first perform the following steps
 1. Download the file with the command
 
  ```bash
- wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@{REGISTRY_URL}/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+ wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
  ```
 
  or
 
  ```bash
- curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@{REGISTRY_URL}/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+ curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
  ```
 
  The `JOHNNY_VERSION` variable must be replaced with the agent version. A list of current versions is available [in the Changelog section](/changelog.en/#johnny).
