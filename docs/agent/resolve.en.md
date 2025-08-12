@@ -3,13 +3,15 @@ hide:
   - footer
 ---
 
-# Resolving dependencies
+# Dependency resolution in the build environment
 
-Package managers of some ecosystems do not include transitive dependencies in manifests by default. To perform high-quality composition analysis when working with them, it is recommended to use the mechanism of resolving dependencies in the build environment.
+Package managers of some ecosystems do not include transitive dependencies in manifests by default. For high-quality composition analysis when working with them, it is recommended to use the dependency resolution mechanism in the build environment.
+
+When resolving dependencies in the environment, the agent checks for the absence of a lock file. If a lock file is detected, the resolution is not performed even if the corresponding flags are present, and results are taken from the detected lock file. An exception applies to technologies where the name and location of the lock file are not fixed by the package manager and can be passed as a parameter to the resolution.
 
 ## Configuring dependency resolution
 
-Environmental dependency resolution settings, package manager paths, and runtime options are controlled by the following options in the `scan` command:
+Dependency resolution parameters in the environment, paths to the package manager, and execution parameters are controlled by the following options in the `scan` command:
 
 - `--dotnet-resolve` / `--dotnet-path` / `--dotnet-args`
 - `--go-resolve` / `--go-path`
@@ -24,56 +26,62 @@ Environmental dependency resolution settings, package manager paths, and runtime
 - `--pnpm-resolve` / `--pnpm-path` / `--pnpm-args`
 - `--conda-resolve` / `--conda-lock-path` / `--conda-args`
 
-Command example:
+Example command:
 
 ```bash
-./johnny\
-scan dir. \
+./johnny \
+scan dir . \
 --api_token <api_token> \
 --api_url <api_url> \
---dotnet-resolve
+--dotnet-resolve \
 --dotnet-path <path/to/dotnet>
-```
+````
 
-If necessary, the listed parameters can be added to the [agent configuration file](/agent/config.en).
+If necessary, the listed parameters can be added to the [agent configuration file](/agent/config).
 
-When resolving dependencies in the environment, the agent checks for the absence of a lock file, automatically launches the package manager or build tool, and generates a complete list of components taking into account the correct version of the assembly. At the moment, the functionality is available for the following ecosystems:
+## Supported ecosystems
 
 ### .NET
 
-For .NET projects, the agent executes the command:
+Main manifest used for dependency resolution: `.csproj`.
+
+For .NET projects the agent runs:
 
 ```bash
 dotnet restore
 ```
 
-After which the `obj/project.assets.json` file is analyzed, containing complete information about dependencies and their versions.
+After that, the file `obj/project.assets.json`, which contains complete information about dependencies and their versions, is analyzed. Execution is performed in the directory where the `.csproj` file is located.
 
 ### Go
 
-The agent uses data from the `go.mod` and `go.sum` files, adding entries from `go.sum` that are not present in `go.mod` (only lines without the `/go.mod` postfix). Then it runs:
+Main manifests used for dependency resolution: `go.mod`, `go.sum`.
+
+The agent uses data from the `go.mod` and `go.sum` files, adding entries from `go.sum` that are missing in `go.mod` (only lines without the `/go.mod` suffix). Then it runs:
 
 ```bash
 go mod graph
 ```
 
-The resulting list of `parent → child` pairs is used to build the dependency tree. If no parent is specified, the command is used:
+The resulting list of `parent → child` pairs is used to build the dependency tree. If the parent is not specified, the following command is used:
 
 ```bash
 go mod why <package>
 ```
 
-If the parent relationship is not set, the dependency is excluded with a warning.
+If the parent relationship is not established, the dependency is excluded with a warning.
 
 ### Gradle
 
-To resolve dependencies in Gradle by default, you need to set the following value:
+Main manifests used for dependency resolution: `build.gradle`, `build.gradle.kts`.
 
-``` bash
---gradle-path : ./gradlew
+For Gradle dependency resolution by default you must specify:
+
+```bash
+--gradle-path ./gradlew
 ```
 
-With the given value, the custom task is first executed:
+With this value set, the following custom task is run first:
 
 ```bash
 ./gradlew CodeScoring_All_Dependencies --configuration <configuration>
@@ -85,59 +93,69 @@ If the task is missing, the standard command is used:
 ./gradlew dependencies --configuration <configuration>
 ```
 
-The agent parses the console output and forms a dependency graph.
+The agent analyzes the console output and forms the dependency graph.
 
 ### Maven
 
-For Maven projects, the command is used:
+Main manifest used for dependency resolution: `pom.xml`.
+
+For Maven projects the command is:
 
 ```bash
 mvn dependency:tree -f <pom.xml> -DoutputFile=<tmpdir/mdt.json>
 ```
 
-The agent parses the `mdt.json` file, which contains the full dependency structure.
+The agent parses the `mdt.json` file, which contains the complete dependency structure. If the `maven-dependency-tree.txt` file exists, it will be processed as a standalone lock file, and resolution will not be performed.
 
 ### npm
 
-The agent executes:
+Main manifest used for dependency resolution: `package.json`.
+
+The agent runs:
 
 ```bash
 npm install
 ```
 
-Then the generated `package-lock.json` file is analyzed, recording the dependency tree and the versions used.
+Then it analyzes the generated `package-lock.json` file, which records the dependency tree and the versions used.
 
 ### pnpm
 
-The command is executed:
+Main manifest used for dependency resolution: `package.json`.
+
+The command executed:
 
 ```bash
 pnpm install
 ```
 
-The lock file `pnpm-lock.yaml` is analyzed, which contains information about all dependencies.
+The lock file `pnpm-lock.yaml` is analyzed, which contains data about all dependencies.
 
 ### yarn
 
-The command is executed:
+Main manifest used for dependency resolution: `package.json`.
+
+The command executed:
 
 ```bash
 yarn install
 ```
 
-The agent parses the `yarn.lock` file, which contains information about dependencies and their versions.
+The agent parses `yarn.lock`, which contains information about dependencies and their versions.
 
 ### pip
 
-For Python projects, the command is used:
+For Python projects the command used is:
 
 ```bash
 pip freeze
 ```
 
-The result of the command records the list of installed dependencies and their versions.
+The output records the list of installed dependencies and their versions. The results reference a pseudo file `codescoring_pip_for_freeze`.
 
 ### Poetry
+
+Main manifest used for dependency resolution: `pyproject.toml`.
 
 Two commands are executed:
 
@@ -146,44 +164,52 @@ poetry debug resolve --tree
 poetry debug resolve
 ```
 
-The first output contains a tree with constraints, the second - specific versions. The agent compares the data and forms the final graph.
+The first output contains the tree with constraints, the second — the specific versions. The agent matches the data and forms the final graph.
 
 ### sbt (Scala)
 
-For Scala, the command is used:
+Main manifest used for dependency resolution: `build.sbt`.
+
+For Scala the command used is:
 
 ```bash
 sbt dependencyTree
 ```
 
-The console output containing the project dependency structure is analyzed.
+The console output is analyzed, containing the project's dependency structure.
 
 ### Swift
 
-For the Swift ecosystem, the agent executes:
+Main manifest used for dependency resolution: `Package.swift`.
+
+For the Swift ecosystem the agent runs:
 
 ```bash
 swift build --package-path <path_to_Package.swift>
 ```
 
-Then the `Package.resolved` file is parsed, containing the fixed versions of the packages.
+Then the `Package.resolved` file is parsed, which contains the locked package versions.
 
 ### Composer (PHP)
 
-The command is executed:
+Main manifest used for dependency resolution: `composer.json`.
+
+The command executed:
 
 ```bash
 composer install
 ```
 
-The agent parses the `composer.lock` file, which records the state of dependencies.
+The agent analyzes `composer.lock`, which records the dependency state.
 
 ### Conda
 
-For projects using Conda, the agent executes:
+Main manifests used for dependency resolution: `environment.yml`, `environment.yaml`, `meta.yml`, `meta.yaml`.
+
+For projects using Conda, the agent runs:
 
 ```bash
 conda-lock -f <environment.yml> --filename <tmpdir/conda-lock.yml>
 ```
 
-After that, the `conda-lock.yml` file is parsed, which records all project dependencies.
+After that, the `conda-lock.yml` file is analyzed, which contains all project dependencies.
