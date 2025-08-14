@@ -5,11 +5,11 @@ hide:
 
 # Nexus OSA Changelog
 
-## [2025.32.0] - 2025-08-06
+### [2025.32.0] - 2025-08-06
+
+#### Changed
 
 - Plugin now allows image downloads when registry is not configured in CodeScoring installation if the `Block downloads in case of plugin or CodeScoring errors` flag is disabled.
-
-### Changed
 
 ### [2025.23.0] - 2025-06-02
 
