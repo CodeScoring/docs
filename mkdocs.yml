@@ -98,6 +98,10 @@ plugins:
           osa-components: "Working with OSA components"
           osa-update: "Updating component data"
           osa-archives: "Scanning archives"
+          ide: "IDE integrations"
+          ide-general: "General description"
+          vscode-sca: "Visual Studio Code Extension"
+          intellij-sca: "IntelliJ Plugin"
           agent: "CLI agent Johnny"
           agent-general: "General description"
           agent-config: "Configuration"
@@ -153,6 +157,8 @@ plugins:
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
+          vscode-changelog: "Visual Studio Code Extension"
+          intellij-changelog: "IntelliJ Plugin"
           on-premise-changelog: "CodeScoring on-premise"
 
         ru:
@@ -207,6 +213,10 @@ plugins:
           osa-components: "Работа с компонентами OSA на инсталляции"
           osa-update: "Обновление данных о компонентах"
           osa-archives: "Сканирование архивов"
+          ide: "Интеграция с IDE"
+          ide-general: "Общее описание"
+          vscode-sca: "Расширение для Visual Studio Code"
+          intellij-sca: "Плагин для IntelliJ"
           agent: "Консольный агент Johnny"
           agent-general: "Общее описание"
           agent-config: "Настройка через конфигурационный файл"
@@ -262,6 +272,8 @@ plugins:
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Nexus OSA"
+          vscode-changelog: "Расширение для Visual Studio Code"
+          intellij-changelog: "Плагин для IntelliJ"
           on-premise-changelog: "CodeScoring on-premise"
 
 nav:
@@ -455,6 +467,13 @@ nav:
     - tqi-clones: tqi/clones.en.md
     - tqi-metrics: tqi/metrics.md
     - tqi-metrics: tqi/metrics.en.md
+  - ide:
+    - ide-general: ide/index.md
+    - ide-general: ide/index.en.md
+    - vscode-sca: ide/vscode-sca.md
+    - vscode-sca: ide/vscode-sca.en.md
+    - intellij-sca: ide/intellij-sca.md
+    - intellij-sca: ide/intellij-sca.en.md
   - changelog:
     - changelog-general: changelog/index.md
     - changelog-general: changelog/index.md
@@ -466,6 +485,10 @@ nav:
     - nexus-changelog: changelog/nexus-changelog.en.md
     - jfrog-changelog: changelog/jfrog-changelog.md
     - jfrog-changelog: changelog/jfrog-changelog.en.md
+    - vscode-changelog: changelog/vscode-changelog.md
+    - vscode-changelog: changelog/vscode-changelog.en.md
+    - intellij-changelog: changelog/intellij-changelog.md
+    - intellij-changelog: changelog/intellij-changelog.en.md
 
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> CodeScoring
