@@ -4,9 +4,9 @@ hide:
 ---
 # Создание конфигурации для поиска секретов
 
-1. Для начала работы с модулем Secrets необходимо предварительно создать VCS или CLI [проект](/on-premise/how-to/projects) в разделе `Settings -> Projects`.
+1. Для начала работы с модулем Secrets необходимо предварительно создать VCS или CLI [проект](/on-premise/how-to/projects) в разделе `Настройки -> Проекты`.
 
-2. Задать конфигурацию движка секретов в разделе `Settings -> Secrets`, открыв форму по кнопке **Setup new**.
+2. Задать конфигурацию движка секретов в разделе `Настройки -> Секреты`, открыв форму по кнопке **Добавить**.
 
 3. В форме конфигурации необходимо указать имя, выбрать движок для поиска секретов в коде и прописать ему стандартную конфигурацию – она будет передана на вход движка при сканировании.
 
@@ -19,6 +19,6 @@ title = "Gitleaks title"
 useDefault = true
 ```
 
-![Engine configuration example](/assets/img/secrets/engine-configuration.png)
+![Engine configuration example](/assets/img/secrets/ru-engine-configuration.png)
 
 Подробнее с конфигурированием движка gitleaks можно ознакомиться в [документации инструмента](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#configuration).
