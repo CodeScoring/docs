@@ -2,7 +2,13 @@
 hide:
  -footer
 ---
+
 # JFrog OSA Changelog
+
+## [2025.32.0] - 2025-08-06
+
+### Changed
+- Plugin now allows Docker image downloads when registry is not configured in CodeScoring installation if the `blockOnErrors` configuration flag is set to `false`
 
 ### [2025.12.0] - 2025-03-17
 
@@ -15,7 +21,7 @@ hide:
 ### [2024.49.0] - 2024-12-05
 
 - Added new execution `codeScoringVersion`, allowing to find out the plugin version. To do this, run the command:
-`curl http://localhost:8082/artifactory/api/plugins/execute/codeScoringVersion`. If the version is not displayed, restart JFrog.
+`curl http://localhost:8082/artifactory/api/plugins/execute/codeScoringVersion`. If the version is not displayed, restart JFrog
 
 ### [2024.48.0] - 2024-11-29
 
@@ -91,7 +97,7 @@ hide:
 
 ### [2023.43.0] – 2023-10-27
 
-- Added various [plugin operating modes](/osa/jfrog_osa.en/#_5)
+- Added various [plugin operating modes](/osa/jfrog_osa.en/#setting-up-operating-modes)
 - Added support for scanning local/remote Docker repositories
 
 ###[2023.28.2]

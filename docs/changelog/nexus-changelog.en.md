@@ -5,6 +5,12 @@ hide:
 
 # Nexus OSA Changelog
 
+## [2025.32.0] - 2025-08-06
+
+- Plugin now allows image downloads when registry is not configured in CodeScoring installation if the `Block downloads in case of plugin or CodeScoring errors` flag is disabled.
+
+### Changed
+
 ### [2025.23.0] - 2025-06-02
 
 - The general plugin configuration now includes the option to set a timeout for waiting for a response from the installation
