@@ -13,14 +13,14 @@ To use the console agent with the GitFlic Shell runner type, you must first perf
 
 1. Download the file using the command
     ```bash
-    wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
     ```
     or
     ```bash
-    curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
     ```
 
-    `JOHNNY_VERSION` should be replaced with the agent version. The list of current versions with descriptions is available in the [Changelog](/changelog/johnny-changelog.en) section. `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` should be replaced with the login and password received from the vendor.
+    `JOHNNY_VERSION` should be replaced with the agent version. The list of current versions with descriptions is available in the [Changelog](/changelog/johnny-changelog.en) section. `REGISTRY_URL`, `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` should be replaced with the URL, login and password received from the vendor.
 
 2. Allow file execution
 
@@ -63,14 +63,14 @@ To use the console agent with the GitFlic docker runner type, you must first per
 1. Download the file with the command
 
     ```bash
-    wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
     ```
     or
     ```bash
-    curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+    curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
     ```
 
-    `JOHNNY_VERSION` should be replaced with the agent version. The list of current versions with descriptions is available in the [Changelog](/changelog/johnny-changelog.en) section. `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` should be replaced with the login and password received from the vendor.
+    `JOHNNY_VERSION` should be replaced with the agent version. The list of current versions with descriptions is available in the [Changelog](/changelog/johnny-changelog.en) section. `REGISTRY_URL`, `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` should be replaced with the URL, login and password received from the vendor.
 
 2. Copy the agent to the container that you plan to use it in
 

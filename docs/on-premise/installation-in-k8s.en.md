@@ -30,7 +30,7 @@ hide:
 4. Run the following commands to add the current Helm repository to the local machine:
 
      ```
-     helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
+     helm repo add codescoring-org https://{REGISTRY_URL}/repository/helm/ --username USERNAME --password PASSWORD
      helm repo update
      ```
 
