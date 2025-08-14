@@ -411,6 +411,13 @@ nav:
     - agent-export: agent/export.en.md
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
+  - ide:
+    - ide-general: ide/index.md
+    - ide-general: ide/index.en.md
+    - vscode-sca: ide/vscode-sca.md
+    - vscode-sca: ide/vscode-sca.en.md
+    - intellij-sca: ide/intellij-sca.md
+    - intellij-sca: ide/intellij-sca.en.md
   - dependencies:
     - dependencies-general: dependencies/index.md
     - dependencies-general: dependencies/index.en.md
@@ -467,13 +474,6 @@ nav:
     - tqi-clones: tqi/clones.en.md
     - tqi-metrics: tqi/metrics.md
     - tqi-metrics: tqi/metrics.en.md
-  - ide:
-    - ide-general: ide/index.md
-    - ide-general: ide/index.en.md
-    - vscode-sca: ide/vscode-sca.md
-    - vscode-sca: ide/vscode-sca.en.md
-    - intellij-sca: ide/intellij-sca.md
-    - intellij-sca: ide/intellij-sca.en.md
   - changelog:
     - changelog-general: changelog/index.md
     - changelog-general: changelog/index.md
