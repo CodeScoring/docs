@@ -3,13 +3,13 @@ hide:
   - footer
 ---
 
-# Agent configuration
-
 # Using configuration file
 
 You can manage the parameters of the CLI agent by adding the configuration file `codescoring-johnny-config.yaml` to the directory with the agent. Below is a list of available parameters and an example of config file.
 
-### Composition Analysis Options
+## List of parameters
+
+### Composition analysis parameters
 
 - **project** – name of the project in the CodeScoring installation;
 - **save-results** – saving the results in the CodeScoring installation. Used in conjunction with the project name. The default value is `false`;
@@ -23,7 +23,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **hash** – an image hash (for the `scan image` command);
 - <a href="/changelog/on-premise-changelog.en/#202570-2025-02-14" class="version-tag">2025.7.0</a> **cloud-resolve** – use dependency resolution in cloud. Default value is `false`.
 
-### General scan options
+### General scan parameters
 
 - **ignore** – directories that will be ignored during scanning;
 - **no-summary** – hide summary information on the scan in the console. Default value is `false`;
@@ -32,41 +32,54 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - **no-recursion** – disable recursive scanning for the `scan dir` command. The default value is `false`.
 - **block-on-empty-result** – blocking the build when an empty result is returned. When activated, the agent returns exit code **3** if there are no artifacts for analysis.
 
-### Docker image scanning options
+### Docker image scanning parameters
 
-- **scan-files** – scanning the file system inside the container image. Default value is `false`;
+- **scan-files** – scanning the file system inside the image. Default value is `false`;
 - **insecure-skip-tls-verify** – skip TLS verification when connecting to the image registry. Default value is `false`;
-- **insecure-use-http** – use the http protocol when connecting to the image registry. Default value is `false`;
-- **authority** – URL for connecting to the image registry;
-- **login** – account login for connecting to the image registry;
-- **password** – account password for connecting to the image registry;
-- **token** – token for connecting to the image registry.
+- **insecure-use-http** – use the HTTP protocol when connecting to the image registry. Default value is `false`;
+- **registries** – list of configurations for connecting to multiple image registries. Each list item may contain:
+  - **authority** – registry URL (for example, `docker.io`, `localhost:5000`);
+  - **login** – username for connecting to the registry;
+  - **password** – password for connecting to the registry;
+  - **token** – token for connecting to the registry. Mutually exclusive with the `login` and `password` parameters.
+
+### C and C++ build scanning parameters
+
+- **build-result** – flag indicating that the input data is the results of a previous build, including compiled artifacts. Default value is `false`;
+- **lib-versions** – path to a JSON file with the list of versions of the libraries being analyzed;
+- **output** – path to the file where the build analysis results will be saved;
+- **unresolved-file** – path to the file where information about libraries with unresolved versions will be saved.
 
 ### Parsing parameters for different technologies
 
-#### General parameters
+#### Common parameters
 
-- **enabled** – enabling parsers for this technology;
-- **parsers** – a set of parsers for manifests.
+- **enabled** – enables parsers for the given technology;
+- **parsers** – set of parsers for manifests.
 
 #### Parser parameters
 
-- **enabled** – enabling this parser;
-- **match** – a condition for determining suitable manifests, can be by name (`equal`) or extension (`extension`);
-- **properties** – additional properties for environment parsers, such as the path to executable files;
-- **dotnet-path**, **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**,**npm-path**, **pnpm-path**, **composer-path**, **pip-path**, **poetry-path**, **conda-lock-path** – paths to package managers for resolving dependencies in the environment;
-- **resolve-enabled** – resolving dependencies in the environment. The default value is `false`.
+- **enabled** – enables this parser;
+- **match** – condition for matching suitable manifests, can be by name (`equal`) or extension (`extension`);
+- **properties** – additional properties for environment parsers, such as the path to executables;
+- **dotnet-path**, **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**, **npm-path**, **pnpm-path**, **composer-path**, **pip-path**, **poetry-path**, **conda-lock-path** – paths to package managers for dependency resolution in the environment;
+- **resolve-enabled** – enables dependency resolution in the environment. Default value is `false`;
+- **dotnet-args**, **gradle-args**, **maven-args**, **sbt-args**, **npm-args**, **yarn-args**, **pnpm-args**, **composer-args**, **poetry-args**, **conda-args**, **swift-args** – arguments to pass to the corresponding package managers when resolving dependencies in the environment;
+- **configuration** – configuration for the `gradle-dependency-tree_txt` parser;
+- **depth** – parsing depth for the `jar` parser. Default value is `1`;
+- **python-version** – Python version used for dependency resolution in the environment.
 
-### Archive scanning options
+### Archive scanning parameters
 
 - **scan** – scan archives. Default value is `false`;
-- **depth** – archive scanning depth. The default value is `1`.
+- **depth** – archive scanning depth. Default value is `1`.
 
-### Results output options
+### Output parameters
 
-- **format** – output format. Default value is `coloredtable`. It is possible to export to the following formats: `table`, `text`, `junit`, `sarif`, `csv`, `gl-dependency-scanning-report`, `gl-code-quality-report`;
-- **group-vulnerabilities-by** – variable for grouping vulnerabilities in the table;
-- **sort-vulnerabilities-by** – order of variables for sorting vulnerabilities in the table.
+- **format** – output format for found vulnerabilities. Default value is `coloredtable`. Export to formats `table`, `text`, `junit`, `sarif`, `csv`, `gl-dependency-scanning-report`, `gl-code-quality-report` is available;
+- **group-vulnerabilities-by** – field used to group vulnerabilities in the table;
+- **sort-vulnerabilities-by** – order of fields for sorting vulnerabilities in the table;
+- **alerts-format** – output format for the policy alerts report. Supported formats: `coloredtable`, `table`, `text`, `json`, `csv`. Default value is `coloredtable`.
 
 ### Installation parameters
 
@@ -75,25 +88,25 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 
 ### Secret scanning launch parameters
 
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-path** – path to the Gitleaks executable file to be used during scanning;  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report** – enables the generation of a secrets report in GitLab format. Default: `false`;  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report-filename** – name of the generated GitLab secrets report file. Default: `gl-secrets-report.json`.  
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-path** – path to the Gitleaks executable file to be used during scanning;
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report** – enables the generation of a secrets report in GitLab format. Default: `false`;
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gl-secrets-report-filename** – name of the generated GitLab secrets report file. Default: `gl-secrets-report.json`.
 
 ### [Gitleaks secret scanning tool](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#readme) parameters
 
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **baseline-path** – path to the Gitleaks baseline report file. All previously detected secrets recorded in this file will be ignored during rescanning;  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **enable-rule** – list of rule IDs to be **enabled** during scanning;  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-ignore-path** – path to the `.gitleaksignore` file or the directory containing it. Default: `.` (current directory);  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – ignores `gitleaks:allow` comments. Default: `false`;  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **log-level** – logging level. Possible values: `trace, debug, info, warn, error, fatal`. Default: `info`;  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-decode-depth** – maximum depth for recursive decoding. A value of `0` disables decoding;  
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **baseline-path** – path to the Gitleaks baseline report file. All previously detected secrets recorded in this file will be ignored during rescanning;
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **enable-rule** – list of rule IDs to be **enabled** during scanning;
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **gitleaks-ignore-path** – path to the `.gitleaksignore` file or the directory containing it. Default: `.` (current directory);
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – ignores `gitleaks:allow` comments. Default: `false`;
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **log-level** – logging level. Possible values: `trace, debug, info, warn, error, fatal`. Default: `info`;
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-decode-depth** – maximum depth for recursive decoding. A value of `0` disables decoding;
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-target-megabytes** – maximum file size (in megabytes) to be processed. Files exceeding this size will be skipped. Default: `0` (no limit);  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-banner** – disables the Gitleaks startup banner. Default: `false`;  
-- <a href="/changelog/on-premise-changelog,en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-color** – disables colored output in verbose mode. Default: `false`;  
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **redact** – masks detected secrets in logs and console output. A value of 0 fully reveals secrets, while 100 completely hides them. Intermediate values, such as 20, mask 20% of the secret. Default: `0`;  
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-banner** – disables the Gitleaks startup banner. Default: `false`;
+- <a href="/changelog/on-premise-changelog,en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-color** – disables colored output in verbose mode. Default: `false`;
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **redact** – masks detected secrets in logs and console output. A value of 0 fully reveals secrets, while 100 completely hides them. Intermediate values, such as 20, mask 20% of the secret. Default: `0`;
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **verbose** – enables verbose output during scanning. Default: `false`.
 
-### Example file
+## Example file
 
 ```yaml
 # analysis options
@@ -188,7 +201,7 @@ scan:
           enabled: true
           # matching criteria
           match: equal("conan.lock")
-        # conanfile.py parser  
+        # conanfile.py parser
         conanfile_py:
           # use parser
           enabled: true
@@ -227,6 +240,8 @@ scan:
           properties:
             # path to dotnet for resolve
             dotnet-path: dotnet
+            # pass args to dotnet tool
+            dotnet-args: ""
         # .nuspec parser
         nuspec:
           # use parser
@@ -319,6 +334,8 @@ scan:
           properties:
             # path to gradle for resolve
             gradle-path: ./gradlew
+            # args to gradle tool
+            gradle-args: ""
         # .gradle parser
         gradle:
           # use parser
@@ -379,6 +396,8 @@ scan:
           properties:
             # path to maven for resolve
             maven-path: mvn
+            # args to mvn tool
+            maven-args: ""
         # pom.xml parser
         pom_xml:
           # use parser
@@ -401,6 +420,8 @@ scan:
           properties:
             # path to sbt for resolve
             sbt-path: sbt
+            # args to sbt tool
+            sbt-args: ""
     # JavaScript
     js:
       # Use JavaScript parsers
@@ -423,6 +444,8 @@ scan:
           properties:
             # path to npm for resolve
             npm-path: npm
+            # args for npm tool
+            npm-args: ""
         # package-lock.json parser
         package-lock_json:
           # use parser
@@ -451,6 +474,8 @@ scan:
           properties:
             # path to yarn for resolve
             yarn-path: yarn
+            # args for yarn tool
+            yarn-args: ""
         # pnpm-lock.yaml parser
         pnpm_lock_yaml:
           # use parser
@@ -467,6 +492,8 @@ scan:
           properties:
             # path to npm for resolve
             pnpm-path: pnpm
+            # args for pnpm tool
+            pnpm-args: ""
     # Objective-C
     objective_c:
       # Use Objective-C parsers
@@ -519,6 +546,8 @@ scan:
           properties:
             # path to composer for resolve
             composer-path: composer
+            # pass args to composer tool
+            composer-args: ""
     # Python
     python:
       # Use Python parsers
@@ -541,6 +570,8 @@ scan:
           properties:
             # path to pip for resolve
             pip-path: pip
+            # args for pip tool
+            pip-args: ""
         # Pipfile parser
         pipfile:
           # use parser
@@ -569,6 +600,8 @@ scan:
           properties:
             # path to poetry for resolve
             poetry-path: poetry
+            # args for poetry tool
+            poetry-args: ""
         # pyproject.toml parser
         pyproject_toml:
           # use parser
@@ -655,6 +688,38 @@ scan:
           properties:
             # path to conda-lock for resolve
             conda-lock-path: conda-lock
+            # args for conda tool
+            conda-args: ""
+    # swift
+    swift:
+      # Use swift parsers
+      enabled: true
+      # swift parsers
+      parsers:
+        # Package.resolved parser
+        package_resolved:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Package.resolved")
+        # Package.swift parser
+        package_swift:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Package.swift")
+        # Package.swift env parser
+        package_swift_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("Package.swift")
+          # parser properties
+          properties:
+            # path to swift for resolve
+            swift-path: swift
+            # args for swift tool
+            swift-args: ""
   # scan secrets
   secrets:
     # gitleaks options
@@ -695,8 +760,10 @@ scan:
     depth: 1
 # stats options
 stats:
-  # Report format. Supported formats: coloredtable, table, text, junit, sarif, csv. Default output to console.
+  # Report format. Supported formats: coloredtable, table, text, junit, sarif, csv. Default output coloredtable to console.
   format: coloredtable,junit>>junit.xml
+  # Policy alerts report format. Supported formats: coloredtable, table, text, json, csv. Default output coloredtable to console.
+  alerts-format: coloredtable
   # Group vulnerabilities by field
   group-vulnerabilities-by: vulnerability
   # Sort vulnerabilities by fields
