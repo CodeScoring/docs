@@ -100,7 +100,7 @@ plugins:
           osa-archives: "Scanning archives"
           agent: "CLI agent Johnny"
           agent-general: "General description"
-          agent-config: "Configuration"
+          agent-config: "Using configuration file"
           agent-variables: "Setting environment variables"
           agent-scan: "Scan command"
           agent-scan-dir: "Scanning a directory"

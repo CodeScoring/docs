@@ -7,7 +7,9 @@ hide:
 
 You can manage the parameters of the CLI agent by adding the configuration file `codescoring-johnny-config.yaml` to the directory with the agent. Below is a list of available parameters and an example of config file.
 
-### Composition Analysis Options
+## List of parameters
+
+### Composition analysis parameters
 
 - **project** – name of the project in the CodeScoring installation;
 - **save-results** – saving the results in the CodeScoring installation. Used in conjunction with the project name. The default value is `false`;
@@ -21,7 +23,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **hash** – an image hash (for the `scan image` command);
 - <a href="/changelog/on-premise-changelog.en/#202570-2025-02-14" class="version-tag">2025.7.0</a> **cloud-resolve** – use dependency resolution in cloud. Default value is `false`.
 
-### General scan options
+### General scan parameters
 
 - **ignore** – directories that will be ignored during scanning;
 - **no-summary** – hide summary information on the scan in the console. Default value is `false`;
@@ -104,7 +106,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **redact** – masks detected secrets in logs and console output. A value of 0 fully reveals secrets, while 100 completely hides them. Intermediate values, such as 20, mask 20% of the secret. Default: `0`;
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **verbose** – enables verbose output during scanning. Default: `false`.
 
-### Example file
+## Example file
 
 ```yaml
 # analysis options
