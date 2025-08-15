@@ -5,6 +5,24 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.29.3] - 2025-08-15
+
+#### Added
+
+- Added task results storage time setting in Redis `TASK_RESULT_EXPIRATION_PERIOD`
+
+#### Changed
+
+- Changed the version of the osa-api Alpine base image from 3.21 to 3.20 to support the latest versions of Dynatrace monitoring
+
+### Fixed
+
+- Fixed the lack of policy alerts in the PDF report download for the first SCA scan
+- Optimized database queries when calculating policy ignores
+- Fixed the behavior of archiving OSA packages. OSA Packages that were loaded but never requested are now sent to the archive
+- Fixed saving the checkbox "Can create CLI projects via API" on the CodeScoring user settings form
+- Optimized regular updates of current OSA packages
+
 ### [2025.29.2] - 2025-08-05
 
 #### Fixed

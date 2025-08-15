@@ -35,7 +35,7 @@ scan dir . \
 --api_url <api_url> \
 --dotnet-resolve \
 --dotnet-path <path/to/dotnet>
-````
+```
 
 При необходимости перечисленные параметры можно добавить в [конфигурационный файл агента](/agent/config).
 
