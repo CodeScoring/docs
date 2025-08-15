@@ -66,7 +66,7 @@ hide:
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
 - CycloneDX v1.6 Ext JSON -- расширенный формат CycloneDX, содержащий дополнительные свойства компонентов: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`.
 
-Настроить свойства компонентов при экспорте можно на [странице настройки зависимостей проекта](/on-premise/how-to/export-results/#bom-settings).
+Настроить свойства компонентов при экспорте можно на [странице настройки зависимостей проекта](/sca/export-results/#bom-settings).
 
 Для CLI-проектов также доступна загрузка SBoM через интерфейс по кнопке **Импорт SBoM**. Загружаемый SBoM должен быть в формате CycloneDX и иметь расширение `.json`.
 

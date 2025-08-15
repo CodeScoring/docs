@@ -218,7 +218,7 @@ scan:
       enabled: true
       # C# parsers
       parsers:
-        # .csporj parser
+        # .csproj parser
         csproj:
           # use parser
           enabled: true
