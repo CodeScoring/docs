@@ -5,6 +5,12 @@ hide:
 
 # Johnny Changelog
 
+### [2025.29.3] - 2025-08-22
+
+#### Fixed
+
+- Fixed passing user arguments to package managers during resolve
+
 ### [2025.29.2] - 2025-07-25
 
 #### Fixed
