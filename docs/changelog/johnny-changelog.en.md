@@ -9,7 +9,7 @@ hide:
 
 #### Fixed
 
-- Fixed passing user arguments to package managers during resolve
+- Fixed argument forwarding to package managers when using the local resolve mechanism in the absence of a lockfile.
 
 ### [2025.29.2] - 2025-07-25
 
