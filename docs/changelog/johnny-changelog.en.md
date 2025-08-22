@@ -5,6 +5,12 @@ hide:
 
 # Johnny Changelog
 
+### [2025.29.3] - 2025-08-22
+
+#### Fixed
+
+- Fixed argument forwarding to package managers when using the local resolve mechanism in the absence of a lockfile.
+
 ### [2025.29.2] - 2025-07-25
 
 #### Fixed
