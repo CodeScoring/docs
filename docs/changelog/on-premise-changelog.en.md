@@ -5,6 +5,17 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.29.4] - 2025-08-22
+
+#### Added
+
+- Added granular timeout settings for container image registries: connect, pool acquisition, read, and write
+- Added a per-registry requests-per-second (RPS) rate-limit setting for connected container registries
+
+#### Changed
+
+- Changed how parameters for connected container images registries are configured: environment-variable configuration has been removed; all settings are now managed in the UI.
+
 ### [2025.29.3] - 2025-08-15
 
 #### Added
