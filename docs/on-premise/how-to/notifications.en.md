@@ -68,3 +68,45 @@ Once the integration is configured, under `Actions` on the policy page, you can 
 If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
 
 ![CodeScoring Policy Actions example](/assets/img/policy_actions-en.png)
+
+## Template management
+
+CodeScoring supports the ability to use custom templates for email notifications or creating Jira issues.
+Template management is available in the section `Settings -> Notifications -> Templates`.
+
+To create a new template, use the form using the **Setup new** button:
+
+- Name;
+- Type - templates are divided into types depending on their use: Markdown for Jira issues and HTML for email notifications;
+- Template data - template content in [jinja2](https://jinja.palletsprojects.com/) format.
+
+After filling in the form fields, you can complete the creation by clicking the **Create** button.
+
+![Template example](/assets/img/template_en.png)
+
+When filling in the **Template data** field of the form, please note that the template can be used both for the "Send each notification separately" and for "Send all notifications together" sending modes.
+
+The content of an email or jira task is generated based on the template and alert context.
+The alert context is formed by variables:
+
+- policy_alert_id: int - alert ID;
+- policy_alert_level: str - alert criticality level;
+- policy_alert_stage: str - development cycle stages;
+- policy_alert_matched_criteria_list: list[str] - list of The policy triggers;
+- policy_id: int - policy ID;
+- policy_name: str - policy name;
+- policy_blocks_build: bool - blocking CI build or download of a component from a proxy repository;
+- policy_block_delay: int - delay (days) from the first policy trigger to blocking;
+- policy_is_block_delayed: bool - block delay is used;
+- dependency_name: str - name of the dependency;
+- dependency_link: str - link to dependency;
+- dependency_technology: str - programming language or ecosystem;
+- vulnerability_code: Optional[str] - vulnerability;
+- vulnerability_link: Optional[str] - link to the vulnerability;
+- fixed_version: Optional[str] - fixed version;
+- license_code: Optional[str] - license;
+- project_id: Optional[str] - project ID;
+- project_name: Optional[str] - project name;
+- container_image_id: Optional[int] - container image ID;
+- container_image_name: Optional[str] - name of container image;
+- container_image_link: Optional[str] - link to container image.
