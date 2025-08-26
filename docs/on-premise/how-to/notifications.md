@@ -105,7 +105,6 @@ CodeScoring поддерживает интеграцию с таск-менед
 - dependency_technology: str - язык программирования или экосистема;
 - vulnerability_code: Optional[str] - идентификатор уязвимости из внешней базы;
 - vulnerability_link: Optional[str] - ссылка на уязвимость;
-- fixed_version: Optional[str] - исправленная версия;
 - max_fixed_version: Optional[str] - максимальная исправленная версия;
 - license_code: Optional[str] - лицензия;
 - project_id: Optional[str] - идентификатор проекта;
