@@ -87,6 +87,8 @@ After filling in the form fields, you can complete the creation by clicking the 
 When filling in the **Template data** field of the form, please note that the template can be used both for the "Send each notification separately" and for "Send all notifications together" sending modes.
 
 The content of an email or jira task is generated based on the template and alert context.
+The context provides a list of alerts. For example, in the case of sending an email or creating a Jira task, only those alerts that were selected by the user will be placed in the context.
+
 The alert context is formed by variables:
 
 - policy_alert_id: int - alert ID;
@@ -101,7 +103,7 @@ The alert context is formed by variables:
 - dependency_name: str - name of the dependency;
 - dependency_link: str - link to dependency;
 - dependency_technology: str - programming language or ecosystem;
-- vulnerability_code: Optional[str] - vulnerability;
+- vulnerability_code: Optional[str] - vulnerability identifier from external database;
 - vulnerability_link: Optional[str] - link to the vulnerability;
 - fixed_version: Optional[str] - fixed version;
 - license_code: Optional[str] - license;
@@ -110,3 +112,5 @@ The alert context is formed by variables:
 - container_image_id: Optional[int] - container image ID;
 - container_image_name: Optional[str] - name of container image;
 - container_image_link: Optional[str] - link to container image.
+
+Important: all links lead to the installation on which the data for the email or jira task was generated.
