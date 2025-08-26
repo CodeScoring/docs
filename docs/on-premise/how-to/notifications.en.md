@@ -106,6 +106,7 @@ The alert context is formed by variables:
 - vulnerability_code: Optional[str] - vulnerability identifier from external database;
 - vulnerability_link: Optional[str] - link to the vulnerability;
 - fixed_version: Optional[str] - fixed version;
+- max_fixed_version: Optional[str] - max fixed version;
 - license_code: Optional[str] - license;
 - project_id: Optional[str] - project ID;
 - project_name: Optional[str] - project name;
