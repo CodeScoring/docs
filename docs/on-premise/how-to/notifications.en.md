@@ -77,7 +77,7 @@ Template management is available in the section `Settings -> Notifications -> Te
 To create a new template, use the form using the **Setup new** button:
 
 - Name;
-- Type - templates are divided into types depending on their use: Markdown for Jira issues and HTML for email notifications;
+- Type - templates are divided into types depending on their use: [Markdown for Jira issues](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all) and [HTML for email notifications](https://templates.mailchimp.com/);
 - Template data - template content in [jinja2](https://jinja.palletsprojects.com/) format.
 
 After filling in the form fields, you can complete the creation by clicking the **Create** button.
