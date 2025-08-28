@@ -24,18 +24,14 @@ After configuring the mail server, in the `Actions` section of the policy page y
 - **Email** — email address;
 - **Mode** — email sending mode:
   - Send all the alerts together;
-  - Send each alert separately.
+  - Send each alert separately;
+- **template** - template name;
 - **Groups** — groups of projects to which notification is made. If not specified, all groups are implied;
 - **Projects** — the specific projects for which the notification is made. If not specified, all projects are implied.
 
 If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
 
-The policy results email is sent **after the project** has been scanned. The email contains a list of all policies for which notifications were configured and triggered at least once, as well as the following information about those policies:
-
-- **Policy name** - the name of the triggered policy;
-- **Blocker** - the attribute of the blocking policy;
-- **Dependency** - name of the component;
-- **Vulnerability** - vulnerability ID.
+The policy results email is sent **after the project** has been scanned. The content of the email depends on the selected template.
 
 ## Create tasks in Jira
 
@@ -63,7 +59,9 @@ Once the integration is configured, under `Actions` on the policy page, you can 
 - **Projects** — the specific projects for which the notification is made. If not specified, all projects are implied.
 - **Server** — task manager (in this case Jira);
 - **Project** — Jira-project;
-- **Task** — card type: *Task*, *Story* or *Bug*.
+- **Task** — card type: *Task*, *Story* or *Bug*;
+- **Task priority** - card priority;
+- **Template** - template name.
 
 If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
 
