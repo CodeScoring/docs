@@ -258,7 +258,7 @@ repositoryTypes:
 
 Название должно быть в нижнем регистре и без лишних символов.
 
-![Debian repository settings](/assets/img/osa/jfrog_debian_setup.png)  
+![Debian repository settings](/assets/img/osa/jfrog_debian_setup.png)
 
 Список поддерживаемых дистрибутивов Debian:
 
