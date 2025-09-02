@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # CodeScoring.TQI
 
 ## General description

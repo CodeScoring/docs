@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Работа с зависимостями в Ruby
 
 ## Bundler 

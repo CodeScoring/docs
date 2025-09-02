@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Plugin for JFrog
 
 ## Installing the plugin
@@ -235,7 +236,7 @@ When a component is blocked from downloading, the user console displays one of t
 - **"The download has been blocked in accordance with the policies configured in CodeScoring"** – blocking of the component according to the policies configured on the installation;
 - **"The component has not yet been scanned by CodeScoring, it is scheduled to be scanned shortly. The download is blocked according to the plugin settings"** – blocking an unscanned component and then starting scanning. Used in `strict` mode;
 - **"The download has been blocked due to the failure of the scan of the component in CodeScoring"** – the component could not be scanned;
-- **"The download has been blocked due to the wrong mode of the plugin"** – incorrect [plugin operating mode](#_3) is used;
+- **"The download has been blocked due to the wrong mode of the plugin"** – incorrect [plugin operating mode](#setting-up-operating-modes) is used;
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – the timeout for scanning the component has expired. Used in `strict_wait` mode;
 - **"The download has been blocked, because registry is not configured in CodeScoring"** – there is no corresponding Registry on the installation.
 
@@ -280,47 +281,47 @@ List of supported Debian distributions:
 
 List of supported Ubuntu distributions:
 
-- **Ubuntu 4.10** – *warty*  
-- **Ubuntu 5.04** – *hoary*  
-- **Ubuntu 5.10** – *breezy*  
-- **Ubuntu 6.06** – *dapper*  
-- **Ubuntu 6.10** – *edgy*  
-- **Ubuntu 7.04** – *feisty*  
-- **Ubuntu 7.10** – *gutsy*  
-- **Ubuntu 8.04** – *hardy*  
-- **Ubuntu 8.10** – *intrepid*  
-- **Ubuntu 9.04** – *jaunty*  
-- **Ubuntu 9.10** – *karmic*  
-- **Ubuntu 10.04** – *lucid*  
-- **Ubuntu 10.10** – *maverick*  
-- **Ubuntu 11.04** – *natty*  
-- **Ubuntu 11.10** – *oneiric*  
-- **Ubuntu 12.04** – *precise*  
-- **Ubuntu 12.10** – *quantal*  
-- **Ubuntu 13.04** – *raring*  
-- **Ubuntu 13.10** – *saucy*  
-- **Ubuntu 14.04** – *trusty*  
-- **Ubuntu 14.10** – *utopic*  
-- **Ubuntu 15.04** – *vivid*  
-- **Ubuntu 15.10** – *wily*  
-- **Ubuntu 16.04** – *xenial*  
-- **Ubuntu 16.10** – *yakkety*  
-- **Ubuntu 17.04** – *zesty*  
-- **Ubuntu 17.10** – *artful*  
-- **Ubuntu 18.04** – *bionic*  
-- **Ubuntu 18.10** – *cosmic*  
-- **Ubuntu 19.04** – *disco*  
-- **Ubuntu 19.10** – *eoan*  
-- **Ubuntu 20.04** – *focal*  
-- **Ubuntu 20.10** – *groovy*  
-- **Ubuntu 21.04** – *hirsute*  
-- **Ubuntu 21.10** – *impish*  
-- **Ubuntu 22.04** – *jammy*  
-- **Ubuntu 22.10** – *kinetic*  
-- **Ubuntu 23.04** – *lunar*  
-- **Ubuntu 23.10** – *mantic*  
-- **Ubuntu 24.04** – *noble*  
-- **Ubuntu 24.10** – *oracular*  
+- **Ubuntu 4.10** – *warty*
+- **Ubuntu 5.04** – *hoary*
+- **Ubuntu 5.10** – *breezy*
+- **Ubuntu 6.06** – *dapper*
+- **Ubuntu 6.10** – *edgy*
+- **Ubuntu 7.04** – *feisty*
+- **Ubuntu 7.10** – *gutsy*
+- **Ubuntu 8.04** – *hardy*
+- **Ubuntu 8.10** – *intrepid*
+- **Ubuntu 9.04** – *jaunty*
+- **Ubuntu 9.10** – *karmic*
+- **Ubuntu 10.04** – *lucid*
+- **Ubuntu 10.10** – *maverick*
+- **Ubuntu 11.04** – *natty*
+- **Ubuntu 11.10** – *oneiric*
+- **Ubuntu 12.04** – *precise*
+- **Ubuntu 12.10** – *quantal*
+- **Ubuntu 13.04** – *raring*
+- **Ubuntu 13.10** – *saucy*
+- **Ubuntu 14.04** – *trusty*
+- **Ubuntu 14.10** – *utopic*
+- **Ubuntu 15.04** – *vivid*
+- **Ubuntu 15.10** – *wily*
+- **Ubuntu 16.04** – *xenial*
+- **Ubuntu 16.10** – *yakkety*
+- **Ubuntu 17.04** – *zesty*
+- **Ubuntu 17.10** – *artful*
+- **Ubuntu 18.04** – *bionic*
+- **Ubuntu 18.10** – *cosmic*
+- **Ubuntu 19.04** – *disco*
+- **Ubuntu 19.10** – *eoan*
+- **Ubuntu 20.04** – *focal*
+- **Ubuntu 20.10** – *groovy*
+- **Ubuntu 21.04** – *hirsute*
+- **Ubuntu 21.10** – *impish*
+- **Ubuntu 22.04** – *jammy*
+- **Ubuntu 22.10** – *kinetic*
+- **Ubuntu 23.04** – *lunar*
+- **Ubuntu 23.10** – *mantic*
+- **Ubuntu 24.04** – *noble*
+- **Ubuntu 24.10** – *oracular*
 - **Ubuntu 25.04** – *plucky*
 
 ### Browsing Debian package information
