@@ -3,13 +3,13 @@ hide:
   - footer
 ---
 
-# Плагин CodeScoring SCA для IntelliJ based IDEs
+# Плагин CodeScoring.SCA для IntelliJ based IDEs
 
 Плагин предоставляет возможности анализа состава программного обеспечения (SCA) для IntelliJ IDEA и других IDE,
 основанных на IntelliJ движке, подсвечивая уязвимые зависимости в файлах вашего проекта и предоставляя подробную
 информацию об уязвимостях через интеграцию с Johnny CLI.
 
-Плагин **CodeScoring SCA** поддерживает версии IntelliJ IDEA **2024.1** и выше, а также все IDE на базе IntelliJ
+Плагин **CodeScoring.SCA** поддерживает версии IntelliJ IDEA **2024.1** и выше, а также все IDE на базе IntelliJ
 Platform (OpenIDE, GIGA IDE, PyCharm, WebStorm, PhpStorm, RubyMine, GoLand, CLion, Rider, Android Studio).
 
 ## Поддерживаемые экосистемы

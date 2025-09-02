@@ -5,7 +5,7 @@ hide:
 
 # Building author profiles
 
-CodeScoring TQI allows to study the individual contribution of authors to projects using interactive profiles and activity visualization. Information about authors is available in several formats, allowing to evaluate their work in the most complete way.
+CodeScoring.TQI allows to study the individual contribution of authors to projects using interactive profiles and activity visualization. Information about authors is available in several formats, allowing to evaluate their work in the most complete way.
 
 ## List of authors
 

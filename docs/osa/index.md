@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# CodeScoring OSA
+# CodeScoring.OSA
 
 ## Общее описание
 

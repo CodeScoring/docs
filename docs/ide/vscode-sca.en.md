@@ -3,11 +3,11 @@ hide:
   - footer
 ---
 
-# CodeScoring SCA Extension for Visual Studio Code
+# CodeScoring.SCA Extension for Visual Studio Code
 
 The extension provides Software Composition Analysis (SCA) capabilities for VS Code, highlighting vulnerable dependencies in your project files and providing detailed information about vulnerabilities through integration with Johnny CLI.
 
-The **CodeScoring SCA** extension supports Visual Studio Code versions **1.95.0** and higher.
+The **CodeScoring.SCA** extension supports Visual Studio Code versions **1.95.0** and higher.
 
 ## Supported Ecosystems
 

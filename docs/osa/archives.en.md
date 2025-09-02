@@ -5,7 +5,7 @@ hide:
 
 # Scanning archives
 
-CodeScoring OSA plugins support scanning archives in the following formats:
+CodeScoring.OSA plugins support scanning archives in the following formats:
 
 | Ecosystem | Archive format |
 |-----------------|-------------------------------------|

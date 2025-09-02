@@ -31,7 +31,7 @@ Functionality:
 - composition analysis;
 - [search for confidential information](/secrets/index.en) in the source code.
 
-To implement blocking of components, the [CodeScoring OSA](/osa/index.en) plugins for **Nexus Repository Manager** and **JFrog Artifactory PRO** are provided.
+To implement blocking of components, the [CodeScoring.OSA](/osa/index.en) plugins for **Nexus Repository Manager** and **JFrog Artifactory PRO** are provided.
 
 ## Source code storage
 

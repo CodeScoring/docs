@@ -31,7 +31,7 @@ hide:
 - композиционный анализ;
 - [поиск конфиденциальной информации](/secrets) в исходном коде.
 
-Для осуществления блокировки компонентов предоставляются плагины [CodeScoring OSA](/osa) для **Nexus Repository Manager** и **JFrog Artifactory PRO**.
+Для осуществления блокировки компонентов предоставляются плагины [CodeScoring.OSA](/osa) для **Nexus Repository Manager** и **JFrog Artifactory PRO**.
 
 ## Хранение исходного кода
 

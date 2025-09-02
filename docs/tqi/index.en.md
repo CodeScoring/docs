@@ -2,11 +2,12 @@
 hide:
 - footer
 ---
-# CodeScoring TQI
+
+# CodeScoring.TQI
 
 ## General description
 
-**CodeScoring TQI** is a module for analyzing the quality of an organization's proprietary source code, determining the main parameters of technical debt.
+**CodeScoring.TQI** is a module for analyzing the quality of an organization's proprietary source code, determining the main parameters of technical debt.
 
 The main functional capabilities of the module allow to:
 

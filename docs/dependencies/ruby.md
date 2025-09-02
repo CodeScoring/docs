@@ -2,9 +2,10 @@
 hide:
   - footer
 ---
+
 # Работа с зависимостями в Ruby
 
-## Bundler 
+## Bundler
 
 ### Создание файла `Gemfile.lock`
 

@@ -48,23 +48,23 @@ As part of the OSA module, the platform supports analysing system packages of th
 If there is no lock file the system will try to resolve transitive OSS dependencies itself:
 
 - Maven
- + for pom.xml and build.gradle format generation of `maven-dependency-tree` via the corresponding maven plugin
- + Maven version 3.8.8 and OpenJDK version 11 are used
+    + for pom.xml and build.gradle format generation of `maven-dependency-tree` via the corresponding maven plugin
+    + Maven version 3.8.8 and OpenJDK version 11 are used
 - PyPi
- + generation of `poetry.lock` using the Poetry package manager
- + Python version 3.11.7 is used
+     + generation of `poetry.lock` using the Poetry package manager
+     + Python version 3.11.7 is used
 - N.P.M.
- + generation of `yarn.lock` using the Yarn package manager
- + uses Node.js version 20.9.0
+    + generation of `yarn.lock` using the Yarn package manager
+     + uses Node.js version 20.9.0
 - Nuget
- + for csproj format generation of `project.assets.json` using built-in nuget tools
- + uses .NET SDK version 8.0.404
--Packagist
- + generation of `composer.lock` using the Composer package manager
- + PHP version 8.2.26 is used
--Rubygems
- + generation of `Gemfile.lock` using the Bundler package manager
- + uses Ruby version 3.1.2p20
+     + for csproj format generation of `project.assets.json` using built-in nuget tools
+    + uses .NET SDK version 8.0.404
+- Packagist
+   + generation of `composer.lock` using the Composer package manager
+   + PHP version 8.2.26 is used
+- Rubygems
+    + generation of `Gemfile.lock` using the Bundler package manager
+    + uses Ruby version 3.1.2p20
 
 Generation of lock files by the system does not produce the best results in every case, since it often depends on the environment.
 
@@ -91,16 +91,16 @@ The second dependency search mechanism implemented in CodeScoring is a hash sear
 Currently, hash searches occur for the following package manager indexes and the following file types:
 
 - Maven
- + `.jar`
- + `.war`
- + `.ear`
--npm
- + `.min.js`
+    + `.jar`
+    + `.war`
+    + `.ear`
+- npm
+    + `.min.js`
 - PyPI
- + `.whl`
- + `.egg`
+    + `.whl`
+    + `.egg`
 - Nuget
- + `.nupkg`
+    + `.nupkg`
 
 
 Hashes of files whose size does not exceed 512 bytes **are not sent** to the cloud.
