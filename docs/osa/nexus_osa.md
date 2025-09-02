@@ -3,11 +3,11 @@ hide:
   - footer
 ---
 
-# CodeScoring Nexus OSA
+# Плагин для Nexus
 
 ## Установка плагина
 
-Плагин **CodeScoring Nexus OSA** поставляется в виде JAR-файла и поддерживает следующие версии Sonatype Nexus Repository (NXRM):
+Плагин **CodeScoring.OSA** поставляется в виде JAR-файла и поддерживает следующие версии Sonatype Nexus Repository (NXRM):
 
 - `nexus-codescoring-plugin-{release}.jar` - для Nexus Repository Community Edition версий с **3.71** по **3.77** и Nexus Repository Pro версий с **3.33.1-01** по **3.77** (поддерживает H2 и PostgreSQL);
 - `nexus-codescoring-plugin-legacy-{release}.jar` - для Nexus Repository OSS версий с **3.33.1-01** по **3.70.Х** (поддерживает OrientDB).
@@ -39,9 +39,9 @@ nx-repository-view-*-*-{read,browse}
 
 ## Настройка плагина
 
-Для применения плагина **CodeScoring OSA** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **NXRM**. **Capability** – это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
+Для применения плагина **CodeScoring.OSA** в дальнейшей работе, необходимо использовать механизм **Capability**, предоставляемый **NXRM**. **Capability** – это набор API и компонентов UI для встраивания в **NXRM**, позволяющий расширять его функциональность.
 
-Плагин **CodeScoring OSA** предоставляет четыре новые **Capability**:
+Плагин **CodeScoring.OSA** предоставляет четыре новые **Capability**:
 
 - **CodeScoring Configuration** — настройка взаимодействия с **on-premise** инсталляцией **CodeScoring**;
 - **CodeScoring Scan** — настройка сканирования для отдельно выбранного прокси-репозитория;
@@ -209,7 +209,7 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 
 ### Настройка репозиториев
 
-Для корректной работы Nexus OSA с системными пакетами некоторых экосистем необходимо произвести дополнительные действия.
+Для корректной работы плагина с системными пакетами некоторых экосистем необходимо произвести дополнительные действия.
 
 Для корректной работы плагина необходимо указать название (codename) дистрибутива из удалённого репозитория, например "bullseye" для Debian. Это название используется в PURL (Package URL) для повышения точности анализа пакета.
 
@@ -283,12 +283,12 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 
 ### Просмотр информации о пакете Debian
 
-Nexus OSA извлекает информацию о пакете из различных источников. В частности, он получает название пакета, версию и архитектуру из поля Summary asset'a. Если Summary отсутствует, данные для PURL парсятся из Path.
+Плагин извлекает информацию о пакете из различных источников. В частности, он получает название пакета, версию и архитектуру из поля Summary asset'a. Если Summary отсутствует, данные для PURL парсятся из Path.
 
 ![Debian package browse](/assets/img/osa/nexus_debian_browse.png)
 
 ### Просмотр информации о пакете RPM
 
-Для пакетов RPM Nexus OSA извлекает данные из атрибутов asset'a. Это включает название пакета, версию и архитектуру.
+Для пакетов RPM плагин извлекает данные из атрибутов asset'a. Это включает название пакета, версию и архитектуру.
 
 ![RPM package browse](/assets/img/osa/nexus_rpm_browse.png)

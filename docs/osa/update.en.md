@@ -5,7 +5,7 @@ hide:
 
 # Updating component data
 
-CodeScoring OSA automatically updates information about previously requested components in the background to ensure that the data is up-to-date and that performance is maintained.
+CodeScoring.OSA automatically updates information about previously requested components in the background to ensure that the data is up-to-date and that performance is maintained.
 
 ## Update mechanism
 

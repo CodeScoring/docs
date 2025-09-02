@@ -2,11 +2,11 @@
 hide:
   - footer
 ---
-# CodeScoring JFrog OSA
+# Plugin for JFrog
 
 ## Installing the plugin
 
-The **CodeScoring JFrog OSA** plugin supports JFrog Artifactory Pro versions **7.43** and higher.
+The **CodeScoring.OSA** plugin supports JFrog Artifactory Pro versions **7.43** and higher.
 
 The plugin comes as an archive with the following structure:
 
@@ -249,7 +249,7 @@ The response also contains a link to the component page in CodeScoring with info
 
 ### Setting up repositories
 
-For JFrog OSA to work correctly with system packages of some ecosystems, additional actions must be taken.
+For plugin to work correctly with system packages of some ecosystems, additional actions must be taken.
 
 #### Setting up a Debian repository
 
@@ -325,12 +325,12 @@ List of supported Ubuntu distributions:
 
 ### Browsing Debian package information
 
-JFrog OSA extracts package information from several sources. First, it gets the package name, version, and architecture from the **Properties** of the artifact. If Properties are missing, the data for PURL is parsed from the **Repository Path**.
+Plugin extracts package information from several sources. First, it gets the package name, version, and architecture from the **Properties** of the artifact. If Properties are missing, the data for PURL is parsed from the **Repository Path**.
 
 ![Debian package browse](/assets/img/osa/jfrog_debian_browse.png)
 
 ### Browsing RPM package information
 
-For RPM packages, JFrog OSA gets the name, version, and architecture by parsing the **Repository Path**.
+For RPM packages, plugin gets the name, version, and architecture by parsing the **Repository Path**.
 
 ![RPM package browse](/assets/img/osa/jfrog_rpm_browse.png)

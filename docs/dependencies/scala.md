@@ -12,9 +12,9 @@ hide:
 
     Чтобы сгенерировать полный граф зависимостей добавьте следующую строку в файл `build.sbt`:
 
-        ```scala
-        ThisBuild / asciiGraphWidth := 999999999
-        ```
+    ```scala
+    ThisBuild / asciiGraphWidth := 999999999
+    ```
 
     Альтернативно, можно установить значение `asciiGraphWidth` глобально.
 
@@ -22,9 +22,9 @@ hide:
 
     Выполните следующую команду для генерации дерева зависимостей:
 
-        ```bash
-        sbt clean compile "dependencyTree::toFile target/tree.txt"
-        ```
+    ```bash
+    sbt clean compile "dependencyTree::toFile target/tree.txt"
+    ```
 
     Убедитесь, что файл сохранен с именем `scala-dependency-tree.txt` или `sbt-dependency-tree.txt`, так как только эти имена поддерживаются для корректного парсинга.
 
