@@ -61,7 +61,7 @@ Once the integration is configured, under `Actions` on the policy page, you can 
 - **Project** — Jira-project;
 - **Task** — card type: *Task*, *Story* or *Bug*;
 - **Task priority** - card priority;
-- **Template** - [template](#_2) name.
+- **Template** - [template](#template-management) name.
 
 If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
 
