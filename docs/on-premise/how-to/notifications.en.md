@@ -61,7 +61,7 @@ Once the integration is configured, under `Actions` on the policy page, you can 
 - **Project** — Jira-project;
 - **Task** — card type: *Task*, *Story* or *Bug*;
 - **Task priority** - card priority;
-- **Template** - template name.
+- **Template** - [template](#_2) name.
 
 If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
 
@@ -72,13 +72,14 @@ If both groups and projects are specified, alerts will include information for a
 CodeScoring supports the ability to use custom templates for email notifications or creating Jira issues.
 Template management is available in the section `Settings -> Notifications -> Templates`.
 
-To create a new template, use the form using the **Setup new** button:
+To create a new template, use a form with the following fields:
 
 - Name;
 - Type - templates are divided into types depending on their use: [Markdown for Jira issues](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all) and [HTML for email notifications](https://templates.mailchimp.com/);
 - Template data - template content in [jinja2](https://jinja.palletsprojects.com/) format.
 
-After filling in the form fields, you can complete the creation by clicking the **Create** button.
+Important! Use only secure structures.
+Before finalizing the template, make sure your data is secure.
 
 ![Template example](/assets/img/template_en.png)
 
@@ -111,4 +112,4 @@ For each alert you can use the following variables:
 - container_image_name: Optional[str] - name of container image;
 - container_image_link: Optional[str] - link to container image.
 
-Important: all links lead to the installation on which the data for the email or jira task was generated.
+Important: all links lead to the installation on which the data for the email or task in Jira was generated.
