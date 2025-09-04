@@ -62,12 +62,10 @@
   height: 12px;
   margin-right: 4px;
 
-  /* слои фона: 1) цветная SVG сверху, 2) розовая «заливка» снизу */
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: contain, contain;
 
-  /* маска формирует силуэт и для розовой подложки, и для цветной SVG */
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
@@ -75,12 +73,10 @@
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
 
-  /* отключаем монохромную заливку, чтобы не перекрашивать SVG */
   background-color: transparent;
 }
 
-/* === Иконки по модулям === */
-/* В каждом модуле: кладём цветную SVG поверх и розовую подложку снизу */
+
 .module-tag.sca::before {
   mask-image: url('/assets/icons/sca.svg');
   -webkit-mask-image: url('/assets/icons/sca.svg');
