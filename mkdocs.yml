@@ -10,6 +10,7 @@ theme:
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
   features:
+    - navigation.top
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.tracking
@@ -527,10 +528,6 @@ extra_css:
   - stylesheets/home.css
 
 extra:
-  # Default mkdocs-material alternate links for untranslated pages
-  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language-selector
-  # For translated pages the language name is replaced by the string configured in i18n plugin
-  # section and link is replaced by the link to the translated page
   alternate:
     - name: "Русский"
       link: "/"
