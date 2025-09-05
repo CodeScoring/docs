@@ -26,7 +26,7 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 | **Go** | Go Modules | `go.mod`<br/>`go.sum` |
 | **PHP** | Composer | `composer.json`<br/>`composer.lock` |
 | **Ruby** | RubyGems | `Gemfile`<br/>`Gemfile.lock`<br/>`*.gemspec`<br/>`gems.locked` |
-| **.NET** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`*.csproj`<br/>`project.assets.json`<br/>`dependencyReport.json` |
+| **.NET** | Nuget | `*.nuspec`<br/>`packages.lock.json`<br/>`Project.json`<br/>`Project.lock.json`<br/>`packages.config`<br/>`*.csproj`<br/>`project.assets.json`<br/>`dependencyReport.json`<br/>`deps.json`<br/>`*.sln` |
 | | Paket | `paket.dependencies`<br/>`paket.lock` |
 | **Objective-C** | CocoaPods | `Podfile`<br/>`Podfile.lock`<br/>`*.podspec` |
 | **Swift** | Swift Package Manager | `Package.swift`<br/>`Package.resolved` |
@@ -57,7 +57,7 @@ If there is no lock file the system will try to resolve transitive OSS dependenc
     + generation of `yarn.lock` using the Yarn package manager
      + uses Node.js version 20.9.0
 - Nuget
-     + for csproj format generation of `project.assets.json` using built-in nuget tools
+     + for csproj and sln format generation of `project.assets.json` using built-in nuget tools
     + uses .NET SDK version 8.0.404
 - Packagist
    + generation of `composer.lock` using the Composer package manager

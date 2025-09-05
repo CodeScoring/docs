@@ -25,3 +25,7 @@ hide:
 	```sh
 	paket install
 	```
+
+### Working with an `sln` manifest
+
+In case an *.sln manifest is detected while scanning a directory the list of target manifests will be composed of the components described in it. The components which are present in the solution directory but not included will be ignored.
