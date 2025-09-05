@@ -52,8 +52,7 @@ plugins:
           functionality: "Functionality"
           functional-characteristics: "Functional characteristics"
           getting-started: "Getting started"
-          main: "General"
-          begin: "Beginning"
+          begin: " "
           integration-stages: "Integration stages"
           supported-package-managers: "Supported ecosystems and analysis methods"
           installation: "On-premise installation and maintenance"
@@ -159,20 +158,18 @@ plugins:
           tqi-clones: "Tracking code clones"
           tqi-metrics: "Calculating technical debt metrics"
           changelog: "Changelog"
-          changelog-general: "CodeScoring on-premise"
+          on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
           vscode-changelog: "VS Code extension"
           intellij-changelog: "IntelliJ plugin"
-          on-premise-changelog: "CodeScoring on-premise"
         ru:
           home: "Главная"
           functionality: "Функциональность"
           functional-characteristics: "Функциональные характеристики"
           getting-started: "Начало работы"
-          main: "Общая информация"
-          begin: "Начало"
+          begin: " "
           integration-stages: "Этапы интеграции"
           supported-package-managers: "Поддерживаемые экосистемы и способы анализа"
           installation: "Установка и эксплуатация"
@@ -277,13 +274,12 @@ plugins:
           tqi-clones: "Отслеживание дубликатов кода"
           tqi-metrics: "Расчет метрик технического долга"
           changelog: "История изменений"
-          changelog-general: "CodeScoring on-premise"
+          on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "Плагин для JFrog"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Плагин для Nexus"
           vscode-changelog: "Расширение для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
-          on-premise-changelog: "CodeScoring on-premise"
 
 nav:
   - home:
@@ -491,8 +487,6 @@ nav:
       - tqi-metrics: tqi/metrics.en.md
 
   - changelog:
-    - changelog-general: changelog/index.md
-    - changelog-general: changelog/index.en.md
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
     - johnny-changelog: changelog/johnny-changelog.md
@@ -530,6 +524,7 @@ extra_css:
   - css/logo.css
   - css/hide_lang_links.css
   - css/print.css
+  - stylesheets/home.css
 
 extra:
   # Default mkdocs-material alternate links for untranslated pages

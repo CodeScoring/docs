@@ -1,25 +1,39 @@
 ---
 hide:
-  - footer
+  - navigation
+  - toc
 ---
 
-# CodeScoring Documentation
+<div class="hero">
+  <div class="blobs" aria-hidden="true">
+    <div class="blob"></div>
+    <div class="blob"></div>
+  </div>
 
-The documentation contains basic information for working with the **CodeScoring** platform.
+  <div class="hero-content">
+    <h1>CodeScoring Documentation</h1>
+    <div class="hero-buttons">
+      <a href="/on-premise/server-requirements/" class="btn btn-primary">Get started</a>
+      <a href="/osa/" class="btn btn-secondary">User guide</a>
+    </div>
+  </div>
+</div>
 
-**CodeScoring** is a platform for secure software development designed to analyze dependencies, search for vulnerabilities in open source components, identify license compatibility, search for confidential information in source code and review the quality of developed projects.
+<style>
+.md-content__inner,
+.md-main__inner,
+.main-content {
+  background: transparent !important;
+  box-shadow: none !important;
+}
 
-**Table of contents**:
-
- - [Functional characteristics](/functionality.en)
- - [Installation guide](/on-premise/installation.en)
- - [Getting started](/on-premise/how-to/activation.en)
- - [OSA module](/osa/index.en)
- - [SCA module](/sca/index.en)
- - [CLI agent](/agent/index.en)
- - [Secrets module](/secrets/index.en)
- - [TQI module](/tqi/index.en)
- - [IDE plugins](/ide/index.en)
- - [Changelog](/changelog/on-premise-changelog.en)
-
-In case of any questions, please write to <hello@codescoring.ru>.
+a[aria-label="Print"],
+button[aria-label="Print"],
+a[aria-label="Export as PDF"],
+button[aria-label="Download PDF"],
+.md-content__button,
+.md-content__button--pdf,
+.md-page__pdf {
+  display: none !important;
+}
+</style>
