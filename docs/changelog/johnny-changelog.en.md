@@ -9,7 +9,7 @@ hide:
 
 #### Added
 
-- Added vulnerability reachability analysis for the Java language (starting with version 2025.37.0 of the installation)
+- Added vulnerability reachability analysis for the Java language and Svace call graph (starting with version 2025.37.0 of the installation)
 - Added the ability to run a local scan without specifying activation parameters (`--key` or `--api_url` and `--api_token`) with the formation of SBoM as a result
 - Added support for `deps.json` manifests for Nuget
 - When analyzing SBoM with the `scan bom` command, added loading of components for which the PURL is not specified, or the specified PURL does not match the specification
