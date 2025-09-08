@@ -1,7 +1,4 @@
-site_name: CodeScoring Documentation
-
-# repo_url: https://gitlab.com/mkdocs-i18n/mkdocs-i18n
-# edit_uri: ''
+site_name: "CodeScoring Documentation"
 
 theme:
   name: material
@@ -16,6 +13,7 @@ theme:
     - navigation.tracking
     - navigation.indexes
     - content.code.copy
+    - content.code.select
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -528,17 +526,23 @@ extra_css:
   - stylesheets/home.css
 
 extra:
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@codescoring
+      name: YouTube
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/codescoring
+      name: Telegram
   alternate:
     - name: "Русский"
       link: "/"
       lang: ru
-
     - name: "English"
       link: "/index.en/"
       lang: en
   i18n:
     - ru:
-      site_name: "CodeScoring Documentation"
+      site_name: "Документация CodeScoring"
     - en:
       site_name: "CodeScoring Documentation"
 
