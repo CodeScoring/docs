@@ -136,6 +136,8 @@ Use " scan [command] --help" for more information about a command.
 
 The `--api_url` parameter must contain the full address of the on-premise installation. The value for `--api_token` can be taken from the installation user profile.
 
+If the `--api_url` and `--api_token` parameters are not specified, the scan will run without interacting with the CodeScoring installation. As a result, the scan will generate an SBoM file containing only the list of components and their versions, without enrichment with additional information.
+
 Specifying the `--project` parameter will allow scanning to apply policies related to the selected project.
 
 To specify the path to a SBOM save file, you must add the `--bom-path` parameter to the request or assign the `bom-path` variable in the config file. By default, the SBOM is saved in the startup directory in the file `bom.json`.
