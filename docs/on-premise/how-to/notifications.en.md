@@ -11,7 +11,7 @@ For each policy, you can configure additional notifications, in addition to view
 
 Email notifications are sent via SMTP integration.
 
-To send notifications via email, the mail server must be configured beforehand in the `Settings -> Email` section. To do this, you need to fill in all mandatory fields and check the **Is active** flag.
+To send notifications via email, the mail server must be configured beforehand in the `Settings -> Notifications -> Email` section. To do this, you need to fill in all mandatory fields and check the **Is active** flag.
 
 You can check if the configuration is correct by clicking the **Test it** button.
 
@@ -25,7 +25,7 @@ After configuring the mail server, in the `Actions` section of the policy page y
 - **Mode** — email sending mode:
   - Send all the alerts together;
   - Send each alert separately;
-- **template** - template name;
+- **Template** - [template](#template-management) name. If not specified the default template would be used;
 - **Groups** — groups of projects to which notification is made. If not specified, all groups are implied;
 - **Projects** — the specific projects for which the notification is made. If not specified, all projects are implied.
 
@@ -35,7 +35,7 @@ The policy results email is sent **after the project** has been scanned. The con
 
 ## Create tasks in Jira
 
-CodeScoring supports integration with the Jira Task Manager to generate tasks for triggered policies. The integration is configured in the `Settings -> Task managers` section.
+CodeScoring supports integration with the Jira Task Manager to generate tasks for triggered policies. The integration is configured in the `Settings -> Notifications -> Task managers` section.
 
 The **Setup new** button form is used to create a new integration.
 
@@ -75,8 +75,8 @@ Template management is available in the section `Settings -> Notifications -> Te
 To create a new template, use a form with the following fields:
 
 - Name;
-- Type - templates are divided into types depending on their use: [Markdown for Jira issues](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all) and [HTML for email notifications](https://templates.mailchimp.com/);
-- Template data - template content in [jinja2](https://jinja.palletsprojects.com/) format.
+- Type - templates are divided into types depending on their use: [Markdown for Jira issues](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all) and [HTML for email notifications](https://templates.mailchimp.com/){:target=_blank};
+- Template data - template content in [jinja2](https://jinja.palletsprojects.com/){:target=_blank} format.
 
 Important! Use only secure structures.
 Before finalizing the template, make sure your data is secure.
@@ -90,11 +90,9 @@ The context provides a list of alerts. For example, in the case of sending an em
 
 For each alert you can use the following variables:
 
-- policy_alert_id: int - alert ID;
 - policy_alert_level: str - alert criticality level;
 - policy_alert_stage: str - development cycle stages;
 - policy_alert_matched_criteria_list: list[str] - list of The policy triggers;
-- policy_id: int - policy ID;
 - policy_name: str - policy name;
 - policy_blocks_build: bool - blocking CI build or download of a component from a proxy repository;
 - policy_block_delay: int - delay (days) from the first policy trigger to blocking;
@@ -106,10 +104,8 @@ For each alert you can use the following variables:
 - vulnerability_link: Optional[str] - link to the vulnerability;
 - max_fixed_version: Optional[str] - max fixed version;
 - license_code: Optional[str] - license;
-- project_id: Optional[str] - project ID;
 - project_name: Optional[str] - project name;
-- container_image_id: Optional[int] - container image ID;
 - container_image_name: Optional[str] - name of container image;
 - container_image_link: Optional[str] - link to container image.
 
-Important: all links lead to the installation on which the data for the email or task in Jira was generated.
+Important: all links are leading to the installation on which the data for the email or task in Jira was generated.
