@@ -85,10 +85,10 @@ Before finalizing the template, make sure your data is secure.
 
 When filling in the **Template data** field of the form, please note that the template can be used both for the "Send each notification separately" and for "Send all notifications together" sending modes.
 
-The content of an email or jira task is generated based on the template and alert context.
-The context provides a list of alerts. For example, in the case of sending an email or creating a Jira task, only those alerts that were selected by the user will be placed in the context.
+The content of email message or jira task is generated based on the template and `alert context`.
+The context provides `a collection of alerts` (when using "separate" send mode, the collection contains only one alert).
 
-For each alert you can use the following variables:
+For each `alert` you can use the following variables:
 
 - policy_alert_level: str - alert criticality level;
 - policy_alert_stage: str - development cycle stages;
