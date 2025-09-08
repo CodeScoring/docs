@@ -5,6 +5,38 @@ hide:
 
 # Johnny Changelog
 
+### [2025.37.0] - 2025-09-08
+
+#### Added
+
+- Added vulnerability reachability analysis for the Java language (starting with version 2025.37.0 of the installation)
+- Added the ability to run a local scan without specifying activation parameters (`--key` or `--api_url` and `--api_token`) with the formation of SBoM as a result
+- Added support for `deps.json` manifests for Nuget
+- When analyzing SBoM with the `scan bom` command, added loading of components for which the PURL is not specified, or the specified PURL does not match the specification
+- Added preliminary conversion of the file to UTF-8 encoding in the `scan bom` command for further correct processing
+- Added the ability to run the `sign bom` and `verify bom` commands without specifying activation parameters (`--key` or `--api_url` and `--api_token`)
+- Added output of reachability examples in SARIF
+- Added transfer of marked data to installation when importing SBoM with markup (starting with version 2025.37.0 of the installation)
+- Added the ability to specify a branch/tag and commit when scanning an image
+- Added support for sln manifests for the .NET stack
+- Added checking the license composition before performing a scan
+- Added the ability to select the type of progress bar
+
+#### Changed
+
+- Changed the logging level when a policy is triggered
+- Changed the output of the number of alerts for triggered policies
+- Changed the logic of the resolver in the Javascript environment. Local resolve fails if any of the known lock files are present (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`)
+- Improved binding mechanism for gradle when using arbitrary manifest names
+
+#### Fixed
+
+- Fixed handling of invalid package in `requirements.txt` manifests
+
+#### Deprecated
+
+- Building scratch images of console agent will be discontinued in release 2025.45.0
+
 ### [2025.29.3] - 2025-08-22
 
 #### Fixed
