@@ -95,6 +95,10 @@ If the task is missing, the standard command is used:
 
 The agent analyzes the console output and forms the dependency graph.
 
+#### Additional info
+
+When a gradle-dependency-tree.txt file is present in the directory, the existing file will be used without creating a new one.
+
 ### Maven
 
 Main manifest used for dependency resolution: `pom.xml`.
