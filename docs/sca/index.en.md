@@ -2,11 +2,12 @@
 hide:
 - footer
 ---
-# CodeScoring SCA
+
+# CodeScoring.SCA
 
 ## General description
 
-The **CodeScoring** SCA module solves the problems of software inventory and vulnerability search in open source components. The main functional capabilities of the module include:
+The **CodeScoring.SCA** module solves the problems of software inventory and vulnerability search in open source components. The main functional capabilities of the module include:
 
 - **Control at different stages of development lifecycle** with the ability to [check projects in the version control system](/sca/launch-analysis.en);
 - **Integration of checks into the CI pipeline** with blocking security policies using the [console agent Johnny](/agent/index.en);

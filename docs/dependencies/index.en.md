@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Working with dependencies
 
 In some cases, when working with dependencies, additional actions are required to improve the accuracy of composition analysis.

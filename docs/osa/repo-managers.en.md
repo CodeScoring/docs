@@ -5,7 +5,7 @@ hide:
 
 # Connecting a repository manager
 
-Codescoring OSA performs artifact check in the **Sonatype Nexus Repository** and **JFrog Artifactory** repository managers via [OSA plugins](/osa). You can pre-configure a connection to a repository manager to make it easier to work with artifacts on your installation.
+Codescoring.OSA performs artifact check in the **Sonatype Nexus Repository** and **JFrog Artifactory** repository managers via [OSA plugins](/osa). You can pre-configure a connection to a repository manager to make it easier to work with artifacts on your installation.
 
 To add a new repository manager on an installation, follow these steps:
 
@@ -33,6 +33,18 @@ On the view page you can see a list of repositories with the following parameter
 - **Is available** - availability of the repository in API (checked once an hour);
 - **Last request at** - date and time of the last request to check components.
 
-You can see the list of packages from connected repositories in the `Components -> Packages` section, and the list of requests to check in the `Components -> Requests` section. Within the sections, filtering is available by repository manager (**Repository Manager**), individual repository (**Repository**), or type of artifacts contained (**Repository Ecosystem**). 
+You can see the list of packages and images from connected repositories in the `OSA -> Packages` and `OSA -> Container Images` sections, and the list of requests for verification in the `OSA -> Requests` section.
+
+Within the sections, you can filter by individual components or the following fields:
+
+- **Repository** – a repository within the artifact storage;
+- **Technology** – a programming language or operating system;
+- **License** – a component distribution license;
+- **Block Status** – an indicator of a blocked component request;
+- **Last Request** – the date of the last component request;
+- **Repository Manager** – the name of the connected manager in CodeScoring;
+- **Repository Ecosystem** – the type of stored artifacts (PyPI, NPM, etc.);
+- **Contains Vulnerabilities** – the presence of vulnerabilities in the requested components;
+- **Current** – a flag for an updated component. You can read more about this flag on the [Updating Component Data](/osa/update.en) page.
 
 In addition, once the manager is connected, it is possible to [customize security policies](/osa/osa-policies.en) for individual repositories.

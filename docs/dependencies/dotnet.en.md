@@ -2,6 +2,7 @@
 hide:
 - footer
 ---
+
 # Working with dependencies in .NET
 
 ## NuGet

@@ -82,25 +82,29 @@ plugins:
           metrics: "Collecting metrics"
           webhooks: "Setting up webhooks"
           api: "Working with API"
-          sca: "CodeScoring SCA"
+          sca: "CodeScoring.SCA"
           sca-general: "General description"
           sca-dependencies: "Overviewing dependencies"
           launch-analysis: "Launching a scan"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
-          osa: "CodeScoring OSA"
+          osa: "CodeScoring.OSA"
           osa-general: "General description"
-          nexus-osa: "Nexus OSA"
-          jfrog-osa: "JFrog OSA"
+          nexus-osa: "Plugin for Nexus"
+          jfrog-osa: "Plugin for JFrog"
           repo-managers: "Connecting a repository manager"
           registries: "Connecting a container registry"
           osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
           osa-update: "Updating component data"
           osa-archives: "Scanning archives"
+          ide: "IDE integrations"
+          ide-general: "General description"
+          vscode-sca: "VS Code extension"
+          intellij-sca: "IntelliJ plugin"
           agent: "CLI agent Johnny"
           agent-general: "General description"
-          agent-config: "Configuration"
+          agent-config: "Using configuration file"
           agent-variables: "Setting environment variables"
           agent-scan: "Scan command"
           agent-scan-dir: "Scanning a directory"
@@ -134,7 +138,7 @@ plugins:
           feeds-protestware: "Working with protestware feed"
           feeds-kaspersky: "Using Kaspersky OSS Threats Data Feed"
           feeds-oss-index: "Integrating OSS Index"
-          secrets: "CodeScoring Secrets"
+          secrets: "CodeScoring.Secrets"
           secrets-general: "General description"
           secrets-setup: "Setting up engine configuration"
           secrets-vcs: "Configuring VCS project for secret search"
@@ -142,7 +146,7 @@ plugins:
           secrets-cli: "Searching secrets in CLI projects"
           secrets-findings: "Working with findings"
           secrets-model: "Managing ML Model"
-          tqi: "CodeScoring TQI"
+          tqi: "CodeScoring.TQI"
           tqi-general: "General description"
           tqi-analysis: "Launching TQI analysis"
           tqi-results: "Viewing analysis results"
@@ -153,6 +157,8 @@ plugins:
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
+          vscode-changelog: "VS Code extension"
+          intellij-changelog: "IntelliJ plugin"
           on-premise-changelog: "CodeScoring on-premise"
 
         ru:
@@ -192,21 +198,25 @@ plugins:
           metrics: "Сбор метрик"
           webhooks: "Подключение вебхуков"
           api: "Работа с API"
-          sca: "CodeScoring SCA"
+          sca: "CodeScoring.SCA"
           sca-general: "Общее описание"
           sca-dependencies: "Обзор зависимостей"
           launch-analysis: "Запуск сканирования"
           scan-history: "Отслеживание истории сканирований"
-          osa: "CodeScoring OSA"
+          osa: "CodeScoring.OSA"
           osa-general: "Общее описание"
-          nexus-osa: "Nexus OSA"
-          jfrog-osa: "JFrog OSA"
+          nexus-osa: "Плагин для Nexus"
+          jfrog-osa: "Плагин для JFrog"
           repo-managers: "Подключение менеджера репозиториев"
           registries: "Подключение реестра с образами"
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA на инсталляции"
           osa-update: "Обновление данных о компонентах"
           osa-archives: "Сканирование архивов"
+          ide: "Интеграция с IDE"
+          ide-general: "Общее описание"
+          vscode-sca: "Расширение для VS Code"
+          intellij-sca: "Плагин для IntelliJ"
           agent: "Консольный агент Johnny"
           agent-general: "Общее описание"
           agent-config: "Настройка через конфигурационный файл"
@@ -243,7 +253,7 @@ plugins:
           feeds-protestware: "Работа с фидом protestware"
           feeds-kaspersky: "Использование Kaspersky OSS Threats Data Feed"
           feeds-oss-index: "Интеграция OSS Index"
-          secrets: "CodeScoring Secrets"
+          secrets: "CodeScoring.Secrets"
           secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
           secrets-vcs: "Настройка VCS проекта для работы с секретами"
@@ -251,7 +261,7 @@ plugins:
           secrets-cli: "Поиск секретов в CLI проектах"
           secrets-findings: "Работа с найденными секретами"
           secrets-model: "Управление моделью машинного обучения"
-          tqi: "CodeScoring TQI"
+          tqi: "CodeScoring.TQI"
           tqi-general: "Общее описание"
           tqi-analysis: "Запуск TQI анализа"
           tqi-results: "Просмотр результатов анализа"
@@ -259,9 +269,11 @@ plugins:
           tqi-clones: "Отслеживание дубликатов кода"
           tqi-metrics: "Расчет метрик технического долга"
           changelog-general: "CodeScoring Changelog"
-          jfrog-changelog: "JFrog OSA"
+          jfrog-changelog: "Плагин для JFrog"
           johnny-changelog: "Консольный агент Johnny"
-          nexus-changelog: "Nexus OSA"
+          nexus-changelog: "Плагин для Nexus"
+          vscode-changelog: "Расширение для VS Code"
+          intellij-changelog: "Плагин для IntelliJ"
           on-premise-changelog: "CodeScoring on-premise"
 
 nav:
@@ -399,6 +411,13 @@ nav:
     - agent-export: agent/export.en.md
     - agent-resolve: agent/resolve.md
     - agent-resolve: agent/resolve.en.md
+  - ide:
+    - ide-general: ide/index.md
+    - ide-general: ide/index.en.md
+    - vscode-sca: ide/vscode-sca.md
+    - vscode-sca: ide/vscode-sca.en.md
+    - intellij-sca: ide/intellij-sca.md
+    - intellij-sca: ide/intellij-sca.en.md
   - dependencies:
     - dependencies-general: dependencies/index.md
     - dependencies-general: dependencies/index.en.md
@@ -466,6 +485,10 @@ nav:
     - nexus-changelog: changelog/nexus-changelog.en.md
     - jfrog-changelog: changelog/jfrog-changelog.md
     - jfrog-changelog: changelog/jfrog-changelog.en.md
+    - vscode-changelog: changelog/vscode-changelog.md
+    - vscode-changelog: changelog/vscode-changelog.en.md
+    - intellij-changelog: changelog/intellij-changelog.md
+    - intellij-changelog: changelog/intellij-changelog.en.md
 
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> CodeScoring

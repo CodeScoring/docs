@@ -21,7 +21,7 @@ sca:
  stage: test
 
  script:
- - docker pull <registry-address>/johnny-depp:<version>
+ - docker pull REGISTRY_URL/johnny-depp:<version>
  ->
  docker run -v $(pwd):/code
  <registry-address>/johnny-depp
@@ -45,13 +45,13 @@ To use the agent binary file, you must first perform the following steps on the 
 
 1. Download the file with the command
  ```bash
- wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+ wget -O /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
  ```
  or
  ```bash
- curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@registry-one.codescoring.ru/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
+ curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
  ```
- `JOHNNY_VERSION` must be replaced with the agent version. A list of current versions with descriptions is available in [Changelog](/changelog/johnny-changelog.en/). `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` must be replaced with the login and password received from the vendor.
+ `JOHNNY_VERSION` must be replaced with the agent version. A list of current versions with descriptions is available in [Changelog](/changelog/johnny-changelog.en/). `REGISTRY_URL`, `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` should be replaced with the URL, login and password received from the vendor.
 2. Allow file execution
  ```bash
  chmod +x /usr/local/bin/johnny

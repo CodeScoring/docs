@@ -35,10 +35,10 @@ When authenticating via **LDAP**, the following data is mapped from a directory 
 When authenticating via LDAP, CodeScoring can query a user's LDAP group data and map it to its own groups and roles. To activate this feature, the following fields must be filled in the LDAP settings:
 
 - `Group search base`.
-- `Group search filter for user`
 - `Group search filter for all groups`
 - `Group name field`
-- `Group member field`
+- `Group member field` (if `User group search method` field value equals "User record")
+- `Group search filter for user` (if `User group search method` field value equals "Group search")
 
 CodeScoring performs mapping according to the rules, the management of which is available in the `Settings -> Group mapping` section.
 

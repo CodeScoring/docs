@@ -6,7 +6,7 @@ hide:
 # Installation guide
 
 1. Install Docker Engine for the desired operating system in accordance with the documentation: <https://docs.docker.com/engine/install/>.
-2. Log in to the private registry of Docker images of the CodeScoring system using the command `docker login registry-one.codescoring.ru`, with the login and password received from the vendor.
+2. Log in to the private registry of Docker images of the CodeScoring system using the command `docker login REGISTRY_URL`, with the URL, login and password received from the vendor.
 3. Download the archive with installation files received from the vendor and unpack it.
 4. Go to the created directory in the console.
 5. Copy the template file with settings:

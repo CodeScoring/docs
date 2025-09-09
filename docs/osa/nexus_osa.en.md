@@ -3,11 +3,11 @@ hide:
   - footer
 ---
 
-# CodeScoring Nexus OSA
+# Plugin for Nexus
 
 ## Installing the plugin
 
-The **CodeScoring Nexus OSA** plugin comes as a JAR file and supports the following Sonatype Nexus Repository versions:
+The **CodeScoring.OSA** plugin comes as a JAR file and supports the following Sonatype Nexus Repository versions:
 
 - `nexus-codescoring-plugin-{release}.jar` - for Nexus Repository Community Edition versions from **3.71** to **3.77** and Nexus Repository Pro versions from **3.33.1-01** to **3.77** (supports H2 and PostgreSQL);
 - `nexus-codescoring-plugin-legacy-{release}.jar` - for Nexus Repository OSS versions from **3.33.1-01** to **3.70.Х** (supports OrientDB).
@@ -39,16 +39,16 @@ After the completed operations, you need to restart **NXRM**.
 
 ## Plugin setup
 
-To use the **CodeScoring OSA** plugin in further work, you must use the **Capability** mechanism provided by **NXRM**. **Capability** is a set of APIs and UI components for embedding into **NXRM**, allowing you to expand its functionality.
+To use the **CodeScoring.OSA** plugin in further work, you must use the **Capability** mechanism provided by **NXRM**. **Capability** is a set of APIs and UI components for embedding into **NXRM**, allowing you to expand its functionality.
 
-The **CodeScoring OSA** plugin provides four new **Capabilities**:
+The **CodeScoring.OSA** plugin provides four new **Capabilities**:
 
 - **CodeScoring Configuration** — setting up interaction with the on-premise installation of **CodeScoring**;
 - **CodeScoring Scan** — setting up scanning for a separately selected proxy repository;
 - **CodeScoring Docker Repository Scan** – setting up scanning for a separately selected hosted or proxy docker repository;
 - **CodeScoring All Repositories Scan** – scan settings for all repositories.
 
-After installing the **CodeScoring OSA** plugin in the `System -> Capabilities` section, it will be possible to create **Capability** through the (`+ Create capability`) interface element.
+After installing the **CodeScoring.OSA** plugin in the `System -> Capabilities` section, it will be possible to create **Capability** through the (`+ Create capability`) interface element.
 
 ![CodeScoring capability creation example](/assets/img/osa/capability_create_example.png)
 
@@ -208,7 +208,7 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts | grep mycert
 
 ### Setting up repositories
 
-For Nexus OSA to work correctly with system packages of some ecosystems, additional actions must be taken.
+For plugin to work correctly with system packages of some ecosystems, additional actions must be taken.
 
 For the plugin to work correctly, you must specify the codename of the distribution from the remote repository, for example "bullseye" for Debian. This name is used in PURL (Package URL) to improve the accuracy of package analysis.
 
@@ -282,12 +282,12 @@ List of supported Ubuntu distributions:
 
 ### Browsing Debian package information
 
-Nexus OSA extracts package information from various sources. Specifically, it gets the package name, version, and architecture from the asset's Summary field. If the Summary is missing, the data for the PURL is parsed from the Path.
+Plugin extracts package information from various sources. Specifically, it gets the package name, version, and architecture from the asset's Summary field. If the Summary is missing, the data for the PURL is parsed from the Path.
 
 ![Debian package browse](/assets/img/osa/nexus_debian_browse.png)
 
 ### Browsing RPM package information
 
-For RPM packages, Nexus OSA extracts data from the asset's attributes. This includes the package name, version, and architecture.
+For RPM packages, plugin extracts data from the asset's attributes. This includes the package name, version, and architecture.
 
 ![RPM package browse](/assets/img/osa/nexus_rpm_browse.png)

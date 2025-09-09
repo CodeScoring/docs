@@ -71,18 +71,31 @@ The policy creation form specifies the policy context using the following parame
 Next, the conditions for triggering the policy are configured; the following parameters are supported:
 
 - **PURL** — [package URL](https://github.com/package-url/purl-spec), component identifier;
-- **Dependency name**;
-- **Dependency version**;
-- **Dependency author**
-- **Dependency release date**;
-- **Dependency age (days)**;
-- **Dependency vulnerability count**;
-- **Dependency is dangerous**;
-- **Dependency is protestware**;
-- **Dependency is a descendant of** - searches across all levels for lower-level transitive dependencies associated with the specified parent component;
+- **Dependency name** — name of the used dependency;
+- **Dependency version** — specific version of the component detected in the project;
+- **Dependency author** — name or organization listed as the author of the dependency;
+- **Dependency release date** — date when the dependency version was first published;
+- **Dependency age (days)** — number of days since the dependency was published;
+- **Dependency vulnerability count** — total number of known vulnerabilities in the component;
+- **Dependency is dangerous** — the dependency is considered dangerous if it includes any vulnerabilities with:
+    - prefix `MAL-` (malicious package feed from OSV);
+    - one of the following CWEs:
+      - CWE-506: Embedded Malicious Code;
+      - CWE-507: Trojan;
+      - CWE-509: Non-Propagating Malicious Code;
+      - CWE-509: Propagating Malicious Code (virus or worm);
+      - CWE-510: Hidden Functionality;
+      - CWE-511: Logic or Time Bomb;
+      - CWE-512: Spyware;
+      - CWE-912: Backdoor Function;
+    - or one of the following Impacts values from [Kaspersky OSS Threats Data Feed](/feeds/kaspersky.en):
+      - Malicious software;
+      - Other impact.
+- **Dependency is protestware** — indicates the presence of vulnerabilities from the proprietary [protestware feed](/feeds/protestware.en);
+- **Dependency is a descendant of** — searches across all levels for lower-level transitive dependencies associated with the specified parent component (e.g. in `a<-b<-c<-d`, `c` and `d` are descendants of `b`);
 - **Technology** — programming language or ecosystem;
-- **License**;
-- **License category**;
+- **License** — SPDX license identifier;
+- **License category** — classification of the license (e.g. permissive, copyleft);
 - **Vulnerability ID** — vulnerability identifier;
 - **CVSS2 Score** — numerical threat score according to the CVSS 2 standard;
 - **CVSS2 Severity** — threat level according to the CVSS 2 standard;
@@ -92,7 +105,7 @@ Next, the conditions for triggering the policy are configured; the following par
 - **CVSS2 Availability Impact (A)** — degree of data availability loss;
 - **CVSS2 Confidentiality Impact (C)** — degree of data confidentiality loss;
 - **CVSS2 Integrity Impact (I)** — degree of data integrity loss;
-- **CVSS3 Score** - numerical CVSS 3 threat assessment;
+- **CVSS3 Score** — numerical CVSS 3 threat assessment;
 - **CVSS3 Severity** — threat level according to the CVSS 3 standard;
 - **CVSS3 Attack Vector (AV)** — attack vector;
 - **CVSS3 Attack Complexity (AC)** — attack complexity;
@@ -102,18 +115,16 @@ Next, the conditions for triggering the policy are configured; the following par
 - **CVSS3 Confidentiality (C)** — degree of loss of data confidentiality;
 - **CVSS3 Integrity (I)** — degree of loss of data integrity;
 - **CVSS3 Availability (A)** — degree of loss of data availability;
-- **Vulnerability publication date**;
-- **Vulnerability update date**;
-- **Impacts (Kaspersky)**;
-- **Vulnerability has exploit**;
-- **Vulnerability has fixed version**;
-- **Vulnerability age (days)**;
-- **Env** — development environment;
+- **Vulnerability publication date** — initial disclosure date of the vulnerability;
+- **Vulnerability update date** — most recent update of the vulnerability record;
+- **Impacts (Kaspersky)** — possible Impacts values from [Kaspersky OSS Threats Data Feed](/feeds/kaspersky.en);
+- **Vulnerability has exploit** — indicates the presence of a public exploit in databases like NVD, GHSA, FSTEC, etc.;
+- **Vulnerability has fixed version** — indicates the availability of a safe version that mitigates the vulnerability;
+- **Vulnerability age (days)** — number of days since the vulnerability was disclosed;
+- **Env** — development environment (e.g., prod, dev, source);
 - **Match type** — dependency detection method (by manifest, project content, or as a result of dependency resolution);
 - **Relation** — dependency relationship in the project (direct or transitive);
 - **CWE** — vulnerability type identifier according to the [Common Weakness Enumeration](https://cwe.mitre.org/) standard.
-
-Note for the  **Dependency is a descendant of** parameter. Dependency search is performed for deeper levels of nesting of the dependency graph. For example, for the case of a dependency chain `a<-b<-c<-d`, the children of `b` are `c` and `d`.
 
 ## Policy example
 

@@ -5,7 +5,7 @@ hide:
 
 # Использование Kaspersky Open Source Software Threats Data Feed
 
-CodeScoring интегрирует фид [Kaspersky Open Source Software Threats Data Feed](https://www.kaspersky.ru/open-source-feed) (Kaspersky OSSTDF) в модули CodeScoring SCA и CodeScoring OSA, предоставляя доступ к информации об угрозах в обнаруженных open source компонентах. Фид полезен не только как источник данных о новых уязвимостях, но и как инструмент обогащения уже известных записей из других источников.
+CodeScoring интегрирует фид [Kaspersky Open Source Software Threats Data Feed](https://www.kaspersky.ru/open-source-feed) (Kaspersky OSSTDF) в модули CodeScoring.SCA и CodeScoring.OSA, предоставляя доступ к информации об угрозах в обнаруженных open source компонентах. Фид полезен не только как источник данных о новых уязвимостях, но и как инструмент обогащения уже известных записей из других источников.
 
 Фид интегрирован на уровне базы знаний CodeScoring Index, что обеспечивает дедупликацию обнаруженных уязвимостей и единое представление данных для пользователя.
 
