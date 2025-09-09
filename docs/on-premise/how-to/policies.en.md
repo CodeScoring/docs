@@ -93,7 +93,7 @@ Next, the conditions for triggering the policy are configured; the following par
     - Other impact.
 - **Dependency is protestware** — indicates the presence of vulnerabilities from the proprietary [protestware feed](/feeds/protestware.en);
 - **Dependency is a descendant of** — searches across all levels for lower-level transitive dependencies associated with the specified parent component (e.g. in `a<-b<-c<-d`, `c` and `d` are descendants of `b`);
-- **Dependency Transitivity depth** - controls the depth of the dependency search;
+- **Dependency Transitivity depth** - controls the depth of the dependency search, where 1 is a direct dependency, 2 or more are transitive. Only natural numbers are allowed;
 - **Technology** — programming language or ecosystem;
 - **License** — SPDX license identifier;
 - **License category** — classification of the license (e.g. permissive, copyleft);
