@@ -60,8 +60,8 @@ Once the integration is configured, under `Actions` on the policy page, you can 
 - **Server** — task manager (in this case Jira);
 - **Project** — Jira-project;
 - **Task** — card type: *Task*, *Story* or *Bug*;
-- **Task priority** - card priority;
-- **Template** - [template](#template-management) name.  If not specified the default template would be used.
+- **Task priority** - card priority. If not specified the default Jira task priority would be used;
+- **Template** - [template](#template-management) name. If not specified the default template would be used.
 
 If both groups and projects are specified, alerts will include information for all projects in the specified groups and for all specified projects.
 
