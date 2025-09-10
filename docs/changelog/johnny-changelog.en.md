@@ -16,7 +16,7 @@ hide:
 - Added preliminary conversion of the file to UTF-8 encoding in the `scan bom` command for further correct processing
 - Added the ability to run the `sign bom` and `verify bom` commands without specifying activation parameters (`--api_url` and `--api_token`)
 - Added output of reachability examples in SARIF
-- Added transfer of marked data (fields GOST:attack_surface, GOST:security_function, GOST:source_langs, vcs, licenses) to installation when importing SBoM with markup (starting with version 2025.37.0 of the installation)
+- Added transfer of marked data (fields GOST:attack_surface, GOST:security_function, GOST:source_langs, VCS, licenses) to installation when importing SBoM with markup (starting with version 2025.37.0 of the installation)
 - Added the ability to specify a branch/tag and commit when scanning an image
 - Added support for sln manifests for the .NET stack
 - Added checking the license composition before performing a scan
