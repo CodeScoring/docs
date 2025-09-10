@@ -10,11 +10,11 @@ hide:
 #### Added
 
 - Added vulnerability reachability analysis for the Java language and Svace call graph (starting with version 2025.37.0 of the installation)
-- Added the ability to run a local scan without specifying activation parameters (`--key` or `--api_url` and `--api_token`) with the formation of SBoM as a result
+- Added the ability to run a local scan without specifying activation parameters (`--api_url` and `--api_token`) with the formation of SBoM as a result
 - Added support for `deps.json` manifests for Nuget
 - When analyzing SBoM with the `scan bom` command, added loading of components for which the PURL is not specified, or the specified PURL does not match the specification
 - Added preliminary conversion of the file to UTF-8 encoding in the `scan bom` command for further correct processing
-- Added the ability to run the `sign bom` and `verify bom` commands without specifying activation parameters (`--key` or `--api_url` and `--api_token`)
+- Added the ability to run the `sign bom` and `verify bom` commands without specifying activation parameters (`--api_url` and `--api_token`)
 - Added output of reachability examples in SARIF
 - Added transfer of marked data to installation when importing SBoM with markup (starting with version 2025.37.0 of the installation)
 - Added the ability to specify a branch/tag and commit when scanning an image
