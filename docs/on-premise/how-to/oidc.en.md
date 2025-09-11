@@ -7,11 +7,7 @@ hide:
 
 ## CodeScoring Authentication Page
 
-**CodeScoring** supports authentication and authorization of users via **OpenID Connect**.
-On the authentication page, a menu is available with a choice of authentication provider. In addition to the default
-provider (local accounts, `internal directory`) and LDAP, active integrations with **OpenID Connect** servers are
-available
-for selection.
+**CodeScoring** supports authentication and authorization of users via **OpenID Connect**. On the authentication page, a menu is available with a choice of authentication provider. In addition to the default provider (local accounts, `internal directory`) and LDAP, active integrations with **OpenID Connect** servers are available for selection.
 
 <p float="left">
   <img src="/assets/img/oidc/login-1.png" alt="аутентификации через провайдера по умолчанию" width="350" />
@@ -20,8 +16,7 @@ for selection.
 
 ## Configuring the OpenID Connect Client on the Side of Provider
 
-Below is an example of valid OpenID Connect client configuration on the side of provider given that the URL of
-the CodeScoring installation is `https://codescoring.example.com/`:
+Below is an example of valid OpenID Connect client configuration on the side of provider given that the URL of the CodeScoring installation is `https://codescoring.example.com/`:
 
 - **Root url** - `https://codescoring.example.com/`;
 - **Home url** - `https://codescoring.example.com/cabinet/dashboard/`;
@@ -38,8 +33,7 @@ You can go to the OpenID Connect integration creation for by clicking the **Crea
 below:
 
 - **Name** - the name of the integration, it is displayed at the login page;
-- **Is active** - the activity flag, depending on the value, users will be able to select this integration as an
-  identity provider at the login page;
+- **Is active** - the activity flag, depending on the value, users will be able to select this integration as an identity provider at the login page;
 - **Provider issuer URL** - Issuer URL of the OpenID Connect provider;
 - **Provider authorization URL** - Authorization URL of the OpenID Connect provider, can be obtained at
   `$ISSUER_URL/.well-known/openid-configuration`;
