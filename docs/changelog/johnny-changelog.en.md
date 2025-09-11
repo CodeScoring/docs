@@ -9,33 +9,32 @@ hide:
 
 #### Added
 
-- Added vulnerability reachability analysis for the Java language and Svace call graph (starting with version 2025.37.0 of the installation)
-- Added the ability to run a local scan without specifying activation parameters (`--api_url` and `--api_token`) with the formation of SBoM as a result
-- Added support for `deps.json` manifests for Nuget
-- When analyzing SBoM with the `scan bom` command, added loading of components for which the PURL is not specified, or the specified PURL does not match the specification
-- Added preliminary conversion of the file to UTF-8 encoding in the `scan bom` command for further correct processing
-- Added the ability to run the `sign bom` and `verify bom` commands without specifying activation parameters (`--api_url` and `--api_token`)
-- Added output of reachability examples in SARIF
-- Added transfer of marked data (fields GOST:attack_surface, GOST:security_function, GOST:source_langs, VCS, licenses) to installation when importing SBoM with markup (starting with version 2025.37.0 of the installation)
-- Added the ability to specify a branch/tag and commit when scanning an image
-- Added support for sln manifests for the .NET stack
-- Added checking the license composition before performing a scan
-- Added the ability to select the type of progress bar
+- Added vulnerability reachability analysis for Java and Svace call graph, as well as output of reachability examples in SARIF (starting from installation version 2025.37.0)
+- Added the ability to run local scans without specifying activation parameters (`--api_url` and `--api_token`), generating an SBoM based on detected manifests without enrichment and policy application
+- Added support for `deps.json` manifests for NuGet
+- Added support for `sln` manifests for the .NET stack
+- Added support for all component types from the PURL specification, including the generic type, as well as components with empty or invalid PURLs when analyzing SBoM with the `scan bom` command
+- In the `scan bom` command, added pre-conversion of the file to UTF-8 encoding for correct further processing
+- Added the ability to run `sign bom` and `verify bom` commands without specifying activation parameters (`--api_url` and `--api_token`)
+- Added transfer of annotated data (`GOST:attack_surface`, `GOST:security_function`, `GOST:source_langs`, `VCS`, `licenses`) to the installation when importing annotated SBoM (starting from installation version 2025.37.0)
+- Added the ability to specify branch/tag and commit when scanning an image
+- Added the option to select the progress bar type: `spinner` or `text` (default: `spinner`)
 
 #### Changed
 
-- Changed the logging level when a policy is triggered
-- Changed the output of the number of alerts for triggered policies
-- Changed the logic of the resolver in the Javascript environment. Local resolve fails if any of the known lock files are present (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`)
-- Improved binding mechanism for gradle when using arbitrary manifest names
+- Changed the logging level for policy triggers from error to warning
+- Changed the display of the number of alerts for triggered policies
+- Changed the resolution logic in the JavaScript environment: local resolution is not performed if any of the known lock files (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`) are present
+- Improved linking mechanism for Gradle when using arbitrary manifest names. Now `build.gradle` and `gradle.lockfile` are automatically linked even if their names differ. If `gradle-dependency-tree.txt` is present, it takes priority, and other files are processed separately
+- Changed the order of checking the ability to run a command and obtain analysis results according to the installation license. This now happens before the scan is performed
 
 #### Fixed
 
-- Fixed handling of invalid package in `requirements.txt` manifests
+- Fixed processing of `requirements.txt` containing a comment about another dependency source
 
 #### Deprecated
 
-- Building scratch images of console agent will be discontinued in release 2025.45.0
+- Building scratch images of the CLI agent will be discontinued in release 2025.45.0
 
 ### [2025.29.3] - 2025-08-22
 
