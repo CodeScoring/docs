@@ -152,7 +152,7 @@ When the test button (`Test it`) in the **Test load groups** is clicked, the con
 
 ## LDAP authentication mechanism
 
-![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.png)
+![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.en.png)
 
 ## Notes
 
