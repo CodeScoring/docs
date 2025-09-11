@@ -11,8 +11,7 @@ hide:
 
 - Added vulnerability reachability analysis for Java and Svace call graph, as well as output of reachability examples in SARIF (starting from installation version 2025.37.0)
 - Added the ability to run local scans without specifying activation parameters (`--api_url` and `--api_token`), generating an SBoM based on detected manifests without enrichment and policy application
-- Added support for `deps.json` manifests for NuGet
-- Added support for `sln` manifests for the .NET stack
+- Added support for `deps.json` and `sln` manifests for the .NET stack
 - Added support for all component types from the PURL specification, including the generic type, as well as components with empty or invalid PURLs when analyzing SBoM with the `scan bom` command
 - In the `scan bom` command, added pre-conversion of the file to UTF-8 encoding for correct further processing
 - Added the ability to run `sign bom` and `verify bom` commands without specifying activation parameters (`--api_url` and `--api_token`)
