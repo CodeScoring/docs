@@ -14,8 +14,8 @@ On the authentication page, a menu is available with a choice of authentication 
 accounts, `internal directory`), active integrations with **LDAP** servers are available for selection.
 
 <p float="left">
+  <img src="/assets/img/ldap/login-1.png" alt="authentication via default provider" width="350" />
   <img src="/assets/img/ldap/login-2.png" alt="choice of provider of authenticating" width="350" />
-  <img src="/assets/img/ldap/login-1.png" alt="authentication via default provider" width="350" /> 
 </p>
 
 
@@ -116,7 +116,7 @@ In order to create a new integration with **LDAP**, you must click on the `Setup
 
 ### Available options for username format
 
-![available options for username format](/assets/img/ldap/username_format.png) 
+![available options for username format](/assets/img/ldap/username_format.png)
 
 ### Testing the LDAP integration configuration
 
@@ -132,24 +132,24 @@ Both tests combine data from the main form with data from the test form. Data fr
 When the button (`Test it`) in the **Test bind** section is clicked, connection to the LDAP server is made (`bind` operation). In case of successful test a notification about the success of the operation is displayed. In case of test failure - an error message.
 
 ![successful connection test](/assets/img/ldap/test_bind_success.png)
-![failed connection test](/assets/img/ldap/test_bind_fail.png) 
+![failed connection test](/assets/img/ldap/test_bind_fail.png)
 
 #### User Data Load Test
 
 When the button (`Test it`) in the **Test user search** is clicked, the connection to the LDAP server is made (`bind` operation) and the data about the user data (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
 
 ![successful test of loading user data](/assets/img/ldap/test_search_success.png)
-![failed user data load test](/assets/img/ldap/test_search_fail.png) 
+![failed user data load test](/assets/img/ldap/test_search_fail.png)
 
 #### Group Data Loading Test
 
 When the test button (`Test it`) in the **Test load groups** is clicked, the connection to the LDAP server (`bind` operation) is made and search for data on the groups (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
 ![successful test of group data loading](/assets/img/ldap/test_load_groups_success.png)
-![failed group data load test](/assets/img/ldap/test_load_groups_fail.png) 
+![failed group data load test](/assets/img/ldap/test_load_groups_fail.png)
 
 ## LDAP authentication mechanism
 
-![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.png) 
+![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.png)
 
 ## Notes
 
