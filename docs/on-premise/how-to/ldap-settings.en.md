@@ -32,7 +32,7 @@ When authenticating via **LDAP**, the following data is mapped from a directory 
 
 ## Mapping LDAP groups to CodeScoring groups and roles
 
-When authenticating via LDAP, CodeScoring can query a user's LDAP group data and map it to its own groups and roles. To activate this feature, the following fields must be filled in the LDAP settings:
+When authenticating via LDAP, CodeScoring can query a user's LDAP group data and map it to its own access levels, groups and roles. To activate this feature, the following fields must be filled in the LDAP settings:
 
 - `Group search base`.
 - `Group search filter for all groups`
@@ -54,7 +54,10 @@ Mapping rules are applied as follows:
 - user groups added or edited manually by the administrator are not changed during the mapping process, i.e. manual changes take precedence;
 - if an error occurs when searching for LDAP groups after successful authentication in LDAP, the user groups applied according to the mapping rules will be deleted.
 
-![creating LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/group_mapping_create.png)
+<p float="left">
+  <img src="/assets/img/ldap/group_mapping_create_1.png" alt="creating LDAP group mapping rules to CodeScoring roles and groups" width="400" />
+  <img src="/assets/img/ldap/group_mapping_create_2.png" alt="creating LDAP group mapping rules to CodeScoring access level" width="400" />
+</p>
 
 ![view LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/group_mapping_list.png)
 
