@@ -5,6 +5,86 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.0] - 2025-09-08
+
+#### Added
+
+- Added vulnerability reachability analysis with support for Svace and Java  
+- Added policy "Vulnerability is reachable"  
+- Added integration with external identity providers implementing the OpenID Connect protocol  
+- Added localization of PDF reports  
+- Added metadata of created artifacts as part of automatic policy actions  
+- Added "Requirement" field displaying the required version range from the manifest in the project dependencies section  
+- Added optional "Priority" field in the Jira task creation policy action form  
+- Added ability to create custom templates for policy actions (default template is built-in)  
+- Added script for re-encrypting sensitive data when changing the `SECRET_KEY` token  
+- Added ability to specify `component manufacturer` data to be placed in the relevant section of SBOM versions `CycloneDX 1.6` and `CycloneDX 1.6 ext`, both at installation level and per project  
+- Added new environment variables `DEFAULT_PROJECT_MANUFACTURER_NAME`, `DEFAULT_PROJECT_MANUFACTURER_EMAIL`, `DEFAULT_PROJECT_MANUFACTURER_HOMEPAGE`  
+- Added "Release Date" field to the project dependencies list  
+- Added grouping of options in the condition dropdown when configuring a policy  
+- Added rule dragging on the policy configuration page, and updated their appearance  
+- Added ability to automatically update the audit log list  
+- Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM  
+- Added project search and filters by project, relation, detection type, and environment for individual vulnerabilities  
+- Added ability to scan VCS to calculate the number of unique authors  
+- Added ability to run SBOM scans from scan history to check for new vulnerabilities in historical component data  
+- Added "Max fixed version" field to the dependencies section of the project PDF report  
+- Added filtering by multiple authors on the "List" and "Activity Map" tabs in the `TQI -> Authors` section  
+- Added tooltip popup with author’s projects when hovering over author’s project count in the `TQI -> Authors` section  
+- Added author filter on the project list page in the TQI section  
+- Added "Number of Authors" chart on the project page in the TQI section  
+- Added "Author’s Commits" and "Author’s Projects" charts on the author page in the TQI section  
+- Added ability to rename projects  
+- Added saving of annotated data when importing SBoM  
+- Added ability to perform bulk actions on certain entities in the Settings section  
+- Added ability to stop report generation  
+- Added ability to export a CSV report with secrets on the project tab  
+- Added ability to generate a PDF report with secrets on the project tab  
+- Added UI display of vulnerability reachability attribute  
+
+#### Changed
+
+- Unified the UI for running policy actions manually and automatically  
+- Commit hash in the project PDF report is now displayed in full  
+- Reduced maximum number of items in paginated API responses to 100  
+- Blocked launch of SCA and TQI analyses until code cloning is completed for VCS projects  
+- Improved messages about inability to run SCA analysis for VCS and CLI projects  
+- Changed detailed package info display on the OSA module package page  
+- Fixed display of "Change author mapping" button when TQI module is disabled  
+- Changed `GOST:source_lang` field to `GOST:source_langs` in all exported files  
+- Added information on the number of months an author committed to the TQI section  
+- Project parameter "Duration (in months)" now shows integer number of months of project activity  
+- Removed `internal` field from `/api/activation_keys/` API response  
+- Split project API into modules (SCA, TQI, Secrets)  
+- Migrated Index Proxy base image to Alpine Linux  
+- Improved performance of scan history API  
+- Optimized loading of dependencies and vulnerabilities pages  
+- Changed display and content of tooltips about inability to train ML model in Secrets module  
+- Changed "Deferred blocking" filter type on the policies page  
+
+#### Fixed
+
+- Fixed alert table format in project PDF report  
+- Fixed link to refactoring candidate projects in the "Dashboard" section  
+- Fixed reset of selected number of items per page in tables when changing sorting  
+- Fixed pagination reset when navigating to the same page  
+- Fixed link handling in CycloneDX SBoM  
+- Implemented missing logic for handling policy alerts when comparing PURL values with case sensitivity  
+- Fixed auto-generated type names in OpenAPI schema  
+- Fixed verb forms of policy conditions in English locale  
+- Fixed project links in "Organization Projects" tab on the author page  
+- Fixed links to code duplicates in the duplicates map  
+- Fixed CSV export of author’s projects  
+- Fixed slow loading of alerts when filter "Repository Manager = N/A" is selected  
+- Fixed Swagger schema for `/api/activation_keys/` endpoint  
+- Fixed missing options in dependency environment filter when `USE_SMART_FILTERS` is set to `False`  
+- Fixed error when scanning a project with dependencies containing invalid PURLs  
+- Fixed search in dropdowns for Russian locale  
+- Fixed "Refactoring candidate projects" and "Intra-project duplicates" widgets on the dashboard  
+- Fixed search within condition dropdowns on the policy editing page  
+- Fixed behavior of "Dependency is dangerous" policy in SCA module  
+- Fixed policy execution error with condition `PURL exactly_match`  
+
 ### [2025.29.4] - 2025-08-22
 
 #### Added
