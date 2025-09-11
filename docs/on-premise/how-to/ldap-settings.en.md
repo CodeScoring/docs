@@ -159,4 +159,4 @@ When the test button (`Test it`) in the **Test load groups** is clicked, the con
 - Using authentication via **LDAP** does not imply full directory synchronization with user information from **Directory Service**.
 - It is not possible to edit the username and assign a password to a user from **LDAP**.
 - It is possible to have users from different authentication providers with the same username.
-- It is possible to assign any access level (`User`, `Auditor`, `Administrator`) to a user from **LDAP**.
+- It is possible to assign any access level (`User`, `Auditor`, `Administrator`, `Security Manager`) to a user from **LDAP**.
