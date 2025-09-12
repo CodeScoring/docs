@@ -36,4 +36,4 @@ hide:
 
 Пример вывода достижимых уязвимостей:
 
-![Johnny example with reachability](/assets/img/reachability-paths.png)
+![Johnny example with reachability](/assets/img/reachability/dep-track-paths.png)

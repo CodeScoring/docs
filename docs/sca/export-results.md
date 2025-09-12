@@ -64,11 +64,11 @@ CSV-таблица будет учитывать использованные н
 
 Для настройки свойств зависимостей необходимо перейти на страницу по кнопке `Настроить зависимости` в таблице зависимостей на странице проекта.
 
-![Dependencies settings button](/assets/img/ru-dependencies_settings_button.png)
+![Dependencies settings button](/assets/img/ru-dependencies-settings-button.png)
 
 Страница позволяет указать поверхность атаки, функцию безопасности, ссылку на исходный код и лицензии для каждого компонента проекта.
 
-![Dependencies settings](/assets/img/ru-dependencies_settings.png)
+![Dependencies settings](/assets/img/ru-dependency-settings.png)
 
 Введенные значения учитываются:
 
