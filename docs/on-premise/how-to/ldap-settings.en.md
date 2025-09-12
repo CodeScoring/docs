@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # LDAP Settings
 
 ## LDAP integration capabilities
@@ -15,7 +16,7 @@ accounts, `internal directory`), active integrations with **LDAP** servers are a
 
 <p float="left">
   <img src="/assets/img/ldap/login-2.png" alt="choice of provider of authenticating" width="350" />
-  <img src="/assets/img/ldap/login-1.png" alt="authentication via default provider" width="350" /> 
+  <img src="/assets/img/ldap/login-1.png" alt="authentication via default provider" width="350" />
 </p>
 
 
@@ -40,12 +41,12 @@ When authenticating via LDAP, CodeScoring can query a user's LDAP group data and
 - `Group member field` (if `User group search method` field value equals "User record")
 - `Group search filter for user` (if `User group search method` field value equals "Group search")
 
-CodeScoring performs mapping according to the rules, the management of which is available in the `Settings -> Group mapping` section.
+CodeScoring performs mapping according to the rules, the management of which is available in the `Settings -> Identity providers -> Group mapping` section.
 
 Mapping is triggered only in two cases:
 
 - when the user logs in;
-- when the `Apply all rules` button is pressed in `Settings -> Group mapping` section.
+- when the `Apply all rules` button is pressed in `Settings -> Identity providers -> Group mapping` section.
 
 Mapping rules are applied as follows:
 
@@ -56,14 +57,14 @@ Mapping rules are applied as follows:
 
 ![creating LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/group_mapping_create.png)
 
-![view LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/group_mapping_list.png)
+![view LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/en/group_mapping_list.png)
 
 ## View existing LDAP integrations
 
-Viewing existing integrations is available in the `Settings -> LDAP` section. The section displays a table with a list of
+Viewing existing integrations is available in the `Settings -> Identity providers -> LDAP` section. The section displays a table with a list of
 configured LDAP integrations, a button to create a new integration (`Setup new`), and a search box (`Search`).
 
-![view list of LDAP integrations](/assets/img/ldap/list.png)
+![view list of LDAP integrations](/assets/img/ldap/en/list.png)
 
 ## View details about an existing LDAP integration
 
@@ -116,7 +117,7 @@ In order to create a new integration with **LDAP**, you must click on the `Setup
 
 ### Available options for username format
 
-![available options for username format](/assets/img/ldap/username_format.png) 
+![available options for username format](/assets/img/ldap/username_format.png)
 
 ### Testing the LDAP integration configuration
 
@@ -132,24 +133,24 @@ Both tests combine data from the main form with data from the test form. Data fr
 When the button (`Test it`) in the **Test bind** section is clicked, connection to the LDAP server is made (`bind` operation). In case of successful test a notification about the success of the operation is displayed. In case of test failure - an error message.
 
 ![successful connection test](/assets/img/ldap/test_bind_success.png)
-![failed connection test](/assets/img/ldap/test_bind_fail.png) 
+![failed connection test](/assets/img/ldap/test_bind_fail.png)
 
 #### User Data Load Test
 
 When the button (`Test it`) in the **Test user search** is clicked, the connection to the LDAP server is made (`bind` operation) and the data about the user data (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
 
 ![successful test of loading user data](/assets/img/ldap/test_search_success.png)
-![failed user data load test](/assets/img/ldap/test_search_fail.png) 
+![failed user data load test](/assets/img/ldap/test_search_fail.png)
 
 #### Group Data Loading Test
 
 When the test button (`Test it`) in the **Test load groups** is clicked, the connection to the LDAP server (`bind` operation) is made and search for data on the groups (`search` operation) according to the data in the form. In case of a successful test, a notification about the success of the operation and the search result is displayed. In case of test failure - an error message.
 ![successful test of group data loading](/assets/img/ldap/test_load_groups_success.png)
-![failed group data load test](/assets/img/ldap/test_load_groups_fail.png) 
+![failed group data load test](/assets/img/ldap/test_load_groups_fail.png)
 
 ## LDAP authentication mechanism
 
-![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.png) 
+![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.png)
 
 ## Notes
 
