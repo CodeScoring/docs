@@ -33,3 +33,7 @@ Example output of found vulnerabilities:
 Example output of triggered policies:
 
 ![Johnny example with policy alerts](/assets/img/johnny_output_alerts.png)
+
+Example output of reachable vulnerabilities:
+
+![Johnny example with reachability](/assets/img/reachability-paths.png)

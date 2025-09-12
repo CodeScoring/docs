@@ -121,6 +121,7 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Impacts (Kaspersky)** — possible Impacts values from [Kaspersky OSS Threats Data Feed](/feeds/kaspersky.en);
 - **Vulnerability has exploit** — indicates the presence of a public exploit in databases like NVD, GHSA, FSTEC, etc.;
 - **Vulnerability has fixed version** — indicates the availability of a safe version that mitigates the vulnerability;
+- **Vulnerabilities are reachable** – the vulnerable method of the component is used in the source code. More details about reachability analysis can be found in the [Johnny agent documentation](/agent/reachability.en).
 - **Vulnerability age (days)** — number of days since the vulnerability was disclosed;
 - **Env** — development environment (e.g., prod, dev, source);
 - **Match type** — dependency detection method (by manifest, project content, or as a result of dependency resolution);
