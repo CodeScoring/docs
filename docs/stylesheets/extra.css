@@ -39,3 +39,61 @@
     -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.59 11.41 13 3.83a2 2 0 0 0-1.41-.58H5a2 2 0 0 0-2 2v6.58a2 2 0 0 0 .59 1.41L11.17 20a2 2 0 0 0 2.83 0l6.59-6.59a2 2 0 0 0 0-2.83M6.5 7.5A1.5 1.5 0 1 1 8 9a1.5 1.5 0 0 1-1.5-1.5Z"/></svg>') no-repeat center;
     background-color: #5E8BDE; /* Set the icon color */
 }
+
+.module-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75em;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  line-height: 1;
+  white-space: nowrap;
+  border: 1px solid #FF3D6C;
+  color: #FF3D6C;
+  background-color: rgba(255, 61, 108, 0.15);
+}
+
+.module-tag::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: contain, contain;
+
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+
+  background-color: transparent;
+}
+
+
+.module-tag.sca::before {
+  mask-image: url('/assets/icons/sca.svg');
+  -webkit-mask-image: url('/assets/icons/sca.svg');
+  background-image: url('/assets/icons/sca.svg'), linear-gradient(currentColor, currentColor);
+}
+.module-tag.osa::before {
+  mask-image: url('/assets/icons/osa.svg');
+  -webkit-mask-image: url('/assets/icons/osa.svg');
+  background-image: url('/assets/icons/osa.svg'), linear-gradient(currentColor, currentColor);
+}
+.module-tag.tqi::before {
+  mask-image: url('/assets/icons/tqi.svg');
+  -webkit-mask-image: url('/assets/icons/tqi.svg');
+  background-image: url('/assets/icons/tqi.svg'), linear-gradient(currentColor, currentColor);
+}
+.module-tag.secrets::before {
+  mask-image: url('/assets/icons/secrets.svg');
+  -webkit-mask-image: url('/assets/icons/secrets.svg');
+  background-image: url('/assets/icons/secrets.svg'), linear-gradient(currentColor, currentColor);
+}

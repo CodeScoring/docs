@@ -46,52 +46,52 @@ hide:
 
 #### Fixed
 
-- Optimized loading of dependencies page in SCA module
+- <span class="module-tag sca">SCA</span> Optimized loading of dependencies page in SCA module
 - Fixed error when changing LDAP settings
 
 ### [2025.29.0] - 2025-07-18
 
 #### Added
 
-- Added the ability to view the results of SCA analysis of a project from the scan history
-- Added the ability to customize the export of SBoM and PDF files
-- Added the ability to manually create a task in the task manager and send letters for selected alerts
-- Added the ability to configure deferred blocking in policies
-- Added the ability to apply policy ignores to project groups
-- Added a new Security Manager role
-- Added a condition for the `Dependency is a descendant` policy to search for child dependencies of a selected package at any level of the dependency graph
-- Added the `Max fixed version` column in the dependency table
-- Added the ability to download the current version of the Johnny binary agent directly from the installation
+- <span class="module-tag sca">SCA</span> Added the ability to view the results of SCA analysis of a project from the [scan history](/sca/scan-history.en)
+- Added the ability to customize the export of SBoM and PDF files (/sca/export-results.en)
+- Added the ability to [manually create a task](/on-premise/how-to/policies.en) in the task manager and send letters for selected alerts
+- Added the ability to configure [deferred blocking](/on-premise/how-to/policies.en) in policies
+- Added the ability to apply [policy ignores](/on-premise/how-to/ignores.en) to project groups
+- Added a new [Security Manager role](/on-premise/how-to/users.en)
+- <span class="module-tag sca">SCA</span> Added a condition for the `Dependency is a descendant` policy to search for child dependencies of a selected package at any level of the dependency graph
+- <span class="module-tag sca">SCA</span> Added the `Max fixed version` column in the dependency table
+- <span class="module-tag sca">SCA</span> Added the ability to download the current version of the Johnny binary agent directly from the installation
 - Added the "Technology" column to the alert list export
 - Added pop-up notifications with the analysis result upon its completion
 - Added search in drop-down list of criteria in policy creation and editing forms
 - Added duplicate block of buttons after the group of conditions in policy creation and editing forms
 - Added ability to expand the policy conditions management block
-- Added settings for the format of date and number output in the UI
-- Added legend for the project dependency graph
-- Added analysis identifier to webhooks associated with the completion of SCA analysis
-- Added output of the archive/activity flag for OSA packages, container images and alerts
+- Added [settings for the format of date and number output]((/on-premise/how-to/user-profile.en)) in the UI
+- <span class="module-tag sca">SCA</span> Added legend for the project dependency graph
+- <span class="module-tag sca">SCA</span> Added analysis identifier to webhooks associated with the completion of SCA analysis
+- <span class="module-tag osa">OSA</span> Added output of the archive/activity flag for OSA packages, container images and alerts
 - Added check for data presence when exporting a PDF report
 - Added error handling when trying to download a file that was deleted due to expiration of the storage period
 
 #### Changed
 
 - The `tasks-media` queue has been transferred to Celery. The number of workers is controlled by the variables `CELERY_MEDIA_WORKER_CONCURRENCY` (minimum, default is 2) and `CELERY_MEDIA_WORKER_MAX_CONCURRENCY` (maximum, default is 4). The variable `HUEY_MEDIA_WORKERS` has been removed
-- The OSA background package update mechanism has been optimized. Only relevant packages are updated. By default, packages requested in the last 14 days are considered relevant, the parameter is configured in the installation settings
+- <span class="module-tag osa">OSA</span> The OSA background package update mechanism has been optimized. Only relevant packages are updated. By default, packages requested in the last 14 days are considered relevant, the parameter is configured in the installation settings
 - Improved error messages when checking the availability of repositories via SSH
 - Improved display of the list of events in the "Webhooks" section
-- Improved logic for displaying the ML model management section in the Secrets module
+- <span class="module-tag secrets">Secrets</span> Improved logic for displaying the ML model management section in the Secrets module
 - Optimized the algorithm for launching policy recalculation when updating vulnerabilities: launch occurs only when data that affects policies changes
 - Optimized loading of pages with images and alerts
 - Changed the choice of a secure protocol for connecting to a mail server from checkboxes to a field with a drop-down list
 - Unified action buttons in sections with entity tables
 - Updated the OpenAPI specification in terms of error handling
-- Changed the base image in the OSA API service from Debian bookworm to Alpine
+- <span class="module-tag osa">OSA</span> Changed the base image in the OSA API service from Debian bookworm to Alpine
 - Updated the pgbouncer image to switch from libevent to c-ares as a DNS backend for support SOA record resource types and EDNS0 protocol
-- Updated gitleaks version for Secrets module to 8.27.0
+- <span class="module-tag secrets">Secrets</span> Updated gitleaks version for Secrets module to 8.27.0
 - Updated Redis image from 7.0.12 to 7.4.3
 - Updated PostgreSQL image from 13.4 to 13.21
-- Updated Johnny version on installation to 2025.29.1
+- <span class="module-tag sca">SCA</span> Updated Johnny version on installation to 2025.29.1
 
 #### Removed
 
@@ -100,21 +100,21 @@ hide:
 #### Fixed
 
 - Fixed search on author profile page in "Organization Projects" section
-- Fixed image hash validation error when passing value via `--hash` parameter when scanning image via Johnny
+- <span class="module-tag sca">SCA</span> Fixed image hash validation error when passing value via `--hash` parameter when scanning image via Johnny
 - Fixed some API schema inaccuracies in Swagger
-- Fixed error processing list of entities from Docker Registry when receiving `null` instead of empty list
+- <span class="module-tag osa">OSA</span> Fixed error processing list of entities from Docker Registry when receiving `null` instead of empty list
 - Fixed error processing image signature files with `.sig` extension and `.att` when working with container registries
-- Fixed an error on the "Similar Authors" tab on the author profile page in the case of authors without certain technologies
+- <span class="module-tag tqi">TQI</span> Fixed an error on the "Similar Authors" tab on the author profile page in the case of authors without certain technologies
 - Fixed an error with incomplete output of connected version control systems when creating a VCS project
 - Fixed the output of a long file name in the list of exported files
 - Fixed the output of the "Until" field in the policy ignore modal window
-- Fixed the reset of the dependency graph state when switching to another browser tab
+- <span class="module-tag sca">SCA</span> Fixed the reset of the dependency graph state when switching to another browser tab
 - Fixed problems updating data on the page after editing some entities
-- Fixed deadlocks when using multiple instances of the OSA Registration service
+- <span class="module-tag osa">OSA</span> Fixed deadlocks when using multiple instances of the OSA Registration service
 - Fixed an error when editing the connection to the Jira task manager
 - Fixed incorrect hiding of sensitive data in an error when cloning a project
 - Fixed the display of selected parameters in the policy condition
-- Fixed the output of the list of authors on the page with detailed information about the package blocking in the OSA module
+- <span class="module-tag osa">OSA</span> Fixed the output of the list of authors on the page with detailed information about the package blocking in the OSA module
 - Fixed saving policies when changing certain conditions
 
 ### [2025.21.2] - 2025-06-18
