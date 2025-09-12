@@ -5,28 +5,30 @@ hide:
 
 # Codescoring On-premise Changelog
 
-### [2025.37.0] - 2025-09-08
+### [2025.37.0] - 2025-09-12
 
 #### Added
 
-- Added vulnerability reachability analysis with support for Svace and Java  
+- Added vulnerability reachability analysis for Java, powered by the Svace call graph builder  
 - Added policy "Vulnerability is reachable"  
+- Added UI display of the reachability attribute for vulnerabilities  
+- Added ability to specify `component manufacturer` data to be placed in the relevant section of SBOM versions `CycloneDX 1.6` and `CycloneDX 1.6 ext`, both at installation level and per project  
+- Added new environment variables `DEFAULT_PROJECT_MANUFACTURER_NAME`, `DEFAULT_PROJECT_MANUFACTURER_EMAIL`, `DEFAULT_PROJECT_MANUFACTURER_HOMEPAGE`  
+- Added saving of annotated data when importing SBoM  
+- Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM  
 - Added integration with external identity providers implementing the OpenID Connect protocol  
-- Added localization of PDF reports  
+- Added localization of PDF reports in the SCA module  
 - Added metadata of created artifacts as part of automatic policy actions  
 - Added "Requirement" field displaying the required version range from the manifest in the project dependencies section  
 - Added optional "Priority" field in the Jira task creation policy action form  
-- Added ability to create custom templates for policy actions (default template is built-in)  
+- Added ability to create custom templates for emails and Jira tasks in alert actions (default template is built-in)  
 - Added script for re-encrypting sensitive data when changing the `SECRET_KEY` token  
-- Added ability to specify `component manufacturer` data to be placed in the relevant section of SBOM versions `CycloneDX 1.6` and `CycloneDX 1.6 ext`, both at installation level and per project  
-- Added new environment variables `DEFAULT_PROJECT_MANUFACTURER_NAME`, `DEFAULT_PROJECT_MANUFACTURER_EMAIL`, `DEFAULT_PROJECT_MANUFACTURER_HOMEPAGE`  
 - Added "Release Date" field to the project dependencies list  
 - Added grouping of options in the condition dropdown when configuring a policy  
 - Added rule dragging on the policy configuration page, and updated their appearance  
 - Added ability to automatically update the audit log list  
-- Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM  
-- Added project search and filters by project, relation, detection type, and environment for individual vulnerabilities  
-- Added ability to scan VCS to calculate the number of unique authors  
+- Added project search and filters by project, relation, detection type, and environment for individual vulnerabilities on the dependencies page  
+- Added ability to calculate the number of unique authors in GitLab outside of analysis runs  
 - Added ability to run SBOM scans from scan history to check for new vulnerabilities in historical component data  
 - Added "Max fixed version" field to the dependencies section of the project PDF report  
 - Added filtering by multiple authors on the "List" and "Activity Map" tabs in the `TQI -> Authors` section  
@@ -35,16 +37,15 @@ hide:
 - Added "Number of Authors" chart on the project page in the TQI section  
 - Added "Author’s Commits" and "Author’s Projects" charts on the author page in the TQI section  
 - Added ability to rename projects  
-- Added saving of annotated data when importing SBoM  
 - Added ability to perform bulk actions on certain entities in the Settings section  
 - Added ability to stop report generation  
 - Added ability to export a CSV report with secrets on the project tab  
 - Added ability to generate a PDF report with secrets on the project tab  
-- Added UI display of vulnerability reachability attribute  
 
 #### Changed
 
-- Unified the UI for running policy actions manually and automatically  
+- Improved parsing of VCS links in CycloneDX SBoM  
+- Unified the UI for running alert actions manually and automatically  
 - Commit hash in the project PDF report is now displayed in full  
 - Reduced maximum number of items in paginated API responses to 100  
 - Blocked launch of SCA and TQI analyses until code cloning is completed for VCS projects  
@@ -55,10 +56,10 @@ hide:
 - Added information on the number of months an author committed to the TQI section  
 - Project parameter "Duration (in months)" now shows integer number of months of project activity  
 - Removed `internal` field from `/api/activation_keys/` API response  
-- Split project API into modules (SCA, TQI, Secrets)  
-- Migrated Index Proxy base image to Alpine Linux  
-- Improved performance of scan history API  
-- Optimized loading of dependencies and vulnerabilities pages  
+- Split project list API into modules (SCA, TQI, Secrets)  
+- Migrated base images of Index Proxy, `frontend` service, and `backend / tasks-*` services from Debian bookworm to Alpine Linux  
+- Improved performance of scan history  
+- Optimized loading of dependency and vulnerability lists  
 - Changed display and content of tooltips about inability to train ML model in Secrets module  
 - Changed "Deferred blocking" filter type on the policies page  
 
@@ -69,7 +70,7 @@ hide:
 - Fixed reset of selected number of items per page in tables when changing sorting  
 - Fixed pagination reset when navigating to the same page  
 - Fixed link handling in CycloneDX SBoM  
-- Implemented missing logic for handling policy alerts when comparing PURL values with case sensitivity  
+- Implemented missing logic for handling alerts when comparing PURL values with case sensitivity  
 - Fixed auto-generated type names in OpenAPI schema  
 - Fixed verb forms of policy conditions in English locale  
 - Fixed project links in "Organization Projects" tab on the author page  
@@ -83,7 +84,7 @@ hide:
 - Fixed "Refactoring candidate projects" and "Intra-project duplicates" widgets on the dashboard  
 - Fixed search within condition dropdowns on the policy editing page  
 - Fixed behavior of "Dependency is dangerous" policy in SCA module  
-- Fixed policy execution error with condition `PURL exactly_match`  
+- Fixed policy execution error with condition `PURL exactly_match`
 
 ### [2025.29.4] - 2025-08-22
 
