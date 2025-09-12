@@ -61,7 +61,7 @@ The map can also be saved as a PNG image.
 The author's individual page contains key metrics of his work:
 
 - **Activity period** – dates of first commit and the last change by the authors;
-- **Activity, months** – number of months during which the author actively committed changes;
+- **Activity, months** – number of months during which the author actively committed changes relative to their total time on the project;
 - **Projects count** – number of proprietary projects to which the author contributed changes;
 - **OSS count** – number of open source projects to which the author contributed changes;
 - **Complexity** – the average cyclomatic complexity of the author's commits in the projects;
