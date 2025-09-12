@@ -12,6 +12,12 @@ hide:
 
   <div class="hero-content">
     <h1>CodeScoring Documentation</h1>
+    <h2>
+      По всем вопросам пишите на 
+      <a href="mailto:support@codescoring.ru" style="color: #ff3d6c; text-decoration-color: #ff3d6c;">
+        support@codescoring.ru
+      </a>
+    </h2>
     <div class="hero-buttons">
       <a href="/on-premise/server-requirements/" class="btn btn-primary">Get started</a>
       <a href="/osa/" class="btn btn-secondary">User guide</a>

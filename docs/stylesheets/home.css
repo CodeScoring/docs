@@ -142,11 +142,51 @@
 }
 
 /* ====== мобильная адаптация ====== */
+/* ====== мобильная адаптация ====== */
+/* Убрать тень и границу от хэдера и табов на мобильке */
 @media (max-width: 720px) {
-  .hero { padding: 2.5rem 1.25rem; min-height: calc(70vh); }
-  .hero-content { margin-left: 0; padding: 0; }
-  .hero-content h1 { font-size: clamp(1.6rem, 7.5vw, 2.4rem); }
-  .blob, .blob:nth-of-type(2) { filter: blur(60px); opacity: 0.7; }
-  .blob { width: 520px; height: 520px; }
-  .blob:nth-of-type(2) { width: 640px; height: 640px; left: 50%; top: 50%; }
+  /* убираем линию между хэдером и контентом */
+  .md-header,
+  .md-tabs {
+    box-shadow: none !important;
+    border-bottom: none !important;
+  }
+
+  .md-main {
+    margin-top: 0 !important;
+    padding-top: 0 !important; /* иногда ещё padding виноват */
+  }
+
+  /* фиксируем фон — убираем линию сверху */
+  .blobs {
+    top: 0;
+  }
+
+  /* выравнивание контента левее */
+  .hero {
+    padding: 2rem 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  /* кнопки на мобилке в колонку */
+  .hero-buttons {
+    flex-direction: column;   /* вместо ряда */
+    align-items: stretch;     /* кнопки на всю ширину */
+    gap: 0.75rem;
+  }
+
+  .btn {
+    max-width: 100%;          /* убираем ограничение */
+    width: 100%;              /* каждая кнопка занимает всю строку */
+    white-space: normal;      /* разрешаем перенос текста */
+    text-overflow: unset;
+    overflow: visible;
+    text-align: center;       /* чтобы текст был ровно по центру */
+  }
 }

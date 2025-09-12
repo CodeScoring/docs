@@ -272,7 +272,7 @@ plugins:
           tqi-authors: "Построение профилей авторов"
           tqi-clones: "Отслеживание дубликатов кода"
           tqi-metrics: "Расчет метрик технического долга"
-          changelog: "История изменений"
+          changelog: "Changelog"
           on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "Плагин для JFrog"
           johnny-changelog: "Консольный агент Johnny"
