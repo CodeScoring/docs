@@ -78,21 +78,22 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Dependency age (days)** — number of days since the dependency was published;
 - **Dependency vulnerability count** — total number of known vulnerabilities in the component;
 - **Dependency is dangerous** — the dependency is considered dangerous if it includes any vulnerabilities with:
-    - prefix `MAL-` (malicious package feed from OSV);
-    - one of the following CWEs:
-      - CWE-506: Embedded Malicious Code;
-      - CWE-507: Trojan;
-      - CWE-509: Non-Propagating Malicious Code;
-      - CWE-509: Propagating Malicious Code (virus or worm);
-      - CWE-510: Hidden Functionality;
-      - CWE-511: Logic or Time Bomb;
-      - CWE-512: Spyware;
-      - CWE-912: Backdoor Function;
-    - or one of the following Impacts values from [Kaspersky OSS Threats Data Feed](/feeds/kaspersky.en):
-      - Malicious software;
-      - Other impact.
+  - prefix `MAL-` (malicious package feed from OSV);
+  - one of the following CWEs:
+    - CWE-506: Embedded Malicious Code;
+    - CWE-507: Trojan;
+    - CWE-509: Non-Propagating Malicious Code;
+    - CWE-509: Propagating Malicious Code (virus or worm);
+    - CWE-510: Hidden Functionality;
+    - CWE-511: Logic or Time Bomb;
+    - CWE-512: Spyware;
+    - CWE-912: Backdoor Function;
+  - or one of the following Impacts values from [Kaspersky OSS Threats Data Feed](/feeds/kaspersky.en):
+    - Malicious software;
+    - Other impact.
 - **Dependency is protestware** — indicates the presence of vulnerabilities from the proprietary [protestware feed](/feeds/protestware.en);
 - **Dependency is a descendant of** — searches across all levels for lower-level transitive dependencies associated with the specified parent component (e.g. in `a<-b<-c<-d`, `c` and `d` are descendants of `b`);
+- **Dependency Transitivity depth** - controls the depth of the dependency search, where 1 is a direct dependency, 2 or more are transitive. Only natural numbers are allowed;
 - **Technology** — programming language or ecosystem;
 - **License** — SPDX license identifier;
 - **License category** — classification of the license (e.g. permissive, copyleft);
