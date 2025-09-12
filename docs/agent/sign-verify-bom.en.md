@@ -7,6 +7,9 @@ hide:
 
 Signing and verification using RSA SHA256 digital signatures is supported to confirm the integrity and authenticity of SBoM files. This functionality is available starting with binary agent version **2025.29.0**.
 
+Both commands can be used without setting parameters `--api_url` and `--api_token`.
+
+
 **Important**: only RSA keys are supported, and they must be in PEM format.
 
 ## SBoM file signing

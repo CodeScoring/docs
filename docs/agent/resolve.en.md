@@ -53,6 +53,8 @@ dotnet restore
 
 After that, the file `obj/project.assets.json`, which contains complete information about dependencies and their versions, is analyzed. Execution is performed in the directory where the `.csproj` file is located.
 
+In case `.sln` manifest is detected dependency resolution will be executed in the context of the solution. Resolution is performed only if the `obj/project.assets.json` file does not exist for one or more components of the solution.
+
 ### Go
 
 Main manifests used for dependency resolution: `go.mod`, `go.sum`.
@@ -94,6 +96,10 @@ If the task is missing, the standard command is used:
 ```
 
 The agent analyzes the console output and forms the dependency graph.
+
+#### Additional info
+
+When a gradle-dependency-tree.txt file is present in the directory, the existing file will be used without creating a new one.
 
 ### Maven
 

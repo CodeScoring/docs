@@ -29,6 +29,12 @@ To analyze dependencies in Gradle projects, Johnny uses the `gradle-dependency-t
 
 To get all dependencies in this case, you need to do the following:
 
+### Manifest Coupling
+
+* If a directory contains build.gradle and gradle.lockfile without name matching, they will be coupled;
+* When all three manifests are present in one directory (build.gradle, gradle.lockfile, gradle-dependency-tree.txt), priority in coupling is given to gradle-dependency-tree and gradle.lockfile is parsed separately;
+* When multiple lock files for one build.gradle are present in one directory without name matching, any one of them will be used for coupling. The remaining lock files are parsed separately.
+
 #### Groovy
 
 Add to `build.gradle` file code:

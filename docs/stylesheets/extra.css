@@ -98,3 +98,61 @@
   z-index: 10 !important;
   color: var(--md-default-fg-color);
 }
+
+.module-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75em;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  line-height: 1;
+  white-space: nowrap;
+  border: 1px solid #FF3D6C;
+  color: #FF3D6C;
+  background-color: rgba(255, 61, 108, 0.15);
+}
+
+.module-tag::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: contain, contain;
+
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+
+  background-color: transparent;
+}
+
+
+.module-tag.sca::before {
+  mask-image: url('/assets/icons/sca.svg');
+  -webkit-mask-image: url('/assets/icons/sca.svg');
+  background-image: url('/assets/icons/sca.svg'), linear-gradient(currentColor, currentColor);
+}
+.module-tag.osa::before {
+  mask-image: url('/assets/icons/osa.svg');
+  -webkit-mask-image: url('/assets/icons/osa.svg');
+  background-image: url('/assets/icons/osa.svg'), linear-gradient(currentColor, currentColor);
+}
+.module-tag.tqi::before {
+  mask-image: url('/assets/icons/tqi.svg');
+  -webkit-mask-image: url('/assets/icons/tqi.svg');
+  background-image: url('/assets/icons/tqi.svg'), linear-gradient(currentColor, currentColor);
+}
+.module-tag.secrets::before {
+  mask-image: url('/assets/icons/secrets.svg');
+  -webkit-mask-image: url('/assets/icons/secrets.svg');
+  background-image: url('/assets/icons/secrets.svg'), linear-gradient(currentColor, currentColor);
+}

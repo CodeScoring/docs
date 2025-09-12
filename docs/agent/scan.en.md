@@ -27,10 +27,12 @@ Exit codes:
 - 0: successful run, no issues
 - 1: some issues found, action required
 - 2: run failure
+
 - 3: successful run, no result
+
 - 4: signing or verification failure
 
-Version: 2025.29.1
+Version: 2025.37.0
 
 Usage:
    scan [command]
@@ -68,6 +70,8 @@ Global Flags:
       --bom                               save result to bom
       --bom-format string                 Bom format. Supported formats: cyclonedx_v1_4_json,cyclonedx_v1_5_json,cyclonedx_v1_6_ext_json,cyclonedx_v1_6_json (default "cyclonedx_v1_6_json")
       --bom-path string                   Path for save bom file (default "bom.json")
+      --cg-lang string                    Language to parse call graph with. Supported languages: java
+      --cg-path string                    Path to call graph for vulnerability reachability analysis
       --cloud-resolve                     Activate cloud resolve
       --composer-args string              pass flags to 'composer install'
       --composer-path string              Path to composer for resolve (default "composer")
@@ -109,6 +113,7 @@ Global Flags:
       --poetry-args string                pass flags to 'poetry debug resolve'
       --poetry-path string                Path to poetry for resolve (default "poetry")
       --poetry-resolve                    Enable resolve using poetry
+      --progress-bar string               Progress bar formats: spinner,text
       --project string                    Project name in CodeScoring
       --project-group string              Group for created project in CodeScoring
       --project-proprietor string         Proprietor for created project in CodeScoring
@@ -135,6 +140,8 @@ Use " scan [command] --help" for more information about a command.
 ```
 
 The `--api_url` parameter must contain the full address of the on-premise installation. The value for `--api_token` can be taken from the installation user profile.
+
+If the `--api_url` and `--api_token` parameters are not specified, the scan will run without interacting with the CodeScoring installation. As a result, the scan will generate an SBoM file containing only the list of components and their versions, without enrichment with additional information.
 
 Specifying the `--project` parameter will allow scanning to apply policies related to the selected project.
 

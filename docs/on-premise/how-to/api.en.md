@@ -13,13 +13,19 @@ To start working with Codescoring API, you need a token to authenticate requests
 
 To authenticate requests outside Swagger, it is necessary to prescribe a token in Header as follows:
 
-`Authorization: token <YOUR_TOKEN>`
+`Authorization: Token <YOUR_TOKEN>`
 
 ## API structure
 
-API provides a number of endpoints that allow you to perform basic operations in the system. Endpoints are divided into sections corresponding to objects in the Codescoring system - dependencies, licenses, vulnerabilities, authors, etc.
+API provides a number of endpoints that allow you to perform basic operations in the system. Endpoints are grouped into sections corresponding to objects in the Codescoring system - dependencies, licenses, vulnerabilities, authors, etc.
 
-Examples of using some requests in the API:
+## Pagination
+
+For paginated response you can set `page` (for page number) and `per_page` (for per-page items amount) query parameters to the request. Max `per_page` is 100.
+
+Some endpoints work **only** in pagination mode and these parameters are mandatory, for the details see **[installation-url]/api/swagger**.
+
+## Usage examples
 
 - Run the analysis of all projects:
 

@@ -5,6 +5,36 @@ hide:
 
 # Johnny Changelog
 
+### [2025.37.0] - 2025-09-08
+
+#### Added
+
+- Added vulnerability reachability analysis for Java and Svace call graph, as well as output of reachability examples in SARIF (starting from installation version 2025.37.0)
+- Added the ability to run local scans without specifying activation parameters (`--api_url` and `--api_token`), generating an SBoM based on detected manifests without enrichment and policy application
+- Added support for `deps.json` and `sln` manifests for the .NET stack
+- Added support for all component types from the PURL specification, including the generic type, as well as components with empty or invalid PURLs when analyzing SBoM with the `scan bom` command
+- In the `scan bom` command, added pre-conversion of the file to UTF-8 encoding for correct further processing
+- Added the ability to run `sign bom` and `verify bom` commands without specifying activation parameters (`--api_url` and `--api_token`)
+- Added transfer of annotated data (`GOST:attack_surface`, `GOST:security_function`, `GOST:source_langs`, `VCS`, `licenses`) to the installation when importing annotated SBoM (starting from installation version 2025.37.0)
+- Added the ability to specify branch/tag and commit when scanning an image
+- Added the option to select the progress bar type: `spinner` or `text` (default: `spinner`)
+
+#### Changed
+
+- Changed the logging level for policy triggers from error to warning
+- Changed the display of the number of alerts for triggered policies
+- Changed the resolution logic in the JavaScript environment: local resolution is not performed if any of the known lock files (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`) are present
+- Improved linking mechanism for Gradle when using arbitrary manifest names. Now `build.gradle` and `gradle.lockfile` are automatically linked even if their names differ. If `gradle-dependency-tree.txt` is present, it takes priority, and other files are processed separately
+- Changed the order of checking the ability to run a command and obtain analysis results according to the installation license. This now happens before the scan is performed
+
+#### Fixed
+
+- Fixed processing of `requirements.txt` containing a comment about another dependency source
+
+#### Deprecated
+
+- Building scratch images of the CLI agent will be discontinued in release 2025.45.0
+
 ### [2025.29.3] - 2025-08-22
 
 #### Fixed

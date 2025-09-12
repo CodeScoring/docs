@@ -33,3 +33,7 @@ hide:
 Пример вывода сработавших политик:
 
 ![Johnny example with policy alerts](/assets/img/johnny_output_alerts.png)
+
+Пример вывода достижимых уязвимостей:
+
+![Johnny example with reachability](/assets/img/reachability-paths.png)
