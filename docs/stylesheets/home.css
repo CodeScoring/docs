@@ -110,17 +110,17 @@
 
 /* primary */
 .btn-primary {
-  background-color: #5E8BDE;
+  background-color: #ff3d6c;
   border: none;
 }
 
 /* secondary */
 .btn-secondary {
   background: rgba(255,255,255,0.03);
-  border: 2px solid rgba(94,139,222,0.85);
+  border: 2px solid #ff3d6c;
 }
 
-.btn-primary:hover { background-color: #476bb8; color: #fff; }
+.btn-primary:hover { background-color: #ff3d6c; color: #fff; }
 .btn-secondary:hover { background-color: rgba(94,139,222,0.95); color: #fff; }
 
 /* ====== keyframes ====== */

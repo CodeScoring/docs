@@ -1,3 +1,53 @@
+/* Светлая тема */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #2d2d2d;
+  --md-primary-fg-color--light: #ff3d6c;
+  --md-primary-fg-color--dark: #ff3d6c;
+}
+
+/* Тёмная тема */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #2d2d2d;
+  --md-primary-fg-color--light: #ff3d6c;
+  --md-primary-fg-color--dark: #ff3d6c;
+}
+
+/* ====== Навигация ====== */
+
+/* Активная страница (открытая) */
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: #ff3d6c !important;  /* розовый */
+  text-decoration: none !important;
+  font-weight: 600;
+}
+
+/* Hover: только подчёркивание, цвет остаётся */
+.md-nav__link:hover,
+.md-nav__item .md-nav__link:hover {
+  text-decoration: underline !important;
+  color: inherit !important; /* убираем синий цвет */
+}
+
+/* Чтобы и на активной ссылке при наведении появлялось подчёркивание */
+.md-nav__link--active:hover {
+  text-decoration: underline !important;
+  color: #ff3d6c !important;
+}
+
+/* ====== Футер ====== */
+
+/* Фон футера */
+.md-footer {
+  background-color: #2d2d2d !important;
+}
+
+/* Текст и ссылки в футере */
+.md-footer,
+.md-footer a {
+  color: #ffffff !important; /* делаем текст белым для читаемости */
+}
+
 .icon_check {
   font-size: 1.7em;
 }
