@@ -13,4 +13,5 @@ The **CodeScoring.SCA** module solves the problems of software inventory and vul
 - **Integration of checks into the CI pipeline** with blocking security policies using the [console agent Johnny](/agent/index.en);
 - **Generating SBoM** and [visualization of the dependency graph](/sca/graphs.en);
 - **Analysis at different levels**: manifest parsing, [resolving transitive dependencies](/agent/resolve.en), [build interception](/agent/scan-build.en) for C and C++, [scanning Docker images](/sca/docker-analysis.en);
-- **Tracking scan history** with the ability to [export results for reporting](/sca/export-results.en).
+- **Tracking scan history** with the ability to [export results for reporting](/sca/export-results.en);
+- [Vulnerability reachability analysis](/sca/reachability.en).

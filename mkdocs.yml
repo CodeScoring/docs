@@ -115,6 +115,7 @@ plugins:
           agent-scan-bom: "Scanning a SBoM"
           agent-scan-technology: "Scanning a technology"
           agent-scan-secrets: "Scanning for secrets"
+          agent-reachability: "Using reachability analysis"
           agent-sign-verify-bom: "Signing and verifying a SBoM"
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integrating into Gitlab CI"
@@ -230,6 +231,7 @@ plugins:
           agent-scan-bom: "Сканирование SBoM"
           agent-scan-technology: "Сканирование технологии"
           agent-scan-secrets: "Сканирование на наличие секретов"
+          agent-reachability: "Анализ достижимости уязвимостей"
           agent-sign-verify-bom: "Подпись и верификация SBoM"
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
@@ -395,6 +397,8 @@ nav:
     - agent-scan-technology: agent/scan-technology.en.md
     - agent-scan-secrets: agent/scan-secrets.md
     - agent-scan-secrets: agent/scan-secrets.en.md
+    - agent-reachability: agent/reachability.md
+    - agent-reachability: agent/reachability.en.md
     - agent-sign-verify-bom: agent/sign-verify-bom.md
     - agent-sign-verify-bom: agent/sign-verify-bom.en.md
     - agent-launch-docker: agent/launch-docker.md
