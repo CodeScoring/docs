@@ -80,6 +80,7 @@ plugins:
           groups: "Creating user groups"
           users: "Managing user accounts"
           ldap: "Setting up LDAP"
+          oidc: "Setting up OpenID Connect"
           notifications: "Setting up notifications"
           audit-log: "Working with audit log"
           metrics: "Collecting metrics"
@@ -200,6 +201,7 @@ plugins:
           groups: "Создание групп пользователей"
           users: "Управление учетными записями"
           ldap: "Настройка LDAP"
+          oidc: "Настройка OpenID Connect"
           notifications: "Настройка уведомлений"
           audit-log: "Работа с аудит-логом"
           metrics: "Сбор метрик"
@@ -537,6 +539,8 @@ nav:
     - notifications: on-premise/how-to/notifications.en.md
     - ldap: on-premise/how-to/ldap-settings.md
     - ldap: on-premise/how-to/ldap-settings.en.md
+    - oidc: on-premise/how-to/oidc.md
+    - oidc: on-premise/how-to/oidc.en.md
     - audit-log: on-premise/how-to/audit-log.md
     - audit-log: on-premise/how-to/audit-log.en.md
     - metrics: on-premise/how-to/metrics.md

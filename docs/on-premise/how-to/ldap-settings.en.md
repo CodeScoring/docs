@@ -2,7 +2,6 @@
 hide:
   - footer
 ---
-
 # LDAP Settings
 
 ## LDAP integration capabilities
@@ -15,8 +14,8 @@ On the authentication page, a menu is available with a choice of authentication 
 accounts, `internal directory`), active integrations with **LDAP** servers are available for selection.
 
 <p float="left">
-  <img src="/assets/img/ldap/login-2.png" alt="choice of provider of authenticating" width="350" />
   <img src="/assets/img/ldap/login-1.png" alt="authentication via default provider" width="350" />
+  <img src="/assets/img/ldap/login-2.png" alt="choice of provider of authenticating" width="350" />
 </p>
 
 
@@ -33,7 +32,7 @@ When authenticating via **LDAP**, the following data is mapped from a directory 
 
 ## Mapping LDAP groups to CodeScoring groups and roles
 
-When authenticating via LDAP, CodeScoring can query a user's LDAP group data and map it to its own groups and roles. To activate this feature, the following fields must be filled in the LDAP settings:
+When authenticating via LDAP, CodeScoring can query a user's LDAP group data and map it to its own access levels, groups and roles. To activate this feature, the following fields must be filled in the LDAP settings:
 
 - `Group search base`.
 - `Group search filter for all groups`
@@ -41,12 +40,12 @@ When authenticating via LDAP, CodeScoring can query a user's LDAP group data and
 - `Group member field` (if `User group search method` field value equals "User record")
 - `Group search filter for user` (if `User group search method` field value equals "Group search")
 
-CodeScoring performs mapping according to the rules, the management of which is available in the `Settings -> Identity providers -> Group mapping` section.
+CodeScoring performs mapping according to the rules, the management of which is available in the `Settings -> Group mapping` section.
 
 Mapping is triggered only in two cases:
 
 - when the user logs in;
-- when the `Apply all rules` button is pressed in `Settings -> Identity providers -> Group mapping` section.
+- when the `Apply all rules` button is pressed in `Settings -> Group mapping` section.
 
 Mapping rules are applied as follows:
 
@@ -55,16 +54,19 @@ Mapping rules are applied as follows:
 - user groups added or edited manually by the administrator are not changed during the mapping process, i.e. manual changes take precedence;
 - if an error occurs when searching for LDAP groups after successful authentication in LDAP, the user groups applied according to the mapping rules will be deleted.
 
-![creating LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/group_mapping_create.png)
+<p float="left">
+  <img src="/assets/img/ldap/group_mapping_create_1.png" alt="creating LDAP group mapping rules to CodeScoring roles and groups" width="400" />
+  <img src="/assets/img/ldap/group_mapping_create_2.png" alt="creating LDAP group mapping rules to CodeScoring access level" width="400" />
+</p>
 
-![view LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/en/group_mapping_list.png)
+![view LDAP group mapping rules to CodeScoring roles and groups](/assets/img/ldap/group_mapping_list.png)
 
 ## View existing LDAP integrations
 
-Viewing existing integrations is available in the `Settings -> Identity providers -> LDAP` section. The section displays a table with a list of
+Viewing existing integrations is available in the `Settings -> LDAP` section. The section displays a table with a list of
 configured LDAP integrations, a button to create a new integration (`Setup new`), and a search box (`Search`).
 
-![view list of LDAP integrations](/assets/img/ldap/en/list.png)
+![view list of LDAP integrations](/assets/img/ldap/list.png)
 
 ## View details about an existing LDAP integration
 
@@ -150,11 +152,11 @@ When the test button (`Test it`) in the **Test load groups** is clicked, the con
 
 ## LDAP authentication mechanism
 
-![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.png)
+![LDAP authentication mechanism illustration](/assets/img/ldap/auth_swimlane.en.png)
 
 ## Notes
 
 - Using authentication via **LDAP** does not imply full directory synchronization with user information from **Directory Service**.
 - It is not possible to edit the username and assign a password to a user from **LDAP**.
 - It is possible to have users from different authentication providers with the same username.
-- It is possible to assign any access level (`User`, `Auditor`, `Administrator`) to a user from **LDAP**.
+- It is possible to assign any access level (`User`, `Auditor`, `Administrator`, `Security Manager`) to a user from **LDAP**.
