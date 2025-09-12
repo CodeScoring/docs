@@ -18,7 +18,7 @@ hide:
 - Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM  
 - Added integration with external identity providers implementing the OpenID Connect protocol  
 - Added localization of PDF reports in the SCA module  
-- Added metadata of created artifacts as part of automatic policy actions  
+- Added saving of links for Jira issues and emails created by automatic actions with alerts
 - Added "Requirement" field displaying the required version range from the manifest in the project dependencies section  
 - Added optional "Priority" field in the Jira task creation policy action form  
 - Added ability to create custom templates for emails and Jira tasks in alert actions (default template is built-in)  
