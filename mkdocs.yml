@@ -63,6 +63,7 @@ plugins:
           ssl: "Self signed SSL certificates"
           postgresql-tls: "Connecting to PostgreSQL/PgBouncer using TLS"
           analysis-ignore-paths: "Analysis paths and exceptions"
+          scripts: "Scripts for installation managing"
           troubleshooting: "Troubleshooting"
           getting-started: "Getting started with on-premise"
           activation: "System activation"
@@ -180,6 +181,7 @@ plugins:
           postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
           troubleshooting: "Диагностика неполадок"
+          scripts: "Скрипты для управления инсталляцией"
           getting-started: "Начало работы с инсталляцией"
           activation: "Активация системы"
           user-profile: "Настройка профиля пользователя"
@@ -307,6 +309,8 @@ nav:
     - postgresql-tls: on-premise/postgresql-tls.en.md
     - analysis-ignore-paths: on-premise/analysis-ignore-paths.md
     - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
+    - scripts: on-premise/scripts.md
+    - scripts: on-premise/scripts.en.md
     - troubleshooting: on-premise/troubleshooting.md
     - troubleshooting: on-premise/troubleshooting.en.md
   - getting-started:
