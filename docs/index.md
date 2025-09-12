@@ -1,26 +1,45 @@
 ---
 hide:
-  - footer
+  - navigation
+  - toc
 ---
 
-# Документация CodeScoring
+<div class="hero">
+  <div class="blobs" aria-hidden="true">
+    <div class="blob"></div>
+    <div class="blob"></div>
+  </div>
 
-В документации содержится основная информация для работы с платформой **CodeScoring**.
+  <div class="hero-content">
+    <h1>Документация CodeScoring</h1>
+    <h2>
+      По всем вопросам пишите на 
+      <a href="mailto:support@codescoring.ru" style="color: #ff3d6c; text-decoration-color: #ff3d6c;">
+        support@codescoring.ru
+      </a>
+    </h2>
+    <div class="hero-buttons">
+      <a href="/on-premise/server-requirements/" class="btn btn-primary">Начать работу</a>
+      <a href="/osa/" class="btn btn-secondary">Руководство пользователя</a>
+    </div>
+  </div>
+</div>
 
-**CodeScoring** – это платформа безопасной разработки программного обеспечения, предназначенная для разбора зависимостей, поиска уязвимостей в сторонних компонентах, выявления совместимости лицензий, поиска конфиденциальной информации в исходном коде и обзора качества разрабатываемых проектов.
+<style>
+.md-content__inner,
+.md-main__inner,
+.main-content {
+  background: transparent !important;
+  box-shadow: none !important;
+}
 
-**Оглавление**:
-
- - [Функциональные характеристики](functionality)
- - [Установка решения](on-premise/installation)
- - [Настройка и применение](on-premise/how-to/activation)
- - [Модуль OSA](osa)
- - [Модуль SCA](sca)
- - [Консольный агент](agent)
- - [Модуль Secrets](secrets)
- - [Модуль TQI](tqi)
- - [Плагины для IDE](ide)
- - [История обновлений](changelog/on-premise-changelog)
-
-По всем вопросам пишите на <hello@codescoring.ru>.
-
+a[aria-label="Print"],
+button[aria-label="Print"],
+a[aria-label="Export as PDF"],
+button[aria-label="Download PDF"],
+.md-content__button,
+.md-content__button--pdf,
+.md-page__pdf {
+  display: none !important;
+}
+</style>

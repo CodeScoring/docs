@@ -1,3 +1,53 @@
+/* Светлая тема */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #2d2d2d;
+  --md-primary-fg-color--light: #ff3d6c;
+  --md-primary-fg-color--dark: #ff3d6c;
+}
+
+/* Тёмная тема */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #2d2d2d;
+  --md-primary-fg-color--light: #ff3d6c;
+  --md-primary-fg-color--dark: #ff3d6c;
+}
+
+/* ====== Навигация ====== */
+
+/* Активная страница (открытая) */
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: #ff3d6c !important;  /* розовый */
+  text-decoration: none !important;
+  font-weight: 600;
+}
+
+/* Hover: только подчёркивание, цвет остаётся */
+.md-nav__link:hover,
+.md-nav__item .md-nav__link:hover {
+  text-decoration: underline !important;
+  color: inherit !important; /* убираем синий цвет */
+}
+
+/* Чтобы и на активной ссылке при наведении появлялось подчёркивание */
+.md-nav__link--active:hover {
+  text-decoration: underline !important;
+  color: #ff3d6c !important;
+}
+
+/* ====== Футер ====== */
+
+/* Фон футера */
+.md-footer {
+  background-color: #2d2d2d !important;
+}
+
+/* Текст и ссылки в футере */
+.md-footer,
+.md-footer a {
+  color: #ffffff !important; /* делаем текст белым для читаемости */
+}
+
 .icon_check {
   font-size: 1.7em;
 }
@@ -38,6 +88,15 @@
     mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.59 11.41 13 3.83a2 2 0 0 0-1.41-.58H5a2 2 0 0 0-2 2v6.58a2 2 0 0 0 .59 1.41L11.17 20a2 2 0 0 0 2.83 0l6.59-6.59a2 2 0 0 0 0-2.83M6.5 7.5A1.5 1.5 0 1 1 8 9a1.5 1.5 0 0 1-1.5-1.5Z"/></svg>') no-repeat center;
     -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.59 11.41 13 3.83a2 2 0 0 0-1.41-.58H5a2 2 0 0 0-2 2v6.58a2 2 0 0 0 .59 1.41L11.17 20a2 2 0 0 0 2.83 0l6.59-6.59a2 2 0 0 0 0-2.83M6.5 7.5A1.5 1.5 0 1 1 8 9a1.5 1.5 0 0 1-1.5-1.5Z"/></svg>') no-repeat center;
     background-color: #5E8BDE; /* Set the icon color */
+}
+
+.md-feedback {
+  margin: 2em 0 1em;
+  text-align: center;
+  display: block !important;
+  position: relative !important;
+  z-index: 10 !important;
+  color: var(--md-default-fg-color);
 }
 
 .module-tag {
