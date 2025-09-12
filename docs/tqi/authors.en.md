@@ -11,7 +11,7 @@ CodeScoring.TQI allows to study the individual contribution of authors to projec
 
 The `TQI -> Authors` section contains all the authors involved in changing the organization's code base.
 
-- **Author** - author's name and email;
+- **Author** - author's name and email, multiple selections are allowed;
 - **Start date** - date of the author's first commit;
 - **Last seen** - date of the author's last commit in the project;
 - **Activity, mos** - number of months during which the author actively committed changes;
@@ -34,7 +34,8 @@ The map can be filtered by the following parameters:
 - **Proprietor** – part of the organization that manages the project;
 - **Project Category** – category assigned within the CodeScoring system;
 - **Project** – name of the project;
-- **Technologies** – programming languages used in the project.
+- **Technologies** – programming languages used in the project;
+- **Authors** - author's name and email, multiple selections are allowed.
 
 The technology (language) filter is applied to commits. If a commit contains changes in the specified language, it is included in the selection.
 
