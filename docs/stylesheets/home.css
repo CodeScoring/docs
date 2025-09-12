@@ -120,8 +120,8 @@
   border: 2px solid #ff3d6c;
 }
 
-.btn-primary:hover { background-color: #ff3d6c; color: #fff; }
-.btn-secondary:hover { background-color: rgba(94,139,222,0.95); color: #fff; }
+.btn-primary:hover { background-color: #e6365d; color: #fff; }
+.btn-secondary:hover { background-color: #ff3d6c; color: #fff; }
 
 /* ====== keyframes ====== */
 @keyframes blobMove {
