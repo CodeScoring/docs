@@ -13,7 +13,6 @@ This section contains data formats and response modification rules for each supp
 
 - `maven-metadata.xml` - version information manifest
 - `.jar`, `.war`, `.ear` - package files
-- `.sha1`, `.md5` - checksum files
 
 ### maven-metadata.xml Field Modifications
 
@@ -64,7 +63,7 @@ This section contains data formats and response modification rules for each supp
 
 ### HTML Page Modifications
 
-- `<a>` elements for blocked versions are removed
+- Elements for blocked versions are removed
 - URLs are rewritten for proxy downloading
 
 ```html

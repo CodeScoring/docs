@@ -3,23 +3,23 @@ hide:
   - footer
 ---
 
-# Overview
+# General Overview
 
-**CodeScoring Proxy** (repo-manager-proxy) is a proxy service that acts as an intermediary between package managers and their remote repositories. It integrates with the CodeScoring platform to enable automatic scanning of downloaded components and block insecure packages according to security policies.
+The **CodeScoring Proxy** (repo-manager-proxy) is a proxy service that acts as an intermediary between package managers and their remote repositories. It integrates with the CodeScoring platform, ensuring that downloaded components are automatically scanned and that insecure packages are blocked in accordance with security policies.
 
-The service intercepts requests made by package managers, forwards them to the original repositories, analyzes the resulting packages, modifies responses, and manages component access. It uses asynchronous processing, result caching, and automatic retry mechanisms in case of temporary failures. It also supports working with large files, with configurable buffer sizes.
+The service intercepts requests from package managers, forwards them to the original repositories, analyzes the received packages, modifies the responses, and manages access to components. It uses an asynchronous processing model and an automatic retry mechanism for temporary errors.
 
 ## Supported Package Managers
 
-CodeScoring Proxy handles requests to the following repositories:
+CodeScoring Proxy processes requests to the following repositories:
 
-- Maven Central (`https://repo1.maven.org`)
+- Maven Central (`https://repo1.maven.org/maven2`)
 - NPM Registry (`https://registry.npmjs.org`)
 - PyPI (`https://pypi.org`)
-- NuGet Gallery (`https://api.nuget.org`)
+- NuGet V3 (`https://api.nuget.org`)
 - Docker Hub (`https://hub.docker.com/v2/`)
 
-**Note**: alternative repositories implementing the official specification of the corresponding package manager are also supported (e.g. Nexus Repository, JFrog Artifactory).
+**Important**: The proxy also supports alternative repositories that implement the official specifications of the corresponding package manager (e.g., Nexus Repository and JFrog Artifactory).
 
 ## Key Features
 
@@ -27,39 +27,32 @@ CodeScoring Proxy handles requests to the following repositories:
 
 Two levels of scanning are implemented for each ecosystem:
 
-- **Manifest scanning** — analyzes package metadata (name, version, dependencies, licenses, release date);
-- **Package scanning** — downloads and inspects the actual package files or images, including nested files and dependencies.
+- **Manifest Scanning** — Analyzes and excludes versions blocked by security policies from the manifest.
+- **Package Scanning** — Analyzes the downloaded package files or images.
 
 ### Blocking Insecure Components
 
-If a component violates a configured security policy:
+If a component violates security policy rules:
 
-- insecure versions are excluded from the list of available versions in manifests;
-- downloads of relevant archives are blocked;
-- a configurable HTTP status code is returned with a message explaining the reason for blocking.
+- Insecure versions are excluded from the list of available versions in the manifest.
+- The download of the corresponding archive is blocked.
+- A customizable status code and a message explaining the reason for the block are returned.
 
 ### Response Modification
 
 CodeScoring Proxy automatically modifies responses from original repositories:
 
-- rewrites all URLs;
-- removes blocked versions from metadata;
-- recalculates checksums of modified manifests to ensure proper formatting.
+- It rewrites all URLs.
+- It removes blocked versions from the metadata.
+- It recalculates checksums of modified manifests to maintain the correct format.
 
-## Operation Modes
 
-The service's behavior is controlled via the `work-mode` parameter. Depending on the selected value, the logic for scanning, waiting, and blocking changes. The following mode is currently supported:
+## Operating Modes
 
-- `strict_wait` — waits for the scan to finish and blocks the component if any violation is found;
-- other modes control behavior under timeouts and scanning errors.
+The behavior of package scanning is controlled by the `work-mode` parameter. The logic for processing scanning, waiting, and blocking changes depending on the selected value. The following modes are supported:
 
-## Error Handling
-
-The service returns detailed error codes when requests are rejected:
-
-- `blocked_by_policies` — the component is blocked by CodeScoring policies;
-- `blocked_not_scanned` — the component has not yet been scanned;
-- `failed_request` — error while contacting the CodeScoring installation;
-- `blocked_scan_failed` — scanning failed;
-- `blocked_scan_wait_timeout` — timeout while waiting for scan results;
-- `blocked_registry_not_configured` — the repository is not registered in the CodeScoring installation.
+- `warmup` – Downloads data into the CodeScoring cache without blocking components.
+- `spectator` – Downloads data into the CodeScoring cache without blocking components, and saves the results of component requests for analysis.
+- `moderate` – Blocks components that fail policy checks. Unscanned components are allowed to be downloaded.
+- `strict` – Blocks components that fail policy checks. Unscanned components are not allowed to be downloaded.
+- `strict_wait` – Blocks components that fail policy checks. Waits for unscanned components to be verified.
