@@ -46,7 +46,7 @@ hide:
 #### Changed
 
 - <span class="module-tag sca">SCA</span> Improved parsing of VCS links in CycloneDX SBoM
-- <span class="module-tag tqi">TQI</span> Improved the mechanism for merging authors by email. Now the algorithm produces 35% fewer false results
+- <span class="module-tag tqi">TQI</span> Improved the mechanism for merging authors by email
 - Unified the UI for running alert actions manually and automatically  
 - <span class="module-tag sca">SCA</span> Commit hash in the project PDF report is now displayed in full  
 - Reduced maximum number of items in paginated API responses to 100
