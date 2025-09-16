@@ -357,6 +357,7 @@ codescoring:
 - `codescoring.persistentVolumes.djangoStatic.accessModes`
 
 Затем, необходимо закоментировать переменные:
+
 - `codescoring.backend.affinity`
 - `codescoring.frontend.affinity`
 

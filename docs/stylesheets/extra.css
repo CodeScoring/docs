@@ -45,6 +45,60 @@
   color: #ff3d6c !important;
 }
 
+/* ===== Доп. правки акцентов под #ff3d6c ===== */
+
+.md-typeset .headerlink:hover {
+  color: #ff3d6c !important;
+}
+
+/* Кнопка "Наверх" (navigation.top) */
+.md-top:hover {
+  background-color: #e03560 !important;
+}
+
+/* Скроллбар именно у левой панели навигации */
+.md-sidebar[data-md-type="navigation"] .md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 6px;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-sidebar__scrollwrap::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background-color: #ff3d6c !important;
+  border-radius: 3px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-sidebar__scrollwrap:hover::-webkit-scrollbar-thumb {
+  background-color: #e03560 !important;
+}
+
+
+/* Подсветка кода (выделенный текст, inline и блоки) */
+.md-typeset code,
+.md-typeset pre code {
+  color: #ff3d6c !important;
+}
+.highlight .hll {
+  background-color: rgba(255, 61, 108, 0.15) !important;
+}
+.highlight .nt,   /* названия тегов */
+.highlight .nf,   /* функции */
+.highlight .nb,   /* встроенные имена */
+.highlight .nv {  /* переменные */
+  color: #ff3d6c !important;
+}
+
+/* Стрелочка раскрытого раздела меню */
+.md-nav__item--nested > .md-nav__link::after {
+  color: #ff3d6c !important;
+  stroke: #ff3d6c !important;
+}
+
+
 /* ====== Футер ====== */
 
 /* Фон футера */

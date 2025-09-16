@@ -59,4 +59,4 @@ kubectl exec -it <backend service> ./manage.py runscript <команда>
       на `NEW_SECRET_KEY`.
 
       После успешного окончания скрипта необходимо изменить значение переменной `SECRET_KEY` на `NEW_SECRET_KEY`
-      и пере запустить инсталляцию.
+      и перезапустить инсталляцию.

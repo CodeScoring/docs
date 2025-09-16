@@ -357,6 +357,7 @@ To do this, you need to replace the value of `ReadWriteOnce` with `ReadWriteMany
 - `codescoring.persistentVolumes.djangoStatic.accessModes`
 
 Then, you need to comment out the variables:
+
 - `codescoring.backend.affinity`
 - `codescoring.frontend.affinity`
 
