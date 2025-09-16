@@ -9,82 +9,84 @@ hide:
 
 #### Added
 
-- Added vulnerability reachability analysis for Java, powered by the Svace call graph builder  
-- Added policy "Vulnerability is reachable"  
-- Added UI display of the reachability attribute for vulnerabilities  
-- Added ability to specify `component manufacturer` data to be placed in the relevant section of SBOM versions `CycloneDX 1.6` and `CycloneDX 1.6 ext`, both at installation level and per project  
+- <span class="module-tag sca">SCA</span> Added vulnerability reachability analysis for Java, powered by the Svace call graph builder  
+- <span class="module-tag sca">SCA</span> Added policy "Vulnerability is reachable"  
+- <span class="module-tag sca">SCA</span> Added UI display of the reachability attribute for vulnerabilities  
+- <span class="module-tag sca">SCA</span> Added ability to specify `component manufacturer` data to be placed in the relevant section of SBOM versions `CycloneDX 1.6` and `CycloneDX 1.6 ext`, both at installation level and per project  
 - Added new environment variables `DEFAULT_PROJECT_MANUFACTURER_NAME`, `DEFAULT_PROJECT_MANUFACTURER_EMAIL`, `DEFAULT_PROJECT_MANUFACTURER_HOMEPAGE`  
-- Added saving of annotated data when importing SBoM  
-- Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM  
+- <span class="module-tag sca">SCA</span> Added saving of annotated data when importing SBoM
+- <span class="module-tag sca">SCA</span> Added support for SBoM export in SPDX format
+- <span class="module-tag sca">SCA</span> Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM  
 - Added integration with external identity providers implementing the OpenID Connect protocol  
-- Added localization of PDF reports in the SCA module  
+- <span class="module-tag sca">SCA</span> Added localization of PDF reports in the SCA module  
 - Added saving of links for Jira issues and emails created by automatic actions with alerts
-- Added "Requirement" field displaying the required version range from the manifest in the project dependencies section  
+- <span class="module-tag sca">SCA</span> Added "Requirement" field displaying the required version range from the manifest in the project dependencies section  
 - Added optional "Priority" field in the Jira task creation policy action form  
 - Added ability to create custom templates for emails and Jira tasks in alert actions (default template is built-in)  
 - Added script for re-encrypting sensitive data when changing the `SECRET_KEY` token  
-- Added "Release Date" field to the project dependencies list  
+- <span class="module-tag sca">SCA</span> Added "Release Date" field to the project dependencies list  
 - Added grouping of options in the condition dropdown when configuring a policy  
 - Added rule dragging on the policy configuration page, and updated their appearance  
 - Added ability to automatically update the audit log list  
-- Added project search and filters by project, relation, detection type, and environment for individual vulnerabilities on the dependencies page  
-- Added ability to calculate the number of unique authors in GitLab outside of analysis runs  
-- Added ability to run SBOM scans from scan history to check for new vulnerabilities in historical component data  
-- Added "Max fixed version" field to the dependencies section of the project PDF report  
-- Added filtering by multiple authors on the "List" and "Activity Map" tabs in the `TQI -> Authors` section  
-- Added tooltip popup with author’s projects when hovering over author’s project count in the `TQI -> Authors` section  
-- Added author filter on the project list page in the TQI section  
-- Added "Number of Authors" chart on the project page in the TQI section  
-- Added "Author’s Commits" and "Author’s Projects" charts on the author page in the TQI section  
+- <span class="module-tag sca">SCA</span> Added project search and filters by project, relation, detection type, and environment for individual vulnerabilities on the dependencies page  
+- <span class="module-tag tqi">TQI</span> Added ability to calculate the number of unique authors in GitLab outside of analysis runs  
+- <span class="module-tag sca">SCA</span> Added ability to run SBOM scans from scan history to check for new vulnerabilities in historical component data  
+- <span class="module-tag sca">SCA</span> Added "Max fixed version" field to the dependencies section of the project PDF report  
+- <span class="module-tag tqi">TQI</span> Added filtering by multiple authors on the "List" and "Activity Map" tabs in the `TQI -> Authors` section  
+- <span class="module-tag tqi">TQI</span> Added tooltip popup with author’s projects when hovering over author’s project count in the `TQI -> Authors` section  
+- <span class="module-tag tqi">TQI</span> Added author filter on the project list page in the TQI section  
+- <span class="module-tag tqi">TQI</span> Added "Number of Authors" chart on the project page in the TQI section  
+- <span class="module-tag tqi">TQI</span> Added "Author’s Commits" and "Author’s Projects" charts on the author page in the TQI section 
 - Added ability to rename projects  
 - Added ability to perform bulk actions on certain entities in the Settings section  
 - Added ability to stop report generation  
-- Added ability to export a CSV report with secrets on the project tab  
-- Added ability to generate a PDF report with secrets on the project tab  
+- <span class="module-tag secrets">Secrets</span> Added ability to export a CSV report with secrets on the project tab  
+- <span class="module-tag secrets">Secrets</span> Added ability to generate a PDF report with secrets on the project tab  
 
 #### Changed
 
-- Improved parsing of VCS links in CycloneDX SBoM  
+- <span class="module-tag sca">SCA</span> Improved parsing of VCS links in CycloneDX SBoM
+- <span class="module-tag tqi">TQI</span> Improved the mechanism for merging authors by email. Now the algorithm produces 35% fewer false results
 - Unified the UI for running alert actions manually and automatically  
-- Commit hash in the project PDF report is now displayed in full  
-- Reduced maximum number of items in paginated API responses to 100  
-- Blocked launch of SCA and TQI analyses until code cloning is completed for VCS projects  
-- Improved messages about inability to run SCA analysis for VCS and CLI projects  
-- Changed detailed package info display on the OSA module package page  
-- Fixed display of "Change author mapping" button when TQI module is disabled  
-- Changed `GOST:source_lang` field to `GOST:source_langs` in all exported files  
-- Added information on the number of months an author committed to the TQI section  
-- Project parameter "Duration (in months)" now shows integer number of months of project activity  
-- Removed `internal` field from `/api/activation_keys/` API response  
-- Split project list API into modules (SCA, TQI, Secrets)  
+- <span class="module-tag sca">SCA</span> Commit hash in the project PDF report is now displayed in full  
+- Reduced maximum number of items in paginated API responses to 100
+- Blocked launch of SCA and TQI analyses until code cloning is completed for VCS projects
+- Improved messages about inability to run SCA analysis for VCS and CLI projects
+- <span class="module-tag osa">OSA</span> Changed detailed package info display on the OSA module package page
+- <span class="module-tag tqi">TQI</span> Fixed display of "Change author mapping" button when TQI module is disabled
+- Changed `GOST:source_lang` field to `GOST:source_langs` in all exported files
+- <span class="module-tag tqi">TQI</span> Added information on the number of months an author committed to the TQI section
+- <span class="module-tag tqi">TQI</span> Project parameter "Duration (in months)" now shows integer number of months of project activity
+- Removed `internal` field from `/api/activation_keys/` API response
+- Split project list API into modules (SCA, TQI, Secrets)
 - Migrated base images of Index Proxy, `frontend` service, and `backend / tasks-*` services from Debian bookworm to Alpine Linux  
-- Improved performance of scan history  
-- Optimized loading of dependency and vulnerability lists  
-- Changed display and content of tooltips about inability to train ML model in Secrets module  
-- Changed "Deferred blocking" filter type on the policies page  
+- Improved performance of scan history
+- <span class="module-tag sca">SCA</span> Optimized loading of dependency and vulnerability lists
+- <span class="module-tag secrets">Secrets</span> Changed display and content of tooltips about inability to train ML model in Secrets module
+- Changed "Deferred blocking" filter type on the policies page
 
 #### Fixed
 
-- Fixed alert table format in project PDF report  
-- Fixed link to refactoring candidate projects in the "Dashboard" section  
-- Fixed reset of selected number of items per page in tables when changing sorting  
-- Fixed pagination reset when navigating to the same page  
-- Fixed link handling in CycloneDX SBoM  
-- Implemented missing logic for handling alerts when comparing PURL values with case sensitivity  
-- Fixed auto-generated type names in OpenAPI schema  
+- <span class="module-tag sca">SCA</span> Fixed alert table format in project PDF report
+- Fixed link to refactoring candidate projects in the "Dashboard" section
+- Fixed reset of selected number of items per page in tables when changing sorting
+- Fixed pagination reset when navigating to the same page
+- <span class="module-tag sca">SCA</span> Fixed link handling in CycloneDX SBoM
+- <span class="module-tag sca">SCA</span> Implemented missing logic for handling alerts when comparing PURL values with case sensitivity
+- Fixed auto-generated type names in OpenAPI schema
 - Fixed verb forms of policy conditions in English locale  
-- Fixed project links in "Organization Projects" tab on the author page  
-- Fixed links to code duplicates in the duplicates map  
-- Fixed CSV export of author’s projects  
-- Fixed slow loading of alerts when filter "Repository Manager = N/A" is selected  
-- Fixed Swagger schema for `/api/activation_keys/` endpoint  
-- Fixed missing options in dependency environment filter when `USE_SMART_FILTERS` is set to `False`  
-- Fixed error when scanning a project with dependencies containing invalid PURLs  
+- <span class="module-tag tqi">TQI</span> Fixed project links in "Organization Projects" tab on the author page
+- <span class="module-tag tqi">TQI</span> Fixed links to code duplicates in the duplicates map
+- <span class="module-tag tqi">TQI</span> Fixed CSV export of author’s projects
+- Fixed slow loading of alerts when filter "Repository Manager = N/A" is selected 
+- Fixed Swagger schema for `/api/activation_keys/` endpoint
+- <span class="module-tag sca">SCA</span> Fixed missing options in dependency environment filter when `USE_SMART_FILTERS` is set to `False` 
+- <span class="module-tag sca">SCA</span> Fixed error when scanning a project with dependencies containing invalid PURLs  
 - Fixed search in dropdowns for Russian locale  
-- Fixed "Refactoring candidate projects" and "Intra-project duplicates" widgets on the dashboard  
+- <span class="module-tag tqi">TQI</span> Fixed "Refactoring candidate projects" and "Intra-project duplicates" widgets on the dashboard
 - Fixed search within condition dropdowns on the policy editing page  
-- Fixed behavior of "Dependency is dangerous" policy in SCA module  
-- Fixed policy execution error with condition `PURL exactly_match`
+- <span class="module-tag sca">SCA</span> Fixed behavior of "Dependency is dangerous" policy in SCA module  
+- <span class="module-tag sca">SCA</span> Fixed policy execution error with condition `PURL exactly_match`
 
 ### [2025.29.4] - 2025-08-22
 

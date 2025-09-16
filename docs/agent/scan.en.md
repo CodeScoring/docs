@@ -141,8 +141,6 @@ Use " scan [command] --help" for more information about a command.
 
 The `--api_url` parameter must contain the full address of the on-premise installation. The value for `--api_token` can be taken from the installation user profile.
 
-If the `--api_url` and `--api_token` parameters are not specified, the scan will run without interacting with the CodeScoring installation. As a result, the scan will generate an SBoM file containing only the list of components and their versions, without enrichment with additional information.
-
 Specifying the `--project` parameter will allow scanning to apply policies related to the selected project.
 
 To specify the path to a SBOM save file, you must add the `--bom-path` parameter to the request or assign the `bom-path` variable in the config file. By default, the SBOM is saved in the startup directory in the file `bom.json`.
@@ -156,7 +154,7 @@ Depending on the run result and launch parameters, the agent returns the corresp
 - 2: run failure;
 - 3: empty result, no artifacts were found for analysis. Returned only if the `--block-on-empty-result` parameter is set to `true`.
 
-### Priority of settings
+## Priority of settings
 
 Since agent startup parameters can be configured in multiple ways, if two or more methods are used at the same time, the agent will accept parameters in the following priority order:
 
@@ -165,3 +163,6 @@ Since agent startup parameters can be configured in multiple ways, if two or mor
 3. Value of [environment variable](/agent/env-variables.en);
 4. Value from [config file](/agent/config.en).
 
+## Launch without installation
+
+If the `--api_url` and `--api_token` parameters are not specified, the scan will be launched without interacting with the CodeScoring installation. The scan will generate an SBoM file containing only a list of components and their versions without any additional information.

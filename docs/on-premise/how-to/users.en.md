@@ -55,9 +55,9 @@ The Auditor access level provides access to all projects. This access level also
 
 For the User access level, access is organized individually. For each project, access can be provided with the following roles:
 
-- **Viewer** - access only to view the analysis results within the project;
-- **Developer** — access to running analysis in the web interface, via the agent, and via the proxy repository plugin;
-- **Owner** — access to viewing project policies, changing project settings, and managing access for other project users.
+- **Viewer** — access only to view analysis results within the project;
+- **Developer** — all rights of the Viewer role, as well as access to launching analysis in the web interface, via the agent and via the proxy repository plugin;
+- **Owner** — all rights of the Developer role, access to changing project settings and managing access of other project users.
 
 For each role within the **User** access level, CLI project creation via API is available when the **Can create CLI projects via API** parameter is activated in the user profile.
 
