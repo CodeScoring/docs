@@ -17,14 +17,51 @@
   color: #ff3d6c;
 }
 
-/* При наведении — можно чуть темнее */
 .md-typeset a:hover {
   color: #e03560;
 }
 
+/* Логотип в левый верхний угол */
+
+.md-header .md-header__button.md-logo {
+  position: absolute;
+  top: 0.2rem;      /* регулируй вертикальный отступ */
+  left: 1.5rem;     /* регулируй горизонтальный отступ */
+  margin: 0;
+  padding: 0;
+  height: auto;
+  z-index: 10;
+}
+
+.md-header .md-header__button.md-logo img {
+  height: 80px !important;  /* подгони под высоту хедера */
+  width: auto !important;
+  max-width: none !important;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .md-header .md-header__button.md-logo img {
+    height: 36px !important;
+  }
+}
+
+/* Смещение текста site_name, чтобы выровнять с навигацией */
+.md-header .md-header__title {
+  margin-left: 0rem;  /* подгони под ширину логотипа */
+}
+
+/* Мобильная версия */
+@media (max-width: 720px) {
+  .md-header .md-header__title {
+    margin-left: 3.2rem; /* уменьшаем, чтобы не прижималось */
+  }
+}
+
+
 /* ====== Навигация ====== */
 
-/* Активная страница (открытая) */
+
 .md-nav__link--active,
 .md-nav__item .md-nav__link--active {
   color: #ff3d6c !important;  /* розовый */
@@ -32,31 +69,28 @@
   font-weight: 600;
 }
 
-/* Hover: только подчёркивание, цвет остаётся */
+
 .md-nav__link:hover,
 .md-nav__item .md-nav__link:hover {
   text-decoration: underline !important;
   color: inherit !important; /* убираем синий цвет */
 }
 
-/* Чтобы и на активной ссылке при наведении появлялось подчёркивание */
+
 .md-nav__link--active:hover {
   text-decoration: underline !important;
   color: #ff3d6c !important;
 }
 
-/* ===== Доп. правки акцентов под #ff3d6c ===== */
 
 .md-typeset .headerlink:hover {
   color: #ff3d6c !important;
 }
 
-/* Кнопка "Наверх" (navigation.top) */
 .md-top:hover {
   background-color: #e03560 !important;
 }
 
-/* Скроллбар именно у левой панели навигации */
 .md-sidebar[data-md-type="navigation"] .md-sidebar__scrollwrap::-webkit-scrollbar {
   width: 6px;
 }
@@ -78,6 +112,7 @@
 
 
 /* Подсветка кода (выделенный текст, inline и блоки) */
+
 .md-typeset code,
 .md-typeset pre code {
   color: #ff3d6c !important;
@@ -92,7 +127,6 @@
   color: #ff3d6c !important;
 }
 
-/* Стрелочка раскрытого раздела меню */
 .md-nav__item--nested > .md-nav__link::after {
   color: #ff3d6c !important;
   stroke: #ff3d6c !important;
@@ -101,12 +135,10 @@
 
 /* ====== Футер ====== */
 
-/* Фон футера */
 .md-footer {
   background-color: #2d2d2d !important;
 }
 
-/* Текст и ссылки в футере */
 .md-footer,
 .md-footer a {
   color: #ffffff !important; /* делаем текст белым для читаемости */
