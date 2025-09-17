@@ -5,7 +5,7 @@ lint_markdown:
   stage: lint
   before_script:
     - git config --global user.email "ci-bot@example.com"
-    - git config --global user.name "CI Bot"
+    - git config --global user.name "project_87_bot_1728235e18e2c1c997b85dccf4525dff"
   script: |
     echo "Starting markdown linting..."
 
@@ -32,7 +32,7 @@ lint_markdown:
       git add $FILES
       git commit -m "chore(ci): auto-fix trailing spaces"
       echo "⬆️ Pushing fixes back to branch $CI_COMMIT_REF_NAME"
-      git push "https://ci-bot:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME || { echo "❌ Push failed"; exit 1; }
+      git push "https://project_87_bot_1728235e18e2c1c997b85dccf4525dff:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME || { echo "❌ Push failed"; exit 1; }
     else
       echo "✅ No trailing spaces to fix."
     fi
