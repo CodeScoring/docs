@@ -32,7 +32,7 @@ lint_markdown:
       git add $FILES
       git commit -m "chore(ci): auto-fix trailing spaces"
       echo "⬆️ Pushing fixes back to branch $CI_COMMIT_REF_NAME"
-      git push "https://oauth2:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+      git push "https://ci-bot:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME || { echo "❌ Push failed"; exit 1; }
     else
       echo "✅ No trailing spaces to fix."
     fi
