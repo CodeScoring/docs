@@ -12,19 +12,16 @@
   --md-primary-fg-color--dark: #ff3d6c;
 }
 
-/* Цвет ссылок в основном тексте */
 .md-typeset a {
   color: #ff3d6c;
 }
 
-/* При наведении — можно чуть темнее */
 .md-typeset a:hover {
   color: #e03560;
 }
 
 /* ====== Навигация ====== */
 
-/* Активная страница (открытая) */
 .md-nav__link--active,
 .md-nav__item .md-nav__link--active {
   color: #ff3d6c !important;  /* розовый */
@@ -32,31 +29,25 @@
   font-weight: 600;
 }
 
-/* Hover: только подчёркивание, цвет остаётся */
 .md-nav__link:hover,
 .md-nav__item .md-nav__link:hover {
   text-decoration: underline !important;
   color: inherit !important; /* убираем синий цвет */
 }
 
-/* Чтобы и на активной ссылке при наведении появлялось подчёркивание */
 .md-nav__link--active:hover {
   text-decoration: underline !important;
   color: #ff3d6c !important;
 }
 
-/* ===== Доп. правки акцентов под #ff3d6c ===== */
-
 .md-typeset .headerlink:hover {
   color: #ff3d6c !important;
 }
 
-/* Кнопка "Наверх" (navigation.top) */
 .md-top:hover {
   background-color: #e03560 !important;
 }
 
-/* Скроллбар именно у левой панели навигации */
 .md-sidebar[data-md-type="navigation"] .md-sidebar__scrollwrap::-webkit-scrollbar {
   width: 6px;
 }
@@ -92,21 +83,98 @@
   color: #ff3d6c !important;
 }
 
-/* Стрелочка раскрытого раздела меню */
 .md-nav__item--nested > .md-nav__link::after {
   color: #ff3d6c !important;
   stroke: #ff3d6c !important;
 }
 
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-accent-fg-color: #ff3d6c;
+  --md-accent-500: #ff3d6c;
+  --md-accent-600: #e03560;
+  --md-outline-color: #ff3d6c;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-nav__link--active,
+.md-sidebar[data-md-type="navigation"] .md-nav__item--open > .md-nav__link,
+.md-sidebar[data-md-type="navigation"] .md-nav__link[aria-expanded="true"] {
+  color: #ff3d6c !important;
+  font-weight: 600;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-nav__item--active > .md-nav__link::before,
+.md-sidebar[data-md-type="navigation"] .md-nav__item--open > .md-nav__link::before,
+.md-sidebar[data-md-type="navigation"] .md-nav__link--active::before {
+  background-color: #ff3d6c !important;
+  border-color: #ff3d6c !important;
+  box-shadow: none !important;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-nav__item--open > .md-nav__link::after,
+.md-sidebar[data-md-type="navigation"] .md-nav__link[aria-expanded="true"]::after {
+  color: #ff3d6c !important;
+  stroke: #ff3d6c !important;
+  fill: #ff3d6c !important;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-nav__item--nested > .md-nav__link::after {
+  color: inherit !important;
+  stroke: inherit !important;
+  fill: inherit !important;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-nav__list--nested,
+.md-sidebar[data-md-type="navigation"] .md-nav__list--nested > li > .md-nav__list {
+  border-left-color: #ff3d6c !important;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-nav__link:focus,
+.md-sidebar[data-md-type="navigation"] .md-nav__link:focus-visible {
+  outline-color: #ff3d6c !important;
+  box-shadow: 0 0 0 3px rgba(255,61,108,0.10) !important;
+}
+
+.md-sidebar[data-md-type="navigation"] .md-nav__link::before,
+.md-sidebar[data-md-type="navigation"] .md-nav__link::after {
+  transition: background-color .14s ease, color .14s ease, stroke .14s ease;
+}
+
+.md-sidebar .md-sidebar__scrollwrap::-webkit-scrollbar,
+.md-typeset pre::-webkit-scrollbar,
+.codehilite::-webkit-scrollbar,
+.highlight::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.md-sidebar .md-sidebar__scrollwrap::-webkit-scrollbar-thumb,
+.md-typeset pre::-webkit-scrollbar-thumb,
+.codehilite::-webkit-scrollbar-thumb,
+.highlight::-webkit-scrollbar-thumb {
+  background-color: #ff3d6c !important;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.md-sidebar .md-sidebar__scrollwrap::-webkit-scrollbar-track,
+.md-typeset pre::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff3d6c transparent;
+}
+
 
 /* ====== Футер ====== */
 
-/* Фон футера */
 .md-footer {
   background-color: #2d2d2d !important;
 }
 
-/* Текст и ссылки в футере */
 .md-footer,
 .md-footer a {
   color: #ffffff !important; /* делаем текст белым для читаемости */
