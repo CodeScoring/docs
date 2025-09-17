@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Tracking scan history
+# Tracking scan history 
 
 For each project analysis within the SCA module, a snapshot of the results of found dependencies and vulnerabilities is saved. To see the list of available snapshots, you should go to the SCA tab on the project page and click on the **SCA scan history** button.
 
