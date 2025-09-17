@@ -3,35 +3,44 @@ stages:
 
 lint_markdown:
   stage: lint
-  script:
-    - echo "Starting markdown linting..."
-    - which git grep sed tr awk wget curl || echo "❌ Some tools missing"
-    - |
-      BASE_REF="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-origin/main}"
-      [ -z "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ] && git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git bash grep sed curl wget coreutils
+    - git config --global user.email "ci-bot@example.com"
+    - git config --global user.name "CI Bot"
+  script: |
+    echo "Starting markdown linting..."
 
-      FILES=$(git diff --name-only --diff-filter=d "$BASE_REF"...HEAD -- '*.md') || { echo "❌ Failed to get changed files"; exit 1; }
-      [ -z "$FILES" ] && { echo "ℹ️ No .md files changed."; exit 0; }
+    BASE_REF="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-origin/main}"
+    [ -z "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ] && git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
 
-      echo "📄 Changed files: $FILES"
-      ERROR_FOUND=false
+    FILES=$(git diff --name-only --diff-filter=d "$BASE_REF"...HEAD -- '*.md') || { echo "❌ Failed to get changed files"; exit 1; }
+    [ -z "$FILES" ] && { echo "ℹ️ No .md files changed."; exit 0; }
 
-      # Trailing spaces (auto-fix)
-      for file in $FILES; do
-        if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
-          echo "⚠️ Trailing spaces found in $file – attempting to fix..."
-          sed -i 's/[[:blank:]]\+$//' "$file" || true
+    echo "📄 Changed files: $FILES"
+    ERROR_FOUND=false
 
-          # Recheck
-          if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
-            echo "❌ Could not auto-fix trailing spaces in $file"
-            ERROR_FOUND=true
-          else
-            echo "✅ Trailing spaces fixed in $file"
-          fi
-        fi
-      done
-      [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces remaining."
+    # Auto-fix trailing spaces
+    while IFS= read -r file; do
+      if grep '[[:blank:]]$' "$file" >/dev/null 2>&1; then
+        echo "⚠️ Trailing spaces detected in $file. Fixing..."
+        sed -i 's/[[:blank:]]\+$//' "$file"
+      fi
+    done <<< "$FILES"
+
+    # Check if there are changes to commit
+    if ! git diff --quiet; then
+      echo "✍️ Committing auto-fixes..."
+      git add $FILES
+      git commit -m "chore(ci): auto-fix trailing spaces [ci skip]"
+      echo "⬆️ Pushing fixes back to branch $CI_COMMIT_REF_NAME"
+      git push "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME || { echo "❌ Push failed"; exit 1; }
+    else
+      echo "✅ No trailing spaces to fix."
+    fi
+
+    # Continue with other checks (links, urls, etc.)
+    echo "ℹ️ Running link and URL checks..."
 
       # Internal links
       for file in $FILES; do
