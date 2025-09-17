@@ -16,14 +16,22 @@ lint_markdown:
       echo "📄 Changed files: $FILES"
       ERROR_FOUND=false
 
-      # Trailing spaces
+      # Trailing spaces (auto-fix)
       for file in $FILES; do
         if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
-          echo "❌ Trailing spaces in $file"
-          ERROR_FOUND=true
+          echo "⚠️ Trailing spaces found in $file – attempting to fix..."
+          sed -i 's/[[:blank:]]\+$//' "$file" || true
+
+          # Recheck
+          if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
+            echo "❌ Could not auto-fix trailing spaces in $file"
+            ERROR_FOUND=true
+          else
+            echo "✅ Trailing spaces fixed in $file"
+          fi
         fi
       done
-      [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces."
+      [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces remaining."
 
       # Internal links
       for file in $FILES; do
