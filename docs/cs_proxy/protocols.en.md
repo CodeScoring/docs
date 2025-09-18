@@ -9,12 +9,12 @@ This section contains data formats and response modification rules for each supp
 
 ## Maven
 
-### Processed Files
+### Processed files
 
 - `maven-metadata.xml` - version information manifest
 - `.jar`, `.war`, `.ear` - package files
 
-### maven-metadata.xml Field Modifications
+### maven-metadata.xml field modifications
 
 ```xml
 <metadata>
@@ -32,12 +32,12 @@ This section contains data formats and response modification rules for each supp
 
 ## NPM
 
-### Files Processed
+### Files processed
 
 - Package JSON manifest (path `/{repository}/*`)
 - `.tgz` - package archives
 
-### NPM Manifest Field Modifications
+### NPM Manifest field modifications
 
 ```json
 {
@@ -56,12 +56,12 @@ This section contains data formats and response modification rules for each supp
 
 ## PyPI
 
-### Files and Resources
+### Files and resources
 
 - Simple API HTML pages (path `/{repository}/simple/*`)
 - `.zip`, `.tar`, `.tgz`, `.tar.gz`, `.tar.bz2`, `.egg`, `.whl` - package files
 
-### HTML Page Modifications
+### HTML page modifications
 
 - Elements for blocked versions are removed
 - URLs are rewritten for proxy downloading
@@ -78,13 +78,13 @@ This section contains data formats and response modification rules for each supp
 
 ## NuGet
 
-### Handled Resources
+### Handled resources
 
 - `index.json` - service index
 - Registration index JSON
 - `.nupkg` - package files
 
-### Registration Index Modifications
+### Registration index modifications
 
 ```json
 {
