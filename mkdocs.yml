@@ -36,7 +36,6 @@ theme:
 
 plugins:
   - search
-  - print-site
   - i18n:
       languages:
         ru: "Русский"
@@ -286,6 +285,7 @@ plugins:
           nexus-changelog: "Плагин для Nexus"
           vscode-changelog: "Расширение для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
+  - print-site
 
 nav:
   - home:
@@ -533,6 +533,9 @@ extra_css:
   - css/hide_lang_links.css
   - css/print.css
   - stylesheets/home.css
+
+extra_javascript:
+  - js/filter-search.js
 
 extra:
   social:
