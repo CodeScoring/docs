@@ -56,8 +56,8 @@ hide:
 Для уровня доступа User доступ организуется индивидуально. Для каждого проекта может быть предоставлен доступ со следующими ролями:
 
 - **Viewer** — доступ только на просмотр результатов анализов в рамках проекта;
-- **Developer** — доступ к запуску анализа в веб-интерфейсе, через агента и через плагин прокси-репозитория;
-- **Owner** — доступ к просмотру политик проекта, изменению настроек проекта и управлению доступами других пользователей проекта.
+- **Developer** — все права роли Viewer, а также доступ к запуску анализа в веб-интерфейсе, через агента и через плагин прокси-репозитория;
+- **Owner** — все права роли Developer, доступ к изменению настроек проекта и управлению доступами других пользователей проекта.
 
 Для каждой роли в рамках уровня доступа **User** доступно создание CLI проектов через API при активации параметра **Может создавать CLI проекты через API** в профиле пользователя.
 
@@ -97,6 +97,7 @@ hide:
 | **Policies**: удаление политик                                      | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Policy alerts**: просмотр списка алертов                          | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Policy alerts**: экспорт списка алертов                           | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
+| **Policy alerts**: отправка уведомлений | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Policy ignores**: просмотр правил                                 | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Policy ignores**: создание правил                                 | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Policy ignores**: редактирование правил                           | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |

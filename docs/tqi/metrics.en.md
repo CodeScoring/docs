@@ -5,7 +5,7 @@ hide:
 
 # Calculating technical debt metrics
 
-CodeScoring TQI tracks several technical debt metrics. The main ones are **cyclomatic complexity** and **clone occurrence**.
+CodeScoring.TQI tracks several technical debt metrics. The main ones are **cyclomatic complexity** and **clone occurrence**.
 
 ## Calculating cyclomatic complexity
 

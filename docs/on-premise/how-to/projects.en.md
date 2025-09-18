@@ -66,7 +66,9 @@ SBoM export is supported in the following formats:
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
 - CycloneDX v1.6 Ext JSON -- extended CycloneDX format containing additional component properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`.
 
-You can configure the properties of components during export on the [project dependency settings page](/on-premise/how-to/export-results.en/#bom-settings).
+You can configure the properties of components during export on the [project dependency settings page](/sca/export-results.en/#bom-settings).
+
+The `manufacturer` property, which [defines the organization that created the component for generating SBoM](https://cyclonedx.org/docs/1.6/json/#metadata_component_manufacturer){:target=_blank} can be configured at project's editing page (`Settings -> Projects`, select the project).
 
 For CLI projects, you can also download SBoM via the interface by clicking the **Import SBoM** button. The downloaded SBoM must be in CycloneDX format and have the `.json` extension.
 

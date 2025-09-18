@@ -3,9 +3,11 @@ hide:
   - footer
 ---
 
-# Настройка через файл конфигурации
+# Настройка через конфигурационный файл
 
 Управлять параметрами консольного агента можно через добавление файла конфигурации `codescoring-johnny-config.yaml` в директорию с агентом. Ниже представлен список доступных параметров и пример конфиг-файла.
+
+## Список параметров
 
 ### Параметры композиционного анализа
 
@@ -35,10 +37,18 @@ hide:
 - **scan-files** – сканирование файловой системы внутри образа. По умолчанию значение `false`;
 - **insecure-skip-tls-verify** –  пропуск TLS верификации при подключении к реестру образов. По умолчанию значение `false`;
 - **insecure-use-http** – использование протокола http при подключении к реестру образов. По умолчанию значение `false`;
-- **authority** – URL для подключения к реестру образов;
-- **login** – логин учетной записи для подключения к реестру образов;
-- **password** – пароль учетной записи для подключения к реестру образов;
-- **token** – токен для подключения к реестру образов.
+- **registries** – список конфигураций для подключения к нескольким реестрам образов. Каждый элемент списка может содержать:
+  - **authority** – URL реестра (например, `docker.io`, `localhost:5000`);
+  - **login** – имя пользователя для подключения к реестру;
+  - **password** – пароль для подключения к реестру;
+  - **token** – токен для подключения к реестру. Взаимоисключается с параметрами `login` и `password`.
+
+### Параметры сканирования сборки C и C++
+
+- **build-result** – флаг, указывающий, что входными данными являются результаты предыдущей сборки, включая скомпилированные артефакты. По умолчанию значение `false`;
+- **lib-versions** – путь к JSON-файлу со списком версий анализируемых библиотек;
+- **output** – путь к файлу, в который будут сохранены результаты анализа сборки;
+- **unresolved-file** – путь к файлу, в который будет сохранена информация о библиотеках с неразрешёнными версиями.
 
 ### Параметры парсинга для разных технологий
 
@@ -53,7 +63,11 @@ hide:
 - **match** – условие для определения подходящих манифестов, может быть по названию (`equal`) или расширению (`extension`);
 - **properties** – дополнительные свойства для парсеров окружения, такие как путь к исполняемым файлам;
 - **dotnet-path**, **maven-path**, **gradle-path**, **yarn-path**, **go-path**, **sbt-path**,**npm-path**, **pnpm-path**, **composer-path**, **pip-path**, **poetry-path**, **conda-lock-path**  – пути к пакетным менеджерам для разрешения зависимостей в окружении;
-- **resolve-enabled** – разрешение зависимостей в окружении. По умолчанию значение `false`.
+- **resolve-enabled** – разрешение зависимостей в окружении. По умолчанию значение `false`;
+- **dotnet-args**, **gradle-args**, **maven-args**, **sbt-args**, **npm-args**, **yarn-args**, **pnpm-args**, **composer-args**, **poetry-args**, **conda-args**, **swift-args** – аргументы для передачи соответствующим пакетным менеджерам при разрешении зависимостей в окружении;
+- **configuration** – конфигурация для парсера `gradle-dependency-tree_txt`;
+- **depth** – глубина парсинга для парсера `jar`. По умолчанию значение `1`;
+- **python-version** – версия Python, используемая для разрешения зависимостей в окружении.
 
 ### Параметры сканирования архивов
 
@@ -62,9 +76,10 @@ hide:
 
 ### Параметры вывода результатов
 
-- **format** – формат вывода. По умолчанию `coloredtable`. Возможна выгрузка в форматы `table`, `text`, `junit`, `sarif`, `csv`, `gl-dependency-scanning-report`, `gl-code-quality-report`;
+- **format** – формат вывода найденных уязвимостей. По умолчанию `coloredtable`. Возможна выгрузка в форматы `table`, `text`, `junit`, `sarif`, `csv`, `gl-dependency-scanning-report`, `gl-code-quality-report`;
 - **group-vulnerabilities-by** – переменная для группировки уязвимостей в таблице;
-- **sort-vulnerabilities-by** – порядок переменных для сортировки уязвимостей в таблице.
+- **sort-vulnerabilities-by** – порядок переменных для сортировки уязвимостей в таблице;
+- **alerts-format** – формат вывода отчёта по срабатываниям политик. Поддерживаются форматы: `coloredtable`, `table`, `text`, `json`, `csv`. Значение по умолчанию – `coloredtable`.
 
 ### Параметры инсталляции
 
@@ -91,7 +106,7 @@ hide:
 - <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **redact** – маскирование найденных секретов в логах и консоли. Значение 0 полностью отображает секреты, 100 – полностью скрывает. Можно задать промежуточное значение, например, 20 (маскирует 20% секрета). По умолчанию `0`;
 - <a href="/changelog/on-premise-changelog/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **verbose** – включение подробного (verbose) вывода при сканировании. По умолчанию `false`.
 
-### Пример файла
+## Пример файла
 
 ```yaml
 # analysis options
@@ -203,7 +218,7 @@ scan:
       enabled: true
       # C# parsers
       parsers:
-        # .csporj parser
+        # .csproj parser
         csproj:
           # use parser
           enabled: true
@@ -225,6 +240,8 @@ scan:
           properties:
             # path to dotnet for resolve
             dotnet-path: dotnet
+            # pass args to dotnet tool
+            dotnet-args: ""
         # .nuspec parser
         nuspec:
           # use parser
@@ -317,6 +334,8 @@ scan:
           properties:
             # path to gradle for resolve
             gradle-path: ./gradlew
+            # args to gradle tool
+            gradle-args: ""
         # .gradle parser
         gradle:
           # use parser
@@ -377,6 +396,8 @@ scan:
           properties:
             # path to maven for resolve
             maven-path: mvn
+            # args to mvn tool
+            maven-args: ""
         # pom.xml parser
         pom_xml:
           # use parser
@@ -399,6 +420,8 @@ scan:
           properties:
             # path to sbt for resolve
             sbt-path: sbt
+            # args to sbt tool
+            sbt-args: ""
     # JavaScript
     js:
       # Use JavaScript parsers
@@ -421,6 +444,8 @@ scan:
           properties:
             # path to npm for resolve
             npm-path: npm
+            # args for npm tool
+            npm-args: ""
         # package-lock.json parser
         package-lock_json:
           # use parser
@@ -449,6 +474,8 @@ scan:
           properties:
             # path to yarn for resolve
             yarn-path: yarn
+            # args for yarn tool
+            yarn-args: ""
         # pnpm-lock.yaml parser
         pnpm_lock_yaml:
           # use parser
@@ -465,6 +492,8 @@ scan:
           properties:
             # path to npm for resolve
             pnpm-path: pnpm
+            # args for pnpm tool
+            pnpm-args: ""
     # Objective-C
     objective_c:
       # Use Objective-C parsers
@@ -517,6 +546,8 @@ scan:
           properties:
             # path to composer for resolve
             composer-path: composer
+            # pass args to composer tool
+            composer-args: ""
     # Python
     python:
       # Use Python parsers
@@ -539,6 +570,8 @@ scan:
           properties:
             # path to pip for resolve
             pip-path: pip
+            # args for pip tool
+            pip-args: ""
         # Pipfile parser
         pipfile:
           # use parser
@@ -567,6 +600,8 @@ scan:
           properties:
             # path to poetry for resolve
             poetry-path: poetry
+            # args for poetry tool
+            poetry-args: ""
         # pyproject.toml parser
         pyproject_toml:
           # use parser
@@ -653,6 +688,38 @@ scan:
           properties:
             # path to conda-lock for resolve
             conda-lock-path: conda-lock
+            # args for conda tool
+            conda-args: ""
+    # swift
+    swift:
+      # Use swift parsers
+      enabled: true
+      # swift parsers
+      parsers:
+        # Package.resolved parser
+        package_resolved:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Package.resolved")
+        # Package.swift parser
+        package_swift:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("Package.swift")
+        # Package.swift env parser
+        package_swift_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("Package.swift")
+          # parser properties
+          properties:
+            # path to swift for resolve
+            swift-path: swift
+            # args for swift tool
+            swift-args: ""
   # scan secrets
   secrets:
     # gitleaks options
@@ -693,8 +760,10 @@ scan:
     depth: 1
 # stats options
 stats:
-  # Report format. Supported formats: coloredtable, table, text, junit, sarif, csv. Default output to console.
+  # Report format. Supported formats: coloredtable, table, text, junit, sarif, csv. Default output coloredtable to console.
   format: coloredtable,junit>>junit.xml
+  # Policy alerts report format. Supported formats: coloredtable, table, text, json, csv. Default output coloredtable to console.
+  alerts-format: coloredtable
   # Group vulnerabilities by field
   group-vulnerabilities-by: vulnerability
   # Sort vulnerabilities by fields

@@ -5,56 +5,176 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.0] - 2025-09-12
+
+#### Added
+
+- <span class="module-tag sca">SCA</span> Added vulnerability reachability analysis for Java, powered by the Svace call graph builder  
+- <span class="module-tag sca">SCA</span> Added policy "Vulnerability is reachable"  
+- <span class="module-tag sca">SCA</span> Added UI display of the reachability attribute for vulnerabilities  
+- <span class="module-tag sca">SCA</span> Added ability to specify `component manufacturer` data to be placed in the relevant section of SBOM versions `CycloneDX 1.6` and `CycloneDX 1.6 ext`, both at installation level and per project  
+- Added new environment variables `DEFAULT_PROJECT_MANUFACTURER_NAME`, `DEFAULT_PROJECT_MANUFACTURER_EMAIL`, `DEFAULT_PROJECT_MANUFACTURER_HOMEPAGE`  
+- <span class="module-tag sca">SCA</span> Added saving of annotated data when importing SBoM
+- <span class="module-tag sca">SCA</span> Added support for SBoM export in SPDX format
+- <span class="module-tag sca">SCA</span> Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM  
+- Added integration with external identity providers implementing the OpenID Connect protocol  
+- <span class="module-tag sca">SCA</span> Added localization of PDF reports in the SCA module  
+- Added saving of links for Jira issues and emails created by automatic actions with alerts
+- <span class="module-tag sca">SCA</span> Added "Requirement" field displaying the required version range from the manifest in the project dependencies section  
+- Added optional "Priority" field in the Jira task creation policy action form  
+- Added ability to create custom templates for emails and Jira tasks in alert actions (default template is built-in)  
+- Added script for re-encrypting sensitive data when changing the `SECRET_KEY` token  
+- <span class="module-tag sca">SCA</span> Added "Release Date" field to the project dependencies list  
+- Added grouping of options in the condition dropdown when configuring a policy  
+- Added rule dragging on the policy configuration page, and updated their appearance  
+- Added ability to automatically update the audit log list  
+- <span class="module-tag sca">SCA</span> Added project search and filters by project, relation, detection type, and environment for individual vulnerabilities on the dependencies page  
+- <span class="module-tag tqi">TQI</span> Added ability to calculate the number of unique authors in GitLab outside of analysis runs  
+- <span class="module-tag sca">SCA</span> Added ability to run SBOM scans from scan history to check for new vulnerabilities in historical component data  
+- <span class="module-tag sca">SCA</span> Added "Max fixed version" field to the dependencies section of the project PDF report  
+- <span class="module-tag tqi">TQI</span> Added filtering by multiple authors on the "List" and "Activity Map" tabs in the `TQI -> Authors` section  
+- <span class="module-tag tqi">TQI</span> Added tooltip popup with author’s projects when hovering over author’s project count in the `TQI -> Authors` section  
+- <span class="module-tag tqi">TQI</span> Added author filter on the project list page in the TQI section  
+- <span class="module-tag tqi">TQI</span> Added "Number of Authors" chart on the project page in the TQI section  
+- <span class="module-tag tqi">TQI</span> Added "Author’s Commits" and "Author’s Projects" charts on the author page in the TQI section 
+- Added ability to rename projects  
+- Added ability to perform bulk actions on certain entities in the Settings section  
+- Added ability to stop report generation  
+- <span class="module-tag secrets">Secrets</span> Added ability to export a CSV report with secrets on the project tab  
+- <span class="module-tag secrets">Secrets</span> Added ability to generate a PDF report with secrets on the project tab  
+
+#### Changed
+
+- <span class="module-tag sca">SCA</span> Improved parsing of VCS links in CycloneDX SBoM
+- <span class="module-tag tqi">TQI</span> Improved the mechanism for merging authors by email
+- Unified the UI for running alert actions manually and automatically  
+- <span class="module-tag sca">SCA</span> Commit hash in the project PDF report is now displayed in full  
+- Reduced maximum number of items in paginated API responses to 100
+- Blocked launch of SCA and TQI analyses until code cloning is completed for VCS projects
+- Improved messages about inability to run SCA analysis for VCS and CLI projects
+- <span class="module-tag osa">OSA</span> Changed detailed package info display on the OSA module package page
+- <span class="module-tag tqi">TQI</span> Fixed display of "Change author mapping" button when TQI module is disabled
+- Changed `GOST:source_lang` field to `GOST:source_langs` in all exported files
+- <span class="module-tag tqi">TQI</span> Added information on the number of months an author committed to the TQI section
+- <span class="module-tag tqi">TQI</span> Project parameter "Duration (in months)" now shows integer number of months of project activity
+- Removed `internal` field from `/api/activation_keys/` API response
+- Split project list API into modules (SCA, TQI, Secrets)
+- Migrated base images of Index Proxy, `frontend` service, and `backend / tasks-*` services from Debian bookworm to Alpine Linux  
+- Improved performance of scan history
+- <span class="module-tag sca">SCA</span> Optimized loading of dependency and vulnerability lists
+- <span class="module-tag secrets">Secrets</span> Changed display and content of tooltips about inability to train ML model in Secrets module
+- Changed "Deferred blocking" filter type on the policies page
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Fixed alert table format in project PDF report
+- Fixed link to refactoring candidate projects in the "Dashboard" section
+- Fixed reset of selected number of items per page in tables when changing sorting
+- Fixed pagination reset when navigating to the same page
+- <span class="module-tag sca">SCA</span> Fixed link handling in CycloneDX SBoM
+- <span class="module-tag sca">SCA</span> Implemented missing logic for handling alerts when comparing PURL values with case sensitivity
+- Fixed auto-generated type names in OpenAPI schema
+- Fixed verb forms of policy conditions in English locale  
+- <span class="module-tag tqi">TQI</span> Fixed project links in "Organization Projects" tab on the author page
+- <span class="module-tag tqi">TQI</span> Fixed links to code duplicates in the duplicates map
+- <span class="module-tag tqi">TQI</span> Fixed CSV export of author’s projects
+- Fixed slow loading of alerts when filter "Repository Manager = N/A" is selected 
+- Fixed Swagger schema for `/api/activation_keys/` endpoint
+- <span class="module-tag sca">SCA</span> Fixed missing options in dependency environment filter when `USE_SMART_FILTERS` is set to `False` 
+- <span class="module-tag sca">SCA</span> Fixed error when scanning a project with dependencies containing invalid PURLs  
+- Fixed search in dropdowns for Russian locale  
+- <span class="module-tag tqi">TQI</span> Fixed "Refactoring candidate projects" and "Intra-project duplicates" widgets on the dashboard
+- Fixed search within condition dropdowns on the policy editing page  
+- <span class="module-tag sca">SCA</span> Fixed behavior of "Dependency is dangerous" policy in SCA module  
+- <span class="module-tag sca">SCA</span> Fixed policy execution error with condition `PURL exactly_match`
+
+### [2025.29.4] - 2025-08-22
+
+#### Added
+
+- Added granular timeout settings for container image registries: connect, pool acquisition, read, and write
+- Added a per-registry requests-per-second (RPS) rate-limit setting for connected container registries
+
+#### Changed
+
+- Changed how parameters for connected container images registries are configured: environment-variable configuration has been removed; all settings are now managed in the UI.
+
+### [2025.29.3] - 2025-08-15
+
+#### Added
+
+- Added task results storage time setting in Redis `TASK_RESULT_EXPIRATION_PERIOD`
+
+#### Changed
+
+- Changed the version of the osa-api Alpine base image from 3.21 to 3.20 to support the latest versions of Dynatrace monitoring
+
+### Fixed
+
+- Fixed the lack of policy alerts in the PDF report download for the first SCA scan
+- Optimized database queries when calculating policy ignores
+- Fixed the behavior of archiving OSA packages. OSA Packages that were loaded but never requested are now sent to the archive
+- Fixed saving the checkbox "Can create CLI projects via API" on the CodeScoring user settings form
+- Optimized regular updates of current OSA packages
+
+### [2025.29.2] - 2025-08-05
+
+#### Fixed
+
+- Fixed background package update error in OSA module
+- Fixed duplication of vulnerabilities in PDF project report
+- Added timeout settings for Redis connections via variables `REDIS_SOCKET_CONNECT_TIMEOUT`, `REDIS_SOCKET_TIMEOUT`, `REDIS_SOCKET_KEEPALIVE`
+
 ### [2025.29.1] - 2025-07-22
 
 #### Fixed
 
-- Optimized loading of dependencies page in SCA module
+- <span class="module-tag sca">SCA</span> Optimized loading of dependencies page in SCA module
 - Fixed error when changing LDAP settings
 
 ### [2025.29.0] - 2025-07-18
 
 #### Added
 
-- Added the ability to view the results of SCA analysis of a project from the scan history
-- Added the ability to customize the export of SBoM and PDF files
-- Added the ability to manually create a task in the task manager and send letters for selected alerts
-- Added the ability to configure deferred blocking in policies
-- Added the ability to apply policy ignores to project groups
-- Added a new Security Manager role
-- Added a condition for the `Dependency is a descendant` policy to search for child dependencies of a selected package at any level of the dependency graph
-- Added the `Max fixed version` column in the dependency table
-- Added the ability to download the current version of the Johnny binary agent directly from the installation
+- <span class="module-tag sca">SCA</span> Added the ability to view the results of SCA analysis of a project from the [scan history](/sca/scan-history.en)
+- Added the ability to customize the export of SBoM and PDF files (/sca/export-results.en)
+- Added the ability to [manually create a task](/on-premise/how-to/policies.en) in the task manager and send letters for selected alerts
+- Added the ability to configure [deferred blocking](/on-premise/how-to/policies.en) in policies
+- Added the ability to apply [policy ignores](/on-premise/how-to/ignores.en) to project groups
+- Added a new [Security Manager role](/on-premise/how-to/users.en)
+- <span class="module-tag sca">SCA</span> Added a condition for the `Dependency is a descendant` policy to search for child dependencies of a selected package at any level of the dependency graph
+- <span class="module-tag sca">SCA</span> Added the `Max fixed version` column in the dependency table
+- <span class="module-tag sca">SCA</span> Added the ability to download the current version of the Johnny binary agent directly from the installation
 - Added the "Technology" column to the alert list export
 - Added pop-up notifications with the analysis result upon its completion
 - Added search in drop-down list of criteria in policy creation and editing forms
 - Added duplicate block of buttons after the group of conditions in policy creation and editing forms
 - Added ability to expand the policy conditions management block
-- Added settings for the format of date and number output in the UI
-- Added legend for the project dependency graph
-- Added analysis identifier to webhooks associated with the completion of SCA analysis
-- Added output of the archive/activity flag for OSA packages, container images and alerts
+- Added [settings for the format of date and number output]((/on-premise/how-to/user-profile.en)) in the UI
+- <span class="module-tag sca">SCA</span> Added legend for the project dependency graph
+- <span class="module-tag sca">SCA</span> Added analysis identifier to webhooks associated with the completion of SCA analysis
+- <span class="module-tag osa">OSA</span> Added output of the archive/activity flag for OSA packages, container images and alerts
 - Added check for data presence when exporting a PDF report
 - Added error handling when trying to download a file that was deleted due to expiration of the storage period
 
 #### Changed
 
 - The `tasks-media` queue has been transferred to Celery. The number of workers is controlled by the variables `CELERY_MEDIA_WORKER_CONCURRENCY` (minimum, default is 2) and `CELERY_MEDIA_WORKER_MAX_CONCURRENCY` (maximum, default is 4). The variable `HUEY_MEDIA_WORKERS` has been removed
-- The OSA background package update mechanism has been optimized. Only relevant packages are updated. By default, packages requested in the last 14 days are considered relevant, the parameter is configured in the installation settings
+- <span class="module-tag osa">OSA</span> The OSA background package update mechanism has been optimized. Only relevant packages are updated. By default, packages requested in the last 14 days are considered relevant, the parameter is configured in the installation settings
 - Improved error messages when checking the availability of repositories via SSH
 - Improved display of the list of events in the "Webhooks" section
-- Improved logic for displaying the ML model management section in the Secrets module
+- <span class="module-tag secrets">Secrets</span> Improved logic for displaying the ML model management section in the Secrets module
 - Optimized the algorithm for launching policy recalculation when updating vulnerabilities: launch occurs only when data that affects policies changes
 - Optimized loading of pages with images and alerts
 - Changed the choice of a secure protocol for connecting to a mail server from checkboxes to a field with a drop-down list
 - Unified action buttons in sections with entity tables
 - Updated the OpenAPI specification in terms of error handling
-- Changed the base image in the OSA API service from Debian bookworm to Alpine
+- <span class="module-tag osa">OSA</span> Changed the base image in the OSA API service from Debian bookworm to Alpine
 - Updated the pgbouncer image to switch from libevent to c-ares as a DNS backend for support SOA record resource types and EDNS0 protocol
-- Updated gitleaks version for Secrets module to 8.27.0
+- <span class="module-tag secrets">Secrets</span> Updated gitleaks version for Secrets module to 8.27.0
 - Updated Redis image from 7.0.12 to 7.4.3
 - Updated PostgreSQL image from 13.4 to 13.21
-- Updated Johnny version on installation to 2025.29.1
+- <span class="module-tag sca">SCA</span> Updated Johnny version on installation to 2025.29.1
 
 #### Removed
 
@@ -63,21 +183,21 @@ hide:
 #### Fixed
 
 - Fixed search on author profile page in "Organization Projects" section
-- Fixed image hash validation error when passing value via `--hash` parameter when scanning image via Johnny
+- <span class="module-tag sca">SCA</span> Fixed image hash validation error when passing value via `--hash` parameter when scanning image via Johnny
 - Fixed some API schema inaccuracies in Swagger
-- Fixed error processing list of entities from Docker Registry when receiving `null` instead of empty list
+- <span class="module-tag osa">OSA</span> Fixed error processing list of entities from Docker Registry when receiving `null` instead of empty list
 - Fixed error processing image signature files with `.sig` extension and `.att` when working with container registries
-- Fixed an error on the "Similar Authors" tab on the author profile page in the case of authors without certain technologies
+- <span class="module-tag tqi">TQI</span> Fixed an error on the "Similar Authors" tab on the author profile page in the case of authors without certain technologies
 - Fixed an error with incomplete output of connected version control systems when creating a VCS project
 - Fixed the output of a long file name in the list of exported files
 - Fixed the output of the "Until" field in the policy ignore modal window
-- Fixed the reset of the dependency graph state when switching to another browser tab
+- <span class="module-tag sca">SCA</span> Fixed the reset of the dependency graph state when switching to another browser tab
 - Fixed problems updating data on the page after editing some entities
-- Fixed deadlocks when using multiple instances of the OSA Registration service
+- <span class="module-tag osa">OSA</span> Fixed deadlocks when using multiple instances of the OSA Registration service
 - Fixed an error when editing the connection to the Jira task manager
 - Fixed incorrect hiding of sensitive data in an error when cloning a project
 - Fixed the display of selected parameters in the policy condition
-- Fixed the output of the list of authors on the page with detailed information about the package blocking in the OSA module
+- <span class="module-tag osa">OSA</span> Fixed the output of the list of authors on the page with detailed information about the package blocking in the OSA module
 - Fixed saving policies when changing certain conditions
 
 ### [2025.21.2] - 2025-06-18

@@ -5,7 +5,7 @@ hide:
 
 # Tracking code clones
 
-CodeScoring TQI allows you to track code fragments that were copied from one project of the organization to another, or duplicated within a single project.
+CodeScoring.TQI allows you to track code fragments that were copied from one project of the organization to another, or duplicated within a single project.
 
 ## Cross-project clones
 

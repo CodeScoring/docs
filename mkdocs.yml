@@ -1,7 +1,4 @@
-site_name: CodeScoring Documentation
-
-# repo_url: https://gitlab.com/mkdocs-i18n/mkdocs-i18n
-# edit_uri: ''
+site_name: "CodeScoring Documentation"
 
 theme:
   name: material
@@ -10,9 +7,13 @@ theme:
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
   features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.tracking
     - navigation.indexes
     - content.code.copy
+    - content.code.select
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -20,15 +21,15 @@ theme:
         name: Switch to dark mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/toggle-switch
         name: Switch to system preference
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/toggle-switch-off
         name: Switch to light mode
@@ -46,12 +47,13 @@ plugins:
         en: "This page has not yet been translated to English."
       translate_nav:
         en:
-          main: "General"
-          begin: "Beginning"
+          home: "Home"
           functionality: "Functionality"
+          functional-characteristics: "Functional characteristics"
+          getting-started: "Getting started"
+          begin: " "
           integration-stages: "Integration stages"
           supported-package-managers: "Supported ecosystems and analysis methods"
-          changelog: "Changelog"
           installation: "On-premise installation and maintenance"
           hardware: "Hardware requirements"
           installation-docker: "Installation in Docker"
@@ -63,8 +65,9 @@ plugins:
           ssl: "Self signed SSL certificates"
           postgresql-tls: "Connecting to PostgreSQL/PgBouncer using TLS"
           analysis-ignore-paths: "Analysis paths and exceptions"
+          scripts: "Scripts for installation managing"
           troubleshooting: "Troubleshooting"
-          getting-started: "Getting started with on-premise"
+          how-to: "Getting started with on-premise"
           activation: "System activation"
           user-profile: "Configuring user profile"
           proprietors: "Creating proprietors"
@@ -77,21 +80,23 @@ plugins:
           groups: "Creating user groups"
           users: "Managing user accounts"
           ldap: "Setting up LDAP"
+          oidc: "Setting up OpenID Connect"
           notifications: "Setting up notifications"
           audit-log: "Working with audit log"
           metrics: "Collecting metrics"
           webhooks: "Setting up webhooks"
           api: "Working with API"
-          sca: "CodeScoring SCA"
+          user-guide: "User guide"
+          sca: "CodeScoring.SCA"
           sca-general: "General description"
           sca-dependencies: "Overviewing dependencies"
           launch-analysis: "Launching a scan"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
-          osa: "CodeScoring OSA"
+          osa: "CodeScoring.OSA"
           osa-general: "General description"
-          nexus-osa: "Nexus OSA"
-          jfrog-osa: "JFrog OSA"
+          nexus-osa: "Plugin for Nexus"
+          jfrog-osa: "Plugin for JFrog"
           repo-managers: "Connecting a repository manager"
           registries: "Connecting a container registry"
           osa-policies: "Configuring OSA policies"
@@ -102,9 +107,13 @@ plugins:
           cs-proxy-general: "Overview"
           cs-proxy-config: "Service configuration"
           cs-proxy-protocols: "Supported protocols"
+          ide: "IDE integrations"
+          ide-general: "General description"
+          vscode-sca: "VS Code extension"
+          intellij-sca: "IntelliJ plugin"
           agent: "CLI agent Johnny"
           agent-general: "General description"
-          agent-config: "Configuration"
+          agent-config: "Using configuration file"
           agent-variables: "Setting environment variables"
           agent-scan: "Scan command"
           agent-scan-dir: "Scanning a directory"
@@ -115,6 +124,7 @@ plugins:
           agent-scan-bom: "Scanning a SBoM"
           agent-scan-technology: "Scanning a technology"
           agent-scan-secrets: "Scanning for secrets"
+          agent-reachability: "Using reachability analysis"
           agent-sign-verify-bom: "Signing and verifying a SBoM"
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integrating into Gitlab CI"
@@ -138,7 +148,7 @@ plugins:
           feeds-protestware: "Working with protestware feed"
           feeds-kaspersky: "Using Kaspersky OSS Threats Data Feed"
           feeds-oss-index: "Integrating OSS Index"
-          secrets: "CodeScoring Secrets"
+          secrets: "CodeScoring.Secrets"
           secrets-general: "General description"
           secrets-setup: "Setting up engine configuration"
           secrets-vcs: "Configuring VCS project for secret search"
@@ -146,26 +156,28 @@ plugins:
           secrets-cli: "Searching secrets in CLI projects"
           secrets-findings: "Working with findings"
           secrets-model: "Managing ML Model"
-          tqi: "CodeScoring TQI"
+          tqi: "CodeScoring.TQI"
           tqi-general: "General description"
           tqi-analysis: "Launching TQI analysis"
           tqi-results: "Viewing analysis results"
           tqi-authors: "Building author profiles"
           tqi-clones: "Tracking code clones"
           tqi-metrics: "Calculating technical debt metrics"
-          changelog-general: "CodeScoring Changelog"
+          changelog: "Changelog"
+          on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
-          on-premise-changelog: "CodeScoring on-premise"
-
+          vscode-changelog: "VS Code extension"
+          intellij-changelog: "IntelliJ plugin"
         ru:
-          main: "Общая информация"
-          begin: "Начало"
-          functionality: "Функциональные характеристики"
+          home: "Главная"
+          functionality: "Функциональность"
+          functional-characteristics: "Функциональные характеристики"
+          getting-started: "Начало работы"
+          begin: " "
           integration-stages: "Этапы интеграции"
           supported-package-managers: "Поддерживаемые экосистемы и способы анализа"
-          changelog: "Changelog"
           installation: "Установка и эксплуатация"
           hardware: "Аппаратные требования"
           installation-docker: "Установка системы в Docker"
@@ -178,6 +190,8 @@ plugins:
           postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
           troubleshooting: "Диагностика неполадок"
+          how-to: "Начало работы с инсталляцией"
+          scripts: "Скрипты для управления инсталляцией"
           getting-started: "Начало работы с инсталляцией"
           activation: "Активация системы"
           user-profile: "Настройка профиля пользователя"
@@ -191,20 +205,22 @@ plugins:
           groups: "Создание групп пользователей"
           users: "Управление учетными записями"
           ldap: "Настройка LDAP"
+          oidc: "Настройка OpenID Connect"
           notifications: "Настройка уведомлений"
           audit-log: "Работа с аудит-логом"
           metrics: "Сбор метрик"
           webhooks: "Подключение вебхуков"
           api: "Работа с API"
-          sca: "CodeScoring SCA"
+          user-guide: "Руководство пользователя"
+          sca: "CodeScoring.SCA"
           sca-general: "Общее описание"
           sca-dependencies: "Обзор зависимостей"
           launch-analysis: "Запуск сканирования"
           scan-history: "Отслеживание истории сканирований"
-          osa: "CodeScoring OSA"
+          osa: "CodeScoring.OSA"
           osa-general: "Общее описание"
-          nexus-osa: "Nexus OSA"
-          jfrog-osa: "JFrog OSA"
+          nexus-osa: "Плагин для Nexus"
+          jfrog-osa: "Плагин для JFrog"
           repo-managers: "Подключение менеджера репозиториев"
           registries: "Подключение реестра с образами"
           osa-policies: "Настройка политик OSA"
@@ -215,6 +231,10 @@ plugins:
           cs-proxy-general: "Общее описание"
           cs-proxy-config: "Настройка сервиса"
           cs-proxy-protocols: "Поддерживаемые протоколы"
+          ide: "Интеграция с IDE"
+          ide-general: "Общее описание"
+          vscode-sca: "Расширение для VS Code"
+          intellij-sca: "Плагин для IntelliJ"
           agent: "Консольный агент Johnny"
           agent-general: "Общее описание"
           agent-config: "Настройка через конфигурационный файл"
@@ -228,6 +248,7 @@ plugins:
           agent-scan-bom: "Сканирование SBoM"
           agent-scan-technology: "Сканирование технологии"
           agent-scan-secrets: "Сканирование на наличие секретов"
+          agent-reachability: "Анализ достижимости уязвимостей"
           agent-sign-verify-bom: "Подпись и верификация SBoM"
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
@@ -251,7 +272,7 @@ plugins:
           feeds-protestware: "Работа с фидом protestware"
           feeds-kaspersky: "Использование Kaspersky OSS Threats Data Feed"
           feeds-oss-index: "Интеграция OSS Index"
-          secrets: "CodeScoring Secrets"
+          secrets: "CodeScoring.Secrets"
           secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
           secrets-vcs: "Настройка VCS проекта для работы с секретами"
@@ -259,220 +280,236 @@ plugins:
           secrets-cli: "Поиск секретов в CLI проектах"
           secrets-findings: "Работа с найденными секретами"
           secrets-model: "Управление моделью машинного обучения"
-          tqi: "CodeScoring TQI"
+          tqi: "CodeScoring.TQI"
           tqi-general: "Общее описание"
           tqi-analysis: "Запуск TQI анализа"
           tqi-results: "Просмотр результатов анализа"
           tqi-authors: "Построение профилей авторов"
           tqi-clones: "Отслеживание дубликатов кода"
           tqi-metrics: "Расчет метрик технического долга"
-          changelog-general: "CodeScoring Changelog"
-          jfrog-changelog: "JFrog OSA"
-          johnny-changelog: "Консольный агент Johnny"
-          nexus-changelog: "Nexus OSA"
+          changelog: "Changelog"
           on-premise-changelog: "CodeScoring on-premise"
+          jfrog-changelog: "Плагин для JFrog"
+          johnny-changelog: "Консольный агент Johnny"
+          nexus-changelog: "Плагин для Nexus"
+          vscode-changelog: "Расширение для VS Code"
+          intellij-changelog: "Плагин для IntelliJ"
 
 nav:
-  - main:
+  - home:
     - begin: index.md
     - begin: index.en.md
-    - functionality: functionality.md
-    - functionality: functionality.en.md
+  - functionality:
+    - functional-characteristics: functionality.md
+    - functional-characteristics: functionality.en.md
     - integration-stages: integration-stages.md
     - integration-stages: integration-stages.en.md
     - supported-package-managers: supported-package-managers.md
     - supported-package-managers: supported-package-managers.en.md
-  - installation:
-    - hardware: on-premise/server-requirements.md
-    - hardware: on-premise/server-requirements.en.md
-    - installation-docker: on-premise/installation.md
-    - installation-docker: on-premise/installation.en.md
-    - external-database: on-premise/external-database.md
-    - external-database: on-premise/external-database.en.md
-    - update: on-premise/update.md
-    - update: on-premise/update.en.md
-    - installation-kubernetes: on-premise/installation-in-k8s.md
-    - installation-kubernetes: on-premise/installation-in-k8s.en.md
-    - backup: on-premise/backup.md
-    - backup: on-premise/backup.en.md
-    - proxy: on-premise/proxy.md
-    - proxy: on-premise/proxy.en.md
-    - ssl: on-premise/self-signed-ssl.md
-    - ssl: on-premise/self-signed-ssl.en.md
-    - postgresql-tls: on-premise/postgresql-tls.md
-    - postgresql-tls: on-premise/postgresql-tls.en.md
-    - analysis-ignore-paths: on-premise/analysis-ignore-paths.md
-    - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
-    - troubleshooting: on-premise/troubleshooting.md
-    - troubleshooting: on-premise/troubleshooting.en.md
   - getting-started:
-    - activation: on-premise/how-to/activation.md
-    - activation: on-premise/how-to/activation.en.md
-    - user-profile: on-premise/how-to/user-profile.md
-    - user-profile: on-premise/how-to/user-profile.en.md
-    - users: on-premise/how-to/users.md
-    - users: on-premise/how-to/users.en.md
-    - groups: on-premise/how-to/groups.md
-    - groups: on-premise/how-to/groups.en.md
-    - proprietors: on-premise/how-to/proprietors.md
-    - proprietors: on-premise/how-to/proprietors.en.md
-    - vcs: on-premise/how-to/vcs-git.md
-    - vcs: on-premise/how-to/vcs-git.en.md
-    - project-control: on-premise/how-to/projects.md
-    - project-control: on-premise/how-to/projects.en.md
-    - policies: on-premise/how-to/policies.md
-    - policies: on-premise/how-to/policies.en.md
-    - ignores: on-premise/how-to/ignores.md
-    - ignores: on-premise/how-to/ignores.en.md
-    - notifications: on-premise/how-to/notifications.md
-    - notifications: on-premise/how-to/notifications.en.md
-    - ldap: on-premise/how-to/ldap-settings.md
-    - ldap: on-premise/how-to/ldap-settings.en.md
-    - audit-log: on-premise/how-to/audit-log.md
-    - audit-log: on-premise/how-to/audit-log.en.md
-    - metrics: on-premise/how-to/metrics.md
-    - metrics: on-premise/how-to/metrics.en.md
-    - webhooks: on-premise/how-to/webhooks.md
-    - webhooks: on-premise/how-to/webhooks.en.md
-    - api: on-premise/how-to/api.md
-    - api: on-premise/how-to/api.en.md
-  - osa:
-    - osa-general: osa/index.md
-    - osa-general: osa/index.en.md
-    - nexus-osa: osa/nexus_osa.md
-    - nexus-osa: osa/nexus_osa.en.md
-    - jfrog-osa: osa/jfrog_osa.md
-    - jfrog-osa: osa/jfrog_osa.en.md
-    - repo-managers: osa/repo-managers.md
-    - repo-managers: osa/repo-managers.en.md
-    - registries: osa/registries.md
-    - registries: osa/registries.en.md
-    - osa-policies: osa/osa-policies.md
-    - osa-policies: osa/osa-policies.en.md
-    - osa-components: osa/components.md
-    - osa-components: osa/components.en.md
-    - osa-update: osa/update.md
-    - osa-update: osa/update.en.md
-    - osa-archives: osa/archives.md
-    - osa-archives: osa/archives.en.md
-  - cs-proxy:
-    - cs-proxy-general: cs_proxy/index.md
-    - cs-proxy-general: cs_proxy/index.en.md
-    - cs-proxy-config: cs_proxy/config.md
-    - cs-proxy-config: cs_proxy/config.en.md
-    - cs-proxy-protocols: cs_proxy/protocols.md
-    - cs-proxy-protocols: cs_proxy/protocols.en.md
-  - sca:
-    - sca-general: sca/index.md
-    - sca-general: sca/index.en.md
-    - launch-analysis: sca/launch-analysis.md
-    - launch-analysis: sca/launch-analysis.en.md
-    - scan-history: sca/scan-history.md
-    - scan-history: sca/scan-history.en.md
-    - export-results: sca/export-results.md
-    - export-results: sca/export-results.en.md
-    - sca-dependencies: sca/sca-dependencies.md
-    - sca-dependencies: sca/sca-dependencies.en.md
-  - agent:
-    - agent-general: agent/index.md
-    - agent-general: agent/index.en.md
-    - agent-config: agent/config.md
-    - agent-config: agent/config.en.md
-    - agent-variables: agent/env-variables.md
-    - agent-variables: agent/env-variables.en.md
-    - agent-scan: agent/scan.md
-    - agent-scan: agent/scan.en.md
-    - agent-scan-dir: agent/scan-dir.md
-    - agent-scan-dir: agent/scan-dir.en.md
-    - agent-scan-file: agent/scan-file.md
-    - agent-scan-file: agent/scan-file.en.md
-    - agent-scan-archive: agent/scan-archive.md
-    - agent-scan-archive: agent/scan-archive.en.md
-    - agent-scan-docker: agent/scan-docker.md
-    - agent-scan-docker: agent/scan-docker.en.md
-    - agent-scan-build: agent/scan-build.md
-    - agent-scan-build: agent/scan-build.en.md
-    - agent-scan-bom: agent/scan-bom.md
-    - agent-scan-bom: agent/scan-bom.en.md
-    - agent-scan-technology: agent/scan-technology.md
-    - agent-scan-technology: agent/scan-technology.en.md
-    - agent-scan-secrets: agent/scan-secrets.md
-    - agent-scan-secrets: agent/scan-secrets.en.md
-    - agent-sign-verify-bom: agent/sign-verify-bom.md
-    - agent-sign-verify-bom: agent/sign-verify-bom.en.md
-    - agent-launch-docker: agent/launch-docker.md
-    - agent-launch-docker: agent/launch-docker.en.md
-    - agent-gitlab-ci: agent/gitlab-ci.md
-    - agent-gitlab-ci: agent/gitlab-ci.en.md
-    - agent-jenkins: agent/jenkins-pipeline.md
-    - agent-jenkins: agent/jenkins-pipeline.en.md
-    - agent-gitflic-ci: agent/gitflic-ci.md
-    - agent-gitflic-ci: agent/gitflic-ci.en.md
-    - agent-save-results: agent/save-results.md
-    - agent-save-results: agent/save-results.en.md
-    - agent-export: agent/export.md
-    - agent-export: agent/export.en.md
-    - agent-resolve: agent/resolve.md
-    - agent-resolve: agent/resolve.en.md
-  - dependencies:
-    - dependencies-general: dependencies/index.md
-    - dependencies-general: dependencies/index.en.md
-    - dependencies-java: dependencies/java.md
-    - dependencies-java: dependencies/java.en.md
-    - dependencies-scala: dependencies/scala.md
-    - dependencies-scala: dependencies/scala.en.md
-    - dependencies-go: dependencies/go.md
-    - dependencies-go: dependencies/go.en.md
-    - dependencies-js: dependencies/js.md
-    - dependencies-js: dependencies/js.en.md
-    - dependencies-dotnet: dependencies/dotnet.md
-    - dependencies-dotnet: dependencies/dotnet.en.md
-    - dependencies-php: dependencies/php.md
-    - dependencies-php: dependencies/php.en.md
-    - dependencies-python: dependencies/python.md
-    - dependencies-python: dependencies/python.en.md
-    - dependencies-ruby: dependencies/ruby.md
-    - dependencies-ruby: dependencies/ruby.en.md
-  - feeds:
-    - feeds-general: feeds/index.md
-    - feeds-general: feeds/index.en.md
-    - feeds-protestware: feeds/protestware.md
-    - feeds-protestware: feeds/protestware.en.md
-    - feeds-kaspersky: feeds/kaspersky.md
-    - feeds-kaspersky: feeds/kaspersky.en.md
-    - feeds-oss-index: feeds/oss-index.md
-    - feeds-oss-index: feeds/oss-index.en.md
-  - secrets:
-    - secrets-general: secrets/index.md
-    - secrets-general: secrets/index.en.md
-    - secrets-setup: secrets/secrets-setup.md
-    - secrets-setup: secrets/secrets-setup.en.md
-    - secrets-vcs: secrets/secrets-vcs.md
-    - secrets-vcs: secrets/secrets-vcs.en.md
-    - secrets-launch: secrets/secrets-launch.md
-    - secrets-launch: secrets/secrets-launch.en.md
-    - secrets-cli: secrets/secrets-cli.md
-    - secrets-cli: secrets/secrets-cli.en.md
-    - secrets-findings: secrets/secrets-findings.md
-    - secrets-findings: secrets/secrets-findings.en.md
-    - secrets-model: secrets/secrets-model.md
-    - secrets-model: secrets/secrets-model.en.md
-  - tqi:
-    - tqi-general: tqi/index.md
-    - tqi-general: tqi/index.en.md
-    - tqi-analysis: tqi/launch-analysis.md
-    - tqi-analysis: tqi/launch-analysis.en.md
-    - tqi-results: tqi/viewing-results.md
-    - tqi-results: tqi/viewing-results.en.md
-    - tqi-authors: tqi/authors.md
-    - tqi-authors: tqi/authors.en.md
-    - tqi-clones: tqi/clones.md
-    - tqi-clones: tqi/clones.en.md
-    - tqi-metrics: tqi/metrics.md
-    - tqi-metrics: tqi/metrics.en.md
+    - installation:
+      - hardware: on-premise/server-requirements.md
+      - hardware: on-premise/server-requirements.en.md
+      - installation-docker: on-premise/installation.md
+      - installation-docker: on-premise/installation.en.md
+      - external-database: on-premise/external-database.md
+      - external-database: on-premise/external-database.en.md
+      - update: on-premise/update.md
+      - update: on-premise/update.en.md
+      - installation-kubernetes: on-premise/installation-in-k8s.md
+      - installation-kubernetes: on-premise/installation-in-k8s.en.md
+      - backup: on-premise/backup.md
+      - backup: on-premise/backup.en.md
+      - proxy: on-premise/proxy.md
+      - proxy: on-premise/proxy.en.md
+      - ssl: on-premise/self-signed-ssl.md
+      - ssl: on-premise/self-signed-ssl.en.md
+      - postgresql-tls: on-premise/postgresql-tls.md
+      - postgresql-tls: on-premise/postgresql-tls.en.md
+      - analysis-ignore-paths: on-premise/analysis-ignore-paths.md
+      - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
+      - scripts: on-premise/scripts.md
+      - scripts: on-premise/scripts.en.md
+      - troubleshooting: on-premise/troubleshooting.md
+      - troubleshooting: on-premise/troubleshooting.en.md
+    - how-to:
+      - activation: on-premise/how-to/activation.md
+      - activation: on-premise/how-to/activation.en.md
+      - user-profile: on-premise/how-to/user-profile.md
+      - user-profile: on-premise/how-to/user-profile.en.md
+      - users: on-premise/how-to/users.md
+      - users: on-premise/how-to/users.en.md
+      - groups: on-premise/how-to/groups.md
+      - groups: on-premise/how-to/groups.en.md
+      - proprietors: on-premise/how-to/proprietors.md
+      - proprietors: on-premise/how-to/proprietors.en.md
+      - vcs: on-premise/how-to/vcs-git.md
+      - vcs: on-premise/how-to/vcs-git.en.md
+      - project-control: on-premise/how-to/projects.md
+      - project-control: on-premise/how-to/projects.en.md
+      - policies: on-premise/how-to/policies.md
+      - policies: on-premise/how-to/policies.en.md
+      - ignores: on-premise/how-to/ignores.md
+      - ignores: on-premise/how-to/ignores.en.md
+      - notifications: on-premise/how-to/notifications.md
+      - notifications: on-premise/how-to/notifications.en.md
+      - ldap: on-premise/how-to/ldap-settings.md
+      - ldap: on-premise/how-to/ldap-settings.en.md
+      - oidc: on-premise/how-to/oidc.md
+      - oidc: on-premise/how-to/oidc.en.md
+      - audit-log: on-premise/how-to/audit-log.md
+      - audit-log: on-premise/how-to/audit-log.en.md
+      - metrics: on-premise/how-to/metrics.md
+      - metrics: on-premise/how-to/metrics.en.md
+      - webhooks: on-premise/how-to/webhooks.md
+      - webhooks: on-premise/how-to/webhooks.en.md
+      - api: on-premise/how-to/api.md
+      - api: on-premise/how-to/api.en.md
+  - user-guide:
+    - osa:
+      - osa-general: osa/index.md
+      - osa-general: osa/index.en.md
+      - nexus-osa: osa/nexus_osa.md
+      - nexus-osa: osa/nexus_osa.en.md
+      - jfrog-osa: osa/jfrog_osa.md
+      - jfrog-osa: osa/jfrog_osa.en.md
+      - repo-managers: osa/repo-managers.md
+      - repo-managers: osa/repo-managers.en.md
+      - registries: osa/registries.md
+      - registries: osa/registries.en.md
+      - osa-policies: osa/osa-policies.md
+      - osa-policies: osa/osa-policies.en.md
+      - osa-components: osa/components.md
+      - osa-components: osa/components.en.md
+      - osa-update: osa/update.md
+      - osa-update: osa/update.en.md
+      - osa-archives: osa/archives.md
+      - osa-archives: osa/archives.en.md
+    - cs-proxy:
+      - cs-proxy-general: cs_proxy/index.md
+      - cs-proxy-general: cs_proxy/index.en.md
+      - cs-proxy-config: cs_proxy/config.md
+      - cs-proxy-config: cs_proxy/config.en.md
+      - cs-proxy-protocols: cs_proxy/protocols.md
+      - cs-proxy-protocols: cs_proxy/protocols.en.md
+    - sca:
+      - sca-general: sca/index.md
+      - sca-general: sca/index.en.md
+      - launch-analysis: sca/launch-analysis.md
+      - launch-analysis: sca/launch-analysis.en.md
+      - scan-history: sca/scan-history.md
+      - scan-history: sca/scan-history.en.md
+      - export-results: sca/export-results.md
+      - export-results: sca/export-results.en.md
+      - sca-dependencies: sca/sca-dependencies.md
+      - sca-dependencies: sca/sca-dependencies.en.md
+    - agent:
+      - agent-general: agent/index.md
+      - agent-general: agent/index.en.md
+      - agent-config: agent/config.md
+      - agent-config: agent/config.en.md
+      - agent-variables: agent/env-variables.md
+      - agent-variables: agent/env-variables.en.md
+      - agent-scan: agent/scan.md
+      - agent-scan: agent/scan.en.md
+      - agent-scan-dir: agent/scan-dir.md
+      - agent-scan-dir: agent/scan-dir.en.md
+      - agent-scan-file: agent/scan-file.md
+      - agent-scan-file: agent/scan-file.en.md
+      - agent-scan-archive: agent/scan-archive.md
+      - agent-scan-archive: agent/scan-archive.en.md
+      - agent-scan-docker: agent/scan-docker.md
+      - agent-scan-docker: agent/scan-docker.en.md
+      - agent-scan-build: agent/scan-build.md
+      - agent-scan-build: agent/scan-build.en.md
+      - agent-scan-bom: agent/scan-bom.md
+      - agent-scan-bom: agent/scan-bom.en.md
+      - agent-scan-technology: agent/scan-technology.md
+      - agent-scan-technology: agent/scan-technology.en.md
+      - agent-scan-secrets: agent/scan-secrets.md
+      - agent-scan-secrets: agent/scan-secrets.en.md
+      - agent-reachability: agent/reachability.md
+      - agent-reachability: agent/reachability.en.md
+      - agent-sign-verify-bom: agent/sign-verify-bom.md
+      - agent-sign-verify-bom: agent/sign-verify-bom.en.md
+      - agent-launch-docker: agent/launch-docker.md
+      - agent-launch-docker: agent/launch-docker.en.md
+      - agent-gitlab-ci: agent/gitlab-ci.md
+      - agent-gitlab-ci: agent/gitlab-ci.en.md
+      - agent-jenkins: agent/jenkins-pipeline.md
+      - agent-jenkins: agent/jenkins-pipeline.en.md
+      - agent-gitflic-ci: agent/gitflic-ci.md
+      - agent-gitflic-ci: agent/gitflic-ci.en.md
+      - agent-save-results: agent/save-results.md
+      - agent-save-results: agent/save-results.en.md
+      - agent-export: agent/export.md
+      - agent-export: agent/export.en.md
+      - agent-resolve: agent/resolve.md
+      - agent-resolve: agent/resolve.en.md
+    - ide:
+      - ide-general: ide/index.md
+      - ide-general: ide/index.en.md
+      - vscode-sca: ide/vscode-sca.md
+      - vscode-sca: ide/vscode-sca.en.md
+      - intellij-sca: ide/intellij-sca.md
+      - intellij-sca: ide/intellij-sca.en.md
+    - dependencies:
+      - dependencies-general: dependencies/index.md
+      - dependencies-general: dependencies/index.en.md
+      - dependencies-java: dependencies/java.md
+      - dependencies-java: dependencies/java.en.md
+      - dependencies-scala: dependencies/scala.md
+      - dependencies-scala: dependencies/scala.en.md
+      - dependencies-go: dependencies/go.md
+      - dependencies-go: dependencies/go.en.md
+      - dependencies-js: dependencies/js.md
+      - dependencies-js: dependencies/js.en.md
+      - dependencies-dotnet: dependencies/dotnet.md
+      - dependencies-dotnet: dependencies/dotnet.en.md
+      - dependencies-php: dependencies/php.md
+      - dependencies-php: dependencies/php.en.md
+      - dependencies-python: dependencies/python.md
+      - dependencies-python: dependencies/python.en.md
+      - dependencies-ruby: dependencies/ruby.md
+      - dependencies-ruby: dependencies/ruby.en.md
+    - feeds:
+      - feeds-general: feeds/index.md
+      - feeds-general: feeds/index.en.md
+      - feeds-protestware: feeds/protestware.md
+      - feeds-protestware: feeds/protestware.en.md
+      - feeds-kaspersky: feeds/kaspersky.md
+      - feeds-kaspersky: feeds/kaspersky.en.md
+      - feeds-oss-index: feeds/oss-index.md
+      - feeds-oss-index: feeds/oss-index.en.md
+    - secrets:
+      - secrets-general: secrets/index.md
+      - secrets-general: secrets/index.en.md
+      - secrets-setup: secrets/secrets-setup.md
+      - secrets-setup: secrets/secrets-setup.en.md
+      - secrets-vcs: secrets/secrets-vcs.md
+      - secrets-vcs: secrets/secrets-vcs.en.md
+      - secrets-launch: secrets/secrets-launch.md
+      - secrets-launch: secrets/secrets-launch.en.md
+      - secrets-cli: secrets/secrets-cli.md
+      - secrets-cli: secrets/secrets-cli.en.md
+      - secrets-findings: secrets/secrets-findings.md
+      - secrets-findings: secrets/secrets-findings.en.md
+      - secrets-model: secrets/secrets-model.md
+      - secrets-model: secrets/secrets-model.en.md
+    - tqi:
+      - tqi-general: tqi/index.md
+      - tqi-general: tqi/index.en.md
+      - tqi-analysis: tqi/launch-analysis.md
+      - tqi-analysis: tqi/launch-analysis.en.md
+      - tqi-results: tqi/viewing-results.md
+      - tqi-results: tqi/viewing-results.en.md
+      - tqi-authors: tqi/authors.md
+      - tqi-authors: tqi/authors.en.md
+      - tqi-clones: tqi/clones.md
+      - tqi-clones: tqi/clones.en.md
+      - tqi-metrics: tqi/metrics.md
+      - tqi-metrics: tqi/metrics.en.md
   - changelog:
-    - changelog-general: changelog/index.md
-    - changelog-general: changelog/index.md
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
     - johnny-changelog: changelog/johnny-changelog.md
@@ -481,7 +518,10 @@ nav:
     - nexus-changelog: changelog/nexus-changelog.en.md
     - jfrog-changelog: changelog/jfrog-changelog.md
     - jfrog-changelog: changelog/jfrog-changelog.en.md
-
+    - vscode-changelog: changelog/vscode-changelog.md
+    - vscode-changelog: changelog/vscode-changelog.en.md
+    - intellij-changelog: changelog/intellij-changelog.md
+    - intellij-changelog: changelog/intellij-changelog.en.md
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> CodeScoring
 
@@ -507,22 +547,25 @@ extra_css:
   - css/logo.css
   - css/hide_lang_links.css
   - css/print.css
+  - stylesheets/home.css
 
 extra:
-  # Default mkdocs-material alternate links for untranslated pages
-  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language-selector
-  # For translated pages the language name is replaced by the string configured in i18n plugin
-  # section and link is replaced by the link to the translated page
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@codescoring
+      name: YouTube
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/codescoring
+      name: Telegram
   alternate:
     - name: "Русский"
       link: "/"
       lang: ru
-
     - name: "English"
       link: "/index.en/"
       lang: en
   i18n:
     - ru:
-      site_name: "CodeScoring Documentation"
+      site_name: "Документация CodeScoring"
     - en:
       site_name: "CodeScoring Documentation"

@@ -30,7 +30,7 @@ hide:
 4. Run the following commands to add the current Helm repository to the local machine:
 
      ```
-     helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
+     helm repo add codescoring-org https://{REGISTRY_URL}/repository/helm/ --username USERNAME --password PASSWORD
      helm repo update
      ```
 
@@ -357,6 +357,7 @@ To do this, you need to replace the value of `ReadWriteOnce` with `ReadWriteMany
 - `codescoring.persistentVolumes.djangoStatic.accessModes`
 
 Then, you need to comment out the variables:
+
 - `codescoring.backend.affinity`
 - `codescoring.frontend.affinity`
 
