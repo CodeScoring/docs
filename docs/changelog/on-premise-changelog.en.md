@@ -150,7 +150,7 @@ hide:
 - Added search in drop-down list of criteria in policy creation and editing forms
 - Added duplicate block of buttons after the group of conditions in policy creation and editing forms
 - Added ability to expand the policy conditions management block
-- Added [settings for the format of date and number output]((/on-premise/how-to/user-profile.en)) in the UI
+- Added [settings for the format of date and number output](/on-premise/how-to/user-profile.en) in the UI
 - <span class="module-tag sca">SCA</span> Added legend for the project dependency graph
 - <span class="module-tag sca">SCA</span> Added analysis identifier to webhooks associated with the completion of SCA analysis
 - <span class="module-tag osa">OSA</span> Added output of the archive/activity flag for OSA packages, container images and alerts
