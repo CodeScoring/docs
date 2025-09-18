@@ -9,117 +9,113 @@ hide:
 
 Configuration of **CodeScoring Proxy** is done via the `application.yml` file:
 
-!!! example Example configuration file
+!!! example "Example configuration file"
 
-  ```yaml
-  # CodeScoring parameters
-  codescoring:
-    host: CodeScoring server URL
-    token: authorization token
-    work-mode: operation mode (applies only to package scanning)
-                # warmup | Warm up scan cache without monitoring requests, no blocking
-                # spectator | Warm up scan cache with request monitoring, no blocking
-                # moderate | Policy-based blocking using cache results, unscanned components allowed
-                # strict | Policy-based blocking using cache results, unscanned components blocked
-                # strict_wait | Policy-based blocking, wait until the component is scanned
-    proxy-manager-host: proxy server host
-    enable-status-line: true/false (adds the block reason to the status line)
-    block-status-code: status code for blocking package downloads
-    block-on-codescoring-errors: block package download on 5xx status, scan_failed errors, or registry_not_configured error
-
-  # PyPI settings
-  pypi:
-    enabled: true
-    repository:
-      - name: internet-pypi
-        scan-manifest: true
-        scan-package: true
-        registry: https://pypi.org
-        packages-registry: https://files.pythonhosted.org
-      - name: arti-pypi
-        scan-manifest: true
-        scan-package: true
-        registry: http://localhost:8081/artifactory/api/pypi/pypi-remote
-        packages-registry: http://localhost:8081/artifactory/api/pypi/pypi-remote/packages
-      - name: nexus-pypi
-        scan-manifest: true
-        scan-package: true
-        registry: https://localhost:8081/repository/pypi-proxy
-        packages-registry: https://localhost:8081/repository/pypi-proxy/packages
-
-  # Maven settings
-  maven:
-    enabled: true
-    repository:
-      - name: internet-mvn
-        scan-manifest: true
-        scan-package: true
-        registry: https://repo1.maven.org/maven2
-      - name: arti-mvn
-        scan-manifest: false
-        scan-package: true
-        registry: http://localhost:8081/artifactory/maven-remote
-      - name: nexus-mvn
-        scan-manifest: false
-        scan-package: true
-        registry: http://localhost:8081/repository/maven-proxy
-
-  # NPM settings
-  npm:
-    enabled: true
-    repository:
-      - name: internet-npm
-        scan-package: true
-        scan-manifest: true
-        registry: https://registry.npmjs.org
-      - name: arti-npm
-        scan-package: true
-        scan-manifest: true
-        registry: http://localhost:8081/artifactory/api/npm/npm-remote
-      - name: nexus-npm
-        scan-package: true
-        scan-manifest: true
-        registry: http://localhost:8081/repository/npm-proxy
-
-  # NuGet settings
-  nuget:
-    enabled: true
-    repository:
-      - name: codescoring-nuget
-        scan-package: true
-        registry: https://api.nuget.org
-      - name: arti-nuget
-        scan-package: true
-        registry: http://localhost:8081/artifactory/api/nuget/v3/nuget-remote
-      - name: nexus-npm
-        scan-package: true
-        scan-manifest: true
-        registry: http://localhost:8081/repository/npm-proxy
-  ```
+    ```yaml
+    # CodeScoring parameters
+    codescoring:
+      host: CodeScoring server URL
+      token: authorization token
+      work-mode: operation mode (applies only to package scanning)
+                  # warmup | Warm up scan cache without monitoring requests, no blocking
+                  # spectator | Warm up scan cache with request monitoring, no blocking
+                  # moderate | Policy-based blocking using cache results, unscanned components allowed
+                  # strict | Policy-based blocking using cache results, unscanned components blocked
+                  # strict_wait | Policy-based blocking, wait until the component is scanned
+      proxy-manager-host: proxy server host
+      enable-status-line: true/false (adds the block reason to the status line)
+      block-status-code: status code for blocking package downloads
+      block-on-codescoring-errors: block package download on 5xx status, scan_failed errors, or registry_not_configured error
+    # PyPI settings
+    pypi:
+      enabled: true
+      repository:
+        - name: internet-pypi
+          scan-manifest: true
+          scan-package: true
+          registry: https://pypi.org
+          packages-registry: https://files.pythonhosted.org
+        - name: arti-pypi
+          scan-manifest: true
+          scan-package: true
+          registry: http://localhost:8081/artifactory/api/pypi/pypi-remote
+          packages-registry: http://localhost:8081/artifactory/api/pypi/pypi-remote/packages
+        - name: nexus-pypi
+          scan-manifest: true
+          scan-package: true
+          registry: https://localhost:8081/repository/pypi-proxy
+          packages-registry: https://localhost:8081/repository/pypi-proxy/packages
+    # Maven settings
+    maven:
+      enabled: true
+      repository:
+        - name: internet-mvn
+          scan-manifest: true
+          scan-package: true
+          registry: https://repo1.maven.org/maven2
+        - name: arti-mvn
+          scan-manifest: false
+          scan-package: true
+          registry: http://localhost:8081/artifactory/maven-remote
+        - name: nexus-mvn
+          scan-manifest: false
+          scan-package: true
+          registry: http://localhost:8081/repository/maven-proxy
+    # NPM settings
+    npm:
+      enabled: true
+      repository:
+        - name: internet-npm
+          scan-package: true
+          scan-manifest: true
+          registry: https://registry.npmjs.org
+        - name: arti-npm
+          scan-package: true
+          scan-manifest: true
+          registry: http://localhost:8081/artifactory/api/npm/npm-remote
+        - name: nexus-npm
+          scan-package: true
+          scan-manifest: true
+          registry: http://localhost:8081/repository/npm-proxy
+    # NuGet settings
+    nuget:
+      enabled: true
+      repository:
+        - name: codescoring-nuget
+          scan-package: true
+          registry: https://api.nuget.org
+        - name: arti-nuget
+          scan-package: true
+          registry: http://localhost:8081/artifactory/api/nuget/v3/nuget-remote
+        - name: nexus-npm
+          scan-package: true
+          scan-manifest: true
+          registry: http://localhost:8081/repository/npm-proxy
+    ```
 
 ## Additional settings
 
 ### Logging level settings
 
-!!! example Example logging configuration
+!!! example "Example logging configuration"
 
-  ```yaml
-  logging:
-    level:
-      ru:
-        codescoring: info
-  ```
+    ```yaml
+    logging:
+      level:
+        ru:
+          codescoring: info
+    ```
 
 ### Buffer size for large manifests
 
-!!! example Example buffer size configuration
+!!! example "Example buffer size configuration"
 
-  ```yaml
-  spring:
-    http:
-      codecs:
-        max-in-memory-size: 50MB (this is the default setting, already included in the application; increase it if you encounter very large manifests)
-  ```
+    ```yaml
+    spring:
+      http:
+        codecs:
+          max-in-memory-size: 50MB (this is the default setting, already included in the application; increase it if you encounter very large manifests)
+    ```
 
 ## Retry policies and circuit breaker for installation requests
 

@@ -1,4 +1,4 @@
-----
+---
 hide:
 - footer
 ---
@@ -21,9 +21,9 @@ CodeScoring Proxy handles requests to the following repositories:
 - NuGet V3 (`https://api.nuget.org`)
 - Docker Hub (`https://hub.docker.com/v2/`)
 
-!!! note Support of alternative repositories
+!!! note "Support of alternative repositories"
 
-  The service also supports alternative repositories that implement the official specifications of the corresponding package manager (for example, Nexus Repository and JFrog Artifactory).
+    The service also supports alternative repositories that implement the official specifications of the corresponding package manager (for example, Nexus Repository and JFrog Artifactory).
 
 ## Main functionality
 

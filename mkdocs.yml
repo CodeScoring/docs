@@ -98,10 +98,10 @@ plugins:
           osa-components: "Working with OSA components"
           osa-update: "Updating component data"
           osa-archives: "Scanning archives"
-          cs_proxy: "CodeScoring Proxy"
-          cs_proxy-overview: "Overview"
-          cs_proxy-config: "Service configuration"
-          cs_proxy-protocols: "Supported protocols"
+          cs-proxy: "CodeScoring Proxy"
+          cs-proxy-general: "Overview"
+          cs-proxy-config: "Service configuration"
+          cs-proxy-protocols: "Supported protocols"
           agent: "CLI agent Johnny"
           agent-general: "General description"
           agent-config: "Configuration"
@@ -211,10 +211,10 @@ plugins:
           osa-components: "Работа с компонентами OSA на инсталляции"
           osa-update: "Обновление данных о компонентах"
           osa-archives: "Сканирование архивов"
-          cs_proxy: "CodeScoring Proxy"
-          cs_proxy-general: "Общее описание"
-          cs_proxy-config: "Настройка сервиса"
-          cs_proxy-protocols: "Поддерживаемые протоколы"
+          cs-proxy: "CodeScoring Proxy"
+          cs-proxy-general: "Общее описание"
+          cs-proxy-config: "Настройка сервиса"
+          cs-proxy-protocols: "Поддерживаемые протоколы"
           agent: "Консольный агент Johnny"
           agent-general: "Общее описание"
           agent-config: "Настройка через конфигурационный файл"
@@ -355,13 +355,13 @@ nav:
     - osa-update: osa/update.en.md
     - osa-archives: osa/archives.md
     - osa-archives: osa/archives.en.md
-  - cs_proxy:
-    - cs_proxy-general: cs_proxy/index.md
-    - cs_proxy-general: cs_proxy/index.en.md
-    - cs_proxy-config: cs_proxy/config.md
-    - cs_proxy-config: cs_proxy/config.en.md
-    - cs_proxy-protocols: cs_proxy/protocols.md
-    - cs_proxy-protocols: cs_proxy/protocols.en.md
+  - cs-proxy:
+    - cs-proxy-general: cs_proxy/index.md
+    - cs-proxy-general: cs_proxy/index.en.md
+    - cs-proxy-config: cs_proxy/config.md
+    - cs-proxy-config: cs_proxy/config.en.md
+    - cs-proxy-protocols: cs_proxy/protocols.md
+    - cs-proxy-protocols: cs_proxy/protocols.en.md
   - sca:
     - sca-general: sca/index.md
     - sca-general: sca/index.en.md
