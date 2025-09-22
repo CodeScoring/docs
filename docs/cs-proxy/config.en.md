@@ -7,7 +7,7 @@ hide:
 
 ## Main parameters
 
-Configuration of **CodeScoring Proxy** is done via the `application.yml` file:
+Configuration of **OSA Proxy** is done via the `application.yml` file:
 
 !!! example "Example configuration file"
 
