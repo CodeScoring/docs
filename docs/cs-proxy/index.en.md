@@ -5,7 +5,7 @@ hide:
 
 # Overview
 
-**CodeScoring Proxy** (repo-manager-proxy) is a proxy service that acts as an intermediary between package managers and their remote repositories. It integrates with the CodeScoring platform and provides automatic scanning of downloaded components and blocking of unsafe packages according to security policies.
+**OSA Proxy** (repo-manager-proxy) is a proxy service that acts as an intermediary between package managers and their remote repositories. It integrates with the CodeScoring platform and provides automatic scanning of downloaded components and blocking of unsafe packages according to security policies.
 
 The service intercepts requests made by package managers, sends them to the source repositories, analyzes the received packages, modifies the responses, and manages access to components.
 
@@ -13,7 +13,7 @@ The service is based on an asynchronous processing model and an automatic retry 
 
 ## Supported package managers
 
-CodeScoring Proxy handles requests to the following repositories:
+OSA Proxy handles requests to the following repositories:
 
 - Maven Central (`https://repo1.maven.org/maven2`)
 - NPM Registry (`https://registry.npmjs.org`)
@@ -44,7 +44,7 @@ If a component violates security policy rules:
 
 ### Response modification
 
-CodeScoring Proxy automatically modifies responses from original repositories:
+OSA Proxy automatically modifies responses from original repositories:
 
 - Redirects all URLs;
 - Removes blocked versions from metadata;
