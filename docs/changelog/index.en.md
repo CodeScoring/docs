@@ -15,3 +15,4 @@ Changelog contains the history of changes to the main components of the CodeScor
 - [JFrog OSA plugin](/changelog/jfrog-changelog.en)
 - [Visual Studio Code extension](/changelog/vscode-changelog.en)
 - [IntelliJ plugin](/changelog/intellij-changelog.en)
+- [CS Proxy](/changelog/cs-proxy.en)

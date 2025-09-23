@@ -25,7 +25,7 @@ hide:
       proxy-manager-host: хост прокси-сервера
       enable-status-line: true/false (добавляет сообщение о причине блокировки в строку состояния)
       block-status-code: статус код для блокировки загрузки пакетов
-      block-on-codescoring-errors: блокирует загрузку пакета при 5xx status, ошибках сканирования (scan_failed) или ошибки registry_not_configured
+      block-on-codescoring-errors: блокирует загрузку пакета при 5xx status, ошибках сканирования (scan_failed)
     # Настройки PyPI
     pypi:
       enabled: true

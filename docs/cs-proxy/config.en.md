@@ -25,7 +25,7 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
       proxy-manager-host: proxy server host
       enable-status-line: true/false (adds the block reason to the status line)
       block-status-code: status code for blocking package downloads
-      block-on-codescoring-errors: block package download on 5xx status, scan_failed errors, or registry_not_configured error
+      block-on-codescoring-errors: block package download on 5xx status, scan_failed errors
     # PyPI settings
     pypi:
       enabled: true

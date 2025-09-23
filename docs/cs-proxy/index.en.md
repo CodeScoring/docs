@@ -31,7 +31,7 @@ OSA Proxy handles requests to the following repositories:
 Two scanning levels are implemented for each ecosystem:
 
 - **Manifest scanning** — analyzes and excludes versions blocked by security policies from the manifest
-- **Package scanning** — analyzes downloaded package or image files
+- **Package scanning** — analyzes downloaded package
 
 ### Blocking insecure components
 
