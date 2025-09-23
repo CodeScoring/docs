@@ -40,7 +40,7 @@ The platform comprehensively provides:
 - blocking the download of unwanted components when trying to download them through the command interface of the package manager or the web interface;
 - forming a list of software components (**SBoM**, Software Bill of Materials);
 - checking artifacts in the registries of container images;
-- proxying and control of package downloads via the [CodeScoring Proxy](/cs_proxy/index.en) service for popular package managers (Maven, NPM, PyPI, NuGet, Docker);
+- proxying and control of package downloads via the [OSA Proxy](/osa-proxy/index.en) service for popular package managers (Maven, NPM, PyPI, NuGet);
 - archive analysis, including:
         - parsing the contents of popular archive formats (**zip**, **jar**, **tar**, **war**, **tgz** and others);
         - analysis of system packages, including support for popular package managers:
