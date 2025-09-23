@@ -19,7 +19,6 @@ OSA Proxy handles requests to the following repositories:
 - NPM Registry (`https://registry.npmjs.org`)
 - PyPI (`https://pypi.org`)
 - NuGet V3 (`https://api.nuget.org`)
-- Docker Hub (`https://hub.docker.com/v2/`)
 
 !!! note "Support of alternative repositories"
 

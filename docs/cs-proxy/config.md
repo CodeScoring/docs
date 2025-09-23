@@ -87,11 +87,15 @@ hide:
         - name: arti-nuget
           scan-package: true
           registry: http://localhost:8081/artifactory/api/nuget/v3/nuget-remote
-        - name: nexus-npm
+        - name: nexus-nuget
           scan-package: true
           scan-manifest: true
-          registry: http://localhost:8081/repository/npm-proxy
+          registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
+
+## Тоноксти работы с Artifactory/Nexus
+- Для Artifactory рекомендуется выставить `Custom Base URL` и использовать его в `registry:` для корректной замены ссылок на пакеты внутри манифестов
+- Для Nexus идентичного функционала нет, в манифестах будет использован хост и порт(если указан) из запроса. При наличии `reverse proxy`, рекомендуется использовать ссылку на него. Пример `registry: https://nexushost.ru/repository/pypi-proxy`
 
 ## Дополнительные настройки
 

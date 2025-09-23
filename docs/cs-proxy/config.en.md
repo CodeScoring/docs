@@ -87,11 +87,14 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
         - name: arti-nuget
           scan-package: true
           registry: http://localhost:8081/artifactory/api/nuget/v3/nuget-remote
-        - name: nexus-npm
+        - name: nexus-nuget
           scan-package: true
           scan-manifest: true
-          registry: http://localhost:8081/repository/npm-proxy
+          registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
+## Nuances of Working with Artifactory/Nexus
+- For Artifactory, it's recommended to set a `Custom Base URL` and use it in `registry:` for correct replacement of package links within manifests.
+- Nexus does not have identical functionality; the host and port (if specified) will be taken from the request, and it will be used in manifests. If a `reverse proxy` is present, it's recommended to use a link to it. Example: `registry: https://nexushost.ru/repository/pypi-proxy`
 
 ## Additional settings
 
