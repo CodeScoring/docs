@@ -20,6 +20,44 @@
   color: #e03560;
 }
 
+/* Логотип в левый верхний угол */
+
+.md-header .md-header__button.md-logo {
+  position: absolute;
+  top: 0.2rem;      /* регулируй вертикальный отступ */
+  left: 1.5rem;     /* регулируй горизонтальный отступ */
+  margin: 0;
+  padding: 0;
+  height: auto;
+  z-index: 10;
+}
+
+.md-header .md-header__button.md-logo img {
+  height: 80px !important;  /* подгони под высоту хедера */
+  width: auto !important;
+  max-width: none !important;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .md-header .md-header__button.md-logo img {
+    height: 36px !important;
+  }
+}
+
+/* Смещение текста site_name, чтобы выровнять с навигацией */
+.md-header .md-header__title {
+  margin-left: 0rem;  /* подгони под ширину логотипа */
+}
+
+/* Мобильная версия */
+@media (max-width: 720px) {
+  .md-header .md-header__title {
+    margin-left: 3.2rem; /* уменьшаем, чтобы не прижималось */
+  }
+}
+
+
 /* ====== Навигация ====== */
 
 .md-nav__link--active,
@@ -69,6 +107,7 @@
 
 
 /* Подсветка кода (выделенный текст, inline и блоки) */
+
 .md-typeset code,
 .md-typeset pre code {
   color: #ff3d6c !important;
