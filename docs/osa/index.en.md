@@ -14,4 +14,4 @@ The CodeScoring.OSA module provides supply chain protection through a set of int
 
 - [Sonatype Nexus Repository](/osa/nexus_osa.en) — plugin for Nexus (integrated into the repository’s request|response pipeline);
 - [JFrog Artifactory](/osa/jfrog_osa.en) — plugin for Artifactory (similar integration);
-- [OSA Proxy](/cs-proxy/index.en) — proxy service that intercepts package manager requests to upstream repositories, performs automatic scanning, modifies responses, and manages component access according to security policies.
+- [OSA Proxy](/osa-proxy/index.en) — proxy service that intercepts package manager requests to upstream repositories, performs automatic scanning, modifies responses, and manages component access according to security policies.
