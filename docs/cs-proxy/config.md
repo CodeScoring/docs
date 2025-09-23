@@ -93,9 +93,10 @@ hide:
           registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
 
-## Тоноксти работы с Artifactory/Nexus
-- Для Artifactory рекомендуется выставить `Custom Base URL` и использовать его в `registry:` для корректной замены ссылок на пакеты внутри манифестов
-- Для Nexus идентичного функционала нет, в манифестах будет использован хост и порт(если указан) из запроса. При наличии `reverse proxy`, рекомендуется использовать ссылку на него. Пример `registry: https://nexushost.ru/repository/pypi-proxy`
+!!! warning "Особенности работы в Nexus Repository и JFrog Artifactory"
+
+    - Для JFrog Artifactory рекомендуется выставить `Custom Base URL` и использовать его в поле `registry` для корректной замены ссылок на пакеты внутри манифестов;
+    - Для Nexus Repository идентичного функционала нет, в манифестах будет использован хост и порт (если указан) из запроса. При наличии `reverse proxy` рекомендуется использовать ссылку на него. Например: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
 ## Дополнительные настройки
 

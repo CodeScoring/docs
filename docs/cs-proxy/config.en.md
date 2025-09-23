@@ -92,9 +92,11 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
           scan-manifest: true
           registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
-## Nuances of Working with Artifactory/Nexus
-- For Artifactory, it's recommended to set a `Custom Base URL` and use it in `registry:` for correct replacement of package links within manifests.
-- Nexus does not have identical functionality; the host and port (if specified) will be taken from the request, and it will be used in manifests. If a `reverse proxy` is present, it's recommended to use a link to it. Example: `registry: https://nexushost.ru/repository/pypi-proxy`
+
+!!! warning "Specifics of working in Nexus Repository and JFrog Artifactory"
+
+    - For JFrog Artifactory, it is recommended to set a `Custom Base URL` and use it in the `registry` field to correctly replace package references within manifests.
+    - There is no identical functionality for Nexus Repository; the host and port (if specified) from the request will be used in manifests. If a `reverse proxy` is available, it is recommended to use its link. For example: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
 ## Additional settings
 
