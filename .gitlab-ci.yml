@@ -3,27 +3,42 @@ stages:
 
 lint_markdown:
   stage: lint
-  script:
-    - echo "Starting markdown linting..."
-    - which git grep sed tr awk wget curl || echo "❌ Some tools missing"
-    - |
-      BASE_REF="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-origin/main}"
-      [ -z "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ] && git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
+  before_script:
+    - git config --global user.email "ci-bot@example.com"
+    - git config --global user.name "project_87_bot_1728235e18e2c1c997b85dccf4525dff"
+  script: |
+    echo "Starting markdown linting..."
 
-      FILES=$(git diff --name-only --diff-filter=d "$BASE_REF"...HEAD -- '*.md') || { echo "❌ Failed to get changed files"; exit 1; }
-      [ -z "$FILES" ] && { echo "ℹ️ No .md files changed."; exit 0; }
+    BASE_REF="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-origin/main}"
+    [ -z "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ] && git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
 
-      echo "📄 Changed files: $FILES"
-      ERROR_FOUND=false
+    FILES=$(git diff --name-only --diff-filter=d "$BASE_REF"...HEAD -- '*.md') || { echo "❌ Failed to get changed files"; exit 1; }
+    [ -z "$FILES" ] && { echo "ℹ️ No .md files changed."; exit 0; }
 
-      # Trailing spaces
-      for file in $FILES; do
-        if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
-          echo "❌ Trailing spaces in $file"
-          ERROR_FOUND=true
-        fi
-      done
-      [ "$ERROR_FOUND" = false ] && echo "✅ No trailing spaces."
+    echo "📄 Changed files: $FILES"
+    ERROR_FOUND=false
+
+    # Auto-fix trailing spaces
+    for file in $FILES; do
+      if grep -n '[[:blank:]]$' "$file" 2>/dev/null; then
+        echo "⚠️ Trailing spaces detected in $file. Fixing..."
+        sed -i 's/[[:blank:]]\+$//' "$file"
+      fi
+    done
+
+    # Check if there are changes to commit
+    if ! git diff --quiet; then
+      echo "✍️ Committing auto-fixes..."
+      git add $FILES
+      git commit -m "chore(ci): auto-fix trailing spaces"
+      echo "⬆️ Pushing fixes back to branch $CI_COMMIT_REF_NAME"
+      git push "https://oauth2:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+    else
+      echo "✅ No trailing spaces to fix."
+    fi
+
+    # Continue with other checks (links, urls, etc.)
+    echo "ℹ️ Running link and URL checks..."
 
       # Internal links
       for file in $FILES; do
