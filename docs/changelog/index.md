@@ -15,4 +15,4 @@ Changelog содержит историю изменений основных к
 - [Плагин JFrog OSA](/changelog/jfrog-changelog)
 - [Расширение Visual Studio Code](/changelog/vscode-changelog)
 - [Плагин IntelliJ](/changelog/intellij-changelog)
-- [CS Proxy](/changelog/cs-proxy)
+- [OSA Proxy](/changelog/proxy-changelog)

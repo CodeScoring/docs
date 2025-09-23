@@ -103,10 +103,10 @@ plugins:
           osa-components: "Working with OSA components"
           osa-update: "Updating component data"
           osa-archives: "Scanning archives"
-          cs-proxy: "CodeScoring Proxy"
-          cs-proxy-general: "Overview"
-          cs-proxy-config: "Service configuration"
-          cs-proxy-protocols: "Supported protocols"
+          osa-proxy: "CodeScoring Proxy"
+          osa-proxy-general: "Overview"
+          osa-proxy-config: "Service configuration"
+          osa-proxy-protocols: "Supported protocols"
           ide: "IDE integrations"
           ide-general: "General description"
           vscode-sca: "VS Code extension"
@@ -227,10 +227,10 @@ plugins:
           osa-components: "Работа с компонентами OSA на инсталляции"
           osa-update: "Обновление данных о компонентах"
           osa-archives: "Сканирование архивов"
-          cs-proxy: "CodeScoring Proxy"
-          cs-proxy-general: "Общее описание"
-          cs-proxy-config: "Настройка сервиса"
-          cs-proxy-protocols: "Поддерживаемые протоколы"
+          osa-proxy: "CodeScoring Proxy"
+          osa-proxy-general: "Общее описание"
+          osa-proxy-config: "Настройка сервиса"
+          osa-proxy-protocols: "Поддерживаемые протоколы"
           ide: "Интеграция с IDE"
           ide-general: "Общее описание"
           vscode-sca: "Расширение для VS Code"
@@ -385,13 +385,13 @@ nav:
       - osa-update: osa/update.en.md
       - osa-archives: osa/archives.md
       - osa-archives: osa/archives.en.md
-    - cs-proxy:
-      - cs-proxy-general: cs_proxy/index.md
-      - cs-proxy-general: cs_proxy/index.en.md
-      - cs-proxy-config: cs_proxy/config.md
-      - cs-proxy-config: cs_proxy/config.en.md
-      - cs-proxy-protocols: cs_proxy/protocols.md
-      - cs-proxy-protocols: cs_proxy/protocols.en.md
+    - osa-proxy:
+      - osa-proxy-general: cs_proxy/index.md
+      - osa-proxy-general: cs_proxy/index.en.md
+      - osa-proxy-config: cs_proxy/config.md
+      - osa-proxy-config: cs_proxy/config.en.md
+      - osa-proxy-protocols: cs_proxy/protocols.md
+      - osa-proxy-protocols: cs_proxy/protocols.en.md
     - sca:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md
