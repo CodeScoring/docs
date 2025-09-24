@@ -16,7 +16,7 @@ hide:
   <div class="hero-content">
     <h1>CodeScoring Documentation</h1>
     <h2>
-      In case of any questions please write to 
+      In case of any questions please write to
       <a href="mailto:support@codescoring.ru" style="color: #ff3d6c; text-decoration-color: #ff3d6c;">
         support@codescoring.ru
       </a>
