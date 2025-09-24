@@ -50,7 +50,7 @@ plugins:
           home: "Home"
           functionality: "Functionality"
           functional-characteristics: "Functional characteristics"
-          getting-started: "Getting started"
+          setup: "Platform setup"
           begin: " "
           integration-stages: "Integration stages"
           supported-package-managers: "Supported ecosystems and analysis methods"
@@ -67,8 +67,8 @@ plugins:
           analysis-ignore-paths: "Analysis paths and exceptions"
           scripts: "Scripts for installation managing"
           troubleshooting: "Troubleshooting"
-          how-to: "Getting started with on-premise"
-          activation: "System activation"
+          admin-guide: "Administrator guide"
+          activation: "Activating system"
           user-profile: "Configuring user profile"
           proprietors: "Creating proprietors"
           vcs: "Connecting to VCS"
@@ -308,7 +308,7 @@ nav:
     - integration-stages: integration-stages.en.md
     - supported-package-managers: supported-package-managers.md
     - supported-package-managers: supported-package-managers.en.md
-  - getting-started:
+  - admin-guide:
     - installation:
       - hardware: on-premise/server-requirements.md
       - hardware: on-premise/server-requirements.en.md
@@ -334,7 +334,7 @@ nav:
       - scripts: on-premise/scripts.en.md
       - troubleshooting: on-premise/troubleshooting.md
       - troubleshooting: on-premise/troubleshooting.en.md
-    - how-to:
+    - setup:
       - activation: on-premise/how-to/activation.md
       - activation: on-premise/how-to/activation.en.md
       - user-profile: on-premise/how-to/user-profile.md

@@ -20,7 +20,7 @@ hide:
       </a>
     </h2>
     <div class="hero-buttons">
-      <a href="/on-premise/server-requirements/" class="btn btn-primary">Get started</a>
+      <a href="/on-premise/server-requirements/" class="btn btn-primary">Admin guide</a>
       <a href="/osa/" class="btn btn-secondary">User guide</a>
     </div>
   </div>
