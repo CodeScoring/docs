@@ -1,4 +1,6 @@
 ---
+title: "CodeScoring documentation"
+description: "CodeScoring open documentation. Installation, user guide and changelog."
 hide:
   - navigation
   - navigation.top

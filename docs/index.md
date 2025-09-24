@@ -1,4 +1,6 @@
 ---
+title: "Документация CodeScoring"
+description: "Открытая документация CodeScoring. Установка, руководство пользователя и changelog."
 hide:
   - navigation
   - navigation.top

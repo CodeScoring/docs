@@ -1,4 +1,6 @@
 site_name: "CodeScoring Documentation"
+site_description: "Открытая документация CodeScoring: установка, руководство пользователя, changelog."
+site_url: "https://docs.codescoring.ru"
 
 theme:
   name: material
@@ -37,6 +39,8 @@ theme:
 plugins:
   - search
   - print-site
+  - sitemap:
+      changefreq: daily
   - i18n:
       languages:
         ru: "Русский"
