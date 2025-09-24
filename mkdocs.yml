@@ -11,6 +11,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.tracking
+    - navigation.sections
     - navigation.indexes
     - content.code.copy
     - content.code.select
@@ -48,17 +49,19 @@ plugins:
       translate_nav:
         en:
           home: "Home"
+          begin: " "
           functionality: "Functionality"
           functional-characteristics: "Functional characteristics"
-          setup: "Platform setup"
-          begin: " "
           integration-stages: "Integration stages"
           supported-package-managers: "Supported ecosystems and analysis methods"
+          admin-guide: "Administrator guide"
           installation: "On-premise installation and maintenance"
           hardware: "Hardware requirements"
+          installation-methods: "Installation Methods"
           installation-docker: "Installation in Docker"
           external-database: "External database in Docker"
           installation-kubernetes: "Installation in Kubernetes"
+          maintenance: "Maintenance"
           update: "Updating the system in Docker"
           backup: "Backup"
           proxy: "Proxy usage"
@@ -67,42 +70,49 @@ plugins:
           analysis-ignore-paths: "Analysis paths and exceptions"
           scripts: "Scripts for installation managing"
           troubleshooting: "Troubleshooting"
-          admin-guide: "Administrator guide"
+          setup: "Platform setup"
+          user-management: "User Management"
           activation: "Activating system"
           user-profile: "Configuring user profile"
           proprietors: "Creating proprietors"
-          vcs: "Connecting to VCS"
-          project-control: "Managing projects"
-          policies: "Managing policies"
-          ignores: "Ignoring policies"
-          launch-analysis: "Configuring and launching analysis"
-          export-results: "Exporting analysis results"
           groups: "Creating user groups"
           users: "Managing user accounts"
           ldap: "Setting up LDAP"
           oidc: "Setting up OpenID Connect"
+          project-setup: "Project Setup"
+          vcs: "Connecting to VCS"
+          project-control: "Managing projects"
+          ignores: "Ignoring policies"
+          launch-analysis: "Configuring and launching analysis"
+          export-results: "Exporting analysis results"
+          advanced-setup: "Advanced Setup"
           notifications: "Setting up notifications"
           audit-log: "Working with audit log"
           metrics: "Collecting metrics"
           webhooks: "Setting up webhooks"
           api: "Working with API"
           user-guide: "User guide"
-          sca: "CodeScoring.SCA"
+          general: "General"
+          policies: "Managing policies"
+          artifact-plugins: "Plugins for repositories"
+          repo-managers: "Connecting a repository manager"
+          registries: "Connecting a container registry"
+          osa-update: "Updating component data"
+          osa-archives: "Scanning archives"
+          platform-analysis: "Analysis on the platform"
           sca-general: "General description"
           sca-dependencies: "Overviewing dependencies"
           launch-analysis: "Launching a scan"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
+          sca: "CodeScoring.SCA"
           osa: "CodeScoring.OSA"
           osa-general: "General description"
           nexus-osa: "Plugin for Nexus"
           jfrog-osa: "Plugin for JFrog"
-          repo-managers: "Connecting a repository manager"
-          registries: "Connecting a container registry"
           osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
-          osa-update: "Updating component data"
-          osa-archives: "Scanning archives"
+          platform-osa: "Working with OSA on the platform"
           osa-proxy: "OSA Proxy"
           osa-proxy-general: "Overview"
           osa-proxy-config: "Service configuration"
@@ -149,17 +159,21 @@ plugins:
           feeds-kaspersky: "Using Kaspersky OSS Threats Data Feed"
           feeds-oss-index: "Integrating OSS Index"
           secrets: "CodeScoring.Secrets"
+          secrets-configuration: "Configuration"
           secrets-general: "General description"
           secrets-setup: "Setting up engine configuration"
           secrets-vcs: "Configuring VCS project for secret search"
+          secrets-model: "Managing ML Model"
+          secrets-usage: "Secrets analysis"
           secrets-launch: "Launching secret search"
           secrets-cli: "Searching secrets in CLI projects"
           secrets-findings: "Working with findings"
-          secrets-model: "Managing ML Model"
           tqi: "CodeScoring.TQI"
+          tqi-analysis-group: "Analysing projects"
           tqi-general: "General description"
           tqi-analysis: "Launching TQI analysis"
           tqi-results: "Viewing analysis results"
+          tqi-advanced: "Advanced Features"
           tqi-authors: "Building author profiles"
           tqi-clones: "Tracking code clones"
           tqi-metrics: "Calculating technical debt metrics"
@@ -173,61 +187,69 @@ plugins:
           proxy-changelog: "OSA Proxy"
         ru:
           home: "Главная"
+          begin: " "
           functionality: "Функциональность"
           functional-characteristics: "Функциональные характеристики"
-          getting-started: "Начало работы"
-          begin: " "
           integration-stages: "Этапы интеграции"
           supported-package-managers: "Поддерживаемые экосистемы и способы анализа"
+          admin-guide: "Руководство администратора"
           installation: "Установка и эксплуатация"
           hardware: "Аппаратные требования"
+          installation-methods: "Методы установки"
           installation-docker: "Установка системы в Docker"
           external-database: "Работа со внешней СУБД в Docker"
           installation-kubernetes: "Работа системы в Kubernetes"
+          maintenance: "Обслуживание"
           update: "Обновление системы в Docker"
           backup: "Резервное копирование"
           proxy: "Работа через прокси"
           ssl: "Самоподписанные SSL сертификаты"
           postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
-          troubleshooting: "Диагностика неполадок"
-          how-to: "Начало работы с инсталляцией"
           scripts: "Скрипты для управления инсталляцией"
-          getting-started: "Начало работы с инсталляцией"
+          troubleshooting: "Диагностика неполадок"
+          setup: "Настройка платформы"
+          user-management: "Управление пользователями"
           activation: "Активация системы"
           user-profile: "Настройка профиля пользователя"
           proprietors: "Создание подразделений"
-          vcs: "Подключение системы контроля версий"
-          project-control: "Управление проектами"
-          policies: "Настройка политик"
-          ignores: "Игнорирование политик"
-          launch-analysis: "Настройка и запуск анализа"
-          export-results: "Выгрузка результатов анализа"
           groups: "Создание групп пользователей"
           users: "Управление учетными записями"
           ldap: "Настройка LDAP"
           oidc: "Настройка OpenID Connect"
+          project-setup: "Настройка проектов"
+          vcs: "Подключение системы контроля версий"
+          project-control: "Управление проектами"
+          ignores: "Игнорирование политик"
+          launch-analysis: "Настройка и запуск анализа"
+          export-results: "Выгрузка результатов анализа"
+          advanced-setup: "Расширенная настройка"
           notifications: "Настройка уведомлений"
           audit-log: "Работа с аудит-логом"
           metrics: "Сбор метрик"
           webhooks: "Подключение вебхуков"
           api: "Работа с API"
           user-guide: "Руководство пользователя"
-          sca: "CodeScoring.SCA"
+          general: "Общее"
+          policies: "Настройка политик"
+          artifact-plugins: "Плагины для хранилищ"
+          repo-managers: "Подключение менеджера репозиториев"
+          registries: "Подключение реестра с образами"
+          osa-update: "Обновление данных о компонентах"
+          osa-archives: "Сканирование архивов"
           sca-general: "Общее описание"
+          platform-analysis: "Анализ на платформе"
           sca-dependencies: "Обзор зависимостей"
           launch-analysis: "Запуск сканирования"
           scan-history: "Отслеживание истории сканирований"
+          sca: "CodeScoring.SCA"
           osa: "CodeScoring.OSA"
           osa-general: "Общее описание"
           nexus-osa: "Плагин для Nexus"
           jfrog-osa: "Плагин для JFrog"
-          repo-managers: "Подключение менеджера репозиториев"
-          registries: "Подключение реестра с образами"
           osa-policies: "Настройка политик OSA"
-          osa-components: "Работа с компонентами OSA на инсталляции"
-          osa-update: "Обновление данных о компонентах"
-          osa-archives: "Сканирование архивов"
+          osa-components: "Работа с компонентами OSA"
+          platform-osa: "Работа с OSA на платформе"
           osa-proxy: "OSA Proxy"
           osa-proxy-general: "Общее описание"
           osa-proxy-config: "Настройка сервиса"
@@ -274,17 +296,21 @@ plugins:
           feeds-kaspersky: "Использование Kaspersky OSS Threats Data Feed"
           feeds-oss-index: "Интеграция OSS Index"
           secrets: "CodeScoring.Secrets"
+          secrets-configuration: "Настройка"
           secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
           secrets-vcs: "Настройка VCS проекта для работы с секретами"
+          secrets-model: "Управление моделью машинного обучения"
+          secrets-usage: "Анализ секретов"
           secrets-launch: "Запуск поиска секретов"
           secrets-cli: "Поиск секретов в CLI проектах"
           secrets-findings: "Работа с найденными секретами"
-          secrets-model: "Управление моделью машинного обучения"
           tqi: "CodeScoring.TQI"
+          tqi-analysis-group: "Анализ проектов"
           tqi-general: "Общее описание"
           tqi-analysis: "Запуск TQI анализа"
           tqi-results: "Просмотр результатов анализа"
+          tqi-advanced: "Расширенные возможности"
           tqi-authors: "Построение профилей авторов"
           tqi-clones: "Отслеживание дубликатов кода"
           tqi-metrics: "Расчет метрик технического долга"
@@ -312,205 +338,222 @@ nav:
     - installation:
       - hardware: on-premise/server-requirements.md
       - hardware: on-premise/server-requirements.en.md
-      - installation-docker: on-premise/installation.md
-      - installation-docker: on-premise/installation.en.md
-      - external-database: on-premise/external-database.md
-      - external-database: on-premise/external-database.en.md
-      - update: on-premise/update.md
-      - update: on-premise/update.en.md
-      - installation-kubernetes: on-premise/installation-in-k8s.md
-      - installation-kubernetes: on-premise/installation-in-k8s.en.md
-      - backup: on-premise/backup.md
-      - backup: on-premise/backup.en.md
-      - proxy: on-premise/proxy.md
-      - proxy: on-premise/proxy.en.md
-      - ssl: on-premise/self-signed-ssl.md
-      - ssl: on-premise/self-signed-ssl.en.md
-      - postgresql-tls: on-premise/postgresql-tls.md
-      - postgresql-tls: on-premise/postgresql-tls.en.md
-      - analysis-ignore-paths: on-premise/analysis-ignore-paths.md
-      - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
-      - scripts: on-premise/scripts.md
-      - scripts: on-premise/scripts.en.md
-      - troubleshooting: on-premise/troubleshooting.md
-      - troubleshooting: on-premise/troubleshooting.en.md
+      - installation-methods:
+        - installation-docker: on-premise/installation.md
+        - installation-docker: on-premise/installation.en.md
+        - external-database: on-premise/external-database.md
+        - external-database: on-premise/external-database.en.md
+        - installation-kubernetes: on-premise/installation-in-k8s.md
+        - installation-kubernetes: on-premise/installation-in-k8s.en.md
+      - maintenance:
+        - update: on-premise/update.md
+        - update: on-premise/update.en.md
+        - backup: on-premise/backup.md
+        - backup: on-premise/backup.en.md
+        - proxy: on-premise/proxy.md
+        - proxy: on-premise/proxy.en.md
+        - ssl: on-premise/self-signed-ssl.md
+        - ssl: on-premise/self-signed-ssl.en.md
+        - postgresql-tls: on-premise/postgresql-tls.md
+        - postgresql-tls: on-premise/postgresql-tls.en.md
+        - analysis-ignore-paths: on-premise/analysis-ignore-paths.md
+        - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
+        - scripts: on-premise/scripts.md
+        - scripts: on-premise/scripts.en.md
+        - troubleshooting: on-premise/troubleshooting.md
+        - troubleshooting: on-premise/troubleshooting.en.md
     - setup:
       - activation: on-premise/how-to/activation.md
       - activation: on-premise/how-to/activation.en.md
-      - user-profile: on-premise/how-to/user-profile.md
-      - user-profile: on-premise/how-to/user-profile.en.md
-      - users: on-premise/how-to/users.md
-      - users: on-premise/how-to/users.en.md
-      - groups: on-premise/how-to/groups.md
-      - groups: on-premise/how-to/groups.en.md
-      - proprietors: on-premise/how-to/proprietors.md
-      - proprietors: on-premise/how-to/proprietors.en.md
-      - vcs: on-premise/how-to/vcs-git.md
-      - vcs: on-premise/how-to/vcs-git.en.md
-      - project-control: on-premise/how-to/projects.md
-      - project-control: on-premise/how-to/projects.en.md
+      - user-management:
+        - user-profile: on-premise/how-to/user-profile.md
+        - user-profile: on-premise/how-to/user-profile.en.md
+        - users: on-premise/how-to/users.md
+        - users: on-premise/how-to/users.en.md
+        - groups: on-premise/how-to/groups.md
+        - groups: on-premise/how-to/groups.en.md
+        - ldap: on-premise/how-to/ldap-settings.md
+        - ldap: on-premise/how-to/ldap-settings.en.md
+        - oidc: on-premise/how-to/oidc.md
+        - oidc: on-premise/how-to/oidc.en.md
+      - project-setup:
+        - vcs: on-premise/how-to/vcs-git.md
+        - vcs: on-premise/how-to/vcs-git.en.md
+        - project-control: on-premise/how-to/projects.md
+        - project-control: on-premise/how-to/projects.en.md
+      - advanced-setup:
+        - proprietors: on-premise/how-to/proprietors.md
+        - proprietors: on-premise/how-to/proprietors.en.md
+        - notifications: on-premise/how-to/notifications.md
+        - notifications: on-premise/how-to/notifications.en.md
+        - audit-log: on-premise/how-to/audit-log.md
+        - audit-log: on-premise/how-to/audit-log.en.md
+        - metrics: on-premise/how-to/metrics.md
+        - metrics: on-premise/how-to/metrics.en.md
+        - webhooks: on-premise/how-to/webhooks.md
+        - webhooks: on-premise/how-to/webhooks.en.md
+        - api: on-premise/how-to/api.md
+        - api: on-premise/how-to/api.en.md
+  - user-guide:
+    - general:
+      - feeds:
+        - feeds-general: feeds/index.md
+        - feeds-general: feeds/index.en.md
+        - feeds-protestware: feeds/protestware.md
+        - feeds-protestware: feeds/protestware.en.md
+        - feeds-kaspersky: feeds/kaspersky.md
+        - feeds-kaspersky: feeds/kaspersky.en.md
+        - feeds-oss-index: feeds/oss-index.md
+        - feeds-oss-index: feeds/oss-index.en.md
       - policies: on-premise/how-to/policies.md
       - policies: on-premise/how-to/policies.en.md
       - ignores: on-premise/how-to/ignores.md
       - ignores: on-premise/how-to/ignores.en.md
-      - notifications: on-premise/how-to/notifications.md
-      - notifications: on-premise/how-to/notifications.en.md
-      - ldap: on-premise/how-to/ldap-settings.md
-      - ldap: on-premise/how-to/ldap-settings.en.md
-      - oidc: on-premise/how-to/oidc.md
-      - oidc: on-premise/how-to/oidc.en.md
-      - audit-log: on-premise/how-to/audit-log.md
-      - audit-log: on-premise/how-to/audit-log.en.md
-      - metrics: on-premise/how-to/metrics.md
-      - metrics: on-premise/how-to/metrics.en.md
-      - webhooks: on-premise/how-to/webhooks.md
-      - webhooks: on-premise/how-to/webhooks.en.md
-      - api: on-premise/how-to/api.md
-      - api: on-premise/how-to/api.en.md
-  - user-guide:
     - osa:
       - osa-general: osa/index.md
       - osa-general: osa/index.en.md
-      - nexus-osa: osa/nexus_osa.md
-      - nexus-osa: osa/nexus_osa.en.md
-      - jfrog-osa: osa/jfrog_osa.md
-      - jfrog-osa: osa/jfrog_osa.en.md
-      - repo-managers: osa/repo-managers.md
-      - repo-managers: osa/repo-managers.en.md
-      - registries: osa/registries.md
-      - registries: osa/registries.en.md
-      - osa-policies: osa/osa-policies.md
-      - osa-policies: osa/osa-policies.en.md
-      - osa-components: osa/components.md
-      - osa-components: osa/components.en.md
-      - osa-update: osa/update.md
-      - osa-update: osa/update.en.md
-      - osa-archives: osa/archives.md
-      - osa-archives: osa/archives.en.md
-    - osa-proxy:
-      - osa-proxy-general: osa-proxy/index.md
-      - osa-proxy-general: osa-proxy/index.en.md
-      - osa-proxy-config: osa-proxy/config.md
-      - osa-proxy-config: osa-proxy/config.en.md
-      - osa-proxy-protocols: osa-proxy/protocols.md
-      - osa-proxy-protocols: osa-proxy/protocols.en.md
+      - artifact-plugins:
+        - nexus-osa: osa/nexus_osa.md
+        - nexus-osa: osa/nexus_osa.en.md
+        - jfrog-osa: osa/jfrog_osa.md
+        - jfrog-osa: osa/jfrog_osa.en.md
+        - osa-archives: osa/archives.md
+        - osa-archives: osa/archives.en.md
+      - platform-osa:
+        - repo-managers: osa/repo-managers.md
+        - repo-managers: osa/repo-managers.en.md
+        - registries: osa/registries.md
+        - registries: osa/registries.en.md
+        - osa-policies: osa/osa-policies.md
+        - osa-policies: osa/osa-policies.en.md
+        - osa-components: osa/components.md
+        - osa-components: osa/components.en.md
+        - osa-update: osa/update.md
+        - osa-update: osa/update.en.md
+      - osa-proxy:
+        - osa-proxy-general: osa-proxy/index.md
+        - osa-proxy-general: osa-proxy/index.en.md
+        - osa-proxy-config: osa-proxy/config.md
+        - osa-proxy-config: osa-proxy/config.en.md
+        - osa-proxy-protocols: osa-proxy/protocols.md
+        - osa-proxy-protocols: osa-proxy/protocols.en.md
     - sca:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md
-      - launch-analysis: sca/launch-analysis.md
-      - launch-analysis: sca/launch-analysis.en.md
-      - scan-history: sca/scan-history.md
-      - scan-history: sca/scan-history.en.md
-      - export-results: sca/export-results.md
-      - export-results: sca/export-results.en.md
-      - sca-dependencies: sca/sca-dependencies.md
-      - sca-dependencies: sca/sca-dependencies.en.md
-    - agent:
-      - agent-general: agent/index.md
-      - agent-general: agent/index.en.md
-      - agent-config: agent/config.md
-      - agent-config: agent/config.en.md
-      - agent-variables: agent/env-variables.md
-      - agent-variables: agent/env-variables.en.md
-      - agent-scan: agent/scan.md
-      - agent-scan: agent/scan.en.md
-      - agent-scan-dir: agent/scan-dir.md
-      - agent-scan-dir: agent/scan-dir.en.md
-      - agent-scan-file: agent/scan-file.md
-      - agent-scan-file: agent/scan-file.en.md
-      - agent-scan-archive: agent/scan-archive.md
-      - agent-scan-archive: agent/scan-archive.en.md
-      - agent-scan-docker: agent/scan-docker.md
-      - agent-scan-docker: agent/scan-docker.en.md
-      - agent-scan-build: agent/scan-build.md
-      - agent-scan-build: agent/scan-build.en.md
-      - agent-scan-bom: agent/scan-bom.md
-      - agent-scan-bom: agent/scan-bom.en.md
-      - agent-scan-technology: agent/scan-technology.md
-      - agent-scan-technology: agent/scan-technology.en.md
-      - agent-scan-secrets: agent/scan-secrets.md
-      - agent-scan-secrets: agent/scan-secrets.en.md
-      - agent-reachability: agent/reachability.md
-      - agent-reachability: agent/reachability.en.md
-      - agent-sign-verify-bom: agent/sign-verify-bom.md
-      - agent-sign-verify-bom: agent/sign-verify-bom.en.md
-      - agent-launch-docker: agent/launch-docker.md
-      - agent-launch-docker: agent/launch-docker.en.md
-      - agent-gitlab-ci: agent/gitlab-ci.md
-      - agent-gitlab-ci: agent/gitlab-ci.en.md
-      - agent-jenkins: agent/jenkins-pipeline.md
-      - agent-jenkins: agent/jenkins-pipeline.en.md
-      - agent-gitflic-ci: agent/gitflic-ci.md
-      - agent-gitflic-ci: agent/gitflic-ci.en.md
-      - agent-save-results: agent/save-results.md
-      - agent-save-results: agent/save-results.en.md
-      - agent-export: agent/export.md
-      - agent-export: agent/export.en.md
-      - agent-resolve: agent/resolve.md
-      - agent-resolve: agent/resolve.en.md
-    - ide:
-      - ide-general: ide/index.md
-      - ide-general: ide/index.en.md
-      - vscode-sca: ide/vscode-sca.md
-      - vscode-sca: ide/vscode-sca.en.md
-      - intellij-sca: ide/intellij-sca.md
-      - intellij-sca: ide/intellij-sca.en.md
-    - dependencies:
-      - dependencies-general: dependencies/index.md
-      - dependencies-general: dependencies/index.en.md
-      - dependencies-java: dependencies/java.md
-      - dependencies-java: dependencies/java.en.md
-      - dependencies-scala: dependencies/scala.md
-      - dependencies-scala: dependencies/scala.en.md
-      - dependencies-go: dependencies/go.md
-      - dependencies-go: dependencies/go.en.md
-      - dependencies-js: dependencies/js.md
-      - dependencies-js: dependencies/js.en.md
-      - dependencies-dotnet: dependencies/dotnet.md
-      - dependencies-dotnet: dependencies/dotnet.en.md
-      - dependencies-php: dependencies/php.md
-      - dependencies-php: dependencies/php.en.md
-      - dependencies-python: dependencies/python.md
-      - dependencies-python: dependencies/python.en.md
-      - dependencies-ruby: dependencies/ruby.md
-      - dependencies-ruby: dependencies/ruby.en.md
-    - feeds:
-      - feeds-general: feeds/index.md
-      - feeds-general: feeds/index.en.md
-      - feeds-protestware: feeds/protestware.md
-      - feeds-protestware: feeds/protestware.en.md
-      - feeds-kaspersky: feeds/kaspersky.md
-      - feeds-kaspersky: feeds/kaspersky.en.md
-      - feeds-oss-index: feeds/oss-index.md
-      - feeds-oss-index: feeds/oss-index.en.md
+      - platform-analysis:
+        - sca-dependencies: sca/sca-dependencies.md
+        - sca-dependencies: sca/sca-dependencies.en.md
+        - launch-analysis: sca/launch-analysis.md
+        - launch-analysis: sca/launch-analysis.en.md
+        - scan-history: sca/scan-history.md
+        - scan-history: sca/scan-history.en.md
+        - export-results: sca/export-results.md
+        - export-results: sca/export-results.en.md
+      - agent:
+        - agent-general: agent/index.md
+        - agent-general: agent/index.en.md
+        - agent-config: agent/config.md
+        - agent-config: agent/config.en.md
+        - agent-variables: agent/env-variables.md
+        - agent-variables: agent/env-variables.en.md
+        - agent-scan: agent/scan.md
+        - agent-scan: agent/scan.en.md
+        - agent-scan-dir: agent/scan-dir.md
+        - agent-scan-dir: agent/scan-dir.en.md
+        - agent-scan-file: agent/scan-file.md
+        - agent-scan-file: agent/scan-file.en.md
+        - agent-scan-archive: agent/scan-archive.md
+        - agent-scan-archive: agent/scan-archive.en.md
+        - agent-scan-docker: agent/scan-docker.md
+        - agent-scan-docker: agent/scan-docker.en.md
+        - agent-scan-build: agent/scan-build.md
+        - agent-scan-build: agent/scan-build.en.md
+        - agent-scan-bom: agent/scan-bom.md
+        - agent-scan-bom: agent/scan-bom.en.md
+        - agent-scan-technology: agent/scan-technology.md
+        - agent-scan-technology: agent/scan-technology.en.md
+        - agent-scan-secrets: agent/scan-secrets.md
+        - agent-scan-secrets: agent/scan-secrets.en.md
+        - agent-reachability: agent/reachability.md
+        - agent-reachability: agent/reachability.en.md
+        - agent-sign-verify-bom: agent/sign-verify-bom.md
+        - agent-sign-verify-bom: agent/sign-verify-bom.en.md
+        - agent-launch-docker: agent/launch-docker.md
+        - agent-launch-docker: agent/launch-docker.en.md
+        - agent-gitlab-ci: agent/gitlab-ci.md
+        - agent-gitlab-ci: agent/gitlab-ci.en.md
+        - agent-jenkins: agent/jenkins-pipeline.md
+        - agent-jenkins: agent/jenkins-pipeline.en.md
+        - agent-gitflic-ci: agent/gitflic-ci.md
+        - agent-gitflic-ci: agent/gitflic-ci.en.md
+        - agent-save-results: agent/save-results.md
+        - agent-save-results: agent/save-results.en.md
+        - agent-export: agent/export.md
+        - agent-export: agent/export.en.md
+        - agent-resolve: agent/resolve.md
+        - agent-resolve: agent/resolve.en.md
+      - ide:
+        - ide-general: ide/index.md
+        - ide-general: ide/index.en.md
+        - vscode-sca: ide/vscode-sca.md
+        - vscode-sca: ide/vscode-sca.en.md
+        - intellij-sca: ide/intellij-sca.md
+        - intellij-sca: ide/intellij-sca.en.md
+      - dependencies:
+        - dependencies-general: dependencies/index.md
+        - dependencies-general: dependencies/index.en.md
+        - dependencies-java: dependencies/java.md
+        - dependencies-java: dependencies/java.en.md
+        - dependencies-scala: dependencies/scala.md
+        - dependencies-scala: dependencies/scala.en.md
+        - dependencies-go: dependencies/go.md
+        - dependencies-go: dependencies/go.en.md
+        - dependencies-js: dependencies/js.md
+        - dependencies-js: dependencies/js.en.md
+        - dependencies-dotnet: dependencies/dotnet.md
+        - dependencies-dotnet: dependencies/dotnet.en.md
+        - dependencies-php: dependencies/php.md
+        - dependencies-php: dependencies/php.en.md
+        - dependencies-python: dependencies/python.md
+        - dependencies-python: dependencies/python.en.md
+        - dependencies-ruby: dependencies/ruby.md
+        - dependencies-ruby: dependencies/ruby.en.md
     - secrets:
       - secrets-general: secrets/index.md
       - secrets-general: secrets/index.en.md
-      - secrets-setup: secrets/secrets-setup.md
-      - secrets-setup: secrets/secrets-setup.en.md
-      - secrets-vcs: secrets/secrets-vcs.md
-      - secrets-vcs: secrets/secrets-vcs.en.md
-      - secrets-launch: secrets/secrets-launch.md
-      - secrets-launch: secrets/secrets-launch.en.md
-      - secrets-cli: secrets/secrets-cli.md
-      - secrets-cli: secrets/secrets-cli.en.md
-      - secrets-findings: secrets/secrets-findings.md
-      - secrets-findings: secrets/secrets-findings.en.md
-      - secrets-model: secrets/secrets-model.md
-      - secrets-model: secrets/secrets-model.en.md
+      - secrets-configuration:
+        - secrets-general: secrets/index.md
+        - secrets-general: secrets/index.en.md
+        - secrets-setup: secrets/secrets-setup.md
+        - secrets-setup: secrets/secrets-setup.en.md
+        - secrets-vcs: secrets/secrets-vcs.md
+        - secrets-vcs: secrets/secrets-vcs.en.md
+        - secrets-model: secrets/secrets-model.md
+        - secrets-model: secrets/secrets-model.en.md
+      - secrets-usage:
+        - secrets-launch: secrets/secrets-launch.md
+        - secrets-launch: secrets/secrets-launch.en.md
+        - secrets-cli: secrets/secrets-cli.md
+        - secrets-cli: secrets/secrets-cli.en.md
+        - secrets-findings: secrets/secrets-findings.md
+        - secrets-findings: secrets/secrets-findings.en.md
     - tqi:
       - tqi-general: tqi/index.md
       - tqi-general: tqi/index.en.md
-      - tqi-analysis: tqi/launch-analysis.md
-      - tqi-analysis: tqi/launch-analysis.en.md
-      - tqi-results: tqi/viewing-results.md
-      - tqi-results: tqi/viewing-results.en.md
-      - tqi-authors: tqi/authors.md
-      - tqi-authors: tqi/authors.en.md
-      - tqi-clones: tqi/clones.md
-      - tqi-clones: tqi/clones.en.md
-      - tqi-metrics: tqi/metrics.md
-      - tqi-metrics: tqi/metrics.en.md
+      - tqi-analysis-group:
+        - tqi-general: tqi/index.md
+        - tqi-general: tqi/index.en.md
+        - tqi-analysis: tqi/launch-analysis.md
+        - tqi-analysis: tqi/launch-analysis.en.md
+        - tqi-results: tqi/viewing-results.md
+        - tqi-results: tqi/viewing-results.en.md
+      - tqi-advanced:
+        - tqi-authors: tqi/authors.md
+        - tqi-authors: tqi/authors.en.md
+        - tqi-clones: tqi/clones.md
+        - tqi-clones: tqi/clones.en.md
+        - tqi-metrics: tqi/metrics.md
+        - tqi-metrics: tqi/metrics.en.md
   - changelog:
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
