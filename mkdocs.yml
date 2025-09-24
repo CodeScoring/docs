@@ -39,6 +39,7 @@ plugins:
   - print-site:
       exclude:
         - index.md
+        - changelog/*
   - i18n:
       languages:
         ru: "Русский"
