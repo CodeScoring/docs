@@ -54,6 +54,7 @@ plugins:
           begin: " "
           integration-stages: "Integration stages"
           supported-package-managers: "Supported ecosystems and analysis methods"
+          standards: "Standards compliance"
           installation: "On-premise installation and maintenance"
           hardware: "Hardware requirements"
           installation-docker: "Installation in Docker"
@@ -179,6 +180,7 @@ plugins:
           begin: " "
           integration-stages: "Этапы интеграции"
           supported-package-managers: "Поддерживаемые экосистемы и способы анализа"
+          standards: "Соответствие стандартам"
           installation: "Установка и эксплуатация"
           hardware: "Аппаратные требования"
           installation-docker: "Установка системы в Docker"
@@ -308,6 +310,8 @@ nav:
     - integration-stages: integration-stages.en.md
     - supported-package-managers: supported-package-managers.md
     - supported-package-managers: supported-package-managers.en.md
+    - standards: standards.md
+    - standards: standards.en.md
   - getting-started:
     - installation:
       - hardware: on-premise/server-requirements.md
