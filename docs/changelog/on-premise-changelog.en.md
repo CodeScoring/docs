@@ -24,7 +24,7 @@ hide:
 - Optimized repository manager removal  
 - <span class="module-tag sca">SCA</span> Fixed issue in the "PURL contains" policy: if the checked element was not a valid PURL, the policy did not trigger  
 - <span class="module-tag sca">SCA</span> Fixed issue when SCA scanning projects with dependencies having identical name, version, and language  
-- Fixed issue with enabling inactive policies in the Judge service  
+- Fixed issue with enabling inactive policies
 - <span class="module-tag secrets">Secrets</span> Fixed error when exporting secrets PDF report  
 - Fixed error when the `error` parameter is missing in the OpenID Connect response
 
