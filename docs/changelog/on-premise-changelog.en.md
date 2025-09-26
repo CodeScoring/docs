@@ -20,13 +20,13 @@ hide:
 #### Fixed
 
 <<<<<<< HEAD
-- <span class="module-tag osa">OSA</span> Fixed issue with ignoring alerts for OSA packages  
-- Fixed Index Proxy server error when the activation key owner’s name contains Cyrillic characters  
-- Optimized repository manager removal  
-- <span class="module-tag sca">SCA</span> Fixed issue in the "PURL contains" policy: if the checked element was not a valid PURL, the policy did not trigger  
-- <span class="module-tag sca">SCA</span> Fixed issue when SCA scanning projects with dependencies having identical name, version, and language  
+- <span class="module-tag osa">OSA</span> Fixed issue with ignoring alerts for OSA packages
+- Fixed Index Proxy server error when the activation key owner’s name contains Cyrillic characters
+- Optimized repository manager removal
+- <span class="module-tag sca">SCA</span> Fixed issue in the "PURL contains" policy: if the checked element was not a valid PURL, the policy did not trigger
+- <span class="module-tag sca">SCA</span> Fixed issue when SCA scanning projects with dependencies having identical name, version, and language
 - Fixed issue with enabling inactive policies
-- <span class="module-tag secrets">Secrets</span> Fixed error when exporting secrets PDF report  
+- <span class="module-tag secrets">Secrets</span> Fixed error when exporting secrets PDF report
 - <span class="module-tag osa">OSA</span> Fixed issue with ignoring alerts for OSA packages
 - Fixed Index Proxy server error when the activation key owner’s name contains Cyrillic characters
 - Optimized repository manager removal
