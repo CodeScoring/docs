@@ -5,6 +5,29 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.1] - 2025-09-25
+
+#### Added
+
+- <span class="module-tag osa">OSA</span> Added ability to deactivate the repository manager  
+- Added `media-cleaner` queue in the `tasks-media` service  
+- Updated `celery` library version  
+
+#### Changed
+
+- Tasks related to cleaning up obsolete media files from the filesystem moved to a separate `media-cleaner` queue  
+
+#### Fixed
+
+- <span class="module-tag osa">OSA</span> Fixed issue with ignoring alerts for OSA packages  
+- Fixed Index Proxy server error when the activation key owner’s name contains Cyrillic characters  
+- Optimized repository manager removal  
+- <span class="module-tag sca">SCA</span> Fixed issue in the "PURL contains" policy: if the checked element was not a valid PURL, the policy did not trigger  
+- <span class="module-tag sca">SCA</span> Fixed issue when SCA scanning projects with dependencies having identical name, version, and language  
+- Fixed issue with enabling inactive policies in the Judge service  
+- <span class="module-tag secrets">Secrets</span> Fixed error when exporting secrets PDF report  
+- Fixed error when the `error` parameter is missing in the OpenID Connect response
+
 ### [2025.37.0] - 2025-09-12
 
 #### Added
