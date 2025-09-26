@@ -19,7 +19,6 @@ hide:
 
 #### Fixed
 
-<<<<<<< HEAD
 - <span class="module-tag osa">OSA</span> Fixed issue with ignoring alerts for OSA packages
 - Fixed Index Proxy server error when the activation key owner’s name contains Cyrillic characters
 - Optimized repository manager removal
