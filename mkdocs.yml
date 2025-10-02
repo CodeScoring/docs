@@ -535,7 +535,7 @@ extra_css:
   - stylesheets/home.css
 
 extra_javascript:
-  - js/filter-search.js
+  - js/search.js
 
 extra:
   social:
