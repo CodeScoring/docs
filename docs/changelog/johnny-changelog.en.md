@@ -5,6 +5,11 @@ hide:
 
 # Johnny Changelog
 
+### [2025.37.1] - 2025-09-22
+
+#### Fixed
+- Fixed local gitleaks version validation issues
+
 ### [2025.37.0] - 2025-09-08
 
 #### Added

@@ -102,6 +102,10 @@ plugins:
           osa-components: "Working with OSA components"
           osa-update: "Updating component data"
           osa-archives: "Scanning archives"
+          osa-proxy: "OSA Proxy"
+          osa-proxy-general: "Overview"
+          osa-proxy-config: "Service configuration"
+          osa-proxy-protocols: "Supported protocols"
           ide: "IDE integrations"
           ide-general: "General description"
           vscode-sca: "VS Code extension"
@@ -165,6 +169,7 @@ plugins:
           nexus-changelog: "Nexus OSA"
           vscode-changelog: "VS Code extension"
           intellij-changelog: "IntelliJ plugin"
+          proxy-changelog: "OSA Proxy"
         ru:
           home: "Главная"
           functionality: "Функциональность"
@@ -222,6 +227,10 @@ plugins:
           osa-components: "Работа с компонентами OSA на инсталляции"
           osa-update: "Обновление данных о компонентах"
           osa-archives: "Сканирование архивов"
+          osa-proxy: "OSA Proxy"
+          osa-proxy-general: "Общее описание"
+          osa-proxy-config: "Настройка сервиса"
+          osa-proxy-protocols: "Поддерживаемые протоколы"
           ide: "Интеграция с IDE"
           ide-general: "Общее описание"
           vscode-sca: "Расширение для VS Code"
@@ -285,6 +294,7 @@ plugins:
           nexus-changelog: "Плагин для Nexus"
           vscode-changelog: "Расширение для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
+          proxy-changelog: "OSA Proxy"
   - print-site
 
 nav:
@@ -377,6 +387,13 @@ nav:
       - osa-update: osa/update.en.md
       - osa-archives: osa/archives.md
       - osa-archives: osa/archives.en.md
+    - osa-proxy:
+      - osa-proxy-general: osa-proxy/index.md
+      - osa-proxy-general: osa-proxy/index.en.md
+      - osa-proxy-config: osa-proxy/config.md
+      - osa-proxy-config: osa-proxy/config.en.md
+      - osa-proxy-protocols: osa-proxy/protocols.md
+      - osa-proxy-protocols: osa-proxy/protocols.en.md
     - sca:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md
@@ -507,6 +524,8 @@ nav:
     - vscode-changelog: changelog/vscode-changelog.en.md
     - intellij-changelog: changelog/intellij-changelog.md
     - intellij-changelog: changelog/intellij-changelog.en.md
+    - proxy-changelog: changelog/proxy-changelog.md
+    - proxy-changelog: changelog/proxy-changelog.en.md
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> CodeScoring
 
@@ -557,4 +576,3 @@ extra:
       site_name: "Документация CodeScoring"
     - en:
       site_name: "CodeScoring Documentation"
-
