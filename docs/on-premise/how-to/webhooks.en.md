@@ -476,7 +476,7 @@ To manage webhooks, an API is provided at the endpoint `/api/settings/webhooks` 
       </td>
     </tr>
   </tbody>
-</table> 
+</table>
 
 
 ## Example of a simple Flask application

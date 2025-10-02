@@ -49,9 +49,9 @@ hide:
           --ignore parsers
           .
 
-  artifacts:  
-    reports:  
-    paths:  
+  artifacts:
+    reports:
+    paths:
     dependency_scanning:  "bom.json"
   ```
 
@@ -100,8 +100,8 @@ docker commit <container name><repository>:<tag>
       - test
 
     sca:
-      stage: test 
-    image: <repository><tag>  
+      stage: test
+    image: <repository><tag>
 
     script:
         - >
@@ -114,9 +114,9 @@ docker commit <container name><repository>:<tag>
           --ignore parsers
           .
 
-  artifacts:  
-    reports:  
-    paths:  
+  artifacts:
+    reports:
+    paths:
     dependency_scanning:  "bom.json"
 ```
 
@@ -164,9 +164,9 @@ scripts:
               --ignore parsers
               .
 
-      artifacts:  
-        reports:  
-        paths:  
+      artifacts:
+        reports:
+        paths:
         dependency_scanning:  "bom.json"
     ```
 

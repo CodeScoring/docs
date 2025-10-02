@@ -21,7 +21,7 @@ Connecting to PostgreSQL/PgBouncer using TLS provides secure and encrypted data 
     ```
 4. Uncomment and edit your SSL/TLS configuration files.
 
-## Example of how to enable PostgreSQL/PgBouncer in TLS mode with self-signed certificates 
+## Example of how to enable PostgreSQL/PgBouncer in TLS mode with self-signed certificates
 
 1. Generate certificates in the `ssl` directory in the system platform files using the `mkcert` utility
     ```bash

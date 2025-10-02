@@ -37,7 +37,7 @@ Using other major branches does not guarantee correct results and may lead to er
 
 To install the system, the Docker Registry with CodeScoring container images must be available, the address of which is provided along with the activation key.
 
-For correct operation, the address `index.codescoring.ru` with a constantly updated database of known packages must also be available. 
+For correct operation, the address `index.codescoring.ru` with a constantly updated database of known packages must also be available.
 
 From the Index API the platform receives additional information on the dependencies found, their licenses and vulnerabilities.
 

@@ -26,7 +26,7 @@ hide:
 ./johnny scan dir . \
 --api_token <api_token> \
 --api_url <api_url> \
---ignore .tmp --ignore fixtures --ignore .git 
+--ignore .tmp --ignore fixtures --ignore .git
 ```
 
 ## Параметры команды

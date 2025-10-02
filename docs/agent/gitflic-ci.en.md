@@ -48,9 +48,9 @@ Example of requesting the agent binary in `gitflic-ci.yaml`:
           --ignore parsers
           .
 
-  artifacts:  
-    reports:  
-    paths:  
+  artifacts:
+    reports:
+    paths:
     dependency_scanning:  "bom.json"
   ```
 
@@ -92,15 +92,15 @@ To use the console agent with the GitFlic docker runner type, you must first per
 
 **Important**: if necessary, save the container to a remote repository.
 
-An example of requesting the agent binary file in `gitflic-ci.yaml`: 
+An example of requesting the agent binary file in `gitflic-ci.yaml`:
 
 ```yaml
     stages:
       - test
 
     sca:
-      stage: test 
-    image: <repository><tag>  
+      stage: test
+    image: <repository><tag>
 
     script:
         - >
@@ -113,9 +113,9 @@ An example of requesting the agent binary file in `gitflic-ci.yaml`:
           --ignore parsers
           .
 
-  artifacts:  
-    reports:  
-    paths:  
+  artifacts:
+    reports:
+    paths:
     dependency_scanning:  "bom.json"
 ```
 
@@ -163,9 +163,9 @@ scripts:
               --ignore parsers
               .
 
-      artifacts:  
-        reports:  
-        paths:  
+      artifacts:
+        reports:
+        paths:
         dependency_scanning:  "bom.json"
     ```
 

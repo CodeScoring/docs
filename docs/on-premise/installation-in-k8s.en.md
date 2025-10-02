@@ -69,7 +69,7 @@ hide:
         databasePort: 6432
         postgresqlDatabase: "codescoring"
         postgresqlUsername: "codescoring"
-        postgresqlPassword: "changeme" 
+        postgresqlPassword: "changeme"
 
       frontend:
         ingress:
@@ -128,7 +128,7 @@ To connect to external Redis, in addition to abovementioned you must do the foll
 
 1. Set the `codescoring.trustedCA.enabled` variable to `true`
 2. Add the Redis-server root certificate to `codescoring.trustedCA.certificates`
-3. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis using the following format: `rediss://redis.example.com:6379/0`, where 0 is the Redis database number.  
+3. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis using the following format: `rediss://redis.example.com:6379/0`, where 0 is the Redis database number.
 
 #### Connecting to PostgreSQL via Pgbouncer pooler {#external-postgres}
 
@@ -507,7 +507,7 @@ codescoring:
           DY8c5lOmyCwuNh9ODuw4cAThICrn7G8bh8ZyxLyj4Znxh0X45SwMZKTmYLfy9ab8
           b/j7FK8uBNRL+pXl9HGBWAFA01uJw4HkYK+Uo+RcAzo=
           -----END CERTIFICATE-----
-``` 
+```
 If you have multiple root CAs, you need to add them to separate keys, for example:
 ```
 codescoring:
@@ -522,21 +522,21 @@ codescoring:
 
 ## Secret Management {#secret-management}
 
-By default, the **Secret** objects are created for `ipcs-backend`, `pgbouncer` and `postgresql` templates. The values for their variables are provided in the values file. 
+By default, the **Secret** objects are created for `ipcs-backend`, `pgbouncer` and `postgresql` templates. The values for their variables are provided in the values file.
 
-It is also possible to use external secret storages. To achieve that, it is necessary to have an **External Secrets Operator (ESO)** installed in the cluster. It adds all required CRDs (Custom Resource Definitions) to the cluster and connects to an external secret provider. 
+It is also possible to use external secret storages. To achieve that, it is necessary to have an **External Secrets Operator (ESO)** installed in the cluster. It adds all required CRDs (Custom Resource Definitions) to the cluster and connects to an external secret provider.
 
-In order to connect ESO to an external secret storage, you must configure a provider for the **SecretStore** in the `codescoring.secretStore` block. 
+In order to connect ESO to an external secret storage, you must configure a provider for the **SecretStore** in the `codescoring.secretStore` block.
 
-Next, you need to configure the **ExternalSecret** objects to fetch secrets from the external provider in the `codescoring.config.externalSecret,` `pgbouncer.externalSecret`, `postgresql.externalSecret` blocks. 
+Next, you need to configure the **ExternalSecret** objects to fetch secrets from the external provider in the `codescoring.config.externalSecret,` `pgbouncer.externalSecret`, `postgresql.externalSecret` blocks.
 
-All the configurations must be made in accordance with the official ESO documentation. 
+All the configurations must be made in accordance with the official ESO documentation.
 
-**Important!**: Some providers may bill requests to secret storages. The request interval can be configured using the `externalSecret.refreshInterval` parameter for each particular service. 
+**Important!**: Some providers may bill requests to secret storages. The request interval can be configured using the `externalSecret.refreshInterval` parameter for each particular service.
 
 ## Monitoring {#monitoring}
 
-For metrics collection purpose there are the **ServiceMonitor** resources provided in the chart. The metrics are collected from the backend and the osa-api services. 
+For metrics collection purpose there are the **ServiceMonitor** resources provided in the chart. The metrics are collected from the backend and the osa-api services.
 
 The ServiceMonitor can be configured in the following values sections: `codescoring.backend.prometheus.serviceMonitor`, `codescoring.osa_api.prometheus.serviceMonitor`.
 

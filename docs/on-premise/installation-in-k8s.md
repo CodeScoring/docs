@@ -25,7 +25,7 @@ hide:
     kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
     ```
 
-3. Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом. 
+3. Установить [Helm](https://helm.sh/docs/intro/install/) предпочтительным способом.
 4. Выполнить следующие команды для добавления актуального Helm-репозитория на локальную машину:
 
     ```
@@ -34,8 +34,8 @@ hide:
     ```
 
 5. Создать файл `values.yaml` со следующим содержимым:
-    
-    **Важно!**: Пожалуйста, замените значения в полях с чувствительными данными на собственные. К таким полям относятся `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, а также все поля, содержащие `username` или `password`. Также важно учитывать, что все подобные переменные являются обязательными. 
+
+    **Важно!**: Пожалуйста, замените значения в полях с чувствительными данными на собственные. К таким полям относятся `secretKey`, `defaultSuperuserUsername`, `defaultSuperuserPassword`, `defaultSuperuserEmail`, а также все поля, содержащие `username` или `password`. Также важно учитывать, что все подобные переменные являются обязательными.
 
     ```
     pgbouncer:
@@ -61,7 +61,7 @@ hide:
         siteHost: "codescoring.k8s.local" # домен, по которому будет доступен CodeScoring
         djangoCSRFTrustedOptions: "https://codescoring.k8s.local" # Домен, по которому будет доступен CodeScoring, включая схему
         secretKey: "" # секретный ключ для бэкенда приложения, случайная строка символов
-        defaultSuperuserUsername: "admin" # имя администратора в системе 
+        defaultSuperuserUsername: "admin" # имя администратора в системе
         defaultSuperuserPassword: "changeme" # пароль администратора в системе
         defaultSuperuserEmail: "mail@example.com" # e-mail администратора в системе
         databaseHost: pgbouncer
@@ -127,7 +127,7 @@ helm install codescoring . -f values.yaml -n codescoring --atomic --version CHAR
 
 1. Задать значение `true` в переменной `codescoring.trustedCA.enabled`
 2. Добавить корневой сертификат сервера Redis в `codescoring.trustedCA.certificates`
-3. В переменных `codescoring.config.djangoCachesRedisUrls` и `codescoring.config.hueyRedisUrl` указать строки подключения для внешнего Redis в формате `rediss://redis.example.com:6379/0`, где 0 - номер базы данных в Redis. 
+3. В переменных `codescoring.config.djangoCachesRedisUrls` и `codescoring.config.hueyRedisUrl` указать строки подключения для внешнего Redis в формате `rediss://redis.example.com:6379/0`, где 0 - номер базы данных в Redis.
 
 #### Подключение к PostgreSQL через пулер Pgbouncer {#external-postgres}
 
@@ -200,13 +200,13 @@ externalPooler:
 
 ### Настройка томов (PV) {#volumes}
 
-По умолчанию чарт создает необходимые тома через [Dynamic Volume Provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) с использованием `StorageClass` по умолчанию (default). В случае, если данный вариант развертывания томов не подходит, присутствует возможность гибко настроить создание томов несколькими способами. 
+По умолчанию чарт создает необходимые тома через [Dynamic Volume Provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) с использованием `StorageClass` по умолчанию (default). В случае, если данный вариант развертывания томов не подходит, присутствует возможность гибко настроить создание томов несколькими способами.
 
 **Важно!**: Описанные ниже опции являются **взаимоисключающими**. Необходимо выбрать **ТОЛЬКО ОДИН** вариант развертывания для каждого тома. Допускается выбор разных вариантов развертывания для разных томов.
 
 !!! note
     Для изменения размера создаваемых томов (за исключением локальных) необходимо изменить параметр `size` в соответствующих секциях
- 
+
 #### Dynamic Volume Provisioning с использованием требуемого StorageClass {#dynamic-volume-provisioning}
 
 Задать требуемый `StorageClass` можно в следующих переменных:
@@ -248,7 +248,7 @@ externalPooler:
 
 #### Использование локальных томов {#local-volumes}
 
-При отсутствии в кластере Kubernetes внешнего хранилища данных возможен запуск CodeScoring с использованием локальных томов. В этом случае данные будут хранится на одной из нод кластера. 
+При отсутствии в кластере Kubernetes внешнего хранилища данных возможен запуск CodeScoring с использованием локальных томов. В этом случае данные будут хранится на одной из нод кластера.
 
 Для создания локальных томов необходимо выполнить следующие действия:
 
@@ -348,7 +348,7 @@ codescoring:
 
 **Важно!**: Для горизонтального масштабирования системы CodeScoring необходимо наличие в кластере Kubernetes возможности создания томов с типом доступа **ReadWriteMany (RWX)**
 
-Для горизонтального масштабирования CodeScoring необходимо создать тома `analysis-root`, `media-root` и `django-static` с типом доступа `ReadWriteMany`. 
+Для горизонтального масштабирования CodeScoring необходимо создать тома `analysis-root`, `media-root` и `django-static` с типом доступа `ReadWriteMany`.
 
 Для этого необходимо заменить значение `ReadWriteOnce` на `ReadWriteMany` в переменных:
 
@@ -502,7 +502,7 @@ codescoring:
 Для доступа CodeScoring к ресурсам с TLS-сертификатами, подписанными корпоративным удостоверяющим центром (CA) необходимо:
 
 1. Присвоить переменной `codescoring.trustedCA.enabled` значение `true`
-2. Добавить корневой сертификат удостоверяющего центра (RootCA) в формате PEM в переменную `codescoring.trustedCA.certificates` в формате `ключ: значение`, 
+2. Добавить корневой сертификат удостоверяющего центра (RootCA) в формате PEM в переменную `codescoring.trustedCA.certificates` в формате `ключ: значение`,
 где ключ - имя файла сертификата, включая расширение `.crt`, значение - сертификат в формате PEM.
 
 Например:
@@ -533,7 +533,7 @@ codescoring:
           DY8c5lOmyCwuNh9ODuw4cAThICrn7G8bh8ZyxLyj4Znxh0X45SwMZKTmYLfy9ab8
           b/j7FK8uBNRL+pXl9HGBWAFA01uJw4HkYK+Uo+RcAzo=
           -----END CERTIFICATE-----
-``` 
+```
 В случае наличия нескольких корневых CA необходимо добавить их в отдельные ключи, например:
 ```
 codescoring:
@@ -550,29 +550,29 @@ codescoring:
 
 По умолчанию для шаблонов `ipcs-backend`, `pgbouncer` и `postgresql` предусмотрены объекты типа `Secret`. Значения переменных в этих объектах заполняются из содержимого `values`.
 
-Также присутствует возможность подключать внешние хранилища секретов. Для этого в кластере должен должен быть установлен **External Secrets Operator (ESO)**. Он добавляет в кластер необходимые CRD (Custom Resource Definition) и обеспечивает связь с хранилищем секретов. 
+Также присутствует возможность подключать внешние хранилища секретов. Для этого в кластере должен должен быть установлен **External Secrets Operator (ESO)**. Он добавляет в кластер необходимые CRD (Custom Resource Definition) и обеспечивает связь с хранилищем секретов.
 
 Для подключения ESO к внешнему хранилищу секретов необходимо сконфигурировать провайдера для **SecretStore** в разделе `codescoring.secretStore`.
 
 Далее, необходимо настроить объекты **ExternalSecret** для получения секретов из внешнего хранилища в разделах `codescoring.config.externalSecret,` `pgbouncer.externalSecret`, `postgresql.externalSecret`.
 
-Вся конфигурация осуществляется в соответствии с документацией ESO. 
+Вся конфигурация осуществляется в соответствии с документацией ESO.
 
-**Важно!**: Некоторые провайдеры могут тарифицировать запросы к хранилищам секретов. Интервал запроса данных регулируется параметром `externalSecret.refreshInterval` для каждого отдельного сервиса. 
+**Важно!**: Некоторые провайдеры могут тарифицировать запросы к хранилищам секретов. Интервал запроса данных регулируется параметром `externalSecret.refreshInterval` для каждого отдельного сервиса.
 
 ## Мониторинг {#monitoring}
 
-Для сбора метрик с сервисов в чарте предусмотрены ресурсы **ServiceMonitor**. Метрики собираются с сервисов `backend` и `osa-api`. Для использования **ServiceMonitor** в кластере должен быть установлен и настроен Prometheus Operator. 
+Для сбора метрик с сервисов в чарте предусмотрены ресурсы **ServiceMonitor**. Метрики собираются с сервисов `backend` и `osa-api`. Для использования **ServiceMonitor** в кластере должен быть установлен и настроен Prometheus Operator.
 
-**ServiceMonitor** настраивается в следующих разделах values: `codescoring.backend.prometheus.serviceMonitor`, `codescoring.osa_api.prometheus.serviceMonitor`. 
+**ServiceMonitor** настраивается в следующих разделах values: `codescoring.backend.prometheus.serviceMonitor`, `codescoring.osa_api.prometheus.serviceMonitor`.
 
-Также для вышеуказанных сервисов предусмотрены ресурсы **PrometheusRule**, необходимые для настройки правил алертинга. Настройка данных ресурсов осуществляется в следующих разделах values: `codescoring.backend.prometheus.alerts`, `codescoring.osa_api.prometheus.alerts`. 
+Также для вышеуказанных сервисов предусмотрены ресурсы **PrometheusRule**, необходимые для настройки правил алертинга. Настройка данных ресурсов осуществляется в следующих разделах values: `codescoring.backend.prometheus.alerts`, `codescoring.osa_api.prometheus.alerts`.
 
-Все настройки осуществляются в соответствии с [документацией Prometheus Operator](https://prometheus-operator.dev/docs/). 
+Все настройки осуществляются в соответствии с [документацией Prometheus Operator](https://prometheus-operator.dev/docs/).
 
 ## Обновление системы {#update}
 
-Для обновления системы необходимо актуализировать helm-репозиторий командой 
+Для обновления системы необходимо актуализировать helm-репозиторий командой
 
 ```commandline
 helm repo update
