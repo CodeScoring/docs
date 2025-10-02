@@ -61,7 +61,7 @@ To use the console agent binary file, you must first perform the following steps
  curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
  ```
 
- The `JOHNNY_VERSION` variable must be replaced with the agent version. A list of current versions is available [in the Changelog section](/changelog.en/#johnny).
+ The `JOHNNY_VERSION` variable must be replaced with the agent version. A list of current versions is available [in the Changelog section](//changelog/johnny-changelog.en).
 
  The `REGISTRY_URL`, `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` variables should be replaced with the URL, login and password received from the vendor.
 

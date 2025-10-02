@@ -61,7 +61,7 @@ pipeline {
     curl -o /usr/local/bin/johnny https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/repository/files/codescoring/johnny-depp/JOHNNY_VERSION/johnny-linux-amd64-JOHNNY_VERSION
     ```
 
-    Переменную `JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий доступен [в разделе Changelog](/changelog/#johnny).
+    Переменную `JOHNNY_VERSION` необходимо заменить на версию агента. Список актуальных версий доступен [в разделе Changelog](/changelog/johnny-changelog).
 
     Переменные `REGISTRY_URL`, `REGISTRY_USERNAME` и `REGISTRY_PASSWORD` необходимо заменить на адрес, логин и пароль, полученные от вендора.
 

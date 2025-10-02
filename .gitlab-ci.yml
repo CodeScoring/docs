@@ -107,7 +107,7 @@ lint_markdown:
       done
 
       # URLs
-      IGNORED_DOMAINS='webhook|atlassian|nuget|pypi|npmjs|maven|example|gitflic\.ru|localhost|127\.0\.0\.1|tip\.kaspersky\.com|JFROG_URL|host|jfrog\.my\.domain'
+      IGNORED_DOMAINS='webhook|atlassian|nuget|pypi|npmjs|maven|registry|mycompany|k8s|example|gitflic\.ru|localhost|127\.0\.0\.1|tip\.kaspersky\.com|JFROG_URL|host|jfrog\.my\.domain'
 
       if command -v wget >/dev/null; then
         for file in $FILES; do

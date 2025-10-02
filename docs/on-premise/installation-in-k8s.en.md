@@ -340,9 +340,9 @@ Then you need to set the value `enabled: true` in one or more of the following s
 - `codescoring.huey.persistentVolumes.hueyPackageScanTmp`
 - `codescoring.huey.persistentVolumes.hueyContainerImageScanTmp`
 
-As a result, PersistentVolumeClaim will be created for the corresponding services. It is worth noting that the possibilities for configuring these volumes fully correspond to those described in the section [Configuring volumes (PV)](#pv).
+As a result, PersistentVolumeClaim will be created for the corresponding services. It is worth noting that the possibilities for configuring these volumes fully correspond to those described in the section [Configuring volumes (PV)](#volumes).
 
-When horizontally scaling services, you need to configure volumes in accordance with the instructions in the [Horizontal scaling CodeScoring](#codescoring) section.
+When horizontally scaling services, you need to configure volumes in accordance with the instructions in the [Horizontal scaling CodeScoring](#horizontal-scaling) section.
 
 ### Horizontal scaling CodeScoring {#horizontal-scaling}
 
