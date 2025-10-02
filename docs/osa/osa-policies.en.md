@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Configuring OSA policies
 
 To decide whether to block or allow downloading of components, the plugin uses the [CodeScoring policies](/on-premise/how-to/policies.en) mechanism.

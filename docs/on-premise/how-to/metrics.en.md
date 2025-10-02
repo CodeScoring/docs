@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Configuring metrics
 
 CodeScoring stores metrics in a format supported by the **Prometheus** monitoring tool. Currently there are metrics available from CodeScoring platform and plugins in proxy repositories.

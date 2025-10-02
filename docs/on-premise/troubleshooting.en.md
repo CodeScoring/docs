@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Troubleshooting
 
 ## Working with logs

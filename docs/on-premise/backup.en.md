@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Backup
 
 ## Creating a backup copy of the platform

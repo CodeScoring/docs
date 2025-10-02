@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Updating the system
 
 ## Standard update guide

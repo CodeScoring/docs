@@ -104,7 +104,7 @@ The console agent plugin is supplied by the vendor as a separate file. To activa
 2. Restart Jenkins
 3. Check the active state of the plugin in the `Installed plugins` list
  ![Check plugin](/assets/img/jenkins/check-plugin.png)
-4. Go to the section `Configure Jenkins -> Tools -> Johnny platforms` and specify the name of the platform and the location of the binary file with the console agent.
+4. Go to the section `Configure Jenkins -> Tools -> Johnny installations` and specify the name of the installation and the location of the binary file with the console agent.
  ![Configure johnny path](/assets/img/jenkins/johnny-path.png)
 5. Go to the settings of the desired assembly and add the **CodeScoring SCA** assembly step, setting the following parameters:
 
