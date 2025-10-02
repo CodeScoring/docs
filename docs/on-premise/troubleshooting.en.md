@@ -20,9 +20,9 @@ hide:
 
 3. Send the `codescoring_onprem.log` file to the vendor.
 
-## System reinstallation
+## System re-installation
 
-If you need to start the installation process from scratch, you need to clean up the volumes.
+If you want to start the installation process from scratch, you need to clean up the volumes.
 
 If there are no other containers on the server with docker other than the CodeScoring project, run the command:
 

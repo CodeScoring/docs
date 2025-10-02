@@ -399,7 +399,7 @@ codescoring:
           memory: 1000Mi
 ```
 
-Ниже приведены примерные значения `limits` для инсталляции CodeScoring с 8-10 проектами:
+Ниже приведены примерные значения `limits` для платформе CodeScoring с 8-10 проектами:
 ```
 codescoring:
   backend:
@@ -578,7 +578,7 @@ codescoring:
 helm repo update
 ```
 
-и далее выполнить команду обновления инсталляции, где CHART_VERSION - версия чарта, на которую происходит обновление
+и далее выполнить команду обновления платформы, где `CHART_VERSION` - версия чарта, на которую происходит обновление
 
 ```commandline
 helm upgrade codescoring codescoring-org/codescoring -n codescoring -f values.yaml --version CHART_VERSION

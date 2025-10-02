@@ -5,7 +5,7 @@ hide:
 
 # Installation in Kubernetes
 
-## Installation using Helm chart with default parameters {#helm-installation-default}
+## Installation using Helm chart with default parameters {#helm-platform-default}
 
 **Important!**: This installation option does not provide an ability to scale CodeScoring horizontally. To install CodeScoring with horizontal scaling support, please refer to the relevant documentation section below.
 
@@ -106,7 +106,7 @@ To easily edit CodeScoring parameters, you can download and unpack the Helm char
 helm pull codescoring-org/codescoring --version CHART_VERSION --untar --untardir codescoring-src && cd codescoring-src
 ```
 
-In the `values.yaml` file you can edit the necessary variables, and after that run the installation command in the directory with the Helm chart source code:
+In the `values.yaml` file you can edit the necessary variables, and after that run the platform command in the directory with the Helm chart source code:
 ```
 helm install codescoring . -f values.yaml -n codescoring --atomic --version CHART_VERSION
 ```
@@ -399,7 +399,7 @@ codescoring:
           memory: 1000Mi
 ```
 
-Below are approximate `limits` values for a CodeScoring installation with 8-10 projects:
+Below are approximate `limits` values for a CodeScoring platform with 8-10 projects:
 ```
 codescoring:
   backend:
@@ -544,15 +544,15 @@ In addition there are **PrometheusRule** resources provided for the abovemention
 
 All the settings must be adjusted in accordance with the [official Prometheus Operator documentation](https://prometheus-operator.dev/docs/).
 
-## Upgrading CodeScoring {#update}
+## Updating CodeScoring {#update}
 
-In order to upgrade CodeScoring you need to actualize the helm repository by running
+In order to update CodeScoring you need to actualize the helm repository by running
 
 ```commandline
 helm repo update
 ```
 
-and then upgrade the installation with the following command, where the CHART_NAME variable must contain the version you're going to upgrade to
+and then update the platform with the following command, where the `CHART_NAME` variable must contain the version you are going to update to:
 
 ```commandline
 helm upgrade codescoring codescoring-org/codescoring -n codescoring -f values.yaml --version CHART_VERSION

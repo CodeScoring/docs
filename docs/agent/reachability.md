@@ -19,7 +19,7 @@ hide:
 ### С использованием инструмента Svace
 
 1. Скачать модуль Svace ```https://REGISTRY_USERNAME:REGISTRY_PASSWORD@REGISTRY_URL/#browse/browse:files:codescoring%2Fsvace-callgraph```
-2. Получить токен пользователя в CodeScoring (по ссылке`{installation-url}/cabinet/profile`)
+2. Получить токен пользователя в CodeScoring (по ссылке`{platform-url}/cabinet/profile`)
 3. Запустить Svace на исходном коде проекта. Этот этап лучше делать в рамках или после шага сборки в конвейере.
    1. Инициализация
       ```shell

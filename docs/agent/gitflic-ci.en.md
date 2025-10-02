@@ -141,7 +141,7 @@ scripts:
 
 ## Configuring security policies during scanning
 
-1. Configure [policies](/on-premise/how-to/policies.en) on your CodeScoring installation
+1. Configure [policies](/on-premise/how-to/policies.en) in the CodeScoring platform
 
 2. Run the pipeline using the default scan settings
 

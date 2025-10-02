@@ -9,7 +9,7 @@ Codescoring supports a webhook-based notification system. When events occur, a `
 
 ## Adding a new webhook
 
-To add a new webhook to the installation, follow these steps:
+To add a new webhook to the platform, follow these steps:
 
 1. Go to the `Settings -> Webhooks` section.
 2. Click the **Setup new** button.

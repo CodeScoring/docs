@@ -18,7 +18,7 @@ Integration occurs through two possible mechanisms: Personal Access Token or SSH
 
 After connecting the version control system, it is impossible to change its type (`Instance type`) and address (`Instance URL`).
 
-**Note**: if private NS servers are used to access the version control system, they must be specified in the installation settings. To obtain the appropriate templates, you must contact the vendor.
+**Note**: if private NS servers are used to access the version control system, they must be specified in the platform settings. To obtain the appropriate templates, you must contact the vendor.
 
 ## Adding an SSH key
 

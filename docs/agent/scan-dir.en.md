@@ -12,7 +12,7 @@ During launching the agent:
 1. Recursively goes through the entire contents of the specified directory (if a particular manifest is specified, it processes only that one)
  1. Identifies manifest files and parses them
  2. Hashes each file (when ran with `--with-hashes`)
-2. Generates a request for installation
+2. Generates a request for platform
 3. After receiving the result, it shows summary information on the found manifests, dependencies, vulnerabilities, triggered policies and more detailed information on each vulnerability and triggered policy
 4. Additionally, a file `bom.json` is generated in the current directory, containing the complete Software Bill of Materials in the **CycloneDX** format.
 

@@ -4,7 +4,7 @@ hide:
 ---
 # Backup
 
-## Creating a backup copy of the installation
+## Creating a backup copy of the platform
 
 1. Go to the directory with the startup files:
 
@@ -37,7 +37,7 @@ hide:
  ls -la ./backup
  ```
 
-2. Restart the installation:
+2. Restart the platform:
 
  ```bash linenums="2"
  docker compose up -d --force-recreate --renew-anon-volumes

@@ -9,7 +9,7 @@ hide:
 
 #### Changed
 
-- Plugin now allows Docker image downloads when registry is not configured in CodeScoring installation if the `blockOnErrors` configuration flag is set to `false`
+- Plugin now allows Docker image downloads when registry is not configured in CodeScoring platform if the `blockOnErrors` configuration flag is set to `false`
 
 ### [2025.12.0] - 2025-03-17
 
@@ -17,7 +17,7 @@ hide:
 
 ### [2025.11.0] - 2024-03-13
 
-- A Circuit Breaker mechanism has been added to the plugin to prevent Artifactory performance degradation in case of unavailability or timeouts from the on-premise installation
+- A Circuit Breaker mechanism has been added to the plugin to prevent Artifactory performance degradation in case of unavailability or timeouts from the on-premise platform
 
 ### [2024.49.0] - 2024-12-05
 
@@ -26,7 +26,7 @@ hide:
 
 ### [2024.48.0] - 2024-11-29
 
-- Added sending to CodeScoring a link to the artifact and the user downloading it. Compatible with installation version 2024.48.0 and higher
+- Added sending to CodeScoring a link to the artifact and the user downloading it. Compatible with platform version 2024.48.0 and higher
 - Added support for JFrog Artifactory v7.90+
 - For `deb` packages, improved information retrieval in case of using non-standard separators in the file name
 - Visually highlighted plugin initialization and config reload in the logs
@@ -89,7 +89,7 @@ hide:
 - The plugin configuration file now uses the `.yaml` format
 - Added the ability to specify the operating mode for each repository separately
 - Added the ability to change default values in the configuration file
-- Added HTTP Client Connection Pool Size parameter to control the number of installation requests
+- Added HTTP Client Connection Pool Size parameter to control the number of platform requests
 - Added option to disable plugin
 
 ### [2023.48.0] – 2023-11-23
@@ -107,7 +107,7 @@ hide:
 
 ### [2023.28.1]
 
-- Reduced the level of all errors interacting with the CodeScoring installation to `[INFO]`
+- Reduced the level of all errors interacting with the CodeScoring platform to `[INFO]`
 
 ### [2023.28.0]
 

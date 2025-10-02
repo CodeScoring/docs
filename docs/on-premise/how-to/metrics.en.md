@@ -4,11 +4,11 @@ hide:
 ---
 # Configuring metrics
 
-CodeScoring stores metrics in a format supported by the **Prometheus** monitoring tool. Currently there are metrics available from CodeScoring installation and plugins in proxy repositories.
+CodeScoring stores metrics in a format supported by the **Prometheus** monitoring tool. Currently there are metrics available from CodeScoring platform and plugins in proxy repositories.
 
-## Collect metrics from installation
+## Collect metrics from platform
 
-Metrics from installation are available via **CodeScoring API** at `{installation-url}/api/metrics`. In order to configure metrics tracking in Prometheus, the following steps are required:
+Metrics from platform are available via **CodeScoring API** at `{platform-url}/api/metrics`. In order to configure metrics tracking in Prometheus, the following steps are required:
 
 1. open the `prometheus.yml` configuration file and add parameters to monitor metrics. The following is an example:
 
@@ -20,11 +20,11 @@ Metrics from installation are available via **CodeScoring API** at `{installatio
       - job_name: 'demo-codescoring'
         metrics_path: '/api/metrics'
         static_configs:
-          - targets: ['{installation-url}'] # Installation host address
+          - targets: ['{platform-url}'] # platform host address
       - job_name: 'osa'
         metrics_path: '/api/osa/metrics'
         static_configs:
-          - targets: ['{installation-url}'] # Installation host address
+          - targets: ['{platform-url}'] # platform host address
     ```
 
 2. Restart Prometheus for the changes to take effect.
@@ -65,7 +65,7 @@ Example of metrics visualization:
 
 ## OSA metrics collection
 
-OSA metrics contain information about connection status, number and time of requests, as well as scan and block status of components in repository managers. Metrics are available in the **CodeScoring API** at `{installation-url}/api/osa/metrics`.
+OSA metrics contain information about connection status, number and time of requests, as well as scan and block status of components in repository managers. Metrics are available in the **CodeScoring API** at `{platform-url}/api/osa/metrics`.
 
 ### Connection metrics
 
