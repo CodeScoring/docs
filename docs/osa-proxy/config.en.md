@@ -122,7 +122,7 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
           max-in-memory-size: 50MB (this is the default setting, already included in the application; increase it if you encounter very large manifests)
     ```
 
-## Retry policies and circuit breaker for installation requests
+## Retry policies and circuit breaker for platform requests
 
 ### Retry configuration
 

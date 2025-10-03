@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Работа инсталляции CodeScoring в Docker Compose со внешней СУБД
+# Работа платформы CodeScoring в Docker Compose со внешней СУБД
 
 1. В случае, если необходимо использовать схему, отличную от `public`, необходимо явно задать
 `search_path` для пользователя, включив в него целевую схему, чтобы обеспечить корректное разрешение объектов:
@@ -19,9 +19,9 @@ hide:
     - `POSTGRES_HOST`
     - `POSTGRES_PORT`
 
-3. Для администрирования инсталляции, необходимо применять файл `external-db.override.yml`, который поставляется вместе с файлом `docker-compose.yml`:
+3. Для администрирования платформы необходимо применять файл `external-db.override.yml`, который поставляется вместе с файлом `docker-compose.yml`:
 
-    - Запуск инсталляции:
+    - Запуск платформы:
         ```bash
         docker compose -f ./docker-compose.yml -f external-db.override.yml up -d --force-recreate --remove-orphans --renew-anon-volumes
         ```
@@ -29,7 +29,7 @@ hide:
         ```bash
         docker compose -f ./docker-compose.yml -f external-db.override.yml logs -f
         ```
-    - Остановка инсталляции:
+    - Остановка платформы:
         ```bash
           docker compose -f ./docker-compose.yml -f external-db.override.yml down --remove-orphans
         ```

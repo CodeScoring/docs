@@ -1,4 +1,3 @@
-
 .hero {
   position: relative;
   width: 100vw;
@@ -126,22 +125,34 @@
 /* ====== keyframes ====== */
 @keyframes blobMove {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  20%  { transform: translate3d(18vw, -6vh, 0) scale(1.05); }
-  40%  { transform: translate3d(6vw, 10vh, 0) scale(0.98); }
-  60%  { transform: translate3d(-12vw, 8vh, 0) scale(1.03); }
-  80%  { transform: translate3d(-6vw, -4vh, 0) scale(0.99); }
+  20%  { transform: translate3d(18vw, -6dvh, 0) scale(1.05); }
+  40%  { transform: translate3d(6vw, 10dvh, 0) scale(0.98); }
+  60%  { transform: translate3d(-12vw, 8dvh, 0) scale(1.03); }
+  80%  { transform: translate3d(-6vw, -4dvh, 0) scale(0.99); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
 @keyframes blobMoveAlt {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  25%  { transform: translate3d(-25vw, 15vh, 0) scale(1.06); }
-  50%  { transform: translate3d(-12vw, -12vh, 0) scale(0.95); }
-  75%  { transform: translate3d(15vw, -6vh, 0) scale(1.02); }
+  25%  { transform: translate3d(-25vw, 15dvh, 0) scale(1.06); }
+  50%  { transform: translate3d(-12vw, -12dvh, 0) scale(0.95); }
+  75%  { transform: translate3d(15vw, -6dvh, 0) scale(1.02); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
-/* ====== мобильная адаптация ====== */
+/* ====== только для главной страницы ====== */
+body.is-home .md-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+body.is-home .md-main {
+  padding-bottom: var(--md-footer-height, 56px);
+}
+
 /* ====== мобильная адаптация ====== */
 /* Убрать тень и границу от хэдера и табов на мобильке */
 @media (max-width: 720px) {
@@ -160,6 +171,7 @@
   /* фиксируем фон — убираем линию сверху */
   .blobs {
     top: 0;
+    bottom: var(--md-footer-height, 56px);
   }
 
   /* выравнивание контента левее */

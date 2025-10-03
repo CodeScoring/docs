@@ -2,11 +2,12 @@
 hide:
 - footer
 ---
+
 # Setting up and running the analysis
 
 ## Setting up the analysis
 
-When running the analysis on the installation, you can select parameters for individual projects.
+When running the analysis on the platform, you can select parameters for individual projects.
 
 Management is performed on the project page in the `Settings -> Projects` section.
 

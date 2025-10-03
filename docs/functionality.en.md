@@ -38,7 +38,7 @@ The platform comprehensively provides:
 ## Functional characteristics of the **CodeScoring.OSA** module
 
 - blocking the download of unwanted components when trying to download them through the command interface of the package manager or the web interface;
-- forming a list of software components (**SBoM**, Software Bill of Materials);
+- forming a list of software components (**SBOM**, Software Bill of Materials);
 - checking artifacts in the registries of container images;
 - proxying and control of package downloads via the [OSA Proxy](/osa-proxy/index.en) service for popular package managers (Maven, NPM, PyPI, NuGet);
 - archive analysis, including:
@@ -64,13 +64,13 @@ The platform comprehensively provides:
 ## Functional characteristics of the **CodeScoring.SCA** module
 
 - analysis of package manager manifests;
-- formation of a list of software components (**SBoM, Software Bill of Materials**);
+- formation of a list of software components (**SBOM, Software Bill of Materials**);
 - checking **open source** at all stages of the development cycle with the ability to set security policies for individual stages of the development cycle:
-        - code checking in development environments (**IDE**): **IntelliJ**, **VSCode**, **Eclipse**, **OpenIDE**;
+        - code checking in development environments (**IDE**): **IntelliJ-based**, **VSCode**, **OpenIDE**;
         - checking on the developer's local machine (**CLI agent**);
         - continuous code monitoring (scanning repository branches);
         - checking in the **CI pipeline** with a universal agent with the ability to block the build;
-        - post-release monitoring **SBoM**;
+        - post-release monitoring **SBOM**;
         - post-release code monitoring (scanning repository tags);
 - detection of **open source** dependencies:
         - by ecosystem, package name and version;
@@ -99,7 +99,7 @@ The platform comprehensively provides:
         - license text;
         - brief overview of the license terms;
         - information on license compatibility (**license compliance**);
-- detection and deduplication of vulnerabilities from 20 knowledge bases, including aggregation (**NVD**, **OSV**, **GHSA** and others), ecosystem (**Debian**, **RPM**, **Alpine** and others), commercial (**Kaspersky OSS Threats Data Feed**) and proprietary, including data on **protestware**;
+- detection and deduplication of vulnerabilities from over 20 knowledge bases, including aggregation (**NVD**, **OSV**, **GHSA** and others), ecosystem (**Debian**, **RPM**, **Alpine** and others), commercial (**Kaspersky OSS Threats Data Feed**) and proprietary, including data on **protestware**;
 - configuration of security policies by 40 criteria, including:
         - package metadata: name, version, package author, age, date;
         - vulnerability criteria: identifier, **CVSS** score, threat level, publication date, age, presence of exploit, impact;
@@ -111,7 +111,8 @@ The platform comprehensively provides:
 - a system for displaying scan results for each individual stage and the ability to manage ignored events;
 - the ability to configure protection against popular attacks on the supply chain;
 - the ability to configure temporary ignoring of triggering policies based on various criteria: project, technology, package, license type, vulnerability identifier, for individual policies;
-- unloading reports in popular formats: **CycloneDX**, **JUnit**, **SARIF**, **CSV**, **GitLab Dependency Scanning Report**, **GitLab Code Quality Report**.
+- exporting reports in popular formats: **CycloneDX**, **SPDX**, **JUnit**, **SARIF**, **CSV**, **GitLab Dependency Scanning Report**, **GitLab Code Quality Report**;
+- vulnerability reachability analysis.
 
 ## Functional characteristics of the **CodeScoring.Secrets** module
 

@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Updating the system
 
 ## Standard update guide
@@ -20,7 +21,7 @@ Then you need to follow these steps:
    ```bash linenums="2"
    docker compose pull
    ```
-3. Restart the installation:
+3. Restart the platform:
    ```bash linenums="3"
    docker compose down --remove-orphans
    docker compose up -d --renew-anon-volumes
@@ -36,13 +37,13 @@ Before upgrading, you must ensure that the `.env` file specifies the correct (**
 
 ### [2025.13.0] - 2025-03-28
 
-- You must ensure that the version of `Docker Engine` is greater than or equal to 25. To do this, run the `docker version` command on the machine with the installation. If the Docker Engine version is lower than 25, you need to update Docker.
-   - **IMPORTANT!** Before updating Docker, you must stop the installation normally.
+- You must ensure that the version of `Docker Engine` is greater than or equal to 25. To do this, run the `docker version` command on the machine with the platform. If the Docker Engine version is lower than 25, you need to update Docker.
+   - **IMPORTANT!** Before updating Docker, you must stop the platform normally.
 - You must add the name of the docker compose project to the configuration:
-   - Before shutting down the system for updating, you must note the name of the docker compose project in which the installation is currently running.
+   - Before shutting down the system for updating, you must note the name of the docker compose project in which the platform is currently running.
    - This is either the value passed with the `-p` parameter to `docker compose`, or the name of the directory where the `docker-compose.yml` file was located, by default -- `on-premise` or `on-premise-split-db`
    - This value is used as a prefix in the name of resources created by compose: volumes, containers, networks
    - You must enter this value in the `.env` file with the key `COMPOSE_PROJECT_NAME=`
-   - **IMPORTANT!** If you do not do this, the installation will not start. If you enter an incorrect value, volumes with a new prefix will be created, and the installation on the new version will start "from scratch"
+   - **IMPORTANT!** If you do not do this, the platform will not start. If you enter an incorrect value, volumes with a new prefix will be created, and the platform on the new version will start "from scratch"
    - After the value is added to the `.env` file, requests to `docker compose` can be made without the `-p PROJECT_NAME` option
 - You need to download the updated `docker-compose.yml` and `external-db.override.yml` files from the CodeScoring registry and place them in the directory with the compose file.

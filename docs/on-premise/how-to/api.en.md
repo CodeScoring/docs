@@ -5,7 +5,7 @@ hide:
 
 # Working with API
 
-Codescoring has open API, which allows you to programatically interact with the system. All the API commands are described in Swagger, which is available via the link **[installation-url]/api/swagger**.
+Codescoring has open API, which allows you to programatically interact with the system. All the API commands are described in Swagger, which is available via the link **[platform-url]/api/swagger**.
 
 ## Beginning
 
@@ -23,7 +23,7 @@ API provides a number of endpoints that allow you to perform basic operations in
 
 For paginated response you can set `page` (for page number) and `per_page` (for per-page items amount) query parameters to the request. Max `per_page` is 100.
 
-Some endpoints work **only** in pagination mode and these parameters are mandatory, for the details see **[installation-url]/api/swagger**.
+Some endpoints work **only** in pagination mode and these parameters are mandatory, for the details see **[platform-url]/api/swagger**.
 
 ## Usage examples
 
@@ -31,7 +31,7 @@ Some endpoints work **only** in pagination mode and these parameters are mandato
 
 ```Bash
 Curl -x 'Post' \
- '[Installation_url]/API/Analysses/Overall_Sca/Start/' \
+ '[platform_url]/API/Analysses/Overall_Sca/Start/' \
  -H 'Accept: Application/Json' \
  -H 'authorization: token <your_token>'
 ```
@@ -40,7 +40,7 @@ Curl -x 'Post' \
 
 ```Bash
 Curl -x 'Post' \
- '[Installation_URL]/API/POLICES/' \
+ '[platform_URL]/API/POLICES/' \
  -H 'Accept: Application/Json' \
  -H 'authorization: token <your_token>' \
  -H 'content-type: application/json' \
@@ -72,7 +72,7 @@ Curl -x 'Post' \
 
 ```Bash
 Curl -x 'get' \
- '[Installation_url]/API/Projects/340/' \
+ '[platform_url]/API/Projects/340/' \
  -H 'Accept: Application/Json' \
  -H 'authorization: token <your_token>'
 ```
@@ -81,7 +81,7 @@ Curl -x 'get' \
 
 ```Bash
 Curl -x 'get' \
- '[Installation_url]/API/License/' \
+ '[platform_url]/API/License/' \
  -H 'Accept: Application/Json' \
  -H 'authorization: token <your_token>'
 ```

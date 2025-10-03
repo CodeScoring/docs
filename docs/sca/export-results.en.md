@@ -39,26 +39,26 @@ If a filename is not set, it will be generated automatically according to the fo
 
 ## Working with SBOM within a project
 
-After performing composition analysis of the project it becomes possible to export the obtained list of used components (SBoM) in CycloneDX format.
+After performing composition analysis of the project it becomes possible to export the obtained list of used components (SBOM) in CycloneDX format.
 
-You can export the obtained SBoM on the project page in the `Projects` section by clicking the **Export SBoM** button.
+You can export the obtained SBOM on the project page in the `Projects` section by clicking the **Export SBOM** button.
 
-SBoM export is supported in the following formats:
+SBOM export is supported in the following formats:
 
 - [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/);
 - [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/);
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
-- CycloneDX v1.6 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`. The format is adapted to additional requirements for the SBoM from the FSTEC of Russia.
+- CycloneDX v1.6 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`. The format is adapted to additional requirements for the SBOM from the FSTEC of Russia.
 
-SBoM export also supports additional export customization, like the PDF one.
-Automatic SBoM filename generation rules are following:
+SBOM export also supports additional export customization, like the PDF one.
+Automatic SBOM filename generation rules are following:
 
-- For projects: `bom_<project name>_<SBoM format>.json`
-- For container images: `bom_<image name>_<first 8 hash chars>_<SBoM format>.json`
+- For projects: `bom_<project name>_<SBOM format>.json`
+- For container images: `bom_<image name>_<first 8 hash chars>_<SBOM format>.json`
 
-For CLI projects, SBoM can also be loaded via the interface using the **Import SBoM** button. The loaded SBOM must be in CycloneDX format and have the `.json` extension.
+For CLI projects, SBOM can also be loaded via the interface using the **Import SBOM** button. The loaded SBOM must be in CycloneDX format and have the `.json` extension.
 
-### Configuring dependency properties for SBoM export {#bom-settings}
+### Configuring dependency properties for SBOM export {#bom-settings}
 
 To configure dependency properties, go to the page by clicking the `Configure dependencies` button in the **Dependencies** table of the project.
 
@@ -70,18 +70,18 @@ The page allows you to specify the attack surface (**Attack surface**), security
 
 The values entered are taken into account:
 
-- when exporting SBoM from the project page;
-- when exporting SBoM from the scan results history page (for the most recent successful SCA scan);
+- when exporting SBOM from the project page;
+- when exporting SBOM from the scan results history page (for the most recent successful SCA scan);
 - during subsequent scans of the project;
 - when scanning the project via the Johnny console agent;
 - in the project dashboard;
 - on the license page.
 
-**Important**: Changes to values do not apply to previous scans of the project and only relate to the SBoM of the current project, even if a dependency is used in multiple projects.
+**Important**: Changes to values do not apply to previous scans of the project and only relate to the SBOM of the current project, even if a dependency is used in multiple projects.
 
 #### VCS
 
-The **VCS** field allows you to specify the URL of the repository where the dependency code is stored. When exporting SBoM, the selected value is taken into account in the [externalReferences](https://cyclonedx.org/docs/1.6/json/#components_items_externalReferences) field.
+The **VCS** field allows you to specify the URL of the repository where the dependency code is stored. When exporting SBOM, the selected value is taken into account in the [externalReferences](https://cyclonedx.org/docs/1.6/json/#components_items_externalReferences) field.
 
 #### Attack surface
 
@@ -91,7 +91,7 @@ The **Attack surface** field allows you to specify whether the component belongs
 - `indirect` — the component is part of the indirect attack surface;
 - `no` — otherwise (default value).
 
-When exporting SBoM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `GOST:attack_surface` property of the component.
+When exporting SBOM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `GOST:attack_surface` property of the component.
 
 #### Security function
 
@@ -101,7 +101,7 @@ The **Security function** field allows you to specify whether the component belo
 - `indirect` — if the component functions participate in the implementation of security functions, interacting with components implementing security functions;
 - `no` — if the component functions do not participate in the implementation of security functions (default value).
 
-When exporting SBoM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `"GOST:security_function"` property of the component.
+When exporting SBOM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `"GOST:security_function"` property of the component.
 
 #### Licenses
 
@@ -109,4 +109,4 @@ The **Licenses** field allows you to specify the licenses of the component.
 
 If an empty list is specified, the values found during the last SCA analysis are selected.
 
-When exporting SBoM, the selected values are taken into account in the `licenses` field of the component.
+When exporting SBOM, the selected values are taken into account in the `licenses` field of the component.

@@ -1,4 +1,6 @@
 site_name: "CodeScoring Documentation"
+site_description: "Открытая документация CodeScoring: установка, руководство пользователя, changelog."
+site_url: "https://docs.codescoring.ru"
 
 theme:
   name: material
@@ -37,7 +39,6 @@ theme:
 
 plugins:
   - search
-  - print-site
   - i18n:
       languages:
         ru: "Русский"
@@ -68,7 +69,7 @@ plugins:
           ssl: "Self signed SSL certificates"
           postgresql-tls: "Connecting to PostgreSQL/PgBouncer using TLS"
           analysis-ignore-paths: "Analysis paths and exceptions"
-          scripts: "Scripts for installation managing"
+          scripts: "Scripts for platform managing"
           troubleshooting: "Troubleshooting"
           setup: "Platform setup"
           user-management: "User Management"
@@ -327,6 +328,10 @@ plugins:
           vscode-changelog: "Плагин для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
           proxy-changelog: "OSA Proxy"
+  - print-site:
+      exclude:
+        - index.md
+        - changelog/*
 
 nav:
   - home:
@@ -593,10 +598,14 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/home.css
   - css/logo.css
   - css/hide_lang_links.css
   - css/print.css
-  - stylesheets/home.css
+
+extra_javascript:
+  - js/search.js
+  - js/home.js
 
 extra:
   social:
@@ -606,6 +615,9 @@ extra:
     - icon: fontawesome/brands/telegram
       link: https://t.me/codescoring
       name: Telegram
+    - icon: fontawesome/brands/vk
+      link: https://vkvideo.ru/@codescoring/all
+      name: VK Видео
   alternate:
     - name: "Русский"
       link: "/"

@@ -544,8 +544,8 @@ patterns:
 | **API Configuration**                            |                                             |                              |
 | `API URL`                                        | URL вашей установки CodeScoring             |                              |
 | `API Token`                                      | API токен. Безопасно сохраняется            | _(устанавливается через UI)_ |
-| **Installation Settings**                        |                                             |                              |
-| `Installation Type`                              | Local executable или Docker                 | `Local executable`           |
+| **platform Settings**                        |                                             |                              |
+| `platform Type`                              | Local executable или Docker                 | `Local executable`           |
 | `Path to Johnny CLI`                             | Путь к Johnny CLI (пустой для автозагрузки) | _(автозагрузка)_             |
 | `Docker Image`                                   | Имя Docker образа                           | `johnny-depp:2025.29.0`      |
 | `Docker Registry`                                | Реестр Docker                               | _(предоставляется заботой)_  |

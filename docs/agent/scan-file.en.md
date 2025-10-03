@@ -10,7 +10,7 @@ If you need to scan a single manifest within a directory, you can use the `scan 
 During launching the agent:
 
 1. Identifies the format of the specified file and parses the contents.
-2. Generates a request to the installation to analyze the contents.
+2. Generates a request to the platform to analyze the contents.
 3. After receiving the results, displays general information about the found manifests, dependencies, vulnerabilities, and policies that have been triggered.
 4. Additionally, a `bom.json` file is created in the current directory, containing the full Software Bill of Materials in the **CycloneDX** format.
 

@@ -41,7 +41,7 @@ The table with images can be filtered by registry name, as well as scanning and 
 
 By default, the added image is not scanned. To carry out the analysis, you need to go to the image page and click on the **Run SCA** button. Based on the scanning results, information about the found dependencies and vulnerabilities, as well as a list of triggered security policies, will appear on the image page.
 
-For each scanned image, you can download a SBoM and a PDF report, as well as view the scan history using the **SCA scan history** button.
+For each scanned image, you can download a SBOM and a PDF report, as well as view the scan history using the **SCA scan history** button.
 
 ## View component requests
 

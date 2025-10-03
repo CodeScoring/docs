@@ -43,7 +43,7 @@ To use the **CodeScoring.OSA** plugin in further work, you must use the **Capabi
 
 The **CodeScoring.OSA** plugin provides four new **Capabilities**:
 
-- **CodeScoring Configuration** — setting up interaction with the on-premise installation of **CodeScoring**;
+- **CodeScoring Configuration** — setting up interaction with the on-premise platform of **CodeScoring**;
 - **CodeScoring Scan** — setting up scanning for a separately selected proxy repository;
 - **CodeScoring Docker Repository Scan** – setting up scanning for a separately selected hosted or proxy docker repository;
 - **CodeScoring All Repositories Scan** – scan settings for all repositories.
@@ -54,16 +54,16 @@ After installing the **CodeScoring.OSA** plugin in the `System -> Capabilities` 
 
 ### CodeScoring Configuration
 
-This extension allows you to set general plugin settings for working with the **CodeScoring** installation:
+This extension allows you to set general plugin settings for working with the **CodeScoring** platform:
 
-- **CodeScoring URL** – address of the on-premise installation of **CodeScoring**;
+- **CodeScoring URL** – address of the on-premise platform of **CodeScoring**;
 - **CodeScoring Token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
 - **HttpClient Connection Pool Size** – number of available connections. This parameter allows you to control the number of parallel requests to speed up scanning;
 - **HTTP Proxy Host** – proxy server address. Used if it is not possible to establish a direct connection between NXRM and CodeScoring;
 - **HTTP Proxy Port** – proxy server port;
 - **Block downloads in case of plugin or CodeScoring errors** – blocking the download of a component if there are errors from the plugin or CodeScoring API.
 - **Custom message for blocked packages** – message for the user when components are blocked;
-- **Nexus URL for identification in CodeScoring** – address of the Nexus Repository Manager with the protocol for displaying the results on the installation.
+- **Nexus URL for identification in CodeScoring** – address of the Nexus Repository Manager with the protocol for displaying the results on the platform.
 
 ![CodeScoring capability config settings example](/assets/img/osa/capability_config_settings_example.png)
 
@@ -114,7 +114,7 @@ The operating mode of the plugin must be defined as a text string in the corresp
 The plugin has 5 operating modes that determine the severity of component checking before loading.
 
 - **warmup** – loading data into the CodeScoring cache without blocking components;
-- **spectator** – loading data into the CodeScoring cache without blocking components, saving the results of component queries on the installation;
+- **spectator** – loading data into the CodeScoring cache without blocking components, saving the results of component queries to the platform;
 - **moderate** – blocking components that have not passed the policy check. Loading of unscanned components is allowed;
 - **strict** – blocking components that do not pass the policy check. Loading of unscanned components is prohibited;
 - **strict_wait** – blocking components that have not passed the policy check. Pending verification for unscanned components.
@@ -131,12 +131,12 @@ Event logging results are available in the `Support -> Logs` section.
 
 When a component is blocked from downloading, the user console displays one of the following reasons for blocking:
 
-- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – blocking of the component according to the policies configured on the installation;
+- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – blocking of the component according to the policies configured on the platform;
 - **"The component has not yet been scanned by CodeScoring, it is scheduled to be scanned shortly. The download is blocked according to the plugin settings"** – blocking an unscanned component and then starting scanning. Used in `strict` mode;
 - **"The download has been blocked due to the failure of the scan of the component in CodeScoring"** – the component could not be scanned;
 - **"The download has been blocked due to the wrong mode of the plugin"** – incorrect [plugin operating mode] is used(#_3);
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – the timeout for scanning the component has expired. Used in `strict_wait` mode;
-- **"The download has been blocked, because registry is not configured in CodeScoring"** – there is no corresponding Registry on the installation.
+- **"The download has been blocked, because registry is not configured in CodeScoring"** – there is no corresponding Registry in the platform.
 
 The response also contains a link to the component page in CodeScoring with information about triggered security policies and found vulnerabilities:
 
@@ -144,9 +144,9 @@ The response also contains a link to the component page in CodeScoring with info
 
 ## Setting up an SSL connection
 
-To set up an SSL connection between the plugin and the installation, you need to import certificates into the Java Truststore.
+To set up an SSL connection between the plugin and the platform, you need to import certificates into the Java Truststore.
 
-### Finding the location of your Java installation
+### Finding the location of your Java platform
 
 To import certificates into the Java Truststore, you first need to locate your Java installation. This can be done in one of the following ways:
 
@@ -175,7 +175,7 @@ You can download the certificate with the following command:
 openssl s_client -connect <codescoring.domain.ru>:443 2>/dev/null | openssl x509 > codescoring_ca.pem
 ```
 
-Make sure you replace `<codescoring.domain.ru>` with the corresponding address of your installation.
+Make sure you replace `<codescoring.domain.ru>` with the corresponding address of your platform.
 
 ### Importing a certificate
 
