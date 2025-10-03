@@ -156,16 +156,16 @@ repositoryTypes:
 ### Описание параметров
 
 - **disablePlugin** – отключение плагина;
-- **codeScoringAPI** - настройки параметров взаимодействия плагина с инсталляцией CodeScoring;
-  - **url** – адрес инсталляции CodeScoring (обязательно указание протокола);
+- **codeScoringAPI** - настройки параметров взаимодействия плагина с платформой CodeScoring;
+  - **url** – адрес платформе CodeScoring (обязательно указание протокола);
   - **token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
-  - **connectionPoolSize** – размер пула соединений с инсталляцией CodeScoring;
+  - **connectionPoolSize** – размер пула соединений с платформой CodeScoring;
   - **timeout** - время ожидания ответа (в секундах). По умолчанию, если CodeScoring API не отвечает в течение 60 секунд, запрос будет отменен;
   - **proxy** - настройки прокси-сервера;
     - **host** - хост/IP;
     - **port** - порт;
 - **blockedBuildResponseCode** – код ошибки, возвращаемый при срабатывании политик безопасности;
-- **blockOnErrors** - блокирование загрузки компонентов в случае ошибки при взаимодействии с инсталляцией CodeScoring;
+- **blockOnErrors** - блокирование загрузки компонентов в случае ошибки при взаимодействии с платформой CodeScoring;
 - **scanAllRepositories** - подключение всех поддерживаемых репозиториев за исключением указанных в параметре **excludeRepositories**;
 - **storeScanProperties** - сохранение причины блокировки и отметки о времени сканирования в свойства артефакта;
 - **defaults** – настройки сканирования по умолчанию для всех подключенных репозиториев;
@@ -196,7 +196,7 @@ repositoryTypes:
 
 - **off** – сканирование компонентов отключено;
 - **warmup** – загрузка данных в кэш CodeScoring без блокировки компонентов;
-- **spectator** – загрузка данных в кэш CodeScoring без блокировки компонентов, сохранение результатов запросов компонентов на инсталляции;
+- **spectator** – загрузка данных в кэш CodeScoring без блокировки компонентов, сохранение результатов запросов компонентов на платформе;
 - **moderate** – блокировка компонентов, не прошедших проверку политик. Разрешена загрузка непросканированных компонентов;
 - **strict** – блокировка компонентов, не прошедших проверку политик. Запрещена загрузка непросканированных компонентов;
 - **strict_wait** – блокировка компонентов, не прошедших проверку политик. Ожидание проверки для непросканированных компонентов.
@@ -233,12 +233,12 @@ repositoryTypes:
 
 При блокировании загрузки компонента в консоли пользователя отображается одна из следующих причин блокировки:
 
-- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – блокировка компонента согласно настроенным на инсталляции политикам;
+- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – блокировка компонента согласно настроенным на платформе политикам;
 - **"The component has not yet been scanned by CodeScoring, it is scheduled to be scanned shortly. The download is blocked according to the plugin settings"** – блокировка непросканированного компонента с последующим запуском сканирования. Используется в режиме `strict`;
 - **"The download has been blocked due to the failure of the scan of the component in CodeScoring"** – не удалось просканировать компонент;
 - **"The download has been blocked due to the wrong mode of the plugin"** – используется некорректный [режим работы плагина](#_3);
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – истекло время ожидания сканирования компонента. Используется в режиме `strict_wait`;
-- **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry на инсталляции.
+- **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry в платформе.
 
 Ответ также содержит ссылку на страницу компонента в CodeScoring с информацией о сработавших политиках безопасности и найденных уязвимостях:
 

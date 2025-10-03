@@ -3,11 +3,11 @@ hide:
   - footer
 ---
 
-# Installation guide
+# platform guide
 
 1. Install Docker Engine for the desired operating system in accordance with the documentation: <https://docs.docker.com/engine/install/>.
 2. Log in to the private registry of Docker images of the CodeScoring system using the command `docker login REGISTRY_URL`, with the URL, login and password received from the vendor.
-3. Download the archive with installation files received from the vendor and unpack it.
+3. Download the archive with platform files received from the vendor and unpack it.
 4. Go to the created directory in the console.
 5. Copy the template file with settings:
 
@@ -27,13 +27,13 @@ hide:
 
       - List of domains for proper operation of CSRF protection. It is recommended to list localhost on the internal and external ports, as well as the external domain (or ip:port combination). Specifying the protocol is mandatory, for example:
        - `DJANGO_CSRF_TRUSTED_ORIGINS=http://localhost:18000,https://localhost:8081,https://external ip:8081`
-      - Connection parameters to the PostgreSQL database. The base is supplied with the installation. Specifying accesses separately is a precaution and control measure. When using your own database, you must ensure that it corresponds to [requirements](/on-premise/server-requirements.en/#supported-versions-of-external-services).
+      - Connection parameters to the PostgreSQL database. The database is supplied with the platform. Specifying accesses separately is a precaution and control measure. When using your own database, you must ensure that it corresponds to [requirements](/on-premise/server-requirements.en/#supported-versions-of-external-services).
         - `POSTGRES_DB` — database name
         - `POSTGRES_USER` — username. When using your own database, you must ensure that the user has the following rights: **Superuser**, **Create role**, **Create DB**, **Replication**, **Bypass RLS**.
         - `POSTGRES_PASSWORD` - password
         - `POSTGRES_HOST` - the host on which the database is available
         - `POSTGRES_PORT` - port on which the database is available
-      - Installation secret
+      - platform secret
        - `SECRET_KEY` - random string of characters
       - System domain settings
         - `NGINX_HOST` - the host on which the system will be available
@@ -62,7 +62,7 @@ hide:
 
 9. After starting, the service will be available at the configured domain or address `http://localhost:8081`. During the first launch, additional database migrations are performed; the operation may take longer than on subsequent runs.
 
-      **Note**: for the installation to work via the https protocol, you need an external balancer that implements ssl termination.
+      **Note**: for the platform to work via the HTTPS protocol, you need an external balancer that implements SSL termination.
 
 10. To log in, you must first create a user with administrator rights using the following command:
 

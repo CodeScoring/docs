@@ -108,4 +108,4 @@ For each `alert` you can use the following variables:
 - container_image_name: Optional[str] - name of container image;
 - container_image_link: Optional[str] - link to container image.
 
-Important: all links are leading to the installation on which the data for the email or task in Jira was generated.
+Important: all links are leading to the platform on which the data for the email or task in Jira was generated.

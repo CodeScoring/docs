@@ -11,12 +11,12 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 
 ### Composition analysis parameters
 
-- **project** – name of the project in the CodeScoring installation;
-- **save-results** – saving the results in the CodeScoring installation. Used in conjunction with the project name. The default value is `false`;
+- **project** – name of the project in the CodeScoring platform;
+- **save-results** – saving the results in the CodeScoring platform. Used in conjunction with the project name. The default value is `false`;
 - **license** – license of the analyzed project, for example `mit`;
 - **stage** – development stage. Possible values: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
 - **bom-path** – path (with file name) where the generated `bom.json` file will be saved;
-- **bom-format** – format of the generated SBoM. Possible values: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Default value: `cyclonedx_v1_6_json`;
+- **bom-format** – format of the generated SBOM. Possible values: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Default value: `cyclonedx_v1_6_json`;
 - **timeout** – limit on analysis waiting time (in seconds);
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **branch-or-tag** – a reference to a repository branch or tag, such as `refs/tags/v1.0` (for the `scan dir` and `scan file` commands);
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **commit** – a commit hash in the version control system (for the `scan dir` and `scan file` commands);
@@ -81,10 +81,10 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - **sort-vulnerabilities-by** – order of fields for sorting vulnerabilities in the table;
 - **alerts-format** – output format for the policy alerts report. Supported formats: `coloredtable`, `table`, `text`, `json`, `csv`. Default value is `coloredtable`.
 
-### Installation parameters
+### Platform parameters
 
-- **api_url** – installation address;
-- **api_token** – token for access to the installation.
+- **api_url** – platform address;
+- **api_token** – token for access to the platform.
 
 ### Secret scanning launch parameters
 
@@ -100,7 +100,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **ignore-gitleaks-allow** – ignores `gitleaks:allow` comments. Default: `false`;
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **log-level** – logging level. Possible values: `trace, debug, info, warn, error, fatal`. Default: `info`;
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-decode-depth** – maximum depth for recursive decoding. A value of `0` disables decoding;
-- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-target-megabytes** – maximum file size (in megabytes) to be processed. Files exceeding this size will be skipped. Default: `0` (no limit);  
+- <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **max-target-megabytes** – maximum file size (in megabytes) to be processed. Files exceeding this size will be skipped. Default: `0` (no limit);
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-banner** – disables the Gitleaks startup banner. Default: `false`;
 - <a href="/changelog/on-premise-changelog,en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **no-color** – disables colored output in verbose mode. Default: `false`;
 - <a href="/changelog/on-premise-changelog.en/#2025130-2025-03-28" class="version-tag">2025.13.0</a> **redact** – masks detected secrets in logs and console output. A value of 0 fully reveals secrets, while 100 completely hides them. Intermediate values, such as 20, mask 20% of the secret. Default: `0`;

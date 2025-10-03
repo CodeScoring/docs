@@ -3,19 +3,19 @@ hide:
   - footer
 ---
 
-# Scripts for installation management
+# Scripts for platform management
 
 ## Script execution
 
-Scripts are executed in the installation backend service:
+Scripts are executed in the platform backend service:
 
-- для Docker Compose:
+- for Docker Compose:
 
 ``` bash
 docker exec -it <backend service> ./manage.py runscript <команда>`
 ```
 
-- для Helm:
+- for Helm:
 
 ``` bash
 kubectl exec -it <backend service> ./manage.py runscript <команда>
@@ -39,7 +39,7 @@ This command sets a new value for the `SECRET_KEY` environment variable. To avoi
 
 **Usage examples**
 
-1. Changing from explicitly specified `OLD_SECRET_KEY` to explicitly specified `NEW_SECRET_KEY`. This is required when the `SECRET_KEY` environment variable value during installation launch differs from `OLD_SECRET_KEY`.
+1. Changing from explicitly specified `OLD_SECRET_KEY` to explicitly specified `NEW_SECRET_KEY`. This is required when the `SECRET_KEY` environment variable value during platform launch differs from `OLD_SECRET_KEY`.
 
       ```bash
       ./manage.py runscript set_new_secret_key --script-arg="NEW_SECRET_KEY" --script-arg="OLD_SECRET_KEY"
@@ -49,7 +49,7 @@ This command sets a new value for the `SECRET_KEY` environment variable. To avoi
 
       **IMPORTANT!** If the `SECRET_KEY` variable at the moment of script execution does not match the `NEW_SECRET_KEY`,
       after successful script completion you must update the `SECRET_KEY` variable to `NEW_SECRET_KEY` and restart the
-      installation.
+      platform.
 
 2. Changing to explicitly specified `NEW_SECRET_KEY` without specifying `OLD_SECRET_KEY`. This is required when `OLD_SECRET_KEY` matches the one defined in `settings.SECRET_KEY`.
 
@@ -59,4 +59,4 @@ This command sets a new value for the `SECRET_KEY` environment variable. To avoi
 
       This command will re-encrypt all sensitive fields from the key set in `settings.SECRET_KEY` to `NEW_SECRET_KEY`.
 
-      After successful script completion you must update the `SECRET_KEY` variable to `NEW_SECRET_KEY` and restart the installation.
+      After successful script completion you must update the `SECRET_KEY` variable to `NEW_SECRET_KEY` and restart the platform.

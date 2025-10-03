@@ -17,7 +17,7 @@ hide:
 ## Настройка клиента на стороне провайдера OpenID Connect
 
 Ниже представлен пример валидной конфигурации клиента OpenID Connect на стороне провайдера при условии, что URL
-инсталляции CodeScoring - `https://codescoring.example.com/`:
+платформы CodeScoring - `https://codescoring.example.com/`:
 
 - **Root url** - `https://codescoring.example.com/`;
 - **Home url** - `https://codescoring.example.com/cabinet/dashboard/`;
@@ -72,5 +72,4 @@ hide:
 УЗ, созданные таким образом, можно добавлять в группы, для них можно менять уровень доступа так же, как и для обычных
 УЗ.
 
-Для УЗ, созданных
-при аутентификации через KeyCloak, нельзя менять имя УЗ или устанавливать пароль.
+Для УЗ, созданных при аутентификации через KeyCloak, нельзя менять имя УЗ или устанавливать пароль.
