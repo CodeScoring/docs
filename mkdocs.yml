@@ -301,6 +301,7 @@ plugins:
           vscode-changelog: "Расширение для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
           proxy-changelog: "OSA Proxy"
+  - print-site
 
 nav:
   - home:
@@ -557,6 +558,9 @@ extra_css:
   - css/hide_lang_links.css
   - css/print.css
   - stylesheets/home.css
+
+extra_javascript:
+  - js/search.js
 
 extra:
   social:
