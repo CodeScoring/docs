@@ -44,9 +44,9 @@ hide:
 - <span class="module-tag sca">SCA</span> Added UI display of the reachability attribute for vulnerabilities
 - <span class="module-tag sca">SCA</span> Added ability to specify `component manufacturer` data to be placed in the relevant section of SBOM versions `CycloneDX 1.6` and `CycloneDX 1.6 ext`, both at platform level and per project
 - Added new environment variables `DEFAULT_PROJECT_MANUFACTURER_NAME`, `DEFAULT_PROJECT_MANUFACTURER_EMAIL`, `DEFAULT_PROJECT_MANUFACTURER_HOMEPAGE`
-- <span class="module-tag sca">SCA</span> Added saving of annotated data when importing SBoM
-- <span class="module-tag sca">SCA</span> Added support for SBoM export in SPDX format
-- <span class="module-tag sca">SCA</span> Added suspicious commit links for vulnerabilities with CSPW identifiers in SBoM
+- <span class="module-tag sca">SCA</span> Added saving of annotated data when importing SBOM
+- <span class="module-tag sca">SCA</span> Added support for SBOM export in SPDX format
+- <span class="module-tag sca">SCA</span> Added suspicious commit links for vulnerabilities with CSPW identifiers in SBOM
 - Added integration with external identity providers implementing the OpenID Connect protocol
 - <span class="module-tag sca">SCA</span> Added localization of PDF reports in the SCA module
 - Added saving of links for Jira issues and emails created by automatic actions with alerts
@@ -75,7 +75,7 @@ hide:
 
 #### Changed
 
-- <span class="module-tag sca">SCA</span> Improved parsing of VCS links in CycloneDX SBoM
+- <span class="module-tag sca">SCA</span> Improved parsing of VCS links in CycloneDX SBOM
 - <span class="module-tag tqi">TQI</span> Improved the mechanism for merging authors by email
 - Unified the UI for running alert actions manually and automatically
 - <span class="module-tag sca">SCA</span> Commit hash in the project PDF report is now displayed in full
@@ -101,7 +101,7 @@ hide:
 - Fixed link to refactoring candidate projects in the "Dashboard" section
 - Fixed reset of selected number of items per page in tables when changing sorting
 - Fixed pagination reset when navigating to the same page
-- <span class="module-tag sca">SCA</span> Fixed link handling in CycloneDX SBoM
+- <span class="module-tag sca">SCA</span> Fixed link handling in CycloneDX SBOM
 - <span class="module-tag sca">SCA</span> Implemented missing logic for handling alerts when comparing PURL values with case sensitivity
 - Fixed auto-generated type names in OpenAPI schema
 - Fixed verb forms of policy conditions in English locale
@@ -167,7 +167,7 @@ hide:
 #### Added
 
 - <span class="module-tag sca">SCA</span> Added the ability to view the results of SCA analysis of a project from the [scan history](/sca/scan-history.en)
-- Added the ability to customize the export of SBoM and PDF files (/sca/export-results.en)
+- Added the ability to customize the export of SBOM and PDF files (/sca/export-results.en)
 - Added the ability to [manually create a task](/on-premise/how-to/policies.en) in the task manager and send letters for selected alerts
 - Added the ability to configure [deferred blocking](/on-premise/how-to/policies.en) in policies
 - Added the ability to apply [policy ignores](/on-premise/how-to/ignores.en) to project groups
@@ -261,7 +261,7 @@ hide:
 - Changed the logic of how filters work throughout the system. Filters are now loaded on demand (lazy load), optimised part of requests. When returning to the page, filters are not loaded again
 - Changed adding a user or project to a group: existing ones will not be offered for selection
 - Updated OpenAPI specification for the References field in the `VulnerabilitySummaryDetail` type
-- Added information to metadata tools section when uploading SBoM in CycloneDX format
+- Added information to metadata tools section when uploading SBOM in CycloneDX format
 - Changed autovacuum settings to lower thresholds for tables with frequent updates
 - Added `max_client_conn` setting for pgbouncer, the parameter regulates the total number of connections, increased default value
 - Changed validation of phone number field to support international numbers
@@ -371,11 +371,11 @@ hide:
 - Added separation of modules in the menu
 - Added separate project lists in the SCA, TQI and Secrets modules
 - Added support for the Conda ecosystem
-- Added editing of container image dependencies for SBoM export
+- Added editing of container image dependencies for SBOM export
 - Added multiple selection of projects and images in the creation of Policy Ignore
 - Added the ability to specify a policy stage when creating a CLI project
 - Added the ability to filter lists in the Vulnerabilities, Policy Alerts and Projects sections by multiple Severity, Policy and Technology values
-- Added saving and displaying SBoM editing in the audit log
+- Added saving and displaying SBOM editing in the audit log
 - Added displaying the name of CLI projects in the audit log
 - Added filter by image tag to Container Images section
 - Added dates of first and last SCA scan to projects list
@@ -383,7 +383,7 @@ hide:
 - The full display of the secret in the section has been moved to a separate Secrets window
 - Updated translation into Russian
 - Added validation of API token update
-- Changed the format of the recommendation field in the SBoM CycloneDX format export to correctly handle cases where a vulnerability affects several versions of the same library
+- Changed the format of the recommendation field in the SBOM CycloneDX format export to correctly handle cases where a vulnerability affects several versions of the same library
 - Fixed an error creating a task in Jira when a policy is triggered
 - Fixed an error filtering by status in Policy Alerts section when resetting filters
 - URL input errors are now shown after input is complete
@@ -395,16 +395,16 @@ hide:
 ### [2024.48.0] - 2024-11-30
 
 - Added the ability to send webhooks for key events in the system
-- Added the ability for the admin user to specify values for the SBoM fields `GOST:attack_surface`, `GOST:security_function` and links to VCS, the values will be taken into account when unloading SBoM in the `CycloneDX 1.6 Ext` format
+- Added the ability for the admin user to specify values for the SBOM fields `GOST:attack_surface`, `GOST:security_function` and links to VCS, the values will be taken into account when unloading SBOM in the `CycloneDX 1.6 Ext` format
 - Updated display of matched criteria in alerts
 - Added the ability to display the Source files column in the Vulnerabilities section table and in the Affected dependencies table on the vulnerability page
 - Added hints for the user in the policy creation and editing form
 - Added links from the project scan results page to the project settings page and back
-- Improved link typification in the `externalReferences` section when unloading SBoM in CycloneDX
+- Improved link typification in the `externalReferences` section when unloading SBOM in CycloneDX
 - Accelerated loading of the license distribution graph
 - Changed the technology distribution graph on the main page of the system and on the SCA tab for VCS projects, the calculation is based on the project dependency technologies based on the results of compositional analysis
 - Fixed the logic of policies when combining several conditions for the environment (`env`) of a dependency
-- Fixed import of SBoM files in CycloneDX format containing information in the `components[i].evidence.identity` fields
+- Fixed import of SBOM files in CycloneDX format containing information in the `components[i].evidence.identity` fields
 - Fixed translations into Russian for numerals and some dictionaries of the system
 - In emails with alert notifications, the vulnerability identifier is now a hyperlink
 
@@ -419,10 +419,10 @@ hide:
 ### [2024.44.1] - 2024-11-05
 
 - Added beta version of interface localization into Russian, language switching is available on the user profile page
-- Added support for CycloneDX 1.6 specification for SBoM import and export
+- Added support for CycloneDX 1.6 specification for SBOM import and export
 - Added export into CycloneDX 1.6 Ext format with the addition of the fields `GOST:source_lang`, `GOST:attack_surface` and `GOST:security_function` to comply with FSTEC of Russia requirements. The fields are filled with the default value
-- For new SCA analysis results, the ability to select the CycloneDX version when downloading SBoM has been added
-- Improved SBoM export into all CycloneDX versions: added information about the scanned application to `metadata->component`, added information about the platform version to `metadata->tools`, updated the outdated format for indicating the authorship of components for CycloneDX versions 1.5 and 1.6, fixed the format of the component license. Changes are available for new SCA analysis results
+- For new SCA analysis results, the ability to select the CycloneDX version when downloading SBOM has been added
+- Improved SBOM export into all CycloneDX versions: added information about the scanned application to `metadata->component`, added information about the platform version to `metadata->tools`, updated the outdated format for indicating the authorship of components for CycloneDX versions 1.5 and 1.6, fixed the format of the component license. Changes are available for new SCA analysis results
 - Added display of dependency tree in PDF reports
 - Added collection of data on malware from [GitHub Security Advisory](https://github.com/advisories?query=type%3Amalware)
 - Added “Dangerous package” classification and corresponding policy for OSA module. Packages with known Malware and certain types of CWE in vulnerabilities are marked as dangerous
@@ -602,7 +602,7 @@ hide:
 - Added Components section, which includes lists of OSA components and requests
 - Added the Vulnerabilities field to the CSV project report
 - Added pool_used metric to view busy connections from the pool
-- Optimized launching analysis and unloading SBoM CLI project
+- Optimized launching analysis and unloading SBOM CLI project
 - Fixed ignoring the load full images list flag when creating or updating a Registry
 - Fixed display of the number of active policies in the Dashboard section
 - Fixed missing options for CVSS2 Authentication policy
@@ -764,7 +764,7 @@ hide:
 - Removed deprecated endpoint `/api/policy_alerts/`
 - Fixed display of technologies on the Policy ignores list
 - Fixed purl and CVSS policy for rpm
-- Removed license text from generated SBoMs for the project
+- Removed license text from generated SBOMs for the project
 
 ### [2023.31.0] - 2023-08-04
 
