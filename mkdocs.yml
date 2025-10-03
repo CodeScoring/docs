@@ -56,7 +56,7 @@ plugins:
           supported-package-managers: "Supported ecosystems and analysis methods"
           admin-guide: "Administrator guide"
           installation: "On-premise installation and maintenance"
-          hardware: "Hardware requirements"
+          hardware: "Installation requirements"
           installation-methods: "Installation Methods"
           installation-docker: "Installation in Docker"
           external-database: "External database in Docker"
@@ -93,13 +93,14 @@ plugins:
           api: "Working with API"
           user-guide: "User guide"
           general: "General"
-          policies: "Managing policies"
+          policies: "Security policies"
+          policies-settings: "Managing policies"
           artifact-plugins: "Plugins for repositories"
           repo-managers: "Connecting a repository manager"
           registries: "Connecting a container registry"
           osa-update: "Updating component data"
           osa-archives: "Scanning archives"
-          platform-analysis: "Analysis on the platform"
+          platform-analysis: "Analysis in the platform"
           sca-general: "General description"
           sca-dependencies: "Overviewing dependencies"
           launch-analysis: "Launching a scan"
@@ -112,14 +113,14 @@ plugins:
           jfrog-osa: "Plugin for JFrog"
           osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
-          platform-osa: "Working with OSA on the platform"
+          platform-osa: "Working with OSA in the platform"
           osa-proxy: "OSA Proxy"
           osa-proxy-general: "Overview"
           osa-proxy-config: "Service configuration"
           osa-proxy-protocols: "Supported protocols"
           ide: "IDE integrations"
           ide-general: "General description"
-          vscode-sca: "VS Code extension"
+          vscode-sca: "VS Code plugin"
           intellij-sca: "IntelliJ plugin"
           agent: "CLI agent Johnny"
           agent-general: "General description"
@@ -169,12 +170,13 @@ plugins:
           secrets-cli: "Searching secrets in CLI projects"
           secrets-findings: "Working with findings"
           tqi: "CodeScoring.TQI"
-          tqi-analysis-group: "Analysing projects"
+          tqi-analysis-group: "Project analysis"
           tqi-general: "General description"
           tqi-analysis: "Launching TQI analysis"
           tqi-results: "Viewing analysis results"
           tqi-advanced: "Advanced Features"
-          tqi-authors: "Building author profiles"
+          tqi-authors: "Author analysis"
+          tqi-authors-profiles: "Building author profiles"
           tqi-clones: "Tracking code clones"
           tqi-metrics: "Calculating technical debt metrics"
           changelog: "Changelog"
@@ -182,9 +184,10 @@ plugins:
           jfrog-changelog: "JFrog OSA"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
-          vscode-changelog: "VS Code extension"
+          vscode-changelog: "VS Code plugin"
           intellij-changelog: "IntelliJ plugin"
-          proxy-changelog: "OSA Proxy"
+          proxy-changelog: "OSA Proxy service"
+
         ru:
           home: "Главная"
           begin: " "
@@ -194,8 +197,8 @@ plugins:
           supported-package-managers: "Поддерживаемые экосистемы и способы анализа"
           admin-guide: "Руководство администратора"
           installation: "Установка и эксплуатация"
-          hardware: "Аппаратные требования"
-          installation-methods: "Методы установки"
+          hardware: "Требования к установке"
+          installation-methods: "Варианты установки"
           installation-docker: "Установка системы в Docker"
           external-database: "Работа со внешней СУБД в Docker"
           installation-kubernetes: "Работа системы в Kubernetes"
@@ -231,32 +234,33 @@ plugins:
           api: "Работа с API"
           user-guide: "Руководство пользователя"
           general: "Общее"
-          policies: "Настройка политик"
+          policies: "Политики безопасности"
+          policies-settings: "Настройка политик"
           artifact-plugins: "Плагины для хранилищ"
           repo-managers: "Подключение менеджера репозиториев"
           registries: "Подключение реестра с образами"
           osa-update: "Обновление данных о компонентах"
           osa-archives: "Сканирование архивов"
+          sca: "CodeScoring.SCA"
           sca-general: "Общее описание"
-          platform-analysis: "Анализ на платформе"
           sca-dependencies: "Обзор зависимостей"
+          platform-analysis: "Анализ в платформе"
           launch-analysis: "Запуск сканирования"
           scan-history: "Отслеживание истории сканирований"
-          sca: "CodeScoring.SCA"
           osa: "CodeScoring.OSA"
           osa-general: "Общее описание"
           nexus-osa: "Плагин для Nexus"
           jfrog-osa: "Плагин для JFrog"
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA"
-          platform-osa: "Работа с OSA на платформе"
-          osa-proxy: "OSA Proxy"
+          platform-osa: "Работа с OSA в платформе"
+          osa-proxy: "Сервис OSA Proxy"
           osa-proxy-general: "Общее описание"
           osa-proxy-config: "Настройка сервиса"
           osa-proxy-protocols: "Поддерживаемые протоколы"
           ide: "Интеграция с IDE"
           ide-general: "Общее описание"
-          vscode-sca: "Расширение для VS Code"
+          vscode-sca: "Плагин для VS Code"
           intellij-sca: "Плагин для IntelliJ"
           agent: "Консольный агент Johnny"
           agent-general: "Общее описание"
@@ -300,7 +304,7 @@ plugins:
           secrets-general: "Общее описание"
           secrets-setup: "Создание конфигурации для поиска секретов"
           secrets-vcs: "Настройка VCS проекта для работы с секретами"
-          secrets-model: "Управление моделью машинного обучения"
+          secrets-model: "Управление ML моделью"
           secrets-usage: "Анализ секретов"
           secrets-launch: "Запуск поиска секретов"
           secrets-cli: "Поиск секретов в CLI проектах"
@@ -311,15 +315,16 @@ plugins:
           tqi-analysis: "Запуск TQI анализа"
           tqi-results: "Просмотр результатов анализа"
           tqi-advanced: "Расширенные возможности"
-          tqi-authors: "Построение профилей авторов"
+          tqi-authors: "Анализ авторов"
+          tqi-authors-profiles: "Построение профилей авторов"
           tqi-clones: "Отслеживание дубликатов кода"
           tqi-metrics: "Расчет метрик технического долга"
           changelog: "Changelog"
           on-premise-changelog: "CodeScoring on-premise"
-          jfrog-changelog: "Плагин для JFrog"
+          jfrog-changelog: "JFrog OSA"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Плагин для Nexus"
-          vscode-changelog: "Расширение для VS Code"
+          vscode-changelog: "Плагин для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
           proxy-changelog: "OSA Proxy"
 
@@ -366,8 +371,6 @@ nav:
       - activation: on-premise/how-to/activation.md
       - activation: on-premise/how-to/activation.en.md
       - user-management:
-        - user-profile: on-premise/how-to/user-profile.md
-        - user-profile: on-premise/how-to/user-profile.en.md
         - users: on-premise/how-to/users.md
         - users: on-premise/how-to/users.en.md
         - groups: on-premise/how-to/groups.md
@@ -376,6 +379,15 @@ nav:
         - ldap: on-premise/how-to/ldap-settings.en.md
         - oidc: on-premise/how-to/oidc.md
         - oidc: on-premise/how-to/oidc.en.md
+  - user-guide:
+    - general:
+      - user-profile: on-premise/how-to/user-profile.md
+      - user-profile: on-premise/how-to/user-profile.en.md
+      - policies:
+        - policies-settings: on-premise/how-to/policies.md
+        - policies-settings: on-premise/how-to/policies.en.md
+        - ignores: on-premise/how-to/ignores.md
+        - ignores: on-premise/how-to/ignores.en.md
       - project-setup:
         - vcs: on-premise/how-to/vcs-git.md
         - vcs: on-premise/how-to/vcs-git.en.md
@@ -394,8 +406,6 @@ nav:
         - webhooks: on-premise/how-to/webhooks.en.md
         - api: on-premise/how-to/api.md
         - api: on-premise/how-to/api.en.md
-  - user-guide:
-    - general:
       - feeds:
         - feeds-general: feeds/index.md
         - feeds-general: feeds/index.en.md
@@ -405,10 +415,6 @@ nav:
         - feeds-kaspersky: feeds/kaspersky.en.md
         - feeds-oss-index: feeds/oss-index.md
         - feeds-oss-index: feeds/oss-index.en.md
-      - policies: on-premise/how-to/policies.md
-      - policies: on-premise/how-to/policies.en.md
-      - ignores: on-premise/how-to/ignores.md
-      - ignores: on-premise/how-to/ignores.en.md
     - osa:
       - osa-general: osa/index.md
       - osa-general: osa/index.en.md
@@ -441,10 +447,10 @@ nav:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md
       - platform-analysis:
-        - sca-dependencies: sca/sca-dependencies.md
-        - sca-dependencies: sca/sca-dependencies.en.md
         - launch-analysis: sca/launch-analysis.md
         - launch-analysis: sca/launch-analysis.en.md
+        - sca-dependencies: sca/sca-dependencies.md
+        - sca-dependencies: sca/sca-dependencies.en.md
         - scan-history: sca/scan-history.md
         - scan-history: sca/scan-history.en.md
         - export-results: sca/export-results.md
@@ -522,14 +528,10 @@ nav:
       - secrets-general: secrets/index.md
       - secrets-general: secrets/index.en.md
       - secrets-configuration:
-        - secrets-general: secrets/index.md
-        - secrets-general: secrets/index.en.md
         - secrets-setup: secrets/secrets-setup.md
         - secrets-setup: secrets/secrets-setup.en.md
         - secrets-vcs: secrets/secrets-vcs.md
         - secrets-vcs: secrets/secrets-vcs.en.md
-        - secrets-model: secrets/secrets-model.md
-        - secrets-model: secrets/secrets-model.en.md
       - secrets-usage:
         - secrets-launch: secrets/secrets-launch.md
         - secrets-launch: secrets/secrets-launch.en.md
@@ -537,23 +539,23 @@ nav:
         - secrets-cli: secrets/secrets-cli.en.md
         - secrets-findings: secrets/secrets-findings.md
         - secrets-findings: secrets/secrets-findings.en.md
+      - secrets-model: secrets/secrets-model.md
+      - secrets-model: secrets/secrets-model.en.md
     - tqi:
       - tqi-general: tqi/index.md
       - tqi-general: tqi/index.en.md
       - tqi-analysis-group:
-        - tqi-general: tqi/index.md
-        - tqi-general: tqi/index.en.md
         - tqi-analysis: tqi/launch-analysis.md
         - tqi-analysis: tqi/launch-analysis.en.md
         - tqi-results: tqi/viewing-results.md
         - tqi-results: tqi/viewing-results.en.md
-      - tqi-advanced:
-        - tqi-authors: tqi/authors.md
-        - tqi-authors: tqi/authors.en.md
         - tqi-clones: tqi/clones.md
         - tqi-clones: tqi/clones.en.md
         - tqi-metrics: tqi/metrics.md
         - tqi-metrics: tqi/metrics.en.md
+      - tqi-authors:
+        - tqi-authors-profiles: tqi/authors.md
+        - tqi-authors-profiles: tqi/authors.en.md
   - changelog:
     - on-premise-changelog: changelog/on-premise-changelog.md
     - on-premise-changelog: changelog/on-premise-changelog.en.md
