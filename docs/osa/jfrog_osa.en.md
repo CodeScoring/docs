@@ -156,16 +156,16 @@ repositoryTypes:
 ### Parameter description
 
 - **disablePlugin** – disable the plugin;
-- **codeScoringAPI** - settings for the interaction of the plugin with the CodeScoring installation;
- - **url** – CodeScoring installation address (protocol must be specified);
+- **codeScoringAPI** - settings for the interaction of the plugin with the CodeScoring platform;
+ - **url** – CodeScoring platform address (protocol must be specified);
  - **token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
- - **connectionPoolSize** – size of the connection pool with the CodeScoring installation;
+ - **connectionPoolSize** – size of the connection pool with the CodeScoring platform;
  - **timeout** - response waiting time (in seconds). By default, if the CodeScoring API does not respond within 60 seconds, the request will be canceled;
  - **proxy** - proxy server settings;
  - **host** - host/IP;
  - **port** - port;
 - **blockedBuildResponseCode** – error code returned when security policies are triggered;
-- **blockOnErrors** - blocking the loading of components in case of an error when interacting with the CodeScoring installation;
+- **blockOnErrors** - blocking the loading of components in case of an error when interacting with the CodeScoring platform;
 - **scanAllRepositories** - connection of all supported repositories except those specified in the **excludeRepositories** parameter;
 - **storeScanProperties** - saving the blocking reason and scan time stamp to the artifact properties;
 - **defaults** – default scanning settings for all connected repositories;
@@ -196,7 +196,7 @@ The plugin has 6 operating modes that determine the severity of checking compone
 
 - **off** – component scanning is disabled;
 - **warmup** – loading data into the CodeScoring cache without blocking components;
-- **spectator** – loading data into the CodeScoring cache without blocking components, saving the results of component queries on the installation;
+- **spectator** – loading data into the CodeScoring cache without blocking components, saving the results of component queries to the platform;
 - **moderate** – blocking components that have not passed the policy check. Loading of unscanned components is allowed;
 - **strict** – blocking components that do not pass the policy check. Loading of unscanned components is prohibited;
 - **strict_wait** – blocking components that have not passed the policy check. Pending verification for unscanned components.
@@ -233,12 +233,12 @@ To configure plugin event logging, you need to add the following content to the 
 
 When a component is blocked from downloading, the user console displays one of the following reasons for blocking:
 
-- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – blocking of the component according to the policies configured on the installation;
+- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – blocking of the component according to the policies configured on the platform;
 - **"The component has not yet been scanned by CodeScoring, it is scheduled to be scanned shortly. The download is blocked according to the plugin settings"** – blocking an unscanned component and then starting scanning. Used in `strict` mode;
 - **"The download has been blocked due to the failure of the scan of the component in CodeScoring"** – the component could not be scanned;
 - **"The download has been blocked due to the wrong mode of the plugin"** – incorrect [plugin operating mode](#setting-up-operating-modes) is used;
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – the timeout for scanning the component has expired. Used in `strict_wait` mode;
-- **"The download has been blocked, because registry is not configured in CodeScoring"** – there is no corresponding Registry on the installation.
+- **"The download has been blocked, because registry is not configured in CodeScoring"** – there is no corresponding Registry on the platform.
 
 The response also contains a link to the component page in CodeScoring with information about triggered security policies and found vulnerabilities:
 

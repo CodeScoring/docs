@@ -1,4 +1,6 @@
 site_name: "CodeScoring Documentation"
+site_description: "Открытая документация CodeScoring: установка, руководство пользователя, changelog."
+site_url: "https://docs.codescoring.ru"
 
 theme:
   name: material
@@ -36,6 +38,10 @@ theme:
 
 plugins:
   - search
+  - print-site:
+      exclude:
+        - index.md
+        - changelog/*
   - i18n:
       languages:
         ru: "Русский"
@@ -53,7 +59,7 @@ plugins:
           begin: " "
           integration-stages: "Integration stages"
           supported-package-managers: "Supported ecosystems and analysis methods"
-          installation: "On-premise installation and maintenance"
+          installation: "Platform installation and maintenance"
           hardware: "Hardware requirements"
           installation-docker: "Installation in Docker"
           external-database: "External database in Docker"
@@ -64,7 +70,7 @@ plugins:
           ssl: "Self signed SSL certificates"
           postgresql-tls: "Connecting to PostgreSQL/PgBouncer using TLS"
           analysis-ignore-paths: "Analysis paths and exceptions"
-          scripts: "Scripts for installation managing"
+          scripts: "Scripts for platform managing"
           troubleshooting: "Troubleshooting"
           how-to: "Getting started with on-premise"
           activation: "System activation"
@@ -190,9 +196,9 @@ plugins:
           postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
           troubleshooting: "Диагностика неполадок"
-          how-to: "Начало работы с инсталляцией"
-          scripts: "Скрипты для управления инсталляцией"
-          getting-started: "Начало работы с инсталляцией"
+          how-to: "Начало работы с платформой"
+          scripts: "Скрипты для управления платформой"
+          getting-started: "Начало работы с платформой"
           activation: "Активация системы"
           user-profile: "Настройка профиля пользователя"
           proprietors: "Создание подразделений"
@@ -224,7 +230,7 @@ plugins:
           repo-managers: "Подключение менеджера репозиториев"
           registries: "Подключение реестра с образами"
           osa-policies: "Настройка политик OSA"
-          osa-components: "Работа с компонентами OSA на инсталляции"
+          osa-components: "Работа с компонентами OSA в платформе"
           osa-update: "Обновление данных о компонентах"
           osa-archives: "Сканирование архивов"
           osa-proxy: "OSA Proxy"
@@ -564,6 +570,9 @@ extra:
     - icon: fontawesome/brands/telegram
       link: https://t.me/codescoring
       name: Telegram
+    - icon: fontawesome/brands/vk
+      link: https://vkvideo.ru/@codescoring/all
+      name: VK Видео
   alternate:
     - name: "Русский"
       link: "/"

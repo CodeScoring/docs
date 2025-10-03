@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Резервное копирование
 
 ## Создание резервной копии установки
@@ -37,7 +38,7 @@ hide:
     ls -la ./backup
     ```
 
-2. Перезапустить инсталляцию:
+2. Перезапустить платформу:
 
     ```bash linenums="2"
     docker compose up -d --force-recreate --renew-anon-volumes

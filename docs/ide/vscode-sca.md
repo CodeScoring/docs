@@ -133,14 +133,14 @@ hide:
 
 1. Установите тип установки на Local
 
-- В настройках VS Code измените `installationType` на `local`
+- В настройках VS Code измените `platformType` на `local`
 - Или в settings.json:
 
 ```json
-"codescoringSca.installationType": "local"
+"codescoringSca.platformType": "local"
 ```
 
-2. В настройках найдите поле `Codescoring Sca: Johnny Cli Path`, помеченное **[LOCAL INSTALLATION ONLY]**
+2. В настройках найдите поле `Codescoring Sca: Johnny Cli Path`, помеченное **[LOCAL platform ONLY]**
 3. Нажмите на ссылку действия **"Browse..."**
 4. Перейдите к месту, где вы ранее загрузили Johnny CLI
 5. Выберите исполняемый файл Johnny CLI
@@ -521,7 +521,7 @@ scan:
 |----------------------------|----------------------------------------------|------------------------------|
 | `apiUrl`                   | Ваш URL с установленной CodeScoring          |                              |
 | `apiToken`                 | API токен. Безопасно сохраняется             | _(устанавливается командой)_ |
-| `installationType`         | local или docker                             | `local`                      |
+| `platformType`         | local или docker                             | `local`                      |
 | `johnnyCliPath`            | Путь к Johnny CLI (пустой для автозагрузки)  | _(автозагрузка)_             |
 | `dockerImage`              | Имя docker образа c Johnny CLI               | `johnny-depp:2025.29.0`      |
 | `dockerRegistry`           | Реестр с образом Johnny CLI                  | _(предоставляется заботой)_  |

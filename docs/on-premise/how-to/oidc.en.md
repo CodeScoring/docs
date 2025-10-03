@@ -16,7 +16,7 @@ hide:
 
 ## Configuring the OpenID Connect Client on the Side of Provider
 
-Below is an example of valid OpenID Connect client configuration on the side of provider given that the URL of the CodeScoring installation is `https://codescoring.example.com/`:
+Below is an example of valid OpenID Connect client configuration on the side of provider given that the URL of the CodeScoring platform is `https://codescoring.example.com/`:
 
 - **Root url** - `https://codescoring.example.com/`;
 - **Home url** - `https://codescoring.example.com/cabinet/dashboard/`;

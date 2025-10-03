@@ -9,7 +9,7 @@ Changelog содержит историю изменений основных к
 
 **Оглавление**:
 
-- [On-premise инсталляция](/changelog/on-premise-changelog)
+- [On-premise платформа](/changelog/on-premise-changelog)
 - [Консольный агент Johnny](/changelog/johnny-changelog)
 - [Плагин Nexus OSA](/changelog/nexus-changelog)
 - [Плагин JFrog OSA](/changelog/jfrog-changelog)

@@ -9,7 +9,7 @@ Connecting to PostgreSQL/PgBouncer using TLS provides secure and encrypted data 
 
 ## Guide for connection
 
-1. Before starting the system, place certificate and key files in the `ssl` directory in the system installation files;
+1. Before starting the system, place certificate and key files in the `ssl` directory in the system platform files;
 2. Give the files self-explanatory names, e.g. `pgbouncer_server.crt`, `pgbouncer_server.key`;
 
     **Important**: the extension of the certificate files must be `crt`;
@@ -21,9 +21,9 @@ Connecting to PostgreSQL/PgBouncer using TLS provides secure and encrypted data 
     ```
 4. Uncomment and edit your SSL/TLS configuration files.
 
-## Example of how to enable PostgreSQL/PgBouncer in TLS mode with self-signed certificates 
+## Example of how to enable PostgreSQL/PgBouncer in TLS mode with self-signed certificates
 
-1. Generate certificates in the `ssl` directory in the system installation files using the `mkcert` utility
+1. Generate certificates in the `ssl` directory in the system platform files using the `mkcert` utility
     ```bash
     docker run -v ./ssl:/ssl -it --rm alpine/mkcert -cert-file /ssl/pgbouncer_server.crt -key-file /ssl/pgbouncer_server.key pgbouncer
     docker run -v ./ssl:/ssl -it --rm alpine/mkcert -cert-file /ssl/postgresql_server.crt -key-file /ssl/postgresql_server.key psql

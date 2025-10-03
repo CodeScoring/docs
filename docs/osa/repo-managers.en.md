@@ -5,9 +5,9 @@ hide:
 
 # Connecting a repository manager
 
-Codescoring.OSA performs artifact check in the **Sonatype Nexus Repository** and **JFrog Artifactory** repository managers via [OSA plugins](/osa). You can pre-configure a connection to a repository manager to make it easier to work with artifacts on your installation.
+Codescoring.OSA performs artifact check in the **Sonatype Nexus Repository** and **JFrog Artifactory** repository managers via [OSA plugins](/osa). You can pre-configure a connection to a repository manager to make it easier to work with artifacts on your platform.
 
-To add a new repository manager on an installation, follow these steps:
+To add a new repository manager on an platform, follow these steps:
 
 1. Go to `Settings -> Repo managers`.
 2. Click on the **Setup new** button.
