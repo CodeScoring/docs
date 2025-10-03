@@ -38,7 +38,7 @@ The platform comprehensively provides:
 ## Functional characteristics of the **CodeScoring.OSA** module
 
 - blocking the download of unwanted components when trying to download them through the command interface of the package manager or the web interface;
-- forming a list of software components (**SBoM**, Software Bill of Materials);
+- forming a list of software components (**SBOM**, Software Bill of Materials);
 - checking artifacts in the registries of container images;
 - proxying and control of package downloads via the [OSA Proxy](/osa-proxy/index.en) service for popular package managers (Maven, NPM, PyPI, NuGet);
 - archive analysis, including:
@@ -64,13 +64,13 @@ The platform comprehensively provides:
 ## Functional characteristics of the **CodeScoring.SCA** module
 
 - analysis of package manager manifests;
-- formation of a list of software components (**SBoM, Software Bill of Materials**);
+- formation of a list of software components (**SBOM, Software Bill of Materials**);
 - checking **open source** at all stages of the development cycle with the ability to set security policies for individual stages of the development cycle:
         - code checking in development environments (**IDE**): **IntelliJ-based**, **VSCode**, **OpenIDE**;
         - checking on the developer's local machine (**CLI agent**);
         - continuous code monitoring (scanning repository branches);
         - checking in the **CI pipeline** with a universal agent with the ability to block the build;
-        - post-release monitoring **SBoM**;
+        - post-release monitoring **SBOM**;
         - post-release code monitoring (scanning repository tags);
 - detection of **open source** dependencies:
         - by ecosystem, package name and version;

@@ -140,8 +140,8 @@
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
-/* Фиксируем футер */
-.md-footer {
+/* ====== только для главной страницы ====== */
+body.is-home .md-footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -149,8 +149,7 @@
   z-index: 10;
 }
 
-/* Добавляем отступ снизу для контента, чтобы он не перекрывался футером */
-.md-main {
+body.is-home .md-main {
   padding-bottom: var(--md-footer-height, 56px);
 }
 

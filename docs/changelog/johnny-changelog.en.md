@@ -15,12 +15,12 @@ hide:
 #### Added
 
 - Added vulnerability reachability analysis for Java and Svace call graph, as well as output of reachability examples in SARIF (starting from platform version **2025.37.0**)
-- Added the ability to run local scans without specifying activation parameters (`--api_url` and `--api_token`), generating an SBoM based on detected manifests without enrichment and policy application
+- Added the ability to run local scans without specifying activation parameters (`--api_url` and `--api_token`), generating an SBOM based on detected manifests without enrichment and policy application
 - Added support for `deps.json` and `sln` manifests for the .NET stack
-- Added support for all component types from the PURL specification, including the generic type, as well as components with empty or invalid PURLs when analyzing SBoM with the `scan bom` command
+- Added support for all component types from the PURL specification, including the generic type, as well as components with empty or invalid PURLs when analyzing SBOM with the `scan bom` command
 - In the `scan bom` command, added pre-conversion of the file to UTF-8 encoding for correct further processing
 - Added the ability to run `sign bom` and `verify bom` commands without specifying activation parameters (`--api_url` and `--api_token`)
-- Added transfer of annotated data (`GOST:attack_surface`, `GOST:security_function`, `GOST:source_langs`, `VCS`, `licenses`) to the platform when importing annotated SBoM (starting from platform version 2025.37.0)
+- Added transfer of annotated data (`GOST:attack_surface`, `GOST:security_function`, `GOST:source_langs`, `VCS`, `licenses`) to the platform when importing annotated SBOM (starting from platform version 2025.37.0)
 - Added the ability to specify branch/tag and commit when scanning an image
 - Added the option to select the progress bar type: `spinner` or `text` (default: `spinner`)
 
@@ -63,8 +63,8 @@ hide:
 #### Added
 
 - Added parsing of dependencies declared in unified format in `build.gradle`
-- Added `sign bom` command to sign SBoM files
-- Added `verify bom` command to verify the authenticity of the SBoM file signature
+- Added `sign bom` command to sign SBOM files
+- Added `verify bom` command to verify the authenticity of the SBOM file signature
 - Added work with the predefined `CodeScoring_All_Dependencies` task for correct dependency resolution in multi-module projects of the gradle environment
 - Added the `project-proprietor` parameter to link the scanned project to the department (since version **2025.29.0** of the platform)
 - Added support for aliases for `yarn.lock` and `pnpm-lock.json`
@@ -109,8 +109,8 @@ hide:
 - Added ignoring `.nuspec` files in the `scan csharp` command
 - Added support for AltLinux operating systems in the `scan build` command
 - Excluded Java archives from scanning when the `--scan-archives` flag is inactive
-- Fixed import SBoM in which the library has multiple values of the `env` property
-- Fixed processing of SBoM files in CycloneDX format containing information about components within components
+- Fixed import SBOM in which the library has multiple values of the `env` property
+- Fixed processing of SBOM files in CycloneDX format containing information about components within components
 
 ### [2025.7.0] - 2025-02-13
 
@@ -164,7 +164,7 @@ hide:
 - Improved dependency graph construction for formats that allow multiple versions of a single package
 - Improved dependency graph construction when both files of a manifest-lockfile pair are present
 - Fixed errors in generating PURL and go package versions when scanning Docker images
-- Fixed handling of SBoM files in CycloneDX format containing information in the `components[i].evidence.identity` fields
+- Fixed handling of SBOM files in CycloneDX format containing information in the `components[i].evidence.identity` fields
 - Changed the logic for generating the distro property for PURL ALT Linux packages when scanning Docker images
 - Added information about Location and Fixed Version of a vulnerability to the `sarif` format export
 
@@ -180,7 +180,7 @@ hide:
 - Added parsing in the pnpm environment
 - Takes into account the use of the `pnpm-workspaces.yaml` configuration file when parsing `package.json`
 - Added the ability to specify a group when creating a CLI project, for admin role only
-- Added the ability to specify the format of the generated SBoM using the `--bom-format` parameter (starting with on-premise version 2024.44.1)
+- Added the ability to specify the format of the generated SBOM using the `--bom-format` parameter (starting with on-premise version 2024.44.1)
 - Implemented parsing in the pip environment
 - Implemented parsing in the composer environment
 - When resolving dependencies in the go environment, the mechanism for determining the parent library for transitive dependencies obtained from the test environment has been improved
@@ -204,7 +204,7 @@ hide:
 
 - Separated tags when unloading in sarif format to display all versions of the found package in DefectDojo
 - Changed export of severity in sarif format to correctly display CVSS3 in DefectDojo
-- Fixed issues with scanning SBoM containing Go packages
+- Fixed issues with scanning SBOM containing Go packages
 - Fixed panic when parsing empty `cargo.lock`
 - Removed duplication of vulnerabilities in sarif format for cases of multiple versions of the same package
 - Removed the ability to simultaneously use the `format` and `no-summary` flags
@@ -225,7 +225,7 @@ hide:
 - Added the ability to specify a license when creating a project
 - Fixed an error when parsing `pom.xml`, which contains variables like `xxx.xxx.xxx.xxx`
 - Fixed `scala-dependency-tree.txt` parser
-- Fixed an error when scanning SBoM without a component section
+- Fixed an error when scanning SBOM without a component section
 
 ### [2024.29.0] – 2024-07-19
 

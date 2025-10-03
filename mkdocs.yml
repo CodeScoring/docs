@@ -38,10 +38,6 @@ theme:
 
 plugins:
   - search
-  - print-site:
-      exclude:
-        - index.md
-        - changelog/*
   - i18n:
       languages:
         ru: "Русский"
@@ -301,7 +297,10 @@ plugins:
           vscode-changelog: "Расширение для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
           proxy-changelog: "OSA Proxy"
-  - print-site
+  - print-site:
+      exclude:
+        - index.md
+        - changelog/*
 
 nav:
   - home:
@@ -554,13 +553,14 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/home.css
   - css/logo.css
   - css/hide_lang_links.css
   - css/print.css
-  - stylesheets/home.css
 
 extra_javascript:
   - js/search.js
+  - js/home.js
 
 extra:
   social:
