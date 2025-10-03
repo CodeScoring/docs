@@ -66,7 +66,7 @@ The platform comprehensively provides:
 - analysis of package manager manifests;
 - formation of a list of software components (**SBoM, Software Bill of Materials**);
 - checking **open source** at all stages of the development cycle with the ability to set security policies for individual stages of the development cycle:
-        - code checking in development environments (**IDE**): **IntelliJ**, **VSCode**, **Eclipse**, **OpenIDE**;
+        - code checking in development environments (**IDE**): **IntelliJ-based**, **VSCode**, **OpenIDE**;
         - checking on the developer's local machine (**CLI agent**);
         - continuous code monitoring (scanning repository branches);
         - checking in the **CI pipeline** with a universal agent with the ability to block the build;
@@ -99,7 +99,7 @@ The platform comprehensively provides:
         - license text;
         - brief overview of the license terms;
         - information on license compatibility (**license compliance**);
-- detection and deduplication of vulnerabilities from 20 knowledge bases, including aggregation (**NVD**, **OSV**, **GHSA** and others), ecosystem (**Debian**, **RPM**, **Alpine** and others), commercial (**Kaspersky OSS Threats Data Feed**) and proprietary, including data on **protestware**;
+- detection and deduplication of vulnerabilities from over 20 knowledge bases, including aggregation (**NVD**, **OSV**, **GHSA** and others), ecosystem (**Debian**, **RPM**, **Alpine** and others), commercial (**Kaspersky OSS Threats Data Feed**) and proprietary, including data on **protestware**;
 - configuration of security policies by 40 criteria, including:
         - package metadata: name, version, package author, age, date;
         - vulnerability criteria: identifier, **CVSS** score, threat level, publication date, age, presence of exploit, impact;
@@ -111,7 +111,8 @@ The platform comprehensively provides:
 - a system for displaying scan results for each individual stage and the ability to manage ignored events;
 - the ability to configure protection against popular attacks on the supply chain;
 - the ability to configure temporary ignoring of triggering policies based on various criteria: project, technology, package, license type, vulnerability identifier, for individual policies;
-- unloading reports in popular formats: **CycloneDX**, **JUnit**, **SARIF**, **CSV**, **GitLab Dependency Scanning Report**, **GitLab Code Quality Report**.
+- unloading reports in popular formats: **CycloneDX**, **SPDX**, **JUnit**, **SARIF**, **CSV**, **GitLab Dependency Scanning Report**, **GitLab Code Quality Report**;
+- vulnerability reachability analysis.
 
 ## Functional characteristics of the **CodeScoring.Secrets** module
 
