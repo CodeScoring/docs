@@ -111,7 +111,7 @@ The platform comprehensively provides:
 - a system for displaying scan results for each individual stage and the ability to manage ignored events;
 - the ability to configure protection against popular attacks on the supply chain;
 - the ability to configure temporary ignoring of triggering policies based on various criteria: project, technology, package, license type, vulnerability identifier, for individual policies;
-- unloading reports in popular formats: **CycloneDX**, **SPDX**, **JUnit**, **SARIF**, **CSV**, **GitLab Dependency Scanning Report**, **GitLab Code Quality Report**;
+- exporting reports in popular formats: **CycloneDX**, **SPDX**, **JUnit**, **SARIF**, **CSV**, **GitLab Dependency Scanning Report**, **GitLab Code Quality Report**;
 - vulnerability reachability analysis.
 
 ## Functional characteristics of the **CodeScoring.Secrets** module
