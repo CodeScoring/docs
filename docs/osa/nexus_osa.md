@@ -43,7 +43,7 @@ nx-repository-view-*-*-{read,browse}
 
 Плагин **CodeScoring.OSA** предоставляет четыре новые **Capability**:
 
-- **CodeScoring Configuration** — настройка взаимодействия с **on-premise** инсталляцией **CodeScoring**;
+- **CodeScoring Configuration** — настройка взаимодействия с **on-premise** платформой **CodeScoring**;
 - **CodeScoring Scan** — настройка сканирования для отдельно выбранного прокси-репозитория;
 - **CodeScoring Docker Repository Scan** – настройка сканирования для отдельно выбранного hosted или proxy docker репозитория;
 - **CodeScoring All Repositories Scan** – настройка сканирования для всех репозиториев.
@@ -54,16 +54,16 @@ nx-repository-view-*-*-{read,browse}
 
 ### CodeScoring Configuration
 
-Расширение позволяет задать общие настройки плагина для работы с инсталляцией **CodeScoring**:
+Расширение позволяет задать общие настройки плагина для работы с платформой **CodeScoring**:
 
-- **CodeScoring URL** – адрес **on-premise** инсталляции **CodeScoring**;
-- **CodeScoring Token** – ключ для авторизации вызовов API (*Создается из CodeScoring раздела `Profile -> Home`*);
+- **CodeScoring URL** – адрес **on-premise** платформе **CodeScoring**;
+- **CodeScoring Token** – ключ для авторизации вызовов API (Создается из раздела `Профиль`*);
 - **HttpClient Connection Pool Size** – количество доступных соединений. Параметр позволяет управлять количеством параллельных запросов, чтобы ускорить сканирование;
 - **HTTP Proxy Host** – адрес прокси-сервера. Используется в случае, если нет возможности наладить прямое соединение между NXRM и CodeScoring;
 - **HTTP Proxy Port** – порт прокси-сервера;
 - **Block downloads in case of plugin or CodeScoring errors** – блокировка загрузки компонента при наличии ошибок от плагина или CodeScoring API.
 - **Custom message for blocked packages** – сообщение для пользователя при блокировке компонентов;
-- **Nexus URL for identification in CodeScoring** – адрес Nexus Repository Manager с протоколом для отображения результатов на инсталляции.
+- **Nexus URL for identification in CodeScoring** – адрес Nexus Repository Manager с протоколом для отображения результатов в платформе.
 
 ![CodeScoring capability config settings example](/assets/img/osa/capability_config_settings_example.png)
 
@@ -114,7 +114,7 @@ nx-repository-view-*-*-{read,browse}
 Плагин имеет 5 режимов работы, определяющих строгость проверки компонентов перед загрузкой.
 
 - **warmup** – загрузка данных в кэш CodeScoring без блокировки компонентов;
-- **spectator** – загрузка данных в кэш CodeScoring без блокировки компонентов, сохранение результатов запросов компонентов на инсталляции;
+- **spectator** – загрузка данных в кэш CodeScoring без блокировки компонентов, сохранение результатов запросов компонентов на платформе;
 - **moderate** – блокировка компонентов, не прошедших проверку политик. Разрешена загрузка непросканированных компонентов;
 - **strict** – блокировка компонентов, не прошедших проверку политик. Запрещена загрузка непросканированных компонентов;
 - **strict_wait** – блокировка компонентов, не прошедших проверку политик. Ожидание проверки для непросканированных компонентов.
@@ -131,12 +131,12 @@ nx-repository-view-*-*-{read,browse}
 
 При блокировании загрузки компонента в консоли пользователя отображается одна из следующих причин блокировки:
 
-- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – блокировка компонента согласно настроенным на инсталляции политикам;
+- **"The download has been blocked in accordance with the policies configured in CodeScoring"** – блокировка компонента согласно настроенным на платформе политикам;
 - **"The component has not yet been scanned by CodeScoring, it is scheduled to be scanned shortly. The download is blocked according to the plugin settings"** – блокировка непросканированного компонента с последующим запуском сканирования. Используется в режиме `strict`;
 - **"The download has been blocked due to the failure of the scan of the component in CodeScoring"** – не удалось просканировать компонент;
 - **"The download has been blocked due to the wrong mode of the plugin"** – используется некорректный [режим работы плагина](#_3);
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – истекло время ожидания сканирования компонента. Используется в режиме `strict_wait`;
-- **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry на инсталляции.
+- **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry на платформе.
 
 Ответ также содержит ссылку на страницу компонента в CodeScoring с информацией о сработавших политиках безопасности и найденных уязвимостях:
 
@@ -145,7 +145,7 @@ nx-repository-view-*-*-{read,browse}
 
 ## Настройка SSL-соединения
 
-Для настройки SSL-соединения между плагином и инсталляцией необходимо выполнить импорт сертификатов в Java Truststore.
+Для настройки SSL-соединения между плагином и платформой необходимо выполнить импорт сертификатов в Java Truststore.
 
 ### Определение местоположения установки Java
 
@@ -176,7 +176,7 @@ nx-repository-view-*-*-{read,browse}
 openssl s_client -connect <codescoring.domain.ru>:443 2>/dev/null | openssl x509 > codescoring_ca.pem
 ```
 
-Убедитесь, что вы заменили `<codescoring.domain.ru>` на соответствующий адрес вашей инсталляции.
+Убедитесь, что вы заменили `<codescoring.domain.ru>` на соответствующий адрес вашей платформе.
 
 ### Импорт сертификата
 

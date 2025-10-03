@@ -10,7 +10,7 @@ The agent is launched using the `scan` command with possible scanning options:
 - `scan dir` – [scanning a directory](/agent/scan-dir.en/);
 - `scan file` – [scanning a file](/agent/scan-file.en);
 - `scan image` – [scanning a container image](/agent/scan-docker.en);
-- `scan bom` – [scanning a SBoM](/agent/scan-bom.en);
+- `scan bom` – [scanning a SBOM](/agent/scan-bom.en);
 - `scan <technology>` - [scanning a directory using settings for selected technology](/agent/scan-technology.en);
 
 ## Launch options
@@ -139,7 +139,7 @@ Global Flags:
 Use " scan [command] --help" for more information about a command.
 ```
 
-The `--api_url` parameter must contain the full address of the on-premise installation. The value for `--api_token` can be taken from the installation user profile.
+The `--api_url` parameter must contain the full address of the on-premise platform. The value for `--api_token` can be taken from the platform user profile.
 
 Specifying the `--project` parameter will allow scanning to apply policies related to the selected project.
 
@@ -163,6 +163,6 @@ Since agent startup parameters can be configured in multiple ways, if two or mor
 3. Value of [environment variable](/agent/env-variables.en);
 4. Value from [config file](/agent/config.en).
 
-## Launch without installation
+## Launch without the platform
 
-If the `--api_url` and `--api_token` parameters are not specified, the scan will be launched without interacting with the CodeScoring installation. The scan will generate an SBoM file containing only a list of components and their versions without any additional information.
+If the `--api_url` and `--api_token` parameters are not specified, the scan will be launched without interacting with the CodeScoring platform. The scan will generate an SBOM file containing only a list of components and their versions without any additional information.

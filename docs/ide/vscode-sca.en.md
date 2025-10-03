@@ -42,7 +42,7 @@ Fine-tuning the scan is done by modifying the config.yaml file
 Before you begin, ensure you have:
 
 - Visual Studio Code installed on your system
-- Access to a CodeScoring installation with active credentials
+- Access to a CodeScoring platform with active credentials
 - The codescoring-sca extension distribution for vscode (.vsix)
 
 ### Required Permissions
@@ -118,7 +118,7 @@ After installation, you should see the CodeScoring logo in the VS Code Activity 
 
 There are three ways to obtain Johnny CLI for analyzing your dependencies with our service.
 
-**4.4.1 Local Installation**
+**4.4.1 Local platform**
 
 **Prerequisites:**
 
@@ -127,7 +127,7 @@ There are three ways to obtain Johnny CLI for analyzing your dependencies with o
 
 **Setup Steps:**
 
-1. Set the installation type to Local
+1. Set the platform type to Local
 - In VS Code settings, change `installationType` to `local`
 - Or in settings.json:
 ```json
@@ -151,13 +151,13 @@ There are three ways to obtain Johnny CLI for analyzing your dependencies with o
 
 **Configuration Steps:**
 
-1. Set the installation type to Local
+1. Set the platform type to Local
 - In VS Code settings, change `installationType` to `local`
 - Or in settings.json:
   ```json
   "codescoringSca.installationType": "local"
   ```
-2. In the settings, find the `Codescoring Sca: Johnny Cli Path` field marked **[LOCAL INSTALLATION ONLY]**
+2. In the settings, find the `Codescoring Sca: Johnny Cli Path` field marked **[LOCAL platform ONLY]**
 3. Clear the value in this field if necessary (empty value is the default)
 4. Now on the first scan request, Johnny CLI will be downloaded from the API URL. This will allow you to automatically receive client updates as soon as they become available. The downloaded client will be saved in the following location:
     1. **Linux**: `~/.config/Code/User/globalStorage/CodeScoring.codescoring-sca/johnny`
@@ -175,7 +175,7 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 
 **Configuration Steps:**
 
-1. Set the installation type to Docker
+1. Set the platform type to Docker
 - In VS Code settings, change `installationType` to `docker`
 - Or in settings.json:
 ```json
@@ -207,7 +207,7 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 }
 ```
 
-**Troubleshooting Docker Installation:**
+**Troubleshooting Docker installation:**
 
 - **"Docker not found"**: Ensure Docker is installed and the `docker` command is in your PATH
 - **Permission denied**: Add your user to the docker group: `sudo usermod -aG docker $USER`
@@ -482,7 +482,7 @@ You can also search/filter the BOM DIFF tree to focus on components of interest.
 
 | Setting                    | Description                                  | Default                 |
 |----------------------------|----------------------------------------------|-------------------------|
-| `apiUrl`                   | Your CodeScoring installation URL            |                         |
+| `apiUrl`                   | Your CodeScoring platform URL            |                         |
 | `apiToken`                 | API token. Securely stored                   | _(set via command)_     |
 | `installationType`         | local or docker                              | `local`                 |
 | `johnnyCliPath`            | Path to Johnny CLI (empty for auto-download) | _(auto-download)_       |

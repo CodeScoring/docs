@@ -12,7 +12,7 @@ When launched, the agent:
 1. Analyzes files in the specified directory for secrets (passwords, tokens, access keys, etc.).
 	- excludes files and directories specified in `.gitleaksignore`;
 	- ignores secrets recorded in the Gitleaks report if `baseline-path` is specified.
-2. Generates results for the found secrets, saves them on the CodeScoring installation if necessary, and creates a report in GitLab format.
+2. Generates results for the found secrets, saves them to the CodeScoring platform if necessary, and creates a report in GitLab format.
 
 **Important**: The agent only works with Gitleaks version 8.19.0 and above.
 
@@ -31,7 +31,7 @@ johnny secrets gitleaks dir . \
 --gl-secrets-report-filename secrets-report.json
 ```
 
-This command starts scanning secrets in the current directory, ignoring files listed in `.gitleaksignore`, sends the results to the CodeScoring installation, and generates a report in GitLab format, saving it to `secrets-report.json`.
+This command starts scanning secrets in the current directory, ignoring files listed in `.gitleaksignore`, sends the results to the CodeScoring platform, and generates a report in GitLab format, saving it to `secrets-report.json`.
 
 ## Command Parameters
 
