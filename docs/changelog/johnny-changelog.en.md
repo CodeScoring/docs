@@ -5,6 +5,12 @@ hide:
 
 # Johnny Changelog
 
+### [2025.37.2] - 2025-10-06
+
+#### Fixed
+
+- Fixed incorrect paths for .csproj и project.assets.json manifests when scanning sln projects
+
 ### [2025.37.1] - 2025-09-22
 
 #### Fixed
