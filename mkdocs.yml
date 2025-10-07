@@ -172,6 +172,8 @@ plugins:
           vscode-changelog: "VS Code extension"
           intellij-changelog: "IntelliJ plugin"
           proxy-changelog: "OSA Proxy"
+          variables-extended: "Variable Definitions"
+          containers-description: "Service Overview"
         ru:
           home: "Главная"
           functionality: "Функциональность"
@@ -297,6 +299,8 @@ plugins:
           vscode-changelog: "Расширение для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
           proxy-changelog: "OSA Proxy"
+          variables-extended: "Описание пременных"
+          containers-description: "Описание служб"
   - print-site:
       exclude:
         - index.md
@@ -339,6 +343,10 @@ nav:
       - scripts: on-premise/scripts.en.md
       - troubleshooting: on-premise/troubleshooting.md
       - troubleshooting: on-premise/troubleshooting.en.md
+      - variables-extended: on-premise/variables-extended.md
+      - variables-extended: on-premise/variables-extended.en.md
+      - containers-description: on-premise/containers-description.md
+      - containers-description: on-premise/containers-description.en.md
     - how-to:
       - activation: on-premise/how-to/activation.md
       - activation: on-premise/how-to/activation.en.md
