@@ -9,7 +9,7 @@ hide:
 
 #### Fixed
 
-- Fixed incorrect paths for .csproj и project.assets.json manifests when scanning sln projects
+- Fixed an error determining paths to the `.csproj` and `project.assets.json` manifests when scanning .NET projects
 
 ### [2025.37.1] - 2025-09-22
 
