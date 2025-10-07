@@ -5,6 +5,12 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.3] - 2025-10-07
+
+#### Исправлено
+
+- <span class="module-tag sca">SCA</span> Исправлена ошибка определения путей до манифестов `.csproj` и `project.assets.json` при сканировании .NET проектов
+
 ### [2025.37.2] - 2025-10-03
 
 #### Исправлено

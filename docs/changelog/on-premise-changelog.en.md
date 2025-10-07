@@ -5,6 +5,12 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.3] - 2025-10-07
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Fixed an error determining paths to the `.csproj` and `project.assets.json` manifests when scanning .NET projects
+
 ### [2025.37.2] - 2025-10-03
 
 #### Fixed
