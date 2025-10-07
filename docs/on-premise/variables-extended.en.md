@@ -32,7 +32,7 @@ By default, Sentry integration is disabled `SENTRY_ENABLE=False`. To enable Sent
 - **HASHER_BIN** =/agents/hasher-linux-amd64 - path to the `HASHER` executable agent, responsible for file hashing;
 
 - **INDEX_API_URL** =https://index.codescoring.ru - URL for the index API required for knowledge base updates. This parameter does not require modification;
- 
+
 - **DJANGO_CACHES_REDIS_URL** =redis://redis:6379/1 - the address of the Redis server used for Django caching;
 
 - **ANALYSIS_ROOT** =/analysis-root - root directory for cloning repositories for analysis. Files are copied as temporary files and deleted after analysis (used only for VCS projects);
