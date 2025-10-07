@@ -5,6 +5,12 @@ hide:
 
 # Johnny Changelog
 
+### [2025.37.2] - 2025-10-06
+
+#### Fixed
+
+- Fixed an error determining paths to the `.csproj` and `project.assets.json` manifests when scanning .NET projects
+
 ### [2025.37.1] - 2025-09-22
 
 #### Fixed
