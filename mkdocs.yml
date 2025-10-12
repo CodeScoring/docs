@@ -301,6 +301,33 @@ plugins:
       exclude:
         - index.md
         - changelog/*
+  - llmstxt:
+      markdown_description: "Открытая документация CodeScoring: установка, руководство пользователя, changelog."
+      sections:
+        Главная:
+          - index.md: "Главная страница документации"
+        Функциональность:
+          - functionality.md: "Функциональные характеристики"
+          - integration-stages.md: "Этапы интеграции"
+          - supported-package-managers.md: "Поддерживаемые экосистемы"
+        Установка и эксплуатация:
+          - on-premise/server-requirements.md: "Аппаратные требования"
+          - on-premise/installation.md: "Установка в Docker"
+          - on-premise/*.md
+        Руководство пользователя:
+          - on-premise/how-to/*.md
+          - osa/*.md
+          - osa-proxy/*.md
+          - sca/*.md
+          - agent/*.md
+          - ide/*.md
+          - dependencies/*.md
+          - feeds/*.md
+          - secrets/*.md
+          - tqi/*.md
+        Changelog:
+          - changelog/*.md
+      autoclean: true
 
 nav:
   - home:
