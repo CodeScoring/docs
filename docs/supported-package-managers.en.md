@@ -35,13 +35,72 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 
 The best result will be achieved by combining the main manifest file and the corresponding lock file, if provided by the package manager mechanism.
 
+## PURL and component types
+
+To provide a unified description of dependencies, CodeScoring uses the **[Package URL (PURL)](https://github.com/package-url/purl-spec)** standard.
+
+Each discovered dependency is represented as a normalized identifier that uniquely defines the component and its origin.
+
+Example PURL:
+
+```
+
+pkg:maven/org.apache.logging.log4j/log4j-core@2.17.2
+
+```
+
+CodeScoring supports the following PURL types according to the official specification:
+
+| PURL Type     | Description       | Specification                                        |
+|----------------|------|------------|
+| `cocoapods`    | Libraries for **Objective-C / Swift** via CocoaPods    | [types-doc/cocoapods-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/cocoapods-definition.md) |
+| `conan`        | Packages from the **C / C++ (Conan)** ecosystem        | [types-doc/conan-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/conan-definition.md)     |
+| `conda`        | Packages from **Python / Conda**                       | [types-doc/conda-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/conda-definition.md)     |
+| `nuget`        | Components from **.NET / NuGet**                       | [types-doc/nuget-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/nuget-definition.md)     |
+| `golang`       | Packages for **Go Modules**                            | [types-doc/golang-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/golang-definition.md)   |
+| `maven`        | Artifacts for **Java / Kotlin** (Maven / Gradle)       | [types-doc/maven-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/maven-definition.md)     |
+| `npm`          | Packages for **JavaScript / TypeScript**               | [types-doc/npm-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/npm-definition.md)         |
+| `composer`     | Packages for **PHP (Composer)**                        | [types-doc/composer-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/composer-definition.md) |
+| `pypi`         | Packages for **Python (PyPI)**                         | [types-doc/pypi-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/pypi-definition.md)       |
+| `gem`          | Packages for **Ruby (RubyGems)**                       | [types-doc/gem-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/gem-definition.md)         |
+| `cargo`        | Packages for **Rust (Cargo)**                          | [types-doc/cargo-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/cargo-definition.md)     |
+| `generic`      | Generic type for arbitrary binary or custom artifacts  | [types-doc/generic-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/generic-definition.md) |
+| `apk`          | System packages for **Alpine Linux**                   | [types-doc/apk-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/apk-definition.md)         |
+| `deb`          | System packages for **Debian / Ubuntu**                | [types-doc/deb-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/deb-definition.md)         |
+| `rpm`          | System packages for **RHEL / CentOS / Fedora**         | [types-doc/rpm-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/rpm-definition.md)         |
+| `swift`        | Packages for **Swift Package Manager**                 | [types-doc/swift-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/swift-definition.md)     |
+| `oci`          | Container images for **OCI / Docker**                  | [types-doc/oci-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/oci-definition.md)         |
+| `alpm`         | Packages for **Arch Linux**                            | [types-doc/alpm-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/alpm-definition.md)       |
+| `bitbucket`    | Repositories hosted on **Bitbucket**                   | [types-doc/bitbucket-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/bitbucket-definition.md) |
+| `bitnami`      | Packages or images from **Bitnami**                    | [types-doc/bitnami-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/bitnami-definition.md) |
+| `cran`         | Packages for **R (CRAN)**                              | [types-doc/cran-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/cran-definition.md)       |
+| `docker`       | Images from **Docker Hub / Docker**                    | [types-doc/docker-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/docker-definition.md)   |
+| `github`       | Repositories hosted on **GitHub**                      | [types-doc/github-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md)   |
+| `hackage`      | Packages for **Haskell (Hackage)**                     | [types-doc/hackage-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/hackage-definition.md) |
+| `hex`          | Packages for **Elixir / Erlang (Hex)**                 | [types-doc/hex-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/hex-definition.md)         |
+| `huggingface`  | Models from **Hugging Face Hub**                       | [types-doc/huggingface-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md) |
+| `mlflow`       | Models from **MLflow Model Registry**                  | [types-doc/mlflow-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/mlflow-definition.md)   |
+| `pub`          | Packages for **Dart / Flutter (pub.dev)**              | [types-doc/pub-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/pub-definition.md)         |
+| `qpkg`         | Packages for **QNAP QPKG**                             | [types-doc/qpkg-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/qpkg-definition.md)       |
+| `swid`         | **SWID Tags (Software Identification Tags)**           | [types-doc/swid-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/swid-definition.md)       |
+
+Each PURL component is classified by its type:
+
+| Component Type | Description                                                                                   |
+|----------------|-----------------------------------------------------------------------------------------------|
+| **library**    | A library, package, or third-party module used within a project.                              |
+| **framework**  | An infrastructure or application framework that includes a set of libraries.                  |
+| **firmware**   | An executable binary image or embedded software analyzed for third-party components.          |
+
 ## System packages
 
 As part of the OSA module, the platform supports analysing system packages of the following formats:
 
-- [Debian-based](https://www.debian.org/distrib/packages)
-- [Alpine-based](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html)
-- [RPM-based](https://rpm.org)
+- [Debian](https://www.debian.org/distrib/packages)
+- [Alpine](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html)
+- [RPM](https://rpm.org)
+- [AstraLinux](https://astralinux.ru/)
+- [AltLinux](https://packages.altlinux.org/en/sisyphus/)
 
 ## Resolution mechanism in the absence of a lock file
 
