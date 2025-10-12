@@ -87,6 +87,7 @@ plugins:
           metrics: "Collecting metrics"
           webhooks: "Setting up webhooks"
           api: "Working with API"
+          author-audit: "Calculating number of authors"
           user-guide: "User guide"
           sca: "CodeScoring.SCA"
           sca-general: "General description"
@@ -213,6 +214,7 @@ plugins:
           metrics: "Сбор метрик"
           webhooks: "Подключение вебхуков"
           api: "Работа с API"
+          author-audit: "Аудит количества авторов"
           user-guide: "Руководство пользователя"
           sca: "CodeScoring.SCA"
           sca-general: "Общее описание"
@@ -372,6 +374,8 @@ nav:
       - webhooks: on-premise/how-to/webhooks.en.md
       - api: on-premise/how-to/api.md
       - api: on-premise/how-to/api.en.md
+      - author-audit: on-premise/how-to/author-audit.md
+      - author-audit: on-premise/how-to/author-audit.en.md
   - user-guide:
     - osa:
       - osa-general: osa/index.md
