@@ -423,7 +423,6 @@ nav:
     - general:
       - user-profile: on-premise/how-to/user-profile.md
       - user-profile: on-premise/how-to/user-profile.en.md
-  - user-guide:
       - policies:
         - policies-settings: on-premise/how-to/policies.md
         - policies-settings: on-premise/how-to/policies.en.md
