@@ -153,6 +153,11 @@ body.is-home .md-main {
   padding-bottom: var(--md-footer-height, 56px);
 }
 
+/* Скрыть заголовок в хэдере на главной странице без сдвига */
+body.is-home .md-header__title {
+  visibility: hidden !important;
+}
+
 /* ====== мобильная адаптация ====== */
 /* Убрать тень и границу от хэдера и табов на мобильке */
 @media (max-width: 720px) {
@@ -176,7 +181,7 @@ body.is-home .md-main {
 
   /* выравнивание контента левее */
   .hero {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem; /* уменьшили top/bottom padding для меньшего съезда вниз */
     justify-content: flex-start;
     align-items: flex-start;
   }
@@ -184,6 +189,40 @@ body.is-home .md-main {
   .hero-content {
     margin-left: 0;
     text-align: left;
+    padding: 0.5rem 0; /* уменьшили padding для hero-content */
+  }
+
+  /* уменьшаем блобы на мобильке */
+  .blob {
+    width: 400px;
+    height: 400px;
+    filter: blur(60px); /* чуть меньше блюр для лучшей производительности/визуала */
+  }
+
+  .blob:nth-of-type(2) {
+    width: 500px;
+    height: 500px;
+    left: 40%; /* скорректировали позицию для лучшего центрирования на маленьком экране */
+    top: 50%;
+    filter: blur(90px);
+  }
+
+  /* уменьшаем амплитуду анимации на мобильке, чтобы блобы не уходили слишком далеко */
+  @keyframes blobMove {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    20%  { transform: translate3d(10vw, -4dvh, 0) scale(1.03); }
+    40%  { transform: translate3d(4vw, 6dvh, 0) scale(0.98); }
+    60%  { transform: translate3d(-8vw, 5dvh, 0) scale(1.02); }
+    80%  { transform: translate3d(-4vw, -3dvh, 0) scale(0.99); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes blobMoveAlt {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    25%  { transform: translate3d(-15vw, 10dvh, 0) scale(1.04); }
+    50%  { transform: translate3d(-8vw, -8dvh, 0) scale(0.96); }
+    75%  { transform: translate3d(10vw, -4dvh, 0) scale(1.01); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
   }
 
   /* кнопки на мобилке в колонку */
@@ -200,5 +239,29 @@ body.is-home .md-main {
     text-overflow: unset;
     overflow: visible;
     text-align: center;       /* чтобы текст был ровно по центру */
+  }
+
+  .md-footer-meta__inner {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    overflow: hidden !important;
+  }
+
+  .md-social {
+    display: flex !important;
+    flex-shrink: 0 !important;
+    gap: 0.5rem !important;
+    margin-left: auto !important;
+  }
+
+  .md-social__link {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .md-grid {
+    flex-wrap: nowrap !important; /* если md-grid вызывает wrap */
   }
 }
