@@ -1,4 +1,6 @@
 ---
+title: "CodeScoring documentation"
+description: "CodeScoring open documentation. Installation, user guide and changelog."
 hide:
   - navigation
   - navigation.top
@@ -14,13 +16,13 @@ hide:
   <div class="hero-content">
     <h1>CodeScoring Documentation</h1>
     <h2>
-      In case of any questions please write to 
+      In case of any questions please write to
       <a href="mailto:support@codescoring.ru" style="color: #ff3d6c; text-decoration-color: #ff3d6c;">
         support@codescoring.ru
       </a>
     </h2>
     <div class="hero-buttons">
-      <a href="/on-premise/server-requirements/" class="btn btn-primary">Get started</a>
+      <a href="/on-premise/server-requirements/" class="btn btn-primary">Admin guide</a>
       <a href="/osa/" class="btn btn-secondary">User guide</a>
     </div>
   </div>

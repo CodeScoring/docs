@@ -10,7 +10,7 @@ In case of scanning an existing Software Bill of Materials (SBOM) in the **Cyclo
 When the agent is launched, it does the following:
 
 1. Parses the specified SBOM.
-2. Generates a request to the installation to analyze the contents.
+2. Generates a request to the platform to analyze the contents.
 3. After the analysis is complete, it displays summary information about the results in the console, as well as tables with the vulnerabilities found and the policies that were triggered.
 4. Additionally, the `bom.json` file is created in the current directory, containing the supplemented SBOM.
 

@@ -5,7 +5,7 @@ hide:
 
 # Saving scan results
 
-To save scan results in an on-premise installation, you need to add the `--save-results` and `--project` parameters to the command or specify the following variables in the config file:
+To save scan results in an on-premise platform, you need to add the `--save-results` and `--project` parameters to the command or specify the following variables in the config file:
 
 - `project` — the name of the CLI project in the system into which the results will be saved;
 - `save-results` — flag for saving results, default value is **false**.

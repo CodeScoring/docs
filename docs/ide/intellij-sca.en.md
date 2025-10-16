@@ -42,7 +42,7 @@ Fine-tuning the scan is done by modifying the config.yaml file
 Before you begin, ensure you have:
 
 - IntelliJ IDEA 2024.1 or newer (or any compatible supported IntelliJ based IDE)
-- Access to a CodeScoring installation with active credentials
+- Access to the CodeScoring platform with active credentials
 - The codescoring-intellij plugin distribution (.zip file)
 
 ### Required Permissions
@@ -69,7 +69,7 @@ The plugin is provided as a `codescoring-intellij-<version>.zip` file.
    ![Screenshot of file selection dialog for ZIP file](/assets/img/ide/intellij/step2-2-select-zip.png)
 8. Wait for the installation to complete
 9. Confirm the installation of the plugin from CodeScoring
-   ![Screenshot of third-party plugin installation confirmation dialog](/assets/img/ide/intellij/step2-3-accept-warning.png)
+   ![Screenshot of third-party plugin platform confirmation dialog](/assets/img/ide/intellij/step2-3-accept-warning.png)
 10. Restart IntelliJ based IDE when prompted
 
 ### Step 3: Locate the CodeScoring Plugin
@@ -125,7 +125,7 @@ After installation and restart, you should see the CodeScoring tool window.
 
 There are three ways to get Johnny CLI for analyzing your dependencies with our service.
 
-**4.4.1 Local Installation**
+**4.4.1 Local installation**
 
 **Prerequisites:**
 
@@ -135,7 +135,7 @@ There are three ways to get Johnny CLI for analyzing your dependencies with our 
 **Setup Steps:**
 
 1. Set installation type to Local
-- In settings, select **"Local executable"** from the **Installation Type** dropdown
+- In settings, select **"Local executable"** from the **platform Type** dropdown
 2. In the **Johnny CLI Path** field, click the folder selection button
 3. Navigate to where you previously downloaded Johnny CLI
 4. Select the Johnny CLI executable file
@@ -152,10 +152,10 @@ There are three ways to get Johnny CLI for analyzing your dependencies with our 
 - API URL must be configured
 - API token must be configured and validation must pass successfully
 
-**Setup Steps:**
+**Setup steps:**
 
 1. Set installation type to Local
-- In settings, select **"Local executable"** from the **Installation Type** dropdown
+- In settings, select **"Local executable"** from the **platform Type** dropdown
 2. Leave the **Johnny CLI Path** field empty
 3. Now when scanning is first requested, Johnny CLI will be downloaded from the API URL. This will allow you to automatically get client updates as soon as they are available.
    The downloaded client will be saved in the following location:
@@ -171,7 +171,7 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 - Docker must be installed and running on your system
 - Your user must have permissions to execute Docker commands
 
-**Setup Steps:**
+**Setup steps:**
 
 1. Set installation type to Docker
 - In settings, select **"Docker"** from the **Installation Type** dropdown
@@ -191,7 +191,7 @@ Docker installation allows running Johnny CLI in an isolated container, which is
 - Scanning is performed inside the container, and results are saved in your project
 - No manual Docker commands are required - the plugin handles everything automatically
 
-**Troubleshooting Docker Installation:**
+**Troubleshooting Docker installation:**
 
 - **"Docker not found"**: Ensure Docker is installed and the `docker` command is in your PATH
 - **Permission denied**: Add your user to the docker group: `sudo usermod -aG docker $USER`
@@ -505,10 +505,10 @@ Use the search field to filter comparison results by:
 | Setting                                          | Description                                  | Default                  |
 |--------------------------------------------------|----------------------------------------------|--------------------------|
 | **API Configuration**                            |                                              |                          |
-| `API URL`                                        | URL of your CodeScoring installation         |                          |
+| `API URL`                                        | URL of your CodeScoring platform         |                          |
 | `API Token`                                      | API token. Securely stored                   | _(set via UI)_           |
 | **Installation Settings**                        |                                              |                          |
-| `Installation Type`                              | Local executable or Docker                   | `Local executable`       |
+| `platform Type`                              | Local executable or Docker                   | `Local executable`       |
 | `Path to Johnny CLI`                             | Path to Johnny CLI (empty for auto-download) | _(auto-download)_        |
 | `Docker Image`                                   | Docker image name                            | `johnny-depp:2025.29.0`  |
 | `Docker Registry`                                | Docker registry                              | _(provided by support)_  |

@@ -54,7 +54,7 @@ OSA Proxy automatically modifies responses from original repositories:
 Package scanning behavior is controlled by the `work-mode` parameter. Depending on the selected value, the scanning, waiting, and blocking logic changes. The following modes are supported:
 
 - `warmup` – loads data into the CodeScoring cache without blocking components;
-- `spectator` – loads data into the CodeScoring cache without blocking components, saving the results of component queries on the installation;
+- `spectator` – loads data into the CodeScoring cache without blocking components, saving the results of component queries to the platform;
 - `moderate` – blocks components that fail policy checks. Loading unscanned components is allowed;
 - `strict` – blocks components that fail policy checks. Loading unscanned components is prohibited;
 - `strict_wait` – blocks components that fail policy checks. Waiting for checks for unscanned components.

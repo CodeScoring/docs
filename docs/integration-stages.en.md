@@ -56,7 +56,7 @@ Supported automation tools: **GitLab CI/CD**, **Jenkins**, **Bitbucket Pipelines
 
 Functionality:
 
-- automatic generation of a software bill of materials (SBoM);
+- automatic generation of a software bill of materials (SBOM);
 - detection of vulnerabilities and potentially dangerous components;
 - analysis of license compatibility;
 - control of the build's compliance with security policies.
@@ -71,7 +71,7 @@ After the product is published, CodeScoring provides continuous monitoring of th
 
 Functionality:
 
-- periodic scanning of source code and SBoM;
+- periodic scanning of source code and SBOM;
 - automatic updates of threat data;
 - notifications via Email and task managers;
 - integration with **ASPM/SIEM**-systems.

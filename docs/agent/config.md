@@ -11,12 +11,12 @@ hide:
 
 ### Параметры композиционного анализа
 
-- **project** – название проекта в инсталляции CodeScoring;
-- **save-results** – сохранение результатов в инсталляции CodeScoring. Используется в паре с названием проекта. Значение по умолчанию – `false`;
+- **project** – название проекта в платформе CodeScoring;
+- **save-results** – сохранение результатов в платформе CodeScoring. Используется в паре с названием проекта. Значение по умолчанию – `false`;
 - **license** – лицензия анализируемого проекта, например `mit`;
 - **stage** – этап разработки. Возможные значения: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
 - **bom-path** – путь (с названием файла), по которому будет сохраняться сформированный файл `bom.json`;
-- **bom-format** – формат формируемого SBoM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
+- **bom-format** – формат формируемого SBOM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
 - **timeout** – ограничение по времени ожидания анализа (в секундах);
 - <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **branch-or-tag** – ссылка на ветку репозитория или тег, например `refs/tags/v1.0` (для команд `scan dir` и `scan file`);
 - <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **commit** – хэш коммита в системе контроля версий (для команд `scan dir` и `scan file`);
@@ -81,10 +81,10 @@ hide:
 - **sort-vulnerabilities-by** – порядок переменных для сортировки уязвимостей в таблице;
 - **alerts-format** – формат вывода отчёта по срабатываниям политик. Поддерживаются форматы: `coloredtable`, `table`, `text`, `json`, `csv`. Значение по умолчанию – `coloredtable`.
 
-### Параметры инсталляции
+### Параметры платформы
 
-- **api_url** – адрес инсталляции;
-- **api_token** – токен для доступа к инсталляции.
+- **api_url** – адрес платформе;
+- **api_token** – токен для доступа к платформе.
 
 ### Параметры запуска поиска секретов
 

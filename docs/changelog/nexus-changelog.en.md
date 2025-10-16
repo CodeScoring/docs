@@ -9,20 +9,20 @@ hide:
 
 #### Changed
 
-- Plugin now allows image downloads when registry is not configured in CodeScoring installation if the `Block downloads in case of plugin or CodeScoring errors` flag is disabled.
+- Plugin now allows image downloads when registry is not configured in CodeScoring platform if the `Block downloads in case of plugin or CodeScoring errors` flag is disabled.
 
 ### [2025.23.0] - 2025-06-02
 
-- The general plugin configuration now includes the option to set a timeout for waiting for a response from the installation
+- The general plugin configuration now includes the option to set a timeout for waiting for a response from the platform
 
 ### [2025.12.0] - 2025-03-17
 
 - Improved accuracy of analysis in RPM and Debian repositories: improved detection of namespaces, distribution and architecture qualifiers to PURLs
-- Added Circuit Breaker mechanism to the plugin to prevent Nexus performance degradation in case of unavailability or timeouts on the installation side
+- Added Circuit Breaker mechanism to the plugin to prevent Nexus performance degradation in case of unavailability or timeouts on the platform side
 
 ### [2025.9.0] - 2025-02-25
 
-- Fixed the Docker image link sent by the plugin for analysis in the CodeScoring installation. The link format changed in Nexus Repository 3.75 release
+- Fixed the Docker image link sent by the plugin for analysis in the CodeScoring platform. The link format changed in Nexus Repository 3.75 release
 
 ### [2025.5.2] - 2025-01-31
 
@@ -38,7 +38,7 @@ hide:
 
 ### [2024.49.0] - 2024-12-05
 
-- Added sending to CodeScoring a link to the package and the user downloading it. Compatible with installation version 2024.48.0 and higher
+- Added sending to CodeScoring a link to the package and the user downloading it. Compatible with platform version 2024.48.0 and higher
 - Added support for Nexus 3.75
 
 ### [2024.46.0] - 2024-11-15
@@ -107,7 +107,7 @@ hide:
 
 ### [2023.36.0] - 2023-09-05
 
-- Added an option to block the build when receiving an error interacting with the CodeScoring installation
+- Added an option to block the build when receiving an error interacting with the CodeScoring platform
 
 ### [2023.33.0] - 2023-08-15
 
@@ -124,7 +124,7 @@ hide:
 
 ### [2023.6.0] - 2023-02-07
 
-- Added the HTTP Client Connection Pool Size parameter in the plugin configuration to control the number of installation requests
+- Added the HTTP Client Connection Pool Size parameter in the plugin configuration to control the number of platform requests
 
 ### [2023.4.0] - 2023-01-24
 
@@ -132,4 +132,4 @@ hide:
 
 ### [2022.51.0] - 2022-12-20
 
-- Improved [logging of installation responses](/osa/nexus_osa.en/#setting-up-logging)
+- Improved [logging of platform responses](/osa/nexus_osa.en/#setting-up-logging)

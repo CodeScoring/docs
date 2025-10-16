@@ -5,7 +5,7 @@ hide:
 
 # Installation in Kubernetes
 
-## Installation using Helm chart with default parameters {#helm-installation-default}
+## Installation using Helm chart with default parameters {#helm-platform-default}
 
 **Important!**: This installation option does not provide an ability to scale CodeScoring horizontally. To install CodeScoring with horizontal scaling support, please refer to the relevant documentation section below.
 
@@ -69,7 +69,7 @@ hide:
         databasePort: 6432
         postgresqlDatabase: "codescoring"
         postgresqlUsername: "codescoring"
-        postgresqlPassword: "changeme" 
+        postgresqlPassword: "changeme"
 
       frontend:
         ingress:
@@ -106,7 +106,7 @@ To easily edit CodeScoring parameters, you can download and unpack the Helm char
 helm pull codescoring-org/codescoring --version CHART_VERSION --untar --untardir codescoring-src && cd codescoring-src
 ```
 
-In the `values.yaml` file you can edit the necessary variables, and after that run the installation command in the directory with the Helm chart source code:
+In the `values.yaml` file you can edit the necessary variables, and after that run the platform command in the directory with the Helm chart source code:
 ```
 helm install codescoring . -f values.yaml -n codescoring --atomic --version CHART_VERSION
 ```
@@ -128,7 +128,7 @@ To connect to external Redis, in addition to abovementioned you must do the foll
 
 1. Set the `codescoring.trustedCA.enabled` variable to `true`
 2. Add the Redis-server root certificate to `codescoring.trustedCA.certificates`
-3. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis using the following format: `rediss://redis.example.com:6379/0`, where 0 is the Redis database number.  
+3. In the `codescoring.config.djangoCachesRedisUrls` and `codescoring.config.hueyRedisUrl` variables, specify the connection strings for external Redis using the following format: `rediss://redis.example.com:6379/0`, where 0 is the Redis database number.
 
 #### Connecting to PostgreSQL via Pgbouncer pooler {#external-postgres}
 
@@ -340,9 +340,9 @@ Then you need to set the value `enabled: true` in one or more of the following s
 - `codescoring.huey.persistentVolumes.hueyPackageScanTmp`
 - `codescoring.huey.persistentVolumes.hueyContainerImageScanTmp`
 
-As a result, PersistentVolumeClaim will be created for the corresponding services. It is worth noting that the possibilities for configuring these volumes fully correspond to those described in the section [Configuring volumes (PV)](#pv).
+As a result, PersistentVolumeClaim will be created for the corresponding services. It is worth noting that the possibilities for configuring these volumes fully correspond to those described in the section [Configuring volumes (PV)](#volumes).
 
-When horizontally scaling services, you need to configure volumes in accordance with the instructions in the [Horizontal scaling CodeScoring](#codescoring) section.
+When horizontally scaling services, you need to configure volumes in accordance with the instructions in the [Horizontal scaling CodeScoring](#horizontal-scaling) section.
 
 ### Horizontal scaling CodeScoring {#horizontal-scaling}
 
@@ -399,7 +399,7 @@ codescoring:
           memory: 1000Mi
 ```
 
-Below are approximate `limits` values for a CodeScoring installation with 8-10 projects:
+Below are approximate `limits` values for a CodeScoring platform with 8-10 projects:
 ```
 codescoring:
   backend:
@@ -507,7 +507,7 @@ codescoring:
           DY8c5lOmyCwuNh9ODuw4cAThICrn7G8bh8ZyxLyj4Znxh0X45SwMZKTmYLfy9ab8
           b/j7FK8uBNRL+pXl9HGBWAFA01uJw4HkYK+Uo+RcAzo=
           -----END CERTIFICATE-----
-``` 
+```
 If you have multiple root CAs, you need to add them to separate keys, for example:
 ```
 codescoring:
@@ -522,21 +522,21 @@ codescoring:
 
 ## Secret Management {#secret-management}
 
-By default, the **Secret** objects are created for `ipcs-backend`, `pgbouncer` and `postgresql` templates. The values for their variables are provided in the values file. 
+By default, the **Secret** objects are created for `ipcs-backend`, `pgbouncer` and `postgresql` templates. The values for their variables are provided in the values file.
 
-It is also possible to use external secret storages. To achieve that, it is necessary to have an **External Secrets Operator (ESO)** installed in the cluster. It adds all required CRDs (Custom Resource Definitions) to the cluster and connects to an external secret provider. 
+It is also possible to use external secret storages. To achieve that, it is necessary to have an **External Secrets Operator (ESO)** installed in the cluster. It adds all required CRDs (Custom Resource Definitions) to the cluster and connects to an external secret provider.
 
-In order to connect ESO to an external secret storage, you must configure a provider for the **SecretStore** in the `codescoring.secretStore` block. 
+In order to connect ESO to an external secret storage, you must configure a provider for the **SecretStore** in the `codescoring.secretStore` block.
 
-Next, you need to configure the **ExternalSecret** objects to fetch secrets from the external provider in the `codescoring.config.externalSecret,` `pgbouncer.externalSecret`, `postgresql.externalSecret` blocks. 
+Next, you need to configure the **ExternalSecret** objects to fetch secrets from the external provider in the `codescoring.config.externalSecret,` `pgbouncer.externalSecret`, `postgresql.externalSecret` blocks.
 
-All the configurations must be made in accordance with the official ESO documentation. 
+All the configurations must be made in accordance with the official ESO documentation.
 
-**Important!**: Some providers may bill requests to secret storages. The request interval can be configured using the `externalSecret.refreshInterval` parameter for each particular service. 
+**Important!**: Some providers may bill requests to secret storages. The request interval can be configured using the `externalSecret.refreshInterval` parameter for each particular service.
 
 ## Monitoring {#monitoring}
 
-For metrics collection purpose there are the **ServiceMonitor** resources provided in the chart. The metrics are collected from the backend and the osa-api services. 
+For metrics collection purpose there are the **ServiceMonitor** resources provided in the chart. The metrics are collected from the backend and the osa-api services.
 
 The ServiceMonitor can be configured in the following values sections: `codescoring.backend.prometheus.serviceMonitor`, `codescoring.osa_api.prometheus.serviceMonitor`.
 
@@ -544,15 +544,15 @@ In addition there are **PrometheusRule** resources provided for the abovemention
 
 All the settings must be adjusted in accordance with the [official Prometheus Operator documentation](https://prometheus-operator.dev/docs/).
 
-## Upgrading CodeScoring {#update}
+## Updating CodeScoring {#update}
 
-In order to upgrade CodeScoring you need to actualize the helm repository by running
+In order to update CodeScoring you need to actualize the helm repository by running
 
 ```commandline
 helm repo update
 ```
 
-and then upgrade the installation with the following command, where the CHART_NAME variable must contain the version you're going to upgrade to
+and then update the platform with the following command, where the `CHART_NAME` variable must contain the version you are going to update to:
 
 ```commandline
 helm upgrade codescoring codescoring-org/codescoring -n codescoring -f values.yaml --version CHART_VERSION

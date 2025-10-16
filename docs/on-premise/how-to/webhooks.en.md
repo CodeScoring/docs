@@ -9,7 +9,7 @@ Codescoring supports a webhook-based notification system. When events occur, a `
 
 ## Adding a new webhook
 
-To add a new webhook to the installation, follow these steps:
+To add a new webhook to the platform, follow these steps:
 
 1. Go to the `Settings -> Webhooks` section.
 2. Click the **Setup new** button.
@@ -476,7 +476,7 @@ To manage webhooks, an API is provided at the endpoint `/api/settings/webhooks` 
       </td>
     </tr>
   </tbody>
-</table> 
+</table>
 
 
 ## Example of a simple Flask application
