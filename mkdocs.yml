@@ -93,6 +93,7 @@ plugins:
           metrics: "Collecting metrics"
           webhooks: "Setting up webhooks"
           api: "Working with API"
+          author-audit: "Calculating number of authors"
           user-guide: "User guide"
           general: "General"
           policies: "Security policies"
@@ -235,6 +236,7 @@ plugins:
           metrics: "Сбор метрик"
           webhooks: "Подключение вебхуков"
           api: "Работа с API"
+          author-audit: "Аудит количества авторов"
           user-guide: "Руководство пользователя"
           general: "Общее"
           policies: "Политики безопасности"
@@ -379,6 +381,8 @@ nav:
     - setup:
       - activation: on-premise/how-to/activation.md
       - activation: on-premise/how-to/activation.en.md
+      - author-audit: on-premise/how-to/author-audit.md
+      - author-audit: on-premise/how-to/author-audit.en.md
       - user-management:
         - users: on-premise/how-to/users.md
         - users: on-premise/how-to/users.en.md
@@ -392,6 +396,7 @@ nav:
     - general:
       - user-profile: on-premise/how-to/user-profile.md
       - user-profile: on-premise/how-to/user-profile.en.md
+  - user-guide:
       - policies:
         - policies-settings: on-premise/how-to/policies.md
         - policies-settings: on-premise/how-to/policies.en.md
