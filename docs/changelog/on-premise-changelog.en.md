@@ -5,6 +5,16 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.4] - 2025-10-15
+
+#### Fixed
+
+- Fixed an issue where duplicate email notifications and Jira issues were generated for policies with the same project in the group and in policy actions
+- Fixed processing of policy conditions based on the CVSS3 Severity criterion
+- Fixed a 500 error for certain policy stage parameters
+- Fixed policy behavior for the "PURL exactly matches" condition
+- Fixed an issue with Jira tasks priority setting
+
 ### [2025.37.3] - 2025-10-07
 
 #### Fixed
