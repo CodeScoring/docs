@@ -55,6 +55,7 @@ plugins:
           functional-characteristics: "Functional characteristics"
           integration-stages: "Integration stages"
           supported-package-managers: "Supported ecosystems and analysis methods"
+          standards: "Standards compliance"
           admin-guide: "Administrator guide"
           installation: "On-premise installation and maintenance"
           hardware: "Installation requirements"
@@ -196,6 +197,7 @@ plugins:
           functional-characteristics: "Функциональные характеристики"
           integration-stages: "Этапы интеграции"
           supported-package-managers: "Поддерживаемые экосистемы и способы анализа"
+          standards: "Соответствие стандартам"
           admin-guide: "Руководство администратора"
           installation: "Установка и эксплуатация"
           hardware: "Требования к установке"
@@ -344,6 +346,8 @@ nav:
     - integration-stages: integration-stages.en.md
     - supported-package-managers: supported-package-managers.md
     - supported-package-managers: supported-package-managers.en.md
+    - standards: standards.md
+    - standards: standards.en.md
   - admin-guide:
     - installation:
       - hardware: on-premise/server-requirements.md
