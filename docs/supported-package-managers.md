@@ -39,51 +39,62 @@ hide:
 
 Для унифицированного описания зависимостей CodeScoring использует стандарт **[Package URL (PURL)](https://github.com/package-url/purl-spec)**.
 
-Найденная зависимость представляется в виде нормализованного идентификатора, который однозначно описывает компонент и источник его происхождения.
+Тип PURL применяется при анализе SBOM (через [команду агента](/agent/scan-bom) или [импорте в платформу](/on-premise/how-to/projects/#sbom)) для распознавания и нормализации компонентов, указанных в отчётах.  
 
-Пример PURL:
+В SBOM идентификатор компонента передаётся в поле `purl`.
 
-```
-pkg:maven/org.apache.logging.log4j/log4j-core@2.17.2
-```
+!!! example "Пример PURL"
 
-CodeScoring поддерживает следующие типы PURL в соответствии со спецификацией:
+    ```
+    pkg:maven/org.apache.logging.log4j/log4j-core@2.17.2
+    ```
+
+CodeScoring распознаёт и поддерживает следующие типы PURL в соответствии со спецификацией:
 
 | Тип PURL       | Описание   | Спецификация            |
 |----------------|---------|------------------|
-| `cocoapods`    | Библиотеки для **Objective-C / Swift** через CocoaPods  | [types-doc/cocoapods-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/cocoapods-definition.md) |
-| `conan`        | Пакеты экосистемы **C / C++ (Conan)**                   | [types-doc/conan-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/conan-definition.md)     |
-| `conda`        | Пакеты экосистемы **Python / Conda**                    | [types-doc/conda-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/conda-definition.md)     |
-| `nuget`        | Компоненты **.NET / NuGet**                             | [types-doc/nuget-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/nuget-definition.md)     |
-| `golang`       | Пакеты **Go Modules**                                  | [types-doc/golang-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/golang-definition.md)   |
-| `maven`        | Артефакты **Java / Kotlin** (Maven / Gradle)           | [types-doc/maven-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/maven-definition.md)     |
-| `npm`          | Пакеты **JavaScript / TypeScript**                     | [types-doc/npm-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/npm-definition.md)   |
-| `composer`     | Пакеты **PHP (Composer)**                              | [types-doc/composer-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/composer-definition.md) |
-| `pypi`         | Пакеты **Python (PyPI)**                               | [types-doc/pypi-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/pypi-definition.md)       |
-| `gem`          | Пакеты **Ruby (RubyGems)**                             | [types-doc/gem-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/gem-definition.md)         |
-| `cargo`        | Пакеты **Rust (Cargo)**                                | [types-doc/cargo-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/cargo-definition.md)     |
-| `generic`      | Общий тип для произвольных бинарных или кастомных артефактов | [types-doc/generic-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/generic-definition.md)   |
-| `apk`          | Системные пакеты **Alpine Linux**                      | [types-doc/apk-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/apk-definition.md)         |
-| `deb`          | Системные пакеты **Debian / Ubuntu**                   | [types-doc/deb-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/deb-definition.md)         |
-| `rpm`          | Системные пакеты **RHEL / CentOS / Fedora**            | [types-doc/rpm-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/rpm-definition.md)         |
-| `swift`        | Пакеты **Swift Package Manager**                       | [types-doc/swift-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/swift-definition.md)     |
-| `oci`          | Контейнерные образы **OCI / Docker**                   | [types-doc/oci-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/oci-definition.md)         |
-| `alpm`         | Пакеты **Arch Linux**                                  | [types-doc/alpm-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/alpm-definition.md)       |
-| `bitbucket`    | Репозитории **Bitbucket**                              | [types-doc/bitbucket-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/bitbucket-definition.md) |
-| `bitnami`      | Пакеты / образы **Bitnami**                            | [types-doc/bitnami-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/bitnami-definition.md) |
-| `cran`         | Пакеты **R (CRAN)**                                    | [types-doc/cran-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/cran-definition.md)         |
-| `docker`       | Образы **Docker Hub / Docker**                         | [types-doc/docker-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/docker-definition.md)   |
-| `github`       | Репозитории **GitHub**                                 | [types-doc/github-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md)     |
-| `hackage`      | Пакеты **Haskell (Hackage)**                           | [types-doc/hackage-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/hackage-definition.md) |
-| `hex`          | Пакеты **Elixir / Erlang (Hex)**                       | [types-doc/hex-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/hex-definition.md)         |
-| `huggingface`  | Модели **Hugging Face Hub**                            | [types-doc/huggingface-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md) |
-| `mlflow`       | Модели **MLflow Model Registry**                       | [types-doc/mlflow-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/mlflow-definition.md)   |
-| `pub`          | Пакеты **Dart / Flutter (pub.dev)**                    | [types-doc/pub-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/pub-definition.md)         |
-| `qpkg`         | Пакеты **QNAP QPKG**                                   | [types-doc/qpkg-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/qpkg-definition.md)       |
-| `swid`         | **SWID-теги (Software Identification Tags)**           | [types-doc/swid-definition.md](https://github.com/package-url/purl-spec/blob/main/types-doc/swid-definition.md)       |
+| `cocoapods`    | Библиотеки для **Objective-C / Swift** через CocoaPods  | [CocoaPods Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/cocoapods-definition.md) |
+| `conan`        | Пакеты экосистемы **C / C++ (Conan)**                   | [Conan Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/conan-definition.md)     |
+| `conda`        | Пакеты экосистемы **Python / Conda**                    | [Conda Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/conda-definition.md)     |
+| `nuget`        | Компоненты **.NET / NuGet**                             | [NuGet Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/nuget-definition.md)     |
+| `golang`       | Пакеты **Go Modules**                                  | [Go Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/golang-definition.md)   |
+| `maven`        | Артефакты **Java / Kotlin** (Maven / Gradle)           | [Maven Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/maven-definition.md)     |
+| `npm`          | Пакеты **JavaScript / TypeScript**                     | [NPM Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/npm-definition.md)   |
+| `composer`     | Пакеты **PHP (Composer)**                              | [Composer Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/composer-definition.md) |
+| `pypi`         | Пакеты **Python (PyPI)**                               | [PyPI Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/pypi-definition.md)       |
+| `gem`          | Пакеты **Ruby (RubyGems)**                             | [RubyGems Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/gem-definition.md)         |
+| `cargo`        | Пакеты **Rust (Cargo)**                                | [Cargo Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/cargo-definition.md)     |
+| `generic`      | Общий тип для произвольных бинарных или кастомных артефактов | [Generic Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/generic-definition.md)   |
+| `apk`          | Системные пакеты **Alpine Linux**                      | [APK Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/apk-definition.md)         |
+| `deb`          | Системные пакеты **Debian / Ubuntu**                   | [DEB Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/deb-definition.md)         |
+| `rpm`          | Системные пакеты **RHEL / CentOS / Fedora**            | [RPM Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/rpm-definition.md)         |
+| `swift`        | Пакеты **Swift Package Manager**                       | [Swift Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/swift-definition.md)     |
+| `oci`          | Контейнерные образы **OCI / Docker**                   | [OCI Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/oci-definition.md)         |
+| `docker`       | Образы **Docker Hub / Docker**                         | [Docker Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/docker-definition.md)   |
+| `github`       | Репозитории **GitHub**                                 | [GitHub Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md)     |
+| `huggingface`  | Модели **Hugging Face Hub**                            | [HuggingFace Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md) |
+| `mlflow`       | Модели **MLflow Model Registry**                       | [MLflow Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/mlflow-definition.md)   |
+| `pub`          | Пакеты **Dart / Flutter (pub.dev)**                    | [Pub Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/pub-definition.md)         |
+| `swid`         | **SWID-теги (Software Identification Tags)**           | [SWID Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/swid-definition.md)       |
 
+Каждый компонент с PURL классифицируется по типу, который CodeScoring распознаёт при импорте SBOM-файлов. Тип указывается в поле `type` внутри описания компонента.
 
-Каждый компонент с PURL классифицируется по типу:
+!!! example "Пример компонента в SBOM"
+
+    ```json
+    {
+      "components": [
+        {
+          "name": "log4j-core",
+          "version": "2.17.2",
+          "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.17.2",
+          "type": "library"
+        }
+      ]
+    }
+    ```
+
+Поддерживаются следующие типы компонентов:
 
 | Тип компонента | Описание                                                                                      |
 | -------------- | --------------------------------------------------------------------------------------------- |
@@ -144,7 +155,7 @@ CodeScoring поддерживает следующие типы PURL в соо�
 
 ## Механизм поиска зависимостей по хэшам
 
-Второй механизм поиска зависимостей, реализованный в CodeScoring — это поиск по хэшам, то есть поиск непосредственного включения библиотек в код проектов путём копирования. В рамках этого механизма происходит хэширование всех файлов проекта и сверка этих сигнатур с известными нам open source библиотеками.
+Поиск по хэшам подразумевает определение непосредственного включения библиотек в код проектов путём копирования. В рамках этого механизма происходит хэширование всех файлов проекта и сверка этих сигнатур с известными нам open source библиотеками.
 
 В данный момент поиск по хэшам происходит для следующих индексов пакетных менеджеров по следующим типам файлов:
 
