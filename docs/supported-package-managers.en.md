@@ -35,7 +35,7 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 
 The best result will be achieved by combining the main manifest file and the corresponding lock file, if provided by the package manager mechanism.
 
-## PURL Types and Components
+## PURL Types and Components 
 
 For unified dependency description, CodeScoring uses the **[Package URL (PURL)](https://github.com/package-url/purl-spec)** standard.
 
