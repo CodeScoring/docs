@@ -98,6 +98,27 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
     - For JFrog Artifactory, it is recommended to set a `Custom Base URL` and use it in the `registry` field to correctly replace package references within manifests.
     - There is no identical functionality for Nexus Repository; the host and port (if specified) from the request will be used in manifests. If a `reverse proxy` is available, it is recommended to use its link. For example: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
+## Deployment
+
+Following the configuration of the `application.yml` file, the application can be deployed and executed either within a Docker container environment or orchestrated via a Helm chart for Kubernetes (k8s) deployments.
+
+**1. Docker Container Deployment:**
+
+To instantiate the application as a Docker container, execute the following command. 
+
+``` bash
+docker run -d \
+-p 8080:8080 \
+-e SPRING_CONFIG_ADDITIONAL_LOCATION=file:/app/config/ \
+-v /path/to/your/config/application.yml:/app/config/application.yml \
+--name cs-proxy \
+<registry-address>/cs-proxy:<tag>
+```
+**2. Kubernetes Deployment (Helm Chart):**
+
+For Kubernetes environments, the application can be deployed using the provided Helm chart, accessible at `https://{REGISTRY_URL}/repository/helm/`.
+
+
 ## Additional settings
 
 ### Logging level settings
@@ -135,3 +156,57 @@ Retries use an exponential backoff strategy, starting with a 1-second delay and 
 The circuit breaker for `codeScoringApi` acts as a fail-fast mechanism. It tracks failure rates, and if they reach 50% (calculated over the last 20 calls), it “opens” and prevents further requests for 30 seconds. This gives the downstream service time to recover. After the wait period, it switches to “half-open” state, allowing 5 trial calls to check if the service has recovered.
 
 Retry and circuit breaker configuration can be overridden by setting [the following properties](https://resilience4j.readme.io/docs/getting-started-3), for example, for `codeScoringApi`.
+
+### Example of adding truststore certificates
+
+application.yml
+
+```yaml
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          httpclient:
+            ssl:
+              trustedX509Certificates:
+                - /usr/local/share/ca-certificates/solarrt.crt
+                - /etc/ssl/certs/ca-certificates.crt
+```
+
+yaml spring: cloud: gateway: server: webflux: httpclient: ssl: trustedX509Certificates: - /usr/local/share/ca-certificates/solarrt.crt - /etc/ssl/certs/ca-certificates.crt```
+
+## Configuration and Migration of Links in Package Managers
+
+### NuGet
+
+| Source              | Before                                                        | After                                                    | nuget.repository.registry                                   |
+|---------------------|---------------------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/nuget.org-proxy/index.json` | `https://cs-proxy.ru/nexus-nuget/nuget-api/index.json`   | `https://nexus.host.ru/repository/nuget.org-proxy`          |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe`   | `https://cs-proxy.ru/arti-nuget/nuget-api`               | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe` |
+| Official Repository | `https://api.nuget.org/v3/index.json`                         | `https://cs-proxy.ru/inet-nuget/nuget-api/v3/index.json` | `https://api.nuget.org`                                     |
+
+### NPM
+
+| Source              | Before                                                 | After                           | npm.repository.registry                                |
+|---------------------|--------------------------------------------------------|---------------------------------|--------------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/npm-proxy`           | `https://cs-proxy.ru/nexus-npm` | `https://nexus.host.ru/repository/npm-proxy`           |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` | `https://cs-proxy.ru/jfrog-npm` | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` |
+| Official Repository | `https://registry.npmjs.org`                           | `https://cs-proxy.ru/inet-npm`  | `https://registry.npmjs.org`                           |
+
+### Maven
+
+| Source              | Before                                           | After                           | maven.repository.registry                        |
+|---------------------|--------------------------------------------------|---------------------------------|--------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/maven-remote`  | `https://cs-proxy.ru/nexus-mvn` | `https://nexus.host.ru/repository/maven-remote`  |
+| Artifactory         | `https://jfrog.host.ru/artifactory/maven-remote` | `https://cs-proxy.ru/jfrog-npm` | `https://jfrog.host.ru/artifactory/maven-remote` |
+| Official Repository | `https://repo.maven.apache.org/maven2`           | `https://cs-proxy.ru/inet-mvn`  | `https://repo.maven.apache.org/maven2`           |
+
+### PyPI
+
+| Source              | Before                                                          | After                                   | pypi.repository.registry                                 |
+|---------------------|-----------------------------------------------------------------|-----------------------------------------|----------------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/pip-remote`                   | `https://cs-proxy.ru/nexus-pypi/simple` | `https://nexus.host.ru/repository/pip-remote`            |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote/simple` | `https://cs-proxy.ru/jfrog-pypi`        | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote` |
+| Official Repository | `https://pypi.org/simple`                                       | `https://cs-proxy.ru/inet-pypi/simple`  | `https://pypi.org`                                       |
+```

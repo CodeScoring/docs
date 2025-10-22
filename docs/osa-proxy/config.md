@@ -98,6 +98,24 @@ hide:
     - Для JFrog Artifactory рекомендуется выставить `Custom Base URL` и использовать его в поле `registry` для корректной замены ссылок на пакеты внутри манифестов;
     - Для Nexus Repository идентичного функционала нет, в манифестах будет использован хост и порт (если указан) из запроса. При наличии `reverse proxy` рекомендуется использовать ссылку на него. Например: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
+## Развертывание
+После настройки файла `application.yml` приложение может быть развернуто и выполнено либо в среде контейнера Docker, либо оркестрировано с помощью Helm-чарта для развертываний в Kubernetes (k8s).
+
+**1. Развертывание в контейнере Docker:**
+Чтобы запустить приложение как контейнер Docker, выполните следующую команду. 
+
+``` bash
+docker run -d \
+-p 8080:8080 \
+-e SPRING_CONFIG_ADDITIONAL_LOCATION=file:/app/config/ \
+-v /path/to/your/config/application.yml:/app/config/application.yml \
+--name cs-proxy \
+<registry-address>/cs-proxy:<tag>
+```
+
+**2. Развертывание в Kubernetes (Helm Chart):**
+Для сред Kubernetes приложение может быть развернуто с использованием предоставленного Helm-чарта, доступного по адресу `https://{REGISTRY_URL}/repository/helm`.
+
 ## Дополнительные настройки
 
 ### Настройки уровня логирования
@@ -135,3 +153,54 @@ hide:
 Circuit breaker (автоматический выключатель) для `codeScoringApi` действует как механизм быстрого отказа. Он отслеживает частоту сбоев и, если она достигает 50% (рассчитывается по последним 20 вызовам), он «открывается» и предотвращает дальнейшие запросы в течение 30 секунд. Это дает нижестоящему сервису время на восстановление. После периода ожидания он переходит в «полуоткрытое» состояние, позволяя пройти 5 пробным вызовам, чтобы определить, восстановился ли сервис.
 
 Конфигурация Retry и Circuit Breaker может быть переопределена путем установки [следующих свойств](https://resilience4j.readme.io/docs/getting-started-3), например, для `codeScoringApi`.
+
+### Пример добавления truststore сертификатов
+
+application.yml
+
+```yaml
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          httpclient:
+            ssl:
+              trustedX509Certificates:
+                - /usr/local/share/ca-certificates/solarrt.crt
+                - /etc/ssl/certs/ca-certificates.crt
+```
+
+## Настройка и миграция ссылок в пакетных менеджерах
+
+### NuGet
+
+| Источник            | До                                                            | После                                                           | nuget.repository.registry                                   |
+|---------------------|---------------------------------------------------------------|-----------------------------------------------------------------|-------------------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/nuget.org-proxy/index.json` | `https://cs-proxy.ru/nexus-nuget/nuget-api/index.json`          | `https://nexus.host.ru/repository/nuget.org-proxy`          |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe`   | `https://cs-proxy.ru/arti-nuget/nuget-api`                      | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe` |
+| Official Repository | `https://api.nuget.org/v3/index.json`                         | `https://cs-proxy.ru/codescoring-nuget/nuget-api/v3/index.json` | `https://api.nuget.org`                                     |
+
+### NPM
+
+| Источник            | До                                                     | После                           | npm.repository.registry                                |
+|---------------------|--------------------------------------------------------|---------------------------------|--------------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/npm-proxy`           | `https://cs-proxy.ru/nexus-npm` | `https://nexus.host.ru/repository/npm-proxy`           |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` | `https://cs-proxy.ru/jfrog-npm` | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` |
+| Official Repository | `https://registry.npmjs.org`                           | `https://cs-proxy.ru/cs-npm`    | `https://registry.npmjs.org`                           |
+
+### Maven
+
+| Источник            | До                                               | После                           | maven.repository.registry                        |
+|---------------------|--------------------------------------------------|---------------------------------|--------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/maven-remote`  | `https://cs-proxy.ru/nexus-mvn` | `https://nexus.host.ru/repository/maven-remote`  |
+| Artifactory         | `https://jfrog.host.ru/artifactory/maven-remote` | `https://cs-proxy.ru/jfrog-npm` | `https://jfrog.host.ru/artifactory/maven-remote` |
+| Official Repository | `https://repo.maven.apache.org/maven2`           | `https://cs-proxy.ru/cs-mvn`    | `https://repo.maven.apache.org/maven2`           |
+
+### PyPI
+
+| Источник            | До                                                              | После                                         | pypi.repository.registry                                 |
+|---------------------|-----------------------------------------------------------------|-----------------------------------------------|----------------------------------------------------------|
+| Nexus               | `https://nexus.host.ru/repository/pip-remote`                   | `https://cs-proxy.ru/nexus-pypi/simple`       | `https://nexus.host.ru/repository/pip-remote`            |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote/simple` | `https://cs-proxy.ru/jfrog-pypi`              | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote` |
+| Official Repository | `https://pypi.org/simple`                                       | `https://cs-proxy.ru/codescoring-pypi/simple` | `https://pypi.org`                                       |
