@@ -45,12 +45,12 @@ hide:
     ```
 
 2. Очистите базу данных любым удобным способом:
-    - через Docker:  
+    - через Docker:
       ```bash
       docker volume rm <db_volume_name>
       ```
     - или удалив БД напрямую (например, `DROP DATABASE`);
-    - или, при использовании Kubernetes:  
+    - или, при использовании Kubernetes:
       ```bash
       kubectl delete pvc <db_pvc_name>
       ```

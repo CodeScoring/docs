@@ -12,7 +12,7 @@ hide:
 
 To update the system, you need the latest versions of the following files: `docker-compose.yml`, `external-db.override.yml`, `app.env`, and `.env`, which can be obtained from the vendor.
 
-In the `.env` file, the variable `CODESCORING_VERSION` specifies the target platform version.  
+In the `.env` file, the variable `CODESCORING_VERSION` specifies the target platform version.
 The latest available version can be found in the [Changelog](/changelog/on-premise-changelog.en).
 
 Then follow these steps:
@@ -46,12 +46,12 @@ If errors occur after the update or the system becomes unstable, you can restore
     ```
 
 2. Clear the database using any preferred method:
-    - via Docker:  
+    - via Docker:
       ```bash
       docker volume rm <db_volume_name>
       ```
     - by manually dropping the database (`DROP DATABASE`);
-    - or, if using Kubernetes:  
+    - or, if using Kubernetes:
       ```bash
       kubectl delete pvc <db_pvc_name>
       ```
