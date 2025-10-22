@@ -138,7 +138,7 @@ Or click on the policy form **Create a copy**.
 
 ![Copy policy](/assets/img/copy-pol-en.png)
 
-If a copy of the policy is created, a new policy is created with the same description, conditions, and related сonditions.
+If a copy of the policy is created, a new policy is created with the same description, conditions, and related actions.
 
 ## Policy example
 
