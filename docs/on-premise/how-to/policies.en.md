@@ -128,10 +128,17 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Relation** — dependency relationship in the project (direct or transitive);
 - **CWE** — vulnerability type identifier according to the [Common Weakness Enumeration](https://cwe.mitre.org/) standard.
 
-If you need to duplicate an existing policy, you can use the context menu item **Create a copy**.
-Or click the button of the same name on the policy form.
+## Creating a copy of the policy
 
-If a copy of the policy is created, a new policy is created with the same description, conditions, and related actions.
+If you need to duplicate an existing policy, you can use the context menu item **Create a copy** or click the button.
+
+![Copy policy](/assets/img/copy-pol-context-ru.png)
+
+Or click on the policy form **Create a copy**.
+
+![Copy policy](/assets/img/copy-pol-en.png)
+
+If a copy of the policy is created, a new policy is created with the same description, conditions, and related сonditions.
 
 ## Policy example
 
