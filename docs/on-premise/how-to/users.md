@@ -139,8 +139,8 @@ hide:
 | **Vulnerabilities**: просмотр списка уязвимостей                    | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Vulnerabilities**: экспорт списка уязвимостей                     | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 
-Действия **Analysis: запуск анализа Secrets**, **Analysis: запуск SCA анализа** влияют на разрешение запуска сканирования.
-Для возможности запуска сканирования также убедитесь, что в лицензии включен соответствующий модуль анализа.
+!!! Warning "Важно"
+    Для возможности запуска сканирования также убедитесь, что в лицензии включен соответствующий модуль анализа.
 
 ## Группы пользователей
 
