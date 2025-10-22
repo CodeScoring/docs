@@ -7,25 +7,66 @@ hide:
 
 ## Standard update guide
 
-To update, you must have current versions of the `docker-compose.yml`, `external-db.override.yml`, `app.env` and `.env` files, which can be obtained from the vendor.
+!!! warning "Recommendation"
+    Before performing an update, make sure to create a full backup of the platform.
 
-The `CODESCORING_VERSION` variable inside the `.env` file specifies the required system version. The current version can be found in the [Changelog](/changelog/on-premise-changelog.en) section.
+To update the system, you need the latest versions of the following files: `docker-compose.yml`, `external-db.override.yml`, `app.env`, and `.env`, which can be obtained from the vendor.
 
-Then you need to follow these steps:
+In the `.env` file, the variable `CODESCORING_VERSION` specifies the target platform version.  
+The latest available version can be found in the [Changelog](/changelog/on-premise-changelog.en).
 
-1. Go to the directory with the startup files:
-   ```bash linenums="1"
-   cd /path/to/docker/compose
-   ```
-2. Run the container image update command:
-   ```bash linenums="2"
-   docker compose pull
-   ```
+Then follow these steps:
+
+1. Navigate to the directory containing the deployment files:
+
+    ```bash linenums="1"
+    cd /path/to/docker/compose
+    ```
+
+2. Pull the latest images:
+
+    ```bash linenums="2"
+    docker compose pull
+    ```
+
 3. Restart the platform:
-   ```bash linenums="3"
-   docker compose down --remove-orphans
-   docker compose up -d --renew-anon-volumes
-   ```
+
+    ```bash linenums="3"
+    docker compose down --remove-orphans
+    docker compose up -d --renew-anon-volumes
+    ```
+
+## Restoring a previous version
+
+If errors occur after the update or the system becomes unstable, you can restore the previous platform version from a backup:
+
+1. Stop the current installation:
+    ```bash
+    docker compose down
+    ```
+
+2. Clear the database using any preferred method:
+    - via Docker:  
+      ```bash
+      docker volume rm <db_volume_name>
+      ```
+    - by manually dropping the database (`DROP DATABASE`);
+    - or, if using Kubernetes:  
+      ```bash
+      kubectl delete pvc <db_pvc_name>
+      ```
+
+3. Restore the database from the previously created backup.
+
+4. In the `.env` file, set the `CODESCORING_VERSION` variable to the previous version value.
+
+5. Restart the platform:
+    ```bash
+    docker compose up -d
+    ```
+
+Detailed instructions for creating and restoring backups are available in the [Backup guide](/on-premise/backup.en).
+
 
 ## Update guides for versions with changes in configuration
 
