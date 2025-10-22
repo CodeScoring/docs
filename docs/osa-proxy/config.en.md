@@ -104,7 +104,7 @@ Following the configuration of the `application.yml` file, the application can b
 
 **1. Docker Container Deployment:**
 
-To instantiate the application as a Docker container, execute the following command. 
+To instantiate the application as a Docker container, execute the following command.
 
 ``` bash
 docker run -d \
