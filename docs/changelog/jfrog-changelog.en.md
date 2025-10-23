@@ -13,7 +13,7 @@ hide:
 
 #### Added
 - Handling of non-blocking `delayed` status
- 
+
 ### [2025.32.0] - 2025-08-06
 
 #### Changed
