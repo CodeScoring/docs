@@ -154,9 +154,9 @@ Circuit breaker (автоматический выключатель) для `co
 
 Конфигурация Retry и Circuit Breaker может быть переопределена путем установки [следующих свойств](https://resilience4j.readme.io/docs/getting-started-3), например, для `codeScoringApi`.
 
-### Пример добавления truststore сертификатов
+### Добавление truststore сертификатов
 
-application.yml
+!!! example "Пример добавления truststore сертифкатов в application.yml"
 
 ```yaml
 spring:

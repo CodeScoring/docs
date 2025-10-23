@@ -114,6 +114,7 @@ docker run -d \
 --name cs-proxy \
 <registry-address>/cs-proxy:<tag>
 ```
+
 **2. Kubernetes Deployment (Helm Chart):**
 
 For Kubernetes environments, the application can be deployed using the provided Helm chart, accessible at `https://{REGISTRY_URL}/repository/helm/`.
@@ -157,9 +158,9 @@ The circuit breaker for `codeScoringApi` acts as a fail-fast mechanism. It track
 
 Retry and circuit breaker configuration can be overridden by setting [the following properties](https://resilience4j.readme.io/docs/getting-started-3), for example, for `codeScoringApi`.
 
-### Example of adding truststore certificates
+### Adding truststore certificates
 
-application.yml
+!!! example "Example of adding truststore certificates in application.yml"
 
 ```yaml
 spring:
