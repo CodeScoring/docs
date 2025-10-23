@@ -177,7 +177,48 @@ spring:
 
 yaml spring: cloud: gateway: server: webflux: httpclient: ssl: trustedX509Certificates: - /usr/local/share/ca-certificates/solarrt.crt - /etc/ssl/certs/ca-certificates.crt```
 
-## Configuration and Migration of Links in Package Managers
+Конечно, вот перевод:
+
+## Proxy Configuration and Package Manager Repository Migration
+
+**Use Case:** Migrating an `npm` repository from Artifactory to CS Proxy.
+
+**Original `.npmrc` file:**
+
+```textmate
+registry=https://artifactory.domain.ru/artifactory/api/npm/npm-remote/
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:_password=1NHTGVrUnJQ
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:username=asdf
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:email=asdf@domain.ru
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:always-auth=true
+```
+
+The following repository definition needs to be added to the service's YAML configuration (the application.yml file) under the npm section. A service restart is required to apply the changes.
+
+```yaml
+npm:
+  enabled: true
+  repository:
+    - name: arti-npm
+      scan-package: true
+      scan-manifest: true
+      registry: https://artifactory.domain.ru/artifactory/api/npm/npm-remote/
+```
+
+
+
+Updated .npmrc file:
+
+```textmate
+registry=https://cs-proxy.domain.ru/arti-npm
+//cs-proxy.domain.ru/arti-npm/:_password=1NHTGVrUnJQ
+//cs-proxy.domain.ru/arti-npm/:username=asdf
+//cs-proxy.domain.ru/arti-npm/:email=asdf@domain.ru
+//cs-proxy.domain.ru/arti-npm/:always-auth=true
+```
+
+
+The following table provides a summary of repository URL redirection for various package managers. Authentication parameters and other configurations, such as username and password, remain unchanged.
 
 ### NuGet
 

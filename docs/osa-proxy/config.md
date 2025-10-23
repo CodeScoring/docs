@@ -171,7 +171,39 @@ spring:
                 - /etc/ssl/certs/ca-certificates.crt
 ```
 
-## Настройка и миграция ссылок в пакетных менеджерах
+## Конфигурация проксирования и миграция репозиториев пакетных менеджеров
+
+**Кейс использования:** Миграция репозитория `npm` из Artifactory на CS Proxy.
+
+**Исходный файл `.npmrc`:**
+```shell
+registry=https://artifactory.domain.ru/artifactory/api/npm/npm-remote/
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:_password=1NHTGVrUnJQ
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:username=asdf
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:email=asdf@domain.ru
+//artifactory.domain.ru/artifactory/api/npm/npm-remote/:always-auth=true
+```
+
+В YAML-конфигурацию сервиса (файл application.yml) в раздел npm необходимо добавить следующее определение репозитория. Для применения изменений требуется перезапуск сервиса.
+```yaml
+npm:
+  enabled: true
+  repository:
+    - name: arti-npm
+      scan-package: true
+      scan-manifest: true
+      registry: https://artifactory.domain.ru/artifactory/api/npm/npm-remote/ 
+```
+
+Обновленный файл .npmrc:
+```shell
+registry=https://cs-proxy.domain.ru/arti-npm
+//cs-proxy.domain.ru/arti-npm/:_password=1NHTGVrUnJQ
+//cs-proxy.domain.ru/arti-npm/:username=asdf
+//cs-proxy.domain.ru/arti-npm/:email=asdf@domain.ru
+//cs-proxy.domain.ru/arti-npm/:always-auth=true
+```
+В следующей таблице представлена сводная информация по перенаправлению URL-адресов репозиториев для различных пакетных менеджеров. Параметры аутентификации и другие конфигурации, такие как данные пользователя и пароля, остаются без изменений.
 
 ### NuGet
 
