@@ -57,13 +57,18 @@ After installing the **CodeScoring.OSA** plugin in the `System -> Capabilities` 
 This extension allows you to set general plugin settings for working with the **CodeScoring** platform:
 
 - **CodeScoring URL** – address of the on-premise platform of **CodeScoring**;
-- **CodeScoring Token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`*);
+- **CodeScoring Token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`);
 - **HttpClient Connection Pool Size** – number of available connections. This parameter allows you to control the number of parallel requests to speed up scanning;
+- **Timeout for CodeScoring requests in seconds** – time to wait for a response from the platform (in seconds, default value is **1800**);
 - **HTTP Proxy Host** – proxy server address. Used if it is not possible to establish a direct connection between NXRM and CodeScoring;
 - **HTTP Proxy Port** – proxy server port;
 - **Block downloads in case of plugin or CodeScoring errors** – blocking the download of a component if there are errors from the plugin or CodeScoring API.
 - **Custom message for blocked packages** – message for the user when components are blocked;
 - **Nexus URL for identification in CodeScoring** – address of the Nexus Repository Manager with the protocol for displaying the results on the platform.
+
+!!! warning "Required fields"
+
+    The **CodeScoring URL**, **CodeScoring Token**, **HttpClient Connection Pool Size**, **Timeout for CodeScoring requests in seconds**, and **Nexus URL for identification in CodeScoring** fields are required.
 
 ![CodeScoring capability config settings example](/assets/img/osa/capability_config_settings_example.png)
 
