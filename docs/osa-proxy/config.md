@@ -192,7 +192,7 @@ npm:
     - name: arti-npm
       scan-package: true
       scan-manifest: true
-      registry: https://artifactory.domain.ru/artifactory/api/npm/npm-remote/ 
+      registry: https://artifactory.domain.ru/artifactory/api/npm/npm-remote/
 ```
 
 Обновленный файл .npmrc:
