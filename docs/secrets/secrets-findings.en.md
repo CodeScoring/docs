@@ -47,7 +47,8 @@ The table with secrets can be filtered by the following criteria:
 - **Rule ID** – identifier of the secret search rule within the used configuration engine;
 - **Actual** – secret found during the last scan;
 - **Fixed** – secret fixed;
-- **Orphan** – secret has no project.
+- **Orphan** – secret has no project;
+- **Status** - find status.
 
 ## Markup of true and false positives.
 
