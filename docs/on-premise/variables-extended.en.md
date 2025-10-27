@@ -4,7 +4,7 @@ hide:
 ---
 
 # Variable Definitions
-This section provides a description of the variables used during platform setup, including those detailed in the 
+This section provides a description of the variables used during platform setup, including those detailed in the
 [Installation in Docker](/on-premise/installation.en) and [Installation in Kubernetes](/on-premise/installation-in-k8s.en) sections.
 
 !!! warning "Modifying values"
@@ -96,7 +96,7 @@ Integration with Sentry is disabled by default. `SENTRY_ENABLE = False`. To enab
 * **HUEY_WEBHOOKS_WORKERS** - the default number of Huey workers responsible for handling webhooks. Default value: `2`;
 * **HUEY_WORKER_MAX_TASKS** - the maximum number of tasks that a single Huey worker can process. Default value: `500`.
 
-* The **REQUESTS_CA_BUNDLE** and **SSL_CERT_FILE** variables define the location of SSL certificates used by the installation for secure communication: 
+* The **REQUESTS_CA_BUNDLE** and **SSL_CERT_FILE** variables define the location of SSL certificates used by the installation for secure communication:
   ```bash
   REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
   ```
@@ -139,7 +139,7 @@ Variables for [Redis](/on-premise/containers-description) connection configurati
 
 The following variables configure data archiving for the CodeScoring system module - OSA Proxy. By default, the variables `OSA_ARCHIVE_THRESHOLD_DAYS, OSA_ARCHIVE_AUTO_CLEANUP_ENABLED, OSA_ARCHIVE_RETENTION_PERIOD_DAYS,` and `OSA_ARCHIVE_CHUNK_SIZE` are commented out. Uncomment them as needed to enable their use.
 
-* **OSA_ARCHIVE_THRESHOLD_DAYS** - specifies the number of days after which a package or container image that has not received requests will be archived. Default value: `14`; 
+* **OSA_ARCHIVE_THRESHOLD_DAYS** - specifies the number of days after which a package or container image that has not received requests will be archived. Default value: `14`;
 * **OSA_ARCHIVE_AUTO_CLEANUP_ENABLED** - enables or disables automatic cleanup of OSA archive components. If `True`, the system will automatically delete old archives; if `False`, cleanup is performed manually. Default value: `False`;
 * **OSA_ARCHIVE_RETENTION_PERIOD_DAYS** - specifies the number of days that archive packages or container images will be stored before being deleted (when `OSA_ARCHIVE_AUTO_CLEANUP_ENABLED` is enabled). Default value: `30`;
 * **OSA_ARCHIVE_CHUNK_SIZE** - defines the size of "chunks" for processing archive components. This parameter can affect the performance and efficiency of the archiving/cleanup process. Default value: `1000`;
