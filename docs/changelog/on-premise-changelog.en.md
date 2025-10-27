@@ -9,12 +9,12 @@ hide:
 
 #### Added
 
-- The maximum number of elements per page in the API is now controlled by the environment variable `PLATFORM_API_MAX_PAGE_SIZE` (default value is 100); exceeding this value in the request will cause an error
+- The maximum number of elements per page in the API is now controlled by the environment variable `PLATFORM_API_MAX_PAGE_SIZE`, the default value is 100. Exceeding this value in the request will cause an error.
 
 #### Fixed
 
-- Reduced the number of parallel processes launched when loading a large number of images from the registry
-- Optimized the API for retrieving project dependencies
+- <span class="module-tag osa">OSA</span> Optimized loading of images from registries
+- Optimized the API request for getting project dependencies
 
 ### [2025.37.4] - 2025-10-15
 
