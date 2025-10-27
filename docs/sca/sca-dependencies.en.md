@@ -22,7 +22,7 @@ The list of scanned open source dependencies can be viewed in the `SCA -> Depend
 - **Maximum fix version** - the version of the dependency to which an update should be performed in order to fix the vulnerabilities currently detected by the SCA module, while only dependencies with the specified fixed version are taken into account;
 - **Release date** - the date and time of the dependency release.
 
-The dependency table can be filtered by project, department, project category, project groups, technology, license, license category, as found, relationship, environment, release time period.
+The dependency table can be filtered by project, department, project category, project groups, technology, license, license category, as found, relationship, parents, environment, release time period.
 
 Clicking on the dependency name takes you to its individual page, where information about its use in projects and found vulnerabilities is displayed.
 
