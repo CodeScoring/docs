@@ -21,7 +21,13 @@ API provides a number of endpoints that allow you to perform basic operations in
 
 ## Pagination
 
-For paginated response you can set `page` (for page number) and `per_page` (for per-page items amount) query parameters to the request. Max `per_page` is 100.
+For paginated response you can set `page` (for page number) and `per_page` (for per-page items amount) query parameters to the request.
+
+The value of `per_page` parameter can be set with `PLATFORM_API_MAX_PAGE_SIZE` environment variable and defaults to 100.
+
+!!! warning "Recommendation for the PLATFORM_API_MAX_PAGE_SIZE variable"
+
+    Setting this value above 100 may negatively impact system performance.
 
 Some endpoints work **only** in pagination mode and these parameters are mandatory, for the details see **[platform-url]/api/swagger**.
 
