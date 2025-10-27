@@ -13,8 +13,8 @@ The snapshot contains the following data:
 
 - **Started at** - the date the project was scanned. The date of the latest scan is marked with a green label;
 - **Duration** – the time the analysis lasted;
-- **Startup type** - startup type, manual or scheduled;
-- **User** - user who started the scan. For scheduled runs the value is set to "system";
+- **Scan Source** - startup type, manual or scheduled;
+- **Initiator** - user who started the scan. For scheduled runs the value is set to "system";
 - **VCS reference** - branch and SHA of the commit (for VCS projects);
 - **Dependencies count** - number of found dependencies;
 - **Vulnerabilities count** - number of found vulnerabilities;
