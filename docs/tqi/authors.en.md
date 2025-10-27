@@ -16,7 +16,7 @@ The `TQI -> Authors` section contains all the authors involved in changing the o
 - **Last seen** - date of the author's last commit in the project;
 - **Activity, mos** - number of months during which the author actively committed changes;
 - **Project** – total number of projects that author has contributed to;
-- **Total commits** - total number of commits made by the author in the project. Details are available on value hover;
+- **Commits** - total number of commits made by the author in the project;
 - **Complexity** - the average cyclomatic complexity of the author's commits in the project;
 - **Clones** – the number of code fragments borrowed by the author;
 - **OSS count** – total number of Open Source projects in which the author participated;
@@ -62,27 +62,19 @@ The map can also be saved as a PNG image.
 The author's individual page contains key metrics of his work:
 
 - **Activity period** – dates of first commit and the last change by the authors;
-- **Activity, months** – number of months during which the author actively committed changes relative to their total time on the projects;
+- **Activity, months** – number of months during which the author actively committed changes relative to their total time on the project;
 - **Projects count** – number of proprietary projects to which the author contributed changes;
 - **OSS count** – number of open source projects to which the author contributed changes;
 - **Complexity** – the average cyclomatic complexity of the author's commits in the projects;
 - **Duplicates** – the number of code fragments borrowed by the author;
 - **Contribution, LOC** – the total number of lines of code written by the author;
-- **Contribution, lines added** - the total number of lines added by the author;
-- **Contribution, lines modified** - the total number of lines modified by the author;
-- **Contribution, lines removed** - the total number of lines removed by the author;
-- **Contribution, total commits** – the total number of commits (commits + merge commits) made by the author in the projects;
-- **Contribution, commits** – the total number of commits made by the author in the projects;
-- **Contribution, merge commits** – the total number of merge commits made by the author in the projects;
-- **Code rate** - mean value of author commits changes relative to total LOC in the projects;
-- **Newness impact** - added lines share relative to total number of lines written by author;
-- **Churn impact** - modified and removed lines share relative to total number of lines written by author;
+- **Contribution, commits** – the total number of commits made by the author in the project;
 
 In addition, the page shows lists of the organization's projects and the Open Source projects in which the author participated.
 
 The **Similar authors** tab contains a list of developers with the most similar competencies to the author. The percentage of similarity between authors is calculated based on the set of technologies used, participation in projects, and complexity of the code written.
 
-![Author](/assets/img/tqi/tqi-author-en.png)
+![Author](/assets/img/tqi/en/tqi-author.png)
 
 ## Rules for merging authors' profiles
 
