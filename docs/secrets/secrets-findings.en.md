@@ -48,7 +48,7 @@ The table with secrets can be filtered by the following criteria:
 - **Actual** – secret found during the last scan;
 - **Fixed** – secret fixed;
 - **Orphan** – secret has no project;
-- **Status** - find status.
+- **Status** - finding status (true positive, false positive, no status).
 
 ## Markup of true and false positives.
 
