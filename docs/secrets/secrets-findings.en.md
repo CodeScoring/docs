@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Working with findings
 
 ## Viewing secrets in a separate project
