@@ -53,7 +53,8 @@ Package requests appear on the **Packages** tab and by default contain the follo
 - **Technology** – technology;
 - **Plugin mode** – [plugin operating mode](/osa/nexus_osa.en/#setting-the-plugin-operating-mode);
 - **Block status** – blocking status;
-- **Requested at** – date and time of the request.
+- **Requested at** – date and time of the request;
+- **Request initiator** - request initiator username from repository manager.
 
 Container image requests appear on the **Container images** tab and by default contain the following information:
 
@@ -61,6 +62,7 @@ Container image requests appear on the **Container images** tab and by default c
 - **Registry** – name of the registry that contains the image;
 - **Plugin mode** – [plugin operating mode](/osa/nexus_osa.en/#setting-the-plugin-operating-mode);
 - **Block status** – blocking status;
-- **Requested at** – date and time of the request.
+- **Requested at** – date and time of the request;
+- **Request initiator** - request initiator username from repository manager.
 
 You can also display the **CodeScoring User** (CodeScoring user configured in the OSA plugin) and **Requested PURL** (PURL of the requested component) columns for both tables.
