@@ -27,7 +27,7 @@ The list of created users can be filtered by the following parameters:
 - **Active** — an active account;
 - **LDAP server** — [LDAP server](/on-premise/how-to/ldap-settings.en/) connected to the system.
 
-## Editing account setings
+## Editing account settings
 
 Created accounts can be edited or deleted in the `Settings -> Users` section. You can add a user to a project with the specified role by clicking the **Add users** button on the "Projects" tab of the user editing page.
 
