@@ -5,6 +5,17 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.5] - 2025-10-27
+
+#### Added
+
+- The maximum number of elements per page in the API is now controlled by the environment variable `PLATFORM_API_MAX_PAGE_SIZE` (default value is 100); exceeding this value in the request will cause an error
+
+#### Fixed
+
+- Reduced the number of parallel processes launched when loading a large number of images from the registry
+- Optimized the API for retrieving project dependencies
+
 ### [2025.37.4] - 2025-10-15
 
 #### Fixed
