@@ -26,7 +26,8 @@ The resulting report contains the following data by default:
 - distribution of vulnerabilities by technology;
 - table of found dependencies divided by technologies and development environment;
 - table of found vulnerabilities divided by technologies and development environment;
-- active policy alerts;
+- table of active policy alerts;
+- table of policy ignores;
 - dependency graph.
 
 It's also possible to define a custom filename, choose required data blocks and filter data before export.
