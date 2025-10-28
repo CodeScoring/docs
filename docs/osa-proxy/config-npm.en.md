@@ -12,9 +12,9 @@ The following table provides a summary of repository URL redirection for NPM. Au
 
 | Source              | .npmrc `registry:` Before migration                    | .npmrc `registry:` After migration | `application.yml` npm.repository.registry              |
 |---------------------|--------------------------------------------------------|------------------------------------|--------------------------------------------------------|
-| Nexus               | `https://nexus.host.ru/repository/npm-proxy`           | `https://cs-proxy.ru/nexus-npm`    | `https://nexus.host.ru/repository/npm-proxy`           |
-| Artifactory         | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` | `https://cs-proxy.ru/jfrog-npm`    | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` |
-| Official Repository | `https://registry.npmjs.org`                           | `https://cs-proxy.ru/inet-npm`     | `https://registry.npmjs.org`                           |
+| Nexus               | `https://nexus.host.ru/repository/npm-proxy`           | `https://{osa-proxy-url}/nexus-npm`    | `https://nexus.host.ru/repository/npm-proxy`           |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` | `https://{osa-proxy-url}/jfrog-npm`    | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` |
+| Official Repository | `https://registry.npmjs.org`                           | `https://{osa-proxy-url}/inet-npm`     | `https://registry.npmjs.org`                           |
 
 ## NPM registry migration
 

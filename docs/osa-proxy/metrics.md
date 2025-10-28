@@ -5,27 +5,29 @@ hide:
 
 # Cбор метрик
 
-Метрики доступны в **OSA Proxy** по адресу `{osa-proxy-url}/actuator/metrics` в json формате, а также в формате для prometheus `{platform-url}/actuator/prometheus`.
+Метрики доступны в **OSA Proxy** по адресу `{osa-proxy-url}/actuator/metrics` в формате JSON, а также в формате для prometheus `{platform-url}/actuator/prometheus`.
 
 Эти метрики собираются для каждого типа репозитория (`maven`, `pypi`, `nuget`, `npm`) и позволяют детально отслеживать входящие запросы к прокси-репозиториям.
 
--   `gateway_route_<package-type>_requests_seconds_count` / `gateway_route_<package-type>_requests_total` – общее количество обработанных запросов.
--   `gateway_route_<package-type>_requests_seconds_sum` – суммарное время обработки запросов, используется для расчета среднего времени ответа.
--   `gateway_route_<package-type>_requests_seconds_max` – максимальное время обработки запроса.
--   `gateway_route_<package-type>_requests_seconds_bucket` – гистограмма времен ответа, позволяет вычислять перцентили (например, 95-й, 99-й) времени ответа.
+## Доступные метрики
 
-Здесь `<package-type>` заменяется на соответствующий тип репозитория: `maven`, `pypi`, `nuget`, `npm`. Например, для Maven-репозитория метрика будет называться `gateway_route_maven_requests_total`.
+- `gateway_route_<package-type>_requests_seconds_count` / `gateway_route_<package-type>_requests_total` – общее количество обработанных запросов;
+- `gateway_route_<package-type>_requests_seconds_sum` – суммарное время обработки запросов, используется для расчета среднего времени ответа;
+- `gateway_route_<package-type>_requests_seconds_max` – максимальное время обработки запроса;
+- `gateway_route_<package-type>_requests_seconds_bucket` – гистограмма времен ответа, позволяет вычислять перцентили (например, 95-й, 99-й) времени ответа.
+
+В рамках сбора метрик `<package-type>` заменяется на соответствующий тип репозитория: `maven`, `pypi`, `nuget`, `npm`. Например, для Maven-репозитория метрика будет называться `gateway_route_maven_requests_total`.
 
 Данные метрики можно отфильтровать по следующим лейблам:
 
--   **`operation`**: Тип операции, выполняемой с пакетом.
-    -   `scan_package` – сканирование пакета.
-    -   `scan_manifest` – сканирование манифеста.
+- **`operation`** – тип операции, выполняемой с пакетом;
+    -   `scan_package` – сканирование пакета;
+    -   `scan_manifest` – сканирование манифеста;
     -   `other` – другие операции (например передача файлов не подпадающих под анализ).
--   **`method`**: HTTP-метод запроса (`GET`, `POST`, `PUT`, и т.д.).
--   **`repository`**: Имя репозитория, к которому был выполнен запрос.
--   **`status`**: Код статуса HTTP-ответа (например, `200`, `403`, `500`).
--   **`outcome`**: Результат обработки запроса.
-    -   `SUCCESS` – запрос успешно обработан.
-    -   `ERROR` – произошла ошибка при обработке (статус 400 и выше, кроме кода блокировки).
+-   **`method`** – HTTP-метод запроса (`GET`, `POST`, `PUT`, и т.д.);
+-   **`repository`** – имя репозитория, к которому был выполнен запрос;
+-   **`status`** – код статуса HTTP-ответа (например, `200`, `403`, `500`);
+-   **`outcome`** – результат обработки запроса;
+    -   `SUCCESS` – запрос успешно обработан;
+    -   `ERROR` – произошла ошибка при обработке (статус 400 и выше, кроме кода блокировки);
     -   `BLOCKED_BY_POLICIES` – запрос был заблокирован политиками безопасности.

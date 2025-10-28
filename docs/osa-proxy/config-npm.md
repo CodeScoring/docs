@@ -6,15 +6,16 @@ hide:
 # Конфигурация NPM
 
 ## Миграция URL репозитория
-**Сценарий использования:** Миграция репозитория `npm` с Artifactory на OSA Proxy.
+
+**Сценарий использования:** миграция репозитория `npm` с Artifactory на OSA Proxy.
 
 Следующая таблица содержит сводку по перенаправлению URL репозиториев для NPM. Параметры аутентификации и другие настройки, такие как имя пользователя и пароль, остаются без изменений.
 
-| Источник                | .npmrc `registry:` До миграции                         | .npmrc `registry:` После миграции | `application.yml` npm.repository.registry              |
+| Источник                | .npmrc `registry:` до миграции                         | .npmrc `registry:` после миграции | `application.yml` npm.repository.registry              |
 |-------------------------|--------------------------------------------------------|-----------------------------------|--------------------------------------------------------|
-| Nexus                   | `https://nexus.host.ru/repository/npm-proxy`           | `https://cs-proxy.ru/nexus-npm`   | `https://nexus.host.ru/repository/npm-proxy`           |
-| Artifactory             | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` | `https://cs-proxy.ru/jfrog-npm`   | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` |
-| Официальный репозиторий | `https://registry.npmjs.org`                           | `https://cs-proxy.ru/inet-npm`    | `https://registry.npmjs.org`                           |
+| Nexus                   | `https://nexus.host.ru/repository/npm-proxy`           | `https://{osa-proxy-url}/nexus-npm`   | `https://nexus.host.ru/repository/npm-proxy`           |
+| Artifactory             | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` | `https://{osa-proxy-url}/jfrog-npm`   | `https://jfrog.host.ru/artifactory/api/npm/npm-remote` |
+| Официальный репозиторий | `https://registry.npmjs.org`                           | `https://{osa-proxy-url}/inet-npm`    | `https://registry.npmjs.org`                           |
 
 ## Миграция NPM репозитория
 
@@ -28,7 +29,7 @@ registry=https://artifactory.domain.ru/artifactory/api/npm/npm-remote/
 //artifactory.domain.ru/artifactory/api/npm/npm-remote/:always-auth=true
 ```
 
-Следующее определение репозитория необходимо добавить в YAML-конфигурацию сервиса (файл application.yml) в секцию npm. Для применения изменений требуется перезапуск сервиса.
+Следующее определение репозитория необходимо добавить в YAML-конфигурацию сервиса (файл `application.yml`) в секцию npm. Для применения изменений требуется перезапуск сервиса.
 
 **Конфигурация в файле `application.yml`**
 

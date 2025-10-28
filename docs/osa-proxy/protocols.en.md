@@ -110,7 +110,7 @@ This section contains data formats and response modification rules for each supp
   ]
 }
 ```
-## Behavior on Complete Package Blocking
+## Behavior in case of complete package blocking
 
 In a scenario where all available versions of a requested package are blocked by security policies, OSA Proxy returns a message indicating that all versions are blocked.
 
@@ -123,16 +123,19 @@ curl http://localhost:8080/codescoring-pypi/simple/package_name
 ```
 
 ### Maven
+
 ```bash
 curl http://localhost:8080/codescoring-maven/groupid/artifactid/maven-metadata.xml
 ```
 
-npm
+### npm
+
 ```bash
 curl http://localhost:8080/codescoring-npm/package_name
 ```
 
-NuGet
+### NuGet
+
 Although the NuGet client might display the reason for blocking all packages in the console, a direct `curl` request also allows for status confirmation:
 ```bash
 curl http://localhost:8080/codescoring-nuget/nuget-api/v3/registration5-gz-semver2/newtonsoft.json/index.json

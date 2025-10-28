@@ -3,18 +3,19 @@ hide:
   - footer
 ---
 
-# Maven Configuration
+# Maven сonfiguration
 
 ## Repository URL migration
-**Use Case:** Migrating a Maven repository from Artifactory to OSA Proxy.
+
+**Use case:** migrating a Maven repository from Artifactory to OSA Proxy.
 
 The following table provides a summary of repository URL redirection for Maven. Authentication parameters and other configurations, such as username and password, remain unchanged.
 
-| Source              | settings.xml URL Before migration                | settings.xml URL After migration | `application.yml` maven.repository.registry      |
+| Source              | settings.xml URL before migration                | settings.xml URL after migration | `application.yml` maven.repository.registry      |
 |---------------------|--------------------------------------------------|----------------------------------|--------------------------------------------------|
-| Nexus               | `https://nexus.host.ru/repository/maven-remote`  | `https://cs-proxy.ru/nexus-mvn`  | `https://nexus.host.ru/repository/maven-remote`  |
-| Artifactory         | `https://jfrog.host.ru/artifactory/maven-remote` | `https://cs-proxy.ru/jfrog-mvn`  | `https://jfrog.host.ru/artifactory/maven-remote` |
-| Official Repository | `https://repo.maven.apache.org/maven2`           | `https://cs-proxy.ru/inet-mvn`   | `https://repo.maven.apache.org/maven2`           |
+| Nexus               | `https://nexus.host.ru/repository/maven-remote`  | `https://{osa-proxy-url}/nexus-mvn`  | `https://nexus.host.ru/repository/maven-remote`  |
+| Artifactory         | `https://jfrog.host.ru/artifactory/maven-remote` | `https://{osa-proxy-url}/jfrog-mvn`  | `https://jfrog.host.ru/artifactory/maven-remote` |
+| Official Repository | `https://repo.maven.apache.org/maven2`           | `https://{osa-proxy-url}/inet-mvn`   | `https://repo.maven.apache.org/maven2`           |
 
 ## Maven registry migration
 
@@ -39,7 +40,7 @@ The following table provides a summary of repository URL redirection for Maven. 
 </settings>
 ```
 
-The following repository definition needs to be added to the service's YAML configuration (the application.yml file) under the maven section. A service restart is required to apply the changes.
+The following repository definition needs to be added to the service's YAML configuration (the `application.yml` file) under the maven section. A service restart is required to apply the changes.
 
 **Configuration in `application.yml` file**
 
@@ -61,7 +62,7 @@ maven:
     <mirror>
       <id>cs-proxy</id>
       <mirrorOf>*</mirrorOf>
-      <url>https://cs-proxy.ru/jfrog-mvn</url>
+      <url>https://{osa-proxy-url}/jfrog-mvn</url>
     </mirror>
   </mirrors>
   <servers>

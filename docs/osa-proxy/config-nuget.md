@@ -6,15 +6,16 @@ hide:
 # Конфигурация NuGet
 
 ## Миграция URL репозитория
-**Сценарий использования:** Миграция репозитория NuGet с Artifactory на OSA Proxy.
+
+**Сценарий использования:** миграция репозитория NuGet с Artifactory на OSA Proxy.
 
 Следующая таблица содержит сводку по перенаправлению URL репозиториев для NuGet. Параметры аутентификации и другие настройки, такие как имя пользователя и пароль, остаются без изменений.
 
-| Источник            | URL в NuGet.config До миграции                                | URL в NuGet.config После миграции                        | `application.yml` nuget.repository.registry                 |
+| Источник            | URL в NuGet.config до миграции                                | URL в NuGet.config после миграции                        | `application.yml` nuget.repository.registry                 |
 |---------------------|---------------------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------|
-| Nexus               | `https://nexus.host.ru/repository/nuget.org-proxy/index.json` | `https://cs-proxy.ru/nexus-nuget/nuget-api/index.json`   | `https://nexus.host.ru/repository/nuget.org-proxy`          |
-| Artifactory         | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe`   | `https://cs-proxy.ru/arti-nuget/nuget-api`               | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe` |
-| Официальный репозиторий | `https://api.nuget.org/v3/index.json`                     | `https://cs-proxy.ru/inet-nuget/nuget-api/v3/index.json` | `https://api.nuget.org`                                     |
+| Nexus               | `https://nexus.host.ru/repository/nuget.org-proxy/index.json` | `https://{osa-proxy-url}/nexus-nuget/nuget-api/index.json`   | `https://nexus.host.ru/repository/nuget.org-proxy`          |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe`   | `https://{osa-proxy-url}/arti-nuget/nuget-api`               | `https://jfrog.host.ru/artifactory/api/nuget/v3/nuget-safe` |
+| Официальный репозиторий | `https://api.nuget.org/v3/index.json`                     | `https://{osa-proxy-url}/inet-nuget/nuget-api/v3/index.json` | `https://api.nuget.org`                                     |
 
 ## Миграция NuGet репозитория
 
@@ -36,7 +37,7 @@ hide:
 </configuration>
 ```
 
-Следующее определение репозитория необходимо добавить в YAML-конфигурацию сервиса (файл application.yml) в секцию nuget. Для применения изменений требуется перезапуск сервиса.
+Следующее определение репозитория необходимо добавить в YAML-конфигурацию сервиса (файл `application.yml`) в секцию nuget. Для применения изменений требуется перезапуск сервиса.
 
 **Конфигурация в файле `application.yml`**
 
@@ -56,7 +57,7 @@ nuget:
 <configuration>
   <packageSources>
     <clear />
-    <add key="OSA-Proxy" value="https://cs-proxy.ru/arti-nuget/nuget-api" />
+    <add key="OSA-Proxy" value="https://{osa-proxy-url}/arti-nuget/nuget-api" />
   </packageSources>
   <packageSourceCredentials>
     <OSA-Proxy>

@@ -93,7 +93,7 @@ hide:
           registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
 
-!!! warning "Особенности работы в Nexus Repository и JFrog Artifactory"
+!!! note "Особенности работы в Nexus Repository и JFrog Artifactory"
 
     - Для JFrog Artifactory рекомендуется выставить `Custom Base URL` и использовать его в поле `registry` для корректной замены ссылок на пакеты внутри манифестов;
     - Для Nexus Repository идентичного функционала нет, в манифестах будет использован хост и порт (если указан) из запроса. При наличии `reverse proxy` рекомендуется использовать ссылку на него. Например: `registry: https://nexushost.ru/repository/pypi-proxy`.
@@ -138,17 +138,17 @@ Circuit breaker (автоматический выключатель) для `co
 
 ### Добавление truststore сертификатов
 
-!!! example "Пример добавления truststore сертифкатов в application.yml"
+!!! example "Пример добавления truststore сертификатов в application.yml"
 
-```yaml
-spring:
-  cloud:
-    gateway:
-      server:
-        webflux:
-          httpclient:
-            ssl:
-              trustedX509Certificates:
-                - /usr/local/share/ca-certificates/solarrt.crt
-                - /etc/ssl/certs/ca-certificates.crt
-```
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          server:
+            webflux:
+              httpclient:
+                ssl:
+                  trustedX509Certificates:
+                    - /usr/local/share/ca-certificates/solarrt.crt
+                    - /etc/ssl/certs/ca-certificates.crt
+    ```

@@ -124,16 +124,19 @@ curl http://localhost:8080/codescoring-pypi/simple/имя_пакета
 ```
 
 ### Maven
+
 ```bash
 curl http://localhost:8080/codescoring-maven/groupid/artifactid/maven-metadata.xml
 ```
 
-npm
+### npm
+
 ```bash
 curl http://localhost:8080/codescoring-npm/имя_пакета
 ```
 
-NuGet
+### NuGet
+
 Хотя NuGet-клиент может выводить причину блокировки всех пакетов в консоли, прямой запрос через curl также позволяет получить подтверждение статуса:
 ```bash
 curl http://localhost:8080/codescoring-nuget/nuget-api/v3/registration5-gz-semver2/newtonsoft.json/index.json

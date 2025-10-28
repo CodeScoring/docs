@@ -93,7 +93,7 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
           registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
 
-!!! warning "Specifics of working in Nexus Repository and JFrog Artifactory"
+!!! note "Specifics of working in Nexus Repository and JFrog Artifactory"
 
     - For JFrog Artifactory, it is recommended to set a `Custom Base URL` and use it in the `registry` field to correctly replace package references within manifests.
     - There is no identical functionality for Nexus Repository; the host and port (if specified) from the request will be used in manifests. If a `reverse proxy` is available, it is recommended to use its link. For example: `registry: https://nexushost.ru/repository/pypi-proxy`.
@@ -140,15 +140,15 @@ Retry and circuit breaker configuration can be overridden by setting [the follow
 
 !!! example "Example of adding truststore certificates in application.yml"
 
-```yaml
-spring:
-  cloud:
-    gateway:
-      server:
-        webflux:
-          httpclient:
-            ssl:
-              trustedX509Certificates:
-                - /usr/local/share/ca-certificates/solarrt.crt
-                - /etc/ssl/certs/ca-certificates.crt
-```
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          server:
+            webflux:
+              httpclient:
+                ssl:
+                  trustedX509Certificates:
+                    - /usr/local/share/ca-certificates/solarrt.crt
+                    - /etc/ssl/certs/ca-certificates.crt
+    ```

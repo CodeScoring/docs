@@ -6,15 +6,16 @@ hide:
 # PyPI Configuration
 
 ## Repository URL migration
-**Use Case:** Migrating a PyPI repository from Artifactory to OSA Proxy.
+
+**Use case:** migrating a PyPI repository from Artifactory to OSA Proxy.
 
 The following table provides a summary of repository URL redirection for PyPI. Authentication parameters and other configurations, such as username and password, remain unchanged.
 
-| Source              | pip.conf / pip.ini URL Before migration                         | pip.conf / pip.ini URL After migration  | `application.yml` pypi.repository.registry               |
+| Source              | pip.conf / pip.ini URL before migration                         | pip.conf / pip.ini URL after migration  | `application.yml` pypi.repository.registry               |
 |---------------------|-----------------------------------------------------------------|-----------------------------------------|----------------------------------------------------------|
-| Nexus               | `https://nexus.host.ru/repository/pip-remote`                   | `https://cs-proxy.ru/nexus-pypi/simple` | `https://nexus.host.ru/repository/pip-remote`            |
-| Artifactory         | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote/simple` | `https://cs-proxy.ru/jfrog-pypi/simple` | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote` |
-| Official Repository | `https://pypi.org/simple`                                       | `https://cs-proxy.ru/inet-pypi/simple`  | `https://pypi.org`                                       |
+| Nexus               | `https://nexus.host.ru/repository/pip-remote`                   | `https://{osa-proxy-url}/nexus-pypi/simple` | `https://nexus.host.ru/repository/pip-remote`            |
+| Artifactory         | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote/simple` | `https://{osa-proxy-url}/jfrog-pypi/simple` | `https://jfrog.host.ru/artifactory/api/pypi/pypi-remote` |
+| Official Repository | `https://pypi.org/simple`                                       | `https://{osa-proxy-url}/inet-pypi/simple`  | `https://pypi.org`                                       |
 
 ## PyPI registry migration
 
@@ -40,7 +41,7 @@ trusted-host = jfrog.host.ru
 trusted-host = jfrog.host.ru
 ```
 
-The following repository definition needs to be added to the service's YAML configuration (the application.yml file) under the pypi section. A service restart is required to apply the changes.
+The following repository definition needs to be added to the service's YAML configuration (the `application.yml` file) under the pypi section. A service restart is required to apply the changes.
 
 **Configuration in `application.yml` file**
 
@@ -59,22 +60,22 @@ pypi:
 
 ```ini
 [global]
-index-url = https://cs-proxy.ru/jfrog-pypi
-trusted-host = cs-proxy.ru
+index-url = https://{osa-proxy-url}/jfrog-pypi
+trusted-host = {osa-proxy-url}
 
 [install]
-trusted-host = cs-proxy.ru
+trusted-host = {osa-proxy-url}
 ```
 
 Or with authentication:
 
 ```ini
 [global]
-index-url = https://username:password@cs-proxy.ru/jfrog-pypi
-trusted-host = cs-proxy.ru
+index-url = https://username:password@{osa-proxy-url}/jfrog-pypi
+trusted-host = {osa-proxy-url}
 
 [install]
-trusted-host = cs-proxy.ru
+trusted-host = {osa-proxy-url}
 ```
 
 ### Configuration file locations

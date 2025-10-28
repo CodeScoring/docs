@@ -6,15 +6,16 @@ hide:
 # Конфигурация Maven
 
 ## Миграция URL репозитория
-**Сценарий использования:** Миграция репозитория Maven с Artifactory на OSA Proxy.
+
+**Сценарий использования:** миграция репозитория Maven с Artifactory на OSA Proxy.
 
 Следующая таблица содержит сводку по перенаправлению URL репозиториев для Maven. Параметры аутентификации и другие настройки, такие как имя пользователя и пароль, остаются без изменений.
 
-| Источник                | URL в settings.xml До миграции                   | URL в settings.xml После миграции | `application.yml` maven.repository.registry      |
+| Источник                | URL в settings.xml до миграции                   | URL в settings.xml после миграции | `application.yml` maven.repository.registry      |
 |-------------------------|--------------------------------------------------|-----------------------------------|--------------------------------------------------|
-| Nexus                   | `https://nexus.host.ru/repository/maven-remote`  | `https://cs-proxy.ru/nexus-mvn`   | `https://nexus.host.ru/repository/maven-remote`  |
-| Artifactory             | `https://jfrog.host.ru/artifactory/maven-remote` | `https://cs-proxy.ru/jfrog-mvn`   | `https://jfrog.host.ru/artifactory/maven-remote` |
-| Официальный репозиторий | `https://repo.maven.apache.org/maven2`           | `https://cs-proxy.ru/inet-mvn`    | `https://repo.maven.apache.org/maven2`           |
+| Nexus                   | `https://nexus.host.ru/repository/maven-remote`  | `https://{osa-proxy-url}/nexus-mvn`   | `https://nexus.host.ru/repository/maven-remote`  |
+| Artifactory             | `https://jfrog.host.ru/artifactory/maven-remote` | `https://{osa-proxy-url}/jfrog-mvn`   | `https://jfrog.host.ru/artifactory/maven-remote` |
+| Официальный репозиторий | `https://repo.maven.apache.org/maven2`           | `https://{osa-proxy-url}/inet-mvn`    | `https://repo.maven.apache.org/maven2`           |
 
 ## Миграция Maven репозитория
 
@@ -39,7 +40,7 @@ hide:
 </settings>
 ```
 
-Следующее определение репозитория необходимо добавить в YAML-конфигурацию сервиса (файл application.yml) в секцию maven. Для применения изменений требуется перезапуск сервиса.
+Следующее определение репозитория необходимо добавить в YAML-конфигурацию сервиса (файл `application.yml`) в секцию maven. Для применения изменений требуется перезапуск сервиса.
 
 **Конфигурация в файле `application.yml`**
 
@@ -61,7 +62,7 @@ maven:
     <mirror>
       <id>cs-proxy</id>
       <mirrorOf>*</mirrorOf>
-      <url>https://cs-proxy.ru/jfrog-mvn</url>
+      <url>https://{osa-proxy-url}/jfrog-mvn</url>
     </mirror>
   </mirrors>
   <servers>
