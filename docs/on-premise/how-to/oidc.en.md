@@ -36,10 +36,11 @@ below:
 
 - **Name** - the name of the integration, it is displayed at the login page;
 - **Is active** - the activity flag, depending on the value, users will be able to select this integration as an identity provider at the login page;
-- **Client ID** - Identifier of the OpenID Connect Client, must match the identifier configured on the Provider side;
-- **Client secret** - Secret of the OpenID Connect Client, must match the secret configured on the Provider side.
+- **Client ID** - identifier of the OpenID Connect Client, must match the identifier configured on the Provider side;
+- **Client secret** - secret of the OpenID Connect Client, must match the secret configured on the Provider side.
 
-### Connection Settings
+### Connection settings
+
 CodeScoring can configure itself based on the `/.well-known/openid-configuration` endpoint of the issuer via the `Get settings` button.
 
 - **Provider issuer URL** - Issuer URL of the OpenID Connect provider;
@@ -53,7 +54,7 @@ CodeScoring can configure itself based on the `/.well-known/openid-configuration
   `$ISSUER_URL/.well-known/openid-configuration`;
 - **Client scopes** - these values are passed in the `scope` parameter of the authorization request.
 
-### Field Mapping Settings
+### Field mapping settings
 
 - **Subject identifier field** - name of the field that contains the **subject** in the response, returned by UserInfo
   endpoint;
