@@ -42,8 +42,26 @@ Metrics from platform are available via **CodeScoring API** at `{platform-url}/a
 
 These metrics can be filtered by the `queue` label with the following possible values:
 
-- Main queues: `ipcs`, `high-priority`, `osa-container-image-scan`, `osa-package-scan`, `policy`, `tqi`, `media`, `sca-external-scan`, `secrets`;
-- Celery queues: `default`, `webhooks`, `rescan-main`, `rescan-packages`.
+#### Main Queues:
+- **ipcs** - main queue for asynchronous tasks;
+- **osa-container-image-scan** - used for container image scans;
+- **osa-package-scan** - used for scans of packages, requested through the OSA module;
+- **policy** - used for asynchronous policy calculations;
+- **tqi** - used during TQI analyses;
+- **sca-external-scan** - used for SCA runs launched via Johnny CLI agent;
+- **secrets** - used during Secrets analyses.
+
+#### Celery Queues:
+- **default** - main queue for asynchronous tasks;
+- **webhooks** - used for webhook tasks execution;
+- **secrets-external-scan** - used for TQI analyses launched via Johnny CLI agent;
+- **osa-maintenance** - used for maintenance tasks related to OSA module;
+- **osa-background-update** - used for background updates of OSA-related entities;
+- **oss-index** - used for loading data from OSS Index in cases, when OSS Index integration is enabled;
+- **migration-background-tasks** - used for tasks related to background recalculation of data caused by the database schema change;
+- **media** - used for asynchronous generation of reports;
+- **media-cleaner** - used for periodic cleanup of reports;
+- **sca-analyses** - used for SCA-related tasks.
 
 ### Analysis metrics
 
@@ -139,3 +157,7 @@ Example:
 ```
 codescoring_osa_api_requested_component_scan_status_total{object_type="container_image",scan_status="not_scanned"} 0.0
 ```
+
+### Index API-related metrics
+
+**index_api_failure_rate** - number of sequentially failed requests to Index API.
