@@ -491,23 +491,22 @@ nav:
       - osa-proxy:
         - osa-proxy-general: osa-proxy/index.md
         - osa-proxy-general: osa-proxy/index.en.md
-        - osa-proxy-config: osa-proxy/config.md
-        - osa-proxy-config: osa-proxy/config.en.md
         - osa-proxy-installation: osa-proxy/installation.md
         - osa-proxy-installation: osa-proxy/installation.en.md
+        - osa-proxy-config: osa-proxy/config.md
+        - osa-proxy-config: osa-proxy/config.en.md
         - osa-proxy-protocols: osa-proxy/protocols.md
         - osa-proxy-protocols: osa-proxy/protocols.en.md
         - osa-proxy-metrics: osa-proxy/metrics.md
         - osa-proxy-metrics: osa-proxy/metrics.en.md
-        - osa-proxy-package-managers:
-            - osa-proxy-maven-config: osa-proxy/package-manager/config-maven.md
-            - osa-proxy-maven-config: osa-proxy/package-manager/config-maven.en.md
-            - osa-proxy-npm-config: osa-proxy/package-manager/config-npm.md
-            - osa-proxy-npm-config: osa-proxy/package-manager/config-npm.en.md
-            - osa-proxy-nuget-config: osa-proxy/package-manager/config-nuget.md
-            - osa-proxy-nuget-config: osa-proxy/package-manager/config-nuget.en.md
-            - osa-proxy-pypi-config: osa-proxy/package-manager/config-pypi.md
-            - osa-proxy-pypi-config: osa-proxy/package-manager/config-pypi.en.md
+        - osa-proxy-maven-config: osa-proxy/config-maven.md
+        - osa-proxy-maven-config: osa-proxy/config-maven.en.md
+        - osa-proxy-npm-config: osa-proxy/config-npm.md
+        - osa-proxy-npm-config: osa-proxy/config-npm.en.md
+        - osa-proxy-nuget-config: osa-proxy/config-nuget.md
+        - osa-proxy-nuget-config: osa-proxy/config-nuget.en.md
+        - osa-proxy-pypi-config: osa-proxy/config-pypi.md
+        - osa-proxy-pypi-config: osa-proxy/config-pypi.en.md
     - sca:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md
