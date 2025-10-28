@@ -16,7 +16,7 @@ This section provides an overview of the core services used by the system.
 - **Index-proxy** – enhances queries to the index (https://index.codescoring.ru) by adding supplementary data and headers;
 - **Migrate** – performs system configuration upon startup and updates the database schema;
 - **Osa-api** – facilitates interaction between the core system and the OSA plugin (installed in Sonatype Nexus Repository or JFrog Artifactory) via API;
-- **Osa-registation** – responsible for scanning and validating packages and container images for policy compliance;
+- **Osa-registration** – responsible for scanning and validating packages and container images for policy compliance;
 - **Pgbouncer** – manages and optimizes database connection requests;
 - **Psql** – a PostgreSQL client used for managing the database;
 - **Redis**  – a caching and message broker, providing data storage and component coordination;
