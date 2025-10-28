@@ -217,7 +217,7 @@ plugins:
           analysis-ignore-paths: "Пути анализа и исключения"
           scripts: "Скрипты для управления инсталляцией"
           variables-extended: "Переменные установки"
-          containers-description: "Основные службы"
+          containers-description: "Основные службы" 
           troubleshooting: "Диагностика неполадок"
           setup: "Настройка платформы"
           user-management: "Управление доступом"
