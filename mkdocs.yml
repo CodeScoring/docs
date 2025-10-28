@@ -68,6 +68,8 @@ plugins:
           analysis-ignore-paths: "Analysis paths and exceptions"
           scripts: "Scripts for platform managing"
           troubleshooting: "Troubleshooting"
+          variables-extended: "Installation variables"
+          containers-description: "Main services"
           how-to: "Getting started with on-premise"
           activation: "System activation"
           user-profile: "Configuring user profile"
@@ -172,8 +174,6 @@ plugins:
           vscode-changelog: "VS Code extension"
           intellij-changelog: "IntelliJ plugin"
           proxy-changelog: "OSA Proxy"
-          variables-extended: "Variable Definitions"
-          containers-description: "Service Overview"
         ru:
           home: "Главная"
           functionality: "Функциональность"
@@ -299,8 +299,8 @@ plugins:
           vscode-changelog: "Расширение для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
           proxy-changelog: "OSA Proxy"
-          variables-extended: "Описание пременных"
-          containers-description: "Описание служб"
+          variables-extended: "Переменные установки"
+          containers-description: "Основные службы"
   - print-site:
       exclude:
         - index.md
