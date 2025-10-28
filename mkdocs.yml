@@ -74,8 +74,6 @@ plugins:
           troubleshooting: "Troubleshooting"
           variables-extended: "Installation variables"
           containers-description: "Main services"
-          how-to: "Getting started with on-premise"
-          activation: "System activation"
           setup: "Platform setup"
           user-management: "Access management"
           activation: "Activating system"
@@ -218,6 +216,8 @@ plugins:
           postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
           scripts: "Скрипты для управления инсталляцией"
+          variables-extended: "Переменные установки"
+          containers-description: "Основные службы"
           troubleshooting: "Диагностика неполадок"
           setup: "Настройка платформы"
           user-management: "Управление доступом"
@@ -336,8 +336,6 @@ plugins:
           vscode-changelog: "Плагин для VS Code"
           intellij-changelog: "Плагин для IntelliJ"
           proxy-changelog: "OSA Proxy"
-          variables-extended: "Переменные установки"
-          containers-description: "Основные службы"
   - print-site:
       exclude:
         - index.md
