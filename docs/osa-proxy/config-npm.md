@@ -46,9 +46,9 @@ npm:
 **Обновлённый файл .npmrc:**
 
 ```textmate
-registry=https://cs-proxy.domain.ru/arti-npm
-//cs-proxy.domain.ru/arti-npm/:_password=1NHTGVrUnJQ
-//cs-proxy.domain.ru/arti-npm/:username=asdf
-//cs-proxy.domain.ru/arti-npm/:email=asdf@domain.ru
-//cs-proxy.domain.ru/arti-npm/:always-auth=true
+registry=https://{osa-proxy-url}/arti-npm
+//{osa-proxy-url}/arti-npm/:_password=1NHTGVrUnJQ
+//{osa-proxy-url}/arti-npm/:username=asdf
+//{osa-proxy-url}/arti-npm/:email=asdf@domain.ru
+//{osa-proxy-url}/arti-npm/:always-auth=true
 ```
