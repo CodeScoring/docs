@@ -25,7 +25,7 @@ This section provides a description of the variables used during platform setup,
      DJANGO_CSRF_TRUSTED_ORIGINS=http://localhost:18000,https://localhost:8081,https://external_ip:8081
   ```
 
-CodeScoring uses [Nginx](https://nginx.org/en/docs/) for system domain configuration.
+CodeScoring system utilizes [Nginx](https://nginx.org/en/docs/) for request routing across its components.
 
 - **NGINX_HOST** – specifies the hostname for system accessibility;
 - **NGINX_PORT** – specifies the port for system accessibility;
