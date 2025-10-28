@@ -3,7 +3,18 @@ hide:
  -footer
 ---
 
-# JFrog OSA Changelog
+# JFrog plugin changelog
+
+### [2025.43.0] - 2025-10-23
+
+#### Added
+
+- Implemented non-blocking `delayed` status
+
+#### Fixed
+
+- Fixed a bug with duplicated requests for non-blocked packages
+- Fixed an incorrect transition of Circuit Breaker to the OPEN state when the server silently closes connections from the plugin's connection pool
 
 ### [2025.32.0] - 2025-08-06
 
