@@ -119,8 +119,14 @@ plugins:
           platform-osa: "Working with OSA in the platform"
           osa-proxy: "OSA Proxy"
           osa-proxy-general: "Overview"
-          osa-proxy-config: "Service configuration"
           osa-proxy-protocols: "Supported protocols"
+          osa-proxy-config: "Service configuration"
+          osa-proxy-installation: "Service deployment"
+          osa-proxy-maven-config: "Maven configuration"
+          osa-proxy-npm-config: "npm configuration"
+          osa-proxy-nuget-config: "NuGet configuration"
+          osa-proxy-pypi-config: "PyPI configuration"
+          osa-proxy-metrics: "Metrics"
           ide: "IDE integrations"
           ide-general: "General description"
           vscode-sca: "VS Code plugin"
@@ -261,8 +267,14 @@ plugins:
           platform-osa: "Работа с OSA в платформе"
           osa-proxy: "Сервис OSA Proxy"
           osa-proxy-general: "Общее описание"
-          osa-proxy-config: "Настройка сервиса"
           osa-proxy-protocols: "Поддерживаемые протоколы"
+          osa-proxy-config: "Настройка сервиса"
+          osa-proxy-installation: "Установка сервиса"
+          osa-proxy-maven-config: "Настройка Maven"
+          osa-proxy-npm-config: "Настройка NPM"
+          osa-proxy-nuget-config: "Настройка NuGet"
+          osa-proxy-pypi-config: "Настройка PyPI"
+          osa-proxy-metrics: "Метрики"
           ide: "Интеграция с IDE"
           ide-general: "Общее описание"
           vscode-sca: "Плагин для VS Code"
@@ -481,8 +493,21 @@ nav:
         - osa-proxy-general: osa-proxy/index.en.md
         - osa-proxy-config: osa-proxy/config.md
         - osa-proxy-config: osa-proxy/config.en.md
+        - osa-proxy-installation: osa-proxy/installation.md
+        - osa-proxy-installation: osa-proxy/installation.en.md
         - osa-proxy-protocols: osa-proxy/protocols.md
         - osa-proxy-protocols: osa-proxy/protocols.en.md
+        - osa-proxy-metrics: osa-proxy/metrics.md
+        - osa-proxy-metrics: osa-proxy/metrics.en.md
+        - osa-proxy-package-managers:
+            - osa-proxy-maven-config: osa-proxy/package-manager/config-maven.md
+            - osa-proxy-maven-config: osa-proxy/package-manager/config-maven.en.md
+            - osa-proxy-npm-config: osa-proxy/package-manager/config-npm.md
+            - osa-proxy-npm-config: osa-proxy/package-manager/config-npm.en.md
+            - osa-proxy-nuget-config: osa-proxy/package-manager/config-nuget.md
+            - osa-proxy-nuget-config: osa-proxy/package-manager/config-nuget.en.md
+            - osa-proxy-pypi-config: osa-proxy/package-manager/config-pypi.md
+            - osa-proxy-pypi-config: osa-proxy/package-manager/config-pypi.en.md
     - sca:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md

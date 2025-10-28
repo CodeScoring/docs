@@ -3,9 +3,9 @@ hide:
 - footer
 ---
 
-## Metrics
+# Metrics
 
-Platform metrics are available in **CS Proxy** at `{platform-url}/actuator/metrics` in JSON format, and also in Prometheus format at `{platform-url}/actuator/prometheus`.
+Metrics are available in **OSA Proxy** at `{osa-proxy-url}/actuator/metrics` in JSON format, and also in Prometheus format at `{platform-url}/actuator/prometheus`.
 
 These metrics are collected for each repository type (`maven`, `pypi`, `nuget`, `npm`) and allow for detailed tracking of incoming requests to proxy repositories.
 
