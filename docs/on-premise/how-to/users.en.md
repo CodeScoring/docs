@@ -35,7 +35,9 @@ The session time for an inactive user is limited. By default, a user's session e
 
 The environment variable (in seconds) `SESSION_COOKIE_AGE` is available for configuring the session lifetime.
 
-Modifying `username` or `password` of users from external identity providers is prohibited.
+!!! warning "Important"
+
+        Modifying `username` or `password` of users from external identity providers is prohibited.
 
 ## Separation of access levels
 
