@@ -125,7 +125,7 @@ Variables for configuring [Celery](/on-premise/containers-description) worker se
 - **CELERY_MEDIA_WORKER_MAX_CONCURRENCY** – specifies the maximum number of tasks a Celery worker responsible for processing media tasks can process. This parameter is used to prevent system overload when a large number of media tasks are present. Default value: `4`;
 - **USE_SMART_FILTERS** – enables the use of "smart filters" in Celery. These filters allow for more flexible control over task execution order. Available values: `True` or `False`. Default value: `True`.
 
-The following variables configure data archiving for the CodeScoring system service - OSA Proxy. 
+The following variables configure data archiving for the CodeScoring system service - OSA Proxy.
 
 !!! note "Variables that are commented out"
 
