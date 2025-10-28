@@ -5,6 +5,27 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.37.5] - 2025-10-27
+
+#### Added
+
+- The maximum number of elements per page in the API is now controlled by the environment variable `PLATFORM_API_MAX_PAGE_SIZE`, the default value is 100. Exceeding this value in the request will cause an error.
+
+#### Fixed
+
+- <span class="module-tag osa">OSA</span> Optimized loading of images from registries
+- Optimized the API request for getting project dependencies
+
+### [2025.37.4] - 2025-10-15
+
+#### Fixed
+
+- Fixed an issue where duplicate email notifications and Jira issues were generated for policies with the same project in the group and in policy actions
+- Fixed processing of policy conditions based on the CVSS3 Severity criterion
+- Fixed a 500 error for certain policy stage parameters
+- Fixed policy behavior for the "PURL exactly matches" condition
+- Fixed an issue with Jira tasks priority setting
+
 ### [2025.37.3] - 2025-10-07
 
 #### Fixed

@@ -22,7 +22,7 @@ hide:
       </a>
     </h2>
     <div class="hero-buttons">
-      <a href="/on-premise/server-requirements/" class="btn btn-primary">Начать работу</a>
+      <a href="/on-premise/server-requirements/" class="btn btn-primary">Руководство администратора</a>
       <a href="/osa/" class="btn btn-secondary">Руководство пользователя</a>
     </div>
   </div>

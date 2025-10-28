@@ -1,3 +1,4 @@
+
 /* Светлая тема */
 [data-md-color-scheme="default"] {
   --md-primary-fg-color: #2d2d2d;
@@ -10,6 +11,8 @@
   --md-primary-fg-color: #2d2d2d;
   --md-primary-fg-color--light: #ff3d6c;
   --md-primary-fg-color--dark: #ff3d6c;
+  --md-default-fg-color: #e0e0e0; /* основной текст чуть светлее */
+  --md-default-fg-color--light: #f5f5f5; /* заголовки и второстепенный текст */
 }
 
 .md-typeset a {
@@ -64,7 +67,6 @@
 .md-nav__item .md-nav__link--active {
   color: #ff3d6c !important;  /* розовый */
   text-decoration: none !important;
-  font-weight: 600;
 }
 
 .md-nav__link:hover,
@@ -139,7 +141,7 @@
 .md-sidebar[data-md-type="navigation"] .md-nav__item--open > .md-nav__link,
 .md-sidebar[data-md-type="navigation"] .md-nav__link[aria-expanded="true"] {
   color: #ff3d6c !important;
-  font-weight: 600;
+  font-weight: 500 !important;
 }
 
 .md-sidebar[data-md-type="navigation"] .md-nav__item--active > .md-nav__link::before,
@@ -206,7 +208,6 @@
   scrollbar-width: thin;
   scrollbar-color: #ff3d6c transparent;
 }
-
 
 /* ====== Футер ====== */
 
@@ -327,3 +328,5 @@
   -webkit-mask-image: url('/assets/icons/secrets.svg');
   background-image: url('/assets/icons/secrets.svg'), linear-gradient(currentColor, currentColor);
 }
+
+
