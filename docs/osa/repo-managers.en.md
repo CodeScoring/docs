@@ -34,7 +34,7 @@ On the view page you can see a list of repositories with the following parameter
 - **Last request at** - date and time of the last request to check components.
 
 !!! note "Repository manager data update process"
-    At the **17th minute of every hour**, the system checks all connected repository managers.  
+    At the **17th minute of every hour**, the system checks all connected repository managers.
     If the connection is successful, it loads and updates the list of repositories for each available manager. Alternatively, the list can be updated manually.
 
 You can see the list of packages and images from connected repositories in the `OSA -> Packages` and `OSA -> Container Images` sections, and the list of requests for verification in the `OSA -> Requests` section.
