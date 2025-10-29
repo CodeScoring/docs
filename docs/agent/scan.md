@@ -12,6 +12,7 @@ hide:
 - `scan image` – [сканирование контейнерного образа](/agent/scan-docker);
 - `scan bom` – [сканирование SBOM](/agent/scan-bom);
 - `scan <technology>` - [сканирование директории с применением настроек для указанной технологии](/agent/scan-technology);
+- `scan build` – [сканирование сборки](agent/scan-build).
 
 ## Опции запуска
 
