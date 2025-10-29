@@ -30,9 +30,9 @@ The following actions are available for each entry in the project list:
 - **deleting a group** - deleting a group with a preliminary confirmation of the operation from the user.
 
 !!! Warning "Access"
-    To perform actions, the user must have the appropriate permissions. A description of the powers is provided on [page](/on-premise/how-to/users/#_5 ).
+    To perform actions, the user must have the appropriate permissions. A description of the permissions is provided on [page](/on-premise/how-to/users/#_5 ).
 
-## Project Group page
+## Project group page
 
 ### General statistics for the group
 
