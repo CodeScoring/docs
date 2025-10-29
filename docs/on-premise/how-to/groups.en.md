@@ -7,7 +7,7 @@ hide:
 
 **Groups** are used to join [users](/on-premise/how-to/users.en) and associate them with specific projects. This allows to conveniently manage mass access to projects in the system.
 
-Groups are managed in the `Settings -> Groups` section. You can go to the group creation form by clicking the **Create new** button. In the form, you must fill in the field **Name** and optionally specify a group description.
+Groups are managed in the `Settings -> Groups` section. You can go to the group creation form by clicking the **Create new** button. In the form, you must fill in the field **Name** and optionally specify a group description and icon color.
 
 ## Configuring groups
 
