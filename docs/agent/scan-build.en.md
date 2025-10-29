@@ -53,12 +53,14 @@ As a result of the work, the agent displays one of three codes:
 
 ## Сommand parameters
 
-The **scan build** command has four unique parameters, in addition to [general scan command settings](/agent/scan.en/#launch-options):
+The **scan build** command has six unique parameters, in addition to [general scan command settings](/agent/scan.en/#launch-options):
 
 - `--build-result` – input is the result of the previous build process, including compiled artifacts;
 - `--lib-versions` – path to a JSON file with a list of versions of the libraries being analyzed;
 - `--output` – path to a file where the scan results will be saved;
 - `--unresolved-file` – path to a file where information about libraries with unresolved versions will be saved.
+- `--branch-or-tag` – a reference to a branch or repository tag. Format `^refs/(heads|tags)/.+` (e.g. `refs/tags/v1.0`);
+- `--commit` – specifying the commit hash.
 
 For a summary of available command options and usage instructions, you can call the command with the `-h, --help` flag.
 

@@ -35,7 +35,7 @@ To scan only one file, without processing nested directories or other manifests,
 
 The **scan file** command has three unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
 
-- `--branch-or-tag` – a reference to a branch or repository tag (e.g. `refs/tags/v1.0`);
+- `--branch-or-tag` – a reference to a branch or repository tag. Format `^refs/(heads|tags)/.+` (e.g. `refs/tags/v1.0`);
 - `--commit` – specifying the commit hash;
 - `--parser` – the parser to use.
 

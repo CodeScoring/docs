@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Scanning a container image
 
 The agent supports image scanning functionality in the OCI and Docker standards and can be launched in one of the following ways, indicating:
@@ -71,9 +72,11 @@ When scanning a file system, you can use the `--ignore` option to exclude specif
 
 ## Command parameters
 
-The **scan image** command has two unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
+The **scan image** command has four unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
 
 - `--hash` – specifying the image hash;
 - `--scan-files` – scanning files in the image.
+- `--branch-or-tag` – a reference to a branch or repository tag. Format `^refs/(heads|tags)/.+` (e.g. `refs/tags/v1.0`);
+- `--commit` – specifying the commit hash.
 
 For a summary of the available command parameters and usage instructions, you can call the command with the `-h, --help` flag.
