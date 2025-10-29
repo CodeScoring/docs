@@ -36,4 +36,4 @@ To scan SBOM, you must specify the path to it when running the command.
 The **scan bom** command has two unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
 
 - `--branch-or-tag` – a reference to a branch or repository tag. Format `^refs/(heads|tags)/.+` (e.g. `refs/tags/v1.0`);
-- `--commit` – specifying the commit hash;
+- `--commit` – specifying the commit hash.

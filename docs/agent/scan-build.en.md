@@ -60,7 +60,7 @@ The **scan build** command has six unique parameters, in addition to [general sc
 - `--output` – path to a file where the scan results will be saved;
 - `--unresolved-file` – path to a file where information about libraries with unresolved versions will be saved.
 - `--branch-or-tag` – a reference to a branch or repository tag. Format `^refs/(heads|tags)/.+` (e.g. `refs/tags/v1.0`);
-- `--commit` – specifying the commit hash;
+- `--commit` – specifying the commit hash.
 
 For a summary of available command options and usage instructions, you can call the command with the `-h, --help` flag.
 
