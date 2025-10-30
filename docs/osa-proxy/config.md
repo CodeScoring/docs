@@ -96,6 +96,7 @@ hide:
 !!! note "Особенности работы в Nexus Repository и JFrog Artifactory"
 
     - Для JFrog Artifactory рекомендуется выставить `Custom Base URL` и использовать его в поле `registry` для корректной замены ссылок на пакеты внутри манифестов;
+    - В конфигурации `пакетный менеджер` -> `jfrog` -> `OSA proxy` -> `internet`, в дополнительных настройках репозитория JFrog необходимо выставить флаг `Bypass HEAD requests`.
     - Для Nexus Repository идентичного функционала нет, в манифестах будет использован хост и порт (если указан) из запроса. При наличии `reverse proxy` рекомендуется использовать ссылку на него. Например: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
 ## Дополнительные настройки
@@ -151,4 +152,19 @@ Circuit breaker (автоматический выключатель) для `co
                   trustedX509Certificates:
                     - /usr/local/share/ca-certificates/solarrt.crt
                     - /etc/ssl/certs/ca-certificates.crt
+    ```
+### Добавление http proxy
+
+!!! example "Пример настройки http proxy"
+
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          httpclient:
+            proxy:
+              host: proxy.host.ru
+              username: 'username'
+              port: 9091
+              password: 'password'
     ```

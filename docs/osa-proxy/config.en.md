@@ -96,6 +96,7 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
 !!! note "Specifics of working in Nexus Repository and JFrog Artifactory"
 
     - For JFrog Artifactory, it is recommended to set a `Custom Base URL` and use it in the `registry` field to correctly replace package references within manifests.
+    - In the configuration `package manager` -> `jfrog` -> `OSA proxy` -> `internet`, in the additional JFrog repository settings, it is necessary to set the `Bypass HEAD requests flag`.
     - There is no identical functionality for Nexus Repository; the host and port (if specified) from the request will be used in manifests. If a `reverse proxy` is available, it is recommended to use its link. For example: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
 ## Additional settings
@@ -151,4 +152,20 @@ Retry and circuit breaker configuration can be overridden by setting [the follow
                   trustedX509Certificates:
                     - /usr/local/share/ca-certificates/solarrt.crt
                     - /etc/ssl/certs/ca-certificates.crt
+    ```
+
+### Adding http proxy
+
+!!! example "Example of http proxy configuration"
+
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          httpclient:
+            proxy:
+              host: proxy.host.ru
+              username: 'username'
+              port: 9091
+              password: 'password'
     ```
