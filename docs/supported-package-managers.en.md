@@ -39,17 +39,13 @@ The best result will be achieved by combining the main manifest file and the cor
 
 For unified dependency description, CodeScoring uses the **[Package URL (PURL)](https://github.com/package-url/purl-spec)** standard.
 
-PURL is used when analyzing SBOMs (via the [agent command](/agent/scan-bom.en) or [import into the platform](/on-premise/how-to/projects.en/#working-with-sbom-within-a-project)) to recognize and normalize the components listed in reports.  
-
-In the SBOM, the component identifier is provided in the `purl` field.
-
 !!! example "PURL example"
 
     ```
     pkg:maven/org.apache.logging.log4j/log4j-core@2.17.2
     ```
 
-CodeScoring recognizes and supports the following PURL types according to the specification:
+When analyzing SBOM via the [agent command](/agent/scan-bom.en) or [importing into the platform](/on-premise/how-to/projects.en/#sbom), CodeScoring recognizes and supports the following PURL types according to the specification:
 
 | PURL type      | Description | Specification |
 |----------------|-------------|---------------|
@@ -78,6 +74,9 @@ CodeScoring recognizes and supports the following PURL types according to the sp
 | `swid`         | **SWID Tags (Software Identification Tags)**          | [SWID Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/swid-definition.md) |
 
 Each component with a PURL is classified by type, which CodeScoring recognizes when importing SBOM files. The type is indicated in the `type` field within the component description.
+
+!!! note "Difference between PURL and component types"
+    A component type describes its functional role within a product—for example, a library, framework, or firmware. A PURL type, in turn, defines the ecosystem and source from which the component was obtained.
 
 !!! example "SBOM component example"
 
