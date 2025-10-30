@@ -35,10 +35,17 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 
 The best result will be achieved by combining the main manifest file and the corresponding lock file, if provided by the package manager mechanism.
 
-## PURL Types and Components 
+## PURL Types and Components
 
 For unified dependency description, CodeScoring uses the **[Package URL (PURL)](https://github.com/package-url/purl-spec)** standard.
 
+<<<<<<< HEAD
+=======
+PURL is used when analyzing SBOMs (via the [agent command](/agent/scan-bom.en) or [import into the platform](/on-premise/how-to/projects.en/#working-with-sbom-within-a-project)) to recognize and normalize the components listed in reports.
+
+In the SBOM, the component identifier is provided in the `purl` field.
+
+>>>>>>> 9e1ac64d50a3358811e461b95cf812b89fc3c60c
 !!! example "PURL example"
 
     ```
