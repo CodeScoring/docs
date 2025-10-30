@@ -57,7 +57,7 @@ After installing the **CodeScoring.OSA** plugin in the `System -> Capabilities` 
 This extension allows you to set general plugin settings for working with the **CodeScoring** platform:
 
 - **CodeScoring URL** – address of the on-premise platform of **CodeScoring**;
-- **CodeScoring Token** – key for authorizing API calls (*Created from CodeScoring section `Profile -> Home`);
+- **CodeScoring Token** – key for authorizing API calls (Created from CodeScoring section `Profile -> Home`);
 - **HttpClient Connection Pool Size** – number of available connections. This parameter allows you to control the number of parallel requests to speed up scanning;
 - **Timeout for CodeScoring requests in seconds** – time to wait for a response from the platform (in seconds, default value is **1800**);
 - **HTTP Proxy Host** – proxy server address. Used if it is not possible to establish a direct connection between NXRM and CodeScoring;
