@@ -168,7 +168,7 @@ For Python projects the command used is:
 pipdeptree
 ```
 
-The output records the list of installed dependencies and their versions from the dependency tree. 
+The output records the list of installed dependencies and their versions from the dependency tree.
 For projects organized around `requirements.txt` and `Pipfile`, the environment scanned by pipdeptree will be filtered based on the contents of these manifests to display the relevant set of dependencies.
 For projects with `pyproject.toml`, filtering will be performed by `project.name`.
 The results reference a pseudo file `codescoring_pipdeptree`.
