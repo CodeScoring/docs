@@ -21,6 +21,7 @@ hide:
 | | Poetry | `pyproject.toml`<br/>`poetry.lock`                                                                                                                                                                    |
 | | Pipenv | `Pipfile`<br/>`Pipfile.lock`                                                                                                                                                                          |
 | | Conda | `environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml`                                                                                                                                                 |
+| | Uv | `pyproject.toml`<br/>`uv.lock`                                                                                                                                                                        |
 | **C и C++** | Conan | `conanfile.txt`<br/>`conan.lock`<br/>`conanfile.py`                                                                                                                                                   |
 | | GCC, Clang, CMake, Make и др. | [Сканирование сборки](/agent/scan-build/)                                                                                                                                                             |
 | **Go** | Go Modules | `go.mod`<br/>`go.sum`                                                                                                                                                                                 |
