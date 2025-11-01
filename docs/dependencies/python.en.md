@@ -47,7 +47,7 @@ This command will update the dependencies specified in `pyproject.toml` and crea
 
 ### Creating the `pipdeptree.txt` file
 
-When a `pipdeptree.txt` file is detected, the agent will analyze its contents as the output of the pipdeptree utility in the standard dependency tree format. 
+When a `pipdeptree.txt` file is detected, the agent will analyze its contents as the output of the pipdeptree utility in the standard dependency tree format.
 To create the file, you can use the following commands:
 
 ```bash
