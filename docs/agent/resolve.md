@@ -25,6 +25,7 @@ hide:
 - `--composer-resolve` / `--composer-path` / `--composer-args`
 - `--pnpm-resolve` / `--pnpm-path` / `--pnpm-args`
 - `--conda-resolve` / `--conda-lock-path` / `--conda-args`
+- `--pipdeptree-resolve` / `--pipdeptree-path` / `--pipdeptree-args`
 
 Пример команды:
 
@@ -158,6 +159,19 @@ pip freeze
 ```
 
 Результат команды фиксирует список установленных зависимостей и их версии. В результатах указывается фиктивный файл `codescoring_pip_for_freeze`.
+
+### pipdeptree
+
+Для Python-проектов используется команда:
+
+```bash
+pipdeptree
+```
+
+Результат команды фиксирует список установленных зависимостей и их версии в дереве зависимостей проекта. 
+Для проектов организованных вокруг `requirements.txt` и `Pipfile` по содержимому этих манифестов в целях отображения релевантного набора зависимостей будет совершена фильтрация среды которую сканирует pipdeptree.
+Для проектов с `pyproject.toml` фильтрация будет проведена по `project.name`.
+В результатах указывается фиктивный файл `codescoring_pipdeptree`.
 
 ### Poetry
 
