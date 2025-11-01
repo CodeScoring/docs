@@ -173,6 +173,13 @@ For projects organized around `requirements.txt` and `Pipfile`, the environment 
 For projects with `pyproject.toml`, filtering will be performed by `project.name`.
 The results reference a pseudo file `codescoring_pipdeptree`.
 
+In order to prevent the dependencies of the main project manifest (e.g., requirements.txt) from appearing in the analysis results alongside the pipdeptree analysis results, it is recommended to exclude this manifest from scanning:
+```bash
+johnny scan python . \
+  --pipdeptree-resolve \
+  --ignore "requirements.txt"
+```
+
 ### Poetry
 
 Main manifest used for dependency resolution: `pyproject.toml`.
