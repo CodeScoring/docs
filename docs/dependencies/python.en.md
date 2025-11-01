@@ -63,7 +63,7 @@ In `pyproject.toml`, the following entry can be specified in the workspaces sect
 ```toml
 [tool.uv.workspace]
 members = [
-    "packages/core", 
+    "packages/core",
     "packages/api"
 ]
 ```

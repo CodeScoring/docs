@@ -61,7 +61,7 @@ hide:
 ```toml
 [tool.uv.workspace]
 members = [
-    "packages/core", 
+    "packages/core",
     "packages/api"
 ]
 ```
