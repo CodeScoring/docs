@@ -20,16 +20,16 @@ hide:
 - Added display of applied filters indicator
 - <span class="module-tag sca">SCA</span> Added `sca-tasks` queue to celery worker
 - <span class="module-tag sca">SCA</span> Added API set for displaying project data in SCA aggregated by groups, details in `/api/swagger`
-  - `/api/sca/groups/dashboard/` — aggregated data for all groups
-  - `/api/sca/groups/async_csv/` — CSV export with support for user's selected language
-  - `/api/sca/groups/{id}/` — aggregated data for a specific group, including distribution by technology
-  - `/api/sca/groups/{id}/by_components/` — dependency and vulnerability statistics for the group
-  - `/api/sca/groups/{id}/by_licenses/` — license statistics
-  - `/api/settings/groups/{id}/bulk_add_projects/` — bulk add projects to the group
-  - `/api/settings/groups/{id}/bulk_remove_projects/` — bulk remove projects from the group
-  - `/api/analyses/groups/sca/start/` — start analysis
-  - `/api/analyses/groups/sca/status/` — status of the last analysis
-  - `/api/analyses/groups/sca/cancel/` — cancel the last analysis
+    - `/api/sca/groups/dashboard/` — aggregated data for all groups
+    - `/api/sca/groups/async_csv/` — CSV export with support for user's selected language
+    - `/api/sca/groups/{id}/` — aggregated data for a specific group, including distribution by technology
+    - `/api/sca/groups/{id}/by_components/` — dependency and vulnerability statistics for the group
+    - `/api/sca/groups/{id}/by_licenses/` — license statistics
+    - `/api/settings/groups/{id}/bulk_add_projects/` — bulk add projects to the group
+    - `/api/settings/groups/{id}/bulk_remove_projects/` — bulk remove projects from the group
+    - `/api/analyses/groups/sca/start/` — start analysis
+    - `/api/analyses/groups/sca/status/` — status of the last analysis
+    - `/api/analyses/groups/sca/cancel/` — cancel the last analysis
 - Added `name_and_version` key for all dependency APIs, containing package name and version; now displayed in the UI
 - <span class="module-tag osa">OSA</span> Added column and filter "Request initiator" on the `OSA -> Requests` page
 - Added examples with real filters for `/bulk_actions/` endpoints in Swagger
@@ -67,18 +67,18 @@ hide:
 - Renamed field "Project" to "Projects" with multi-select support on vulnerability and alert list pages
 - Changed display formats for "LDAP Server" and "OIDC Server" columns on user list page
 - Changed returned `content-type` for API set:
-  - `/api/analyses/container_images/history/{id}/bom/export/`
-  - `/api/analyses/projects/history/{id}/bom/export/`
-  - `/api/container_images/{id}/bom/export/`
-  - `/api/sca/projects/{id}/bom/export/`
-  - `/api/media/download/`
+    - `/api/analyses/container_images/history/{id}/bom/export/`
+    - `/api/analyses/projects/history/{id}/bom/export/`
+    - `/api/container_images/{id}/bom/export/`
+    - `/api/sca/projects/{id}/bom/export/`
+    - `/api/media/download/`
 - Updated API access rights (current rights can be seen in [user management section](on-premise/how-to/users/)):
-  - `/api/integration/run_analysis`
-  - `/api/integration/run_secrets_analysis`
-  - `/api/analyses/projects/sca`
-  - `/api/analyses/projects/secrets`
-  - `/api/analyses/projects/clones`
-  - `/api/analyses/projects/authors`
+    - `/api/integration/run_analysis`
+    - `/api/integration/run_secrets_analysis`
+    - `/api/analyses/projects/sca`
+    - `/api/analyses/projects/secrets`
+    - `/api/analyses/projects/clones`
+    - `/api/analyses/projects/authors`
 - <span class="module-tag tqi">TQI</span> Improved data display in pop-up on charts hover
 - Changed content of modal window for new version notification
 - Redesigned side menu structure and content
