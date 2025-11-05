@@ -22,7 +22,7 @@ hide:
 - Fixed different result in processing `npm` with `--npm-resolve` and with existed `package-lock.json`
 - Removed duplicates vulnerabilities in reachability graph
 - Fixed printing path to lock file when using local resolve
-- Fixed printing policy alerts 
+- Fixed printing policy alerts
 - Fixed processing of `gradle-dependency-tree.txt`
 - Fixed processing of comments in some manifest types
 - Removed duplicates in `scan image` command with `--scan-files` flag
