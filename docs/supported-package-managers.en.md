@@ -105,11 +105,12 @@ Supported component types:
 
 As part of the OSA module, the platform supports analysing system packages of the following formats:
 
-- [Debian](https://www.debian.org/distrib/packages)
-- [Alpine](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html)
-- [RPM](https://rpm.org)
-- [AstraLinux](https://astralinux.ru/)
-- [AltLinux](https://packages.altlinux.org/en/sisyphus/)
+- [Debian](https://www.debian.org/distrib/packages);
+- [Alpine](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html);
+- [RPM](https://rpm.org);
+- [Astra Linux](https://astralinux.ru/);
+- [ALT Linux](https://packages.altlinux.org/en/sisyphus/);
+- [RED OS](https://redos.red-soft.ru/).
 
 ## Resolution mechanism in the absence of a lock file
 

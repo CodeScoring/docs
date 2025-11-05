@@ -105,11 +105,12 @@ hide:
 
 В рамках работы модуля OSA платформа поддерживает разбор системных пакетов следующих форматов:
 
-- [Debian](https://www.debian.org/distrib/packages)
-- [Alpine](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html)
-- [RPM](https://rpm.org)
-- [AstraLinux](https://astralinux.ru/)
-- [AltLinux](https://packages.altlinux.org/en/sisyphus/)
+- [Debian](https://www.debian.org/distrib/packages);
+- [Alpine](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html);
+- [RPM](https://rpm.org);
+- [Astra Linux](https://astralinux.ru/);
+- [ALT Linux](https://packages.altlinux.org/en/sisyphus/);
+- [РЕД ОС](https://redos.red-soft.ru/).
 
 ## Механизм резолва при отсутствии lock-файла
 
