@@ -12,7 +12,7 @@ hide:
 - Added flags `--branch-or-tag` and `--commit` in `scan bom` command
 - Added support `workspaces` mechanism for `npm` and `pnpm`
 - Added unloading of the HasExploit flag to the `junit` and `gitlab` formats
-- Added vulnerability reachability analysis for `go`
+- Added vulnerability reachability analysis for `go` and `python`
 - Added support `uv` package manager for `python` ecosystem
 - Added using `dpkg` for define information about static libraries in `scan build` и `scan build ebpf` commands
 - Added support `pipdeptree` for `python` ecosystem
