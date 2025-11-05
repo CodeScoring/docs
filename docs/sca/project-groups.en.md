@@ -11,12 +11,12 @@ The list of groups can be viewed in the section `SCA -> Project Groups`. This se
 
 The following information is displayed for each group:
 
-- **Name** - the name of the group and the date of the last update of the project group settings;
-- **Projects** - the number of projects in the group;
-- **Alerts** - the total number of alerts related to the group's projects;
-- **Dependencies** - the total number of dependencies related to the group's projects;
-- **Unique vulnerabilities** - the number of unique vulnerabilities associated with the group's projects;
-- **Technologies** - the number and list of technologies related to the group's projects.
+- **Name** - name of the group and the date of the last update of the project group settings;
+- **Projects** - number of projects in the group;
+- **Alerts** - total number of alerts related to the group's projects;
+- **Dependencies** - total number of dependencies related to the group's projects;
+- **Unique vulnerabilities** - number of unique vulnerabilities associated with the group's projects;
+- **Technologies** - number and list of technologies related to the group's projects.
 
 ![Project groups list](/assets/img/project-groups.en.png)
 
@@ -25,12 +25,12 @@ The following information is displayed for each group:
 
 The following actions are available for each entry in the project list:
 
-- **start scanning group projects** - the scan is running for all projects in the group;
-- **group editing** - opens the page [**Settings -> Groups**](/on-premise/how-to/groups/);
-- **deleting a group** - deleting a group with a preliminary confirmation of the operation from the user.
+- **Start scanning group projects** - starts a scan for all projects in the group;
+- **Group editing** - opens the page [**Settings -> Groups**](/on-premise/how-to/groups/);
+- **Deleting a group** - deletes a group with a preliminary confirmation of the operation from the user.
 
 !!! Warning "Access"
-    To perform actions, the user must have the appropriate permissions. A description of the permissions is provided on [page](/on-premise/how-to/users/#_5 ).
+    To perform actions, the user must have the appropriate permissions. A description of permissions is provided in [section on managing user accounts](/on-premise/how-to/users/#_5 ).
 
 ## Project group page
 
