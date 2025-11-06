@@ -93,9 +93,10 @@ hide:
           registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
 
-!!! warning "Особенности работы в Nexus Repository и JFrog Artifactory"
+!!! note "Особенности работы в Nexus Repository и JFrog Artifactory"
 
     - Для JFrog Artifactory рекомендуется выставить `Custom Base URL` и использовать его в поле `registry` для корректной замены ссылок на пакеты внутри манифестов;
+    - В конфигурации `пакетный менеджер` -> `jfrog` -> `OSA proxy` -> `internet`, в дополнительных настройках репозитория JFrog необходимо выставить флаг `Bypass HEAD requests`.
     - Для Nexus Repository идентичного функционала нет, в манифестах будет использован хост и порт (если указан) из запроса. При наличии `reverse proxy` рекомендуется использовать ссылку на него. Например: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
 ## Дополнительные настройки
@@ -135,3 +136,35 @@ hide:
 Circuit breaker (автоматический выключатель) для `codeScoringApi` действует как механизм быстрого отказа. Он отслеживает частоту сбоев и, если она достигает 50% (рассчитывается по последним 20 вызовам), он «открывается» и предотвращает дальнейшие запросы в течение 30 секунд. Это дает нижестоящему сервису время на восстановление. После периода ожидания он переходит в «полуоткрытое» состояние, позволяя пройти 5 пробным вызовам, чтобы определить, восстановился ли сервис.
 
 Конфигурация Retry и Circuit Breaker может быть переопределена путем установки [следующих свойств](https://resilience4j.readme.io/docs/getting-started-3), например, для `codeScoringApi`.
+
+### Добавление truststore сертификатов
+
+!!! example "Пример добавления truststore сертификатов в application.yml"
+
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          server:
+            webflux:
+              httpclient:
+                ssl:
+                  trustedX509Certificates:
+                    - /usr/local/share/ca-certificates/solarrt.crt
+                    - /etc/ssl/certs/ca-certificates.crt
+    ```
+### Добавление http proxy
+
+!!! example "Пример настройки http proxy"
+
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          httpclient:
+            proxy:
+              host: proxy.host.ru
+              username: 'username'
+              port: 9091
+              password: 'password'
+    ```
