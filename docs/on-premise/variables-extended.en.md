@@ -88,7 +88,7 @@ The `app.env.template` file contains environment variables required to configure
 
 - **NODE_PATH** - specifies the directory used for containing `node_modules`. Value by default: `/jscpd/node_modules `;
 
-- **REQUESTS_CA_BUNDLE** and **SSL_CERT_FILE** - specifies the location of SSL-certificates used by the installation for secure communication: 
+- **REQUESTS_CA_BUNDLE** and **SSL_CERT_FILE** - specifies the location of SSL-certificates used by the installation for secure communication:
   ```bash
   REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
   ```
@@ -155,7 +155,7 @@ The `app.env.template` file contains environment variables required to configure
 
 The following variables configure data archiving for the CodeScoring system service - OSA. By default, the variables `OSA_ARCHIVE_THRESHOLD_DAYS, OSA_ARCHIVE_AUTO_CLEANUP_ENABLED, OSA_ARCHIVE_RETENTION_PERIOD_DAYS,` and `OSA_ARCHIVE_CHUNK_SIZE` are commented out. Uncomment them as needed to enable their use.
 
-- **OSA_ARCHIVE_THRESHOLD_DAYS** - specifies the number of days after which a package or container image that has not received requests will be archived. Default value: `14`; 
+- **OSA_ARCHIVE_THRESHOLD_DAYS** - specifies the number of days after which a package or container image that has not received requests will be archived. Default value: `14`;
 - **OSA_ARCHIVE_RETENTION_PERIOD_DAYS** - specifies the number of days that archive packages or container images will be stored before being deleted (when `OSA_ARCHIVE_AUTO_CLEANUP_ENABLED` is enabled). Default value: `30`;
 - **OSA_ARCHIVE_AUTO_CLEANUP_ENABLED** - Enables or disables automatic cleanup of OSA archive components. If set to `True`, the system automatically removes archived packages after the retention period specified in `OSA_ARCHIVE_RETENTION_PERIOD_DAYS`. If `False`, cleanup is performed manually. Default value: `False`.
 - **OSA_ARCHIVE_CHUNK_SIZE** - defines the size of "chunks" for processing archive components. This parameter can affect the performance and efficiency of the archiving/cleanup process. Default value: `1000`.
