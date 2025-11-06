@@ -15,7 +15,7 @@ hide:
 - Added new filtering options for the dependency graph: filtering by parents/children and by technology
 - <span class="module-tag tqi">TQI</span> Added display of merge commits count and changed lines in project and author tables, on project/author pages and in charts
 - <span class="module-tag tqi">TQI</span> Added option to run author analysis from the first commit
-- <span class="module-tag tqi">TQI</span> Added metrics “Code rate”, “Newness impact” and “Churn impact”
+- <span class="module-tag tqi">TQI</span> Added metrics “Code Rate”, “Newness Impact” and “Churn Impact”
 - <span class="module-tag tqi">TQI</span> Added “Code Rate” chart on the project page
 - Added autofocus for forms: authentication, policy settings, policy ignores, repository managers, registries, projects
 - Added indicator showing applied filters
@@ -25,7 +25,7 @@ hide:
 - <span class="module-tag sca">SCA</span> Added “Requirement” column in dependency and scan lists
 - <span class="module-tag sca">SCA</span> Added “Requirement” field to SCA PDF report
 - <span class="module-tag sca">SCA</span> Added “Groups” column to project list and CSV export
-- <span class="module-tag sca">SCA</span> Added “Maximum fixed version” field on dependency page
+- <span class="module-tag sca">SCA</span> Added “Max fixed version” field on dependency page
 - Added filters “Authors’ emails” and “Merged with” on the author merge rules page
 - <span class="module-tag secrets">Secrets</span> Added “Status” filter on project page
 - <span class="module-tag secrets">Secrets</span> Added “Status” filter on secrets list page
@@ -55,10 +55,10 @@ hide:
 - Added multi-select support in filters of vulnerabilities and alerts pages
 - Updated display formats of “LDAP Server” and “OIDC Server” fields on user list page
 - Fixed API content-type definitions in Swagger
-- Updated permissions for project analysis and view in CodeScoring.SCA and CodeScoring.Secrets, for more information see the [user management section](/on-premise/how-to/users.en/))
+- Updated permissions for project analysis and view in CodeScoring.SCA and CodeScoring.Secrets, see the [User Management](/on-premise/how-to/users.en/)) section for more details
 - <span class="module-tag tqi">TQI</span> Improved tooltip data display on project metric charts
 - Updated content of “New Version” modal
-- Reworked structure and contents of sidebar menu
+- Changed side menu structure and content
 - Changed policy blocking delay calculation to exact hours instead of days
 - Improved Russian translation quality
 - <span class="module-tag sca">SCA</span> Moved `sca-tasks` queue to celery worker
@@ -69,7 +69,7 @@ hide:
 - Optimized loading of author activity map
 - Fixed fields “Type” and “Authorization Type” on container registry edit page
 - Fixed formatting of dependency/vulnerability tables in PDF report
-- <span class="module-tag osa">OSA</span> Fixed deadlock during active OSA processing
+- <span class="module-tag osa">OSA</span> Fixed deadlock when scanning multiple packets with the same name but different qualifiers
 - <span class="module-tag sca">SCA</span> Improved SCA analysis performance
 - <span class="module-tag sca">SCA</span> Improved SBOM generation performance during SCA analysis
 - Fixed reset of “Source files” field after rescan
