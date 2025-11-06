@@ -81,7 +81,7 @@ hide:
     - `/api/analyses/projects/authors`
 - <span class="module-tag tqi">TQI</span> Improved data display in pop-up on charts hover
 - Changed content of modal window for new version notification
-- Redesigned side menu structure and content
+- Changed side menu structure and content
 - Simplified OIDC provider create/edit form
 - Changed policy block delay calculation — now uses exact hours
 - Changed way of getting filter values with constant values
@@ -94,7 +94,7 @@ hide:
 - Fixed table format in Dependencies section of the PDF report
 - Fixed table format in Vulnerabilities section of the PDF report
 - Fixed translations of menu items and UI terms
-- <span class="module-tag osa">OSA</span> Fixed deadlock during active module use
+- <span class="module-tag osa">OSA</span> Fixed deadlock when scanning multiple packets with the same name but different qualifiers
 - <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Optimized SCA and OSA analyses
 - Optimized SBOM generation
 - Fixed "Source Files" field reset on repeated project scan
