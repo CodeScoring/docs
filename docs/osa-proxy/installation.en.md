@@ -7,7 +7,7 @@ hide:
 
 Following the configuration of the `application.yml` file, the application can be deployed and executed either within a Docker container environment or orchestrated via a Helm chart for Kubernetes (k8s) deployments.
 
-**1. Docker container deployment:**
+## Docker container deployment
 
 To instantiate the application as a Docker container, execute the following command:
 
@@ -20,7 +20,7 @@ docker run -d \
 <registry-address>/cs-proxy:<tag>
 ```
 
-**2. Kubernetes deployment (Helm Chart):**
+## Kubernetes deployment (Helm Chart)
 
 For Kubernetes environments, the application can be deployed using the provided Helm chart, accessible at `https://{REGISTRY_URL}/repository/helm/`.
 
