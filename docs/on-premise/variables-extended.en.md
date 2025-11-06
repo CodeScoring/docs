@@ -98,6 +98,8 @@ The `app.env.template` file contains environment variables required to configure
   SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
   ```
 
+- **USE_SMART_FILTERS** - enables the use of "smart filters" in Celery. These filters allow for more flexible control over task execution order. Available values: `True` or `False`. Default value: `True`;
+
 - To enable proxy access for the installation to reach the internet or a version control system, uncomment and configure the necessary variables. Provide the proxy URL including the protocol, along with the username and password if necessary. For example:
     - **HTTP_PROXY**
       ```bash
@@ -111,8 +113,6 @@ The `app.env.template` file contains environment variables required to configure
       ```bash
       NO_PROXY=localhost,gitlab.domain.local
       ```
-
-- **USE_SMART_FILTERS** - enables the use of "smart filters" in Celery. These filters allow for more flexible control over task execution order. Available values: `True` or `False`. Default value: `True`.
 
 ### HUEY
 
