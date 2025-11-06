@@ -78,6 +78,8 @@ The `app.env.template` file contains environment variables required to configure
 
 - **ALLOWED_HOSTS** - specifies the allowed hosts for Django. Defines the permissible addresses from which Django can accept requests. If a host is not included in the list, Django rejects incoming requests. By default, all hosts are permitted `*`;
 
+- **DJANGO_CACHES_REDIS_URL** - the URL of the Redis server used as the Django caching system. Value by default: `redis://redis:6379/1`;
+
 - **JOHNNY_BIN** - specifies the directory path to the `JOHNNY` executable scanning agent. Value by default: `/agents/johnny-linux-amd64`;
 
 - **HASHER_BIN** - specifies the directory path to the `HASHER` executable agent, responsible for file hashing. Value by default: `/agents/hasher-linux-amd64`;
@@ -133,7 +135,6 @@ The `app.env.template` file contains environment variables required to configure
 
 **Redis** is an in-memory data store designed for caching and real-time data management. The following configuration variables define the parameters for interacting with the [Redis](/on-premise/containers-description) server:
 
-- **DJANGO_CACHES_REDIS_URL** - the URL of the Redis server used as the Django caching system. Value by default: `redis://redis:6379/1`;
 - **REDIS_BACKOFF_CAP** - specifies the maximum number of connection retry attempts in case of failure. If a connection cannot be established after this limit, an error will be returned. Default value: `5`;
 - **REDIS_BACKOFF_BASE** - base delay (in seconds) between retry attempts upon failure. Default value: `0.08`;
 - **REDIS_RETRIES** - specifies the total number of connection attempts to the `Redis` server. Default value: `5`;
