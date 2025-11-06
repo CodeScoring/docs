@@ -18,7 +18,7 @@ hide:
 - Added support workspaces mechanism for npm and pnpm
 - Added unloading of the HasExploit flag to the junit and gitlab formats
 - Added using `dpkg` for define information about static libraries in `scan build` и `scan build ebpf` commands
-- Added support `pipdeptree` for Python ecosystem
+- Added support `pipdeptree` for Python ecosystem via the `--pipdeptree-resolve` option
 - Added printing paths to manifest inside scanned image
 
 #### Changed
