@@ -27,7 +27,8 @@ The following actions are available for each entry in the project list:
 
 - **Start scanning group projects** - starts a scan for all projects in the group;
 - **Group editing** - opens the page [**Settings -> Groups**](/on-premise/how-to/groups/);
-- **Deleting a group** - deletes a group with a preliminary confirmation of the operation from the user.
+- **Deleting a group** - deletes a group with a preliminary confirmation of the operation from the user;
+- **Export to CSV** – exports aggregated group data to csv-file.
 
 !!! Warning "Access"
     To perform actions, the user must have the appropriate permissions. A description of permissions is provided in section [Managing user accounts](/on-premise/how-to/users/#_5 ).
