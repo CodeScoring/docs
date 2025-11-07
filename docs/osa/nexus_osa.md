@@ -57,13 +57,18 @@ nx-repository-view-*-*-{read,browse}
 Расширение позволяет задать общие настройки плагина для работы с платформой **CodeScoring**:
 
 - **CodeScoring URL** – адрес **on-premise** платформе **CodeScoring**;
-- **CodeScoring Token** – ключ для авторизации вызовов API (Создается из раздела `Профиль`*);
+- **CodeScoring Token** – ключ для авторизации вызовов API (Создается из раздела `Профиль`);
 - **HttpClient Connection Pool Size** – количество доступных соединений. Параметр позволяет управлять количеством параллельных запросов, чтобы ускорить сканирование;
+- **Timeout for CodeScoring requests in seconds** – время ожидания ответа от платформы (в секундах, по умолчанию значение **1800**);
 - **HTTP Proxy Host** – адрес прокси-сервера. Используется в случае, если нет возможности наладить прямое соединение между NXRM и CodeScoring;
 - **HTTP Proxy Port** – порт прокси-сервера;
 - **Block downloads in case of plugin or CodeScoring errors** – блокировка загрузки компонента при наличии ошибок от плагина или CodeScoring API.
 - **Custom message for blocked packages** – сообщение для пользователя при блокировке компонентов;
 - **Nexus URL for identification in CodeScoring** – адрес Nexus Repository Manager с протоколом для отображения результатов в платформе.
+
+!!! warning "Обязательные поля"
+
+    Поля **CodeScoring URL**, **CodeScoring Token**, **HttpClient Connection Pool Size**, **Timeout for CodeScoring requests in seconds** и **Nexus URL for identification in CodeScoring** являются обязательными к заполнению.
 
 ![CodeScoring capability config settings example](/assets/img/osa/capability_config_settings_example.png)
 
