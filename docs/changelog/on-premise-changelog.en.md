@@ -9,9 +9,9 @@ hide:
 
 #### Added
 
-- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Added vulnerability parsing for the RedOS ecosystem
 - <span class="module-tag sca">SCA</span> Added new section `SCA → Project Groups` with aggregated metrics and bulk analysis
 - <span class="module-tag sca">SCA</span> Added CSV export of aggregated SCA project data within a group
+- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Added component analysis for the RedOS ecosystem
 - Added new filtering options for the dependency graph: filtering by parents/children and by technology
 - <span class="module-tag tqi">TQI</span> Added display of merge commits count and changed lines in project and author tables, on project/author pages and in charts
 - <span class="module-tag tqi">TQI</span> Added option to run author analysis from the first commit
@@ -32,7 +32,6 @@ hide:
 - Added policy ignore section to PDF report
 - <span class="module-tag sca">SCA</span> Added “Parents” filter on dependencies page
 - Reworked `/health` endpoints in REST services and added checks for celery-beat and celery-worker
-- <span class="module-tag sca">SCA</span> Removed unicode encoding of text in SBOM files
 - Added links to specific CSPW vulnerabilities in Johnny reports
 - <span class="module-tag sca">SCA</span> Added filters on dependency vulnerabilities page
 - Added project link to notification about project creation
@@ -62,6 +61,7 @@ hide:
 - Changed policy blocking delay calculation to exact hours instead of days
 - Improved Russian translation quality
 - <span class="module-tag sca">SCA</span> Moved `sca-tasks` queue to celery worker
+- <span class="module-tag sca">SCA</span> Removed unicode encoding of text in SBOM files
 
 #### Fixed
 
