@@ -25,6 +25,7 @@ Dependency resolution parameters in the environment, paths to the package manage
 - `--composer-resolve` / `--composer-path` / `--composer-args`
 - `--pnpm-resolve` / `--pnpm-path` / `--pnpm-args`
 - `--conda-resolve` / `--conda-lock-path` / `--conda-args`
+- `--pipdeptree-resolve` / `--pipdeptree-path` / `--pipdeptree-args`
 
 Example command:
 
@@ -158,6 +159,27 @@ pip freeze
 ```
 
 The output records the list of installed dependencies and their versions. The results reference a pseudo file `codescoring_pip_for_freeze`.
+
+### pipdeptree
+
+For Python projects the command used is:
+
+```bash
+pipdeptree
+```
+
+The output records the list of installed dependencies and their versions from the dependency tree.
+For projects organized around `requirements.txt` and `Pipfile`, the environment scanned by pipdeptree will be filtered based on the contents of these manifests to display the relevant set of dependencies.
+For projects with `pyproject.toml`, filtering will be performed by `project.name`.
+The results reference a pseudo file `codescoring_pipdeptree`.
+
+!!! Other manifests in results
+    In order to prevent the dependencies of the main project manifest (e.g., requirements.txt) from appearing in the analysis results alongside the pipdeptree analysis results, it is recommended to exclude this manifest from scanning:
+    ```bash
+        johnny scan python . \
+          --pipdeptree-resolve \
+          --ignore "requirements.txt"
+    ```
 
 ### Poetry
 

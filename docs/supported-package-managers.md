@@ -17,7 +17,7 @@ hide:
 | **JavaScript и TypeScript** | npm | `package.json`<br/>`package-lock.json`<br/>`npm-shrinkwrap.json`                                                                                                                                      |
 | | yarn | `yarn.lock`<br/>`package.json`<br/>`package-lock.json`                                                                                                                                                |
 | | pnpm | `pnpm-lock.yaml`                                                                                                                                                                                      |
-| **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`pip-resolved-dependencies.txt`                                                                                                      |
+| **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`pip-resolved-dependencies.txt`<br/>`pipdeptree.txt`                                                                                 |
 | | Poetry | `pyproject.toml`<br/>`poetry.lock`                                                                                                                                                                    |
 | | Pipenv | `Pipfile`<br/>`Pipfile.lock`                                                                                                                                                                          |
 | | Conda | `environment.yml`<br/>`meta.yml`<br/>`conda-lock.yml`                                                                                                                                                 |

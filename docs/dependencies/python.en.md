@@ -43,6 +43,23 @@ If `poetry.lock` does not already exist, Poetry will create it automatically whe
 
 This command will update the dependencies specified in `pyproject.toml` and create or update the `poetry.lock` file.
 
+## pipdeptree
+
+### Creating the `pipdeptree.txt` file
+
+When a `pipdeptree.txt` file is detected, the agent will analyze its contents as the output of the pipdeptree utility in the standard dependency tree format.
+To create the file, you can use the following commands:
+
+```bash
+pipdeptree > pipdeptree.txt
+```
+
+To filter the output by specific packages:
+
+```bash
+pipdeptree --packages "example1,example2" > pipdeptree.txt
+```
+
 ## uv
 
 ### Creating `uv.lock`

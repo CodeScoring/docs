@@ -25,6 +25,7 @@ hide:
 - `--composer-resolve` / `--composer-path` / `--composer-args`
 - `--pnpm-resolve` / `--pnpm-path` / `--pnpm-args`
 - `--conda-resolve` / `--conda-lock-path` / `--conda-args`
+- `--pipdeptree-resolve` / `--pipdeptree-path` / `--pipdeptree-args`
 
 Пример команды:
 
@@ -158,6 +159,27 @@ pip freeze
 ```
 
 Результат команды фиксирует список установленных зависимостей и их версии. В результатах указывается фиктивный файл `codescoring_pip_for_freeze`.
+
+### pipdeptree
+
+Для Python-проектов используется команда:
+
+```bash
+pipdeptree
+```
+
+Результат команды фиксирует список установленных зависимостей и их версии в дереве зависимостей проекта.
+Для проектов, использующих `requirements.txt` или `Pipfile`, зависимости будут ограничены только теми пакетами, которые перечислены в этих манифестах — остальные пакеты из среды, обнаруженные pipdeptree, в отображение не попадут.
+Для проектов с `pyproject.toml` фильтрация будет проведена по `project.name`.
+В результатах указывается фиктивный файл `codescoring_pipdeptree`.
+
+!!! Взаимодействие с другими манифестами
+    Для того чтобы зависимости основного манифеста проекта (например, `requirements.txt`) не отображались в результатах анализа вместе с результатом анализа pipdeptree рекомендуется исключить этот манифест из сканирования:
+    ```bash
+        johnny scan python . \
+          --pipdeptree-resolve \
+          --ignore "requirements.txt"
+    ```
 
 ### Poetry
 
