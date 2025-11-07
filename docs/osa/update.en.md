@@ -29,4 +29,4 @@ The `OSA → Packages`, `OSA → Images` and Alerts sections have a filter **Is 
 - **Yes** — only actual (updated) components are displayed;
 - **No** — only archived (not updated) components are displayed.
 
-By default, only actual components are displayed.
+By default, all components are displayed.
