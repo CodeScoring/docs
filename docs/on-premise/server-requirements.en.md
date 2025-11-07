@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Hardware requirements
+# Installation requirements
 
 ## Operating system
 

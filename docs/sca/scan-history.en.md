@@ -20,7 +20,7 @@ The snapshot contains the following data:
 - **Vulnerabilities count** - number of found vulnerabilities;
 - **Status** - status of completed scanning. It can have three possible values - success, failed or canceled.
 
-The buttons on the right side of the list allow to download a SBOM generated during the analysis and [export a PDF report](/sca/export-results.en).
+The buttons on the right side of the list allow to download a SBOM generated during the analysis and [export a PDF report](/sca/export-results.en/#generating-a-pdf-report-on-a-project).
 
 ![Scan history page](/assets/img/sca_history_page_en.png)
 
