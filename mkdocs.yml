@@ -78,6 +78,7 @@ plugins:
           user-profile: "Configuring user profile"
           proprietors: "Creating proprietors"
           groups: "Creating user groups"
+          project-groups: "Project groups"
           users: "Managing user accounts"
           ldap: "Setting up LDAP"
           oidc: "Setting up OpenID Connect"
@@ -221,6 +222,7 @@ plugins:
           user-profile: "Настройка профиля пользователя"
           proprietors: "Создание подразделений"
           groups: "Создание групп пользователей"
+          project-groups: "Работа с группами проектов"
           users: "Управление учетными записями"
           ldap: "Настройка LDAP"
           oidc: "Настройка OpenID Connect"
@@ -495,6 +497,8 @@ nav:
         - scan-history: sca/scan-history.en.md
         - export-results: sca/export-results.md
         - export-results: sca/export-results.en.md
+        - project-groups: sca/project-groups.md
+        - project-groups: sca/project-groups.en.md
       - agent:
         - agent-general: agent/index.md
         - agent-general: agent/index.en.md
