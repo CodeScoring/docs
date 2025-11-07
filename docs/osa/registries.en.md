@@ -44,7 +44,7 @@ form:
 - **Is active** - the sign of the active registry. For inactive registries the list of available images will not be
   updated;
 - **Auth type** – type of authorization (Basic or Bearer);
-- **Host** - the address of the registry with the protocol. For example: `https://jfrog.example.com`;
+- **URL** - the address of the registry with the protocol. For example: `https://jfrog.example.com`;
 - **Max concurrent connections** - the maximum number of connections concurrently made to the registry during the process of image
   loading;
 - **Max keepalive connections** - the maximum number of connections that are kept alive for future reuse during the
