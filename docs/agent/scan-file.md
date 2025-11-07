@@ -35,7 +35,7 @@ hide:
 
 Команда **scan file** имеет три уникальных параметра, помимо [общих настроек команды сканирования](/agent/scan/#_2):
 
-- `--branch-or-tag`  – ссылка на ветку или тег репозитория (например, `refs/tags/v1.0`);
+- `--branch-or-tag`  – ссылка на ветку или тег репозитория в формате `^refs/(heads|tags)/.+` (например, `refs/tags/v1.0`);
 - `--commit` – указание хэша коммита;
 - `--parser`  – используемый парсер.
 
@@ -49,7 +49,7 @@ hide:
 | **Ruby**      | `ruby.gemfile`, `ruby.gemfile_lock`, `ruby.gemspec`                                                                                                                                                                                                                                        |
 | **С#**    | `csharp.packages_lock_json`, `csharp.project_json`, `csharp.project_lock_json`, `csharp.dependencyreport_json`, `csharp.paket_dependencies`, `csharp.nuspec`, `csharp.csproj`, `csharp.packages_config`, `csharp.dotnet_csproj_env`, `csharp.project_assets_json`, `csharp.paket_lock`     |
 | **PHP**       | `php.composer_json`, `php.composer_lock`, `php.composer_env`                                                                                                                                                                                                                               |
-| **Python**    | `python.poetry_pyproject_toml_env`, `python.requirements_txt`, `python.pipfile`, `python.poetry_lock`, `python.pip-resolved-dependencies_txt`, `python.setup_py`, `python.pipfile_lock`, `python.pyproject_toml`, `python.pip_env`, `python.pipdeptree`                                    |
+| **Python**    | `python.poetry_pyproject_toml_env`, `python.requirements_txt`, `python.pipfile`, `python.poetry_lock`, `python.pip-resolved-dependencies_txt`, `python.setup_py`, `python.pipfile_lock`, `python.pyproject_toml`, `python.pip_env`, `python.pipdeptree`, `python.uv_lock`                                   |
 | **C**     | `clang.conan_lock`, `clang.conanfile_txt`, `clang.conanfile_py`                                                                                                                                                                                                                            |
 | **Go**        | `go.go_mod`, `go.go_sum`, `go.go_mod_env`                                                                                                                                                                                                                                                  |
 | **Objective-C** | `objective_c.podfile`, `objective_c.podfile_lock`, `objective_c.podspec`                                                                                                                                                                                                                   |

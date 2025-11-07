@@ -27,13 +27,17 @@ The list of created users can be filtered by the following parameters:
 - **Active** — an active account;
 - **LDAP server** — [LDAP server](/on-premise/how-to/ldap-settings.en/) connected to the system.
 
-## Editing account setings
+## Editing account settings
 
 Created accounts can be edited or deleted in the `Settings -> Users` section. You can add a user to a project with the specified role by clicking the **Add users** button on the "Projects" tab of the user editing page.
 
 The session time for an inactive user is limited. By default, a user's session ends 2 weeks after the last activity, after which you must log in to the system again.
 
 The environment variable (in seconds) `SESSION_COOKIE_AGE` is available for configuring the session lifetime.
+
+!!! warning "Important"
+
+        Modifying `username` or `password` of users from external identity providers is prohibited.
 
 ## Separation of access levels
 
@@ -69,7 +73,9 @@ A more detailed list of available actions for each access level is presented in 
 
 | **Action**                                                          | **User (Viewer)**                              | **User (Developer)**                           | **User (Owner)**                               | **Auditor**                                    | **Security Manager**                           | **Administrator**                              |
 |---------------------------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|
+| **Analysis**: Viewing the analysis results                          | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Analysis**: launching SCA analysis                                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
+| **Analysis**: launching Secrets analysis                            | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Analysis**: launching Authors analysis                            | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Analysis**: launching Quality analysis                            | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Activation key**: viewing information about the activation key    | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } |
@@ -136,6 +142,9 @@ A more detailed list of available actions for each access level is presented in 
 | **VCS**: performing settings check                                  | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } |
 | **Vulnerabilities**: viewing a list of vulnerabilities              | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Vulnerabilities**: export list of vulnerabilities                 | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
+
+!!! warning "Important"
+    To be able to run a scan, also make sure that the appropriate analysis module is included in the license.
 
 ## User groups
 

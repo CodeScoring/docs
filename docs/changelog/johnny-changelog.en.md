@@ -5,6 +5,47 @@ hide:
 
 # Johnny Changelog
 
+
+### [2025.45.0] - 2025-11-05
+
+#### Added
+
+- Added vulnerability reachability analysis for Go
+- Added vulnerability reachability analysis for Python
+- Added support UV package manager for Python ecosystem
+- Added printing matched criteria in policy alerts (starting from platform version **2025.45.0**)
+- Added flags `--branch-or-tag` and `--commit` in `scan bom` command
+- Added support workspaces mechanism for npm and pnpm
+- Added unloading of the HasExploit flag to the junit and gitlab formats
+- Added using `dpkg` for define information about static libraries in `scan build` и `scan build ebpf` commands
+- Added support `pipdeptree` for Python ecosystem via the `--pipdeptree-resolve` option
+- Added printing paths to manifest inside scanned image
+
+#### Changed
+
+- Changed printing of reachability paths on table format. Printing top 5 paths and hidden count
+- Optimized printing of reachability paths
+
+#### Removed
+
+- `scan build` and `scan build ebpf` commands removed from not Linux binary
+- Building scratch images of the CLI agent discontinued. All tags links to busybox version
+
+#### Deprecated
+
+- Building images of the CLI agent with tag `*-busybox` will be discontinued in release 2026.3.0
+
+#### Fixed
+
+- Fixed different result in processing npm with `--npm-resolve` and with existed `package-lock.json`
+- Removed duplicates vulnerabilities in reachability graph
+- Fixed printing path to lock file when using local resolve
+- Fixed printing policy alerts: added validation to exclude empty objects
+- Fixed processing of `gradle-dependency-tree.txt`
+- Fixed processing of comments in some manifest types
+- Removed duplicates in `scan image` command with `--scan-files` flag
+
+
 ### [2025.37.2] - 2025-10-06
 
 #### Fixed

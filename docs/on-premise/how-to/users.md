@@ -35,6 +35,10 @@ hide:
 
 Для конфигурации времени жизни сессии доступна переменная окружения (в секундах): `SESSION_COOKIE_AGE`.
 
+!!! warning "Важно"
+
+    Изменение имени УЗ и пароля для пользователей из внешних провайдеров идентичности невозможно.
+
 ## Разделение уровней доступа
 
 При создании учетной записи ей должен быть присвоен один из следующих уровней доступа - **User** (пользователь), **Administrator** (администратор), **Auditor** (аудитор ИБ) или **Security Manager** (Менеджер безопасности).
@@ -69,7 +73,9 @@ hide:
 
 | **Действие**                                                        | **User (Viewer)**                              | **User (Developer)**                           | **User (Owner)**                               | **Auditor**                                    | **Security Manager**                           | **Administrator**                              |
 |---------------------------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|
+| **Analysis**: Просмотр результатов анализа                          | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Analysis**: запуск SCA анализа                                    | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
+| **Analysis**: запуск анализа Secrets                                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Analysis**: запуск Authors анализа                                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Analysis**: запуск Quality анализа                                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Activation key**: просмотр информации об активационном ключе      | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } |
@@ -136,6 +142,9 @@ hide:
 | **VCS**: выполнение проверки настроек                               | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } | :material-minus:{ .icon_check }                | :material-check-circle-outline:{ .icon_check } |
 | **Vulnerabilities**: просмотр списка уязвимостей                    | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
 | **Vulnerabilities**: экспорт списка уязвимостей                     | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } | :material-check-circle-outline:{ .icon_check } |
+
+!!! Warning "Важно"
+    Для возможности запуска сканирования также убедитесь, что в лицензии включен соответствующий модуль анализа.
 
 ## Группы пользователей
 

@@ -59,3 +59,30 @@ To filter the output by specific packages:
 ```bash
 pipdeptree --packages "example1,example2" > pipdeptree.txt
 ```
+
+## uv
+
+### Creating `uv.lock`
+
+If `uv.lock` does not already exist, uv will create it automatically when installing dependencies. If the file already exists, it will be updated. To do this, run the command:
+
+	```bash
+	uv lock
+	```
+
+This command will update the dependencies specified in `pyproject.toml` and create or update the `uv.lock` file.
+
+### UV workspaces mechanism Support
+
+The [UV workspaces](https://docs.astral.sh/uv/concepts/projects/workspaces/) mechanism allows centralized management of multiple packages.
+
+In `pyproject.toml`, the following entry can be specified in the workspaces section:
+```toml
+[tool.uv.workspace]
+members = [
+    "packages/core",
+    "packages/api"
+]
+```
+
+In this case, the Johnny agent will process the root `pyproject.toml` and all `pyproject.toml` files of all packages from the workspace as a single entity.

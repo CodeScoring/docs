@@ -54,3 +54,31 @@ hide:
    ```bash
    pipdeptree --packages "example1,example2" > pipdeptree.txt
    ```
+
+## uv
+
+### Создание файла `uv.lock`
+
+Если файл `uv.lock` еще не существует, uv создаст его автоматически при установке зависимостей. Если файл уже существует, он будет обновлен. Для этого выполните команду:
+
+   ```bash
+   uv lock
+   ```
+
+Эта команда обновит зависимости, указанные в `pyproject.toml`, и создаст или обновит файл `uv.lock`.
+
+### Поддержка механизма UV workspaces
+
+Механизм [UV workspaces](https://docs.astral.sh/uv/concepts/projects/workspaces/) позволяет централизованно управлять несколькими пакетами.
+
+В `pyproject.toml` в секции workspaces может быть указана следующая запись:
+
+```toml
+[tool.uv.workspace]
+members = [
+    "packages/core",
+    "packages/api"
+]
+```
+
+В таком случае агент Johnny будет обрабатывать корневой `pyproject.toml` и все `pyproject.toml` всех пакетов из workspace как единое целое.
