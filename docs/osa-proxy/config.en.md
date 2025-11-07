@@ -93,9 +93,10 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
           registry: http://localhost:8081/repository/nuget-v3-proxy
     ```
 
-!!! warning "Specifics of working in Nexus Repository and JFrog Artifactory"
+!!! note "Specifics of working in Nexus Repository and JFrog Artifactory"
 
     - For JFrog Artifactory, it is recommended to set a `Custom Base URL` and use it in the `registry` field to correctly replace package references within manifests.
+    - In the configuration `package manager` -> `jfrog` -> `OSA proxy` -> `internet`, in the additional JFrog repository settings, it is necessary to set the `Bypass HEAD requests flag`.
     - There is no identical functionality for Nexus Repository; the host and port (if specified) from the request will be used in manifests. If a `reverse proxy` is available, it is recommended to use its link. For example: `registry: https://nexushost.ru/repository/pypi-proxy`.
 
 ## Additional settings
@@ -135,3 +136,36 @@ Retries use an exponential backoff strategy, starting with a 1-second delay and 
 The circuit breaker for `codeScoringApi` acts as a fail-fast mechanism. It tracks failure rates, and if they reach 50% (calculated over the last 20 calls), it “opens” and prevents further requests for 30 seconds. This gives the downstream service time to recover. After the wait period, it switches to “half-open” state, allowing 5 trial calls to check if the service has recovered.
 
 Retry and circuit breaker configuration can be overridden by setting [the following properties](https://resilience4j.readme.io/docs/getting-started-3), for example, for `codeScoringApi`.
+
+### Adding truststore certificates
+
+!!! example "Example of adding truststore certificates in application.yml"
+
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          server:
+            webflux:
+              httpclient:
+                ssl:
+                  trustedX509Certificates:
+                    - /usr/local/share/ca-certificates/solarrt.crt
+                    - /etc/ssl/certs/ca-certificates.crt
+    ```
+
+### Adding http proxy
+
+!!! example "Example of http proxy configuration"
+
+    ```yaml
+    spring:
+      cloud:
+        gateway:
+          httpclient:
+            proxy:
+              host: proxy.host.ru
+              username: 'username'
+              port: 9091
+              password: 'password'
+    ```

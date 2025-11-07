@@ -14,7 +14,7 @@ hide:
 #### Fixed
 
 - <span class="module-tag osa">OSA</span> Optimized loading of images from registries
-- Optimized the API request for getting project dependencies
+- <span class="module-tag sca">SCA</span> Optimized the API request for getting project dependencies
 
 ### [2025.37.4] - 2025-10-15
 

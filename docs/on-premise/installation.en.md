@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# platform guide
+# Installation guide
 
 1. Install Docker Engine for the desired operating system in accordance with the documentation: <https://docs.docker.com/engine/install/>.
 2. Log in to the private registry of Docker images of the CodeScoring system using the command `docker login REGISTRY_URL`, with the URL, login and password received from the vendor.
@@ -46,7 +46,11 @@ hide:
       - Compose-related settings
         - `COMPOSE_PROJECT_NAME` - docker compose project name, used to prefix the names of resources created by docker compose
 
-    **Note**: do not use the `#` symbol in the parameters, it may be interpreted incorrectly by the system during installation.
+    !!! warning "# symbol"
+        Do not use the `#` symbol in parameters; it may be interpreted incorrectly by the system during installation.
+
+    !!! note "SSL Certificates"
+        If you need to use self-signed certificates, please read the [instructions for adding a certificate](/on-premise/self-signed-ssl.en/) before starting the system.
 
 7. Run the CodeScoring installation command (the command must be executed with system superuser rights):
 

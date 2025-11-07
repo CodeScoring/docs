@@ -35,13 +35,82 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 
 The best result will be achieved by combining the main manifest file and the corresponding lock file, if provided by the package manager mechanism.
 
+## PURL Types and Components
+
+For unified dependency description, CodeScoring uses the **[Package URL (PURL)](https://github.com/package-url/purl-spec)** standard.
+
+!!! example "PURL example"
+
+    ```
+    pkg:maven/org.apache.logging.log4j/log4j-core@2.17.2
+    ```
+
+When analyzing SBOM via the [agent command](/agent/scan-bom.en) or [importing into the platform](/on-premise/how-to/projects.en/#sbom), CodeScoring recognizes and supports the following PURL types according to the specification:
+
+| PURL type      | Description | Specification |
+|----------------|-------------|---------------|
+| `cocoapods`    | Libraries for **Objective-C / Swift** via CocoaPods  | [CocoaPods Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/cocoapods-definition.md) |
+| `conan`        | Packages in the **C / C++ (Conan)** ecosystem       | [Conan Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/conan-definition.md) |
+| `conda`        | Packages in the **Python / Conda** ecosystem       | [Conda Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/conda-definition.md) |
+| `nuget`        | Components for **.NET / NuGet**                     | [NuGet Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/nuget-definition.md) |
+| `golang`       | **Go Modules** packages                             | [Go Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/golang-definition.md) |
+| `maven`        | **Java / Kotlin** artifacts (Maven / Gradle)       | [Maven Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/maven-definition.md) |
+| `npm`          | **JavaScript / TypeScript** packages               | [NPM Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/npm-definition.md) |
+| `composer`     | **PHP (Composer)** packages                          | [Composer Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/composer-definition.md) |
+| `pypi`         | **Python (PyPI)** packages                           | [PyPI Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/pypi-definition.md) |
+| `gem`          | **Ruby (RubyGems)** packages                         | [RubyGems Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/gem-definition.md) |
+| `cargo`        | **Rust (Cargo)** packages                             | [Cargo Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/cargo-definition.md) |
+| `generic`      | General type for arbitrary binary or custom artifacts | [Generic Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/generic-definition.md) |
+| `apk`          | **Alpine Linux** system packages                      | [APK Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/apk-definition.md) |
+| `deb`          | **Debian / Ubuntu** system packages                  | [DEB Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/deb-definition.md) |
+| `rpm`          | **RHEL / CentOS / Fedora** system packages           | [RPM Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/rpm-definition.md) |
+| `swift`        | **Swift Package Manager** packages                    | [Swift Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/swift-definition.md) |
+| `oci`          | **OCI / Docker** container images                     | [OCI Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/oci-definition.md) |
+| `docker`       | **Docker Hub / Docker** images                        | [Docker Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/docker-definition.md) |
+| `github`       | **GitHub** repositories                               | [GitHub Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md) |
+| `huggingface`  | **Hugging Face Hub** models                            | [HuggingFace Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md) |
+| `mlflow`       | **MLflow Model Registry** models                       | [MLflow Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/mlflow-definition.md) |
+| `pub`          | **Dart / Flutter (pub.dev)** packages                 | [Pub Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/pub-definition.md) |
+| `swid`         | **SWID Tags (Software Identification Tags)**          | [SWID Definition](https://github.com/package-url/purl-spec/blob/main/types-doc/swid-definition.md) |
+
+Each component with a PURL is classified by type, which CodeScoring recognizes when importing SBOM files. The type is indicated in the `type` field within the component description.
+
+!!! note "Difference between PURL and component types"
+    A component type describes its functional role within a product—for example, a library, framework, or firmware. A PURL type, in turn, defines the ecosystem and source from which the component was obtained.
+
+!!! example "SBOM component example"
+
+    ```json
+    {
+      "components": [
+        {
+          "name": "log4j-core",
+          "version": "2.17.2",
+          "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.17.2",
+          "type": "library"
+        }
+      ]
+    }
+    ```
+
+Supported component types:
+
+| Component type | Description                                                                                      |
+| -------------- | ----------------------------------------------------------------------------------------------- |
+| **library**    | A library, package, or third-party code module used in the project.                             |
+| **framework**  | An infrastructure or application framework containing a set of libraries.                       |
+| **firmware**   | Executable binary or embedded software analyzed for the presence of third-party components.     |
+
 ## System packages
 
 As part of the OSA module, the platform supports analysing system packages of the following formats:
 
-- [Debian-based](https://www.debian.org/distrib/packages)
-- [Alpine-based](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html)
-- [RPM-based](https://rpm.org)
+- [Debian](https://www.debian.org/distrib/packages);
+- [Alpine](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html);
+- [RPM](https://rpm.org);
+- [Astra Linux](https://astralinux.ru/);
+- [ALT Linux](https://packages.altlinux.org/en/sisyphus/);
+- [RED OS](https://redos.red-soft.ru/).
 
 ## Resolution mechanism in the absence of a lock file
 
@@ -86,7 +155,7 @@ When resolving dependencies in the environment, the agent checks for the absence
 
 ## Mechanism for searching dependencies using hashes
 
-The second dependency search mechanism implemented in CodeScoring is a hash search – a search for direct inclusion of libraries in project code. As part of this mechanism, all project files are hashed and these signatures are compared with known open source libraries.
+Search using hashes implies detection of direct inclusion of libraries in project's code. As part of this mechanism, all project files are hashed and these signatures are compared with known open source libraries.
 
 Currently, hash searches occur for the following package manager indexes and the following file types:
 
