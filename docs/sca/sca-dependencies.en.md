@@ -38,10 +38,17 @@ On the page with interactive visualization, components are displayed according t
 
 The visualization is interactive and scalable. By selecting a component, you can trace its path into the project. Components with identified vulnerabilities are highlighted.
 
-![Graph](/assets/img/graph.png)
+![Graph](/assets/img/graph-en.png)
 
 Components on the graph can be filtered according to the following parameters:
 
 - technology;
 - development environment;
 - severity of vulnerability.
+
+
+After selecting a graph component, you can configure the displayed relationships:
+
+- direction (root/descendants)
+- nesting level for descendants
+- selection of a specific path to the root
