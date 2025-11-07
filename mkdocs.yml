@@ -72,6 +72,8 @@ plugins:
           analysis-ignore-paths: "Analysis paths and exceptions"
           scripts: "Scripts for platform managing"
           troubleshooting: "Troubleshooting"
+          variables-extended: "Installation variables"
+          containers-description: "Main services"
           setup: "Platform setup"
           user-management: "Access management"
           activation: "Activating system"
@@ -220,6 +222,8 @@ plugins:
           postgresql-tls: "Подключение к PostgreSQL/PgBouncer с использованием TLS"
           analysis-ignore-paths: "Пути анализа и исключения"
           scripts: "Скрипты для управления инсталляцией"
+          variables-extended: "Переменные установки"
+          containers-description: "Основные службы" 
           troubleshooting: "Диагностика неполадок"
           setup: "Настройка платформы"
           user-management: "Управление доступом"
@@ -415,6 +419,10 @@ nav:
         - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
         - scripts: on-premise/scripts.md
         - scripts: on-premise/scripts.en.md
+        - variables-extended: on-premise/variables-extended.md
+        - variables-extended: on-premise/variables-extended.en.md
+        - containers-description: on-premise/containers-description.md
+        - containers-description: on-premise/containers-description.en.md
         - troubleshooting: on-premise/troubleshooting.md
         - troubleshooting: on-premise/troubleshooting.en.md
     - setup:
