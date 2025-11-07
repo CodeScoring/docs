@@ -47,7 +47,7 @@ The list of authors can be viewed as a table. It is possible to change the displ
 
 ### Project dynamics
 
-The history of the project can be tracked using four graphs showing the dynamics of the project according to the following parameters:
+The history of the project can be tracked using five graphs showing the dynamics of the project according to the following parameters:
 
 - Lines of code & code artifacts addition/deletion history;
 - Commits history;
