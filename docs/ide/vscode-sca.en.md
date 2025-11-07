@@ -98,7 +98,7 @@ After installation, you should see the CodeScoring logo in the VS Code Activity 
 3. Ensure you're on your profile page
 4. Find the **"API token"** field
 5. Click the **"Generate"** button next to the API token field
-   ![Screenshot of the CodeScoring web interface showing the profile page with API token field and Generate button](/assets/img/ide/vscode/step4-3-generate-token.png)
+   ![Screenshot of the CodeScoring web interface showing the profile page with API token field and Generate button](/assets/img/ide/step4-3-generate-token-en.png)
 6. Copy the generated API token value
 7. Return to VS Code settings
 8. Click on the **"Set API Token"** link in the plugin settings

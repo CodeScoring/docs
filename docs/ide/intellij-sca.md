@@ -110,7 +110,7 @@ Platform (OpenIDE, GIGA IDE, PyCharm, WebStorm, PhpStorm, RubyMine, GoLand, CLio
 3. Убедитесь, что вы находитесь на странице своего профиля
 4. Найдите поле **"API token"**
 5. Нажмите кнопку **"Generate"** рядом с полем токена API
-   ![Скриншот веб-интерфейса CodeScoring со страницей профиля с полем токена API и кнопкой Generate](/assets/img/ide/intellij/step4-3-generate-token.png)
+   ![Скриншот веб-интерфейса CodeScoring со страницей профиля с полем токена API и кнопкой Generate](/assets/img/ide/step4-3-generate-token.png)
 6. Скопируйте значение сгенерированного токена API
 7. Вернитесь к настройкам IntelliJ-based IDE
 8. Вставьте токен в поле **"API Token"**
