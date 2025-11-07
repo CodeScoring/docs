@@ -5,6 +5,90 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.0] - 2025-11-07
+
+#### Added
+
+- <span class="module-tag sca">SCA</span> Added new section `SCA → Project Groups` with aggregated metrics and bulk analysis
+- <span class="module-tag sca">SCA</span> Added CSV export of aggregated SCA project data within a group
+- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Added component analysis for the RedOS ecosystem
+- Added new filtering options for the dependency graph: filtering by parents/children and by technology
+- <span class="module-tag tqi">TQI</span> Added display of merge commits count and changed lines in project and author tables, on project/author pages and in charts
+- <span class="module-tag tqi">TQI</span> Added option to run author analysis from the first commit
+- <span class="module-tag tqi">TQI</span> Added metrics “Code Rate”, “Newness Impact” and “Churn Impact”
+- <span class="module-tag tqi">TQI</span> Added “Code Rate” chart on the project page
+- Added autofocus for forms: authentication, policy settings, policy ignores, repository managers, registries, projects
+- Added indicator showing applied filters
+- <span class="module-tag sca">SCA</span> Added API set for aggregated SCA project data (see `/api/swagger` for details)
+- <span class="module-tag osa">OSA</span> Added column and filter “Request initiator” in `OSA → Requests`
+- Added sample queries with real filters for `/bulk_actions/` endpoints in Swagger
+- <span class="module-tag sca">SCA</span> Added “Requirement” column in dependency and scan lists
+- <span class="module-tag sca">SCA</span> Added “Requirement” field to SCA PDF report
+- <span class="module-tag sca">SCA</span> Added “Groups” column to project list and CSV export
+- <span class="module-tag sca">SCA</span> Added “Max fixed version” field on dependency page
+- Added filters “Authors’ emails” and “Merged with” on the author merge rules page
+- <span class="module-tag secrets">Secrets</span> Added “Status” filter on project page
+- <span class="module-tag secrets">Secrets</span> Added “Status” filter on secrets list page
+- Added policy ignore section to PDF report
+- <span class="module-tag sca">SCA</span> Added “Parents” filter on dependencies page
+- Reworked `/health` endpoints in REST services and added checks for celery-beat and celery-worker
+- Added links to specific CSPW vulnerabilities in Johnny reports
+- <span class="module-tag sca">SCA</span> Added filters on dependency vulnerabilities page
+- Added project link to notification about project creation
+- Added ability to duplicate a policy
+- Added ability to collapse the sidebar
+- <span class="module-tag osa">OSA</span> Added links to policies on the blocked component page
+- Added “Blocker” column to alert tables and delayed blocking details in block status
+- Added expand/collapse button in the secret card
+- Added support for missing trailing slash on Johnny download page (`/download`)
+- Added ability to automatically prefill OIDC settings using the **Get settings** button (see [OIDC configuration](/on-premise/how-to/oidc.en/) for details)
+
+#### Changed
+
+- Moved technologies column on project lists grouped by author
+- Renamed field `Host` to `URL` on container registry configuration page
+- Updated filter panel behavior: state no longer persists across sections; panel stays open after applying filters
+- <span class="module-tag osa">OSA</span> Removed initial relevance filters from OSA section lists
+- Removed password change option for LDAP/OIDC-based users
+- <span class="module-tag secrets">Secrets</span> Removed syntax highlighting in Secrets section
+- Added multi-select support in filters of vulnerabilities and alerts pages
+- Updated display formats of “LDAP Server” and “OIDC Server” fields on user list page
+- Fixed API content-type definitions in Swagger
+- Updated permissions for project analysis and view in CodeScoring.SCA and CodeScoring.Secrets, see the [User Management](/on-premise/how-to/users.en/)) section for more details
+- <span class="module-tag tqi">TQI</span> Improved tooltip data display on project metric charts
+- Updated content of “New Version” modal
+- Changed side menu structure and content
+- Changed policy blocking delay calculation to exact hours instead of days
+- Improved Russian translation quality
+- <span class="module-tag sca">SCA</span> Moved `sca-tasks` queue to celery worker
+- <span class="module-tag sca">SCA</span> Removed unicode encoding of text in SBOM files
+
+#### Fixed
+
+- Optimized retrieval of fixed-value filters
+- Optimized loading of author activity map
+- Fixed fields “Type” and “Authorization Type” on container registry edit page
+- Fixed formatting of dependency/vulnerability tables in PDF report
+- <span class="module-tag osa">OSA</span> Fixed deadlock when scanning multiple packets with the same name but different qualifiers
+- <span class="module-tag sca">SCA</span> Improved SCA analysis performance
+- <span class="module-tag sca">SCA</span> Improved SBOM generation performance during SCA analysis
+- Fixed reset of “Source files” field after rescan
+- Fixed policy actions edit behavior
+- <span class="module-tag secrets">Secrets</span> Fixed secrets list display
+- Fixed display of vulnerable packages in dependency graph
+- Fixed filtering of container images by blocking status
+- Fixed link to active policies on dashboard
+
+#### Deprecated
+
+- Endpoint `/api/tqi/projects/:id/by_complexity` marked as deprecated. Use `/api/tqi/projects/:id/by_commits` instead
+- Environment variable `PLATFORM_API_MAX_PAGE_SIZE` marked as deprecated. Use `CODESCORING_API_MAX_PAGE_SIZE`
+
+#### Removed
+
+- Removed queue `high-priority`
+- Removed problematic links from author detail page that caused UI jumps
+
 ### [2025.37.5] - 2025-10-27
 
 #### Added

@@ -23,9 +23,9 @@ API provides a number of endpoints that allow you to perform basic operations in
 
 For paginated response you can set `page` (for page number) and `per_page` (for per-page items amount) query parameters to the request.
 
-The value of `per_page` parameter can be set with `PLATFORM_API_MAX_PAGE_SIZE` environment variable and defaults to 100.
+The value of `per_page` parameter can be set with `CODESCORING_API_MAX_PAGE_SIZE` environment variable and defaults to 100.
 
-!!! warning "Recommendation for the PLATFORM_API_MAX_PAGE_SIZE variable"
+!!! warning "Recommendation for the CODESCORING_API_MAX_PAGE_SIZE variable"
 
     Setting this value above 100 may negatively impact system performance.
 

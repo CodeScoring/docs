@@ -32,8 +32,17 @@ In order to configure OpenID Connect, go to  `Settings -> Identity Providers -> 
 You can go to the OpenID Connect integration creation for by clicking the **Create new** button. Fill in the fields
 below:
 
+### Main OIDC Settings
+
 - **Name** - the name of the integration, it is displayed at the login page;
 - **Is active** - the activity flag, depending on the value, users will be able to select this integration as an identity provider at the login page;
+- **Client ID** - identifier of the OpenID Connect Client, must match the identifier configured on the Provider side;
+- **Client secret** - secret of the OpenID Connect Client, must match the secret configured on the Provider side.
+
+### Connection settings
+
+CodeScoring can configure itself based on the `/.well-known/openid-configuration` endpoint of the issuer via the `Get settings` button.
+
 - **Provider issuer URL** - Issuer URL of the OpenID Connect provider;
 - **Provider authorization URL** - Authorization URL of the OpenID Connect provider, can be obtained at
   `$ISSUER_URL/.well-known/openid-configuration`;
@@ -43,9 +52,10 @@ below:
   `$ISSUER_URL/.well-known/openid-configuration`;
 - **Provider JWKS URL** - JWKS URL of the OpenID Connect provider, can be obtained at
   `$ISSUER_URL/.well-known/openid-configuration`;
-- **Client ID** - Identifier of the OpenID Connect Client, must match the identifier configured on the Provider side;
-- **Client secret** - Secret of the OpenID Connect Client, must match the secret configured on the Provider side;
-- **Client scopes** - these values are passed in the `scope` parameter of the authorization request;
+- **Client scopes** - these values are passed in the `scope` parameter of the authorization request.
+
+### Field mapping settings
+
 - **Subject identifier field** - name of the field that contains the **subject** in the response, returned by UserInfo
   endpoint;
 - **Username field** - name of the field that contains the **display username** in the response, returned by UserInfo

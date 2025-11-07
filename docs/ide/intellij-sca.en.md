@@ -105,7 +105,7 @@ After installation and restart, you should see the CodeScoring tool window.
 3. Ensure you're on your profile page
 4. Locate the **"API token"** field
 5. Click the **"Generate"** button next to the API token field
-   ![Screenshot of CodeScoring web interface showing profile page with API token field and Generate button](/assets/img/ide/intellij/step4-3-generate-token.png)
+   ![Screenshot of CodeScoring web interface showing profile page with API token field and Generate button](/assets/img/ide/step4-3-generate-token-en.png)
 6. Copy the generated API token value
 7. Return to IntelliJ based IDE settings
 8. Paste the token into the **"API Token"** field

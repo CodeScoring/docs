@@ -7,7 +7,7 @@ hide:
 
 The **Profile** section allows users to view and update their personal information and customize the interface appearance.
 
-The profile can be accessed by clicking on the username in the top-right corner of the interface.
+The profile can be accessed by clicking on the username in the bottom-left corner of the interface.
 
 ![User profile](/assets/img/user-profile-en.png)
 
@@ -20,7 +20,6 @@ The page displays the following parameters:
 - **Last name** — shown in the interface and reports;
 - **Email** — contact address displayed in user lists;
 - **API token** — used for integration with external tools. Can be copied or regenerated (the previous one becomes invalid);
-- **Language** — interface language;
 - **Number format** — numeric display format in the system;
 - **Date format** — date display format.
 
