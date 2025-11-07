@@ -12,6 +12,7 @@ The agent is launched using the `scan` command with possible scanning options:
 - `scan image` – [scanning a container image](/agent/scan-docker.en);
 - `scan bom` – [scanning a SBOM](/agent/scan-bom.en);
 - `scan <technology>` - [scanning a directory using settings for selected technology](/agent/scan-technology.en);
+- `scan build` – [scanning a build](agent/scan-build.en).
 
 ## Launch options
 
