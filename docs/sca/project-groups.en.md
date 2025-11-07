@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Project groups
+# Organizing project groups
 
 ## Viewing the list of groups
 
