@@ -7,8 +7,7 @@ hide:
 This section provides a description of the environment variables necessary for platform installation and configuration, including those detailed in sections [Installing the System in Docker](/on-premise/installation) and [System Operation in Kubernetes](/on-prem-in-k8s).
 
 !!! warning "Modifying values"
-
-  Consult with technical support before modifying any of the optional, non-required variables during installation. Altering default values may impact system performance and operational efficiency.
+    Consult with technical support before modifying any of the optional, non-required variables during installation. Altering default values may impact system performance and operational efficiency.
 
 !!! warning "Avoid using the `#` symbol in parameters. It may be misinterpreted by the system during installation."
 
