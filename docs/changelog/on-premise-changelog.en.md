@@ -62,6 +62,7 @@ hide:
 - Improved Russian translation quality
 - <span class="module-tag sca">SCA</span> Moved `sca-tasks` queue to celery worker
 - <span class="module-tag sca">SCA</span> Removed unicode encoding of text in SBOM files
+- Updated Redis to version 7.4.6
 
 #### Fixed
 
