@@ -48,7 +48,7 @@ The **johnny secrets gitleaks dir** command has the following unique parameters,
 
 #### Gitleaks parameters
 
-- `--baseline-path` – path to the Gitleaks report file, which is used as a baseline for ignoring previously found secrets; 
+- `--baseline-path` – path to the Gitleaks report file, which is used as a baseline for ignoring previously found secrets;
 - `--enable-rule` – list of rule IDs that will be **enabled** during scanning;
 - `--gitleaks-ignore-path` – path to `.gitleaksignore` file or directory containing it, to add fingerprints of secrets discovered earlier;
 - `--ignore-gitleaks-allow` – ignore `gitleaks:allow` comments that mark lines as safe to ignore;
