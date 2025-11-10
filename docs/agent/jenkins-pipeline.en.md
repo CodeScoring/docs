@@ -94,32 +94,3 @@ pipeline {
  }
 }
 ```
-
-## Setting up Jenkins Plugin
-
-The console agent plugin is supplied by the vendor as a separate file. To activate it you need to follow these steps in Jenkins:
-
-1. Go to the section `Configure Jenkins -> Plugins -> Advanced settings` and add the file received from the vendor.
- ![Add plugin](/assets/img/jenkins/add-plugin.png)
-2. Restart Jenkins
-3. Check the active state of the plugin in the `Installed plugins` list
- ![Check plugin](/assets/img/jenkins/check-plugin.png)
-4. Go to the section `Configure Jenkins -> Tools -> Johnny installations` and specify the name of the installation and the location of the binary file with the console agent.
- ![Configure johnny path](/assets/img/jenkins/johnny-path.png)
-5. Go to the settings of the desired assembly and add the **CodeScoring SCA** assembly step, setting the following parameters:
-
-     - **API URL** – link to the CodeScoring platform (with protocol);
-     - **API token** – token for authorization;
-     - **Johnnys installation name** – name of the Johhny installation (as it is specified in the Tools section);
-     - **Scan command** – select a command to scan an entire directory, a single file or a container image;
-     - **File or directory name to scan** – name of the path or directory for analysis. **Important**: the full path is not indicated, only the required directory. For example: **source-code-from-git**;
-     - **Do not go recursive through all subdirectories** – disable recursive scanning for the directory scanning command;
-     - **Policy stage** – development stage for which the security policy applies. Possible values: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
-     - **Create project** – creating a CLI project on the CodeScoring platform with scanning results;
-     - **Export to file** – export to a CSV file to save scan results;
-     - **Ignore paths** – directories that will be ignored during scanning;
-     - **failBuild** – blocking the build if it does not comply with security policies;
-     - **Timeout** – limit on analysis waiting time (in seconds);
-     - **Output detailed log** – output of a detailed log of the command call.
-
- ![Configure johnny](/assets/img/jenkins/configure-johnny.png)

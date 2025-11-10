@@ -10,13 +10,9 @@ hide:
 В CLI проект можно импортировать отдельно созданный отчет в формате `json`. Об использовании **Gitleaks** в командой строке можно прочесть в [документации инструмента](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#usage).
 
 1. После получения отчета от инструмента необходимо перейти на вкладку **Секреты** выбранного проекта.
-
-![CLI Project](/assets/img/secrets/cli-project.png)
-
+  ![CLI Project](/assets/img/secrets/cli-project.png)
 2. Нажать на кнопку **Загрузить отчёт**.
-
-![CLI Upload](/assets/img/secrets/cli-upload.png)
-
+  ![CLI Upload](/assets/img/secrets/cli-upload.png)
 3. Выбрать файл с отчетом и указать каким инструментом он был создан в поле **Тип движка**, затем нажать на кнопку **Загрузить**.
 
 ## Сканирование CLI-проектов
