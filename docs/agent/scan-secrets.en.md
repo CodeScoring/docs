@@ -5,6 +5,9 @@ hide:
 
 # Scanning for secrets
 
+!!! note "Important"
+		To use this functionality, the platform must have active CodeScoring.Secrets module.
+
 Scanning for secrets is performed using the `johnny secrets gitleaks dir` command.
 
 When launched, the agent:
@@ -45,15 +48,16 @@ The **johnny secrets gitleaks dir** command has the following unique parameters,
 
 #### Gitleaks parameters
 
-- `--baseline-path` – path to the Gitleaks report file, which is used as a baseline for ignoring previously found secrets. - `--enable-rule` – list of rule IDs that will be **enabled** during scanning.
-- `--gitleaks-ignore-path` – path to `.gitleaksignore` file or directory containing it, to exclude files and directories from scanning.
-- `--ignore-gitleaks-allow` – ignore `gitleaks:allow` comments that mark lines as safe to ignore.
-- `--log-level` – logging level that controls the verbosity of output messages. Possible values: `trace`, `debug`, `info`, `warn`, `error`, `fatal`.
-- `--max-decode-depth` – maximum depth of recursive decoding when searching for secrets. The value `0` disables decoding.
-- `--max-target-megabytes` – maximum size of analyzed files in megabytes. Files larger than this size will be skipped.
-- `--no-banner` – disables the Gitleaks banner that is displayed when the tool is launched.
-- `--no-color` – disables color output for verbose mode.
-- `--redact` – masks found secrets in logs. You can specify intermediate values (for example, `20` to hide 20% of the secret).
+- `--baseline-path` – path to the Gitleaks report file, which is used as a baseline for ignoring previously found secrets;
+- `--enable-rule` – list of rule IDs that will be **enabled** during scanning;
+- `--gitleaks-ignore-path` – path to `.gitleaksignore` file or directory containing it, to add fingerprints of secrets discovered earlier;
+- `--ignore-gitleaks-allow` – ignore `gitleaks:allow` comments that mark lines as safe to ignore;
+- `--log-level` – logging level that controls the verbosity of output messages. Possible values: `trace`, `debug`, `info`, `warn`, `error`, `fatal`;
+- `--max-decode-depth` – maximum depth of recursive decoding when searching for secrets. The value `0` disables decoding;
+- `--max-target-megabytes` – maximum size of analyzed files in megabytes. Files larger than this size will be skipped;
+- `--no-banner` – disables the Gitleaks banner that is displayed when the tool is launched;
+- `--no-color` – disables color output for verbose mode;
+- `--redact` – masks found secrets in logs. You can specify intermediate values (for example, `20` to hide 20% of the secret);
 - `--verbose` – enables verbose output, providing more information about the scanning process.
 
 For a summary of available command options and usage instructions, you can call the command with the `-h, --help` flag.

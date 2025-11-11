@@ -62,6 +62,7 @@ hide:
 - <span class="module-tag sca">SCA</span> Очередь `sca-tasks` перенесена в celery worker
 - Изменена структура и наполнение бокового меню
 - <span class="module-tag sca">SCA</span> Убрано кодирование текста в unicode в файлах SBOM
+- Обновлён Redis до версии 7.4.6
 
 #### Исправлено
 

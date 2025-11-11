@@ -24,7 +24,7 @@ When using your own database instances, make sure that their versions meet the r
 ### Redis
 
 - Minimum version: **7.0.0**
-- Tested version: **7.4.3**
+- Tested version: **7.4.6**
 
 ### PostgreSQL
 

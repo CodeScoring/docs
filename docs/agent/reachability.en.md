@@ -8,11 +8,11 @@ hide:
 !!! info "What is reachability"
     Reachability analysis checks whether a potentially vulnerable piece of code can actually be executed when using the application.  This allows filtering out the "noise" and focusing on exploitable issues.
 
-Johnny CLI agent can analyze whether vulnerabilities are reachable from source code.  
+Johnny CLI agent can analyze whether vulnerabilities are reachable from source code.
 To use this feature, you need to set two parameters:
 
 - `cg-path` — path to the Svace-format call graph;
-- `cg-lang` — programming language for which the call graph was built. Currently, only `java` is supported.
+- `cg-lang` — programming language for which the call graph was built. Currently supported values are `java`, `python` and `go`.
 
 ## Building the call graph
 
@@ -31,7 +31,7 @@ To use this feature, you need to set two parameters:
       ```
    3. Analyze results and generate the call graph
       ```shell
-      svace analyze --build-call-graph-only --license-server-url "http(s)://<codescoring_host>" --license-server-token "<token from step 1>"  
+      svace analyze --build-call-graph-only --license-server-url "http(s)://<codescoring_host>" --license-server-token "<token from step 1>"
       ```
 4. Upon successful completion of all steps, a file named `.svace-dir/analyze-res/call-graph/<project_name>-graph-order.json` containing the call graph will appear in the project directory.
 5. Launch the scan using Johnny, for example:
