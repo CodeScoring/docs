@@ -5,6 +5,13 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.1] - 2025-11-11
+
+#### Fixed
+
+- Fixed a bug with self-signed SSL certificates
+- <span class="module-tag osa">OSA</span> Fixed incorrect display of package blocking status
+
 ### [2025.45.0] - 2025-11-07
 
 #### Added
