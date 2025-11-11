@@ -6,7 +6,7 @@ hide:
 # Scanning for secrets
 
 !!! note "Important"
-		To use this functionality, the platform must have the CodeScoring.Secrets module.
+		To use this functionality, the platform must have active CodeScoring.Secrets module.
 
 Scanning for secrets is performed using the `johnny secrets gitleaks dir` command.
 
