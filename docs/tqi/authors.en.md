@@ -91,3 +91,6 @@ Author profiles can be merged by email in the event of duplicates or multiple ac
 In the `Settings -> Authors` section, automatic merging of authors is available by clicking the **Create rules automatically** button, as well as setting rules manually using **Add new rule** button.
 
 After merging, the author's profile will contain all addresses associated with his main email, and his activity will be tracked by all commits with the specified addresses.
+
+!!! Warning Access
+    The user, regardless of the access level, can view the "Authors merge rules" if the email specified in his profile is present in the rule.
