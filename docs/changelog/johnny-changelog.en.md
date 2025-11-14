@@ -5,6 +5,13 @@ hide:
 
 # Johnny Changelog
 
+### [2025.45.1] - 2025-11-14
+
+#### Fixed
+
+- Fixed relative paths to manifests in scan results for .net, uv, and npm/pnpm projects
+- Fixed packages.lock.json association mechanism in projects using sln
+- Fixed image scan results output
 
 ### [2025.45.0] - 2025-11-05
 
