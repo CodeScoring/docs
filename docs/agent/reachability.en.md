@@ -27,7 +27,19 @@ To use this feature, you need to set two parameters:
       ```
    2. Instrumented build
       ```shell
-      svace build <build command> (e.g. svace build mvn clean package)
+      svace build <build command>
+      ```
+      Example of building Java project:
+      ```shell
+      svace build mvn clean package
+      ```
+      Example for Go:
+      ```shell
+      svace build go build -a main.go
+      ``` 
+      Example for Python:
+      ```shell
+      svace build --python .
       ```
    3. Analyze results and generate the call graph
       ```shell
