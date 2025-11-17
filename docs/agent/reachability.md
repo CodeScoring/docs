@@ -27,7 +27,19 @@ hide:
       ```
    2. Контролируемая сборка
       ```shell
-      svace build <build command> (e.g. svace build mvn clean package)
+      svace build <build command>
+      ```
+      Пример для проектов на языке Java:
+      ```shell
+      svace build mvn clean package
+      ```
+      Пример на языке Go:
+      ```shell
+      svace build go build -a main.go
+      ```
+      Пример на языке Python:
+      ```shell
+      svace build --python .
       ```
    3. Анализ результатов и построение графа вызовов
       ```shell
