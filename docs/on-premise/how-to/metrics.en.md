@@ -61,7 +61,7 @@ These metrics can be filtered by the `queue` label with the following possible v
 - **migration-background-tasks** - used for tasks related to background recalculation of data caused by the database schema change;
 - **media** - used for asynchronous generation of reports;
 - **media-cleaner** - used for periodic cleanup of reports;
-- **sca-analyses** - used for SCA-related tasks.
+- **sca-tasks** - used for SCA-related tasks.
 
 ### Analysis metrics
 
