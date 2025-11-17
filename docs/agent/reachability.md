@@ -36,7 +36,7 @@ hide:
       Пример на языке Go:
       ```shell
       svace build go build -a main.go
-      ``` 
+      ```
       Пример на языке Python:
       ```shell
       svace build --python .
