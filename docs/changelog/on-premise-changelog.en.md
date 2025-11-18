@@ -9,12 +9,12 @@ hide:
 
 #### Added
 
-- <span class="module-tag sca">SCA</span> Added metadata saving for rescan projects 
+- <span class="module-tag sca">SCA</span> Added metadata saving for rescan projects
 
 #### Fixed
 
-- <span class="module-tag osa">OSA</span> - Optimized OSA package scan 
-- Fixed behaviour of policy ignores in a standalone policy service 
+- <span class="module-tag osa">OSA</span> - Optimized OSA package scan
+- Fixed behaviour of policy ignores in a standalone policy service
 
 #### Changed
 
