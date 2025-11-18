@@ -9,16 +9,16 @@ hide:
 
 #### Added
 
-- <span class="module-tag sca">SCA</span> Added metadata saving for rescan projects
+- <span class="module-tag sca">SCA</span> Added saving of metadata when rescanning a project from the scan history
 
 #### Fixed
 
-- <span class="module-tag osa">OSA</span> - Optimized OSA package scan
-- Fixed behaviour of policy ignores in a standalone policy service
+- <span class="module-tag osa">OSA</span> Optimized package scanning performance in the OSA module
+- Fixed an issue with ignore handling during OSA Proxy policy evaluation
 
 #### Changed
 
-- <span class="module-tag osa">OSA</span> Changed logging information for OSA service
+- <span class="module-tag osa">OSA</span> Updated logging detail level in the OSA module
 
 ### [2025.45.1] - 2025-11-11
 
