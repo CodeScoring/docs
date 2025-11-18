@@ -5,6 +5,21 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.2] - 2025-11-18
+
+#### Added
+
+- <span class="module-tag sca">SCA</span> Added metadata saving for rescan projects 
+
+#### Fixed
+
+- <span class="module-tag osa">OSA</span> - Optimized OSA package scan 
+- Fixed behaviour of policy ignores in a standalone policy service 
+
+#### Changed
+
+- <span class="module-tag osa">OSA</span> Changed logging information for OSA service
+
 ### [2025.45.1] - 2025-11-11
 
 #### Fixed
