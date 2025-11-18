@@ -5,6 +5,21 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.2] - 2025-11-18
+
+#### Added
+
+- <span class="module-tag sca">SCA</span> Added saving of metadata when rescanning a project from the scan history
+
+#### Fixed
+
+- <span class="module-tag osa">OSA</span> Optimized package scanning performance in the OSA module
+- Fixed an issue with ignore handling during OSA Proxy policy evaluation
+
+#### Changed
+
+- <span class="module-tag osa">OSA</span> Updated logging detail level in the OSA module
+
 ### [2025.45.1] - 2025-11-11
 
 #### Fixed
