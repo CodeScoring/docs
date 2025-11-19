@@ -9,7 +9,7 @@ hide:
 
 #### Added
 
-- Added Summary output when exporting scan results in csv format
+- Added output of the Summary field when exporting scan results in CSV format
 
 ### [2025.45.1] - 2025-11-14
 
