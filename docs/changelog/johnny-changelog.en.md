@@ -5,6 +5,12 @@ hide:
 
 # Johnny Changelog
 
+### [2025.45.2] - 2025-11-19
+
+#### Added
+
+- Added Summary output when exporting scan results in csv format
+
 ### [2025.45.1] - 2025-11-14
 
 #### Fixed
