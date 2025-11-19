@@ -107,3 +107,25 @@ For PyPI, edit your `pip.conf` (Linux/macOS) or `pip.ini` (Windows) file and set
 index-url = https://osaproxy.example.com/pypi-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6InB5cGktcmVwbyJ9/simple
 ```
 
+## Passing Context for Correct Operation of Security Policies Tied to Nexus and Artifactory Repositories
+
+`Developer Client` -> `Nexus / Artifactory` -> `osa-proxy` -> `Internet`
+
+To pass contextual information, including the host and repository name of your repository manager, this data should be integrated into a Base64-encoded parameter string. It is crucial to strictly adhere to the rule that this Base64 string must be placed immediately after the repository name in the URL.
+
+### Nexus
+
+1.  Navigate to **Server Administration** -> **Repositories**.
+2.  Select the desired type (e.g., `maven2 (proxy)`).
+3.  In the **Remote storage** field, enter the URL of your `osa-proxy` instance, including the repository name and the Base64-encoded parameters.
+
+Example for a Maven proxy repository:
+`https://osaproxy.example.com/internet-maven/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3JlcG8xLm1hdmVuLm9yZy9tYXZlbjIiLCJyZXBvTmFtZSI6ImludGVybmV0LW1hdmVuIn0`
+
+### Artifactory
+
+1.  Navigate to **Administration** -> **Repositories** -> **Remote**.
+2.  In the configuration, set the **URL** field to the `osa-proxy` URL. This URL should include the repository name and the Base64-encoded string.
+
+Example for a PyPI remote repository:
+`https://osaproxy.example.com/internet-pypi/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3B5cGkub3JnL3NpbXBsZSIsInJlcG9OYW1lIjoiaW50ZXJuZXQtcHlwaSJ9`

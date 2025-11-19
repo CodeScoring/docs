@@ -107,3 +107,26 @@ Signed-By: /path/to/key.gpg
 index-url = https://osaproxy.example.com/pypi-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6InB5cGktcmVwbyJ9/simple
 ```
 
+## Передача контекста для корректной работы политик безопасности привязаных к репозиториям Nexus и Artifactory
+
+`Клиент разработчика` -> `Nexus / Artifactory` -> `osa-proxy` -> `Интернет`
+
+Для передачи контекстной информации, включающей хост и имя репозитория вашего менеджера репозиториев, эти данные следует интегрировать в Base64-кодированную строку параметров. Важно строго соблюдать правило, согласно которому данная Base64-строка должна располагаться непосредственно после имени репозитория в URL-адресе.
+
+### Nexus
+
+1.  Перейдите в **Server Administration** -> **Repositories**.
+2.  Выберите желаемый тип (например, `maven2 (proxy)`).
+3.  В поле **Remote storage** введите URL вашего экземпляра `osa-proxy`, включая имя репозитория и параметры, закодированные в Base64.
+
+Пример для прокси-репозитория Maven:
+`https://osaproxy.example.com/internet-maven/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3JlcG8xLm1hdmVuLm9yZy9tYXZlbjIiLCJyZXBvTmFtZSI6ImludGVybmV0LW1hdmVuIn0`
+
+### Artifactory
+
+1.  Перейдите в **Administration** -> **Repositories** -> **Remote**.
+2.  В конфигурации установите поле **URL** на URL `osa-proxy`. Этот URL должен включать имя репозитория и строку, закодированную в Base64.
+
+Пример для удаленного репозитория PyPI:
+`https://osaproxy.example.com/internet-pypi/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3B5cGkub3JnL3NpbXBsZSIsInJlcG9OYW1lIjoiaW50ZXJuZXQtcHlwaSJ9`
+
