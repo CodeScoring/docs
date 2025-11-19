@@ -29,14 +29,6 @@ Suppose you need to pass the following parameters as a JSON object:
 The Base64 encoding of the above JSON object is:
 `eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6Im5wbS1wcm94eSJ9`
 
-An example request to an NPM repository might look like this:
-
-`https://osaproxy.example.com/npm-proxy/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6Im5wbS1wcm94eSJ9/some/package`
-
-This rule is applicable for all supported package managers. For example, for Maven, the URL could be:
-
-`https://osaproxy.example.com/my-maven-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6Im5wbS1wcm94eSJ9/com/mycompany/app/my-app/1.0/my-app-1.0.pom`
-
 ## Package Manager Configuration
 
 To permanently use the URL with Base64 parameters for all requests, you need to update your package manager's configuration file.
