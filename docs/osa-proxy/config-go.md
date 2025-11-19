@@ -32,7 +32,7 @@ apt:
   repository:
     - name: inet-go
       scan-package: true
-      registry: https://proxy.golang.org 
+      registry: https://proxy.golang.org
 ```
 
 Пример текущей конфигурации переменных окружения (например, в файле `.bashrc`, `.zshrc` или в CI/CD пайплайне):

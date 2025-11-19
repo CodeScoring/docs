@@ -24,7 +24,7 @@ hide:
 
 ```shell
 Types: deb
-URIs: https://deb.debian.org/debian 
+URIs: https://deb.debian.org/debian
 Suites: noble noble-updates noble-backports
 Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
@@ -47,7 +47,7 @@ apt:
 
 ```shell
 Types: deb
-URIs: https://{osa-proxy-url}/codescoring-debian 
+URIs: https://{osa-proxy-url}/codescoring-debian
 Suites: noble noble-updates noble-backports
 Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
