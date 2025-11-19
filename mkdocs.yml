@@ -124,11 +124,14 @@ plugins:
           osa-proxy-general: "Overview"
           osa-proxy-protocols: "Supported protocols"
           osa-proxy-config: "Service configuration"
+          osa-proxy-base64: "Base64 URL configuration"
           osa-proxy-installation: "Service deployment"
           osa-proxy-maven-config: "Maven configuration"
           osa-proxy-npm-config: "npm configuration"
           osa-proxy-nuget-config: "NuGet configuration"
           osa-proxy-pypi-config: "PyPI configuration"
+          osa-proxy-go-config: "GO configuration"
+          osa-proxy-debian-config: "Debian configuration"
           osa-proxy-metrics: "Metrics"
           ide: "IDE integrations"
           ide-general: "General description"
@@ -275,11 +278,14 @@ plugins:
           osa-proxy-general: "Общее описание"
           osa-proxy-protocols: "Поддерживаемые протоколы"
           osa-proxy-config: "Настройка сервиса"
+          osa-proxy-base64: "Настройка Base64 URL"
           osa-proxy-installation: "Установка сервиса"
           osa-proxy-maven-config: "Настройка Maven"
           osa-proxy-npm-config: "Настройка NPM"
           osa-proxy-nuget-config: "Настройка NuGet"
           osa-proxy-pypi-config: "Настройка PyPI"
+          osa-proxy-go-config: "Настройка GO"
+          osa-proxy-debian-config: "Настройка Debian"
           osa-proxy-metrics: "Метрики"
           ide: "Интеграция с IDE"
           ide-general: "Общее описание"
@@ -509,6 +515,8 @@ nav:
         - osa-proxy-protocols: osa-proxy/protocols.en.md
         - osa-proxy-metrics: osa-proxy/metrics.md
         - osa-proxy-metrics: osa-proxy/metrics.en.md
+        - osa-proxy-base64: osa-proxy/base64-url.md
+        - osa-proxy-base64: osa-proxy/base64-url.en.md
         - osa-proxy-maven-config: osa-proxy/config-maven.md
         - osa-proxy-maven-config: osa-proxy/config-maven.en.md
         - osa-proxy-npm-config: osa-proxy/config-npm.md
@@ -517,6 +525,10 @@ nav:
         - osa-proxy-nuget-config: osa-proxy/config-nuget.en.md
         - osa-proxy-pypi-config: osa-proxy/config-pypi.md
         - osa-proxy-pypi-config: osa-proxy/config-pypi.en.md
+        - osa-proxy-go-config: osa-proxy/config-go.md
+        - osa-proxy-go-config: osa-proxy/config-go.en.md
+        - osa-proxy-debian-config: osa-proxy/config-debian.md
+        - osa-proxy-debian-config: osa-proxy/config-debian.en.md
     - sca:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md
