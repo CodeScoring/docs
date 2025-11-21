@@ -5,6 +5,19 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2025.47.0] - 2025-11-19
+
+#### Added
+
+- Implemented support for Go and Debian packages
+- Introduced handling for DELAYED status
+- Extended proxy server functionality to pass context via URL, enabling repository-bound policies to be applied in the `jfrog/nexus -> OSA proxy -> internet` configuration
+- When requesting a manifest, if all package versions are blocked, a list of corresponding blocking policies is now displayed in the response
+
+#### Fixed
+
+- Resolved an issue that prevented policies from being applied to repositories in the `OSA proxy -> jfrog/nexus -> internet` configuration
+
 ### [2025.39.2] - 2025-10-22
 
 #### Added
