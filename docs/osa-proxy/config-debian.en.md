@@ -20,7 +20,7 @@ The following table summarizes the redirection of repository URLs for Debian. Pl
 ## APT Repository Migration
 
 **Original file `/etc/apt/sources.list` or `/etc/apt/sources.list.d/*.list`:**
-e
+
 ```shell
 Types: deb
 URIs: https://deb.debian.org/debian

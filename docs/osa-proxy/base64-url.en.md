@@ -5,11 +5,74 @@ hide:
 
 # Base64 URL Parameters
 
-In some scenarios, requests to `osa-proxy` require specifying additional parameters directly in the URL path. This is achieved by passing a URL-safe Base64 encoded string.
+### Using Base64 URL Parameters for `osa-proxy`
+
+In certain scenarios, interacting with `osa-proxy` requires explicitly specifying additional parameters in the URL path. This is achieved by encoding the required information in Base64 (URL-safe) format.
+
+**Purpose:**
+
+The primary purpose of using Base64-encoded parameters is to provide `osa-proxy` with the necessary context to correctly apply security policies, especially when `osa-proxy` acts as an intermediary for external repositories.
+
+1.  **Automatic Context Detection:**
+    When `osa-proxy` is placed between a client (package manager) and an internal repository manager (e.g., JFrog Artifactory or Nexus Repository Manager), `osa-proxy` can automatically extract the host and repository name from the downstream repository settings.
+
+    *Example configuration where context is automatically determined:*
+    ```yaml
+    npm:
+      repository:
+        - name: codescoring-npm
+          # ...
+          registry: https://nexus.test.ru/repository/npm-proxy
+    ```
+
+2.  **Explicit Context Specification via Base64 Parameters:**
+    In cases where `osa-proxy` directly interacts with external, public repositories (e.g., `https://registry.npmjs.org`), it cannot independently retrieve information about the internal host and repository name. In this situation, it is critical for `osa-proxy` to receive this data to apply linked security policies and process the request correctly.
+
+    For this purpose, a Base64-encoded string is used, which contains a JSON object with parameters such as `repoManagerHost` and `repoName`. This string is embedded directly into the request URL, allowing `osa-proxy` to obtain the necessary context.
+
+    *Example configuration requiring explicit context specification:*
+    ```yaml
+    npm:
+      repository:
+        - name: codescoring-npm
+          # ...
+          registry: https://registry.npmjs.org # Parameter passing is required here
+    ```
+
+**Mechanism:**
+
+The Base64-encoded parameter string is placed in the URL path immediately after the repository name. `osa-proxy` decodes this string, extracts the parameters, and uses them to perform its functions, including applying security policies associated with a specific internal repository.
+
+**General URL Structure:**
+`https://<osaproxy-host>/<repository-name>/<base64-parameters>/<rest-of-path>`
+
+## Passing Context for Correct Operation of Security Policies Linked to Nexus and Artifactory Repositories
+
+`Developer Client` -> `Nexus / Artifactory` -> `osa-proxy` -> `Internet`
+
+To pass contextual information, including the host and repository name of your repository manager, this data should be integrated into a Base64-encoded parameter string. It is important to strictly adhere to the rule that this Base64 string must be placed immediately after the repository name in the URL.
+
+### Nexus
+
+1.  Go to **Server Administration** -> **Repositories**.
+2.  Select the desired type (e.g., `maven2 (proxy)`).
+3.  In the **Remote storage** field, enter the URL of your `osa-proxy` instance, including the repository name and Base64-encoded parameters.
+
+Example for a Maven proxy repository:
+`https://osaproxy.example.com/internet-maven/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3JlcG8xLm1hdmVuLm9yZy9tYXZlbjIiLCJyZXBvTmFtZSI6ImludGVybmV0LW1hdmVuIn0/maven2`
+
+### Artifactory
+
+1.  Go to **Administration** -> **Repositories** -> **Remote**.
+2.  In the configuration, set the **URL** field to the `osa-proxy` URL. This URL must include the repository name and the Base64-encoded string.
+
+Example for a remote PyPI repository:
+`https://osaproxy.example.com/internet-pypi/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3B5cGkub3JnL3NpbXBsZSIsInJlcG9OYW1lIjoiaW50ZXJuZXQtcHlwaSJ9/simple`
+
 
 ## Rule
 
-The Base64 encoded parameter string must be placed in the URL path immediately after the repository name.
+The Base64-encoded parameter string must be placed in the URL path immediately after the repository name.
 
 The general URL structure is as follows:
 `https://<osaproxy-host>/<repository-name>/<base64-parameters>/<rest-of-path>`
@@ -17,24 +80,26 @@ The general URL structure is as follows:
 Where:
 - `<osaproxy-host>`: The hostname of the `osa-proxy` instance.
 - `<repository-name>`: The name of the repository being accessed.
-- `<base64-parameters>`: A URL-safe Base64 encoded JSON string containing the parameters.
-- `<rest-of-path>`: The remainder of the original request path to the artifact.
+- `<base64-parameters>`: A URL-safe Base64-encoded JSON string containing the parameters.
+- `<rest-of-path>`: The remaining part of the path from the package manager settings.
 
 ## Example
 
-For example, to pass the following parameters as a JSON object:
+For example, you need to pass the following parameters as a JSON object.
 
 ```json
 {"repoManagerHost":"https://nexus.test.ru","repoName":"npm-proxy"}
 ```
 
+To do this, you should:
+
 1.  **Convert the JSON object to a string.**
 2.  **Encode the string using URL-safe Base64.**
 
-The Base64 encoding of the above JSON object is:
+The result of encoding the above JSON object in Base64:
 `eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6Im5wbS1wcm94eSJ9`
 
-## Package Manager Configuration
+## Configuring Package Managers
 
 To permanently use the URL with Base64 parameters for all requests, update your package manager's configuration file.
 
@@ -61,7 +126,7 @@ The `<url>` tag should contain the full URL, including the repository name and t
     <mirror>
       <id>osa-proxy-mirror</id>
       <mirrorOf>*</mirrorOf>
-      <url>https://osaproxy.example.com/my-maven-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6Im5wbS1wcm94eSJ9</url>
+      <url>https://osaproxy.example.com/my-maven-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6Im5wbS1wcm94eSJ9/maven2</url>
     </mirror>
   </mirrors>
   ...
@@ -72,7 +137,7 @@ Make sure the `<mirrorOf>` value matches the repositories you want to proxy.
 
 ### Go
 
-For Go, set the `GOPROXY` environment variable to include the repository name and the Base64 encoded string.
+For Go, set the `GOPROXY` environment variable to include the repository name and the Base64-encoded string.
 
 ```bash
 export GOPROXY="https://osaproxy.example.com/go-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6ImdvLXJlcG8ifQ"
@@ -111,26 +176,3 @@ For PyPI, edit `pip.conf` (Linux/macOS) or `pip.ini` (Windows) file and set the 
 [global]
 index-url = https://osaproxy.example.com/pypi-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL25leHVzLnRlc3QucnUiLCJyZXBvTmFtZSI6InB5cGktcmVwbyJ9/simple
 ```
-
-## Passing Context for Correct Operation of Security Policies Tied to Nexus and Artifactory Repositories
-
-`Developer Client` -> `Nexus / Artifactory` -> `osa-proxy` -> `Internet`
-
-To pass contextual information, including the host and repository name of your repository manager, this data should be integrated into a Base64-encoded parameter string. It is crucial to strictly adhere to the rule that this Base64 string must be placed immediately after the repository name in the URL.
-
-### Nexus
-
-1.  Navigate to **Server Administration** -> **Repositories**.
-2.  Select the desired type (e.g., `maven2 (proxy)`).
-3.  In the **Remote storage** field, enter the URL of your `osa-proxy` instance, including the repository name and the Base64-encoded parameters.
-
-Example for a Maven proxy repository:
-`https://osaproxy.example.com/internet-maven/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3JlcG8xLm1hdmVuLm9yZy9tYXZlbjIiLCJyZXBvTmFtZSI6ImludGVybmV0LW1hdmVuIn0`
-
-### Artifactory
-
-1.  Navigate to **Administration** -> **Repositories** -> **Remote**.
-2.  In the configuration, set the **URL** field to the `osa-proxy` URL. This URL should include the repository name and the Base64-encoded string.
-
-Example for a PyPI remote repository:
-`https://osaproxy.example.com/internet-pypi/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRwczovL3B5cGkub3JnL3NpbXBsZSIsInJlcG9OYW1lIjoiaW50ZXJuZXQtcHlwaSJ9`
