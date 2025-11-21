@@ -1,3 +1,8 @@
+---
+hide:
+  - footer
+---
+
 # Base64 URL Parameters
 
 In some scenarios, requests to `osa-proxy` require specifying additional parameters directly in the URL path. This is achieved by passing a URL-safe Base64 encoded string.
@@ -17,7 +22,7 @@ Where:
 
 ## Example
 
-Suppose you need to pass the following parameters as a JSON object:
+For example, to pass the following parameters as a JSON object:
 
 ```json
 {"repoManagerHost":"https://nexus.test.ru","repoName":"npm-proxy"}
@@ -31,11 +36,11 @@ The Base64 encoding of the above JSON object is:
 
 ## Package Manager Configuration
 
-To permanently use the URL with Base64 parameters for all requests, you need to update your package manager's configuration file.
+To permanently use the URL with Base64 parameters for all requests, update your package manager's configuration file.
 
 ### NPM
 
-For NPM, you need to edit your `.npmrc` file and set the `registry` key.
+For NPM, edit `.npmrc` file and set the `registry` key.
 
 The URL should include the repository name and the Base64 encoded string.
 
@@ -45,7 +50,7 @@ registry=https://osaproxy.example.com/npm-proxy/eyJyZXBvTWFuYWdlckhvc3QiOiJodHRw
 
 ### Maven
 
-For Maven, you need to edit your `settings.xml` file. You can add a new `<mirror>` in the `<mirrors>` section.
+For Maven, edit `settings.xml` file. You can add a new `<mirror>` in the `<mirrors>` section.
 
 The `<url>` tag should contain the full URL, including the repository name and the Base64 encoded string.
 
@@ -75,7 +80,7 @@ export GOPROXY="https://osaproxy.example.com/go-repo/eyJyZXBvTWFuYWdlckhvc3QiOiJ
 
 ### Debian
 
-For Debian, you need to edit your `/etc/apt/sources.list` or a file in `/etc/apt/sources.list.d/`. Update the `URIs` field.
+For Debian, edit `/etc/apt/sources.list` or a file in `/etc/apt/sources.list.d/`. Update the `URIs` field.
 
 ```
 Types: deb
@@ -87,7 +92,7 @@ Signed-By: /path/to/key.gpg
 
 ### NuGet
 
-For NuGet, edit your `NuGet.config` file and add a new package source. The `value` attribute of the `<add>` tag should contain the full URL.
+For NuGet, edit `NuGet.config` file and add a new package source. The `value` attribute of the `<add>` tag should contain the full URL.
 
 ```xml
 <configuration>
@@ -100,7 +105,7 @@ For NuGet, edit your `NuGet.config` file and add a new package source. The `valu
 
 ### PyPI
 
-For PyPI, edit your `pip.conf` (Linux/macOS) or `pip.ini` (Windows) file and set the `index-url`.
+For PyPI, edit `pip.conf` (Linux/macOS) or `pip.ini` (Windows) file and set the `index-url`.
 
 ```ini
 [global]

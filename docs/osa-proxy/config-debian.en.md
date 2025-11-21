@@ -16,12 +16,11 @@ The following table summarizes the redirection of repository URLs for Debian. Pl
 | Nexus           | `https://nexus.host.ru/repository/debian-group`    | `https://{osa-proxy-url}/nexus-debian` | `https://nexus.host.ru/repository/debian-group`    |
 | Artifactory     | `https://jfrog.host.ru/artifactory/debian-virtual` | `https://{osa-proxy-url}/jfrog-debian` | `https://jfrog.host.ru/artifactory/debian-virtual` |
 | Official Debian | `https://deb.debian.org/debian/`                   | `https://{osa-proxy-url}/inet-debian`  | `http://deb.debian.org/debian/`                    |
+
 ## APT Repository Migration
 
 **Original file `/etc/apt/sources.list` or `/etc/apt/sources.list.d/*.list`:**
-
-Suppose you have the following `sources.list` file:
-
+e
 ```shell
 Types: deb
 URIs: https://deb.debian.org/debian

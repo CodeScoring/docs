@@ -16,11 +16,10 @@ hide:
 | Nexus              | `https://nexus.host.ru/repository/debian-group`    | `https://{osa-proxy-url}/nexus-debian` | `https://nexus.host.ru/repository/debian-group`    |
 | Artifactory        | `https://jfrog.host.ru/artifactory/debian-virtual` | `https://{osa-proxy-url}/jfrog-debian` | `https://jfrog.host.ru/artifactory/debian-virtual` |
 | Официальный Debian | `https://deb.debian.org/debian/`                   | `https://{osa-proxy-url}/inet-debian`  | `http://deb.debian.org/debian/`                    |
+
 ## Миграция APT репозитория
 
 **Исходный файл `/etc/apt/sources.list` или `/etc/apt/sources.list.d/*.list`:**
-
-Предположим, у вас есть следующий файл `sources.list`:
 
 ```shell
 Types: deb
