@@ -192,6 +192,7 @@ keytool -import -alias <mycert> -keystore $JAVA_HOME/lib/security/cacerts -file 
 ```
 
 **Примечания**:
+
 - Замените `<mycert>` на уникальное имя для вашего сертификата.
 - Замените `<codescoring_ca.pem>` на фактическое имя вашего файла сертификата.
 - Вас могут попросить ввести пароль для Truststore. Стандартный пароль: `changeit`.
@@ -205,6 +206,7 @@ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 ```
 
 **Примечание**:
+
 - Для фильтрации результатов по вашему алиасу сертификата можно использовать команду `grep`:
     ```bash
     keytool -list -keystore $JAVA_HOME/lib/security/cacerts | grep mycert

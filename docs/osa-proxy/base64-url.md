@@ -15,6 +15,7 @@ hide:
 `https://<osaproxy-host>/<repository-name>/<base64-parameters>/<rest-of-path>`
 
 Где:
+
 - `<osaproxy-host>`: Имя хоста экземпляра `osa-proxy`.
 - `<repository-name>`: Имя репозитория, к которому осуществляется доступ.
 - `<base64-parameters>`: Закодированная в URL-safe Base64 JSON-строка, содержащая параметры.
