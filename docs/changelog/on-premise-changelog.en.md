@@ -5,6 +5,14 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.3] - 2025-11-24
+
+#### Fixed
+
+- <span class="module-tag osa">OSA</span> Fixed package representing with deleted repository manager
+- <span class="module-tag osa">OSA</span> Optimized loading of packages list
+
+
 ### [2025.45.2] - 2025-11-18
 
 #### Added
