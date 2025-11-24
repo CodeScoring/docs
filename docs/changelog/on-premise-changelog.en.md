@@ -9,8 +9,8 @@ hide:
 
 #### Fixed
 
-- <span class="module-tag osa">OSA</span> Fixed package representing with deleted repository manager
-- <span class="module-tag osa">OSA</span> Optimized loading of packages list
+- <span class="module-tag osa">OSA</span> Fixed package display when the repository manager has been deleted
+- <span class="module-tag osa">OSA</span> Optimized loading of the packages list
 
 
 ### [2025.45.2] - 2025-11-18
