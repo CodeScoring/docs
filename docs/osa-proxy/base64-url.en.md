@@ -15,6 +15,7 @@ The general URL structure is as follows:
 `https://<osaproxy-host>/<repository-name>/<base64-parameters>/<rest-of-path>`
 
 Where:
+
 - `<osaproxy-host>`: The hostname of the `osa-proxy` instance.
 - `<repository-name>`: The name of the repository being accessed.
 - `<base64-parameters>`: A URL-safe Base64 encoded JSON string containing the parameters.
