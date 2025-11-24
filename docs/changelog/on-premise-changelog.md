@@ -11,6 +11,7 @@ hide:
 
 - <span class="module-tag osa">OSA</span> Исправлено отображение пакетов из удалённых менеджеров репозиториев
 - <span class="module-tag osa">OSA</span> Оптимизирован запрос загрузки списка пакетов
+- <span class="module-tag secrets">Secrets</span> Исправлен механизм обнаружение ML-модели в модуле Secrets
 
 ### [2025.45.2] - 2025-11-18
 
