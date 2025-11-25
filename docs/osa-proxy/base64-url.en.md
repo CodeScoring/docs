@@ -11,37 +11,41 @@ In certain scenarios, interacting with `osa-proxy` requires explicitly specifyin
 
 The primary purpose of using Base64-encoded parameters is to provide `osa-proxy` with the necessary context to correctly apply security policies, especially when `osa-proxy` acts as an intermediary for external repositories.
 
-### Automatic Context Detection:
-    When `osa-proxy` is placed between a client (package manager) and an internal repository manager (e.g., JFrog Artifactory or Nexus Repository Manager), `osa-proxy` can automatically extract the host and repository name from the downstream repository settings.
+### Automatic Context Detection
 
-    *Example configuration where context is automatically determined:*
-    ```yaml
-    npm:
-      repository:
-        - name: codescoring-npm
-          # ...
-          registry: https://nexus.test.ru/repository/npm-proxy
-    ```
+When `osa-proxy` is placed between a client (package manager) and an internal repository manager (e.g., JFrog Artifactory or Nexus Repository Manager), `osa-proxy` can automatically extract the host and repository name from the downstream repository settings.
 
-### Explicit Context Specification via Base64 Parameters:
-    In cases where `osa-proxy` directly interacts with external, public repositories (e.g., `https://registry.npmjs.org`), it cannot independently retrieve information about the internal host and repository name. In this situation, it is critical for `osa-proxy` to receive this data to apply linked security policies and process the request correctly.
+Example configuration where context is automatically determined:
 
-    For this purpose, a Base64-encoded string is used, which contains a JSON object with parameters such as `repoManagerHost` and `repoName`. This string is embedded directly into the request URL, allowing `osa-proxy` to obtain the necessary context.
+```yaml
+npm:
+  repository:
+    - name: codescoring-npm
+      # ...
+      registry: https://nexus.test.ru/repository/npm-proxy
+```
 
-    *Example configuration requiring explicit context specification:*
-    ```yaml
-    npm:
-      repository:
-        - name: codescoring-npm
-          # ...
-          registry: https://registry.npmjs.org # Parameter passing is required here
-    ```
+### Explicit Context Specification via Base64 Parameters
+
+In cases where `osa-proxy` directly interacts with external, public repositories (e.g., `https://registry.npmjs.org`), it cannot independently retrieve information about the internal host and repository name. In this situation, it is critical for `osa-proxy` to receive this data to apply linked security policies and process the request correctly.
+
+For this purpose, a Base64-encoded string is used, which contains a JSON object with parameters such as `repoManagerHost` and `repoName`. This string is embedded directly into the request URL, allowing `osa-proxy` to obtain the necessary context.
+
+Example configuration requiring explicit context specification:
+
+```yaml
+npm:
+  repository:
+    - name: codescoring-npm
+      # ...
+      registry: https://registry.npmjs.org # Parameter passing is required here
+```
 
 ### How it works:
 
 The Base64-encoded parameter string is placed in the URL path immediately after the repository name. `osa-proxy` decodes this string, extracts the parameters, and uses them to perform its functions, including applying security policies associated with a specific internal repository.
 
-**General URL Structure:**
+General URL Structure:
 `https://<osaproxy-host>/<repository-name>/<base64-parameters>/<rest-of-path>`
 
 ## Passing Context for Correct Operation of Security Policies Linked to Nexus and Artifactory Repositories
