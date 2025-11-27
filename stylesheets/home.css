@@ -1,0 +1,267 @@
+.hero {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 4rem clamp(1.5rem, 6vw, 8rem) 4rem clamp(1.5rem, 6vw, 8rem);
+
+  overflow: visible;
+  color: #ffffff;
+  z-index: 0;
+}
+
+/* контейнер для блобов — фиксированный фон */
+.blobs {
+  position: fixed;
+  top: var(--md-header-height, 64px);
+  bottom: var(--md-footer-height, 56px);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: #24293F; /* единый фон */
+}
+
+/* единый, мягкий радиальный blob */
+.blob {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,
+                rgba(255,61,108,0.95) 0%,
+                rgba(255,61,108,0.35) 45%,
+                rgba(255,61,108,0.02) 70%,
+                rgba(255,61,108,0) 100%);
+  filter: blur(80px);
+  opacity: 0.95;
+  transform: translate3d(0,0,0) scale(1);
+  will-change: transform;
+  animation: blobMove 10s linear infinite;
+}
+
+/* второй blob */
+.blob:nth-of-type(2) {
+  width: 900px;
+  height: 900px;
+  left: 55%;
+  top: 45%;
+  background: radial-gradient(circle at 50% 45%,
+                rgba(255,61,108,0.85) 0%,
+                rgba(255,61,108,0.25) 40%,
+                rgba(255,61,108,0.01) 75%,
+                rgba(255,61,108,0) 100%);
+  filter: blur(120px);
+  opacity: 0.8;
+  animation: blobMoveAlt 15s linear infinite reverse;
+}
+
+/* Контент поверх блобов */
+.hero-content {
+  margin-left: var(--md-content-padding, 2rem);
+  padding: 1rem 0;
+  text-align: left;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Адаптивный заголовок */
+.hero-content h1 {
+  margin: 0 0 1.5rem 0;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.02;
+  font-size: clamp(2rem, 5.2vw, 3.6rem);
+}
+
+
+.md-tabs {
+  margin-left: -0.5rem;
+}
+
+
+/* Кнопки */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #ffffff !important;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.15s;
+  box-shadow: none;
+}
+
+.btn:active { transform: translateY(1px); }
+
+/* primary */
+.btn-primary {
+  background-color: #ff3d6c;
+  border: none;
+}
+
+/* secondary */
+.btn-secondary {
+  background: rgba(255,255,255,0.03);
+  border: 2px solid #ff3d6c;
+}
+
+.btn-primary:hover { background-color: #e6365d; color: #fff; }
+.btn-secondary:hover { background-color: #ff3d6c; color: #fff; }
+
+/* ====== keyframes ====== */
+@keyframes blobMove {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  20%  { transform: translate3d(18vw, -6dvh, 0) scale(1.05); }
+  40%  { transform: translate3d(6vw, 10dvh, 0) scale(0.98); }
+  60%  { transform: translate3d(-12vw, 8dvh, 0) scale(1.03); }
+  80%  { transform: translate3d(-6vw, -4dvh, 0) scale(0.99); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes blobMoveAlt {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  25%  { transform: translate3d(-25vw, 15dvh, 0) scale(1.06); }
+  50%  { transform: translate3d(-12vw, -12dvh, 0) scale(0.95); }
+  75%  { transform: translate3d(15vw, -6dvh, 0) scale(1.02); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* ====== только для главной страницы ====== */
+body.is-home .md-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+body.is-home .md-main {
+  padding-bottom: var(--md-footer-height, 56px);
+}
+
+/* Скрыть заголовок в хэдере на главной странице без сдвига */
+body.is-home .md-header__title {
+  visibility: hidden !important;
+}
+
+/* ====== мобильная адаптация ====== */
+/* Убрать тень и границу от хэдера и табов на мобильке */
+@media (max-width: 720px) {
+  /* убираем линию между хэдером и контентом */
+  .md-header,
+  .md-tabs {
+    box-shadow: none !important;
+    border-bottom: none !important;
+  }
+
+  .md-main {
+    margin-top: 0 !important;
+    padding-top: 0 !important; /* иногда ещё padding виноват */
+  }
+
+  /* фиксируем фон — убираем линию сверху */
+  .blobs {
+    top: 0;
+    bottom: var(--md-footer-height, 56px);
+  }
+
+  /* выравнивание контента левее */
+  .hero {
+    padding: 1rem 1rem; /* уменьшили top/bottom padding для меньшего съезда вниз */
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    text-align: left;
+    padding: 0.5rem 0; /* уменьшили padding для hero-content */
+  }
+
+  /* уменьшаем блобы на мобильке */
+  .blob {
+    width: 400px;
+    height: 400px;
+    filter: blur(60px); /* чуть меньше блюр для лучшей производительности/визуала */
+  }
+
+  .blob:nth-of-type(2) {
+    width: 500px;
+    height: 500px;
+    left: 40%; /* скорректировали позицию для лучшего центрирования на маленьком экране */
+    top: 50%;
+    filter: blur(90px);
+  }
+
+  /* уменьшаем амплитуду анимации на мобильке, чтобы блобы не уходили слишком далеко */
+  @keyframes blobMove {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    20%  { transform: translate3d(10vw, -4dvh, 0) scale(1.03); }
+    40%  { transform: translate3d(4vw, 6dvh, 0) scale(0.98); }
+    60%  { transform: translate3d(-8vw, 5dvh, 0) scale(1.02); }
+    80%  { transform: translate3d(-4vw, -3dvh, 0) scale(0.99); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes blobMoveAlt {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    25%  { transform: translate3d(-15vw, 10dvh, 0) scale(1.04); }
+    50%  { transform: translate3d(-8vw, -8dvh, 0) scale(0.96); }
+    75%  { transform: translate3d(10vw, -4dvh, 0) scale(1.01); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  /* кнопки на мобилке в колонку */
+  .hero-buttons {
+    flex-direction: column;   /* вместо ряда */
+    align-items: stretch;     /* кнопки на всю ширину */
+    gap: 0.75rem;
+  }
+
+  .btn {
+    max-width: 100%;          /* убираем ограничение */
+    width: 100%;              /* каждая кнопка занимает всю строку */
+    white-space: normal;      /* разрешаем перенос текста */
+    text-overflow: unset;
+    overflow: visible;
+    text-align: center;       /* чтобы текст был ровно по центру */
+  }
+
+  .md-footer-meta__inner {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    overflow: hidden !important;
+  }
+
+  .md-social {
+    display: flex !important;
+    flex-shrink: 0 !important;
+    gap: 0.5rem !important;
+    margin-left: auto !important;
+  }
+
+  .md-social__link {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .md-grid {
+    flex-wrap: nowrap !important; /* если md-grid вызывает wrap */
+  }
+}

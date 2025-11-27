@@ -1,0 +1,37 @@
+- [Русский](https://docs.codescoring.ru/agent/scan-dir/index.md)
+
+# Scanning a directory
+
+Scanning a directory is done using the `scan dir` subcommand.
+
+During launching the agent:
+
+1. Recursively goes through the entire contents of the specified directory (if a particular manifest is specified, it processes only that one)
+1. Identifies manifest files and parses them
+1. Hashes each file (when ran with `--with-hashes`)
+1. Generates a request for platform
+1. After receiving the result, it shows summary information on the found manifests, dependencies, vulnerabilities, triggered policies and more detailed information on each vulnerability and triggered policy
+1. Additionally, a file `bom.json` is generated in the current directory, containing the complete Software Bill of Materials in the **CycloneDX** format.
+
+Depending on the result of work and launch parameters, the agent returns the corresponding exit code.
+
+By default, the agent traverses the contents of a directory recursively (including subdirectories). For non-recursive scanning, you need to add the `--no-recursion` option to the `scan dir` command.
+
+## Request example
+
+```
+./johnny scan dir . \
+--api_token <api_token> \
+--api_url <api_url> \
+--ignore .tmp --ignore fixtures --ignore .git
+```
+
+## Command parameters
+
+The **scan dir** command has three unique parameters, in addition to the [general scan command settings](/agent/scan.en/#launch-options):
+
+- `--branch-or-tag` – a reference to a branch or repository tag. Format `^refs/(heads|tags)/.+` (e.g. `refs/tags/v1.0`);
+- `--commit` – specifying the commit hash;
+- `--no-recursion` – disabling recursive directory scanning.
+
+For a summary of available command parameters and usage instructions, you can call the command with the `-h, --help` flag.

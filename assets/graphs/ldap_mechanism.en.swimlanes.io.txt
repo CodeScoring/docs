@@ -1,0 +1,37 @@
+title: CodeScoring LDAP Auth Flow
+
+User -> CodeScoring: passes data about the user and the LDAP server, requests authentication
+
+//
+if: LDAP Settings are not configured with service user credentials
+
+CodeScoring -> LDAP: `bind` with user credentials
+
+//
+else: LDAP Settings are configured with service user credentials
+
+CodeScoring -> LDAP: `bind` with user credentials
+CodeScoring <- LDAP:
+CodeScoring -> LDAP: `rebind` with service user credentials
+CodeScoring <- LDAP:
+//
+end
+
+CodeScoring -> LDAP: `search` for user record
+CodeScoring <- LDAP:
+CodeScoring -> LDAP: `unbind`
+CodeScoring <- LDAP:
+
+//
+if: could not establish the connection or find the user record
+
+User <- CodeScoring: responds with failed authentication
+
+//
+else: established the connection and found the user record
+
+CodeScoring -> CodeScoring: creates or updates a user record in the system
+User <- CodeScoring: responds with authentication success
+
+//
+end
