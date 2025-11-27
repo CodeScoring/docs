@@ -39,6 +39,7 @@ apt:
   repository:
     - name: debian-apt
       scan-package: true
+      distro: bullseye
       registry: http://deb.debian.org/debian/
 ```
 
