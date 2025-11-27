@@ -54,6 +54,17 @@ General URL Structure:
 
 To pass contextual information, including the host and repository name of your repository manager, this data should be integrated into a Base64-encoded parameter string. It is important to strictly adhere to the rule that this Base64 string must be placed immediately after the repository name in the URL.
 
+### Configuration Update
+
+It is necessary to mark the repository as compatible with Base64 parameters using `url-encoded-config: true`.
+```yaml
+npm:
+  repository:
+    - name: codescoring-npm
+      url-encoded-config: true
+      # ...
+      registry: https://registry.npmjs.org
+```
 ### Nexus
 
 1.  Go to **Server Administration** -> **Repositories**.

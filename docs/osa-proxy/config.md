@@ -33,6 +33,7 @@ hide:
         - name: internet-pypi
           scan-manifest: true
           scan-package: true
+          url-encoded-config: true
           registry: https://pypi.org
           packages-registry: https://files.pythonhosted.org
         - name: arti-pypi
@@ -52,6 +53,7 @@ hide:
         - name: internet-mvn
           scan-manifest: true
           scan-package: true
+          url-encoded-config: true
           registry: https://repo1.maven.org/maven2
         - name: arti-mvn
           scan-manifest: false
@@ -68,6 +70,7 @@ hide:
         - name: internet-npm
           scan-package: true
           scan-manifest: true
+          url-encoded-config: true
           registry: https://registry.npmjs.org
         - name: arti-npm
           scan-package: true
@@ -83,6 +86,7 @@ hide:
       repository:
         - name: codescoring-nuget
           scan-package: true
+          url-encoded-config: true
           registry: https://api.nuget.org
         - name: arti-nuget
           scan-package: true
@@ -91,6 +95,44 @@ hide:
           scan-package: true
           scan-manifest: true
           registry: http://localhost:8081/repository/nuget-v3-proxy
+    # Настройки GO
+    go:
+       enabled: true
+       repository:
+         - name: codescoring-go
+           scan-manifest: true
+           scan-package: true
+           url-encoded-config: true
+           registry: https://proxy.golang.org/
+         - name: arti-go
+           scan-package: true
+           scan-manifest: true
+           url-encoded-config: true
+           registry: http://localhost:8081/artifactory/api/go/go-virt
+         - name: nexus-go
+           scan-package: true
+           scan-manifest: true
+           url-encoded-config: true
+           registry: http://localhost:8081/repository/go-proxy/
+    # Настройка Debian
+    debian:
+      enabled: true
+      repository:
+        - name: codescoring-debian
+          scan-package: true
+          url-encoded-config: true
+          registry: https://ports.ubuntu.com/ubuntu-ports/
+          distro: plucky
+        - name: arti-debian
+          scan-package: true
+          url-encoded-config: true
+          registry: http://localhost:8081/artifactory/debian-remote
+          distro: plucky
+        - name: nexus-debian
+          scan-package: true
+          url-encoded-config: true
+          registry: http://localhost:8081/repository/debian11
+          distro: bullseye
     ```
 
 !!! note "Особенности работы в Nexus Repository и JFrog Artifactory"

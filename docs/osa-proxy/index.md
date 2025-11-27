@@ -19,6 +19,8 @@ OSA Proxy обрабатывает запросы к следующим репо
 - NPM Registry (`https://registry.npmjs.org`)
 - PyPI (`https://pypi.org`)
 - NuGet V3 (`https://api.nuget.org`)
+- Go (`https://proxy.golang.org/`)
+- Debian (`https://ports.ubuntu.com/ubuntu-ports`)
 
 !!! Важно "Поддержка альтернативных репозиториев"
 

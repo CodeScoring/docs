@@ -91,6 +91,44 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
           scan-package: true
           scan-manifest: true
           registry: http://localhost:8081/repository/nuget-v3-proxy
+    # GO settings
+    go:
+       enabled: true
+       repository:
+         - name: codescoring-go
+           scan-manifest: true
+           scan-package: true
+           url-encoded-config: true
+           registry: https://proxy.golang.org/
+         - name: arti-go
+           scan-package: true
+           scan-manifest: true
+           url-encoded-config: true
+           registry: http://localhost:8081/artifactory/api/go/go-virt
+         - name: nexus-go
+           scan-package: true
+           scan-manifest: true
+           url-encoded-config: true
+           registry: http://localhost:8081/repository/go-proxy/
+    # Debian settings
+    debian:
+      enabled: true
+      repository:
+        - name: codescoring-debian
+          scan-package: true
+          url-encoded-config: true
+          registry: https://ports.ubuntu.com/ubuntu-ports/
+          distro: plucky
+        - name: arti-debian
+          scan-package: true
+          url-encoded-config: true
+          registry: http://localhost:8081/artifactory/debian-remote
+          distro: plucky
+        - name: nexus-debian
+          scan-package: true
+          url-encoded-config: true
+          registry: http://localhost:8081/repository/debian11
+          distro: bullseye
     ```
 
 !!! note "Specifics of working in Nexus Repository and JFrog Artifactory"
