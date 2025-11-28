@@ -2,6 +2,7 @@
 hide:
   - footer
 ---
+
 # Launching secret search
 
 ## Search for secrets in a single project
@@ -16,7 +17,7 @@ Depending on the size of the project, the analysis can last from a few seconds t
 
 In addition to manual runs, you can set up scheduled analysis of individual projects.
 
-This is controlled on the project page in `Settings -> Projects`. 
+This is controlled on the project page in `Settings -> Projects`.
 
 By default, the **Secrets Scan Schedule** parameter is set to **Off**. To activate scheduled analysis, you need to select **On** and select time and days of week.
 
