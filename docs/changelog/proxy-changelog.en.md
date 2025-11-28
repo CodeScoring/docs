@@ -5,6 +5,11 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2025.48.0] - 2025-11-28
+
+#### Fixed
+- Fixed an issue where not-yet-indexed packages were not scanned by the Judge 
+
 ### [2025.47.0] - 2025-11-19
 
 #### Added
