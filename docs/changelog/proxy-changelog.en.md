@@ -1,6 +1,6 @@
 ---
 hide:
- -footer
+ - footer
 ---
 
 # OSA Proxy Changelog
@@ -8,7 +8,8 @@ hide:
 ### [2025.48.0] - 2025-11-28
 
 #### Fixed
-- Fixed an issue where not-yet-indexed packages were not scanned by the Judge
+
+- Исправлено применение политик безопасности для версий пакетов, данные о которых отсутствуют в CodeScoring Index на момент сканирования
 
 ### [2025.47.0] - 2025-11-19
 
