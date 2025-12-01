@@ -5,6 +5,13 @@ hide:
 
 # Johnny Changelog
 
+
+### [2025.45.3] - 2025-12-01
+
+#### Changed
+
+- Optimized gradle-dependency-tree processing
+
 ### [2025.45.2] - 2025-11-19
 
 #### Added
