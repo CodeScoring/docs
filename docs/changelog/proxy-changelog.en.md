@@ -5,11 +5,17 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2025.48.2] - 2025-12-02
+
+#### Fixed
+
+- Fixed an issue where packages with a release date were blocked when the `Dependency release date is empty` policy was active
+
 ### [2025.48.0] - 2025-11-28
 
 #### Fixed
 
-- Исправлено применение политик безопасности для версий пакетов, данные о которых отсутствуют в CodeScoring Index на момент сканирования
+- Fixed how security policies were applied to package versions whose data was missing from the CodeScoring Index at the time of scanning
 
 ### [2025.47.0] - 2025-11-19
 
