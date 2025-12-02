@@ -5,6 +5,12 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2025.48.2] - 2025-12-02
+
+#### Fixed
+
+- Fixed an issue where packages with a release date were blocked when the `Release Date - is empty` policy was active. 
+
 ### [2025.48.0] - 2025-11-28
 
 #### Fixed
