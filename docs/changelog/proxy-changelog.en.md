@@ -9,7 +9,7 @@ hide:
 
 #### Fixed
 
-- Fixed an issue where packages with a release date were blocked when the `Release Date - is empty` policy was active. 
+- Fixed an issue where packages with a release date were blocked when the `Release Date - is empty` policy was active.
 
 ### [2025.48.0] - 2025-11-28
 
