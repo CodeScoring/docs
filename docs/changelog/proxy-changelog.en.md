@@ -15,7 +15,7 @@ hide:
 
 #### Fixed
 
-- Исправлено применение политик безопасности для версий пакетов, данные о которых отсутствуют в CodeScoring Index на момент сканирования
+- Fixed how security policies were applied to package versions whose data was missing from the CodeScoring Index at the time of scanning. 
 
 ### [2025.47.0] - 2025-11-19
 
