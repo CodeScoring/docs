@@ -15,7 +15,7 @@ hide:
 
 #### Fixed
 
-- Fixed how security policies were applied to package versions whose data was missing from the CodeScoring Index at the time of scanning. 
+- Fixed how security policies were applied to package versions whose data was missing from the CodeScoring Index at the time of scanning.
 
 ### [2025.47.0] - 2025-11-19
 
