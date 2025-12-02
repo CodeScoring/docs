@@ -9,13 +9,13 @@ hide:
 
 #### Fixed
 
-- Fixed an issue where packages with a release date were blocked when the `Release Date - is empty` policy was active.
+- Fixed an issue where packages with a release date were blocked when the `Dependency release date is empty` policy was active
 
 ### [2025.48.0] - 2025-11-28
 
 #### Fixed
 
-- Fixed how security policies were applied to package versions whose data was missing from the CodeScoring Index at the time of scanning.
+- Fixed how security policies were applied to package versions whose data was missing from the CodeScoring Index at the time of scanning
 
 ### [2025.47.0] - 2025-11-19
 
