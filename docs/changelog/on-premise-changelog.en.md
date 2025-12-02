@@ -5,6 +5,13 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.4] - 2025-12-02
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Optimized PDF report export
+- <span class="module-tag sca">SCA</span> Optimized dependency graph generation
+
 ### [2025.45.3] - 2025-11-24
 
 #### Fixed
@@ -12,8 +19,6 @@ hide:
 - <span class="module-tag osa">OSA</span> Fixed package display when the repository manager has been deleted
 - <span class="module-tag osa">OSA</span> Optimized loading of the packages list
 - <span class="module-tag secrets">Secrets</span> Updated the ML-based secret detection strategy in the Secrets module
-
-
 
 ### [2025.45.2] - 2025-11-18
 

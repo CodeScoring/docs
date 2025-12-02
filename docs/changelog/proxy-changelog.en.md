@@ -15,9 +15,9 @@ hide:
 
 #### Added
 
-- Implemented support for [Go](/osa-proxy/config-go.en.md) and [Debian](/osa-proxy/config-debian.en.md) packages
+- Implemented support for [Go](/osa-proxy/config-go.en) and [Debian](/osa-proxy/config-debian.en) packages
 - Introduced handling for DELAYED status
-- Extended proxy server functionality to pass context via URL, enabling repository-bound policies to be applied in the `jfrog/nexus -> OSA proxy -> internet` configuration. For more detailed information, please refer to [documentation](/osa-proxy/base64-url.en.md)
+- Extended proxy server functionality to pass context via URL, enabling repository-bound policies to be applied in the `jfrog/nexus -> OSA proxy -> internet` configuration. For more detailed information, please refer to [documentation](/osa-proxy/base64-url.en)
 - When requesting a manifest, if all package versions are blocked, a list of corresponding blocking policies is now displayed in the response
 
 #### Fixed
