@@ -5,6 +5,13 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2025.48.3] - 2025-12-08
+
+#### Fixed
+
+- Fixed the resource leak, which manifested immediately before the Garbage Collection (GC) cycle
+- Fixed a behavior that caused the error `Connection prematurely closed BEFORE response` in cases where the connection was closed on the server side or by a reverse proxy
+
 ### [2025.48.2] - 2025-12-02
 
 #### Fixed
