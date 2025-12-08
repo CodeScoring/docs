@@ -5,6 +5,16 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.5] - 2025-12-05
+
+#### Added
+
+- Added automatic authorization type selection for container image registries
+
+#### Fixed
+
+- Optimized the query for getting a list of projects on the dependency page
+
 ### [2025.45.4] - 2025-12-02
 
 #### Fixed
