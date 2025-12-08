@@ -9,11 +9,11 @@ hide:
 
 #### Added
 
-- Added automatic authorization type selection for container image registries
+- <span class="module-tag osa">OSA</span> Added automatic authorization type selection for container image registries
 
 #### Fixed
 
-- Optimized the query for getting a list of projects on the dependency page
+- <span class="module-tag sca">SCA</span> Optimized the query for getting a list of projects on the dependency page
 
 ### [2025.45.4] - 2025-12-02
 
