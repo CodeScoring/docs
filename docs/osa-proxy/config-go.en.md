@@ -27,11 +27,12 @@ The following repository definition needs to be added to the service's YAML conf
 **Configuration in `application.yml` file**
 
 ```yaml
-apt:
+go:
   enabled: true
   repository:
     - name: inet-go
       scan-package: true
+      scan-manifest: true
       registry: https://proxy.golang.org
 ```
 
