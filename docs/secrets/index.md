@@ -1,6 +1,5 @@
 ---
-hide:
-  - footer
+icon: modules/secrets
 ---
 
 # CodeScoring.Secrets
