@@ -150,10 +150,10 @@ To specify the path to a SBOM save file, you must add the `--bom-path` parameter
 
 Depending on the run result and launch parameters, the agent returns the corresponding exit code:
 
-- 0: successful run, no issues were detected;
-- 1: issues found after a successful run, user action required;
-- 2: run failure;
-- 3: empty result, no artifacts were found for analysis. Returned only if the `--block-on-empty-result` parameter is set to `true`.
+- **0** – successful run, no issues were detected;
+- **1** – as a result of the scan, problems were found that correspond to the configured [security policies](//on-premise/how-to/policies.en/), user action is required;
+- **2** – run failure;
+- **3** – empty result, no artifacts were found for analysis. Returned only if the `--block-on-empty-result` parameter is set to `true`.
 
 ## Priority of settings
 
