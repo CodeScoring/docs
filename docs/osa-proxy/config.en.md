@@ -15,7 +15,7 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
     # CodeScoring parameters
     codescoring:
       host: CodeScoring server URL
-      token: authorization token
+      token: authorization token ((with access level User or higher)
       work-mode: operation mode (applies only to package scanning)
                   # warmup | Warm up scan cache without monitoring requests, no blocking
                   # spectator | Warm up scan cache with request monitoring, no blocking
