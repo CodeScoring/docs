@@ -5,6 +5,11 @@ hide:
 
 # Johnny Changelog
 
+### [2025.45.4] - 2025-12-12
+
+#### Fixed
+
+- Fixed a loop on some JavaScript projects when processing the workspace
 
 ### [2025.45.3] - 2025-12-01
 
