@@ -5,6 +5,16 @@ hide:
 
 # Codescoring On-premise Changelog
 
+## [2025.45.6] - 2025-12-13
+
+#### Added
+
+- <span class="module-tag osa">OSA</span> Implemented policy mechanism using cache in the OSA Proxy service
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Fixed SBOM file generation for projects with protestware
+
 ### [2025.45.5] - 2025-12-05
 
 #### Added

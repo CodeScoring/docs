@@ -5,6 +5,16 @@ hide:
 
 # Codescoring On-premise Changelog
 
+## [2025.45.6] - 2025-12-13
+
+#### Добавлено
+
+- <span class="module-tag osa">OSA</span> Реализована работа политик с использованием кэша в сервисе OSA Proxy
+
+#### Исправлено
+
+- <span class="module-tag sca">SCA</span> Исправлено формирование SBOM-файла для проектов с protestware
+
 ### [2025.45.5] - 2025-12-05
 
 #### Добавлено
