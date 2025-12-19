@@ -5,6 +5,17 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.7] - 2025-12-19
+
+#### Добавлено
+
+- <span class="module-tag osa">OSA</span> Добавлены настройки `INDEX_API_TIMEOUT` и `LOG_LEVEL` в сервис Index Proxy
+
+#### Исправлено
+
+- <span class="module-tag osa">OSA</span> Исправлена работа политик в OSA Proxy без указания `repository_id`
+- <span class="module-tag sca">SCA</span> Исправлено формирование версии npm пакетов в SBOM-файлах
+
 ## [2025.45.6] - 2025-12-13
 
 #### Добавлено
