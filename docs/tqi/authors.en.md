@@ -74,9 +74,8 @@ The author's individual page contains key metrics of his work:
 - **Contribution, total commits** – the total number of commits (commits + merge commits) made by the author in the projects;
 - **Contribution, commits** – the total number of commits made by the author in the projects;
 - **Contribution, merge commits** – the total number of merge commits made by the author in the projects;
-- **Code rate** - mean value of author commits changes relative to total LOC in the projects;
-- **Newness impact** - added lines share relative to total number of lines written by author;
-- **Churn impact** - modified and removed lines share relative to total number of lines written by author;
+- **Novelty** - added lines share relative to total number of lines written by author;
+- **Refactoring** - modified and removed lines share relative to total number of lines written by author;
 
 In addition, the page shows lists of the organization's projects and the Open Source projects in which the author participated.
 
