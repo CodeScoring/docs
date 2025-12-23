@@ -42,7 +42,7 @@ The technology (language) filter is applied to commits. If a commit contains cha
 Suppose the following commits are present:
 
 | Author | Language 1 | Share | Language 2 | Share |
-|---------|-----------|--------|-------|
+|--------|------------|-------|------------|-------|
 | Author 1 | Python | 100% | JS | 1% |
 | Author 1 | Python | 50% | Java | 50% |
 | Author 2 | Java | 100% | — | — |
@@ -77,11 +77,11 @@ The author's individual page contains key metrics of his work:
 - **Novelty** - added lines share relative to total number of lines written by author;
 - **Refactoring** - modified and removed lines share relative to total number of lines written by author;
 
+![Author](/assets/img/tqi/tqi-author-en.png)
+
 In addition, the page shows lists of the organization's projects and the Open Source projects in which the author participated.
 
 The **Similar authors** tab contains a list of developers with the most similar competencies to the author. The percentage of similarity between authors is calculated based on the set of technologies used, participation in projects, and complexity of the code written.
-
-![Author](/assets/img/tqi/tqi-author-en.png)
 
 ## Rules for merging authors' profiles
 
