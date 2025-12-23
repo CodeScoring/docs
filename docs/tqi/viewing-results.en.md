@@ -14,6 +14,7 @@ After the analysis is complete, a detailed report containing key metrics, author
 The beginning of the report records key indicators based on the analysis results:
 
 - **Started** – records the moment of the first commit in the repository;
+- **Duration** - the number of months from the time of the first commit to the time of the last change;
 - **Updated** – time of the last committed change;
 - **Authors count** – number of developers who made changes to the code base;
 - **Commits count** - number of commits in the repository;
@@ -23,12 +24,12 @@ The beginning of the report records key indicators based on the analysis results
 - **Lines modified** - number of modified lines of code;
 - **Lines deleted** – number of removed lines of code;
 - **Code rate** - mean value of commit changes relative to total LOC in the repository;
-- **Newness impact** - added lines share relative to total LOC in the repository;
-- **Churn impact** - modified and removed lines share relative to total LOC in the repository;
+- **Novelty** - added lines share relative to total LOC in the repository;
+- **Refactoring** - modified and removed lines share relative to total LOC in the repository;
 - **Complexity** – a code complexity indicator based on the number of branches in the program logic;
 - **Borrowed code** – identifies sections of code that were copied from other projects within the organization;
 - **Donored code** – identifies code fragments transferred from other projects within the organization;
-- **Intra clones** – records duplicate sections of code within the project;
+- **Intra clones** – records duplicate sections of code within the project.
 
 ![Analysis results](/assets/img/tqi/tqi-stats-en.png)
 
@@ -47,17 +48,24 @@ The list of authors can be viewed as a table. It is possible to change the displ
 
 ### Project dynamics
 
-The history of the project can be tracked using five graphs showing the dynamics of the project according to the following parameters:
+The history of the project can be tracked by graphs showing the dynamics of the project according to the following parameters:
 
 - Lines of code & code artifacts addition/deletion history;
 - Commits history;
 - Authors count;
-- Commits complexity;
-- Code rate.
-
-The time interval on the graph can be changed using the slider, choosing the period of interest for analysis.
+- Commits complexity.
 
 ![Project dynamics](/assets/img/tqi/tqi-dynamics-en.png)
+
+In addition, the impact of changes on the project can be assessed using the following parameters::
+
+- The rate;
+- Velocity;
+- Density.
+
+![Project rate](/assets/img/tqi/tqi-rate-en.png)
+
+The time interval on the graphs can be changed using the slider, choosing the period of interest for analysis.
 
 ### List of commits with cyclomatic complexity calculation
 
