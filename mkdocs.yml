@@ -125,6 +125,7 @@ plugins:
           osa-proxy-general: "Overview"
           osa-proxy-protocols: "Supported protocols"
           osa-proxy-config: "Service configuration"
+          osa-proxy-caching-config: "Redis and сaching сonfiguration"
           osa-proxy-base64: "Base64 URL configuration"
           osa-proxy-installation: "Service deployment"
           osa-proxy-maven-config: "Maven configuration"
@@ -279,6 +280,7 @@ plugins:
           osa-proxy-general: "Общее описание"
           osa-proxy-protocols: "Поддерживаемые протоколы"
           osa-proxy-config: "Настройка сервиса"
+          osa-proxy-caching-config: "Настройка Redis и кэширования"
           osa-proxy-base64: "Настройка Base64 URL"
           osa-proxy-installation: "Установка сервиса"
           osa-proxy-maven-config: "Настройка Maven"
@@ -512,6 +514,8 @@ nav:
         - osa-proxy-installation: osa-proxy/installation.en.md
         - osa-proxy-config: osa-proxy/config.md
         - osa-proxy-config: osa-proxy/config.en.md
+        - osa-proxy-caching-config: osa-proxy/config-caching.md
+        - osa-proxy-caching-config: osa-proxy/config-caching.en.md
         - osa-proxy-protocols: osa-proxy/protocols.md
         - osa-proxy-protocols: osa-proxy/protocols.en.md
         - osa-proxy-metrics: osa-proxy/metrics.md

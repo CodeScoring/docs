@@ -5,6 +5,21 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2025.52.0] - 2025-12-23
+
+#### Added
+
+- Added caching of policy checking results in Redis with TTL and background refresh support. See [documentation](/osa-proxy/config-caching.en)
+- Added a proactive cache refresh mechanism based on a timer
+- Added Swagger UI for API documentation (`/api/swagger`)
+- Added REST API for cache management (`/api/cache`)
+- Added header updates (`Last-Modified`, `ETag`) for manifests. This ensures manifests stay up to date with the latest security policies
+
+#### Changed
+
+- Increased default value of `max-in-memory-size` config variable from 50MB to 150MB (for processing large manifests)
+- Optimized NPM manifest processing using a stream processor to increase processing speed for large files and reduce garbage collector load
+
 ### [2025.48.3] - 2025-12-08
 
 #### Fixed
