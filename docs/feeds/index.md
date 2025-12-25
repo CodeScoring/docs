@@ -11,7 +11,7 @@ hide:
 
 Данный раздел содержит детальное описание отдельных фидов и процесса работы с ними.
 
-На данный момент CodeScoring использует данные из 20 фидов. Ниже приведена таблица с источниками данных и частотой их обновления
+На данный момент CodeScoring использует данные из 20 фидов. Ниже приведена таблица с источниками данных и частотой их обновления.
 
 | Источник | Ссылка | Частота обновления |
 |----------|--------|------------------|
@@ -20,7 +20,7 @@ hide:
 | Go Vulnerability Database (Golang) | [https://vuln.go.dev](https://vuln.go.dev) | каждые 30 минут |
 | GitLab Security Advisory Database | [https://advisories.gitlab.com](https://advisories.gitlab.com) | раз в сутки |
 | Debian Security Tracker | [https://security-tracker.debian.org](https://security-tracker.debian.org) | каждые 30 минут |
-| CCodeScoring Protestware Feed | - | раз в сутки |
+| CodeScoring Protestware Feed | - | раз в сутки |
 | Astra Linux Security Advisories | [https://astra.ru](https://astra.ru) | каждые 4 часа |
 | CVE.org (MITRE CVE Program) | [https://www.cve.org](https://www.cve.org) | раз в сутки |
 | ALT Linux Security Tracker CVE | [https://rdb.altlinux.org/api](https://rdb.altlinux.org/api) | каждые 4 часа |

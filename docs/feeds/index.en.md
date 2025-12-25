@@ -13,7 +13,7 @@ This section contains a detailed description of individual feeds and the process
 
 Currently, CodeScoring uses data from 20 feeds. Below is a table with the data sources and their update frequency.
 
-| Source | Link | Update Frequency |
+| Source | Link | Update frequency |
 |--------|------|-----------------|
 | Red Hat Security Advisories | [https://access.redhat.com](https://access.redhat.com) | every 30 minutes |
 | Open Source Vulnerabilities (OSV) | [https://api.osv.dev/v1/](https://api.osv.dev/v1/) | every 20 minutes |
