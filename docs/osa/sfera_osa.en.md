@@ -73,7 +73,7 @@ defaults:
 
   # Repository Manager url for CodeScoring to apply policies.
   # Value MUST BE equal to Repository Manager URL in CodeScoring
-  # Example: https://sfera.my.domain
+  # Example: https://sfera.my.domain.ru
   repositoryManagerUrl:
 
 # Settings per repository

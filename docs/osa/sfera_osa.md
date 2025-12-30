@@ -73,7 +73,7 @@ defaults:
 
   # URL менеджера репозиториев для применения политик CodeScoring.
   # Значение ДОЛЖНО быть равно Repository Manager URL в CodeScoring
-  # Пример: https://sfera.my.domain
+  # Пример: https://sfera.my.domain.ru
   repositoryManagerUrl:
 
 # Настройки для конкретных репозиториев
