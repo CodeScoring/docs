@@ -64,7 +64,7 @@ hide:
 - [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/);
 - [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/);
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
-- CycloneDX v1.6 Ext JSON -- расширенный формат CycloneDX, содержащий дополнительные свойства компонентов: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`.
+- CycloneDX v1.6 Ext JSON -- расширенный формат CycloneDX, содержащий дополнительные свойства компонентов: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`, `GOST:provided_by`.
 - [SPDX v2.3 JSON](https://spdx.github.io/spdx-spec/v2.3/)
 
 Настроить свойства компонентов при экспорте можно на [странице настройки зависимостей проекта](/sca/export-results/#bom-settings).

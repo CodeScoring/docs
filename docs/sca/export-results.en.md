@@ -49,7 +49,7 @@ SBOM export is supported in the following formats:
 - [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/);
 - [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/);
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
-- CycloneDX v1.6 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`. The format is adapted to additional requirements for the SBOM from the FSTEC of Russia.
+- CycloneDX v1.6 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`, `GOST:provided_by`. The format is adapted to additional requirements for the SBOM from the FSTEC of Russia.
 
 SBOM export also supports additional export customization, like the PDF one.
 Automatic SBOM filename generation rules are following:

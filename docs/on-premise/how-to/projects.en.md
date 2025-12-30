@@ -64,7 +64,7 @@ SBOM export is supported in the following formats:
 - [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/);
 - [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/);
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
-- CycloneDX v1.6 Ext JSON -- extended CycloneDX format containing additional component properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`.
+- CycloneDX v1.6 Ext JSON -- extended CycloneDX format containing additional component properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`, `GOST:provided_by`.
 
 You can configure the properties of components during export on the [project dependency settings page](/sca/export-results.en/#bom-settings).
 
