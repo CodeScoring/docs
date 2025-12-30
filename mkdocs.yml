@@ -118,6 +118,7 @@ plugins:
           osa-general: "General description"
           nexus-osa: "Plugin for Nexus"
           jfrog-osa: "Plugin for JFrog"
+          sfera-osa: "Plugin for Sfera"
           osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
           platform-osa: "Working with OSA in the platform"
@@ -199,6 +200,7 @@ plugins:
           changelog: "Changelog"
           on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "Plugin for JFrog"
+          sfera-changelog: "Plugin for Sfera"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
           vscode-changelog: "VS Code plugin"
@@ -273,6 +275,7 @@ plugins:
           osa-general: "Общее описание"
           nexus-osa: "Плагин для Nexus"
           jfrog-osa: "Плагин для JFrog"
+          sfera-osa: "Плагин для Sfera"
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA"
           platform-osa: "Работа с OSA в платформе"
@@ -354,6 +357,7 @@ plugins:
           changelog: "Changelog"
           on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "Плагин для JFrog"
+          sfera-changelog: "Плагин для Sfera"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Плагин для Nexus"
           vscode-changelog: "Плагин для VS Code"
@@ -494,6 +498,8 @@ nav:
         - nexus-osa: osa/nexus_osa.en.md
         - jfrog-osa: osa/jfrog_osa.md
         - jfrog-osa: osa/jfrog_osa.en.md
+        - sfera-osa: osa/sfera_osa.md
+        - sfera-osa: osa/sfera_osa.en.md
         - osa-archives: osa/archives.md
         - osa-archives: osa/archives.en.md
       - platform-osa:
@@ -658,6 +664,8 @@ nav:
     - nexus-changelog: changelog/nexus-changelog.en.md
     - jfrog-changelog: changelog/jfrog-changelog.md
     - jfrog-changelog: changelog/jfrog-changelog.en.md
+    - sfera-changelog: changelog/sfera-changelog.md
+    - sfera-changelog: changelog/sfera-changelog.en.md
     - vscode-changelog: changelog/vscode-changelog.md
     - vscode-changelog: changelog/vscode-changelog.en.md
     - intellij-changelog: changelog/intellij-changelog.md
