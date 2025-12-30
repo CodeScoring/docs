@@ -3,23 +3,23 @@ hide:
   - footer
 ---
 
-# Sfera Plugin
+# Sfera plugin
 
-## Plugin Installation
+## Plugin installation
 
-The plugin is delivered as a jar file.
+The plugin is delivered as a jar-file.
 
 To install the plugin in **Sfera**, you need to:
 
 1.  Place the plugin jar file and config file `codescoring.yaml` into the `plugins` folder located in the application's PPDL working directory.
-2.  (Optional) To manage enabling/disabling of plugins, you can create `enabled.txt` or `disabled.txt` files in the `plugins` folder.
+2.  (*Optional*) To manage enabling/disabling of plugins, you can create `enabled.txt` or `disabled.txt` files in the `plugins` folder.
     *   The file should list the names of the plugins to be enabled or disabled.
     *   Enable/Disable logic:
         *   plugin in `disabled.txt` - disabled;
         *   `enabled.txt` is not empty and does not contain the plugin - disabled;
         *   in other cases, the plugin is enabled.
 
-## Plugin Configuration
+## Plugin configuration
 
 The `codescoring.yaml` file is used to configure the plugin.
 
