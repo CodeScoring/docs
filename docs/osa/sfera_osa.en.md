@@ -96,7 +96,7 @@ repositories:
 excludeRepositories:
 
 # List of repository types to scan. Used, if scanAllRepositories=true
-# Supported values are: maven, npm, pypi, nuget, go, gems, debian, yum, alpine, docker 
+# Supported values are: maven, npm, pypi, nuget, go, gems, debian, yum, alpine, docker
 # Example:
 # repositoryTypes:
 #   - npm

@@ -96,7 +96,7 @@ repositories:
 excludeRepositories:
 
 # Список типов репозиториев для сканирования. Используется, если scanAllRepositories=true
-# Поддерживаемые значения: maven, npm, pypi, nuget, go, gems, debian, yum, alpine, docker 
+# Поддерживаемые значения: maven, npm, pypi, nuget, go, gems, debian, yum, alpine, docker
 # Пример:
 # repositoryTypes:
 #   - npm
