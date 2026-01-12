@@ -67,10 +67,19 @@ Categories:
 
 ## Charts impact of changes
 
+You can evaluate the impact of changes on the project using the following parameters on the general graph:
+
+- The rate;
+- Ve;
+- Density.
+
+![Project rate](/assets/img/tqi/tqi-rate-en.png)
+
 The calculation is performed for the period. The minimum period is one week.
 
 The size of the element in the graph is normalized for the sample.
 
+The sizes of the elements in the sample are normalized.
 The sample is normalized using the formula:
 
 ```text
@@ -85,7 +94,7 @@ Where:
 
 ### Calculating the code rate
 
-**Code rate** shows the amount of code change relative to the total number of lines of code. A high rate of code change may indicate instability and/or frequent changes in requirements.
+**Code rate** shows the amount of code change relative to the total number of lines of code. A high rate of code change indicates frequent changes in requirements or an unstable rhythm of the development team.
 
 Calculation is based on the formula:
 
@@ -101,7 +110,7 @@ Where:
 
 ### Calculating the velocity rate
 
-**Velocity rate** shows the amount of changes in the code relative to the number of commits. High velocity can lead to loss of quality.
+**Velocity rate** shows the amount of changes in the code relative to the number of commits. At high values, the workload increases during code review, testing, and maintenance.
 
 Calculation is based on the formula:
 
@@ -117,7 +126,7 @@ Where:
 
 ### Calculation of the density rate
 
-**Density rate** shows how many changes were made to the code relative to the number of modified files. A high density value may indicate the modification of a large number of modules and requires careful and comprehensive testing.
+**Density rate** shows how many changes were made to the code relative to the number of modified files. The high density value indicates the modification of a large number of modules; the burden of code review, testing and maintenance increases.
 
 Calculation is based on the formula:
 
