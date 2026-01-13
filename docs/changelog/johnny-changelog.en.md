@@ -5,7 +5,7 @@ hide:
 
 # Johnny Changelog
 
-### [2026.3.0] - 2026-01-?
+### [2026.3.0] - 2026-01-13
 
 #### Added
 - Added '--gitleaks-config' flag of 'secrets gitleaks' command to pass path to gitleaks config file
