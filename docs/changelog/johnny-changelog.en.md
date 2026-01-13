@@ -5,6 +5,49 @@ hide:
 
 # Johnny Changelog
 
+### [2026.3.0] - 2026-01-?
+
+#### Added
+- Added '--gitleaks-config' flag of 'secrets gitleaks' command to pass path to gitleaks config file
+- Added support for text format lockfile for package manager bun (1.2 and older)
+- Added Johnny console agent build for Linux with ARM processors
+- SBOM scan validation added (supported formats: 1.4, 1.5, 1.6, 1.6_ext)
+- Added support for unloading SBOM in 1.7 format
+- Added Svace call graph support for Kotlin language
+- Added correct handling of transitive dependencies without purl when importing SBoM
+- Added flag '--create-project-group' to create a group and add a project to it
+- Added flag '--project-categories' to specify the categories of the project to be created
+- Added '--localization' flag to localize agent results (coloredtable, table, text, csv formats)
+- Added a pair of flags' --policy-ignores' and '--ignores-format' to display policy ignores in the specified format
+- Added output of LineEnd value of detected and monitored secret position
+- Added the output of the vulnerability impact when outputting the result in csv
+
+#### Changed
+- Added Severity Critical for each secret for the Secrets report
+- Secret scan paths changed to relative
+- The entire list of agent-processed manifests is displayed, even if no dependencies are found in them
+- General information on the analysis result is always displayed in the console, even when the output is redirected to a file
+- OS release determination logic changed for 'scan build' command
+- Libraries that fail ldconfig validation are added to the unresolved list in the 'scan build' command
+
+#### Removed
+- Stopped publishing console agent images tagged '{VERSION} -busybox'
+
+#### Fixed
+- Fixed panic when importing some SBOMs
+
+### [2025.45.4] - 2025-12-12
+
+#### Fixed
+
+- Fixed a loop on some JavaScript projects when processing the workspace
+
+### [2025.45.3] - 2025-12-01
+
+#### Changed
+
+- Optimized gradle-dependency-tree processing
+
 ### [2025.45.2] - 2025-11-19
 
 #### Added
