@@ -48,7 +48,7 @@ Text search by vulnerability ID and related data is also available.
 
 The individual vulnerability page is designed for detailed analysis of a specific vulnerability and all related information within the platform.
 
-!!! note
+!!! note "Deduplication of vulnerabilities"
 	The page displays a **single deduplicated vulnerability**, even if it was discovered by multiple data sources (e.g., NVD, GitHub Advisories, FSTEC BDU, etc.). The user can also view the original data from each source separately.
 
 ### General vulnerability information
