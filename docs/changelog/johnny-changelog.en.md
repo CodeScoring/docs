@@ -8,33 +8,37 @@ hide:
 ### [2026.3.0] - 2026-01-13
 
 #### Added
-- Added '--gitleaks-config' flag of 'secrets gitleaks' command to pass path to gitleaks config file
-- Added support for text format lockfile for package manager bun (1.2 and older)
-- Added Johnny console agent build for Linux with ARM processors
-- SBOM scan validation added (supported formats: 1.4, 1.5, 1.6, 1.6_ext)
-- Added support for unloading SBOM in 1.7 format
-- Added Svace call graph support for Kotlin language
-- Added correct handling of transitive dependencies without purl when importing SBoM
-- Added flag '--create-project-group' to create a group and add a project to it
-- Added flag '--project-categories' to specify the categories of the project to be created
-- Added '--localization' flag to localize agent results (coloredtable, table, text, csv formats)
-- Added a pair of flags' --policy-ignores' and '--ignores-format' to display policy ignores in the specified format
-- Added output of LineEnd value of detected and monitored secret position
-- Added the output of the vulnerability impact when outputting the result in csv
+
+- Added the `--create-project-group` flag for creating a group and adding a project to it
+- Added the `--project-categories` flag for specifying the categories of the project being created
+- Added the `--localization` flag for localizing the agent's output (coloredtable, table, text, csv formats)
+- Added the `--gitleaks-config` flag of the `secrets gitleaks` command to pass the path to the gitleaks config file
+- Added the `--policy-ignores` and `--ignores-format` flags for outputting policy ignores in the specified format
+- Added support for the lockfile text format for the bun package manager (1.2 and later)
+- Added a build of the Johnny console agent for Linux with ARM processors
+- Added validation for SBOM scanning (supported Formats: 1.4, 1.5, 1.6, 1.6_ext)
+- Added support for exporting SBOM in 1.7 format
+- Added support for the Svace call graph for the Kotlin language
+- Added correct handling of transitive dependencies without purl when importing SBOM
+- Added output of the LineEnd value for the position of the detected and monitored secret
+- Added output of the vulnerability impact when exporting the results to CSV format
 
 #### Changed
-- Added Severity Critical for each secret for the Secrets report
-- Secret scan paths changed to relative
-- The entire list of agent-processed manifests is displayed, even if no dependencies are found in them
-- General information on the analysis result is always displayed in the console, even when the output is redirected to a file
-- OS release determination logic changed for 'scan build' command
-- Libraries that fail ldconfig validation are added to the unresolved list in the 'scan build' command
+
+- Added the `Critical` severity for each secret in the report on found secrets
+- Changed paths during secret scanning to relative ones
+- The entire list of manifests processed by the agent is now output, even if no dependencies are found in them
+- General information about the analysis result is now always output to the console, even when the output is redirected to a file
+- Changed the OS release detection logic for the `scan build` command
+- Libraries that failed the ldconfig check Added to the unresolved list in the `scan build` command
 
 #### Removed
-- Stopped publishing console agent images tagged '{VERSION} -busybox'
+
+- Discontinued publishing of console agent images with the `{VERSION}-busybox` tag
 
 #### Fixed
-- Fixed panic when importing some SBOMs
+
+- Fixed a panic when importing some SBOMs
 
 ### [2025.45.4] - 2025-12-12
 
