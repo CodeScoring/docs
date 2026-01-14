@@ -1,6 +1,5 @@
 ---
-hide:
-  - footer
+icon: modules/osa
 ---
 
 # CodeScoring.OSA

@@ -5,6 +5,44 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2025.45.7] - 2025-12-19
+
+#### Added
+
+- <span class="module-tag osa">OSA</span> Added `INDEX_API_TIMEOUT` and `LOG_LEVEL` settings to the Index Proxy service
+
+#### Fixed
+
+- <span class="module-tag osa">OSA</span> Fixed policy behavior in OSA Proxy without specifying `repository_id`
+- <span class="module-tag sca">SCA</span> Fixed versioning of npm packages in SBOM files
+
+## [2025.45.6] - 2025-12-13
+
+#### Added
+
+- <span class="module-tag osa">OSA</span> Implemented policy mechanism using cache in the OSA Proxy service
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Fixed SBOM file generation for projects with protestware
+
+### [2025.45.5] - 2025-12-05
+
+#### Added
+
+- <span class="module-tag osa">OSA</span> Added automatic authorization type selection for container image registries
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Optimized the query for getting a list of projects on the dependency page
+
+### [2025.45.4] - 2025-12-02
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Optimized PDF report export
+- <span class="module-tag sca">SCA</span> Optimized dependency graph generation
+
 ### [2025.45.3] - 2025-11-24
 
 #### Fixed
@@ -12,8 +50,6 @@ hide:
 - <span class="module-tag osa">OSA</span> Fixed package display when the repository manager has been deleted
 - <span class="module-tag osa">OSA</span> Optimized loading of the packages list
 - <span class="module-tag secrets">Secrets</span> Updated the ML-based secret detection strategy in the Secrets module
-
-
 
 ### [2025.45.2] - 2025-11-18
 

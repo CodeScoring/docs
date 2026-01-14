@@ -27,11 +27,12 @@ hide:
 **Конфигурация в файле `application.yml`**
 
 ```yaml
-apt:
+go:
   enabled: true
   repository:
     - name: inet-go
       scan-package: true
+      scan-manifest: true
       registry: https://proxy.golang.org
 ```
 

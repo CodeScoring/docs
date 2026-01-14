@@ -51,6 +51,10 @@ OSA Proxy automatically modifies responses from original repositories:
 - Removes blocked versions from metadata;
 - Recalculates checksums of modified manifests to maintain the correct format.
 
+### Policy results caching
+
+To speed up request processing and reduce platform load, policy validation results (verdicts from [Judge service](/on-premise/containers-description.en/)) are cached in Redis. Background updates of outdated records are supported.
+
 ## Work modes
 
 Package scanning behavior is controlled by the `work-mode` parameter. Depending on the selected value, the scanning, waiting, and blocking logic changes. The following modes are supported:

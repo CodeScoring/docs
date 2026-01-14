@@ -110,6 +110,28 @@ This section contains data formats and response modification rules for each supp
   ]
 }
 ```
+
+## Go
+
+### Processed files
+
+- Version list (`/@v/list`)
+- `.zip` — module archives
+
+### Version list modifications
+
+- Blocked versions are removed from the version list
+
+## Debian
+
+### Processed files
+
+- `.deb` — package files
+
+!!! warning "Debian scanning specifics"
+
+    For Debian, only package scanning is supported. Modification of manifests (`Packages` files) is not performed.
+
 ## Behavior in case of complete package blocking
 
 In a scenario where all available versions of a requested package are blocked by security policies, OSA Proxy returns a message indicating that all versions are blocked.
@@ -139,4 +161,10 @@ curl http://localhost:8080/codescoring-npm/package_name
 Although the NuGet client might display the reason for blocking all packages in the console, a direct `curl` request also allows for status confirmation:
 ```bash
 curl http://localhost:8080/codescoring-nuget/nuget-api/v3/registration5-gz-semver2/newtonsoft.json/index.json
+```
+
+### Go
+
+```bash
+curl http://localhost:8080/codescoring-go/module_name/@v/list
 ```
