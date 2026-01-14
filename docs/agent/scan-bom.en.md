@@ -9,10 +9,11 @@ In case of scanning an existing Software Bill of Materials (SBOM) in the **Cyclo
 
 When the agent is launched, it does the following:
 
-1. Parses the specified SBOM.
-2. Generates a request to the platform to analyze the contents.
-3. After the analysis is complete, it displays summary information about the results in the console, as well as tables with the vulnerabilities found and the policies that were triggered.
-4. Additionally, the `bom.json` file is created in the current directory, containing the supplemented SBOM.
+1. Validates SBOM.
+2. Parses the specified SBOM.
+3. Generates a request to the platform to analyze the contents.
+4. After the analysis is complete, it displays summary information about the results in the console, as well as tables with the vulnerabilities found and the policies that were triggered.
+5. Additionally, the `bom.json` file is created in the current directory, containing the supplemented SBOM.
 
 Depending on the launch parameters, the agent returns the appropriate exit code:
 
@@ -20,6 +21,7 @@ Depending on the launch parameters, the agent returns the appropriate exit code:
 - **1** – problems were found as a result of scanning, user action is required;
 - **2** – scanning error;
 - **3** – empty result, no artifacts were found for analysis. Returned only if `--block-on-empty-result` parameter is `true`.
+- **5** - SBOM validation error.  
 
 ## Command example
 
