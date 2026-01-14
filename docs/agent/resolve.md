@@ -27,6 +27,7 @@ hide:
 - `--conda-resolve` / `--conda-lock-path` / `--conda-args`
 - `--pipdeptree-resolve` / `--pipdeptree-path` / `--pipdeptree-args`
 - `--uv-resolve` / `--uv-path` / `--uv-args`
+- `--bun-resolve` / `--bun-path` / `--bun-args`
 
 Пример команды:
 
@@ -164,7 +165,7 @@ bun install --lockfile-only
 Агент парсит файл `bun.lock`, содержащий информацию о зависимостях и их версиях.
 
 !!! info "Наличие bun.lockb файла"
-    Для того чтобы разрешить зависимости в проекте в котором есть `bun.lockb` агенту необходимо передать следующий флаг: `--uv-args '--save-text-lockfile --frozen-lockfile'`
+    Для того чтобы разрешить зависимости в проекте в котором есть `bun.lockb` агенту необходимо передать следующий флаг: `--bun-args '--save-text-lockfile --frozen-lockfile'`
 
 !!! Warning "Особенность работы пакетного менеджера"
     В связи с особенностями реализации механизма создания файла `bun.lock` пакетным менеджером `bun` между двумя запусками набор глубоких транзитивных зависимостей может меняться

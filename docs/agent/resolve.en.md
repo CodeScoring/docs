@@ -26,6 +26,8 @@ Dependency resolution parameters in the environment, paths to the package manage
 - `--pnpm-resolve` / `--pnpm-path` / `--pnpm-args`
 - `--conda-resolve` / `--conda-lock-path` / `--conda-args`
 - `--pipdeptree-resolve` / `--pipdeptree-path` / `--pipdeptree-args`
+- `--uv-resolve` / `--uv-path` / `--uv-args`
+- `--bun-resolve` / `--bun-path` / `--bun-args`
 
 Example command:
 
@@ -163,7 +165,7 @@ bun install --lockfile-only
 The agent parses `bun.lock`, which contains information about dependencies and their versions.
 
 !!! info "Presence of a bun.lockb file"
-    To resolve dependencies in a project that contains `bun.lockb`, the agent must be provided with the following flag: `--uv-args '--save-text-lockfile --frozen-lockfile'`
+    To resolve dependencies in a project that contains `bun.lockb`, the agent must be provided with the following flag: `--bun-args '--save-text-lockfile --frozen-lockfile'`
 
 !!! Warning "Package manager behavior"
     Due to the specifics of how the `bun` package manager implements the creation of the `bun.lock` file, the set of deep transitive dependencies may change between two runs.
