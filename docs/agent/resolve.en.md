@@ -150,6 +150,24 @@ yarn install
 
 The agent parses `yarn.lock`, which contains information about dependencies and their versions.
 
+### bun
+
+Main manifest used for dependency resolution: `package.json`.
+
+The command executed:
+
+```bash
+bun install --lockfile-only
+```
+
+The agent parses `bun.lock`, which contains information about dependencies and their versions.
+
+!!! info "Presence of a bun.lockb file"
+    To resolve dependencies in a project that contains `bun.lockb`, the agent must be provided with the following flag: `--uv-args '--save-text-lockfile --frozen-lockfile'`
+
+!!! Warning "Package manager behavior"
+    Due to the specifics of how the `bun` package manager implements the creation of the `bun.lock` file, the set of deep transitive dependencies may change between two runs.
+
 ### pip
 
 For Python projects the command used is:

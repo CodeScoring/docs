@@ -17,6 +17,7 @@ To find dependencies, CodeScoring primarily relies on parsing package manager ma
 | **JavaScript and TypeScript** | npm | `package.json`<br/>`package-lock.json`<br/>`npm-shrinkwrap.json` |
 | | yarn | `yarn.lock`<br/>`package.json`<br/>`package-lock.json`|
 | | pnpm | `pnpm-lock.yaml` |
+| | bun  | `bun.lock`                                                                                                                                                                                            |
 | **Python** | pip | `requirements.txt`<br/>`requirements.pip`<br/>`requires.txt`<br/>`pip-resolved-dependencies.txt`<br/>`pipdeptree.txt` |
 | | Poetry | `pyproject.toml`<br/>`poetry.lock` |
 | | Pipenv | `Pipfile`<br/>`Pipfile.lock` |
