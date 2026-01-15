@@ -59,8 +59,8 @@ hide:
 - <span class="module-tag tqi">TQI</span> Redesigned the UI on TQI project and author pages
 - Updated the loading indicator in the platform UI
 - Changed user access with the User role to alert-related actions
-- Converted string values True / False to boolean true / false in API responses
-- Changed the HTTP method for the UserInfo request in OIDC to GET
+- <span class="api-tag">API</span> Converted string values `True` / `False` to boolean `true` / `false` in API responses
+- Changed the HTTP method for the UserInfo request in OIDC to `GET`
 
 #### Fixed
 
