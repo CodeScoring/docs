@@ -34,7 +34,7 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 **Конфигурация в файле `application.yml`**
 
 ```yaml
-apt:
+debian:
   enabled: true
   repository:
     - name: debian-apt

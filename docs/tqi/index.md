@@ -1,6 +1,5 @@
 ---
-hide:
-  - footer
+icon: modules/tqi
 ---
 
 # CodeScoring.TQI

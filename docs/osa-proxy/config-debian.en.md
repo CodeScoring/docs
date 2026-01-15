@@ -34,7 +34,7 @@ The following repository definition needs to be added to the service's YAML conf
 **Configuration in `application.yml` file**
 
 ```yaml
-apt:
+debian:
   enabled: true
   repository:
     - name: debian-apt

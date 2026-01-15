@@ -43,11 +43,12 @@ Then the build analysis command is called and the path to the config file is spe
 ./johnny scan build ./buildConfig.json
 ```
 
-As a result of the work, the agent displays one of three codes:
+As a result of the work, the agent displays one of the codes:
 
 - **0** – successful analysis, no problems were found in the build;
-- **1** – problems were found in the build, action is required;
-- **2** – analysis failed.
+- **1** – as a result of the scan, problems were found that correspond to the configured [security policies](//on-premise/how-to/policies.en/), user action is required;
+- **2** – analysis failed;
+- **3** – empty result, no artifacts were found for analysis. Returned only if `--block-on-empty-result` parameter is `true`.
 
 **Important**: at the moment the command supports only Debian-based and RPM-based Linux distributions.
 
