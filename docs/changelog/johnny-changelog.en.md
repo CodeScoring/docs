@@ -16,7 +16,7 @@ hide:
 #### Added
 
 - Added support for the lockfile text format for the bun package manager (1.2 and later)
-- Added support for the "module Svace" call graph for the Kotlin language
+- Added support for the module Svace call graph for the Kotlin language
 - Added the `--create-project-group` flag for creating a group and adding a project to it
 - Added the `--project-categories` flag for specifying the categories of the project being created
 - Added the `--localization` flag for localizing the agent's output (coloredtable, table, text, csv formats)
