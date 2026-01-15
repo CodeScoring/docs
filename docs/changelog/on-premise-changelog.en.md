@@ -5,104 +5,100 @@ hide:
 
 # Codescoring On-premise Changelog
 
-### 2026.3.0 – ???
+### 2026.3.0 – 2026-01-16
 
 #### Added
 
 - <span class="module-tag sca">SCA</span> Added support for CycloneDX versions 1.7 and 1.7 ext
 - <span class="module-tag sca">SCA</span> Added a vulnerability reachability visualization page
-- <span class="module-tag osa">OSA</span> Added support for repository managers of the “IT-Platform SFERA” type
-- <span class="module-tag sca">SCA</span> Added the `GOST:provided_by` field to the dependency edit table and to SBOM
+- <span class="module-tag sca">SCA</span> Added the GOST:provided_by field to the dependency edit table and to SBOM
 - <span class="module-tag sca">SCA</span> Added the ability to specify a branch or tag when importing an SBOM
-- <span class="module-tag sca">SCA</span> Added validation of the format and version of uploaded SBOM files
+- <span class="module-tag sca">SCA</span> Added validation of the uploaded SBOM file format and version
 - <span class="module-tag sca">SCA</span> Added an API endpoint with a list of supported SBOM specifications and versions
-- <span class="module-tag tqi">TQI</span> Added filters by start date and last update date to the project list
-- <span class="module-tag tqi">TQI</span> Added code density and code velocity metrics to charts on the TQI project page
-- <span class="module-tag tqi">TQI</span> Added display of project duration in months, lines of code, and number of files on the TQI project page
-- <span class="module-tag tqi">TQI</span> Added merge commit icons, filtering by commit type, and the ability to collapse commit messages in the commits table
-- <span class="module-tag sca">SCA</span> Added additional fields for container images (request times, policies, block status, registry, link)
-- <span class="module-tag tqi">TQI</span> Added scheduling settings for Authors and Clones analyses at the project level
-- <span class="module-tag secrets">Secrets</span> Added the “Entropy” field to secret details
-- <span class="module-tag secrets">Secrets</span> Added persistence of secret coordinates in files
-- Added a bulk action for alerts: unlinking Jira issues
-- <span class="module-tag osa">OSA</span> Added the `Virtual` repository type for JFrog and Nexus
-- <span class="module-tag sca">SCA</span> Added navigation links between project group settings and group view
-- <span class="module-tag secrets">Secrets</span> Added coordinates to links to secrets
-- <span class="module-tag osa">OSA</span> Added uniqueness validation when creating repository managers
 - <span class="module-tag sca">SCA</span> Added highlighting of vulnerable dependencies in the dependency graph when exporting a project PDF report
-- <span class="module-tag osa">OSA</span> Added updated ecosystem formats for Nexus and JFrog repository managers
-- <span class="module-tag sca">SCA</span> Added PURL generation for container images
-- <span class="module-tag sca">SCA</span> Added “Affected packages” and “Affected images” lists to the vulnerability page
-- <span class="module-tag secrets">Secrets</span> Added a field to configure the default secrets engine
-- Added informational messages when a project is excluded from analysis
-- Added value lists for conditions when editing policies
-- <span class="module-tag sca">SCA</span> Added the “Requirement” column to the `SCA → Dependencies` table
-- Added additional metadata to the policy details page
-- Added the ability to unlink an issue from an alert
-- <span class="module-tag osa">OSA</span> Added a filter by OSA components to the policies list
-- Added scan execution time to project metadata
+- <span class="module-tag sca">SCA</span> Added “Affected packages” and “Affected images” lists on the vulnerability page
+- <span class="module-tag sca">SCA</span> Added the “Requirement” column to the table in SCA → Dependencies
+- <span class="module-tag tqi">TQI</span> Added filters by start date and last update date to the project list in the TQI section
+- <span class="module-tag tqi">TQI</span> Added code density and code churn metrics to charts on the TQI project page
+- <span class="module-tag tqi">TQI</span> Added display of project duration in months, lines of code count, and file count on the TQI project page
+- <span class="module-tag tqi">TQI</span> Added merge commit icons, commit type filtering, and the ability to collapse commit messages in the commits table on the TQI project page
+- <span class="module-tag tqi">TQI</span> Added scheduling configuration for author and clone analyses for a project
+- <span class="module-tag tqi">TQI</span> Added removal of outdated commits when running author analysis from the first commit
+- <span class="module-tag osa">OSA</span> Added support for repository managers of the “Sphere.Distributions and Licenses” type
+- <span class="module-tag osa">OSA</span> Added the Virtual / Virtual repository type for JFrog and Nexus repositories
+- <span class="module-tag osa">OSA</span> Added additional fields for container images (request time, policies, blocking status, registry, link)
+- <span class="module-tag osa">OSA</span> Added the ability to specify Docker repositories for policies with OSA components and to pass the repository name when requesting an image
+- <span class="module-tag osa">OSA</span> Added uniqueness validation when creating repository managers
+- <span class="module-tag osa">OSA</span> Added up-to-date ecosystem formats for Nexus and JFrog repository managers
+- <span class="module-tag osa">OSA</span> Added PURL display on the container image page
+- <span class="module-tag osa">OSA</span> Added filtering by OSA components in the policy list
+- <span class="module-tag osa">OSA</span> Added the ability to pass host headers when generating a link to a blocked component in OSA
+- <span class="module-tag osa">OSA</span> Added support for loading image data from JFrog Artifactory registries via the Repository Path API
+- <span class="module-tag osa">OSA</span> Added updating of the last request date and scan status when scanning an image or package via the UI
+- <span class="module-tag secrets">Secrets</span> Added saving of secret coordinates
+- <span class="module-tag secrets">Secrets</span> Added secret coordinates to secret links
+- <span class="module-tag secrets">Secrets</span> Added a field for configuring the default secrets engine
+- Added a bulk action for alerts: unlinking Jira issues
+- Added navigation links between project group settings and group view pages
+- Added the ability to use lists in policy conditions
+- Added informational messages when excluding a project from analysis
+- Added fields for affected OSA components, groups, and repositories on the policy view page
+- Added display of scan execution time in project metadata
 - Added display of system component versions in the “About” modal
-- <span class="module-tag osa">OSA</span> Added support for passing host headers when generating links to blocked components
-- <span class="module-tag osa">OSA</span> Added support for loading container image data from JFrog Artifactory registries via the API Repository Path method
-- Added support for using lists in policy conditions
-- <span class="module-tag osa">OSA</span> Added the ability to specify Docker repositories for policies with OSA Components and to pass the repository name when requesting an image
-- <span class="module-tag tqi">TQI</span> Added cleanup of obsolete commits when running Authors analysis from the first commit
-- Added escaping of special characters in LDAP search queries
+- Added escaping of special characters in LDAP search
 
 #### Changed
 
-- <span class="module-tag sca">SCA</span> Redesigned the vulnerability page UI
-- <span class="module-tag tqi">TQI</span> Redesigned the UI on TQI project and author pages
-- <span class="module-tag sca">SCA</span> Changed how alert counts and dependency and vulnerability information are displayed on the project page when no SCA analysis has been run
-- Changed permissions for users with the `User` role when working with alerts
-- <span class="module-tag sca">SCA</span> Changed the PURL comparison logic used when deciding whether to ignore an alert
-- <span class="module-tag sca">SCA</span> SBOM export from the UI is now performed asynchronously, similar to CSV and PDF reports
-- <span class="module-tag sca">SCA</span> The Johnny CLI agent is no longer used in compositional analysis of CLI projects; dependency data is now retrieved from the database
+- <span class="module-tag sca">SCA</span> Redesigned the vulnerability page interface
+- <span class="module-tag sca">SCA</span> Changed the display of alert counts and dependency and vulnerability information on the project page when SCA analysis has not yet been performed
+- <span class="module-tag sca">SCA</span> Changed the PURL comparison logic used when deciding whether to ignore an alert. See Policy ignores for details
+- <span class="module-tag sca">SCA</span> SBOM export from the UI is now performed asynchronously (similar to CSV and PDF reports)
 - <span class="module-tag sca">SCA</span> Updated CVSS rating filters: allowed values are now limited to the [0,10] range
-- Updated the loading indicator
-- In API responses, string values `True` / `False` are now returned as boolean `true` / `false`
-- <span class="module-tag sca">SCA</span> Changed the logic for displaying the `has_exploit` field in SBOM
-- Completed a refactor of the access control system
-- <span class="module-tag osa">OSA</span> Scanning an image or package via the UI now registers the component and updates the last request date and scan status
-- <span class="module-tag osa">OSA</span> When scanning via Johnny with the `--save-results` flag, alerts with delayed blocking are no longer returned if the block time has not yet been reached
-- <span class="module-tag auth">Auth</span> UserInfo requests for OIDC now use the HTTP `GET` method
+- <span class="module-tag sca">SCA</span> Removed the has_exploit field from SBOM when no exploit is available
+- <span class="module-tag tqi">TQI</span> Redesigned the UI on TQI project and author pages
+- Updated the loading indicator in the platform UI
+- Changed user access with the User role to alert-related actions
+- Converted string values True / False to boolean true / false in API responses
+- Refactored the access control system
+- Changed the HTTP method for the UserInfo request in OIDC to GET
 
 #### Fixed
 
-- <span class="module-tag tqi">TQI</span> Optimized loading of the “Similar authors” tab on the author page
-- <span class="module-tag tqi">TQI</span> Optimized chart loading on the TQI project page
 - <span class="module-tag sca">SCA</span> Optimized the SBOM generation process
 - Optimized API performance and UI page loading
 - <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Optimized SCA and OSA performance
-- <span class="module-tag sca">SCA</span> Optimized CSV export of vulnerabilities
-- <span class="module-tag sca">SCA</span> Fixed alert duplication when filtering by dependency relation or dependency environment; also optimized these filters
-- <span class="module-tag tqi">TQI</span> Fixed possible commit duplication in TQI projects
-- <span class="module-tag tqi">TQI</span> Fixed the change rate calculation formula for the chart on the TQI project page
-- <span class="module-tag osa">OSA</span> Fixed display of packages from removed repository managers on the dashboard
-- <span class="module-tag secrets">Secrets</span> Fixed saving of identical secrets with different coordinates within a file
-- <span class="module-tag sca">SCA</span> Fixed technology share calculation in project groups
-- <span class="module-tag sca">SCA</span> Fixed the `Has VCS` filter on the project dependency edit page
-- Fixed re-enabling of the PDF export button after scanning an image or project
-- Fixed number formatting on charts
-- Fixed filtering by boolean types
-- <span class="module-tag secrets">Secrets</span> Fixed audit log output and persistence of errors related to missing models during secrets analysis startup
-- <span class="module-tag sca">SCA</span> Fixed incorrect export of the `match type` field in dependency reports
-- Fixed display of project statistics when no scans have been performed yet
+- <span class="module-tag sca">SCA</span> Optimized vulnerability export to CSV
+- <span class="module-tag sca">SCA</span> Fixed duplicate alerts when filtering by dependency relation or dependency environment
+- <span class="module-tag sca">SCA</span> Fixed the Has VCS / VCS specified filter on the project dependency edit page
+- <span class="module-tag sca">SCA</span> Fixed incorrect export of the match type field in the dependency report
+- Adjusted project statistics display for projects with no scans yet
 - <span class="module-tag sca">SCA</span> Fixed vulnerability count calculation on the packages page
 - <span class="module-tag sca">SCA</span> Fixed severity display when a CVSS score is present
-- <span class="module-tag sca">SCA</span> Reduced memory consumption under heavy SCA usage
+- <span class="module-tag sca">SCA</span> Reduced memory consumption during intensive SCA usage
+- <span class="module-tag sca">SCA</span> Removed alerts with delayed blocking when scanning via Johnny with the --save-results flag if the blocking time has not yet been reached
+- <span class="module-tag sca">SCA</span> Fixed boolean filtering in SCA project groups
+- <span class="module-tag tqi">TQI</span> Optimized loading of the “Similar authors” tab on the author page
+- <span class="module-tag tqi">TQI</span> Optimized chart loading on the TQI project page
+- <span class="module-tag tqi">TQI</span> Fixed possible duplicate commits in TQI projects
+- <span class="module-tag tqi">TQI</span> Fixed the change rate calculation formula for the chart on the TQI project page
+- <span class="module-tag tqi">TQI</span> Fixed technology share calculation in project groups
+- <span class="module-tag osa">OSA</span> Fixed display of packages from deleted repository managers in the dashboard
+- <span class="module-tag secrets">Secrets</span> Fixed saving of identical secrets with different coordinates in a file
+- <span class="module-tag secrets">Secrets</span> Fixed audit log output and logging of missing model errors when starting secrets analysis
+- Fixed unlocking of the PDF export button after scanning an image or project
+- Fixed number formatting on dashboard and TQI project charts
 - Fixed display of platform sections when a module expires in the activation key
 
 #### Deprecated
 
-- API endpoints for container image scan history have been marked as deprecated; planned removal in release 2026.11.0
+- <span class="module-tag osa">OSA</span> API endpoints for container image scan history have been marked as deprecated; planned removal — release 2026.27.0
 
 #### Removed
 
+- <span class="module-tag osa">OSA</span> Removed the container image scan history page
+- <span class="module-tag tqi">TQI</span> Removed time selection from start date and last activity date filters in the author and organization project lists
 - <span class="module-tag tqi">TQI</span> Removed the “Change rate” metrics from TQI project and author pages
-- Removed the container image scan history page
-- Removed browser history persistence for internal tabs
-- Removed time selection from start date and last activity date filters in the authors list and author organization project list
+- Removed navigation history persistence (in the browser) on internal tabs
 
 ### [2025.45.7] - 2025-12-19
 
