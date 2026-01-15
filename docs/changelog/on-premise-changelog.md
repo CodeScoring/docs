@@ -27,7 +27,7 @@ hide:
 - <span class="module-tag osa">OSA</span> Добавлена поддержка менеджеров репозиториев типа «Сфера.Дистрибутивы и Лицензии»
 - <span class="module-tag osa">OSA</span> Добавлен тип `Virtual / Виртуальный` для репозиториев JFrog и Nexus
 - <span class="module-tag osa">OSA</span> Добавлены дополнительные поля для контейнерных образов (время запросов, политики, статус блокировки, реестр, ссылка)
-- <span class="module-tag osa">OSA</span> Добавлена возможность указывать Docker-репозитории для политик с OSA Components и передавать имя репозитория при запросе образа
+- <span class="module-tag osa">OSA</span> Добавлена возможность указывать Docker-репозитории для политик с компонентами OSA и передавать имя репозитория при запросе образа
 - <span class="module-tag osa">OSA</span> Добавлена проверка уникальности при создании менеджеров репозиториев
 - <span class="module-tag osa">OSA</span> Добавлены форматы экосистем `cargo`, `composer` и `huggingface` для Sonatype Nexus Repository
 - <span class="module-tag osa">OSA</span> Добавлены форматы экосистем `ai editor extensions`, `ansible`, `bazel modules`, `helm oci`, `huggingface`, `jetbrains plugins`, `nim model` и `oci` для JFrog Artifactory
@@ -65,7 +65,8 @@ hide:
 #### Исправлено
 
 - <span class="module-tag sca">SCA</span> Оптимизирован процесс формирования SBOM
-- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Оптимизирована работа SCA и OSA
+- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Сокращено время сохранения алертов по окончании анализа
+- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Оптимизирована работа анализа за счёт устранения лишних запросов при получении данных об уязвимостях и лицензиях
 - <span class="module-tag sca">SCA</span> Оптимизирована выгрузка уязвимостей в CSV
 - <span class="module-tag sca">SCA</span> Исправлено дублирование алертов при фильтрации по связи зависимости или окружению зависимости
 - <span class="module-tag sca">SCA</span> Исправлена работа фильтра `Has VCS / Указан VCS` на странице редактирования зависимостей проекта
@@ -83,12 +84,16 @@ hide:
 - <span class="module-tag osa">OSA</span> Исправлено отображение пакетов из удалённых менеджеров репозиториев в дашборде
 - <span class="module-tag secrets">Secrets</span> Исправлено сохранение одинаковых секретов с разными координатами в файле
 - <span class="module-tag secrets">Secrets</span> Исправлены вывод и запись в аудит-лог ошибки об отсутствии модели при запуске анализа секретов
-- Исправлен доступ к просмотру данных в системе после истечения активационного ключа
 - Исправлена разблокировка кнопки экспорта PDF после сканирования образа и проекта
 - Исправлено форматирование чисел на графиках дашборда и TQI-проектов
 - Исправлено отображение разделов платформы при истечении срока действия модуля в активационном ключе
 - Скорректирован вывод статистики проекта, по которому ещё не было сканирований
 - Оптимизирована работа API и загрузка страниц UI
+- Изменён базовый образ в сервисе judge: с Alpine 3.20 на Alpine 3.23.2
+- Изменён базовый образ в сервисе index-proxy: с Alpine 3.20 на Alpine 3.23.2
+- Изменён базовый образ в сервисе osa: с Alpine 3.20 на Alpine 3.23.2
+- Изменён базовый образ в сервисе backend: / tasks-* с Alpine 3.20 на Alpine 3.23.2
+- Изменён базовый образ в сервисе frontend: c nginx:1.26.3 (Alpine 3.20.6) на nginx:1.29.4
 
 #### Устарело
 

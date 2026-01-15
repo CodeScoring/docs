@@ -83,12 +83,16 @@ hide:
 - <span class="module-tag osa">OSA</span> Fixed display of packages from deleted repository managers in the dashboard
 - <span class="module-tag secrets">Secrets</span> Fixed saving of identical secrets with different coordinates in a file
 - <span class="module-tag secrets">Secrets</span> Fixed audit log output and logging of missing model errors when starting secrets analysis
-- Fixed access to viewing data in the system after the activation key expires
 - Fixed unlocking of the PDF export button after scanning an image or project
 - Fixed number formatting on dashboard and TQI project charts
 - Fixed display of platform sections when a module expires in the activation key
 - Adjusted project statistics display for projects with no scans yet
 - Optimized API performance and UI page loading
+- Changed the base image in the judge service from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the index-proxy service from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the osa service from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the backend service: /tasks-* from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the frontend service from nginx:1.26.3 (Alpine 3.20.6) to nginx:1.29.4
 
 #### Deprecated
 
