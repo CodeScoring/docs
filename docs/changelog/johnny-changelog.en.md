@@ -8,7 +8,8 @@ hide:
 ### [2026.3.1] - 2026-01-14
 
 #### Changed
-- Disabled checking of externalReference.url values for compliance with the iri-reference format during SBOM validation before scanning
+
+- Disabled checking of `externalReference.url` values for compliance with the iri-reference format during SBOM validation before scanning
 
 ### [2026.3.0] - 2026-01-13
 
