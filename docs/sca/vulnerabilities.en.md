@@ -56,12 +56,14 @@ The individual vulnerability page is designed for detailed analysis of a specifi
 The top of the page displays summary information about the vulnerability:
 
 - vulnerability ID (e.g., CVE);
-- publication and update dates;
+- publication and update dates in the data source;
 - presence of a publicly known exploit;
 - a brief description of the vulnerability;
 - associated CWE categories.
 
-On the right, the aggregated CVSS threat level score is displayed, indicating the version (CVSS v3 and/or CVSS v2) and the corresponding threat level.
+The highest threat level score for the most recent CVSS version, taking all sources into account, is displayed on the right.
+
+Below you can see the breakdown by CVSS level, indicating the version and corresponding threat level.
 
 ![Vuln common info](/assets/img/vuln-common-info-en.png)
 
