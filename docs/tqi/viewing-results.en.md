@@ -14,7 +14,7 @@ After the analysis is complete, a detailed report containing key metrics, author
 The beginning of the report records key indicators based on the analysis results:
 
 - **Started** – records the moment of the first commit in the repository;
-- **Duration** - the number of months from the time of the first commit to the time of the last change;
+- **Duration** - number of months from the time of the first commit to the time of the last change;
 - **Updated** – time of the last committed change;
 - **Authors count** – number of developers who made changes to the code base;
 - **Commits count** - number of commits in the repository;
@@ -59,7 +59,7 @@ The history of the project can be tracked using graphs showing the dynamics of t
 
 In addition, the impact of changes on the project can be assessed using the following parameters::
 
-- The rate;
+- Rate;
 - Velocity;
 - Density.
 

@@ -103,8 +103,8 @@ R = 100 * L / T
 Where:
 
 - **R** - code rate;
-- **L** – the number of lines of code entered (added, deleted, modified) during the billing period;
-- **T** - the total number of lines of code in the project repository at the beginning of the billing period.
+- **L** – number of lines of code entered (added, deleted, modified) during the billing period;
+- **T** - total number of lines of code in the project repository at the beginning of the billing period.
 
 ### Calculating the velocity rate
 
@@ -118,8 +118,8 @@ V = T / C
 
 Where:
 
-- **D** – the density of changes;
-- **L** – the number of lines of added, deleted, modified code during the reporting period;
+- **D** – density of changes;
+- **L** – number of lines of added, deleted, modified code during the reporting period;
 - **F** – number of modified files.
 
 ### Calculation of the density rate
@@ -134,6 +134,6 @@ D = T / F
 
 Where:
 
-- **D** – the density of changes;
-- **L** – the number of lines of code entered (added, deleted, modified) during the billing period;
+- **D** – density of changes;
+- **L** – number of lines of code entered (added, deleted, modified) during the billing period;
 - **F** – number of modified files.
