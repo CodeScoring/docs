@@ -20,7 +20,7 @@ The platform comprehensively provides:
 
 - analysis of 20 programming languages (the list of languages may vary for individual modules): **Java**, **Kotlin**, **JavaScript**, **TypeScript**, **Python**, **C**, **C++**, **Go**, **PHP**, **Ruby**, **C#**, **Objective-C**, **Swift**, **Rust**, **Scala**, **Bash**, **Perl**, **SQL**, **PLSQL**, **PGSQL**;
 - analysis of manifests of packaging ecosystems: **Maven**, **Gradle**, **Apache Ivy**, **NPM**, **Yarn**, **pnpm**, **NuGet**, **Paket**, **pip**, **Poetry**, **Pipenv**, **Conda**, **Ruby Gems**, **Cocoapods**, **Swift**, **Composer**, **Conan**, **Go Modules**, **Cargo** and **sbt**;
-- integration with repository managers and container image registries: **Nexus Repository Manager**, **JFrog Artifactory Pro**, **Harbor**, **GitLab**, **GitFlic**, **IT Platform SFERA**;
+- integration with repository managers and container image registries: **Nexus Repository Manager**, **JFrog Artifactory Pro**, **Harbor**, **GitLab**, **GitFlic**, **Sfera.Distributions and Licenses**;
 - integration with **hosted** and **cloud** code hosting systems: **GitFlic**, **GitLab**, **Github**, **Bitbucket** and **Azure DevOps**;
 - universal integration into build systems using an agent: **Jenkins**, **GitLab**, **GitFlic**, **TeamCity** and others;
 - management of organizational security policies;
