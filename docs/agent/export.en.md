@@ -44,7 +44,6 @@ In this example, the output will be in the `coloredtable` format to the console,
 - **json** – a structured format based on JavaScript Object Notation, suitable for data processing;
 - **csv** – text format for table data;
 
-**Important**: data structure of the `json` format can be changed in the upcoming versions of the binary agent;
 
 ### Usage example
 
@@ -70,8 +69,6 @@ The report is generated using the `--policy-ignores` flag. The report includes p
 - **text** – text report;
 - **json** – a structured format based on JavaScript Object Notation, suitable for data processing;
 - **csv** – text format for table data;
-
-**Important**: data structure of the `json` format can be changed in the upcoming versions of the binary agent;
 
 ### Usage example
 
