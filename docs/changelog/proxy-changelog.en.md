@@ -8,7 +8,7 @@ hide:
 ### [2025.52.1] - 2026-01-15
 
 #### Fixed
-- Fixed an issue with Redis health check when cache is disabled 
+- Fixed an issue with Redis health check when cache is disabled
 
 ### [2025.52.0] - 2025-12-23
 
