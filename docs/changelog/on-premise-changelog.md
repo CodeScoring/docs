@@ -29,8 +29,8 @@ hide:
 - <span class="module-tag osa">OSA</span> Добавлены дополнительные поля для контейнерных образов (время запросов, политики, статус блокировки, реестр, ссылка)
 - <span class="module-tag osa">OSA</span> Добавлена возможность указывать Docker-репозитории для политик с компонентами OSA и передавать имя репозитория при запросе образа
 - <span class="module-tag osa">OSA</span> Добавлена проверка уникальности при создании менеджеров репозиториев
-- <span class="module-tag osa">OSA</span> Добавлены форматы экосистем `cargo`, `composer` и `huggingface` для Sonatype Nexus Repository
-- <span class="module-tag osa">OSA</span> Добавлены форматы экосистем `ai editor extensions`, `ansible`, `bazel modules`, `helm oci`, `huggingface`, `jetbrains plugins`, `nim model` и `oci` для JFrog Artifactory
+- <span class="module-tag osa">OSA</span> Добавлено определение экосистем `cargo`, `composer` и `huggingface` в запросах Sonatype Nexus Repository
+- <span class="module-tag osa">OSA</span> Добавлено определение экосистем `ai editor extensions`, `ansible`, `bazel modules`, `helm oci`, `huggingface`, `jetbrains plugins`, `nim model` и `oci` в запросах JFrog Artifactory
 - <span class="module-tag osa">OSA</span> Добавлено вывод PURL на странице контейнерного образа
 - <span class="module-tag osa">OSA</span> Добавлен фильтр по компонентам OSA в списке политик
 - <span class="module-tag osa">OSA</span> Добавлена возможность передачи заголовков хоста для формирования ссылки на заблокированный компонент в OSA

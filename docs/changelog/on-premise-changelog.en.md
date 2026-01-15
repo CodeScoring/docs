@@ -29,8 +29,8 @@ hide:
 - <span class="module-tag osa">OSA</span> Added additional fields for container images (request time, policies, blocking status, registry, link)
 - <span class="module-tag osa">OSA</span> Added the ability to specify Docker repositories for policies with OSA components and to pass the repository name when requesting an image
 - <span class="module-tag osa">OSA</span> Added uniqueness validation when creating repository managers
-- <span class="module-tag osa">OSA</span> Added the `cargo`, `composer`, and `huggingface` ecosystem formats for Sonatype Nexus Repository
-- <span class="module-tag osa">OSA</span> Added the `ai editor extensions`, `ansible`, `bazel modules`, `helm oci`, `huggingface`, `jetbrains plugins`, `nim model`, and `oci` ecosystem formats for JFrog Artifactory
+- <span class="module-tag osa">OSA</span> Added recogninition of `cargo`, `composer`, and `huggingface` ecosystem formats in Sonatype Nexus Repository requests
+- <span class="module-tag osa">OSA</span> Added recognition of `ai editor extensions`, `ansible`, `bazel modules`, `helm oci`, `huggingface`, `jetbrains plugins`, `nim model`, and `oci` ecosystem formats in JFrog Artifactory requests
 - <span class="module-tag osa">OSA</span> Added PURL display on the container image page
 - <span class="module-tag osa">OSA</span> Added filtering by OSA components in the policy list
 - <span class="module-tag osa">OSA</span> Added the ability to pass host headers when generating a link to a blocked component in OSA
