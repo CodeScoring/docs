@@ -9,9 +9,9 @@ hide:
 
 #### Added
 
-- <span class="module-tag sca">SCA</span> Added support for CycloneDX versions 1.7 and 1.7 ext
+- <span class="module-tag sca">SCA</span> Added support for CycloneDX versions `1.7` and `1.7 ext`
 - <span class="module-tag sca">SCA</span> Added a vulnerability reachability visualization page
-- <span class="module-tag sca">SCA</span> Added the GOST:provided_by field to the dependency edit table and to SBOM
+- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Added the `GOST:provided_by` field to the dependency edit table and to SBOM
 - <span class="module-tag sca">SCA</span> Added the ability to specify a branch or tag when importing an SBOM
 - <span class="module-tag sca">SCA</span> Added validation of the uploaded SBOM file format and version
 - <span class="module-tag sca">SCA</span> Added an API endpoint with a list of supported SBOM specifications and versions
@@ -24,12 +24,13 @@ hide:
 - <span class="module-tag tqi">TQI</span> Added merge commit icons, commit type filtering, and the ability to collapse commit messages in the commits table on the TQI project page
 - <span class="module-tag tqi">TQI</span> Added scheduling configuration for author and clone analyses for a project
 - <span class="module-tag tqi">TQI</span> Added removal of outdated commits when running author analysis from the first commit
-- <span class="module-tag osa">OSA</span> Added support for repository managers of the “Sphere.Distributions and Licenses” type
-- <span class="module-tag osa">OSA</span> Added the Virtual / Virtual repository type for JFrog and Nexus repositories
+- <span class="module-tag osa">OSA</span> Added support for repository managers of the “Sfera.Distributions and Licenses” type
+- <span class="module-tag osa">OSA</span> Added the `Virtual` repository type for JFrog and Nexus repositories
 - <span class="module-tag osa">OSA</span> Added additional fields for container images (request time, policies, blocking status, registry, link)
 - <span class="module-tag osa">OSA</span> Added the ability to specify Docker repositories for policies with OSA components and to pass the repository name when requesting an image
 - <span class="module-tag osa">OSA</span> Added uniqueness validation when creating repository managers
-- <span class="module-tag osa">OSA</span> Added up-to-date ecosystem formats for Nexus and JFrog repository managers
+- <span class="module-tag osa">OSA</span> Added the `cargo`, `composer`, and `huggingface` ecosystem formats for Sonatype Nexus Repository
+- <span class="module-tag osa">OSA</span> Added the `ai editor extensions`, `ansible`, `bazel modules`, `helm oci`, `huggingface`, `jetbrains plugins`, `nim model`, and `oci` ecosystem formats for JFrog Artifactory
 - <span class="module-tag osa">OSA</span> Added PURL display on the container image page
 - <span class="module-tag osa">OSA</span> Added filtering by OSA components in the policy list
 - <span class="module-tag osa">OSA</span> Added the ability to pass host headers when generating a link to a blocked component in OSA
@@ -59,19 +60,16 @@ hide:
 - Updated the loading indicator in the platform UI
 - Changed user access with the User role to alert-related actions
 - Converted string values True / False to boolean true / false in API responses
-- Refactored the access control system
 - Changed the HTTP method for the UserInfo request in OIDC to GET
 
 #### Fixed
 
 - <span class="module-tag sca">SCA</span> Optimized the SBOM generation process
-- Optimized API performance and UI page loading
 - <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Optimized SCA and OSA performance
 - <span class="module-tag sca">SCA</span> Optimized vulnerability export to CSV
 - <span class="module-tag sca">SCA</span> Fixed duplicate alerts when filtering by dependency relation or dependency environment
-- <span class="module-tag sca">SCA</span> Fixed the Has VCS / VCS specified filter on the project dependency edit page
+- <span class="module-tag sca">SCA</span> Fixed the `Has VCS` specified filter on the project dependency edit page
 - <span class="module-tag sca">SCA</span> Fixed incorrect export of the match type field in the dependency report
-- Adjusted project statistics display for projects with no scans yet
 - <span class="module-tag sca">SCA</span> Fixed vulnerability count calculation on the packages page
 - <span class="module-tag sca">SCA</span> Fixed severity display when a CVSS score is present
 - <span class="module-tag sca">SCA</span> Reduced memory consumption during intensive SCA usage
@@ -85,13 +83,16 @@ hide:
 - <span class="module-tag osa">OSA</span> Fixed display of packages from deleted repository managers in the dashboard
 - <span class="module-tag secrets">Secrets</span> Fixed saving of identical secrets with different coordinates in a file
 - <span class="module-tag secrets">Secrets</span> Fixed audit log output and logging of missing model errors when starting secrets analysis
+- Fixed access to viewing data in the system after the activation key expires
 - Fixed unlocking of the PDF export button after scanning an image or project
 - Fixed number formatting on dashboard and TQI project charts
 - Fixed display of platform sections when a module expires in the activation key
+- Adjusted project statistics display for projects with no scans yet
+- Optimized API performance and UI page loading
 
 #### Deprecated
 
-- <span class="module-tag osa">OSA</span> API endpoints for container image scan history have been marked as deprecated; planned removal — release 2026.27.0
+- <span class="module-tag osa">OSA</span> API endpoints for container image scan history have been marked as deprecated
 
 #### Removed
 

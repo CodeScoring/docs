@@ -11,7 +11,7 @@ hide:
 
 - <span class="module-tag sca">SCA</span> Добавлена поддержка CycloneDX версий 1.7 и 1.7 ext
 - <span class="module-tag sca">SCA</span> Добавлена страница визуализации достижимости уязвимости
-- <span class="module-tag sca">SCA</span> Добавлено поле `GOST:provided_by` в таблицу редактирования зависимостей и в SBOM
+- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Добавлено поле `GOST:provided_by` в таблицу редактирования зависимостей и в SBOM
 - <span class="module-tag sca">SCA</span> Добавлена возможность указывать ветку или тег при импорте SBOM
 - <span class="module-tag sca">SCA</span> Добавлена проверка формата и версии загружаемого SBOM-файла
 - <span class="module-tag sca">SCA</span> Добавлен API-эндпоинт со списком актуальных спецификаций и версий SBOM
@@ -29,7 +29,8 @@ hide:
 - <span class="module-tag osa">OSA</span> Добавлены дополнительные поля для контейнерных образов (время запросов, политики, статус блокировки, реестр, ссылка)
 - <span class="module-tag osa">OSA</span> Добавлена возможность указывать Docker-репозитории для политик с OSA Components и передавать имя репозитория при запросе образа
 - <span class="module-tag osa">OSA</span> Добавлена проверка уникальности при создании менеджеров репозиториев
-- <span class="module-tag osa">OSA</span> Добавлены актуальные форматы экосистем для менеджеров репозиториев Nexus и JFrog
+- <span class="module-tag osa">OSA</span> Добавлены форматы экосистем `cargo`, `composer` и `huggingface` для Sonatype Nexus Repository
+- <span class="module-tag osa">OSA</span> Добавлены форматы экосистем `ai editor extensions`, `ansible`, `bazel modules`, `helm oci`, `huggingface`, `jetbrains plugins`, `nim model` и `oci` для JFrog Artifactory
 - <span class="module-tag osa">OSA</span> Добавлено вывод PURL на странице контейнерного образа
 - <span class="module-tag osa">OSA</span> Добавлен фильтр по компонентам OSA в списке политик
 - <span class="module-tag osa">OSA</span> Добавлена возможность передачи заголовков хоста для формирования ссылки на заблокированный компонент в OSA
@@ -59,20 +60,16 @@ hide:
 - Изменён индикатор загрузки в UI платформы
 - Изменён доступ пользователя с ролью `User` к действиям с алертами
 - В ответах API строковые значения `True` / `False` приведены к булевым `true` / `false`
-- Выполнен рефакторинг системы прав доступа
 - Изменен HTTP-метод для запроса UserInfo в OIDC на `GET`
-
 
 #### Исправлено
 
 - <span class="module-tag sca">SCA</span> Оптимизирован процесс формирования SBOM
-- Оптимизирована работа API и загрузка страниц UI
 - <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Оптимизирована работа SCA и OSA
 - <span class="module-tag sca">SCA</span> Оптимизирована выгрузка уязвимостей в CSV
 - <span class="module-tag sca">SCA</span> Исправлено дублирование алертов при фильтрации по связи зависимости или окружению зависимости
 - <span class="module-tag sca">SCA</span> Исправлена работа фильтра `Has VCS / Указан VCS` на странице редактирования зависимостей проекта
 - <span class="module-tag sca">SCA</span> Исправлена некорректная выгрузка поля `match type` при экспорте отчёта зависимостей
-- Скорректирован вывод статистики проекта, по которому ещё не было сканирований
 - <span class="module-tag sca">SCA</span> Исправлен подсчёт уязвимостей на странице пакетов
 - <span class="module-tag sca">SCA</span> Исправлено отображение severity при наличии CVSS Score
 - <span class="module-tag sca">SCA</span> Сокращено потребление памяти при активном использовании SCA
@@ -86,13 +83,16 @@ hide:
 - <span class="module-tag osa">OSA</span> Исправлено отображение пакетов из удалённых менеджеров репозиториев в дашборде
 - <span class="module-tag secrets">Secrets</span> Исправлено сохранение одинаковых секретов с разными координатами в файле
 - <span class="module-tag secrets">Secrets</span> Исправлены вывод и запись в аудит-лог ошибки об отсутствии модели при запуске анализа секретов
+- Исправлен доступ к просмотру данных в системе после истечения активационного ключа
 - Исправлена разблокировка кнопки экспорта PDF после сканирования образа и проекта
 - Исправлено форматирование чисел на графиках дашборда и TQI-проектов
 - Исправлено отображение разделов платформы при истечении срока действия модуля в активационном ключе
+- Скорректирован вывод статистики проекта, по которому ещё не было сканирований
+- Оптимизирована работа API и загрузка страниц UI
 
 #### Устарело
 
-- <span class="module-tag osa">OSA</span> API-эндпоинты истории сканирования контейнерных образов помечены как устаревшие; планируемое удаление — релиз 2026.27.0
+- <span class="module-tag osa">OSA</span> API-эндпоинты истории сканирования контейнерных образов помечены как устаревшие
 
 #### Удалено
 
