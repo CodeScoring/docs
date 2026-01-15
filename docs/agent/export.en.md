@@ -58,3 +58,32 @@ If necessary, you can specify multiple formats, separating them with commas, for
 ```
 
 In this example, the output will be in the `coloredtable` format to the console, and also saved to the `alerts.json` file in the `json` format.
+
+## Report on policy ignoring
+
+The report is generated using the `--policy-ignores` flag. The report includes policy ignores for the project specified in `--project`.
+
+### Available formats
+
+- **coloredtable** – colored table in the console. Default format;
+- **table** – simple table;
+- **text** – text report;
+- **json** – a structured format based on JavaScript Object Notation, suitable for data processing;
+- **csv** – text format for table data;
+
+**Important**: data structure of the `json` format can be changed in the upcoming versions of the binary agent;
+
+### Usage example
+
+If necessary, you can specify multiple formats, separating them with commas, for example:
+
+```bash
+./johnny scan file path/to/file \
+--api_token <api_token> \
+--api_url <api_url> \
+--project <project> \
+--policy-ignores \
+--ignores-format "coloredtable, json>>ignores.json"
+```
+
+In this example, the output will be in the `coloredtable` format to the console, and also saved to the `ignores.json` file in the `json` format.
