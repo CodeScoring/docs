@@ -65,19 +65,17 @@ Categories:
 - **Medium level** - if there are from 50 to 300 duplicated lines;
 - **High level** - if there are more than 300 duplicated lines.
 
-## Charts impact of changes
+## Impact of changes
 
 You can evaluate the impact of changes on the project using the following parameters on the general graph:
 
-- The rate;
-- Ve;
+- Rate;
+- Velocity;
 - Density.
 
 ![Project rate](/assets/img/tqi/tqi-rate-en.png)
 
 The calculation is performed for the period. The minimum period is one week.
-
-The size of the element in the graph is normalized for the sample.
 
 The sizes of the elements in the sample are normalized.
 The sample is normalized using the formula:
@@ -120,9 +118,9 @@ V = T / C
 
 Where:
 
-- **D** – плотность изменений;
-- **L** – the number of lines of code entered (added, deleted, modified) during the billing period;
-- **F** – количество измененных файлов.
+- **D** – the density of changes;
+- **L** – the number of lines of added, deleted, modified code during the reporting period;
+- **F** – number of modified files.
 
 ### Calculation of the density rate
 
@@ -136,6 +134,6 @@ D = T / F
 
 Where:
 
-- **D** – плотность изменений;
+- **D** – the density of changes;
 - **L** – the number of lines of code entered (added, deleted, modified) during the billing period;
-- **F** – количество измененных файлов.
+- **F** – number of modified files.
