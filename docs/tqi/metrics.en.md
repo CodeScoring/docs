@@ -124,7 +124,7 @@ Where:
 
 ### Calculation of the density rate
 
-**Density rate** shows how many changes were made to the code relative to the number of modified files. The high density value indicates the modification of a large number of modules; the burden of code review, testing and maintenance increases.
+**Density rate** shows how many changes were made to the code relative to the number of modified files. The high density value indicates the modification of a large number of modules. The burden of code review, testing and maintenance increases.
 
 Calculation is based on the formula:
 
