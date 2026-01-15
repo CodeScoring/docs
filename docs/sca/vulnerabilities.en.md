@@ -44,6 +44,12 @@ For convenience of analysis, the list of vulnerabilities can be filtered by the 
 
 Text search by vulnerability ID and related data is also available.
 
+## Reachability
+
+For reachable vulnerabilities, it is possible to view the visualization of paths and download their text representation.
+
+![Vuln reachability](/assets/img/vuln-reachability-en.png)
+
 ## Vulnerability page
 
 The individual vulnerability page is designed for detailed analysis of a specific vulnerability and all related information within the platform.
