@@ -1,6 +1,5 @@
 ---
-hide:
-  - footer
+icon: modules/sca
 ---
 
 # CodeScoring.SCA

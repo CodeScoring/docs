@@ -14,6 +14,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.tracking
     - navigation.sections
+    - navigation.icons
     - navigation.indexes
     - content.code.copy
     - content.code.select
@@ -117,6 +118,7 @@ plugins:
           osa-general: "General description"
           nexus-osa: "Plugin for Nexus"
           jfrog-osa: "Plugin for JFrog"
+          sfera-osa: "Plugin for Sfera"
           osa-policies: "Configuring OSA policies"
           osa-components: "Working with OSA components"
           platform-osa: "Working with OSA in the platform"
@@ -124,6 +126,7 @@ plugins:
           osa-proxy-general: "Overview"
           osa-proxy-protocols: "Supported protocols"
           osa-proxy-config: "Service configuration"
+          osa-proxy-caching-config: "Redis and сaching сonfiguration"
           osa-proxy-base64: "Base64 URL configuration"
           osa-proxy-installation: "Service deployment"
           osa-proxy-maven-config: "Maven configuration"
@@ -197,6 +200,7 @@ plugins:
           changelog: "Changelog"
           on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "Plugin for JFrog"
+          sfera-changelog: "Plugin for Sfera"
           johnny-changelog: "CLI agent Johnny"
           nexus-changelog: "Nexus OSA"
           vscode-changelog: "VS Code plugin"
@@ -271,6 +275,7 @@ plugins:
           osa-general: "Общее описание"
           nexus-osa: "Плагин для Nexus"
           jfrog-osa: "Плагин для JFrog"
+          sfera-osa: "Плагин для Sfera"
           osa-policies: "Настройка политик OSA"
           osa-components: "Работа с компонентами OSA"
           platform-osa: "Работа с OSA в платформе"
@@ -278,6 +283,7 @@ plugins:
           osa-proxy-general: "Общее описание"
           osa-proxy-protocols: "Поддерживаемые протоколы"
           osa-proxy-config: "Настройка сервиса"
+          osa-proxy-caching-config: "Настройка Redis и кэширования"
           osa-proxy-base64: "Настройка Base64 URL"
           osa-proxy-installation: "Установка сервиса"
           osa-proxy-maven-config: "Настройка Maven"
@@ -351,6 +357,7 @@ plugins:
           changelog: "Changelog"
           on-premise-changelog: "CodeScoring on-premise"
           jfrog-changelog: "Плагин для JFrog"
+          sfera-changelog: "Плагин для Sfera"
           johnny-changelog: "Консольный агент Johnny"
           nexus-changelog: "Плагин для Nexus"
           vscode-changelog: "Плагин для VS Code"
@@ -491,6 +498,8 @@ nav:
         - nexus-osa: osa/nexus_osa.en.md
         - jfrog-osa: osa/jfrog_osa.md
         - jfrog-osa: osa/jfrog_osa.en.md
+        - sfera-osa: osa/sfera_osa.md
+        - sfera-osa: osa/sfera_osa.en.md
         - osa-archives: osa/archives.md
         - osa-archives: osa/archives.en.md
       - platform-osa:
@@ -511,6 +520,8 @@ nav:
         - osa-proxy-installation: osa-proxy/installation.en.md
         - osa-proxy-config: osa-proxy/config.md
         - osa-proxy-config: osa-proxy/config.en.md
+        - osa-proxy-caching-config: osa-proxy/config-caching.md
+        - osa-proxy-caching-config: osa-proxy/config-caching.en.md
         - osa-proxy-protocols: osa-proxy/protocols.md
         - osa-proxy-protocols: osa-proxy/protocols.en.md
         - osa-proxy-metrics: osa-proxy/metrics.md
@@ -653,6 +664,8 @@ nav:
     - nexus-changelog: changelog/nexus-changelog.en.md
     - jfrog-changelog: changelog/jfrog-changelog.md
     - jfrog-changelog: changelog/jfrog-changelog.en.md
+    - sfera-changelog: changelog/sfera-changelog.md
+    - sfera-changelog: changelog/sfera-changelog.en.md
     - vscode-changelog: changelog/vscode-changelog.md
     - vscode-changelog: changelog/vscode-changelog.en.md
     - intellij-changelog: changelog/intellij-changelog.md
@@ -674,8 +687,11 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - toc:
         permalink: true
 

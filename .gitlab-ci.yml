@@ -9,8 +9,8 @@ lint_markdown:
   script: |
     echo "Starting markdown linting..."
 
-    BASE_REF="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-origin/main}"
-    [ -z "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ] && git fetch origin main || { echo "❌ Failed to fetch origin/main"; exit 1; }
+    BASE_REF="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-origin/master}"
+    [ -z "$CI_MERGE_REQUEST_DIFF_BASE_SHA" ] && git fetch origin master || { echo "❌ Failed to fetch origin/master"; exit 1; }
 
     FILES=$(git diff --name-only --diff-filter=d "$BASE_REF"...HEAD -- '*.md') || { echo "❌ Failed to get changed files"; exit 1; }
     [ -z "$FILES" ] && { echo "ℹ️ No .md files changed."; exit 0; }

@@ -48,7 +48,7 @@ CodeScoring leverages `PostgreSQL` for data management, processing and storage.
 
 Integration with Sentry is disabled by default, `SENTRY_ENABLE = False`. To enable Sentry for error reporting and system event tracking, set `SENTRY_ENABLED = True` and provide the following variables:
 
-- **SENTRY_DNS** - project identifier within Sentry, to which еру data will be sent;
+- **SENTRY_DSN** - project identifier within Sentry, to which еру data will be sent;
 - **SENTRY_ENVIRONMENT** - the environment to which sent data will belong;
 - **SENTRY_RELEASE** - release associated with the sent data.
 
