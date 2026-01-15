@@ -16,7 +16,7 @@ You can manage the parameters of the CLI agent by adding the configuration file 
 - **license** – license of the analyzed project, for example `mit`;
 - **stage** – development stage. Possible values: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
 - **bom-path** – path (with file name) where the generated `bom.json` file will be saved;
-- **bom-format** – format of the generated SBOM. Possible values: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Default value: `cyclonedx_v1_6_json`;
+- **bom-format** – format of the generated SBOM. Possible values: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`, `cyclonedx_v1_7_json`. Default value: `cyclonedx_v1_6_json`;
 - **timeout** – limit on analysis waiting time (in seconds);
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **branch-or-tag** – a reference to a repository branch or tag, such as `refs/tags/v1.0` (for the `scan dir` and `scan file` commands);
 - <a href="/changelog/on-premise-changelog.en/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **commit** – a commit hash in the version control system (for the `scan dir` and `scan file` commands);
