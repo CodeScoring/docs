@@ -40,8 +40,7 @@ hide:
 - <span class="module-tag secrets">Secrets</span> Добавлены координаты в ссылки на секреты
 - <span class="module-tag secrets">Secrets</span> Добавлено поле для настройки дефолтного движка секретов
 - <span class="data-tag secrets">Data</span> Добавлена левая граница диапазонов уязвимых версий из БДУ ФСТЭК по мажорной версии, которая устраняет перекрытие диапазонов и снижает False Positive
-- <span class="data-tag secrets">Data</span> Добавлен сбор метрик (Рейтинг и Уровень Угрозы CVSS v3) уязвимостей с Astra Linux
-- <span class="data-tag secrets">Data</span> Добавлены исправленные версии для компонентов Astra Linux из описаний в БДУ ФСТЭК
+- <span class="data-tag secrets">Data</span> Добавлен забор фикс версий для компонентов из блока "Возможные меры по устранению уязвимости" БДУ ФСТЭК
 - Добавлено массовое действие для алертов: отвязывание Jira-задач
 - Добавлены ссылки для перехода между настройками и просмотром группы проектов
 - Добавлена возможность использовать списки в условиях политик
@@ -88,9 +87,7 @@ hide:
 - <span class="module-tag secrets">Secrets</span> Исправлено сохранение одинаковых секретов с разными координатами в файле
 - <span class="module-tag secrets">Secrets</span> Исправлены вывод и запись в аудит-лог ошибки об отсутствии модели при запуске анализа секретов
 - <span class="data-tag secrets">Data</span> Исправлены некорректные VCS ссылки с `/sponsor` и github.io
-- <span class="data-tag secrets">Data</span> Исправлены некорректные нулевые рейнджи в GitLab уязвимостях
 - <span class="data-tag secrets">Data</span> Исправлено отображение лицензий по версиям пакетов - устранены случаи, когда лицензии относились к другой версии
-- <span class="data-tag secrets">Data</span> Исправлено отображение CWE из источника Red Hat
 - <span class="data-tag secrets">Data</span> Исправлены некорректные версии БДУ ФСТЭК с Х и запятыми
 - <span class="data-tag secrets">Data</span> Исправлены некорректные VCS ссылки в npm с /issues на конце
 - Исправлена разблокировка кнопки экспорта PDF после сканирования образа и проекта
