@@ -26,7 +26,7 @@ hide:
 - Added validation for SBOM scanning (supported Formats: 1.4, 1.5, 1.6, 1.6_ext, 1.7)
 - Added support for exporting SBOM in 1.7 format
 - Added correct handling of transitive dependencies without purl when importing SBOM
-- Added output of the LineEnd value for the position of the detected and monitored secret
+- Added coordinates of the detected and monitored secret
 - Added output of the vulnerability impact when exporting the results to CSV format
 
 #### Changed
