@@ -346,3 +346,19 @@
   --tag-color: #3b82f6;
 }
 
+.data-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--tag-color);
+  border: 1px solid currentColor;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.data-tag {
+  --tag-color: #8b5cf6;
+}

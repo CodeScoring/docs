@@ -39,6 +39,9 @@ hide:
 - <span class="module-tag secrets">Secrets</span> Added saving of secret coordinates
 - <span class="module-tag secrets">Secrets</span> Added secret coordinates to secret links
 - <span class="module-tag secrets">Secrets</span> Added a field for configuring the default secrets engine
+- <span class="data-tag secrets">Data</span> Added left boundary for ranges of vulnerable versions from the FSTEC Database by major version, which eliminates range overlap and reduces False Positives
+- <span class="data-tag secrets">Data</span> Added collection of metrics (CVSS v3 Rating and Threat Level) for vulnerabilities with Astra Linux
+- <span class="data-tag secrets">Data</span> Added fixed versions for Astra Linux components from descriptions in the FSTEC Database
 - Added a bulk action for alerts: unlinking Jira issues
 - Added navigation links between project group settings and group view pages
 - Added the ability to use lists in policy conditions
@@ -83,6 +86,12 @@ hide:
 - <span class="module-tag osa">OSA</span> Fixed display of packages from deleted repository managers in the dashboard
 - <span class="module-tag secrets">Secrets</span> Fixed saving of identical secrets with different coordinates in a file
 - <span class="module-tag secrets">Secrets</span> Fixed audit log output and logging of missing model errors when starting secrets analysis
+- <span class="data-tag secrets">Data</span> Fixed incorrect VCS links with `/sponsor` and github.io
+- <span class="data-tag secrets">Data</span> Fixed incorrect zero ranges in GitLab vulnerabilities
+- <span class="data-tag secrets">Data</span> Fixed display of licenses by package versions - eliminated cases where licenses belonged to a different version
+- <span class="data-tag secrets">Data</span> Fixed display of CWE from the Red Hat source
+- <span class="data-tag secrets">Data</span> Fixed incorrect FSTEC BDU versions with X and commas
+- <span class="data-tag secrets">Data</span> Fixed incorrect VCS links in npm with /issues at the end
 - Fixed unlocking of the PDF export button after scanning an image or project
 - Fixed number formatting on dashboard and TQI project charts
 - Fixed display of platform sections when a module expires in the activation key
