@@ -9,7 +9,7 @@ In case of scanning an existing Software Bill of Materials (SBOM) in the **Cyclo
 
 When the agent is launched, it does the following:
 
-1. Validates SBOM.
+1. Validates SBOM with the specified version json schema.
 2. Parses the specified SBOM.
 3. Generates a request to the platform to analyze the contents.
 4. After the analysis is complete, it displays summary information about the results in the console, as well as tables with the vulnerabilities found and the policies that were triggered.
