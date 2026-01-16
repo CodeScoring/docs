@@ -16,14 +16,14 @@ Currently, CodeScoring uses data from 20 feeds. Below is a table with the data s
 | Source | Link | Update frequency |
 |--------|------|-----------------|
 | Red Hat Security Advisories | [https://access.redhat.com](https://access.redhat.com) | every 30 minutes |
-| Open Source Vulnerabilities (OSV) | [https://api.osv.dev/v1/](https://api.osv.dev/v1/) | every 20 minutes |
+| Open Source Vulnerabilities (OSV) | [https://osv.dev](https://osv.dev) | every 20 minutes |
 | Go Vulnerability Database (Golang) | [https://vuln.go.dev](https://vuln.go.dev) | every 30 minutes |
 | GitLab Security Advisory Database | [https://advisories.gitlab.com](https://advisories.gitlab.com) | once a day |
 | Debian Security Tracker | [https://security-tracker.debian.org](https://security-tracker.debian.org) | every 30 minutes |
 | CodeScoring Protestware Feed | - | once a day |
 | Astra Linux Security Advisories | [https://astra.ru](https://astra.ru) | every 4 hours |
 | CVE.org (MITRE CVE Program) | [https://www.cve.org](https://www.cve.org) | once a day |
-| ALT Linux Security Tracker CVE | [https://rdb.altlinux.org/api](https://rdb.altlinux.org/api) | every 4 hours |
+| ALT Linux Security Tracker CVE | [https://packages.altlinux.org](https://packages.altlinux.org) | every 4 hours |
 | GitHub Security Repositories | [https://github.com](https://github.com) | every hour |
 | Ubuntu Security Notices | [https://ubuntu.com](https://ubuntu.com) | every 30 minutes |
 | PyPI Security Advisories (PySec) | [https://pypi.org](https://pypi.org) | every 30 minutes |
