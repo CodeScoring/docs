@@ -62,7 +62,7 @@ hide:
 - <span class="module-tag tqi">TQI</span> Redesigned the UI on TQI project and author pages
 - Updated the loading indicator in the platform UI
 - Changed user access with the User role to alert-related actions
-- <span class="api-tag">API</span> Converted string values `True` / `False` to boolean `true` / `false` in API responses
+- <span class="api-tag">API</span> Converted string values `True` / `False` to boolean `true` / `false` in API filter responses
 - Changed the HTTP method for the UserInfo request in OIDC to `GET`
 
 #### Fixed
@@ -77,7 +77,7 @@ hide:
 - <span class="module-tag sca">SCA</span> Fixed severity display when a CVSS score is present
 - <span class="module-tag sca">SCA</span> Reduced memory consumption during intensive SCA usage
 - <span class="module-tag sca">SCA</span> Removed alerts with delayed blocking when scanning via Johnny with the --save-results flag if the blocking time has not yet been reached
-- <span class="module-tag sca">SCA</span> Fixed boolean filtering in SCA project groups
+- <span class="module-tag sca">SCA</span> <span class="module-tag osa">OSA</span> Optimized API operation and UI page loading for all OSA section pages, alert list page, and SCA project groups
 - <span class="module-tag tqi">TQI</span> Optimized loading of the “Similar authors” tab on the author page
 - <span class="module-tag tqi">TQI</span> Optimized chart loading on the TQI project page
 - <span class="module-tag tqi">TQI</span> Fixed possible duplicate commits in TQI projects
@@ -94,7 +94,6 @@ hide:
 - Fixed number formatting on dashboard and TQI project charts
 - Fixed display of platform sections when a module expires in the activation key
 - Adjusted project statistics display for projects with no scans yet
-- Optimized API performance and UI page loading
 - Changed the base image in the judge service from Alpine 3.20 to Alpine 3.23.2
 - Changed the base image in the index-proxy service from Alpine 3.20 to Alpine 3.23.2
 - Changed the base image in the osa service from Alpine 3.20 to Alpine 3.23.2
