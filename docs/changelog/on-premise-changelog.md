@@ -40,7 +40,7 @@ hide:
 - <span class="module-tag secrets">Secrets</span> Добавлены координаты в ссылки на секреты
 - <span class="module-tag secrets">Secrets</span> Добавлено поле для настройки дефолтного движка секретов
 - <span class="data-tag secrets">Data</span> Добавлена левая граница диапазонов уязвимых версий из БДУ ФСТЭК по мажорной версии, которая устраняет перекрытие диапазонов и снижает False Positive
-- <span class="data-tag secrets">Data</span> Добавлен сбор метрик (Рейтинг и Уровень Угрозы CVSS v3) уязвимостей с Astra Linux 
+- <span class="data-tag secrets">Data</span> Добавлен сбор метрик (Рейтинг и Уровень Угрозы CVSS v3) уязвимостей с Astra Linux
 - <span class="data-tag secrets">Data</span> Добавлены исправленные версии для компонентов Astra Linux из описаний в БДУ ФСТЭК
 - Добавлено массовое действие для алертов: отвязывание Jira-задач
 - Добавлены ссылки для перехода между настройками и просмотром группы проектов
