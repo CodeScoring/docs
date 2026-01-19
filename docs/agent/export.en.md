@@ -6,6 +6,7 @@ hide:
 # Exporting scan results
 
 The Johnny console agent supports exporting scan results in various formats. This allows to adapt reporting to different needs, including integration with vulnerability management systems.
+By default all reports are rendered in English but you can use `--localization ru` flag to switch to Russian.
 
 ## Report on found vulnerabilities
 
