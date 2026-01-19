@@ -57,7 +57,12 @@ Automatic SBOM filename generation rules are following:
 - For projects: `bom_<project name>_<SBOM format>.json`
 - For container images: `bom_<image name>_<first 8 hash chars>_<SBOM format>.json`
 
-For CLI projects, SBOM can also be loaded via the interface using the **Import SBOM** button. The loaded SBOM must be in CycloneDX format and have the `.json` extension.
+## SBOM import
+
+For CLI projects, SBOM can also be loaded via the interface using the **Import SBOM** button.
+The loaded SBOM must be in CycloneDX v1.4, 1.5, 1.6, 1.6_ext, 1.7 or 1.7_ext format and have the `.json` extension.
+
+Importing SBOM you can also add branch or tag name as a meta-information.
 
 ### Configuring dependency properties for SBOM export {#bom-settings}
 
