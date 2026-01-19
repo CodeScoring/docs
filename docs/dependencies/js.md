@@ -252,3 +252,17 @@ dependencies:
   version: 2.2.2
   resolution: "yaml@npm:2.2.2"
 ```
+
+## Bun
+
+### Создание файла `bun.lock`
+
+```sh
+bun install
+```
+
+В случае, если в проекте уже используется бинарный формат `bun.lockb` для создания `bun.lock` нужно использовать следующую команду:
+
+```sh
+bun install --save-text-lockfile --frozen-lockfile --lockfile-only
+```

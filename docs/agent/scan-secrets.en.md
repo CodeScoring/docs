@@ -19,11 +19,29 @@ When launched, the agent:
 
 **Important**: The agent only works with Gitleaks version 8.19.0 and above.
 
+## Gitleaks config example
+
+Example of Gitleaks config which extends a default configuration and adds a new rule with regex
+
+```toml
+title = “Custom gitleaks config”
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = “custom-generic-password”
+description = “Detected a Generic password”
+regex = ‘’‘passw(?:or)d.+’‘’
+entropy = 1
+```
+
 ## Example of running the command
 
 ```bash
 johnny secrets gitleaks dir . \
 --gitleaks-path <path-to-gitleaks> \
+--gitleaks-config <path-to-gitleaks-config> \
 --api_token <api_token> \
 --api_url <api_url> \
 --save-results \
@@ -48,6 +66,7 @@ The **johnny secrets gitleaks dir** command has the following unique parameters,
 
 #### Gitleaks parameters
 
+- `--gitleaks-config` - path to the [Gitleaks config file](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#configuration);
 - `--baseline-path` – path to the Gitleaks report file, which is used as a baseline for ignoring previously found secrets;
 - `--enable-rule` – list of rule IDs that will be **enabled** during scanning;
 - `--gitleaks-ignore-path` – path to `.gitleaksignore` file or directory containing it, to add fingerprints of secrets discovered earlier;

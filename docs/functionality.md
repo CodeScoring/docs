@@ -17,7 +17,7 @@
 
 - анализ 20 языков программирования (для отдельных модулей список языков может варьироваться): **Java**, **Kotlin**, **JavaScript**, **TypeScript**, **Python**, **C**, **C++**, **Go**, **PHP**, **Ruby**, **C#**, **Objective-C**, **Swift**, **Rust**, **Scala**, **Bash**, **Perl**, **SQL**, **PLSQL**, **PGSQL**;
 - анализ манифестов пакетных экосистем: **Maven**, **Gradle**, **Apache Ivy**, **NPM**, **Yarn**, **pnpm**, **NuGet**, **Paket**, **pip**, **Poetry**, **Pipenv**, **Conda**, **Ruby Gems**, **Cocoapods**, **Swift**, **Composer**, **Conan**, **Go Modules**, **Cargo** и **sbt**;
-- интеграцию с менеджерами репозиториев и реестрами контейнерных образов: **Nexus Repository Manager**, **JFrog Artifactory Pro**, **Harbor**, **GitLab**, **GitFlic**;
+- интеграцию с менеджерами репозиториев и реестрами контейнерных образов: **Nexus Repository Manager**, **JFrog Artifactory Pro**, **Harbor**, **GitLab**, **GitFlic**, **Сфера.Дистрибутивы и Лицензии**;
 - интеграцию с **hosted** и **cloud**-системами хостинга кода: **GitFlic**, **GitLab**, **Github**, **Bitbucket** и **Azure DevOps**;
 - универсальную интеграцию в системы сборки при помощи агента: **Jenkins**, **GitLab**, **GitFlic**, **TeamCity** и прочие;
 - управление политиками безопасности организации;

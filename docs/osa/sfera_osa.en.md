@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Sfera plugin
+# Sfera.Distributions and licenses plugin
 
 ## Plugin installation
 

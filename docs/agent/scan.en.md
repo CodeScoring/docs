@@ -28,40 +28,37 @@ Exit codes:
 - 0: successful run, no issues
 - 1: some issues found, action required
 - 2: run failure
-
 - 3: successful run, no result
-
 - 4: signing or verification failure
 
-Version: 2025.37.0
+Version: 2026.3.0
 
 Usage:
-   scan [command]
+    scan [command]
 
 Scan Technologies Commands:
-  clang       Scan clang
-  conda       Scan conda
-  csharp      Scan csharp
-  go          Scan go
-  java        Scan java
-  js          Scan js
-  objective_c Scan objective_c
-  php         Scan php
-  python      Scan python
-  ruby        Scan ruby
-  rust        Scan rust
-  swift       Scan swift
+    clang       Scan clang
+    conda       Scan conda
+    csharp      Scan csharp
+    go          Scan go
+    java        Scan java
+    js          Scan js
+    objective_c Scan objective_c
+    php         Scan php
+    python      Scan python
+    ruby        Scan ruby
+    rust        Scan rust
+    swift       Scan swift
 
 Additional Commands:
-  bom         Scan bom
-  build       Scan build
-  dir         Scan directory
-  file        Scan file
-  image       Scan image
+    bom         Scan bom
+    dir         Scan directory
+    file        Scan file
+    image       Scan image
 
 Flags:
-  -h, --help      help for scan
-  -v, --version   version for scan
+    -h, --help      help for scan
+    -v, --version   version for scan
 
 Global Flags:
       --alerts-format string              Alerts format. Supported formats: coloredtable, table, text, csv, json. Default output to console. Supports multiformat. Example: 'coloredtable,csv>>csv.csv'  (default "coloredtable")
@@ -71,7 +68,7 @@ Global Flags:
       --bom                               save result to bom
       --bom-format string                 Bom format. Supported formats: cyclonedx_v1_4_json,cyclonedx_v1_5_json,cyclonedx_v1_6_ext_json,cyclonedx_v1_6_json (default "cyclonedx_v1_6_json")
       --bom-path string                   Path for save bom file (default "bom.json")
-      --cg-lang string                    Language to parse call graph with. Supported languages: java
+      --cg-lang string                    Language to parse call graph with. Supported languages: java, python, go, kotlin
       --cg-path string                    Path to call graph for vulnerability reachability analysis
       --cloud-resolve                     Activate cloud resolve
       --composer-args string              pass flags to 'composer install'

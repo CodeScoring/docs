@@ -45,7 +45,7 @@ nx-repository-view-*-*-{read,browse}
 
 - **CodeScoring Configuration** — настройка взаимодействия с **on-premise** платформой **CodeScoring**;
 - **CodeScoring Scan** — настройка сканирования для отдельно выбранного прокси-репозитория;
-- **CodeScoring Docker Repository Scan** – настройка сканирования для отдельно выбранного hosted или proxy docker репозитория;
+- **CodeScoring Docker Repository Scan** – настройка сканирования для отдельно выбранного hosted, proxy docker или virtual репозитория;
 - **CodeScoring All Repositories Scan** – настройка сканирования для всех репозиториев.
 
 После установки плагина **CodeScoring OSA** в разделе `System -> Capabilities` появится возможность создания **Capability** через элемент (`+ Create capability`) интерфейса.

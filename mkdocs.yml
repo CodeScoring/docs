@@ -110,6 +110,7 @@ plugins:
           platform-analysis: "Analysis in the platform"
           sca-general: "General description"
           sca-dependencies: "Overviewing dependencies"
+          vulnerabilities: "Working with vulnerabilities"
           launch-analysis: "Launching a scan"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
@@ -150,11 +151,11 @@ plugins:
           agent-scan-archive: "Scanning archives"
           agent-scan-docker: "Scanning container images"
           agent-scan-build: "Scanning a C/C++ build"
-          agent-scan-bom: "Scanning a SBoM"
+          agent-scan-bom: "Scanning a SBOM"
           agent-scan-technology: "Scanning a technology"
           agent-scan-secrets: "Scanning for secrets"
           agent-reachability: "Using reachability analysis"
-          agent-sign-verify-bom: "Signing and verifying a SBoM"
+          agent-sign-verify-bom: "Signing and verifying a SBOM"
           agent-launch-docker: "Launching in Docker"
           agent-gitlab-ci: "Integrating into Gitlab CI"
           agent-jenkins: "Integrating into Jenkins Pipeline"
@@ -269,6 +270,7 @@ plugins:
           sca-general: "Общее описание"
           sca-dependencies: "Обзор зависимостей"
           platform-analysis: "Анализ в платформе"
+          vulnerabilities: "Работа с уязвимостями"
           launch-analysis: "Запуск сканирования"
           scan-history: "Отслеживание истории сканирований"
           osa: "CodeScoring.OSA"
@@ -307,11 +309,11 @@ plugins:
           agent-scan-archive: "Сканирование архивов"
           agent-scan-docker: "Сканирование контейнерных образов"
           agent-scan-build: "Сканирование сборки C/C++"
-          agent-scan-bom: "Сканирование SBoM"
+          agent-scan-bom: "Сканирование SBOM"
           agent-scan-technology: "Сканирование технологии"
           agent-scan-secrets: "Сканирование на наличие секретов"
           agent-reachability: "Анализ достижимости уязвимостей"
-          agent-sign-verify-bom: "Подпись и верификация SBoM"
+          agent-sign-verify-bom: "Подпись и верификация SBOM"
           agent-launch-docker: "Запуск с помощью Docker"
           agent-gitlab-ci: "Добавление в Gitlab CI"
           agent-jenkins: "Добавление в Jenkins"
@@ -548,6 +550,8 @@ nav:
         - launch-analysis: sca/launch-analysis.en.md
         - sca-dependencies: sca/sca-dependencies.md
         - sca-dependencies: sca/sca-dependencies.en.md
+        - vulnerabilities: sca/vulnerabilities.md
+        - vulnerabilities: sca/vulnerabilities.en.md
         - scan-history: sca/scan-history.md
         - scan-history: sca/scan-history.en.md
         - export-results: sca/export-results.md

@@ -27,7 +27,7 @@ After creating a new connection by clicking **Setup now**, the repository manage
 On the view page you can see a list of repositories with the following parameters:
 
 - **Name** - name;
-- **Type** - type of repository manager;
+- **Type** - type of repository manager (hosted, proxy and virtual types are currently supported);
 - **Ecosystem** - type of stored artifacts (NPM, PyPI and others);
 - **Is active** - presence of component requests in the last 24 hours;
 - **Is available** - availability of the repository in API (checked once an hour);

@@ -128,6 +128,20 @@ Next, the conditions for triggering the policy are configured; the following par
 - **Relation** — dependency relationship in the project (direct or transitive);
 - **CWE** — vulnerability type identifier according to the [Common Weakness Enumeration](https://cwe.mitre.org/) standard.
 
+There is an option to specify list-based values for the following parameters:
+
+- **PURL list**
+- **Dependency name list**
+- **Dependency author email list**
+- **Vulnerability ID (CVE) list**
+- **Environment list**
+- **Technology list**
+- **License list**
+- **License category list**
+- **CWE list**
+- **CVSS2 severity list**
+- **CVSS3 severity list**
+
 ## Creating a copy of the policy
 
 If you need to duplicate an existing policy, you can use the context menu item **Create a copy** or click the button.
@@ -177,3 +191,7 @@ For example:
 - sending emails
 
 ![Send email](/assets/img/alerts_send_email-en.png)
+
+Linked Jira issues can be unlinked using the bulk action `Delete the link to the issue`.
+
+![Remove issue link](/assets/img/alerts_remove_issue_link_en.png)

@@ -5,6 +5,47 @@ hide:
 
 # Johnny Changelog
 
+### [2026.3.1] - 2026-01-14
+
+#### Changed
+
+- Disabled checking of `externalReference.url` values for compliance with the iri-reference format during SBOM validation before scanning
+
+### [2026.3.0] - 2026-01-13
+
+#### Added
+
+- Added support for the lockfile text format for the bun package manager (1.2 and later)
+- Added support for the Svace module call graph for the Kotlin language
+- Added the `--create-project-group` flag for creating a group and adding a project to it
+- Added the `--project-categories` flag for specifying the categories of the project being created
+- Added the `--localization` flag for localizing the agent's output (coloredtable, table, text, csv formats)
+- Added the `--gitleaks-config` flag of the `secrets gitleaks` command to pass the path to the gitleaks config file
+- Added the `--policy-ignores` and `--ignores-format` flags for outputting policy ignores in the specified format
+- Added a build of the Johnny console agent for Linux with ARM processors
+- Added validation for SBOM scanning (supported Formats: 1.4, 1.5, 1.6, 1.6_ext, 1.7)
+- Added support for exporting SBOM in 1.7 format
+- Added correct handling of transitive dependencies without purl when importing SBOM
+- Added coordinates of the detected and monitored secret
+- Added output of the vulnerability impact when exporting the results to CSV format
+
+#### Changed
+
+- Changed the severity in the secrets report to `Critical `for each secret, for compatibility with the gitlab report
+- Changed paths in secret scan results from absolute to relative
+- Changed the output of the list of agent processed manifests. All manifests fall into it, even if no dependencies are found in them
+- The output of general information on the analysis result was changed. Information is always output to the console, even when the output is redirected to a file
+- Improved Linux OS detection logic to better identify RHEL family OS in `scan build` command
+- Changed handling of libraries that failed ldconfig validation in `scan build` command. They are added to the unresolved list
+
+#### Removed
+
+- Discontinued publishing of console agent images with the `{VERSION}-busybox` tag
+
+#### Fixed
+
+- Fixed a panic when importing some SBOMs
+
 ### [2025.45.4] - 2025-12-12
 
 #### Fixed
