@@ -177,3 +177,7 @@ hide:
 - отправка почтовых сообщений
 
 ![Send email](/assets/img/alerts_send_email.png)
+
+Связанные задачи Jira можно отвязать, используя массовое действие `Удалить ссылку на задачу`.
+
+![Remove issue link](/assets/img/alerts_remove_issue_link.png)
