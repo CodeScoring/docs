@@ -19,11 +19,29 @@ hide:
   - игнорирует секреты, зафиксированные в отчете Gitleaks, если задан `baseline-path`.
 2. Формирует результаты по найденным секретами, при необходимости сохраняет их на платформе CodeScoring и создает отчет в формате GitLab.
 
+## Пример конфига для Gitleaks
+
+Пример конфига, который расширяет стандартную конфигурацию, добавляя новое правило со своим регулярным выражением
+
+```toml
+title = “Custom gitleaks config”
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = “custom-generic-password”
+description = “Detected a Generic password”
+regex = ‘’‘passw(?:or)d.+’‘’
+entropy = 1
+```
+
 ## Пример запуска команды
 
 ```bash
 johnny secrets gitleaks dir . \
 --gitleaks-path <path-to-gitleaks> \
+--gitleaks-config <path-to-gitleaks-config> \
 --api_token <api_token> \
 --api_url <api_url> \
 --save-results \
@@ -48,6 +66,7 @@ johnny secrets gitleaks dir . \
 
 #### Параметры Gitleaks
 
+- `--gitleaks-config` - путь к [конфигурационному файлу Gitleaks](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#configuration);
 - `--baseline-path` – путь к файлу отчета Gitleaks, который используется в качестве базовой линии для игнорирования ранее найденных секретов;
 - `--enable-rule` – список ID правил, которые будут **включены** при сканировании;
 - `--gitleaks-ignore-path` – путь к файлу `.gitleaksignore` или директории, содержащей его, для добавления fingerprint найденных ранее секретов;
