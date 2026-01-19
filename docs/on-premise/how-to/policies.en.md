@@ -177,3 +177,7 @@ For example:
 - sending emails
 
 ![Send email](/assets/img/alerts_send_email-en.png)
+
+Linked Jira issues can be unlinked using the bulk action `Delete the link to the issue`.
+
+![Remove issue link](/assets/img/alerts_remove_issue_link_en.png)
