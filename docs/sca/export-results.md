@@ -49,7 +49,7 @@ CSV-таблица будет учитывать использованные н
 - [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/);
 - [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/);
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
-- CycloneDX v1.6 Ext JSON – расширенный формат CycloneDX, содержащий дополнительные свойства: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`. Формат адаптирован под дополнительные требования к перечню программных компонентов от ФСТЭК России.
+- CycloneDX v1.6 Ext JSON – расширенный формат CycloneDX, содержащий дополнительные свойства: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`, `GOST:provided_by`. Формат адаптирован под дополнительные требования к перечню программных компонентов от ФСТЭК России.
 - [SPDX v2.3 JSON](https://spdx.github.io/spdx-spec/v2.3/)
 
 Для выгрузки SBOM так же, как и для PDF, возможна дополнительная настройка. Правила автоматической генерации имен файлов SBOM следующие:
