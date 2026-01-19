@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Sfera plugin changelog
+# Sfera.Distributions and licenses plugin changelog
 
 ### [2025.52.0] - 2025-12-30
 
