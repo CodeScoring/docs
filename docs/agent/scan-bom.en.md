@@ -21,7 +21,7 @@ Depending on the launch parameters, the agent returns the appropriate exit code:
 - **1** – as a result of the scan, problems were found that correspond to the configured [security policies](//on-premise/how-to/policies.en/), user action is required;
 - **2** – scanning error;
 - **3** – empty result, no artifacts were found for analysis. Returned only if `--block-on-empty-result` parameter is `true`.
-- **5** - SBOM validation error.  
+- **5** - SBOM validation error.
 
 ## Command example
 
