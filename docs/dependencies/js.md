@@ -263,6 +263,6 @@ bun install
 
 В случае, если в проекте уже используется бинарный формат `bun.lockb` для создания `bun.lock` нужно использовать следующую команду:
 
-```sh 
+```sh
 bun install --save-text-lockfile --frozen-lockfile --lockfile-only
 ```

@@ -262,6 +262,6 @@ bun install
 
 If the project already uses the binary lockfile format `bun.lockb`, use the following command to generate `bun.lock`:
 
-```sh 
+```sh
 bun install --save-text-lockfile --frozen-lockfile --lockfile-only
 ```
