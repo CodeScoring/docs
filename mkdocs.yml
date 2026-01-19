@@ -110,6 +110,7 @@ plugins:
           platform-analysis: "Analysis in the platform"
           sca-general: "General description"
           sca-dependencies: "Overviewing dependencies"
+          vulnerabilities: "Working with vulnerabilities"
           launch-analysis: "Launching a scan"
           scan-history: "Tracking scan history"
           export-results: "Exporting analysis results"
@@ -269,6 +270,7 @@ plugins:
           sca-general: "Общее описание"
           sca-dependencies: "Обзор зависимостей"
           platform-analysis: "Анализ в платформе"
+          vulnerabilities: "Работа с уязвимостями"
           launch-analysis: "Запуск сканирования"
           scan-history: "Отслеживание истории сканирований"
           osa: "CodeScoring.OSA"
@@ -548,6 +550,8 @@ nav:
         - launch-analysis: sca/launch-analysis.en.md
         - sca-dependencies: sca/sca-dependencies.md
         - sca-dependencies: sca/sca-dependencies.en.md
+        - vulnerabilities: sca/vulnerabilities.md
+        - vulnerabilities: sca/vulnerabilities.en.md
         - scan-history: sca/scan-history.md
         - scan-history: sca/scan-history.en.md
         - export-results: sca/export-results.md
