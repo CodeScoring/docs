@@ -5,6 +5,18 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2025.52.2] - 2026-01-19
+
+#### Fixed
+
+- Fixed the display of empty paths in the dependency tree that caused incorrect behavior in NuGet-cli. If component versions are blocked, their corresponding parent nodes are now also removed
+
+### [2025.52.1] - 2026-01-15
+
+#### Fixed
+
+- Fixed an issue with Redis health check when cache is disabled
+
 ### [2025.52.0] - 2025-12-23
 
 #### Added
