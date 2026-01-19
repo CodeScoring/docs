@@ -20,6 +20,7 @@ The table with found secrets has the following fields:
 - **Secret** – secret content;
 - **Project name** – name of the project in which the secret was found;
 - **Filename** – name of the file in which the secret was found;
+- **Coordinates** - line and column of the beginning and end of the secret in the file;
 - **Probability TP** – probability of a true find;
 - **Analysis finished at** – date and time of scan completion;
 - **Is actual** – whether the secret was found during the last scan;
@@ -29,7 +30,11 @@ The table with found secrets has the following fields:
 - **Author fullname** – name of the author responsible for adding the secret;
 - **Fixed by** – name of the user who marked the secret as fixed;
 - **Fixed at** – date of fix;
-- **Commit** – hash of the commit in which the secret was added.
+- **Commit** – hash of the commit in which the secret was added;
+- **Entropy** - entropy of the found secret.
+
+!!! note "Entropy"
+    This parameter is the Shannon entropy and can be used in rules as a threshold value.
 
 ![Findings in a project](/assets/img/secrets/findings-project.png)
 
