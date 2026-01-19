@@ -28,6 +28,13 @@ To create an ignore condition for one or more policies, click the **Create** but
 - **End date** - date after which the ignore will stop working;
 - **Note**.
 
+!!! warning "Ignore by partial match"
+    Alert ignore based on PURL uses partial matching semantics: if a specified PURL omits any components, the match is treated as positive.
+
+    For example: alert with dependency PURL `pkg:conda/setuptools@65.1.0?build=py310h2ec42d9_0&channel=conda-forge&subdir=osx-64&type=tar.bz2` would be ignored by specified ignore PURL `pkg:conda/setuptools@65.1.0`.
+
+    However, the dependency PURL will not be treated as a match for `pkg:conda/setuptools@65.1.0?subdir=foo`, as the `subdir` qualifier differs.
+
 ![Ignore example](/assets/img/ignore-en.png)
 
 ## Ignore results
