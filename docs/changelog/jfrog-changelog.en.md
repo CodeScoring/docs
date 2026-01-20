@@ -5,6 +5,12 @@ hide:
 
 # JFrog plugin changelog
 
+### [2026.4.0] - 2026-01-20
+
+#### Fixed
+
+- Fixed a compatibility issue with JFrog Artifactory version 7.125.x and higher
+
 ### [2025.43.0] - 2025-10-23
 
 #### Added
