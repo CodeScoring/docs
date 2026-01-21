@@ -203,7 +203,7 @@ scan:
           enabled: true
           # matching criteria
           match: equal("conan.lock")
-        # conanfile.py parser  
+        # conanfile.py parser
         conanfile_py:
           # use parser
           enabled: true
