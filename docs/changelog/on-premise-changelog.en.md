@@ -64,6 +64,11 @@ hide:
 - Changed user access with the User role to alert-related actions
 - <span class="api-tag">API</span> Converted string values `True` / `False` to boolean `true` / `false` in API filter responses
 - Changed the HTTP method for the UserInfo request in OIDC to `GET`
+- Changed the base image in the judge service from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the index-proxy service from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the osa service from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the backend service: /tasks-* from Alpine 3.20 to Alpine 3.23.2
+- Changed the base image in the frontend service from nginx:1.26.3 (Alpine 3.20.6) to nginx:1.29.4
 
 #### Fixed
 
@@ -94,11 +99,6 @@ hide:
 - Fixed number formatting on dashboard and TQI project charts
 - Fixed display of platform sections when a module expires in the activation key
 - Adjusted project statistics display for projects with no scans yet
-- Changed the base image in the judge service from Alpine 3.20 to Alpine 3.23.2
-- Changed the base image in the index-proxy service from Alpine 3.20 to Alpine 3.23.2
-- Changed the base image in the osa service from Alpine 3.20 to Alpine 3.23.2
-- Changed the base image in the backend service: /tasks-* from Alpine 3.20 to Alpine 3.23.2
-- Changed the base image in the frontend service from nginx:1.26.3 (Alpine 3.20.6) to nginx:1.29.4
 
 #### Deprecated
 
