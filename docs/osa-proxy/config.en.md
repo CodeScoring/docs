@@ -188,7 +188,7 @@ Retry and circuit breaker configuration can be overridden by setting [the follow
               httpclient:
                 ssl:
                   trustedX509Certificates:
-                    - /usr/local/share/ca-certificates/solarrt.crt
+                    - /usr/local/share/ca-certificates/codescoring.crt
                     - /etc/ssl/certs/ca-certificates.crt
     ```
 
