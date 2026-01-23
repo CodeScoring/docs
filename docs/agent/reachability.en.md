@@ -41,6 +41,10 @@ To use this feature, you need to set two parameters:
       ```shell
       svace build --python .
       ```
+      Example for Kotlin:
+      ```shell
+      svace build ./gradlew clean build
+      ```
    3. Analyze results and generate the call graph
       ```shell
       svace analyze --build-call-graph-only --license-server-url "http(s)://<codescoring_host>" --license-server-token "<token from step 1>"
