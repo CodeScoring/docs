@@ -111,7 +111,7 @@ docker compose \
 Ensure that the `POSTGRES_IMAGE` value in the `.env` file matches the PostgreSQL version **prior** to upgrade:
 
 ```dotenv
-POSTGRES_IMAGE=postgres:13.23-rev1 # previouse PostgreSQL version
+POSTGRES_IMAGE=postgres:13.23-rev1 # previous PostgreSQL version
 ```
 
 ## Upgrade Procedure
@@ -174,6 +174,15 @@ Set the PostgreSQL version for the image used by the `psql` service in the `.env
 POSTGRES_IMAGE=postgres:15.15-rev1 # new PostgreSQL version
 ```
 
+Start statistics collection (no need to wait for completion):
+
+```bash
+docker compose \
+  -f docker-compose.yml \
+  -f postgres-upgrade.override.yml \
+  run --rm upgrade-analyze-in-stages
+```
+
 Start CodeScoring:
 
 ```bash
@@ -182,15 +191,6 @@ docker compose -f docker-compose.yml up \
   --force-recreate \
   --remove-orphans \
   --renew-anon-volumes
-```
-
-Start statistics collection (no need to wait for completion):
-
-```bash
-docker compose \
-  -f docker-compose.yml \
-  -f postgres-upgrade.override.yml \
-  run --rm upgrade-analyze-in-stages
 ```
 
 Check the logs and verify that CodeScoring is operating correctly:

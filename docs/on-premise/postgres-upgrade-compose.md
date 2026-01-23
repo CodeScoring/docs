@@ -173,6 +173,15 @@ docker compose \
 POSTGRES_IMAGE=postgres:15.15-rev1 # версия, на которую обновились
 ```
 
+Запустите сбор статистики (можно не дожидаться завершения):
+
+```bash
+docker compose \
+  -f docker-compose.yml \
+  -f postgres-upgrade.override.yml \
+  run --rm upgrade-analyze-in-stages
+```
+
 Запустите CodeScoring:
 
 ```bash
@@ -181,15 +190,6 @@ docker compose -f docker-compose.yml up \
   --force-recreate \
   --remove-orphans \
   --renew-anon-volumes
-```
-
-Запустите сбор статистики (можно не дожидаться завершения):
-
-```bash
-docker compose \
-  -f docker-compose.yml \
-  -f postgres-upgrade.override.yml \
-  run --rm upgrade-analyze-in-stages
 ```
 
 Проверьте логи и убедитесь в работоспособности инсталляции CodeScoring:
