@@ -40,10 +40,10 @@ Go to the form of creating a new connection using the **Setup new** button. The 
 form:
 
 - **Name** - name of the registry;
-- **Type** - type of registry implementation (Sonatype Nexus Repository, JFrog Artifactory or other);
+- **Type** - type of registry implementation (Sonatype Nexus Repository, JFrog Artifactory, JFrog Artifactory Repository Path or other);
 - **Is active** - the sign of the active registry. For inactive registries the list of available images will not be
   updated;
-- **Auth type** – type of authorization (Basic or Bearer);
+- **Auth type** – authorization scheme (Basic, Bearer or Auto);
 - **URL** - the address of the registry with the protocol. For example: `https://jfrog.example.com`;
 - **Max concurrent connections** - the maximum number of connections concurrently made to the registry during the process of image
   loading;
@@ -61,7 +61,8 @@ form:
 - **Skip TLS Verification?** - whether to disable certificate validation for TLS/SSL connections;
 - **Username** - username with access to the registry;
 - **Password** - password;
-- **Load full images list?** - whether to periodically load information about images present in the registry.
+- **Load full images list?** - whether to periodically load information about images present in the registry;
+- **Repositories to load** - select repositories to load container images from, available for JFrog Artifactory Repository Path.
 
 **Important notes about GitLab Container Registry implementation**:
 
