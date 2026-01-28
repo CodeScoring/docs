@@ -62,7 +62,7 @@ form:
 - **Username** - username with access to the registry;
 - **Password** - password;
 - **Load full images list?** - whether to periodically load information about images present in the registry;
-- **Repositories to load** - select repositories to load container images from, available for JFrog Artifactory Repository Path.
+- **Repositories to load** - select repositories to load container images from (available for type of manager JFrog Artifactory Repository Path).
 
 **Important notes about GitLab Container Registry implementation**:
 
