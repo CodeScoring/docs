@@ -107,7 +107,7 @@ lint_markdown:
       done
 
       # URLs
-      IGNORED_DOMAINS='{osa-proxy-url}|artifactory.domain.ru|{REGISTRY_URL}/repository/helm|index.codescoring.ru|index-proxy:8000|webhook|atlassian|nuget|pypi|npmjs|maven|registry|mycompany|k8s|example|gitflic\.ru|localhost|127\.0\.0\.1|tip\.kaspersky\.com|JFROG_URL|host|jfrog\.my\.domain'
+      IGNORED_DOMAINS=' REGISTRY_USERNAME|{osa-proxy-url}|artifactory.domain.ru|{REGISTRY_URL}/repository/helm|index.codescoring.ru|index-proxy:8000|webhook|atlassian|nuget|pypi|npmjs|maven|registry|mycompany|k8s|example|gitflic\.ru|localhost|127\.0\.0\.1|tip\.kaspersky\.com|JFROG_URL|host|jfrog\.my\.domain'
       if command -v wget >/dev/null; then
         for file in $FILES; do
           URLS=$(grep -oP '(?:\[.*?\]\(\Khttp[s]?://[^\s)]+|(?<!\]\()http[s]?://[^\s>]+)' "$file" | sed 's/]\+$//' | grep -Ev "$IGNORED_DOMAINS" || true)
