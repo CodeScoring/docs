@@ -5,6 +5,15 @@ hide:
 
 # Johnny Changelog
 
+### [2026.3.2] - 2026-01-28
+
+#### Fixed
+- Triggered policies report enriched with license compatibility template
+- Fixed workspaces field parsing while scanning package-lock.json
+- Removed redundant 'saved to' info when saving reports to files
+- Fixed secrets scanning related panic
+- Fixed root manifest handling in the uv workspaces pyproject.toml block
+
 ### [2026.3.1] - 2026-01-14
 
 #### Changed
