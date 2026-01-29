@@ -41,6 +41,10 @@ hide:
       ```shell
       svace build --python .
       ```
+      Пример на языке Kotlin:
+      ```shell
+      svace build ./gradlew clean build
+      ```
    3. Анализ результатов и построение графа вызовов
       ```shell
       svace analyze --build-call-graph-only --license-server-url "http(s)://<codescoring_host>" --license-server-token "<токен из п.1>"
