@@ -5,6 +5,22 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2026.3.1] - 2026-01-30
+
+#### Added
+
+– PostgreSQL upgrade configuration has been added. The upgrade procedure is described in the [documentation](/on-premise/postgres-upgrade-compose.en/)
+
+!!! warning "Upgrading to PostgreSQL 15"
+    Until the end of 2025, CodeScoring shipped with PostgreSQL major version 13. The final release of PostgreSQL 13 (13.23) took place on November 13, 2025. To ensure secure and supported operation of CodeScoring, you must [upgrade to PostgreSQL 15](/on-premise/postgres-upgrade-compose.en/). Administrators of installations deployed in Docker Compose must specify the POSTGRES_IMAGE variable in the .env file during the upgrade.
+
+#### Fixed
+
+- <span class="module-tag sca">SCA</span> Fixed a behavior where Johnny considered policies that triggered delayed alerts as blocking
+- Fixed a behavior where ignored alerts sent email notifications and created issues in Jira
+- <span class="module-tag osa">OSA</span> Fixed an error scanning some Maven packages
+- Fixed a behavior where the unique author count would fail after 60 seconds
+
 ### 2026.3.0 – 2026-01-16
 
 #### Added
@@ -122,7 +138,7 @@ hide:
 - <span class="module-tag osa">OSA</span> Fixed policy behavior in OSA Proxy without specifying `repository_id`
 - <span class="module-tag sca">SCA</span> Fixed versioning of npm packages in SBOM files
 
-## [2025.45.6] - 2025-12-13
+### [2025.45.6] - 2025-12-13
 
 #### Added
 
