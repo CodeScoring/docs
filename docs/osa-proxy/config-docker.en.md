@@ -30,7 +30,7 @@ docker:
   repository:
     - name: codescoring-docker
       scan-package: true
-      registry: https://jfrog.host.ru/docker-remote 
+      registry: https://jfrog.host.ru/docker-remote
 ```
 
 After configuring the proxy server and adding it to `application.yml`, the command to pull an image will look like this:

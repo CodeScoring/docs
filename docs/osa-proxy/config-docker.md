@@ -29,7 +29,7 @@ docker:
   repository:
     - name: codescoring-docker
       scan-package: true
-      registry: https://jfrog.host.ru/docker-remote 
+      registry: https://jfrog.host.ru/docker-remote
 ```
 
 После настройки прокси-сервера и добавления его в application.yml, команда для загрузки образа будет выглядеть так:
