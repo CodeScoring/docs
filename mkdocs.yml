@@ -136,6 +136,9 @@ plugins:
           osa-proxy-pypi-config: "PyPI configuration"
           osa-proxy-go-config: "GO configuration"
           osa-proxy-debian-config: "Debian configuration"
+          osa-proxy-docker-config: "Docker configuration"
+          osa-proxy-apk-config: "Alpine (APK) configuration"
+          osa-proxy-rpm-config: "RPM configuration"
           osa-proxy-metrics: "Metrics"
           ide: "IDE integrations"
           ide-general: "General description"
@@ -294,6 +297,9 @@ plugins:
           osa-proxy-pypi-config: "Настройка PyPI"
           osa-proxy-go-config: "Настройка GO"
           osa-proxy-debian-config: "Настройка Debian"
+          osa-proxy-docker-config: "Настройка Docker"
+          osa-proxy-apk-config: "Настройка Alpine (APK)"
+          osa-proxy-rpm-config: "Настройка RPM"
           osa-proxy-metrics: "Метрики"
           ide: "Интеграция с IDE"
           ide-general: "Общее описание"
@@ -542,6 +548,12 @@ nav:
         - osa-proxy-go-config: osa-proxy/config-go.en.md
         - osa-proxy-debian-config: osa-proxy/config-debian.md
         - osa-proxy-debian-config: osa-proxy/config-debian.en.md
+        - osa-proxy-docker-config: osa-proxy/config-docker.md
+        - osa-proxy-docker-config: osa-proxy/config-docker.en.md
+        - osa-proxy-apk-config: osa-proxy/config-apk.md
+        - osa-proxy-apk-config: osa-proxy/config-apk.en.md
+        - osa-proxy-rpm-config: osa-proxy/config-rpm.md
+        - osa-proxy-rpm-config: osa-proxy/config-rpm.en.md
     - sca:
       - sca-general: sca/index.md
       - sca-general: sca/index.en.md

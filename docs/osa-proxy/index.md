@@ -21,6 +21,9 @@ OSA Proxy обрабатывает запросы к следующим репо
 - NuGet V3 (`https://api.nuget.org`)
 - Go (`https://proxy.golang.org/`)
 - Debian (`https://ports.ubuntu.com/ubuntu-ports`)
+- Alpine/APK (`https://dl-cdn.alpinelinux.org/alpine`)
+- RPM (`https://repo.almalinux.org/almalinux`)
+- Docker Registry (`https://registry-1.docker.io`)
 
 !!! Важно "Поддержка альтернативных репозиториев"
 

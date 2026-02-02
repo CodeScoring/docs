@@ -26,6 +26,7 @@ hide:
       enable-status-line: true/false (добавляет сообщение о причине блокировки в строку состояния)
       block-status-code: статус код для блокировки загрузки пакетов
       block-on-codescoring-errors: блокирует загрузку пакета при 5xx status, ошибках сканирования (scan_failed)
+      override-block-url: true/false (заменяет URL в ссылке на причину блокировки на указанный в codescoring.host)
     # Настройки PyPI
     pypi:
       enabled: true
@@ -133,6 +134,36 @@ hide:
           url-encoded-config: true
           registry: http://localhost:8081/repository/debian11
           distro: bullseye
+    # Настройка Alpine (APK)
+    alpine:
+      enabled: true
+      repository:
+        - name: codescoring-alpine
+          scan-package: true
+          registry: https://dl-cdn.alpinelinux.org/alpine
+        - name: arti-alpine
+          scan-package: true
+          registry: http://localhost:8081/artifactory/alpine-remote
+    # Настройка RPM
+    rpm:
+      enabled: true
+      repository:
+        - name: codescoring-rpm
+          scan-package: true
+          registry: https://repo.almalinux.org/almalinux
+        - name: arti-rpm
+          scan-package: true
+          registry: http://localhost:8081/artifactory/rpm-remote
+    # Настройка Docker Registry
+    docker:
+      enabled: true
+      repository:
+        - name: codescoring-docker
+          scan-package: true
+          registry: https://registry-1.docker.io
+        - name: arti-docker
+          scan-package: true
+          registry: http://localhost:8081/artifactory/docker-remote
     ```
 
 !!! note "Особенности работы в Nexus Repository и JFrog Artifactory"
@@ -209,4 +240,5 @@ Circuit breaker (автоматический выключатель) для `co
               username: 'username'
               port: 9091
               password: 'password'
+              non-proxy-hosts-pattern: '(localhost|127.0.0.1|.*\.internal\.com)'
     ```

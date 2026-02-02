@@ -5,6 +5,31 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2026.5.0] - 2026-01-30
+
+#### Added
+
+- Added [metrics for CodeScoring requests](/osa-proxy/metrics.en/#codescoring-api-metrics)
+- Added the ability to replace the URL in the blocking reason link with the one specified in the `OSA-Proxy` config `codescoring.host`. See [configuration](/osa-proxy/config.en)
+- Added support for [APK](/osa-proxy/config-apk.en) and [RPM](/osa-proxy/config-rpm.en) repositories
+- Added support for configuring `JAVA_OPTS` in the Helm chart. See [installation](/osa-proxy/installation.en)
+- Added support for [Docker repositories](/osa-proxy/config-docker.en)
+    !!! note "Pulling official images"
+        Pulling official images without the `library` prefix (e.g., `docker pull <osa-proxy-host>/postgres`) will be available in the next patch release. Currently, the full path must be used: `docker pull <osa-proxy-host>/library/postgres`
+
+#### Fixed
+
+- Fixed operation with remote repositories behind **Cloudflare**, which resulted in error code 1101 from Cloudflare
+- Fixed an error with adding the repository to the package name in `PURL` for Go
+
+#### Changed
+
+- Changed `gateway_route_<package_type>_requests_seconds` [metrics](/osa-proxy/metrics.en) from Histogram to SLO (10ms, 25ms, 50ms, 100ms, 250ms, 500ms, 1s, 2s, 5s)
+
+#### Removed
+
+- Removed duplicate `gateway_route_` metric `http_server_requests`
+
 ### [2025.52.2] - 2026-01-19
 
 #### Fixed
