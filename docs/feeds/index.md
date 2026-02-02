@@ -17,7 +17,7 @@ hide:
 |----------|--------|------------------|
 | CodeScoring Protestware Feed | - | раз в сутки |
 | Банк данных угроз безопасности информации ФСТЭК России | [https://bdu.fstec.ru/](https://bdu.fstec.ru/) | каждые 30 минут |
-| Kaspersky (Лаборатория Касперского) | Проприетарный фид | каждые 30 минут |
+| Kaspersky Open Source Software Data Feed | [https://www.kaspersky.ru/open-source-feed](https://www.kaspersky.ru/open-source-feed) | каждые 30 минут |
 | Astra Linux Security Advisories | [https://astra.ru](https://astra.ru) | каждые 4 часа |
 | ALT Linux Security Tracker CVE | [https://packages.altlinux.org](https://packages.altlinux.org) | каждые 4 часа |
 | Red OS Security Advisories  | [https://redos.red-soft.ru](https://redos.red-soft.ru) | раз в сутки |
@@ -31,7 +31,7 @@ hide:
 | GitLab Security Advisory Database | [https://advisories.gitlab.com](https://advisories.gitlab.com) | раз в сутки |
 | Packagist PHP Package Security Advisories | [https://packagist.org](https://packagist.org) | каждые 30 минут |
 | PyPI Security Advisories (PySec) | [https://pypi.org](https://pypi.org) | каждые 30 минут |
-| Ubuntu Security Notices | [https://ubuntu.com](https://ubuntu.com) | каждые 30 минут |
+| Ubuntu Security Notices | [https://ubuntu.com/security/notices](https://ubuntu.com/security/notices) | каждые 30 минут |
 | Alpine Linux Security Advisories | [https://alpinelinux.org](https://alpinelinux.org) | каждые 30 минут |
 | Debian Security Tracker | [https://security-tracker.debian.org](https://security-tracker.debian.org) | каждые 30 минут |
 | Red Hat Security Advisory | [https://access.redhat.com](https://access.redhat.com) | каждые 30 минут |
