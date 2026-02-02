@@ -9,7 +9,7 @@ hide:
 
 #### Fixed
 
-- Triggered policies report enriched with license compatibility template
+- Fixed display of policy conditions for license incompatibility alerts
 - Fixed workspaces field parsing while scanning `package-lock.json`
 - Removed redundant 'saved to' info when saving reports to files
 - Fixed secrets scanning related failure
