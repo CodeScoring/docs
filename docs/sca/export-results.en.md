@@ -100,7 +100,7 @@ The **Attack surface** field allows you to specify whether the component belongs
 - `indirect` — the component is part of the indirect attack surface;
 - `no` — otherwise (default value).
 
-When exporting SBOM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `GOST:attack_surface` property of the component.
+When exporting SBOM in the `CycloneDX v1.6 Ext JSON` and `CycloneDX v1.7 Ext JSON` formats, the selected value is taken into account in the `GOST:attack_surface` property of the component.
 
 #### Security function
 
@@ -110,7 +110,13 @@ The **Security function** field allows you to specify whether the component belo
 - `indirect` — if the component functions participate in the implementation of security functions, interacting with components implementing security functions;
 - `no` — if the component functions do not participate in the implementation of security functions (default value).
 
-When exporting SBOM in the `CycloneDX v1.6 Ext JSON` format, the selected value is taken into account in the `"GOST:security_function"` property of the component.
+When exporting SBOM in the `CycloneDX v1.6 Ext JSON` and `CycloneDX v1.7 Ext JSON` formats, the selected value is taken into account in the `"GOST:security_function"` property of the component.
+
+#### Provided by
+
+The **Provided by** field lets you specify affiliation of the component to the information security tool from which this component was borrowed. You can enter any arbitrary text value.
+
+When exporting SBOM in the `CycloneDX v1.6 Ext JSON` and `CycloneDX v1.7 Ext JSON` formats, the specified value is taken into account in the "GOST:provided_by" property of the component.
 
 #### Licenses
 
