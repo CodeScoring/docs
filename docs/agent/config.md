@@ -16,7 +16,7 @@ hide:
 - **license** – лицензия анализируемого проекта, например `mit`;
 - **stage** – этап разработки. Возможные значения: `build`, `dev`, `source`, `stage`, `test`, `prod`, `proxy`;
 - **bom-path** – путь (с названием файла), по которому будет сохраняться сформированный файл `bom.json`;
-- **bom-format** – формат формируемого SBOM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
+- **bom-format** – формат формируемого SBOM. Возможные значения: `cyclonedx_v1_6_json`, `cyclonedx_v1_5_json`, `cyclonedx_v1_4_json`,`cyclonedx_v1_6_ext_json`, `cyclonedx_v1_7_json`. Значение по умолчанию: `cyclonedx_v1_6_json`;
 - **timeout** – ограничение по времени ожидания анализа (в секундах);
 - <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **branch-or-tag** – ссылка на ветку репозитория или тег, например `refs/tags/v1.0` (для команд `scan dir` и `scan file`);
 - <a href="/changelog/on-premise-changelog/#2024520-2024-12-28" class="version-tag">2024.52.0</a> **commit** – хэш коммита в системе контроля версий (для команд `scan dir` и `scan file`);
@@ -84,7 +84,9 @@ hide:
 ### Параметры платформы
 
 - **api_url** – адрес платформе;
-- **api_token** – токен для доступа к платформе.
+- **api_token** – токен для доступа к платформе;
+- **localization** — язык локализации вывода CLI. Возможные значения: `en`, `ru`. Значение по умолчанию — `en`.
+
 
 ### Параметры запуска поиска секретов
 
@@ -218,7 +220,7 @@ scan:
       enabled: true
       # C# parsers
       parsers:
-        # .csproj parser
+        # .csporj parser
         csproj:
           # use parser
           enabled: true
@@ -242,6 +244,16 @@ scan:
             dotnet-path: dotnet
             # pass args to dotnet tool
             dotnet-args: ""
+        sln:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: extension(".sln")
+        sln_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: extension(".sln")
         # .nuspec parser
         nuspec:
           # use parser
@@ -494,6 +506,24 @@ scan:
             pnpm-path: pnpm
             # args for pnpm tool
             pnpm-args: ""
+        # bun.lock parser
+        bun_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("bun.lock")
+        # package.json bun environment parser
+        bun_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("package.json")
+          # parser properties
+          properties:
+            # path to bun for resolve
+            bun-path: bun
+            # args for bun tool
+            bun-args: ""
     # Objective-C
     objective_c:
       # Use Objective-C parsers
@@ -572,6 +602,24 @@ scan:
             pip-path: pip
             # args for pip tool
             pip-args: ""
+        # pipdeptree parser
+        pipdeptree:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("pipdeptree.txt")
+        # pipdeptree environment parser
+        pipdeptree_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("codescoring_pipdeptree")
+          # parser properties
+          properties:
+            # path to pipdeptree for resolve
+            pipdeptree-path: pip
+            # args for pipdeptree tool
+            pipdeptree-args: ""
         # Pipfile parser
         pipfile:
           # use parser
@@ -602,6 +650,24 @@ scan:
             poetry-path: poetry
             # args for poetry tool
             poetry-args: ""
+        # uv.lock parser
+        uv_lock:
+          # use parser
+          enabled: true
+          # matching criteria
+          match: equal("uv.lock")
+        # pyproject.toml uv environment parser
+        uv_env:
+          # use parser
+          enabled: false
+          # matching criteria
+          match: equal("pyproject.toml")
+          # parser properties
+          properties:
+            # path to uv for resolve
+            uv-path: uv
+            # args for uv tool
+            uv-args: ""
         # pyproject.toml parser
         pyproject_toml:
           # use parser
@@ -732,6 +798,8 @@ scan:
       gitleaks-ignore-path: .
       # path to gitleaks binary to be used during scanning
       gitleaks-path: gitleaks
+      # path to gitleaks config
+      gitleaks-config: ""
       # ignore gitleaks:allow comments
       ignore-gitleaks-allow: false
       # log level (trace, debug, info, warn, error, fatal)
@@ -774,6 +842,8 @@ cli:
   api_url: https://example_url
   # API token for integration with CodeScoring server
   api_token: example_token
+  # Localization language (en|ru). Default: en
+  localization: en
 ```
 
 ### Приоритет настроек

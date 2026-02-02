@@ -49,7 +49,10 @@ SBOM export is supported in the following formats:
 - [CycloneDX v1.4 JSON](https://cyclonedx.org/docs/1.4/json/);
 - [CycloneDX v1.5 JSON](https://cyclonedx.org/docs/1.5/json/);
 - [CycloneDX v1.6 JSON](https://cyclonedx.org/docs/1.6/json/);
-- CycloneDX v1.6 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`. The format is adapted to additional requirements for the SBOM from the FSTEC of Russia.
+- CycloneDX v1.6 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`, `GOST:provided_by`. The format is adapted to additional requirements for the SBOM from the FSTEC of Russia.
+- [CycloneDX v1.7 JSON](https://cyclonedx.org/docs/1.7/json/);
+- CycloneDX v1.7 Ext JSON – extended CycloneDX format containing additional properties: `GOST:attack_surface`, `GOST:security_function`, `GOST:source_lang`, `GOST:provided_by`. The format is adapted to additional requirements for the SBOM from the FSTEC of Russia.
+- [SPDX v2.3 JSON](https://spdx.github.io/spdx-spec/v2.3/)
 
 SBOM export also supports additional export customization, like the PDF one.
 Automatic SBOM filename generation rules are following:
@@ -57,7 +60,12 @@ Automatic SBOM filename generation rules are following:
 - For projects: `bom_<project name>_<SBOM format>.json`
 - For container images: `bom_<image name>_<first 8 hash chars>_<SBOM format>.json`
 
-For CLI projects, SBOM can also be loaded via the interface using the **Import SBOM** button. The loaded SBOM must be in CycloneDX format and have the `.json` extension.
+## SBOM import
+
+For CLI projects, SBOM can also be loaded via the interface using the **Import SBOM** button.
+The loaded SBOM must be in CycloneDX v1.4, 1.5, 1.6, 1.6_ext, 1.7 or 1.7_ext format and have the `.json` extension.
+
+Importing SBOM you can also add branch or tag name as a meta-information.
 
 ### Configuring dependency properties for SBOM export {#bom-settings}
 

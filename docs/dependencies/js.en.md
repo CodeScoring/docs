@@ -251,3 +251,17 @@ When installing, the build will use version **2.2.2**. The console agent analyze
 version: 2.2.2
 resolution: "yaml@npm:2.2.2"
 ```
+
+## Bun
+
+### Creating a `bun.lock` file
+
+```sh
+bun install
+```
+
+If the project already uses the binary lockfile format `bun.lockb`, use the following command to generate `bun.lock`:
+
+```sh
+bun install --save-text-lockfile --frozen-lockfile --lockfile-only
+```

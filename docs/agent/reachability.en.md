@@ -12,7 +12,7 @@ Johnny CLI agent can analyze whether vulnerabilities are reachable from source c
 To use this feature, you need to set two parameters:
 
 - `cg-path` — path to the Svace-format call graph;
-- `cg-lang` — programming language for which the call graph was built. Currently supported values are `java`, `python` and `go`.
+- `cg-lang` — programming language for which the call graph was built. Currently supported values are `java`, `python`, `go` and `kotlin`.
 
 ## Building the call graph
 
@@ -40,6 +40,10 @@ To use this feature, you need to set two parameters:
       Example for Python:
       ```shell
       svace build --python .
+      ```
+      Example for Kotlin:
+      ```shell
+      svace build ./gradlew clean build
       ```
    3. Analyze results and generate the call graph
       ```shell
