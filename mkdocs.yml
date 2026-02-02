@@ -66,6 +66,7 @@ plugins:
           installation-kubernetes: "Installation in Kubernetes"
           maintenance: "Maintenance"
           update: "Updating the system in Docker"
+          postgres-upgrade-compose: "Upgrading PostgreSQL in Docker"
           backup: "Backup"
           proxy: "Proxy usage"
           ssl: "Self signed SSL certificates"
@@ -225,6 +226,7 @@ plugins:
           installation-kubernetes: "Работа системы в Kubernetes"
           maintenance: "Обслуживание"
           update: "Обновление системы в Docker"
+          postgres-upgrade-compose: "Обновление PostgreSQL в Docker"
           backup: "Резервное копирование"
           proxy: "Работа через прокси"
           ssl: "Самоподписанные SSL сертификаты"
@@ -424,6 +426,8 @@ nav:
       - maintenance:
         - update: on-premise/update.md
         - update: on-premise/update.en.md
+        - postgres-upgrade-compose: on-premise/postgres-upgrade-compose.en.md
+        - postgres-upgrade-compose: on-premise/postgres-upgrade-compose.md
         - backup: on-premise/backup.md
         - backup: on-premise/backup.en.md
         - proxy: on-premise/proxy.md
