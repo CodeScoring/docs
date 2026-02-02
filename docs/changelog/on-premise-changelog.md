@@ -9,7 +9,7 @@ hide:
 
 #### Добавлено
 
-– Добавлена конфигурация для обновления PostgreSQL, процедура обновления описана в [документации](/on-premise/postgres-upgrade-compose/)
+- Добавлена конфигурация для обновления PostgreSQL, процедура обновления описана в [документации](/on-premise/postgres-upgrade-compose/)
 
 !!! warning "Обновление до PostgreSQL 15"
     До конца 2025 года CodeScoring поставлялся с PostgreSQL мажорной версии 13. Финальный релиз PostgreSQL 13 (13.23) состоялся 13 ноября 2025 года. Для обеспечения безопасной и поддерживаемой работы CodeScoring необходимо выполнить [обновление до PostgreSQL 15](/on-premise/postgres-upgrade-compose/). Администраторам инсталляций, развёрнутых в Docker Compose, необходимо при обновлении указать значение переменной POSTGRES_IMAGE в файле `.env`.
