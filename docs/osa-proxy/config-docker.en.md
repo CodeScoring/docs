@@ -30,6 +30,8 @@ docker:
   repository:
     - name: codescoring-docker
       scan-package: true
+      registry: https://registry-1.docker.io
+      auth-token-url: https://auth.docker.io
       registry: https://jfrog.host.ru/docker-remote
 ```
 

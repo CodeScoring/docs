@@ -29,7 +29,8 @@ docker:
   repository:
     - name: codescoring-docker
       scan-package: true
-      registry: https://jfrog.host.ru/docker-remote
+      registry: https://registry-1.docker.io
+      auth-token-url: https://auth.docker.io
 ```
 
 После настройки прокси-сервера и добавления его в application.yml, команда для загрузки образа будет выглядеть так:
