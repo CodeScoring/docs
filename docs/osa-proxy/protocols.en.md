@@ -132,6 +132,36 @@ This section contains data formats and response modification rules for each supp
 
     For Debian, only package scanning is supported. Modification of manifests (`Packages` files) is not performed.
 
+## Alpine
+
+### Processed files
+
+- `.apk` — package files
+
+!!! warning "Alpine scanning specifics"
+
+    For Alpine, only package scanning is supported. Modification of indexes (APKINDEX) is not performed.
+
+## RPM
+
+### Processed files
+
+- `.rpm` — package files
+
+!!! warning "RPM scanning specifics"
+
+    For RPM, only package scanning is supported. Modification of metadata (repodata) is not performed.
+
+## Docker
+
+### Processed files
+
+- Manifests (v2 API)
+
+### Manifest modification
+
+- Digests of blocked images are removed from multi-architecture manifests (Manifest Lists).
+
 ## Behavior in case of complete package blocking
 
 In a scenario where all available versions of a requested package are blocked by security policies, OSA Proxy returns a message indicating that all versions are blocked.

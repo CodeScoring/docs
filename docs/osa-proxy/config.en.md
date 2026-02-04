@@ -26,6 +26,7 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
       enable-status-line: true/false (adds the block reason to the status line)
       block-status-code: status code for blocking package downloads
       block-on-codescoring-errors: block package download on 5xx status, scan_failed errors
+      override-block-url: true/false (replaces URL in block reason link with the one specified in codescoring.host)
     # PyPI settings
     pypi:
       enabled: true
@@ -129,6 +130,36 @@ Configuration of **OSA Proxy** is done via the `application.yml` file:
           url-encoded-config: true
           registry: http://localhost:8081/repository/debian11
           distro: bullseye
+    # Alpine (APK) settings
+    alpine:
+      enabled: true
+      repository:
+        - name: codescoring-alpine
+          scan-package: true
+          registry: https://dl-cdn.alpinelinux.org/alpine
+        - name: arti-alpine
+          scan-package: true
+          registry: http://localhost:8081/artifactory/alpine-remote
+    # RPM settings
+    rpm:
+      enabled: true
+      repository:
+        - name: codescoring-rpm
+          scan-package: true
+          registry: https://repo.almalinux.org/almalinux
+        - name: arti-rpm
+          scan-package: true
+          registry: http://localhost:8081/artifactory/rpm-remote
+    # Docker Registry settings
+    docker:
+      enabled: true
+      repository:
+        - name: codescoring-docker
+          scan-package: true
+          registry: https://registry-1.docker.io
+        - name: arti-docker
+          scan-package: true
+          registry: http://localhost:8081/artifactory/docker-remote
     ```
 
 !!! note "Specifics of working in Nexus Repository and JFrog Artifactory"
@@ -206,4 +237,5 @@ Retry and circuit breaker configuration can be overridden by setting [the follow
               username: 'username'
               port: 9091
               password: 'password'
+              non-proxy-hosts-pattern: '(localhost|127.0.0.1|.*\.internal\.com)'
     ```

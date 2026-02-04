@@ -5,6 +5,31 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2026.5.0] - 2026-01-30
+
+#### Добавлено
+
+- Добавлены [метрики обращений](/osa-proxy/metrics.en/#codescoring-api-metrics) в CodeScoring
+- Добавлена возможность подменять URL в ссылке на причину блокировки на указанный в конфиге `OSA-Proxy` `codescoring.host`. Подробнее в [документации](/osa-proxy/config)
+- Добавлена поддержка [APK](/osa-proxy/config-apk) и [RPM](/osa-proxy/config-rpm) репозиториев
+- Добавлена поддержка настройки `JAVA_OPTS` в Helm-чарте. Подробнее в [документации](/osa-proxy/installation)
+- Добавлена поддержка [Docker-репозиториев](/osa-proxy/config-docker)
+    !!! note "Особенности загрузки официальных образов"
+        Загрузка официальных образов без префикса `library` (например, `docker pull <osa-proxy-host>/postgres`) будет добавлена в следующем патч-релизе. На данный момент необходимо использовать полный путь: `docker pull <osa-proxy-host>/library/postgres`
+
+#### Исправлено
+
+- Исправлена работа с удаленными репозиториями за **Cloudflare**, приводившая к коду ошибки 1101 от Cloudflare
+- Исправлена ошибка с добавлением репозитория к имени пакета в `PURL` для Go
+
+#### Изменено
+
+- Изменены [метрики](/osa-proxy/metrics) `gateway_route_<package_type>_requests_seconds` с Histogram на SLO (10ms, 25ms, 50ms, 100ms, 250ms, 500ms, 1s, 2s, 5s)
+
+#### Удалено
+
+- Удалена дублирующая `gateway_route_` метрика `http_server_requests`
+
 ### [2025.52.2] - 2026-01-19
 
 #### Исправлено

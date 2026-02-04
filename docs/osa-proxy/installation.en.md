@@ -50,6 +50,9 @@ For Kubernetes environments, the application can be deployed using the provided 
 5. Create a `values.yaml` file with the following content:
 
     ```
+    env:
+      javaOpts: "-Xmx4g" # Optional: JVM parameters configuration
+
     config: |
       # This field must be populated with the content of the application.yml file
 
