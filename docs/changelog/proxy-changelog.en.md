@@ -14,17 +14,18 @@ hide:
 - Added support for [APK](/osa-proxy/config-apk.en) and [RPM](/osa-proxy/config-rpm.en) repositories
 - Added support for configuring `JAVA_OPTS` in the Helm chart. See [installation](/osa-proxy/installation.en)
 - Added support for [Docker repositories](/osa-proxy/config-docker.en)
-    !!! note "Pulling official images"
-        Pulling official images without the `library` prefix (e.g., `docker pull <osa-proxy-host>/postgres`) will be available in the next patch release. Currently, the full path must be used: `docker pull <osa-proxy-host>/library/postgres`
+
+!!! note "Pulling official images"
+    Pulling official images without the `library` prefix (e.g., `docker pull <osa-proxy-host>/postgres`) will be available in the next patch release. Currently, the full path must be used: `docker pull <osa-proxy-host>/library/postgres`
+
+#### Changed
+
+- Changed `gateway_route_<package_type>_requests_seconds` [metrics](/osa-proxy/metrics.en) from Histogram to SLO (10ms, 25ms, 50ms, 100ms, 250ms, 500ms, 1s, 2s, 5s)
 
 #### Fixed
 
 - Fixed operation with remote repositories behind **Cloudflare**, which resulted in error code 1101 from Cloudflare
 - Fixed an error with adding the repository to the package name in `PURL` for Go
-
-#### Changed
-
-- Changed `gateway_route_<package_type>_requests_seconds` [metrics](/osa-proxy/metrics.en) from Histogram to SLO (10ms, 25ms, 50ms, 100ms, 250ms, 500ms, 1s, 2s, 5s)
 
 #### Removed
 
