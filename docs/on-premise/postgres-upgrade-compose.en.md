@@ -7,6 +7,10 @@ hide:
 
 Upgrading PostgreSQL to a new major version requires initializing the database using the new PostgreSQL version, creating a dump, and restoring it. Below is the procedure for CodeScoring installations deployed with Docker Compose.
 
+!!! warning "Correct update order"
+    It is not recommended to update the installation and database simultaneously.
+    The update should be performed sequentially: first update the installation and ensure the service is working correctly, then update the database.
+
 ## Prerequisites
 
 ### Disk space

@@ -7,7 +7,7 @@ hide:
 
 ## Standard update guide
 
-!!! warning "Recommendation"
+!!! warning "Backup"
     Before performing an update, make sure to create a full backup of the platform.
 
 To update the system, you need the latest versions of the following files: `docker-compose.yml`, `external-db.override.yml`, `app.env`, and `.env`, which can be obtained from the vendor.
