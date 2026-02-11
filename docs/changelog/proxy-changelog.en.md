@@ -5,6 +5,21 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2026.5.1] - 2026-02-11
+
+#### Added
+
+- When proxying `docker.io`, `docker pull` can be used without the `library` prefix
+
+#### Fixed
+
+- Disabled forwarding of caching headers for HEAD requests. This speeds up manifest refreshes in Artifactory and policy application
+
+#### Changed
+
+- Replaced Redis `KEYS` with `SCAN` for key lookups so Redis can run in limited-privileges mode (`+@all -@dangerous`)
+- Expanded manifest analysis logging: blocked package versions and applied blocking policies are now printed
+
 ### [2026.5.0] - 2026-01-30
 
 #### Added
