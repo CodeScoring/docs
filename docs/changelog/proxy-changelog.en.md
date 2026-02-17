@@ -9,16 +9,17 @@ hide:
 
 #### Added
 
-- When proxying `docker.io`, `docker pull` can be used without the `library` prefix
-
-#### Fixed
-
-- Disabled forwarding of caching headers for HEAD requests. This speeds up manifest refreshes in Artifactory and policy application
+- Implemented `docker.io` proxying via the `docker pull` command without the `library` prefix
 
 #### Changed
 
-- Replaced Redis `KEYS` with `SCAN` for key lookups so Redis can run in limited-privileges mode (`+@all -@dangerous`)
-- Expanded manifest analysis logging: blocked package versions and applied blocking policies are now printed
+- Replaced the `KEYS` command with `SCAN` for searching keys in Redis, allowing Redis to run in restricted privilege mode (`+@all -@dangerous`)
+- Expanded manifest parsing logging: blocked package versions and applied blocking policies are now logged
+
+#### Fixed
+
+- Disabled forwarding of caching headers for HEAD requests, thus speeding up manifest refreshes in JFrog Artifactory and policy application
+
 
 ### [2026.5.0] - 2026-01-30
 
