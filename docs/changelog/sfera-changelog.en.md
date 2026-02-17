@@ -9,7 +9,7 @@ hide:
 
 #### Fixed
 
-- Fixed passing a tag instead of sha256 in the PURL during docker pull
+- Fixed passing a tag instead of sha256 in PURL when using `docker pull` command
 
 ### [2025.52.0] - 2025-12-30
 
