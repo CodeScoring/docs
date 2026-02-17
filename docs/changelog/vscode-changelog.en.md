@@ -7,8 +7,13 @@ hide:
 
 ### [2026.8.0] - 2026-02-18
 
+#### Added
+
 - Added a panel for viewing policy alerts
-- Fixed errors in automatic fixes
+
+#### Fixed
+
+- Fixed errors in automatic fix application
 
 ### [2025.33.0] - 2025-08-14
 

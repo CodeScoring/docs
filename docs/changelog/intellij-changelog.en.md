@@ -7,7 +7,12 @@ hide:
 
 ### [2026.8.0] - 2026-02-18
 
+#### Added
+
 - Added a panel for viewing policy alerts
+
+#### Fixed
+
 - Fixed errors in automatic fixes
 - Fixed compatibility issues with IntelliJ versions 2024 and earlier
 
