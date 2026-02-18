@@ -477,7 +477,16 @@ You can also search/filter the BOM DIFF tree to focus on components of interest.
 - **Opens in**: HTML Preview in VS Code
 - Adapts to the selected VSCode color scheme at generation time
 
-#### 7.9 Settings and Customization
+#### 7.9 Alerts panel
+
+The **Alerts** panel displays information about alerts for triggered policies based on the analysis results. For each alert, the following is shown:
+
+- Policy name
+- Alert level
+- Blocking status
+- List of packages with criteria
+
+### Step 8: Settings and Customization
 
 **Available Settings List**
 
@@ -508,14 +517,6 @@ Configure in VS Code settings, for example:
 }
 ```
 
-#### 7.10 Alerts panel
-
-The **Alerts** panel displays information about alerts for triggered policies based on the analysis results. For each alert, the following is shown:
-
-- Policy name
-- Alert level
-- Blocking status
-- List of packages with criteria
 
 ### Troubleshooting
 

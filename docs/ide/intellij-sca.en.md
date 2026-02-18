@@ -309,7 +309,7 @@ After the scan completes:
 
 - **In-code highlighting**: Vulnerable dependencies are highlighted directly in code files (build.gradle, pom.xml, package.json, etc.)
 - **Severity colors**:
-    - 🔴 Critical (re Vulnerabilities Vd)
+    - 🔴 Critical (red)
     - 🟠 High (orange)
     - 🟡 Medium (yellow)
     - 🔵 Low (blue)
