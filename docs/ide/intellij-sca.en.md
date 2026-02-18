@@ -301,6 +301,7 @@ After the scan completes:
 3. **Review vulnerabilities**: The vulnerabilities panel will show all detected security issues in your dependencies
 4. **Explore details**: You can click on individual vulnerabilities to see detailed information in the details panel
 5. **Apply fixes**: Use the **"Fix All"** or **"Fix Selected"** buttons or individual quick fixes to update vulnerable dependencies
+6. **View alerts**: You can click on the **Alerts** panel to view alerts list of triggered policies
 
 ![Screenshot of vulnerabilities panel showing detected issues with severity levels](/assets/img/ide/intellij/step7-2-vulnerabilities.png)
 
@@ -497,6 +498,15 @@ Use the search field to filter comparison results by:
 
 - **Command**: **Tools** → **CodeScoring SCA** → **View Report**
 - **Opens in**: Choice of external browser, internal preview, code editor
+
+#### 7.9 Alerts panel
+
+The **Alerts** panel displays information about alerts for triggered policies based on the analysis results. For each alert, the following is shown:
+
+- Policy name
+- Alert level
+- Blocking status
+- List of packages with criteria
 
 ### Step 8: Settings and Customization
 

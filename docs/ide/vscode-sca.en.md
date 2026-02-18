@@ -290,6 +290,7 @@ After the scan completes:
 3. **Review vulnerabilities**: The vulnerabilities panel will show all detected security issues in your dependencies
 4. **Explore details**: You can click on individual vulnerabilities to see detailed information
 5. **Apply fixes**: Use quick fix options to update vulnerable dependencies
+6. **Open Alerts View**: Use **Open Alerts View** button from the sidebar to view alerts list of triggered policies
 
 ![Screenshot of the vulnerabilities panel showing detected issues with severity levels](/assets/img/ide/vscode/step6-2-vulnerabilities.png)
 
@@ -476,7 +477,16 @@ You can also search/filter the BOM DIFF tree to focus on components of interest.
 - **Opens in**: HTML Preview in VS Code
 - Adapts to the selected VSCode color scheme at generation time
 
-#### 7.9 Settings and Customization
+#### 7.9 Alerts panel
+
+The **Alerts** panel displays information about alerts for triggered policies based on the analysis results. For each alert, the following is shown:
+
+- Policy name
+- Alert level
+- Blocking status
+- List of packages with criteria
+
+### Step 8: Settings and Customization
 
 **Available Settings List**
 
@@ -506,6 +516,7 @@ Configure in VS Code settings, for example:
   "command": "codescoring-sca.runJohnnyCLI"
 }
 ```
+
 
 ### Troubleshooting
 
