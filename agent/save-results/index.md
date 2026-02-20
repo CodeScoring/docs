@@ -1,0 +1,27 @@
+- [English](https://docs.codescoring.ru/agent/save-results.en/index.md)
+
+# Сохранение результатов сканирования
+
+Для сохранения результатов сканирования в on-premise платформе необходимо добавить в команду параметры `--save-results` и `--project` или указать в config-файле следующие переменные:
+
+- `project` — имя CLI-проекта в системе, в который будут сохраняться результаты;
+- `save-results` — флаг сохранения результатов, по умолчанию стоит значение **false**.
+
+Если CLI-проект не создан в системе заранее, можно указать в команде вызова или в config-файле параметр `--create-project`. Для нового проекта можно указать следующие параметры:
+
+- `--project-group` - имя группы. В случае если группа с таким именем не существует и передан флаг `--create-project-group`, перед добавлением проекта в группу она будет создана;
+- `--project-proprietor` - подразделение;
+- `--project-categories` - категории.
+
+Пример команды сохранения результатов сканирования в новый проект:
+
+```
+./johnny scan dir . \
+--api_token <api_token> \
+--api_url <api_url> \
+--save-results \
+--create-project \
+--project "project-name" \
+--project-group "group" \
+--project-proprietor "proprietor"
+```
