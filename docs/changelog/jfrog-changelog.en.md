@@ -5,6 +5,18 @@ hide:
 
 # JFrog plugin changelog
 
+### [2026.8.0] - 2026-02-20
+
+#### Added
+
+- Added support for Conda repositories
+- Added support for Conan repositories
+- Added support for Swift repositories
+
+#### Changed
+
+- Policies are now applied based on the repository that received the request (virtual/remote): requests to CodeScoring now send the actual repository name
+
 ### [2026.4.0] - 2026-01-20
 
 #### Fixed
