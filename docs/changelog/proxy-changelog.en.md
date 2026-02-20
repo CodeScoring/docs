@@ -5,6 +5,22 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2026.5.1] - 2026-02-11
+
+#### Added
+
+- Implemented `docker.io` proxying via the `docker pull` command without the `library` prefix
+
+#### Changed
+
+- Replaced the `KEYS` command with `SCAN` for searching keys in Redis, allowing Redis to run in restricted privilege mode (`+@all -@dangerous`)
+- Expanded manifest parsing logging: blocked package versions and applied blocking policies are now logged
+
+#### Fixed
+
+- Disabled forwarding of caching headers for HEAD requests, thus speeding up manifest refreshes in JFrog Artifactory and policy application
+
+
 ### [2026.5.0] - 2026-01-30
 
 #### Added
