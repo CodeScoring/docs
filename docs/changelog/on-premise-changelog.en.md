@@ -5,6 +5,15 @@ hide:
 
 # Codescoring On-premise Changelog
 
+### [2026.3.2] - 2026-02-20
+
+#### Fixed
+
+- Fixed a bug that prevented the `vulnerability_is_reachable` tag from being applied to vulnerabilities in exported SBOMs.
+- Fixed an error scanning system packages with the same names and versions but different qualifiers
+- Fixed an error analyzing projects with the `scan with hashes` option
+- Optimized the project group section
+
 ### [2026.3.1] - 2026-01-30
 
 #### Added
