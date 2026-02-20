@@ -5,6 +5,19 @@ hide:
 
 # Nexus OSA Changelog
 
+### [2026.8.0] - 2026-02-20
+
+#### Features
+
+- Added handling of non-blocking `delayed_block` status
+- Added `Append block URL to custom message` setting to control adding a block URL to a custom message
+- Added support for conda repositories
+
+#### Fixes
+
+- Fixed an issue with saving `Configuration` Capability: if `Pool Size` and `Timeout` fields are empty, changes are now saved correctly after disabling the `Block downloads in case of plugin...` flag
+- Fixed an issue with scanning Maven packages where artifactId contains the version
+
 ### [2025.32.0] - 2025-08-06
 
 #### Changed
