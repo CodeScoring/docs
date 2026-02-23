@@ -1,3 +1,9 @@
 .i18n-link {
   display: none
 }
+
+/* Hide duplicated section index link in left navigation for User guide.
+   Keep top tabs and routing behavior intact. */
+.md-sidebar--primary input#__nav_4 ~ nav.md-nav > ul.md-nav__list > li.md-nav__item:first-child {
+  display: none !important;
+}
