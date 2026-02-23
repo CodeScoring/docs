@@ -467,7 +467,11 @@ nav:
         - oidc: on-premise/how-to/oidc.md
         - oidc: on-premise/how-to/oidc.en.md
   - user-guide:
+    - user-guide.md
+    - user-guide.en.md
     - general:
+      - on-premise/how-to/general/index.md
+      - on-premise/how-to/general/index.en.md
       - user-profile: on-premise/how-to/user-profile.md
       - user-profile: on-premise/how-to/user-profile.en.md
       - policies:
