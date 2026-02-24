@@ -19,7 +19,7 @@ Select a documentation section:
       <img src="/assets/icons/osa.svg" alt="CodeScoring.OSA logo" />
       <span class="guide-card__title">CodeScoring.OSA</span>
     </div>
-    <p class="guide-card__text">Open Source supply chain protection, policy enforcement, and component control.</p>
+    <p class="guide-card__text">open source supply chain protection, policy enforcement, and component control.</p>
   </a>
 
   <a class="guide-card" href="/sca/index.en">
