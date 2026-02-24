@@ -135,8 +135,6 @@ Event logging results are available in the `Support -> Logs` section.
 
 ## Blocking components
 
-The `delayed_block` status is non-blocking: component download is not interrupted.
-
 When a component is blocked from downloading, the user console displays one of the following reasons for blocking:
 
 - **"The download has been blocked in accordance with the policies configured in CodeScoring"** – blocking of the component according to the policies configured on the platform;
@@ -145,6 +143,8 @@ When a component is blocked from downloading, the user console displays one of t
 - **"The download has been blocked due to the wrong mode of the plugin"** – incorrect [plugin operating mode] is used(#_3);
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – the timeout for scanning the component has expired. Used in `strict_wait` mode;
 - **"The download has been blocked, because registry is not configured in CodeScoring"** – there is no corresponding Registry in the platform.
+
+When using the delayed blocking policy, the component receives the `delayed_block` status. Component download in this status is not interrupted.
 
 The response also contains a link to the component page in CodeScoring with information about triggered security policies and found vulnerabilities. When a custom message is used, adding this link is controlled by the **Append block URL to custom message** setting:
 

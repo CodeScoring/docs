@@ -135,8 +135,6 @@ nx-repository-view-*-*-{read,browse}
 
 ## Блокировка компонента
 
-Статус `delayed_block` является неблокирующим: загрузка компонента не прерывается.
-
 При блокировании загрузки компонента в консоли пользователя отображается одна из следующих причин блокировки:
 
 - **"The download has been blocked in accordance with the policies configured in CodeScoring"** – блокировка компонента согласно настроенным на платформе политикам;
@@ -145,6 +143,8 @@ nx-repository-view-*-*-{read,browse}
 - **"The download has been blocked due to the wrong mode of the plugin"** – используется некорректный [режим работы плагина](#_3);
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – истекло время ожидания сканирования компонента. Используется в режиме `strict_wait`;
 - **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry на платформе.
+
+При использовании политики с отложенной блокировкой компонент получает статус `delayed_block`. Загрузка компонента в данном статусе не прерывается.
 
 Ответ также содержит ссылку на страницу компонента в CodeScoring с информацией о сработавших политиках безопасности и найденных уязвимостях. При использовании кастомного сообщения добавление этой ссылки управляется настройкой **Append block URL to custom message**:
 
