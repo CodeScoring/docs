@@ -125,7 +125,7 @@ The plugin has 5 operating modes that determine the severity of component checki
 - **strict** – blocking components that do not pass the policy check. Loading of unscanned components is prohibited;
 - **strict_wait** – blocking components that have not passed the policy check. Pending verification for unscanned components.
 
-### Setting up logging
+### Setting up logging {#nexus-logging}
 
 To configure logging of plugin events, you need to go to the `Support -> Logging` section and add a logger with the name **ru.codescoring** and logging level **DEBUG**.
 

@@ -145,4 +145,4 @@ hide:
 
 ### [2022.51.0] - 2022-12-20
 
-- Improved [logging of platform responses](/osa/nexus_osa.en/#setting-up-logging)
+- Improved [logging of platform responses](/osa/nexus_osa.en/#nexus-logging)
