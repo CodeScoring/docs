@@ -15,7 +15,7 @@ hide:
 
 #### Changed
 
-- Policies are now applied based on the repository that received the request (virtual/remote): requests to CodeScoring now send the actual repository name
+- Changed the application of policies depending on the type of repository to which the request was sent (virtual/remote): the actual repository name is now sent in the request to the platform
 
 ### [2026.4.0] - 2026-01-20
 
