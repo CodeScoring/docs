@@ -27,10 +27,9 @@ Installation of the on-premise version is possible on **GNU/Linux** distribution
 
 ### Storage requirements
 
-- Allocate at least **300Gb** for the [CodeScoring Index](/feeds/index.en/) database, with additional capacity reserved for further updates;
 - For **CodeScoring.SCA** with VCS projects, calculate `analysis-root` volume based on the size of analyzed repositories multiplied by three;
 - For **CodeScoring.SCA** with CLI projects and for **CodeScoring.OSA**, there is no mandatory `×3` storage formula;
-- For **CodeScoring.SCA**, using CLI projects is currently the recommended approach.
+- For the offline installation allocate at least **300Gb** for the [CodeScoring Index](/feeds/index.en/) database, with additional capacity reserved for further updates.
 
 ### Example of a high-load installation
 
@@ -48,8 +47,8 @@ When using your own database instances, make sure that their versions meet the r
 
 ### PostgreSQL
 
-- Minimum version: **13.x** (any minor);
-- Tested version: **13.21**.
+- Minimum version: **15.x** (any minor);
+- Tested version: **15.15**.
 
 Using other major branches does not guarantee correct results and may lead to errors or performance degradation.
 
