@@ -2,8 +2,10 @@
   display: none
 }
 
-/* Hide duplicated section index link in left navigation for User guide.
-   Keep top tabs and routing behavior intact. */
+/* Hide duplicated section index links in the left navigation:
+   top-level "Admin guide" and "User guide" each have an index entry as
+   the first child; hide those entries in all contexts. */
+.md-sidebar--primary input#__nav_3 ~ nav.md-nav > ul.md-nav__list > li.md-nav__item:first-child,
 .md-sidebar--primary input#__nav_4 ~ nav.md-nav > ul.md-nav__list > li.md-nav__item:first-child {
   display: none !important;
 }

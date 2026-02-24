@@ -19,7 +19,7 @@ title: "Руководство пользователя"
       <img src="/assets/icons/osa.svg" alt="CodeScoring.OSA logo" />
       <span class="guide-card__title">CodeScoring.OSA</span>
     </div>
-    <p class="guide-card__text">Защита цепочки поставок Open Source, политики и контроль компонентов в репозиториях.</p>
+    <p class="guide-card__text">Защита цепочки поставок open source, политики и контроль компонентов в репозиториях.</p>
   </a>
 
   <a class="guide-card" href="/sca/">
