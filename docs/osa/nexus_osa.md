@@ -64,6 +64,7 @@ nx-repository-view-*-*-{read,browse}
 - **HTTP Proxy Port** – порт прокси-сервера;
 - **Block downloads in case of plugin or CodeScoring errors** – блокировка загрузки компонента при наличии ошибок от плагина или CodeScoring API.
 - **Custom message for blocked packages** – сообщение для пользователя при блокировке компонентов;
+- **Append block URL to custom message** – добавление ссылки на страницу блокировки в кастомное сообщение;
 - **Nexus URL for identification in CodeScoring** – адрес Nexus Repository Manager с протоколом для отображения результатов в платформе.
 
 !!! warning "Обязательные поля"
@@ -103,7 +104,7 @@ nx-repository-view-*-*-{read,browse}
 Расширение позволяет включить проверку компонентов на все репозитории в рамках Sonatype Nexus Repository Manager со следующими параметрами:
 
 - **List of comma separated repositories to ignore** – список репозиториев, которые не будут сканироваться;
-- **List of comma separated repository formats to scan** – список форматов репозиториев, которые будут сканироваться. Доступные форматы: `maven2`, `npm`, `pypi`, `nuget`, `cocoapods`, `go`, `rubygems`, `conan`, `apt`, `yum`, `apk`, `docker`;
+- **List of comma separated repository formats to scan** – список форматов репозиториев, которые будут сканироваться. Доступные форматы: `maven2`, `npm`, `pypi`, `nuget`, `cocoapods`, `go`, `rubygems`, `conan`, `apt`, `yum`, `apk`, `docker`, `conda`;
 - **Security violation response status** – код ошибки, возвращаемый при срабатывании политик безопасности;
 - **This user skips container image scan** – имя пользователя, для которого не применяется сканирование образов. Используется при загрузке и проверке компонентов консольным агентом;
 - **Container registry host as used in the `docker pull host/image_name` command** – адрес (без указания протокола) и порт, через которые будут загружаться образы для сканирования. Используется для связи Nexus с репозиторием через Docker;
@@ -124,7 +125,7 @@ nx-repository-view-*-*-{read,browse}
 - **strict** – блокировка компонентов, не прошедших проверку политик. Запрещена загрузка непросканированных компонентов;
 - **strict_wait** – блокировка компонентов, не прошедших проверку политик. Ожидание проверки для непросканированных компонентов.
 
-### Настройка логирования
+### Настройка логирования {#nexus-logging}
 
 Для настройки логирования событий плагина необходимо зайти в раздел `Support -> Logging` и добавить логгер с названием **ru.codescoring** и уровнем логирования **DEBUG**.
 
@@ -143,7 +144,9 @@ nx-repository-view-*-*-{read,browse}
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – истекло время ожидания сканирования компонента. Используется в режиме `strict_wait`;
 - **"The download has been blocked, because registry is not configured in CodeScoring"** – отсутствует соответствующий Registry на платформе.
 
-Ответ также содержит ссылку на страницу компонента в CodeScoring с информацией о сработавших политиках безопасности и найденных уязвимостях:
+При использовании политики с отложенной блокировкой компонент получает статус `delayed_block`. Загрузка компонента в данном статусе не прерывается.
+
+Ответ также содержит ссылку на страницу компонента в CodeScoring с информацией о сработавших политиках безопасности и найденных уязвимостях. При использовании кастомного сообщения добавление этой ссылки управляется настройкой **Append block URL to custom message**:
 
 ![Component page](/assets/img/osa/component-page.png)
 

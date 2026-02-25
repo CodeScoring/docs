@@ -64,6 +64,7 @@ This extension allows you to set general plugin settings for working with the **
 - **HTTP Proxy Port** – proxy server port;
 - **Block downloads in case of plugin or CodeScoring errors** – blocking the download of a component if there are errors from the plugin or CodeScoring API.
 - **Custom message for blocked packages** – message for the user when components are blocked;
+- **Append block URL to custom message** – adds a link to the block details page to the custom message;
 - **Nexus URL for identification in CodeScoring** – address of the Nexus Repository Manager with the protocol for displaying the results on the platform.
 
 !!! warning "Required fields"
@@ -103,7 +104,7 @@ This extension allows you to enable component check for the selected hosted or p
 The extension allows you to enable component checking for all repositories within the Sonatype Nexus Repository Manager with the following parameters:
 
 - **List of comma separated repositories to ignore** – list of repositories that will not be scanned;
-- **List of comma separated repository formats to scan** – list of repository formats to scan. Available formats: `maven2`, `npm`, `pypi`, `nuget`, `cocoapods`, `go`, `rubygems`, `conan`, `apt`, `yum`, `apk`, `docker`;
+- **List of comma separated repository formats to scan** – list of repository formats to scan. Available formats: `maven2`, `npm`, `pypi`, `nuget`, `cocoapods`, `go`, `rubygems`, `conan`, `apt`, `yum`, `apk`, `docker`, `conda`;
 - **Security violation response status** – error code returned when security policies are triggered;
 - **This user skips container image scan** – user for which image scanning is not applied. Used when downloading and checking components by the console agent;
 - **Container registry host as used in the `docker pull host/image_name` command** – address (without specifying the protocol) and port through which images for scanning will be downloaded. Used to communicate between Nexus and repository via Docker;
@@ -124,7 +125,7 @@ The plugin has 5 operating modes that determine the severity of component checki
 - **strict** – blocking components that do not pass the policy check. Loading of unscanned components is prohibited;
 - **strict_wait** – blocking components that have not passed the policy check. Pending verification for unscanned components.
 
-### Setting up logging
+### Setting up logging {#nexus-logging}
 
 To configure logging of plugin events, you need to go to the `Support -> Logging` section and add a logger with the name **ru.codescoring** and logging level **DEBUG**.
 
@@ -143,7 +144,9 @@ When a component is blocked from downloading, the user console displays one of t
 - **"The download has been blocked due to the timeout of the scan of the component in CodeScoring"** – the timeout for scanning the component has expired. Used in `strict_wait` mode;
 - **"The download has been blocked, because registry is not configured in CodeScoring"** – there is no corresponding Registry in the platform.
 
-The response also contains a link to the component page in CodeScoring with information about triggered security policies and found vulnerabilities:
+When using the delayed blocking policy, the component receives the `delayed_block` status. Component download in this status is not interrupted.
+
+The response also contains a link to the component page in CodeScoring with information about triggered security policies and found vulnerabilities. When a custom message is used, adding this link is controlled by the **Append block URL to custom message** setting:
 
 ![Component page](/assets/img/osa/component-page.png)
 
