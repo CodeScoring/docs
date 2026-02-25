@@ -145,7 +145,7 @@ repositories:
 excludeRepositories:
 
 # List of repository types to scan. Used, if scanAllRepositories=true
-# Supported values are: maven, npm, pypi, nuget, cocoapods, go, gems, debian, yum, alpine, docker, composer, cargo
+# Supported values are: maven, npm, pypi, nuget, cocoapods, go, gems, debian, yum, alpine, docker, composer, cargo, conda, conan, swift
 # Example:
 # repositoryTypes:
 #   - npm
@@ -181,12 +181,21 @@ repositoryTypes:
 **Important**: for generic and VCS repositories, be sure to specify one of the following repository types in the [Internal Description](https://www.jfrog.com/confluence/display/JFROG/Repository+Management):
 
 - maven
--npm
+- npm
 - pypi
 - nuget
 - cocoapods
 - go
 - gems
+- debian
+- yum
+- alpine
+- docker
+- composer
+- cargo
+- conda
+- conan
+- swift
 
 ### Setting up operating modes
 
@@ -323,6 +332,7 @@ List of supported Ubuntu distributions:
 - **Ubuntu 24.04** – *noble*
 - **Ubuntu 24.10** – *oracular*
 - **Ubuntu 25.04** – *plucky*
+- **Ubuntu 26.04** – *resolute*
 
 ### Browsing Debian package information
 

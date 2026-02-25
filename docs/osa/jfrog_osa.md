@@ -145,7 +145,7 @@ repositories:
 excludeRepositories:
 
 # List of repository types to scan. Used, if scanAllRepositories=true
-# Supported values are: maven, npm, pypi, nuget, cocoapods, go, gems, debian, yum, alpine, docker, composer, cargo
+# Supported values are: maven, npm, pypi, nuget, cocoapods, go, gems, debian, yum, alpine, docker, composer, cargo, conda, conan, swift
 # Example:
 # repositoryTypes:
 #   - npm
@@ -187,6 +187,15 @@ repositoryTypes:
 - cocoapods
 - go
 - gems
+- debian
+- yum
+- alpine
+- docker
+- composer
+- cargo
+- conda
+- conan
+- swift
 
 ### Настройка режимов работы
 
@@ -323,6 +332,7 @@ repositoryTypes:
 - **Ubuntu 24.04** – *noble*
 - **Ubuntu 24.10** – *oracular*
 - **Ubuntu 25.04** – *plucky*
+- **Ubuntu 26.04** – *resolute*
 
 ### Просмотр информации о пакете Debian
 
