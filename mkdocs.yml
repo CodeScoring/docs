@@ -99,8 +99,10 @@ plugins:
           webhooks: "Setting up webhooks"
           api: "Working with API"
           author-audit: "Calculating number of authors"
+          admin-guide-intro: "Admin guide"
           user-guide: "User guide"
           general: "General"
+          general-intro: "General"
           policies: "Security policies"
           policies-settings: "Managing policies"
           artifact-plugins: "Plugins for repositories"
@@ -262,8 +264,10 @@ plugins:
           webhooks: "Подключение вебхуков"
           api: "Работа с API"
           author-audit: "Аудит количества авторов"
+          admin-guide-intro: "Руководство администратора"
           user-guide: "Руководство пользователя"
           general: "Общее"
+          general-intro: "Общее"
           policies: "Политики безопасности"
           policies-settings: "Настройка политик"
           artifact-plugins: "Плагины для хранилищ"
@@ -419,6 +423,8 @@ nav:
     - standards: standards.md
     - standards: standards.en.md
   - admin-guide:
+    - admin-guide-intro: admin-guide.md
+    - admin-guide-intro: admin-guide.en.md
     - installation:
       - hardware: on-premise/server-requirements.md
       - hardware: on-premise/server-requirements.en.md
@@ -467,7 +473,11 @@ nav:
         - oidc: on-premise/how-to/oidc.md
         - oidc: on-premise/how-to/oidc.en.md
   - user-guide:
+    - user-guide.md
+    - user-guide.en.md
     - general:
+      - general-intro: on-premise/how-to/general/index.md
+      - general-intro: on-premise/how-to/general/index.en.md
       - user-profile: on-premise/how-to/user-profile.md
       - user-profile: on-premise/how-to/user-profile.en.md
       - policies:
