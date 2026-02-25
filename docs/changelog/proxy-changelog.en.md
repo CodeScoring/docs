@@ -5,6 +5,12 @@ hide:
 
 # OSA Proxy Changelog
 
+### [2026.5.2] - 2026-02-20
+
+#### Added
+
+- Added support for the `https://download.pytorch.org` repository
+
 ### [2026.5.1] - 2026-02-11
 
 #### Added
