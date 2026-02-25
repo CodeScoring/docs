@@ -11,11 +11,30 @@ Installation of the on-premise version is possible on **GNU/Linux** distribution
 
 ## Server resources
 
-Minimum requirements to run: **16Gb RAM, 8 CPU cores**.
+### Baseline requirements for production installation
 
-Recommended requirements: **32Gb RAM, 16 CPU cores**.
+- Minimum supported resources for application servers: **32Gb RAM, 16 CPU cores**.
 
-Additionally, make sure that the space where the directory with docker data is located (data-root docker, by default /var) has at least **20Gb of memory**. At the same time, for smooth operation of the system, it is necessary to reserve **disk space based on the size of the analyzed repositories, multiplied by three**.
+!!! warning "Resource recommendation"
+    For production installations, it is not recommended to go below these values, as this may lead to performance degradation and unstable platform operation.
+
+### Data services requirements
+
+- **PostgreSQL**: from **32Gb RAM**;
+- **Redis**: from **2Gb RAM**;
+- `shm` size for **PostgreSQL**: at least **4Gb**;
+- If an [external database](/on-premise/external-database.en/) is used, **PostgreSQL** is recommended to have at least **64Gb RAM**.
+
+### Storage requirements
+
+- For **CodeScoring.SCA** with VCS projects, calculate `analysis-root` volume based on the size of analyzed repositories multiplied by three;
+- For **CodeScoring.SCA** with CLI projects and for **CodeScoring.OSA**, there is no mandatory `×3` storage formula;
+- For the offline installation allocate at least **300Gb** for the [CodeScoring Index](/feeds/index.en/) database, with additional capacity reserved for further updates.
+
+### Example of a high-load installation
+
+- Database server: **96Gb RAM, 24 CPU cores**;
+- Application server: **192Gb RAM, 48 CPU cores**.
 
 ## Supported versions of external services
 
@@ -23,13 +42,13 @@ When using your own database instances, make sure that their versions meet the r
 
 ### Redis
 
-- Minimum version: **7.0.0**
-- Tested version: **7.4.6**
+- Minimum version: **7.0.0**;
+- Tested version: **7.4.6**.
 
 ### PostgreSQL
 
-- Minimum version: **13.x** (any minor)
-- Tested version: **13.21**
+- Minimum version: **15.x** (any minor);
+- Tested version: **15.15**.
 
 Using other major branches does not guarantee correct results and may lead to errors or performance degradation.
 
