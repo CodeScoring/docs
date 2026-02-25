@@ -16,7 +16,8 @@ title: "Руководство пользователя"
 
   <a class="guide-card" href="/osa/">
     <div class="guide-card__head">
-      <img src="/assets/icons/osa.svg" alt="CodeScoring.OSA logo" />
+      <img class="guide-card__icon guide-card__icon--light" src="/assets/icons/osa.svg" alt="CodeScoring.OSA logo" />
+      <img class="guide-card__icon guide-card__icon--dark" src="/assets/icons/osa-dark.svg" alt="CodeScoring.OSA logo" />
       <span class="guide-card__title">CodeScoring.OSA</span>
     </div>
     <p class="guide-card__text">Защита цепочки поставок open source, политики и контроль компонентов в репозиториях.</p>
@@ -24,7 +25,8 @@ title: "Руководство пользователя"
 
   <a class="guide-card" href="/sca/">
     <div class="guide-card__head">
-      <img src="/assets/icons/sca.svg" alt="CodeScoring.SCA logo" />
+      <img class="guide-card__icon guide-card__icon--light" src="/assets/icons/sca.svg" alt="CodeScoring.SCA logo" />
+      <img class="guide-card__icon guide-card__icon--dark" src="/assets/icons/sca-dark.svg" alt="CodeScoring.SCA logo" />
       <span class="guide-card__title">CodeScoring.SCA</span>
     </div>
     <p class="guide-card__text">Композиционный анализ зависимостей, уязвимости, лицензии, отчеты и SBOM.</p>
@@ -32,7 +34,8 @@ title: "Руководство пользователя"
 
   <a class="guide-card" href="/secrets/">
     <div class="guide-card__head">
-      <img src="/assets/icons/secrets.svg" alt="CodeScoring.Secrets logo" />
+      <img class="guide-card__icon guide-card__icon--light" src="/assets/icons/secrets.svg" alt="CodeScoring.Secrets logo" />
+      <img class="guide-card__icon guide-card__icon--dark" src="/assets/icons/secrets-dark.svg" alt="CodeScoring.Secrets logo" />
       <span class="guide-card__title">CodeScoring.Secrets</span>
     </div>
     <p class="guide-card__text">Поиск секретов в коде, работа с находками и настройка сценариев сканирования.</p>
@@ -40,7 +43,8 @@ title: "Руководство пользователя"
 
   <a class="guide-card" href="/tqi/">
     <div class="guide-card__head">
-      <img src="/assets/icons/tqi.svg" alt="CodeScoring.TQI logo" />
+      <img class="guide-card__icon guide-card__icon--light" src="/assets/icons/tqi.svg" alt="CodeScoring.TQI logo" />
+      <img class="guide-card__icon guide-card__icon--dark" src="/assets/icons/tqi-dark.svg" alt="CodeScoring.TQI logo" />
       <span class="guide-card__title">CodeScoring.TQI</span>
     </div>
     <p class="guide-card__text">Анализ качества разработки, метрики технического долга, авторы и дубликаты кода.</p>

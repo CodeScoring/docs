@@ -273,6 +273,10 @@
   height: 28px;
 }
 
+.guide-card__icon--dark {
+  display: none;
+}
+
 .guide-card__title {
   color: #ffffff;
   font-size: 1.04rem;
@@ -287,6 +291,33 @@
 }
 
 .guide-card--general .guide-card__title {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="default"] .guide-card {
+  border-color: rgba(255, 61, 108, 0.45);
+  background: linear-gradient(160deg, rgba(255, 61, 108, 0.10), rgba(255, 61, 108, 0.04));
+}
+
+[data-md-color-scheme="default"] .guide-card__title,
+[data-md-color-scheme="default"] .guide-card--general .guide-card__title {
+  color: #2f3440;
+}
+
+[data-md-color-scheme="default"] .guide-card__text {
+  color: #4a4a4a;
+}
+
+[data-md-color-scheme="default"] .guide-card__icon--light {
+  display: none;
+}
+
+[data-md-color-scheme="default"] .guide-card__icon--dark {
+  display: inline-block;
+}
+
+[data-md-color-scheme="slate"] .guide-card__title,
+[data-md-color-scheme="slate"] .guide-card--general .guide-card__title {
   color: #ffffff;
 }
 
